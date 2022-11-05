@@ -1,6 +1,6 @@
 {
   "name": "dzangolab-vue",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "DESCRIPTION",
   "license": "UNLICENSED",
@@ -9,7 +9,6 @@
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "prepare": "husky install",
-    "release": "pnpm release",
     "sort-package": "npx sort-package-json && turbo run sort-package",
     "test": "turbo run test --parallel",
     "test:ci": "turbo run test:ci --parallel",
@@ -22,7 +21,6 @@
     "@commitlint/config-conventional": "17.0.3",
     "eslint-config-custom": "workspace:*",
     "husky": "8.0.1",
-    "shipjs": "^0.24.4",
     "turbo": "latest"
   },
   "packageManager": "pnpm@7.14.2",
