@@ -1,14 +1,10 @@
 interface AppConfig {
   apiBaseUrl: string;
-  appTitle: string;
   appVersion: string;
-  copyright?: {
-    holder: string;
-    url: string;
-  };
+  copyrightHolder: string;
   features: AppFeatures;
-  slug: string;
-  websiteDomain: string;
+  locales: string;
+  localStorageNamespace: string;
 }
 
 interface AppFeatures {
