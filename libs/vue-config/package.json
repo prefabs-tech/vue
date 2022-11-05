@@ -7,17 +7,16 @@
     ".": {
       "import": "./dist/DzangolabVueConfig.es.js",
       "require": "./dist/DzangolabVueConfig.umd.js"
-    },
-    "./dist/DzangolabVueConfig.css": "./dist/style.css"
+    }
   },
   "main": "dist//DzangolabVueConfig.umd.js",
   "module": "dist//DzangolabVueConfig.es.js",
-  "types": "./dist/src/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "publish": "npm publish --access public",

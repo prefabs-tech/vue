@@ -2,7 +2,6 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
-    "baseUrl": "./",
     "composite": false,
     "declaration": true,
     "declarationMap": true,
@@ -19,15 +18,10 @@
       "scripthost"
     ],
     "module": "esnext",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "outDir": "dist",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
+    "outDir": "./dist",
     "preserveWatchOutput": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -37,16 +31,11 @@
     "types": [
       "vite/client"
     ],
-    "useDefineForClassFields": true,
+    "useDefineForClassFields": true
   },
-  "exclude": [
-    "dist",
-    "node_modules"
-  ],
   "include": [
     "__test__/**/*",
     "vite.config.*",
-    "src/**/*",
-    "src/**/*.vue"
+    "src/**/*"
   ]
 }

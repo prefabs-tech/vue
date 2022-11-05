@@ -26,15 +26,5 @@ export default defineConfig(({ mode }) => {
       },
       target: "esnext",
     },
-    plugins: [
-      vue({
-        reactivityTransform: true,
-      }),
-    ],
-    resolve: {
-      alias: {
-        "@/": new URL("./src/", import.meta.url).pathname,
-      },
-    },
   };
 });

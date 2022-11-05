@@ -1,3 +1,12 @@
 {
-  "extends": "tsconfig/base"
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "tsconfig/base",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "include": [
+    "__test__/**/*",
+    "vite.config.*",
+    "src/**/*"
+  ]
 }
