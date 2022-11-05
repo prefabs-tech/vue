@@ -11,6 +11,9 @@
     "lint:fix": {
       "outputs": []
     },
+    "patch": {
+      "outputs": []
+    },
     "release": {
       "outputs": []
     },

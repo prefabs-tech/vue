@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue config",
   "exports": {
     ".": {
@@ -19,6 +19,7 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "patch": "npm version patch",
     "sort-package": "npx sort-package-json",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
