@@ -21,13 +21,9 @@ outdated:
 	@printf "\033[0;32m>>> Check for outdated dependencies\033[0m\n"
 	pnpm -r outdated
 
-release:
-	@printf "\033[0;32m>>> Tagging repo for next release\033[0m\n"
-	git checkout $(version)
-	git pull origin $(version)
-	git tag $(version).$(tag)
-	git push origin $(version).$(tag)
-	git checkout $(version)-develop
+publish:
+	@printf "\033[0;32m>>> Publish packages033[0m\n"
+	pnpm publish
 
 sort-package:
 	@printf "\033[0;32m>>> Format package.json\033[0m\n"
