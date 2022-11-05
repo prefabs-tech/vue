@@ -11,7 +11,7 @@
   },
   "main": "dist//DzangolabVueConfig.umd.js",
   "module": "dist//DzangolabVueConfig.es.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "files": [
     "dist"
   ],
