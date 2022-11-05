@@ -1,6 +1,6 @@
 {
   "name": "dzangolab-vue",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "build": "turbo run build",
     "lint": "turbo run lint",
