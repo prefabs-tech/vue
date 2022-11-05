@@ -20,6 +20,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "patch": "npm version patch",
+    "publish": "npm publish --access public",
     "sort-package": "npx sort-package-json",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },

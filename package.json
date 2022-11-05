@@ -9,6 +9,7 @@
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "prepare": "husky install",
+    "publish": "turbo run publish",
     "sort-package": "npx sort-package-json && turbo run sort-package",
     "test": "turbo run test --parallel",
     "test:ci": "turbo run test:ci --parallel",
