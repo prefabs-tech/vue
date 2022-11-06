@@ -4,16 +4,16 @@ importers:
 
   .:
     specifiers:
-      '@changesets/cli': ^2.25.2
-      '@commitlint/cli': 17.0.3
-      '@commitlint/config-conventional': 17.0.3
+      '@changesets/cli': 2.25.2
+      '@commitlint/cli': 17.2.0
+      '@commitlint/config-conventional': 17.2.0
       eslint-config-custom: workspace:*
       husky: 8.0.1
       turbo: latest
     devDependencies:
       '@changesets/cli': 2.25.2
-      '@commitlint/cli': 17.0.3
-      '@commitlint/config-conventional': 17.0.3
+      '@commitlint/cli': 17.2.0
+      '@commitlint/config-conventional': 17.2.0
       eslint-config-custom: link:packages/eslint-config-custom
       husky: 8.0.1
       turbo: 1.6.3
@@ -574,8 +574,8 @@ packages:
       prettier: 2.7.1
     dev: true
 
-  /@commitlint/cli/17.0.3:
-    resolution: {integrity: sha512-oAo2vi5d8QZnAbtU5+0cR2j+A7PO8zuccux65R/EycwvsZrDVyW518FFrnJK2UQxbRtHFFIG+NjQ6vOiJV0Q8A==}
+  /@commitlint/cli/17.2.0:
+    resolution: {integrity: sha512-kd1zykcrjIKyDRftWW1E1TJqkgzeosEkv1BiYPCdzkb/g/3BrfgwZUHR1vg+HO3qKUb/0dN+jNXArhGGAHpmaQ==}
     engines: {node: '>=v14'}
     hasBin: true
     dependencies:
@@ -594,8 +594,8 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@commitlint/config-conventional/17.0.3:
-    resolution: {integrity: sha512-HCnzTm5ATwwwzNVq5Y57poS0a1oOOcd5pc1MmBpLbGmSysc4i7F/++JuwtdFPu16sgM3H9J/j2zznRLOSGVO2A==}
+  /@commitlint/config-conventional/17.2.0:
+    resolution: {integrity: sha512-g5hQqRa80f++SYS233dbDSg16YdyounMTAhVcmqtInNeY/GF3aA4st9SVtJxpeGrGmueMrU4L+BBb+6Vs5wrcg==}
     engines: {node: '>=v14'}
     dependencies:
       conventional-changelog-conventionalcommits: 5.0.0
