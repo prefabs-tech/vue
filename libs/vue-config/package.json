@@ -1,9 +1,9 @@
 {
   "name": "@dzangolab/vue-config",
-  "type": "module",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Vue config",
   "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/DzangolabVueConfig.es.js",
