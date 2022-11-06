@@ -1,7 +1,7 @@
 import { inject } from "vue";
 
 import type { AppConfig, AppFeatures } from "./types";
-import type { App } from "vue";
+import type { App, Plugin } from "vue";
 
 const feature = (name: keyof AppFeatures): boolean => {
   const config = useConfig();
@@ -37,7 +37,7 @@ const parse = (
   }
 };
 
-const plugin = {
+const plugin: Plugin = {
   install: (app: App, options: { config: AppConfig }): void => {
     const configKey = Symbol.for("dzangolab.vue-config.config");
     app.provide(configKey, options.config);
