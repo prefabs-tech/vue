@@ -1,6 +1,7 @@
 {
   "name": "@dzangolab/vue-config",
-  "version": "0.0.5",
+  "type": "module",
+  "version": "0.0.6",
   "description": "Vue config",
   "license": "MIT",
   "exports": {
@@ -16,7 +17,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "publish": "npm publish --access public",
