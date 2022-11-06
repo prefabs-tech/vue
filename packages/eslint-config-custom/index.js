@@ -1,11 +1,4 @@
 module.exports = {
-  extends: ["next", "turbo", "prettier"],
-  rules: {
-    "@next/next/no-html-link-for-pages": "off",
-    "react/jsx-key": "off",
-  },
-};
-module.exports = {
   env: {
     node: true,
     "vue/setup-compiler-macros": true,

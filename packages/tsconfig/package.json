@@ -4,5 +4,8 @@
   "private": true,
   "files": [
     "base.json"
-  ]
+  ],
+  "scripts": {
+    "sort-package": "npx sort-package-json"
+  }
 }
