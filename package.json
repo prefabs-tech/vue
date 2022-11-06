@@ -1,12 +1,12 @@
 {
   "name": "dzangolab-vue",
   "version": "0.0.7",
+  "license": "MIT",
   "scripts": {
     "build": "turbo run build",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "prepare": "husky install",
-    "publish": "turbo run publish",
     "sort-package": "npx sort-package-json && turbo run sort-package",
     "test": "turbo run test --parallel",
     "test:ci": "turbo run test:ci --parallel",

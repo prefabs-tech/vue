@@ -23,7 +23,7 @@ outdated:
 
 publish:
 	@printf "\033[0;32m>>> Publish packages033[0m\n"
-	pnpm publish
+	pnpm publish --access public
 
 sort-package:
 	@printf "\033[0;32m>>> Format package.json\033[0m\n"
