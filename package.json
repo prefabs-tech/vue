@@ -22,7 +22,7 @@
     "husky": "8.0.2",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@7.14.2",
+  "packageManager": "pnpm@7.18.2",
   "engines": {
     "node": ">=16"
   }
