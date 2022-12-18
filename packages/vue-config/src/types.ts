@@ -1,13 +1,21 @@
+import type { Options as SentryOptions } from "@sentry/types";
+
 interface AppConfig {
   apiBaseUrl: string;
+  appTitle: string;
   appVersion: string;
-  copyrightHolder: string;
+  copyright?: {
+    holder: string;
+    url: string;
+  };
   features: AppFeatures;
-  locales: string;
-  localStorageNamespace: string;
+  sentry?: SentryOptions;
+  slug: string;
+  websiteDomain: string;
 }
 
 interface AppFeatures {
+  sentry?: boolean;
   showVersion: boolean;
 }
 
