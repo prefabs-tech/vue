@@ -1,7 +1,7 @@
 {
   "name": "@dzangolab/vue-config",
   "version": "0.0.12",
-  "description": "Vue config",
+  "description": "Vue config plugin",
   "license": "MIT",
   "type": "module",
   "exports": {
