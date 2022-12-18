@@ -1,6 +1,7 @@
 import { inject } from "vue";
 
 import parse from "./parse";
+import sentry from "./sentry";
 
 import type { AppConfig, AppFeatures } from "./types";
 import type { App, Plugin } from "vue";
@@ -12,7 +13,7 @@ const feature = (name: keyof AppFeatures): boolean => {
     return false;
   }
 
-  return config?.features[name];
+  return config?.features[name] as boolean;
 };
 
 const plugin: Plugin = {
@@ -37,6 +38,6 @@ const useFeature = (): typeof feature | undefined => {
 
 export default plugin;
 
-export { parse, useConfig, useFeature };
+export { parse, sentry, useConfig, useFeature };
 
 export type { AppConfig, AppFeatures };
