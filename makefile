@@ -1,6 +1,3 @@
-tag = 0
-version = 0.1
-
 build:
 	@printf "\033[0;32m>>> Build packages\033[0m\n"
 	pnpm build
@@ -23,7 +20,11 @@ outdated:
 
 publish:
 	@printf "\033[0;32m>>> Publish packages033[0m\n"
-	pnpm --filter=!@dzangolab/vue publish --access public
+	shipjs trigger
+
+release:
+	@printf "\033[0;32m>>> Prepare packages for release033[0m\n"
+	shipjs prepare
 
 sort-package:
 	@printf "\033[0;32m>>> Format package.json\033[0m\n"
