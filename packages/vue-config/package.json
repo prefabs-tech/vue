@@ -1,19 +1,21 @@
 {
-  "name": "@dzangolab/vue-config",
-  "version": "0.2.2",
+  "name": "@dzangolab/vue3-config",
+  "version": "0.3.0",
   "description": "Vue config plugin",
   "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/DzangolabVueConfig.es.js",
-      "require": "./dist/DzangolabVueConfig.umd.js"
+      "import": "./dist/DzangolabVue3Config.es.js",
+      "require": "./dist/DzangolabVue3Config.umd.js"
     }
   },
-  "main": "dist//DzangolabVueConfig.umd.js",
-  "module": "dist//DzangolabVueConfig.es.js",
+  "main": "dist//DzangolabVue3Config.umd.js",
+  "module": "dist//DzangolabVue3Config.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -31,9 +33,9 @@
     "@vitejs/plugin-vue": "4.0.0",
     "@vitejs/plugin-vue-jsx": "3.0.0",
     "eslint": "8.30.0",
-    "eslint-config-custom": "0.2.2",
+    "eslint-config-custom": "0.3.0",
     "prettier": "2.8.1",
-    "tsconfig": "0.2.2",
+    "tsconfig": "0.3.0",
     "typescript": "4.9.4",
     "vite": "4.0.2",
     "vue": "3.2.45",
