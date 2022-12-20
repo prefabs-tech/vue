@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3I18nConfig.${format}.js`,
+        fileName: (format) => `DzangolabVue3I18n.${format}.js`,
         name: "@dzangolab/vue3-i18n",
       },
       rollupOptions: {
