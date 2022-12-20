@@ -28,7 +28,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "vue-i18n": "9.1.10"
+    "vue-i18n": "9.2.2"
   },
   "devDependencies": {
     "@dzangolab/vue3-config": "0.3.0",
