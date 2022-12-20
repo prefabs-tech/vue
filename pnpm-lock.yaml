@@ -55,7 +55,7 @@ importers:
 
   packages/vue-i18n:
     specifiers:
-      '@dzangolab/vue3-config': 0.3.1
+      '@dzangolab/vue3-config': 0.3.0
       '@types/node': 18.11.17
       '@vitejs/plugin-vue': 4.0.0
       '@vitejs/plugin-vue-jsx': 3.0.0
@@ -76,7 +76,7 @@ importers:
     dependencies:
       vue-i18n: 9.1.10_vue@3.2.45
     devDependencies:
-      '@dzangolab/vue3-config': link:../vue-config
+      '@dzangolab/vue3-config': 0.3.0_vue@3.2.45
       '@types/node': 18.11.17
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.2+vue@3.2.45
       '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.0.2+vue@3.2.45
@@ -604,6 +604,19 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
+  /@dzangolab/vue3-config/0.3.0_vue@3.2.45:
+    resolution: {integrity: sha512-NYPluie2PPZYjiRxtG+TiXrX/NK2r2ypZjRcoRfXShS2UDA90DKpeopafbPr7eVdkKY+2t2XWmjFIwWd2t80WQ==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      vue: '>=3.2'
+      vue-router: '>=4.0'
+    dependencies:
+      '@sentry/tracing': 7.27.0
+      '@sentry/types': 7.27.0
+      '@sentry/vue': 7.27.0_vue@3.2.45
+      vue: 3.2.45
+    dev: true
+
   /@esbuild/android-arm/0.16.8:
     resolution: {integrity: sha512-r/qxYWkC3gY+Uq24wZacAUevGGb6d7d8VpyO8R0HGg31LXVi+eUr8XxHLCcmVzAjRjlZsZfzPelGpAKP/DafKg==}
     engines: {node: '>=12'}
@@ -1110,7 +1123,6 @@ packages:
       '@sentry/types': 7.27.0
       '@sentry/utils': 7.27.0
       tslib: 1.14.1
-    dev: false
 
   /@sentry/core/7.27.0:
     resolution: {integrity: sha512-9WkHMllGNOr6S55N2HKJYJj/2mog5Kv6mjruqlcHHPSgcKFA8bjwBXJTghy6UzwtGd14cyS/X7h5AVUkvuXTMw==}
@@ -1119,7 +1131,6 @@ packages:
       '@sentry/types': 7.27.0
       '@sentry/utils': 7.27.0
       tslib: 1.14.1
-    dev: false
 
   /@sentry/replay/7.27.0_@sentry+browser@7.27.0:
     resolution: {integrity: sha512-Db1TBx4JZWWbsAXSzWfAE55d4ekpPspZheyF66j84xq8jaFxgmlMMO7wBD8P7CHuQ6VUkgwa4glMkcamj/sfSg==}
@@ -1131,7 +1142,6 @@ packages:
       '@sentry/core': 7.27.0
       '@sentry/types': 7.27.0
       '@sentry/utils': 7.27.0
-    dev: false
 
   /@sentry/tracing/7.27.0:
     resolution: {integrity: sha512-lxAiGAajbZgZkaViwYuxavbu/c8JUp56XOYzSAi7Km9jGnTFLNF4JCoyG0INy7lXipFJiWSd0Xq3aej0Lb+Cvg==}
@@ -1141,12 +1151,10 @@ packages:
       '@sentry/types': 7.27.0
       '@sentry/utils': 7.27.0
       tslib: 1.14.1
-    dev: false
 
   /@sentry/types/7.27.0:
     resolution: {integrity: sha512-vapN3jchu3/WEMWQkrCOy2XDlOLj0l7IewYXKMr15Q21dlfM1QZMigU/r5rtYj5L8a2ISIHx+cRECxX5UIKH7w==}
     engines: {node: '>=8'}
-    dev: false
 
   /@sentry/utils/7.27.0:
     resolution: {integrity: sha512-8e5cmjbeuxETPxPEymyyGEYlBbJO1IMveTlcxkTFySPU6nNz2oAIiqPVHv2QgFJJvRv79/i/4Tyl5gFMOW0+AA==}
@@ -1154,7 +1162,6 @@ packages:
     dependencies:
       '@sentry/types': 7.27.0
       tslib: 1.14.1
-    dev: false
 
   /@sentry/vue/7.27.0_vue@3.2.45:
     resolution: {integrity: sha512-8ZTfXo+s+oq3/7+c2qbiX+J5j3BpMya1a9ESeekx+bS7iwlRxMZWQslWDEJKheoS0J6/wy43fhb+8OS5cKvc6g==}
@@ -1168,7 +1175,6 @@ packages:
       '@sentry/utils': 7.27.0
       tslib: 1.14.1
       vue: 3.2.45
-    dev: false
 
   /@slack/types/1.10.0:
     resolution: {integrity: sha512-tA7GG7Tj479vojfV3AoxbckalA48aK6giGjNtgH6ihpLwTyHE3fIgRrvt8TWfLwW8X8dyu7vgmAsGLRG7hWWOg==}
