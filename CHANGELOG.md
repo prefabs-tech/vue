@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/dzangolab/vue/compare/v0.2.2...v0.3.0) (2022-12-20)
+
+
+### Features
+
+* **config:** rename package to vue3-config ([6077fb6](https://github.com/dzangolab/vue/commit/6077fb60dcbc19d6e1974abd7f86c0bce832257a))
+
+
+
 ## [0.2.2](https://github.com/dzangolab/vue/compare/v0.2.1...v0.2.2) (2022-12-20)
 
 
