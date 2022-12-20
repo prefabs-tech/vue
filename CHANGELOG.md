@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/dzangolab/vue/compare/v0.2.1...v0.2.2) (2022-12-20)
+
+
+### Bug Fixes
+
+* **config:** fix parse function to support number type ([bb2bcc5](https://github.com/dzangolab/vue/commit/bb2bcc51259e816cbdcc55c3d6830729baebff73))
+
+
+
 ## [0.2.1](https://github.com/dzangolab/vue/compare/v0.2.0...v0.2.1) (2022-12-20)
 
 
