@@ -1,5 +1,5 @@
 module.exports = {
-  appName: "@dzangolab/fastify",
+  appName: "@dzangolab/vue",
   buildCommand: ({ isYarn, version }) => {
     return "pnpm build";
   },
