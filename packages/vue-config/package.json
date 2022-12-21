@@ -24,9 +24,9 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "@sentry/tracing": "7.27.0",
-    "@sentry/types": "7.27.0",
-    "@sentry/vue": "7.27.0"
+    "@sentry/tracing": "7.28.0",
+    "@sentry/types": "7.28.0",
+    "@sentry/vue": "7.28.0"
   },
   "devDependencies": {
     "@types/node": "18.11.17",
