@@ -21,9 +21,9 @@
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage",
-    "test:component": "vitest --environment jsdom run component",
-    "test:snapshot": "vitest --environment jsdom run snapshot",
-    "test:unit": "vitest --environment jsdom run unit",
+    "test:component": "vitest --environment jsdom run component/",
+    "test:snapshot": "vitest --environment jsdom run snapshot/",
+    "test:unit": "vitest --environment jsdom run unit/",
     "test:watch": "vitest",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
