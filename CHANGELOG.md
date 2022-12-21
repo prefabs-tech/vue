@@ -1,3 +1,12 @@
+## [0.3.3](https://github.com/dzangolab/vue/compare/v0.3.2...v0.3.3) (2022-12-21)
+
+
+### Bug Fixes
+
+* **deps:** update sentry-javascript monorepo to v7.28.0 ([#28](https://github.com/dzangolab/vue/issues/28)) ([d2a12bf](https://github.com/dzangolab/vue/commit/d2a12bf283d1e2d068bfd522ffb97662f589c588))
+
+
+
 ## [0.3.2](https://github.com/dzangolab/vue/compare/v0.3.1...v0.3.2) (2022-12-20)
 
 
