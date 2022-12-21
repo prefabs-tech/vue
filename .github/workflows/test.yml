@@ -1,4 +1,4 @@
-name: "@dzangolab/react Test"
+name: "Test suite"
 
 on:
   push
