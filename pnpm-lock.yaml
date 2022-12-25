@@ -27,9 +27,9 @@ importers:
       '@vitejs/plugin-vue': 4.0.0
       '@vitejs/plugin-vue-jsx': 3.0.0
       eslint: 8.30.0
-      eslint-config-custom: 0.3.3
+      eslint-config-custom: 0.4.0
       prettier: 2.8.1
-      tsconfig: 0.3.3
+      tsconfig: 0.4.0
       typescript: 4.9.4
       vite: 4.0.2
       vue: 3.2.45
@@ -55,18 +55,18 @@ importers:
 
   packages/vue-i18n:
     specifiers:
-      '@dzangolab/vue3-config': 0.3.3
+      '@dzangolab/vue3-config': 0.4.0
       '@types/node': 18.11.17
       '@vitejs/plugin-vue': 4.0.0
       '@vitejs/plugin-vue-jsx': 3.0.0
       '@vitest/coverage-c8': 0.26.0
       '@vueuse/core': 9.8.2
       eslint: 8.30.0
-      eslint-config-custom: 0.3.3
+      eslint-config-custom: 0.4.0
       jsdom: 20.0.3
       pinia: 2.0.28
       prettier: 2.8.1
-      tsconfig: 0.3.3
+      tsconfig: 0.4.0
       typescript: 4.9.4
       vite: 4.0.2
       vitest: 0.26.1
@@ -103,9 +103,9 @@ importers:
       '@vue/test-utils': 2.2.0
       '@vueuse/core': 9.8.2
       eslint: 8.30.0
-      eslint-config-custom: 0.3.3
+      eslint-config-custom: 0.4.0
       prettier: 2.7.1
-      tsconfig: 0.3.3
+      tsconfig: 0.4.0
       typescript: 4.9.4
       vite: 4.0.2
       vitest: 0.26.1
