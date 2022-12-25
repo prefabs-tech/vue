@@ -1,0 +1,11 @@
+// Vitest Snapshot v1
+
+exports[`LoadingIcon > matches snapshot 1`] = `
+<div
+  class="loading"
+  data-v-20744668=""
+  label="Login"
+>
+  Loading
+</div>
+`;

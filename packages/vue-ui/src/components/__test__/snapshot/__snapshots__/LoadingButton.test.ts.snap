@@ -1,0 +1,42 @@
+// Vitest Snapshot v1
+
+exports[`LoadingButton > matches snapshot based on loading props: false 1`] = `
+<button
+  class="loading-button"
+  data-v-72076dd1=""
+>
+  <div
+    class="label"
+    data-v-72076dd1=""
+  >
+    <span
+      data-v-72076dd1=""
+    >
+      Login
+    </span>
+  </div>
+  <!--v-if-->
+</button>
+`;
+
+exports[`LoadingButton > matches snapshot based on loading props: true 1`] = `
+<button
+  class="loading-button loading"
+  data-v-72076dd1=""
+  disabled=""
+>
+  <div
+    class="label"
+    data-v-72076dd1=""
+  >
+    <span
+      data-v-72076dd1=""
+    >
+      Login
+    </span>
+  </div>
+  <loading-icon-stub
+    data-v-72076dd1=""
+  />
+</button>
+`;

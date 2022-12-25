@@ -1,0 +1,32 @@
+// Vitest Snapshot v1
+
+exports[`Errors > should matches snapshot 1`] = `
+<div
+  class="errors"
+>
+  <error-stub
+    error="[object Object]"
+  />
+</div>
+`;
+
+exports[`Errors > should matches snapshot for more than one error 1`] = `
+<div
+  class="errors"
+>
+  <ul>
+    
+    <li>
+      <error-stub
+        error="[object Object]"
+      />
+    </li>
+    <li>
+      <error-stub
+        error="[object Object]"
+      />
+    </li>
+    
+  </ul>
+</div>
+`;

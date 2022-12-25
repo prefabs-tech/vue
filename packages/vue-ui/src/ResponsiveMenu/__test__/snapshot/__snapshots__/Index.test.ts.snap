@@ -1,0 +1,78 @@
+// Vitest Snapshot v1
+
+exports[`ResponsiveMenu > should render 1`] = `
+<nav
+  class="menu"
+  data-v-52282577=""
+>
+  <ul
+    data-v-52282577=""
+  >
+    
+    <li
+      data-v-52282577=""
+    >
+      <a
+        data-v-52282577=""
+      >
+        Home
+      </a>
+    </li>
+    <li
+      data-v-52282577=""
+    >
+      <a
+        data-v-52282577=""
+      >
+        About
+      </a>
+    </li>
+    <li
+      data-v-52282577=""
+    >
+      <a
+        data-v-52282577=""
+      >
+        Test
+      </a>
+    </li>
+    <li
+      data-v-52282577=""
+    >
+      <a
+        data-v-52282577=""
+      >
+        Abc
+      </a>
+    </li>
+    <li
+      data-v-52282577=""
+    >
+      <a
+        data-v-52282577=""
+      >
+        Hello
+      </a>
+    </li>
+    <li
+      data-v-52282577=""
+    >
+      <a
+        data-v-52282577=""
+      >
+        Namaste
+      </a>
+    </li>
+    <li
+      data-v-52282577=""
+    >
+      <a
+        data-v-52282577=""
+      >
+        Check
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+`;
