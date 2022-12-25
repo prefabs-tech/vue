@@ -104,7 +104,7 @@ importers:
       '@vueuse/core': 9.9.0
       eslint: 8.30.0
       eslint-config-custom: 0.4.1
-      prettier: 2.7.1
+      prettier: 2.8.1
       tsconfig: 0.4.1
       typescript: 4.9.4
       vite: 4.0.3
@@ -120,7 +120,7 @@ importers:
       '@vueuse/core': 9.9.0_vue@3.2.45
       eslint: 8.30.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      prettier: 2.7.1
+      prettier: 2.8.1
       tsconfig: link:../../tools/tsconfig
       typescript: 4.9.4
       vite: 4.0.3_@types+node@18.11.17
@@ -4425,12 +4425,6 @@ packages:
     dependencies:
       fast-diff: 1.2.0
     dev: false
-
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
-    dev: true
 
   /prettier/2.8.1:
     resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
