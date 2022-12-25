@@ -1,0 +1,28 @@
+// Vitest Snapshot v1
+
+exports[`Index > matches snapshot 1`] = `
+<div
+  class="page"
+  data-v-82d6bbf2=""
+>
+  <h1
+    data-v-82d6bbf2=""
+  >
+    Home 
+    <small
+      data-v-82d6bbf2=""
+    >
+      Welcome to the home page
+    </small>
+  </h1>
+  <div
+    class="toolbar"
+    data-v-82d6bbf2=""
+  >
+    
+    
+  </div>
+  
+  
+</div>
+`;

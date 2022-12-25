@@ -1,0 +1,21 @@
+// Vitest Snapshot v1
+
+exports[`PageTitle > matches snapshot 1`] = `
+<div
+  class="page-title"
+  data-v-7459ef9a=""
+>
+  <h1
+    data-v-7459ef9a=""
+  >
+    Home
+  </h1>
+  <div
+    class="toolbar"
+    data-v-7459ef9a=""
+  >
+    
+    
+  </div>
+</div>
+`;

@@ -1,0 +1,14 @@
+// Vitest Snapshot v1
+
+exports[`Error > should matches snapshot 1`] = `
+<p
+  class="error"
+>
+  Invalid_Credentials 
+  <span
+    class="code"
+  >
+    (401)
+  </span>
+</p>
+`;
