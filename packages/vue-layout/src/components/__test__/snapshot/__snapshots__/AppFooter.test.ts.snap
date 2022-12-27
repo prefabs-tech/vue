@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`AppFooter > matches snapshot 1`] = `
+<footer>
+  
+  <copyright-stub
+    holder="Dzango Technologies Limited"
+    url="https://dzango.com"
+  />
+  
+  
+  
+  
+  <div>
+    0.1.0
+  </div>
+  
+</footer>
+`;

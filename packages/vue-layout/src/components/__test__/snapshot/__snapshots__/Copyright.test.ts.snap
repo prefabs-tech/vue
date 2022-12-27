@@ -1,0 +1,31 @@
+// Vitest Snapshot v1
+
+exports[`Copyright > matches snapshot en 1`] = `
+<div
+  class="copyright"
+>
+   © 2022 
+  <a
+    href="https://dzango.com"
+    target="_blank"
+  >
+    Dzango Technologies Limited
+  </a>
+   All rights reserved.
+</div>
+`;
+
+exports[`Copyright > matches snapshot fr 1`] = `
+<div
+  class="copyright"
+>
+   © 2022 
+  <a
+    href="https://dzango.com"
+    target="_blank"
+  >
+    Dzango Technologies Limited
+  </a>
+   Tous droits réservés.
+</div>
+`;

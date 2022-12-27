@@ -1,0 +1,25 @@
+// Vitest Snapshot v1
+
+exports[`BasicLayout > matches snapshot 1`] = `
+<div
+  class="basic-layout"
+  data-v-f20da734=""
+>
+  
+  <app-header-stub
+    data-v-f20da734=""
+  />
+  
+  <main
+    data-v-f20da734=""
+  >
+    
+    
+  </main>
+  
+  <app-footer-stub
+    data-v-f20da734=""
+  />
+  
+</div>
+`;
