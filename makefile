@@ -23,7 +23,7 @@ publish:
 	shipjs trigger
 
 release:
-	@printf "\033[0;32m>>> Prepare packages for release033[0m\n"
+	@printf "\033[0;32m>>> Prepare packages for release\033[0m\n"
 	shipjs prepare
 
 sort-package:
