@@ -7,21 +7,24 @@ import type { Router } from "vue-router";
 
 const plugin: Plugin = {
   install: (app: App, options: DzangolabVueSentryPluginOptions): void => {
-    const sentryOptions = options.config.sentry;
+    const { config } = options;
+    const sentryOptions = config.sentry;
 
-    Sentry.init({
-      ...sentryOptions,
-      app,
-      integrations: [
-        new BrowserTracing({
-          routingInstrumentation: Sentry.vueRouterInstrumentation(
-            options.router
-          ),
-          tracingOrigins: ["localhost", options.config.websiteDomain, /^\//],
-        }),
-      ],
-      release: options.config.appVersion,
-    });
+    if (sentryOptions?.enabled && sentryOptions?.dsn) {
+      Sentry.init({
+        ...sentryOptions,
+        app,
+        integrations: [
+          new BrowserTracing({
+            routingInstrumentation: Sentry.vueRouterInstrumentation(
+              options.router
+            ),
+            tracePropagationTargets: ["localhost", config.websiteDomain, /^\//],
+          }),
+        ],
+        release: options.config.appVersion,
+      });
+    }
   },
 };
 
