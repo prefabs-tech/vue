@@ -9,13 +9,14 @@ interface AppConfig {
     url: string;
   };
   features: AppFeatures;
-  sentry?: SentryOptions;
+  sentry?: SentryOptions & {
+    enabled: boolean;
+  };
   slug: string;
   websiteDomain: string;
 }
 
 interface AppFeatures {
-  sentry?: boolean;
   showVersion: boolean;
 }
 
