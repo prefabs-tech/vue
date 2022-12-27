@@ -1,3 +1,12 @@
+# [0.6.0](https://github.com/dzangolab/vue/compare/v0.5.1...v0.6.0) (2022-12-27)
+
+
+### Features
+
+* **config:** update sentry plugin ([#53](https://github.com/dzangolab/vue/issues/53)) ([1501e07](https://github.com/dzangolab/vue/commit/1501e0709b5c17b650b1dd44ced5ed9a97b3b74e))
+
+
+
 ## [0.5.1](https://github.com/dzangolab/vue/compare/v0.5.0...v0.5.1) (2022-12-27)
 
 
