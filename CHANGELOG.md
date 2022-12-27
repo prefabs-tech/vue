@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/dzangolab/vue/compare/v0.4.2...v0.5.0) (2022-12-27)
+
+
+### Features
+
+* **layout:** add @dzangolab/vue3-layout library ([#46](https://github.com/dzangolab/vue/issues/46)) ([4e959e4](https://github.com/dzangolab/vue/commit/4e959e49b9c2c021fcab9f354d218552ba6cda69))
+
+
+
 ## [0.4.2](https://github.com/dzangolab/vue/compare/v0.4.1...v0.4.2) (2022-12-25)
 
 
