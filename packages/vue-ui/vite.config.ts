@@ -36,5 +36,11 @@ export default defineConfig(({ mode }) => {
         "@/": new URL("./src/", import.meta.url).pathname,
       },
     },
+    test: {
+      coverage: {
+        provider: "istanbul",
+        reporter: ["text", "json", "html"],
+      },
+    },
   };
 });
