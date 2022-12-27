@@ -1,3 +1,12 @@
+## [0.6.1](https://github.com/dzangolab/vue/compare/v0.6.0...v0.6.1) (2022-12-27)
+
+
+### Bug Fixes
+
+* **config/sentry:** fix sentry plugin options ([0c1319e](https://github.com/dzangolab/vue/commit/0c1319e4b0f9193234797bfd2bb813c923d52533))
+
+
+
 # [0.6.0](https://github.com/dzangolab/vue/compare/v0.5.1...v0.6.0) (2022-12-27)
 
 
