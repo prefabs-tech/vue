@@ -1,0 +1,34 @@
+// Vitest Snapshot v1
+
+exports[`AppHeader Snapshot > matches snapshot 1`] = `
+<header>
+  
+  <logo-stub
+    class="logo"
+    logo="logo.png"
+  />
+  
+  
+  <main-menu-stub
+    class="mainMenu"
+  />
+  
+  
+  
+  
+  <locale-switcher-stub
+    class="locales"
+  />
+  
+  
+  <div
+    class="toggle"
+  >
+    <anonymous-stub
+      height="1.5rem"
+      icon="fa6-solid:bars"
+    />
+  </div>
+  
+</header>
+`;

@@ -1,0 +1,59 @@
+<template>
+  <div class="l-right-menu">
+    <div v-if="user" class="l-user-menu__user">
+      <div class="l-user-menu__email" @click="dropdown = !dropdown">
+        {{ user.email }}
+      </div>
+
+      <div
+        class="l-user-menu__options"
+        :class="{
+          'l-user-menu__options--dropdown': dropdown,
+        }"
+      >
+        <router-link :to="{ name: 'profile' }" class="l-user-menu__option">
+          profile
+        </router-link>
+        <a class="l-user-menu__option" @click="logout">
+          logout
+        </a>
+      </div>
+    </div>
+    <div v-else class="l-user-menu">
+      <router-link :to="{ name: 'login' }" class="l-user-menu__nav-link">
+        login
+      </router-link>
+    </div>
+
+    <div class="l-right-menu__locale-switcher">
+      <LocaleSwitcher />
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+import LocaleSwitcher from "@/components/LocaleSwitcher.vue";
+import AuthMixin from "@/mixins/auth";
+
+export default defineComponent({
+  components: {
+    LocaleSwitcher,
+  },
+
+  data() {
+    return {
+      dropdown: false,
+    };
+  },
+
+  mixins: [AuthMixin],
+
+  name: "UserMenu",
+});
+</script>
+
+<style lang="scss">
+@import "@/assets/scss/components/layout/user-menu";
+</style>
