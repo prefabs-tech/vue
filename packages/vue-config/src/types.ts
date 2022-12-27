@@ -10,7 +10,7 @@ interface AppConfig {
   };
   features: AppFeatures;
   sentry?: SentryOptions & {
-    enabled: boolean;
+    enabled?: boolean;
   };
   slug: string;
   websiteDomain: string;
