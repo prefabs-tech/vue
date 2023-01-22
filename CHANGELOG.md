@@ -1,3 +1,15 @@
+## [0.6.3](https://github.com/dzangolab/vue/compare/v0.6.2...v0.6.3) (2023-01-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-import-resolver-typescript to v3.5.3 ([#74](https://github.com/dzangolab/vue/issues/74)) ([7614435](https://github.com/dzangolab/vue/commit/76144353666e7413d4133ee140565435cc2ed2f5))
+* **deps:** update dependency eslint-plugin-import to v2.27.5 ([#76](https://github.com/dzangolab/vue/issues/76)) ([ec50380](https://github.com/dzangolab/vue/commit/ec503805545679436b7efc3cdcfe42ed4281f08b))
+* **deps:** update dependency eslint-plugin-vue to v9.9.0 ([#77](https://github.com/dzangolab/vue/issues/77)) ([245cab7](https://github.com/dzangolab/vue/commit/245cab7edae79ca854143da92e56cd362e1bfcec))
+* **deps:** update sentry-javascript monorepo to v7.31.1 ([#78](https://github.com/dzangolab/vue/issues/78)) ([49d0262](https://github.com/dzangolab/vue/commit/49d0262f2a6e6cc1afad24f2194880a165c56570))
+
+
+
 ## [0.6.2](https://github.com/dzangolab/vue/compare/v0.6.1...v0.6.2) (2023-01-22)
 
 
