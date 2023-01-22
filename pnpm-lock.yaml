@@ -55,7 +55,7 @@ importers:
 
   packages/vue-i18n:
     specifiers:
-      '@dzangolab/vue3-config': 0.6.4
+      '@dzangolab/vue3-config': 0.6.3
       '@types/node': 18.11.18
       '@vitejs/plugin-vue': 4.0.0
       '@vitejs/plugin-vue-jsx': 3.0.0
@@ -76,7 +76,7 @@ importers:
     dependencies:
       vue-i18n: 9.1.10_vue@3.2.45
     devDependencies:
-      '@dzangolab/vue3-config': link:../vue-config
+      '@dzangolab/vue3-config': 0.6.3_vue@3.2.45
       '@types/node': 18.11.18
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
       '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.0.4+vue@3.2.45
@@ -96,7 +96,7 @@ importers:
 
   packages/vue-layout:
     specifiers:
-      '@dzangolab/vue3-config': 0.6.4
+      '@dzangolab/vue3-config': 0.6.3
       '@dzangolab/vue3-i18n': 0.6.4
       '@dzangolab/vue3-ui': 0.6.4
       '@iconify/vue': 4.0.2
@@ -117,7 +117,7 @@ importers:
       vue-router: 4.1.6
       vue-tsc: 1.0.24
     dependencies:
-      '@dzangolab/vue3-config': link:../vue-config
+      '@dzangolab/vue3-config': 0.6.3_xsxatmlnmmg5bcuv3xdnj6fj7y
       '@dzangolab/vue3-i18n': link:../vue-i18n
       '@dzangolab/vue3-ui': link:../vue-ui
     devDependencies:
@@ -679,6 +679,33 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
+  /@dzangolab/vue3-config/0.6.3_vue@3.2.45:
+    resolution: {integrity: sha512-5wmt76Fc7Z5ymzOD89QuYx/VShiD4dHXga+P7b3KnY166xG0QK4AGUP3eiG/Cuzhs2yUUEk3TTS+O5m8DNT4Zw==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      vue: '>=3.2'
+      vue-router: '>=4.0'
+    dependencies:
+      '@sentry/tracing': 7.31.1
+      '@sentry/types': 7.31.1
+      '@sentry/vue': 7.31.1_vue@3.2.45
+      vue: 3.2.45
+    dev: true
+
+  /@dzangolab/vue3-config/0.6.3_xsxatmlnmmg5bcuv3xdnj6fj7y:
+    resolution: {integrity: sha512-5wmt76Fc7Z5ymzOD89QuYx/VShiD4dHXga+P7b3KnY166xG0QK4AGUP3eiG/Cuzhs2yUUEk3TTS+O5m8DNT4Zw==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      vue: '>=3.2'
+      vue-router: '>=4.0'
+    dependencies:
+      '@sentry/tracing': 7.31.1
+      '@sentry/types': 7.31.1
+      '@sentry/vue': 7.31.1_vue@3.2.45
+      vue: 3.2.45
+      vue-router: 4.1.6_vue@3.2.45
+    dev: false
+
   /@esbuild/android-arm/0.16.8:
     resolution: {integrity: sha512-r/qxYWkC3gY+Uq24wZacAUevGGb6d7d8VpyO8R0HGg31LXVi+eUr8XxHLCcmVzAjRjlZsZfzPelGpAKP/DafKg==}
     engines: {node: '>=12'}
@@ -1198,7 +1225,6 @@ packages:
       '@sentry/types': 7.31.1
       '@sentry/utils': 7.31.1
       tslib: 1.14.1
-    dev: false
 
   /@sentry/core/7.31.1:
     resolution: {integrity: sha512-quaNU6z8jabmatBTDi28Wpff2yzfWIp/IU4bbi2QOtEiCNT+TQJXqlRTRMu9xLrX7YzyKCL5X2gbit/85lyWUg==}
@@ -1207,7 +1233,6 @@ packages:
       '@sentry/types': 7.31.1
       '@sentry/utils': 7.31.1
       tslib: 1.14.1
-    dev: false
 
   /@sentry/replay/7.31.1:
     resolution: {integrity: sha512-sLArvwZn6IwA/bASctyhxN7LhdCXJvMmyTynRfmk7pzuNzBMc5CNlHeIsDpHrfQuH53IKicvl6cHnHyclu5DSA==}
@@ -1216,7 +1241,6 @@ packages:
       '@sentry/core': 7.31.1
       '@sentry/types': 7.31.1
       '@sentry/utils': 7.31.1
-    dev: false
 
   /@sentry/tracing/7.31.1:
     resolution: {integrity: sha512-kW6vNwddp2Ycq2JfTzveUEIRF9YQwvl7L6BBoOZt9oVnYlsPipEeyU2Q277LatHldr8hDo2tbz/vz2BQjO5GSw==}
@@ -1226,12 +1250,10 @@ packages:
       '@sentry/types': 7.31.1
       '@sentry/utils': 7.31.1
       tslib: 1.14.1
-    dev: false
 
   /@sentry/types/7.31.1:
     resolution: {integrity: sha512-1uzr2l0AxEnxUX/S0EdmXUQ15/kDsam8Nbdw4Gai8SU764XwQgA/TTjoewVP597CDI/AHKan67Y630/Ylmkx9w==}
     engines: {node: '>=8'}
-    dev: false
 
   /@sentry/utils/7.31.1:
     resolution: {integrity: sha512-ZsIPq29aNdP9q3R7qIzJhZ9WW+4DzE9g5SfGwx3UjTIxoRRBfdUJUbf7S+LKEdvCkKbyoDt6FLt5MiSJV43xBA==}
@@ -1239,7 +1261,6 @@ packages:
     dependencies:
       '@sentry/types': 7.31.1
       tslib: 1.14.1
-    dev: false
 
   /@sentry/vue/7.31.1_vue@3.2.45:
     resolution: {integrity: sha512-Frt48GRorCzk8i7CXS22anE6DLTBLL4SpowA0o3f/ksfFKWgjUSAPSmlCJ19xVNeFtXX30dO9i4P1Xzy3ZXoQw==}
@@ -1253,7 +1274,6 @@ packages:
       '@sentry/utils': 7.31.1
       tslib: 1.14.1
       vue: 3.2.45
-    dev: false
 
   /@slack/types/1.10.0:
     resolution: {integrity: sha512-tA7GG7Tj479vojfV3AoxbckalA48aK6giGjNtgH6ihpLwTyHE3fIgRrvt8TWfLwW8X8dyu7vgmAsGLRG7hWWOg==}
@@ -5637,7 +5657,6 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.4.5
       vue: 3.2.45
-    dev: true
 
   /vue-template-compiler/2.7.14:
     resolution: {integrity: sha512-zyA5Y3ArvVG0NacJDkkzJuPQDF8RFeRlzV2vLeSnhSpieO6LK2OVbdLPi5MPPs09Ii+gMO8nY4S3iKQxBxDmWQ==}
