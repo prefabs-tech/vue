@@ -20,8 +20,10 @@ module.exports = {
   plugins: ["@typescript-eslint", "import", "prettier", "unicorn"],
   root: true,
   rules: {
+    curly: ["error", "all"],
+    "brace-style": ["error", "1tbs"],
     "import/order": [
-      1,
+      "error",
       {
         alphabetize: {
           order: "asc",

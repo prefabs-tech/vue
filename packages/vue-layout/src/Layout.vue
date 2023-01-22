@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable-next-line import/order */
 import {
   defineAsyncComponent,
   computed,
