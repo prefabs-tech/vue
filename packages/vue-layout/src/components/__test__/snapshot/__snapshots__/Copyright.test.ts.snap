@@ -4,7 +4,7 @@ exports[`Copyright > matches snapshot en 1`] = `
 <div
   class="copyright"
 >
-   © 2022 
+   © 2023 
   <a
     href="https://dzango.com"
     target="_blank"
@@ -19,7 +19,7 @@ exports[`Copyright > matches snapshot fr 1`] = `
 <div
   class="copyright"
 >
-   © 2022 
+   © 2023 
   <a
     href="https://dzango.com"
     target="_blank"
