@@ -63,7 +63,7 @@ importers:
       '@vueuse/core': 9.11.1
       eslint: 8.32.0
       eslint-config-custom: 0.6.3
-      jsdom: 20.0.3
+      jsdom: 21.1.0
       pinia: 2.0.29
       prettier: 2.8.3
       tsconfig: 0.6.3
@@ -80,17 +80,17 @@ importers:
       '@types/node': 18.11.18
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
       '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.0.4+vue@3.2.45
-      '@vitest/coverage-istanbul': 0.27.3_jsdom@20.0.3
+      '@vitest/coverage-istanbul': 0.27.3_jsdom@21.1.0
       '@vueuse/core': 9.11.1_vue@3.2.45
       eslint: 8.32.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      jsdom: 20.0.3
+      jsdom: 21.1.0
       pinia: 2.0.29_prq2uz4lho2pwp6irk4cfkrxwu
       prettier: 2.8.3
       tsconfig: link:../../tools/tsconfig
       typescript: 4.9.4
       vite: 4.0.4_@types+node@18.11.18
-      vitest: 0.27.3_jsdom@20.0.3
+      vitest: 0.27.3_jsdom@21.1.0
       vue: 3.2.45
       vue-tsc: 1.0.24_typescript@4.9.4
 
@@ -1520,7 +1520,7 @@ packages:
       - terser
     dev: true
 
-  /@vitest/coverage-istanbul/0.27.3_jsdom@20.0.3:
+  /@vitest/coverage-istanbul/0.27.3_jsdom@21.1.0:
     resolution: {integrity: sha512-paMg/Bq+W8hx31TKC1tj54qCGA0FwdZHZi/2mMnskae28NTxU4WtNBrmvGyVOLCM+/Ld8yN9uCavNl4H6TabKw==}
     dependencies:
       istanbul-lib-coverage: 3.2.0
@@ -1529,7 +1529,7 @@ packages:
       istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.5
       test-exclude: 6.0.0
-      vitest: 0.27.3_jsdom@20.0.3
+      vitest: 0.27.3_jsdom@21.1.0
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -3685,8 +3685,8 @@ packages:
     dependencies:
       argparse: 2.0.1
 
-  /jsdom/20.0.3:
-    resolution: {integrity: sha512-SYhBvTh89tTfCD/CRdSOm13mOBa42iTaTyfyEWBdKcGdPxPtLFBXuHR8XHb33YNYaP+lLbmSvBTsnoesCNJEsQ==}
+  /jsdom/21.1.0:
+    resolution: {integrity: sha512-m0lzlP7qOtthD918nenK3hdItSd2I+V3W9IrBcB36sqDwG+KnUs66IF5GY7laGWUnlM9vTsD0W1QwSEBYWWcJg==}
     engines: {node: '>=14'}
     peerDependencies:
       canvas: ^2.5.0
@@ -5533,7 +5533,7 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.27.3_jsdom@20.0.3:
+  /vitest/0.27.3_jsdom@21.1.0:
     resolution: {integrity: sha512-Ld3UVgRVhJUtqvQ3dW89GxiApFAgBsWJZBCWzK+gA3w2yG68csXlGZZ4WDJURf+8ecNfgrScga6xY+8YSOpiMg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -5563,7 +5563,7 @@ packages:
       cac: 6.7.14
       chai: 4.3.7
       debug: 4.3.4
-      jsdom: 20.0.3
+      jsdom: 21.1.0
       local-pkg: 0.4.2
       picocolors: 1.0.0
       source-map: 0.6.1
