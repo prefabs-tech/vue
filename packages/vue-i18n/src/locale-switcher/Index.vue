@@ -34,8 +34,8 @@ import { onClickOutside } from "@vueuse/core";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-import useLocaleStore from "../store";
 import LocaleOption from "./LocaleOption.vue";
+import useLocaleStore from "../store";
 
 import type { AppConfig } from "@dzangolab/vue3-config";
 import type { Locale } from "vue-i18n";
