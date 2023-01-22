@@ -39,7 +39,7 @@
     "@vueuse/core": "9.11.1",
     "eslint": "8.32.0",
     "eslint-config-custom": "0.6.3",
-    "jsdom": "20.0.3",
+    "jsdom": "21.1.0",
     "pinia": "2.0.29",
     "prettier": "2.8.3",
     "tsconfig": "0.6.3",
