@@ -28,7 +28,7 @@ importers:
       '@vitejs/plugin-vue-jsx': 3.0.0
       eslint: 8.32.0
       eslint-config-custom: 0.6.1
-      prettier: 2.8.1
+      prettier: 2.8.3
       tsconfig: 0.6.1
       typescript: 4.9.4
       vite: 4.0.3
@@ -45,7 +45,7 @@ importers:
       '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.0.3+vue@3.2.45
       eslint: 8.32.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      prettier: 2.8.1
+      prettier: 2.8.3
       tsconfig: link:../../tools/tsconfig
       typescript: 4.9.4
       vite: 4.0.3_@types+node@18.11.18
@@ -65,7 +65,7 @@ importers:
       eslint-config-custom: 0.6.1
       jsdom: 20.0.3
       pinia: 2.0.28
-      prettier: 2.8.1
+      prettier: 2.8.3
       tsconfig: 0.6.1
       typescript: 4.9.4
       vite: 4.0.3
@@ -86,7 +86,7 @@ importers:
       eslint-config-custom: link:../../tools/eslint-config-custom
       jsdom: 20.0.3
       pinia: 2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
-      prettier: 2.8.1
+      prettier: 2.8.3
       tsconfig: link:../../tools/tsconfig
       typescript: 4.9.4
       vite: 4.0.3_@types+node@18.11.18
@@ -108,7 +108,7 @@ importers:
       '@vueuse/core': 9.9.0
       eslint: 8.32.0
       eslint-config-custom: 0.6.1
-      prettier: 2.8.1
+      prettier: 2.8.3
       tsconfig: 0.6.1
       typescript: 4.9.4
       vite: 4.0.3
@@ -130,7 +130,7 @@ importers:
       '@vueuse/core': 9.9.0_vue@3.2.45
       eslint: 8.32.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      prettier: 2.8.1
+      prettier: 2.8.3
       tsconfig: link:../../tools/tsconfig
       typescript: 4.9.4
       vite: 4.0.3_@types+node@18.11.18
@@ -149,7 +149,7 @@ importers:
       '@vueuse/core': 9.9.0
       eslint: 8.32.0
       eslint-config-custom: 0.6.1
-      prettier: 2.8.1
+      prettier: 2.8.3
       tsconfig: 0.6.1
       typescript: 4.9.4
       vite: 4.0.3
@@ -165,7 +165,7 @@ importers:
       '@vueuse/core': 9.9.0_vue@3.2.45
       eslint: 8.32.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      prettier: 2.8.1
+      prettier: 2.8.3
       tsconfig: link:../../tools/tsconfig
       typescript: 4.9.4
       vite: 4.0.3_@types+node@18.11.18
@@ -186,7 +186,7 @@ importers:
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-unicorn: 45.0.2
       eslint-plugin-vue: 9.8.0
-      prettier: 2.8.1
+      prettier: 2.8.3
       typescript: 4.9.4
       vue-eslint-parser: 9.1.0
     dependencies:
@@ -197,13 +197,13 @@ importers:
       eslint-import-resolver-alias: 1.1.2_fkfqfehjtk7sk2efaqbgxsuasa
       eslint-import-resolver-typescript: 3.5.2_kornzrmzxylufiu5zotgc4cisa
       eslint-plugin-import: 2.26.0_sgqosjpj7lguuciwexb2n7nzta
-      eslint-plugin-prettier: 4.2.1_abmlxqmedhmmgoja6jkvoftkhm
+      eslint-plugin-prettier: 4.2.1_uzdlkkftb3f76fa4on6dnxrnyi
       eslint-plugin-unicorn: 45.0.2_eslint@8.32.0
       eslint-plugin-vue: 9.8.0_eslint@8.32.0
       vue-eslint-parser: 9.1.0_eslint@8.32.0
     devDependencies:
       eslint: 8.32.0
-      prettier: 2.8.1
+      prettier: 2.8.3
       typescript: 4.9.4
 
   tools/tsconfig:
@@ -2705,7 +2705,7 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-prettier/4.2.1_abmlxqmedhmmgoja6jkvoftkhm:
+  /eslint-plugin-prettier/4.2.1_uzdlkkftb3f76fa4on6dnxrnyi:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -2718,7 +2718,7 @@ packages:
     dependencies:
       eslint: 8.32.0
       eslint-config-prettier: 8.5.0_eslint@8.32.0
-      prettier: 2.8.1
+      prettier: 2.8.3
       prettier-linter-helpers: 1.0.0
     dev: false
 
@@ -4487,8 +4487,8 @@ packages:
       fast-diff: 1.2.0
     dev: false
 
-  /prettier/2.8.1:
-    resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
+  /prettier/2.8.3:
+    resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
 
@@ -4855,7 +4855,7 @@ packages:
       mime-types: 2.1.35
       mkdirp: 1.0.4
       open: 7.4.2
-      prettier: 2.8.1
+      prettier: 2.8.3
       serialize-javascript: 3.1.0
       shell-quote: 1.7.4
       shipjs-lib: 0.25.0
