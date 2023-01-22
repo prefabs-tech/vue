@@ -1,3 +1,13 @@
+## [0.6.2](https://github.com/dzangolab/vue/compare/v0.6.1...v0.6.2) (2023-01-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-config-prettier to v8.6.0 ([#62](https://github.com/dzangolab/vue/issues/62)) ([3d42260](https://github.com/dzangolab/vue/commit/3d422601e0f8015b166ab1a1c81bbf9a23daf5cf))
+* **deps:** update typescript-eslint monorepo to v5.48.2 ([#63](https://github.com/dzangolab/vue/issues/63)) ([180b778](https://github.com/dzangolab/vue/commit/180b778c87b74eb4baa47a36d9f3ece88355e57c))
+
+
+
 ## [0.6.1](https://github.com/dzangolab/vue/compare/v0.6.0...v0.6.1) (2022-12-27)
 
 
