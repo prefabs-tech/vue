@@ -97,7 +97,7 @@ importers:
   packages/vue-layout:
     specifiers:
       '@dzangolab/vue3-config': 0.6.2
-      '@dzangolab/vue3-i18n': 0.6.2
+      '@dzangolab/vue3-i18n': 0.6.1
       '@dzangolab/vue3-ui': 0.6.2
       '@iconify/vue': 4.0.2
       '@types/node': 18.11.18
@@ -118,7 +118,7 @@ importers:
       vue-tsc: 1.0.24
     dependencies:
       '@dzangolab/vue3-config': link:../vue-config
-      '@dzangolab/vue3-i18n': link:../vue-i18n
+      '@dzangolab/vue3-i18n': 0.6.1_3rmyqogr6z3ae7cukz3y7j54oy
       '@dzangolab/vue3-ui': link:../vue-ui
     devDependencies:
       '@iconify/vue': 4.0.2_vue@3.2.45
@@ -678,6 +678,21 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
+
+  /@dzangolab/vue3-i18n/0.6.1_3rmyqogr6z3ae7cukz3y7j54oy:
+    resolution: {integrity: sha512-Wz0TLMP05HYomdohmv53efGCA0CNiWTCfzs/kFM+avdF9e862K0VjExAzJLlXZk8WTQHJ4dU8GqTNezdbMnXXQ==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      '@dzangolab/vue3-config': 0.6.1
+      '@vueuse/core': '>=9.4.0'
+      pinia: '>=2.0'
+      vue: '>=3.2'
+    dependencies:
+      '@dzangolab/vue3-config': link:packages/vue-config
+      '@vueuse/core': 9.11.1_vue@3.2.45
+      vue: 3.2.45
+      vue-i18n: 9.1.10_vue@3.2.45
+    dev: false
 
   /@esbuild/android-arm/0.16.8:
     resolution: {integrity: sha512-r/qxYWkC3gY+Uq24wZacAUevGGb6d7d8VpyO8R0HGg31LXVi+eUr8XxHLCcmVzAjRjlZsZfzPelGpAKP/DafKg==}
@@ -1349,7 +1364,6 @@ packages:
 
   /@types/web-bluetooth/0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
-    dev: true
 
   /@typescript-eslint/eslint-plugin/5.48.2_caon6io6stgpr7lz2rtbhekxqy:
     resolution: {integrity: sha512-sR0Gja9Ky1teIq4qJOl0nC+Tk64/uYdX+mi+5iB//MH8gwyx8e3SOyhEzeLZEFEEfCaLf8KJq+Bd/6je1t+CAg==}
@@ -1709,11 +1723,9 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-    dev: true
 
   /@vueuse/metadata/9.11.1:
     resolution: {integrity: sha512-ABjkrG+VXggNhjfGyw5e/sekxTZfXTwjrYXkkWQmQ7Biyv+Gq9UD6IDNfeGvQZEINI0Qzw6nfuO2UFCd3hlrxQ==}
-    dev: true
 
   /@vueuse/shared/9.11.1_vue@3.2.45:
     resolution: {integrity: sha512-UTZYGAjT96hWn4buf4wstZbeheBVNcKPQuej6qpoSkjF1atdaeCD6kqm9uGL2waHfisSgH9mq0qCRiBOk5C/2w==}
@@ -1722,7 +1734,6 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-    dev: true
 
   /JSONStream/1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -5620,7 +5631,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.45
-    dev: true
 
   /vue-eslint-parser/9.1.0_eslint@8.32.0:
     resolution: {integrity: sha512-NGn/iQy8/Wb7RrRa4aRkokyCZfOUWk19OP5HP6JEozQFX5AoS/t+Z0ZN7FY4LlmWc4FNI922V7cvX28zctN8dQ==}
