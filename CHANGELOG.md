@@ -1,3 +1,13 @@
+## [0.6.5](https://github.com/dzangolab/vue/compare/v0.6.4...v0.6.5) (2023-01-24)
+
+
+### Bug Fixes
+
+* **deps:** update sentry-javascript monorepo to v7.32.1 ([#86](https://github.com/dzangolab/vue/issues/86)) ([6791685](https://github.com/dzangolab/vue/commit/67916859845a5c6dd950cc442fb149f27650e20b))
+* **deps:** update typescript-eslint monorepo to v5.49.0 ([#87](https://github.com/dzangolab/vue/issues/87)) ([c973221](https://github.com/dzangolab/vue/commit/c973221dba3037da3be8fd6a539ace6c08c13927))
+
+
+
 ## [0.6.4](https://github.com/dzangolab/vue/compare/v0.6.3...v0.6.4) (2023-01-22)
 
 
