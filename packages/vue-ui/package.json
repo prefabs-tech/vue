@@ -27,7 +27,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
+    "@types/node": "18.11.19",
     "@vitejs/plugin-vue": "4.0.0",
     "@vitejs/plugin-vue-jsx": "3.0.0",
     "@vitest/coverage-istanbul": "0.28.3",
