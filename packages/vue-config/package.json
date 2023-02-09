@@ -29,7 +29,7 @@
     "@sentry/vue": "7.36.0"
   },
   "devDependencies": {
-    "@types/node": "18.11.19",
+    "@types/node": "18.13.0",
     "@vitejs/plugin-vue": "4.0.0",
     "@vitejs/plugin-vue-jsx": "3.0.0",
     "eslint": "8.33.0",
