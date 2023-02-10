@@ -2,6 +2,8 @@ build:
 	@printf "\033[0;32m>>> Build packages\033[0m\n"
 	pnpm build
 
+dev: run
+
 install:
 	@printf "\033[0;32m>>> Installing dependencies\033[0m\n"
 	pnpm -r install
@@ -25,6 +27,10 @@ publish:
 release:
 	@printf "\033[0;32m>>> Prepare packages for release\033[0m\n"
 	shipjs prepare
+
+run:
+	@printf "\033[0;32m>>> Run demo app\033[0m\n"
+	pnpm dev
 
 sort-package:
 	@printf "\033[0;32m>>> Format package.json\033[0m\n"
