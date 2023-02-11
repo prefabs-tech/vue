@@ -24,15 +24,15 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "@sentry/tracing": "7.37.0",
-    "@sentry/types": "7.37.0",
-    "@sentry/vue": "7.37.0"
+    "@sentry/tracing": "7.37.1",
+    "@sentry/types": "7.37.1",
+    "@sentry/vue": "7.37.1"
   },
   "devDependencies": {
     "@types/node": "18.13.0",
     "@vitejs/plugin-vue": "4.0.0",
     "@vitejs/plugin-vue-jsx": "3.0.0",
-    "eslint": "8.33.0",
+    "eslint": "8.34.0",
     "eslint-config-custom": "0.6.5",
     "prettier": "2.8.4",
     "tsconfig": "0.6.5",
