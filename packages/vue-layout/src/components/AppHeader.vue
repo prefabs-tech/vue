@@ -42,6 +42,7 @@ import MainMenu from "./MainMenu.vue";
 <style lang="css">
 header {
   align-items: start;
+  border-bottom: 1px solid var(--header-border-color, #4169e1);
   display: grid;
   font-size: var(--header-font-size, 1rem);
   grid-template-areas:
@@ -51,9 +52,23 @@ header {
     "locales locales";
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
-  padding-bottom: 0.8rem;
-  padding-top: 0.8rem;
-  border-bottom: 1px solid #9e9e9e;
+  padding-bottom: var(--header-padding-top, 0.8rem);
+  padding-top: var(--header-padding-bottom, 0.8rem);
+}
+
+header::before {
+  content: "";
+  background-color: var(--header-bg-color, lightblue);
+  box-shadow: 0 0 0 100vmax var(--header-bg-color, lightblue);
+  clip-path: inset(
+    calc(-1 * var(--header-padding-top, 0.8rem)) -100vmax calc(
+        -1 * var(--header-padding-bottom, 0.8rem)
+      ) -100vmax
+  );
+  grid-column: 1 / end;
+  grid-row: 1 / 1;
+  height: 100%;
+  z-index: -1;
 }
 
 header > nav {
@@ -72,7 +87,6 @@ header > .toggle {
   justify-self: right;
   align-self: center;
   cursor: pointer;
-  margin-right: 1rem;
 }
 
 header > .mainMenu {
@@ -95,19 +109,20 @@ header .menuExpanded {
 
 @media screen and (min-width: 576px) {
   header {
-    grid-template-areas: "logo mainMenu userMenu locales toggle";
+    grid-template-areas: "logo mainMenu userMenu locales";
     align-items: center;
     grid-gap: var(--header-gap, 1rem);
     grid-template-columns: var(
       --header-grid-template-columns,
-      auto 1fr auto 6rem auto
+      auto 1fr auto 6rem
     );
     grid-template-rows: auto;
   }
 
   header > nav {
     display: flex;
-    margin-top: 0rem;
+    overflow: visible;
+    margin-top: 0;
   }
 
   header > .toggle {

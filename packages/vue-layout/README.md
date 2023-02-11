@@ -10,19 +10,19 @@
 
 ### npm
 
-```
+```bash
 npm install @dzangolab/vue3-layout @dzangolab/vue3-config`
 ```
 
 ### yarn
 
-```
+```bash
 yarn add @dzangolab/vue3-layout @dzangolab/vue3-config
 ```
 
 ### PNPM
 
-```
+```bash
 pnpm add @dzangolab/vue3-layout @dzangolab/vue3-config
 ```
 
@@ -32,7 +32,7 @@ pnpm add @dzangolab/vue3-layout @dzangolab/vue3-config
 
 Import and register the plugin in `main.ts`.
 
-```
+```ts
 import layoutPlugin from "@dzangolab/vue3-layout";
 import "@dzangolab/vue3-layout/dist/DzangolabVue3Layout.css";
 
@@ -48,7 +48,7 @@ app.mount("#app");
 * Wrap your router view in the `Layout` component.
 * Optionnally, set a default layout. You can use one of our built-in layouts, or create your own. The default layout will be applied to all routes for which no layout is set.
 
-```
+```vue
 <template>
   <Layout :default-layout="defaultLayout">
     <router-view />
@@ -72,7 +72,7 @@ The default layout set as the `default-layout` prop on the `Layout` component wi
 
 You can also customize the layout for individual routes by adding a `meta.layout` attribute to the route. The value of the attribute is the layout component you wish to use.
 
-```
+```ts
 import { createRouter, createWebHistory } from "vue-router";
 
 import CustomLayout from "@/layouts/CustomLayout.vue";
@@ -102,3 +102,35 @@ const router: Router = createRouter({
 
 export default router;
 ```
+
+## CSS Variables
+
+### Basic layout
+
+| Name | Description | Default value |
+|-------|------------|---------------|
+| `layout-basic-gap` | Size of basic layout flex-box gap | `1rem` |
+| `layout-basic-max-width` | Maximum width of header, main and footer elements | `1200px` |
+| `layout-basic-padding-left` | Left padding for header, main and footer elements | `0.8rem` |
+| `layout-basic-padding-right` | Right padding for header, main and footer elements | `0.8rem` |
+
+### AppHeader
+
+| Name | Description | Default value |
+|-------|------------|---------------|
+| `header-bg-color` | Color of header background | `transparent` |
+| `header-border-color` | Color of header (bottom) border | `#4169e1` |
+| `header-font-size` | Font size of header text | `1rem` |
+| `header-padding-bottom` | Bottom padding for header | `0.8rem` |
+| `header-padding-top` | Top padding for header | `0.8rem` |
+
+### App footer
+
+| Name | Description | Default value |
+|-------|------------|---------------|
+| `footer-bg-color` | Color of footer background | `transparent` |
+| `footer-border-color` | Color of footer (top) border | `#4169e1` |
+| `footer-font-size` | Font size of footer text | `1rem` |
+| `footer-gap` | Size of footer flex-box gap | `0.5rem` |
+| `footer-padding-bottom` | Bottom padding for footer | `0.8rem` |
+| `footer-padding-top` | Top padding for footer | `0.8rem` |

@@ -1,6 +1,7 @@
 <template>
   <div class="copyright">
-    &copy; {{ year }} <a :href="url" target="_blank">{{ holder }}</a>
+    &copy; {{ year }} <a :href="url" target="_blank">{{ holder }}</a
+    >.&nbsp;
     {{ copyright }}
   </div>
 </template>
