@@ -9,7 +9,7 @@
     </slot>
     <slot name="social"> </slot>
     <slot name="version">
-      <div>
+      <div class="version">
         {{ config.appVersion }}
       </div>
     </slot>
@@ -35,11 +35,27 @@ const config = useConfig() as AppConfig;
 <style lang="css">
 footer {
   align-items: center;
+  background-color: var(--footer-bg-color, transparent);
+  border-top: 1px solid var(--footer-border-color, #4169e1);
+  box-shadow: 0 0 0 100vmax var(--footer-bg-color, transparent);
+  clip-path: inset(0 -100vmax);
   display: flex;
-  flex-direction: var(--footer-flex-direction, row);
-  justify-content: var(--footer-layout, space-between);
-  font-size: var(--footer-font-size, 0.9rem);
-  padding-bottom: 0.8rem;
-  padding-top: 0.8rem;
+  flex-direction: column;
+  gap: var(--footer-gap, 0.5em);
+  justify-content: center;
+  font-size: var(--footer-font-size, 0.9em);
+  padding: 1em 0;
+  text-align: center;
+}
+
+@media screen and (min-width: 576px) {
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.version {
+  font-size: 0.8em;
 }
 </style>

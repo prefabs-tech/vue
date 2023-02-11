@@ -13,6 +13,12 @@ import type { LayoutType } from "./types";
 import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
 import type { App } from "vue";
 
+declare module "vue-router" {
+  interface RouteMeta {
+    layout?: LayoutType;
+  }
+}
+
 const __dzangolabVueLayoutTranslations = Symbol.for(
   "dzangolab.vue-layout.translations"
 );
