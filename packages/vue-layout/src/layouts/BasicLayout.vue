@@ -53,14 +53,14 @@ import AppHeader from "../components/AppHeader.vue";
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: var(--layout-basic-gap, 0.5rem);
+  gap: var(--layout-basic-gap, 1em);
 }
 
 .basic-layout :is(footer, header, main) {
   margin: 0 auto;
   max-width: var(--layout-basic-max-width, 1200px);
-  padding-left: var(--layout-basic-padding-left, 0.8rem);
-  padding-right: var(--layout-basic-padding-right, 0.8rem);
+  padding-left: var(--layout-basic-padding-left, 1em);
+  padding-right: var(--layout-basic-padding-right, 1em);
   width: 100%;
 }
 

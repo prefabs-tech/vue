@@ -52,8 +52,8 @@ header {
     "locales locales";
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
-  padding-bottom: var(--header-padding-top, 0.8rem);
-  padding-top: var(--header-padding-bottom, 0.8rem);
+  padding-bottom: var(--header-padding-top, 1em);
+  padding-top: var(--header-padding-bottom, 1em);
 }
 
 header::before {
@@ -61,8 +61,8 @@ header::before {
   background-color: var(--header-bg-color, lightblue);
   box-shadow: 0 0 0 100vmax var(--header-bg-color, lightblue);
   clip-path: inset(
-    calc(-1 * var(--header-padding-top, 0.8rem)) -100vmax calc(
-        -1 * var(--header-padding-bottom, 0.8rem)
+    calc(-1 * var(--header-padding-top, 1em)) -100vmax calc(
+        -1 * var(--header-padding-bottom, 1em)
       ) -100vmax
   );
   grid-column: 1 / end;
