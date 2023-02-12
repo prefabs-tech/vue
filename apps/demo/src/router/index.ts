@@ -12,21 +12,39 @@ interface AppRouteMeta extends RouteMeta {
   layout?: LayoutType;
 }
 
-const AboutView = () => import("@/views/About.vue");
-const HomeView = () => import("@/views/Home.vue");
+const About = () => import("@/views/About.vue");
+const Home = () => import("@/views/Home.vue");
+const Layout = () => import("@/views/Layout/Index.vue");
+const Sentry = () => import("@/views/Sentry.vue");
+const UI = () => import("@/views/UI/Index.vue");
 
 const router: Router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      component: HomeView,
+      component: About,
+      name: "about",
+      path: "/about",
+    },
+    {
+      component: Home,
       name: "home",
       path: "/",
     },
     {
-      component: AboutView,
-      name: "about",
-      path: "/about",
+      component: Layout,
+      name: "layout",
+      path: "/layout",
+    },
+    {
+      component: Sentry,
+      name: "sentry",
+      path: "/sentry",
+    },
+    {
+      component: UI,
+      name: "ui",
+      path: "/ui",
     },
   ],
 } as RouterOptions);

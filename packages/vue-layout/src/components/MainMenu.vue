@@ -11,14 +11,12 @@ export default {
 <script setup lang="ts">
 import { ResponsiveMenu } from "@dzangolab/vue3-ui";
 
-const routes = [
-  {
-    name: "Home",
-    route: "home",
+import type { PropType } from "vue";
+
+defineProps({
+  routes: {
+    required: true,
+    type: Array as PropType<{ name: string; route: string }[]>,
   },
-  {
-    name: "About",
-    route: "about",
-  },
-];
+});
 </script>

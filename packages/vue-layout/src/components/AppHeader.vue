@@ -4,7 +4,12 @@
       <Logo class="logo" />
     </slot>
     <slot name="menu">
-      <MainMenu class="mainMenu" :class="{ menuExpanded: expanded }" />
+      <MainMenu
+        v-if="layoutConfig?.mainMenu"
+        class="mainMenu"
+        :class="{ menuExpanded: expanded }"
+        :routes="layoutConfig?.mainMenu"
+      />
     </slot>
     <slot name="userMenu"> </slot>
     <slot name="locales">
@@ -32,11 +37,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useConfig } from "@dzangolab/vue3-config";
 import { LocaleSwitcher } from "@dzangolab/vue3-i18n";
 import { Icon } from "@iconify/vue";
 
 import Logo from "./Logo.vue";
 import MainMenu from "./MainMenu.vue";
+
+const { layout: layoutConfig } = useConfig();
 </script>
 
 <style lang="css">
