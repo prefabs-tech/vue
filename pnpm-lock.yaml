@@ -47,10 +47,10 @@ importers:
       vue-router: 4.1.6
       vue-tsc: 1.0.24
     dependencies:
-      '@dzangolab/vue3-config': link:../../packages/vue-config
-      '@dzangolab/vue3-i18n': link:../../packages/vue-i18n
-      '@dzangolab/vue3-layout': link:../../packages/vue-layout
-      '@dzangolab/vue3-ui': link:../../packages/vue-ui
+      '@dzangolab/vue3-config': 0.6.5_lavcef455lp3wtm2mcdrwhgymm
+      '@dzangolab/vue3-i18n': 0.6.5_qoakz7wjztquhecrn6uarbdkaa
+      '@dzangolab/vue3-layout': 0.6.5_qvl4prwnv34oh5aitdez5t6uhi
+      '@dzangolab/vue3-ui': 0.6.5_vue@3.2.47
       '@kyvg/vue3-notification': 2.8.0_vue@3.2.47
       pinia: 2.0.30_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
@@ -85,9 +85,9 @@ importers:
       '@vitejs/plugin-vue-jsx': 3.0.0
       '@vitest/coverage-istanbul': 0.28.4
       eslint: 8.34.0
-      eslint-config-custom: workspace:*
+      eslint-config-custom: 0.6.6
       prettier: 2.8.4
-      tsconfig-custom: workspace:*
+      tsconfig-custom: 0.6.6
       typescript: 4.9.5
       vite: 4.1.1
       vitest: 0.28.4
@@ -116,18 +116,18 @@ importers:
 
   packages/vue-i18n:
     specifiers:
-      '@dzangolab/vue3-config': 0.6.5
+      '@dzangolab/vue3-config': 0.6.6
       '@types/node': 18.13.0
       '@vitejs/plugin-vue': 4.0.0
       '@vitejs/plugin-vue-jsx': 3.0.0
       '@vitest/coverage-istanbul': 0.28.4
       '@vueuse/core': 9.12.0
       eslint: 8.34.0
-      eslint-config-custom: workspace:*
+      eslint-config-custom: 0.6.6
       jsdom: 21.1.0
       pinia: 2.0.30
       prettier: 2.8.4
-      tsconfig-custom: workspace:*
+      tsconfig-custom: 0.6.6
       typescript: 4.9.5
       vite: 4.1.1
       vitest: 0.28.4
@@ -157,9 +157,9 @@ importers:
 
   packages/vue-layout:
     specifiers:
-      '@dzangolab/vue3-config': 0.6.5
-      '@dzangolab/vue3-i18n': 0.6.5
-      '@dzangolab/vue3-ui': 0.6.5
+      '@dzangolab/vue3-config': 0.6.6
+      '@dzangolab/vue3-i18n': 0.6.6
+      '@dzangolab/vue3-ui': 0.6.6
       '@iconify/vue': 4.1.0
       '@types/node': 18.13.0
       '@vitejs/plugin-vue': 4.0.0
@@ -168,9 +168,9 @@ importers:
       '@vue/test-utils': 2.2.10
       '@vueuse/core': 9.12.0
       eslint: 8.34.0
-      eslint-config-custom: workspace:*
+      eslint-config-custom: 0.6.6
       prettier: 2.8.4
-      tsconfig-custom: workspace:*
+      tsconfig-custom: 0.6.6
       typescript: 4.9.5
       vite: 4.1.1
       vitest: 0.28.4
@@ -208,9 +208,9 @@ importers:
       '@vue/test-utils': 2.2.10
       '@vueuse/core': 9.12.0
       eslint: 8.34.0
-      eslint-config-custom: workspace:*
+      eslint-config-custom: 0.6.6
       prettier: 2.8.4
-      tsconfig-custom: workspace:*
+      tsconfig-custom: 0.6.6
       typescript: 4.9.5
       vite: 4.1.1
       vitest: 0.28.4
@@ -739,6 +739,62 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
+  /@dzangolab/vue3-config/0.6.5_lavcef455lp3wtm2mcdrwhgymm:
+    resolution: {integrity: sha512-GDvyR97UioNLp6+pofvJ7yn5e471e0UHwMCy5VhYB+aYR24deMQ88GellpkGu9zJrXPSsmRElyj7zsGwr/dIKA==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      vue: '>=3.2'
+      vue-router: '>=4.0'
+    dependencies:
+      '@sentry/tracing': 7.32.1
+      '@sentry/types': 7.32.1
+      '@sentry/vue': 7.32.1_vue@3.2.47
+      vue: 3.2.47
+      vue-router: 4.1.6_vue@3.2.47
+    dev: false
+
+  /@dzangolab/vue3-i18n/0.6.5_qoakz7wjztquhecrn6uarbdkaa:
+    resolution: {integrity: sha512-Qw2wCycM1pVlkoawkvztpf4iYHAzpvMlrawo4DTjhBd1n5wRD/dw9aJ+tRvZzAUuKpU9lxV5nOLBV8YF7h1I0w==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      '@dzangolab/vue3-config': 0.6.5
+      '@vueuse/core': '>=9.4.0'
+      pinia: '>=2.0'
+      vue: '>=3.2'
+    dependencies:
+      '@dzangolab/vue3-config': 0.6.5_lavcef455lp3wtm2mcdrwhgymm
+      pinia: 2.0.30_hmuptsblhheur2tugfgucj7gc4
+      vue: 3.2.47
+      vue-i18n: 9.1.10_vue@3.2.47
+    dev: false
+
+  /@dzangolab/vue3-layout/0.6.5_qvl4prwnv34oh5aitdez5t6uhi:
+    resolution: {integrity: sha512-v16v6YfR6TmqFpsDrmY1okCOEqQ8G0QKuBbtlDfaKtx0IKsl8xdk6flrT7R+TGwGIaLyJuAMyKaPHmzymfuBLg==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      '@dzangolab/vue3-config': ^0.6.5
+      vue: '>=3.2'
+      vue-router: '>=4.0'
+    dependencies:
+      '@dzangolab/vue3-config': 0.6.5_lavcef455lp3wtm2mcdrwhgymm
+      '@dzangolab/vue3-i18n': 0.6.5_qoakz7wjztquhecrn6uarbdkaa
+      '@dzangolab/vue3-ui': 0.6.5_vue@3.2.47
+      vue: 3.2.47
+      vue-router: 4.1.6_vue@3.2.47
+    transitivePeerDependencies:
+      - '@vueuse/core'
+      - pinia
+    dev: false
+
+  /@dzangolab/vue3-ui/0.6.5_vue@3.2.47:
+    resolution: {integrity: sha512-JX8NEFBe4QaS6xaTBQMucKSAM6GfHKtc0BY8jg7NyXamPi8Ze9R+VJWNhD47jWwodmouTxyXUi2yL9KLTSpf9g==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      vue: '>=3.2'
+    dependencies:
+      vue: 3.2.47
+    dev: false
+
   /@esbuild/android-arm/0.16.17:
     resolution: {integrity: sha512-N9x1CMXVhtWEAMS7pNNONyA14f71VPQN9Cnavj1XQh6T7bskqiLLrSca4O0Vr8Wdcga943eThxnVp3JLnBMYtw==}
     engines: {node: '>=12'}
@@ -1257,6 +1313,17 @@ packages:
       tslib: 2.4.1
     dev: false
 
+  /@sentry/browser/7.32.1:
+    resolution: {integrity: sha512-w2Ay8Y28maboyA/pgNRhNxCth0pCYsJ7co5oLVAGptjOFudeihD4Bx2wthz6sfk9DpxzqtUIGa54edcniyk14g==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry/core': 7.32.1
+      '@sentry/replay': 7.32.1
+      '@sentry/types': 7.32.1
+      '@sentry/utils': 7.32.1
+      tslib: 1.14.1
+    dev: false
+
   /@sentry/browser/7.37.1:
     resolution: {integrity: sha512-MfVbKzEVHKVH6ZyMCKLtPXvMtRCvxqQzrnK735sYW6EyMpcMYhukBU0pq7ws1E/KaCZjAJi1wDx2nqf2yPIVdQ==}
     engines: {node: '>=8'}
@@ -1265,6 +1332,15 @@ packages:
       '@sentry/replay': 7.37.1
       '@sentry/types': 7.37.1
       '@sentry/utils': 7.37.1
+      tslib: 1.14.1
+    dev: false
+
+  /@sentry/core/7.32.1:
+    resolution: {integrity: sha512-WHCFdlvK+YiGPjjmwLLvueH7zMYxLgNl0esCQUrqoTHhZ4asIV8k3/5OXgUi4kV2DW+NjzhmtK3qKeWZxgitfw==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry/types': 7.32.1
+      '@sentry/utils': 7.32.1
       tslib: 1.14.1
     dev: false
 
@@ -1277,6 +1353,15 @@ packages:
       tslib: 1.14.1
     dev: false
 
+  /@sentry/replay/7.32.1:
+    resolution: {integrity: sha512-nRy2upcZecRveMCatyeukNQQH39/9lSF/j6PhWTRyHcam5bvOb2d2mM0TiIfvYxNM1ePb+9SvX1W0qqpmvqyGA==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@sentry/core': 7.32.1
+      '@sentry/types': 7.32.1
+      '@sentry/utils': 7.32.1
+    dev: false
+
   /@sentry/replay/7.37.1:
     resolution: {integrity: sha512-3sHOE/oPirdvJbOn0IA/wpds12Sm2WaEtiAeC0+5Gg5mxQzFBLRrsA1Mz/ifzPGwr+ETn3sCyPCnd9b3PWaWMQ==}
     engines: {node: '>=12'}
@@ -1284,6 +1369,16 @@ packages:
       '@sentry/core': 7.37.1
       '@sentry/types': 7.37.1
       '@sentry/utils': 7.37.1
+    dev: false
+
+  /@sentry/tracing/7.32.1:
+    resolution: {integrity: sha512-MG67+DzsbEM0p7+g/H5DQqsjFCXkvF50gK2+8EpfO6N2uqYpELPMIeTkERtMiqjhkDZ11bokWKE33CvA/TEF5Q==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry/core': 7.32.1
+      '@sentry/types': 7.32.1
+      '@sentry/utils': 7.32.1
+      tslib: 1.14.1
     dev: false
 
   /@sentry/tracing/7.37.1:
@@ -1296,9 +1391,22 @@ packages:
       tslib: 1.14.1
     dev: false
 
+  /@sentry/types/7.32.1:
+    resolution: {integrity: sha512-yWS5no9Xxftgb6IGjj7iK6TvOk6rfy2H5gKcj4DrPqSWKmh0jfszUoX4B+olkt7H75sTSQqv3yiuMsySsMh+6Q==}
+    engines: {node: '>=8'}
+    dev: false
+
   /@sentry/types/7.37.1:
     resolution: {integrity: sha512-c2HWyWSgVA0V4+DSW2qVb0yjftrb1X/q2CzCom+ayjGHO72qyWC+9Tc+7ZfotU1mapRjqUWBgkXkbGmao8N8Ug==}
     engines: {node: '>=8'}
+    dev: false
+
+  /@sentry/utils/7.32.1:
+    resolution: {integrity: sha512-kZVpqRTC+UiI/PlSxEuv0G5G0lZeTZTL/pyRb8sptLhFo7QxEaGO/XCDNzWC4vQdm5PrpCVZ6w/XCYCHEhx4Tw==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry/types': 7.32.1
+      tslib: 1.14.1
     dev: false
 
   /@sentry/utils/7.37.1:
@@ -1307,6 +1415,20 @@ packages:
     dependencies:
       '@sentry/types': 7.37.1
       tslib: 1.14.1
+    dev: false
+
+  /@sentry/vue/7.32.1_vue@3.2.47:
+    resolution: {integrity: sha512-cFL1c1QCSAADmB5x8F49AAOJNuuJTlvACp9YtV3/FvjxL0gApKoGtXM/wySBPiImOPXpnkQLBPhPaGXU8Owm8g==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      vue: 2.x || 3.x
+    dependencies:
+      '@sentry/browser': 7.32.1
+      '@sentry/core': 7.32.1
+      '@sentry/types': 7.32.1
+      '@sentry/utils': 7.32.1
+      tslib: 1.14.1
+      vue: 3.2.47
     dev: false
 
   /@sentry/vue/7.37.1_vue@3.2.47:

@@ -1,3 +1,19 @@
+## [0.6.6](https://github.com/dzangolab/vue/compare/v0.6.5...v0.6.6) (2023-02-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency pinia to v2.0.30 ([#117](https://github.com/dzangolab/vue/issues/117)) ([079f710](https://github.com/dzangolab/vue/commit/079f71073fd3fa2a338ebc20f7976865ef6777f9))
+* **deps:** update sentry-javascript monorepo to v7.33.0 ([#92](https://github.com/dzangolab/vue/issues/92)) ([930bff6](https://github.com/dzangolab/vue/commit/930bff6b7ade093aeef44e38b6dd6b1ddde24e60))
+* **deps:** update sentry-javascript monorepo to v7.34.0 ([#94](https://github.com/dzangolab/vue/issues/94)) ([36fa667](https://github.com/dzangolab/vue/commit/36fa667ec824d34164821548b9548078e904929a))
+* **deps:** update sentry-javascript monorepo to v7.36.0 ([#104](https://github.com/dzangolab/vue/issues/104)) ([a9ad011](https://github.com/dzangolab/vue/commit/a9ad011db716fe191609aaa672ddb48fd1b89e7e))
+* **deps:** update sentry-javascript monorepo to v7.37.0 ([#113](https://github.com/dzangolab/vue/issues/113)) ([51c5cf6](https://github.com/dzangolab/vue/commit/51c5cf6bd59507600e3149d93c3bd4539ede7156))
+* **deps:** update sentry-javascript monorepo to v7.37.1 ([#114](https://github.com/dzangolab/vue/issues/114)) ([e290389](https://github.com/dzangolab/vue/commit/e290389df887eeb37b580944fb0db8e0676df6c3))
+* **deps:** update typescript-eslint monorepo to v5.50.0 ([#101](https://github.com/dzangolab/vue/issues/101)) ([0ce658c](https://github.com/dzangolab/vue/commit/0ce658cced6ff5fab90b89b08e78eb74b274624a))
+* **deps:** update typescript-eslint monorepo to v5.51.0 ([#109](https://github.com/dzangolab/vue/issues/109)) ([0282ae4](https://github.com/dzangolab/vue/commit/0282ae41f96ffb5b57852d32c911d96e868b872a))
+
+
+
 ## [0.6.5](https://github.com/dzangolab/vue/compare/v0.6.4...v0.6.5) (2023-01-24)
 
 
