@@ -27,6 +27,8 @@ const config: AppConfig = {
       "en") as string,
     messages: {
       en: en,
+      "en-GB": en,
+      "en-US": en,
       fr: fr,
     } as LocaleMessages<VueMessageType>,
     supportedLocales: (import.meta.env.VITE_I18N_LOCALES as string).split(","),

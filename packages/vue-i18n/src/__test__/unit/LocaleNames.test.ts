@@ -9,6 +9,8 @@ it("returns the list of locale names", () => {
   const localeNames = getLocaleNames(supportedLocales);
 
   for (const locale of supportedLocales) {
-    expect(localeNames[locale]).toEqual(nativeLocaleNames);
+    expect(localeNames[locale]).toEqual({
+      locales: nativeLocaleNames,
+    });
   }
 });

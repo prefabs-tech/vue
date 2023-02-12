@@ -3,10 +3,12 @@ import nativeLocaleNames from "./locales/native-locale-names";
 import type { LocaleMessages, VueMessageType } from "vue-i18n";
 
 const getLocaleNames = (supportedLocales: string[]) => {
-  const names: Record<string, Record<string, string>> = {};
+  const names: LocaleMessages<VueMessageType> = {};
 
   for (const locale of supportedLocales) {
-    names[locale as string] = nativeLocaleNames;
+    names[locale as string] = {
+      locales: nativeLocaleNames,
+    };
   }
 
   return names;
