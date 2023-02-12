@@ -23,27 +23,27 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     
     <nav
       class="menu mainMenu"
+      data-v-43605b7b=""
       data-v-48a13218=""
-      data-v-cfd096ed=""
     >
       <ul
-        data-v-cfd096ed=""
+        data-v-43605b7b=""
       >
         
         <li
-          data-v-cfd096ed=""
+          data-v-43605b7b=""
         >
           <a
-            data-v-cfd096ed=""
+            data-v-43605b7b=""
           >
             Home
           </a>
         </li>
         <li
-          data-v-cfd096ed=""
+          data-v-43605b7b=""
         >
           <a
-            data-v-cfd096ed=""
+            data-v-43605b7b=""
           >
             About
           </a>
