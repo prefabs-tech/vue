@@ -1,5 +1,9 @@
 <template>
-  <ResponsiveMenu :routes="routes" />
+  <ResponsiveMenu
+    ref="mainMenu"
+    :routes="routes"
+    @change-route="$emit('close')"
+  />
 </template>
 
 <script lang="ts">
@@ -12,6 +16,10 @@ export default {
 import { ResponsiveMenu } from "@dzangolab/vue3-ui";
 
 import type { PropType } from "vue";
+
+defineEmits<{
+  (e: "close"): void;
+}>();
 
 defineProps({
   routes: {

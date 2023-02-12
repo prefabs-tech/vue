@@ -1,119 +1,135 @@
 // Vitest Snapshot v1
 
 exports[`AppHeader Snapshot > matches snapshot 1`] = `
-<header>
+<header
+  data-v-48a13218=""
+>
   
-  <img
-    alt=""
+  <a
     class="logo"
-    src="logo.png"
-  />
-  
+    data-v-48a13218=""
+  >
+    <img
+      alt=""
+      class="logo"
+      src="logo.png"
+    />
+  </a>
   
   <nav
-    class="menu mainMenu"
-    data-v-e9db1b61=""
+    data-expanded="false"
+    data-v-48a13218=""
   >
-    <ul
-      data-v-e9db1b61=""
+    
+    <nav
+      class="menu mainMenu"
+      data-v-48a13218=""
+      data-v-cfd096ed=""
     >
-      
-      <li
-        data-v-e9db1b61=""
+      <ul
+        data-v-cfd096ed=""
       >
-        <a
-          data-v-e9db1b61=""
+        
+        <li
+          data-v-cfd096ed=""
         >
-          Home
-        </a>
-      </li>
-      <li
-        data-v-e9db1b61=""
-      >
-        <a
-          data-v-e9db1b61=""
-        >
-          About
-        </a>
-      </li>
-      
-    </ul>
-  </nav>
-  
-  
-  
-  
-  <nav
-    class="locale-switcher locales"
-    data-v-16600ebb=""
-  >
-    <div
-      class="locale truncated"
-      data-v-16600ebb=""
-    >
-      locales.en-US
-    </div>
-    <span
-      class="truncated"
-      data-v-16600ebb=""
-    >
-      ▾
-    </span>
-    <ul
-      class="dropdown"
-      data-v-16600ebb=""
-    >
-      
-      <li
-        class="truncated"
-        data-v-16600ebb=""
-      >
-        <div
-          class="locale"
-          data-v-16600ebb=""
-          data-v-5ee88038=""
-        >
-          <span
-            class="badge"
-            data-v-5ee88038=""
-            data-v-cc356c95=""
+          <a
+            data-v-cfd096ed=""
           >
-            en 
-            <!---->
-          </span>
-           locales.en
-        </div>
-      </li>
-      <li
-        class="truncated"
-        data-v-16600ebb=""
-      >
-        <div
-          class="locale"
-          data-v-16600ebb=""
-          data-v-5ee88038=""
+            Home
+          </a>
+        </li>
+        <li
+          data-v-cfd096ed=""
         >
-          <span
-            class="badge"
-            data-v-5ee88038=""
-            data-v-cc356c95=""
+          <a
+            data-v-cfd096ed=""
           >
-            fr 
-            <!---->
-          </span>
-           locales.fr
-        </div>
-      </li>
-      
-    </ul>
+            About
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    
+    
+    <nav
+      class="locale-switcher locales"
+      data-v-06ab71f8=""
+      data-v-48a13218=""
+    >
+      <div
+        class="locale truncated"
+        data-v-06ab71f8=""
+      >
+        locales.en-US
+      </div>
+      <span
+        class="truncated"
+        data-v-06ab71f8=""
+      >
+        ▾
+      </span>
+      <ul
+        class="dropdown"
+        data-v-06ab71f8=""
+      >
+        
+        <li
+          class="truncated"
+          data-v-06ab71f8=""
+        >
+          <div
+            class="locale"
+            data-v-06ab71f8=""
+            data-v-5ee88038=""
+          >
+            <span
+              class="badge"
+              data-v-5ee88038=""
+              data-v-cc356c95=""
+            >
+              en 
+              <!---->
+            </span>
+             locales.en
+          </div>
+        </li>
+        <li
+          class="truncated"
+          data-v-06ab71f8=""
+        >
+          <div
+            class="locale"
+            data-v-06ab71f8=""
+            data-v-5ee88038=""
+          >
+            <span
+              class="badge"
+              data-v-5ee88038=""
+              data-v-cc356c95=""
+            >
+              fr 
+              <!---->
+            </span>
+             locales.fr
+          </div>
+        </li>
+        
+      </ul>
+    </nav>
+    
   </nav>
-  
-  
   <div
     class="toggle"
+    data-v-48a13218=""
   >
+    
     <svg
       aria-hidden="true"
+      data-v-48a13218=""
       height="1.5rem"
       role="img"
       viewBox="0 0 16 16"
@@ -121,7 +137,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
     />
+    
   </div>
-  
 </header>
 `;

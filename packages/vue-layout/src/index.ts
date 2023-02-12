@@ -18,7 +18,7 @@ import type { App } from "vue";
 
 declare module "@dzangolab/vue3-config" {
   interface AppConfig {
-    layout: DzangolabVue3LayoutConfig;
+    layout?: DzangolabVue3LayoutConfig;
   }
 }
 

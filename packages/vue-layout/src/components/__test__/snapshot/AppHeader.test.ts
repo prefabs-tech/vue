@@ -3,8 +3,7 @@ import i18nPlugin from "@dzangolab/vue3-i18n";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import AppHeader from "@/components/AppHeader.vue";
-
+import AppHeader from "../../AppHeader.vue";
 import config from "../config";
 
 import type { VueWrapper } from "@vue/test-utils";

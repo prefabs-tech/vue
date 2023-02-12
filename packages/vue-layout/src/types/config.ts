@@ -3,6 +3,7 @@ import type { AppConfig } from "@dzangolab/vue3-config";
 import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
 
 interface DzangolabVue3LayoutConfig {
+  homeRoute?: "home" | string;
   mainMenu?: MenuItem[];
 }
 
