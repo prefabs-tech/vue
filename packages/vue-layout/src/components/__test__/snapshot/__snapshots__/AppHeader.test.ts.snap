@@ -64,7 +64,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
         class="locale truncated"
         data-v-06ab71f8=""
       >
-        locales.en-US
+        English (US)
       </div>
       <span
         class="truncated"
@@ -94,7 +94,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
               en 
               <!---->
             </span>
-             locales.en
+             English
           </div>
         </li>
         <li
@@ -114,7 +114,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
               fr 
               <!---->
             </span>
-             locales.fr
+             Français
           </div>
         </li>
         
