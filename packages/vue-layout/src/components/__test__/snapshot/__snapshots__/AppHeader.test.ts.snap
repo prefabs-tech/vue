@@ -23,27 +23,27 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     
     <nav
       class="menu mainMenu"
-      data-v-43605b7b=""
+      data-v-007f6a1d=""
       data-v-48a13218=""
     >
       <ul
-        data-v-43605b7b=""
+        data-v-007f6a1d=""
       >
         
         <li
-          data-v-43605b7b=""
+          data-v-007f6a1d=""
         >
           <a
-            data-v-43605b7b=""
+            data-v-007f6a1d=""
           >
             Home
           </a>
         </li>
         <li
-          data-v-43605b7b=""
+          data-v-007f6a1d=""
         >
           <a
-            data-v-43605b7b=""
+            data-v-007f6a1d=""
           >
             About
           </a>
@@ -89,7 +89,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
             <span
               class="badge"
               data-v-5ee88038=""
-              data-v-cc356c95=""
+              data-v-77555a4b=""
             >
               en 
               <!---->
@@ -109,7 +109,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
             <span
               class="badge"
               data-v-5ee88038=""
-              data-v-cc356c95=""
+              data-v-77555a4b=""
             >
               fr 
               <!---->

@@ -106,6 +106,7 @@ const toggle = () => {
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 1;
 }
 
 .layout header > nav[data-expanded="false"] {

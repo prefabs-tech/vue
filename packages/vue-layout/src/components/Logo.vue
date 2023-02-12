@@ -12,7 +12,6 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
-import { useRouter } from "vue-router";
 
 import type { PropType } from "vue";
 

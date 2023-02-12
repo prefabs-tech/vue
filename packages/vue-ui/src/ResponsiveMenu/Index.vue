@@ -37,30 +37,30 @@ defineProps({
 
 <style lang="css" scoped>
 nav.menu > ul {
-  align-items: start;
+  align-items: stretch;
   display: flex;
   flex-direction: column;
   gap: var(--menu-gap, 0);
   justify-content: flex-start;
   list-style: none;
-  padding: 0;
   margin-left: var(--menu-margin-left, 0.25em);
+  padding: 0;
+}
+
+nav.menu li {
+  padding: 0.5rem 0;
+}
+
+nav.menu a {
+  color: inherit;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 576px) {
   nav.menu > ul {
     align-items: center;
     flex-direction: row;
+    gap: var(--menu-gap, 0.5em);
   }
-}
-
-nav.menu > ul > li {
-  padding: 0.5rem 0;
-  width: 100%;
-}
-
-nav.menu > ul > li > a {
-  color: inherit;
-  text-decoration: none;
 }
 </style>
