@@ -1,9 +1,9 @@
 <template>
-  <Page :title="$t('home.title')"> </Page>
+  <Page :title="$t('ui.title')"> </Page>
 </template>
 
 <script lang="ts">
 export default {
-  name: "Home",
+  name: "UI",
 };
 </script>

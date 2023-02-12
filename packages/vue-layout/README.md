@@ -103,6 +103,14 @@ const router: Router = createRouter({
 export default router;
 ```
 
+## Configuration
+
+| Name | Type | Description | Default value |
+|------|------|-------------|---------------|
+| `homeRoute` | `string` | The name of the "home" route, ie the route that points to your app's home page | `home` |
+| `mainMenu` | `{ name: string; route: string; }[]` | An array of items to display in the app header's main menu | none |
+
+
 ## CSS Variables
 
 ### Basic layout

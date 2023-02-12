@@ -1,4 +1,16 @@
+import nativeLocaleNames from "./locales/native-locale-names";
+
 import type { LocaleMessages, VueMessageType } from "vue-i18n";
+
+const getLocaleNames = (supportedLocales: string[]) => {
+  const names: Record<string, Record<string, string>> = {};
+
+  for (const locale of supportedLocales) {
+    names[locale as string] = nativeLocaleNames;
+  }
+
+  return names;
+};
 
 const getPreferredLocale = (
   languages: readonly string[],
@@ -68,4 +80,4 @@ const prependMessages = (
   return m;
 };
 
-export { getPreferredLocale, prependMessages };
+export { getLocaleNames, getPreferredLocale, prependMessages };

@@ -1,8 +1,4 @@
 {
-  "about": {
-    "subtitle": "Subtitle",
-    "title": "About this app"
-  },
   "header": {
     "menu": {
       "about": "About",
@@ -11,8 +7,5 @@
       "login": "Login",
       "logout": "Logout"
     }
-  },
-  "home": {
-    "title": "Welcome to Dzangolab Vue3 Demo"
   }
 }

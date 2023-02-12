@@ -31,6 +31,30 @@ const config: AppConfig = {
     } as LocaleMessages<VueMessageType>,
     supportedLocales: (import.meta.env.VITE_I18N_LOCALES as string).split(","),
   },
+  layout: {
+    mainMenu: [
+      {
+        name: "Home",
+        route: "home",
+      },
+      {
+        name: "Layout",
+        route: "layout",
+      },
+      {
+        name: "UI",
+        route: "ui",
+      },
+      {
+        name: "Sentry",
+        route: "sentry",
+      },
+      {
+        name: "About",
+        route: "about",
+      },
+    ],
+  },
   sentry: {
     dsn: import.meta.env.VITE_SENTRY_DSN,
     enabled: parse(import.meta.env.VITE_SENTRY_ENABLED, false) as boolean,

@@ -21,7 +21,7 @@ app.use(pinia);
 app.use(configPlugin, { config });
 app.use(i18nPlugin, { config });
 app.use(uiPlugin);
-app.use(layoutPlugin, { translations: config.i18n.messages });
+app.use(layoutPlugin, { config, translations: config.i18n.messages });
 
 app.use(router);
 

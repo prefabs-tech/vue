@@ -1,34 +1,143 @@
 // Vitest Snapshot v1
 
 exports[`AppHeader Snapshot > matches snapshot 1`] = `
-<header>
+<header
+  data-v-48a13218=""
+>
   
-  <logo-stub
+  <a
     class="logo"
-    logo="logo.png"
-  />
+    data-v-48a13218=""
+  >
+    <img
+      alt=""
+      class="logo"
+      src="logo.png"
+    />
+  </a>
   
-  
-  <main-menu-stub
-    class="mainMenu"
-  />
-  
-  
-  
-  
-  <locale-switcher-stub
-    class="locales"
-  />
-  
-  
+  <nav
+    data-expanded="false"
+    data-v-48a13218=""
+  >
+    
+    <nav
+      class="menu mainMenu"
+      data-v-43605b7b=""
+      data-v-48a13218=""
+    >
+      <ul
+        data-v-43605b7b=""
+      >
+        
+        <li
+          data-v-43605b7b=""
+        >
+          <a
+            data-v-43605b7b=""
+          >
+            Home
+          </a>
+        </li>
+        <li
+          data-v-43605b7b=""
+        >
+          <a
+            data-v-43605b7b=""
+          >
+            About
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    
+    
+    <nav
+      class="locale-switcher locales"
+      data-v-06ab71f8=""
+      data-v-48a13218=""
+    >
+      <div
+        class="locale truncated"
+        data-v-06ab71f8=""
+      >
+        locales.en-US
+      </div>
+      <span
+        class="truncated"
+        data-v-06ab71f8=""
+      >
+        ▾
+      </span>
+      <ul
+        class="dropdown"
+        data-v-06ab71f8=""
+      >
+        
+        <li
+          class="truncated"
+          data-v-06ab71f8=""
+        >
+          <div
+            class="locale"
+            data-v-06ab71f8=""
+            data-v-5ee88038=""
+          >
+            <span
+              class="badge"
+              data-v-5ee88038=""
+              data-v-cc356c95=""
+            >
+              en 
+              <!---->
+            </span>
+             locales.en
+          </div>
+        </li>
+        <li
+          class="truncated"
+          data-v-06ab71f8=""
+        >
+          <div
+            class="locale"
+            data-v-06ab71f8=""
+            data-v-5ee88038=""
+          >
+            <span
+              class="badge"
+              data-v-5ee88038=""
+              data-v-cc356c95=""
+            >
+              fr 
+              <!---->
+            </span>
+             locales.fr
+          </div>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  </nav>
   <div
     class="toggle"
+    data-v-48a13218=""
   >
-    <anonymous-stub
+    
+    <svg
+      aria-hidden="true"
+      data-v-48a13218=""
       height="1.5rem"
-      icon="fa6-solid:bars"
+      role="img"
+      viewBox="0 0 16 16"
+      width="1.5rem"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
     />
+    
   </div>
-  
 </header>
 `;
