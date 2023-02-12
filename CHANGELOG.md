@@ -1,3 +1,14 @@
+## [0.6.7](https://github.com/dzangolab/vue/compare/v0.6.5...v0.6.7) (2023-02-12)
+
+
+### Bug Fixes
+
+* **i18n:** fix locale badge in locale switcher ([63b1765](https://github.com/dzangolab/vue/commit/63b17657413969d3b24e58f45eb3eae6ea16896a))
+* **i18n:** fix locale names ([f478a8d](https://github.com/dzangolab/vue/commit/f478a8da67392debac0e72e175cae6df6ad0ce31))
+* **layout:** fix layout header ([9b5f07b](https://github.com/dzangolab/vue/commit/9b5f07b61b88cadf1f2c9a4b79d652510369a4da))
+
+
+
 ## [0.6.6](https://github.com/dzangolab/vue/compare/v0.6.5...v0.6.6) (2023-02-12)
 
 
