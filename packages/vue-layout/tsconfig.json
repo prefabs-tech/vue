@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/base",
+  "extends": "tsconfig-custom/base",
   "exclude": [
     "src/**/__test__/**/*",
   ],

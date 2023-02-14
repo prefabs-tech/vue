@@ -5,6 +5,9 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "dev": {
+      "outputs": []
+    },
     "lint": {
       "env": ["NODE_ENV"],
       "outputs": []

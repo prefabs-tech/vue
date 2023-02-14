@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/base",
+  "extends": "tsconfig-custom/base",
   "compilerOptions": {
     "module": "esnext",
     "outDir": "./dist/src"

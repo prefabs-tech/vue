@@ -1,9 +1,8 @@
 import { createI18n as baseCreateI18n, useI18n } from "vue-i18n";
 
 import LocaleSwitcher from "./locale-switcher/Index.vue";
-import localeNames from "./locales/locales";
 import useLocaleStore from "./store";
-import { getPreferredLocale, prependMessages } from "./utils";
+import { getLocaleNames, getPreferredLocale, prependMessages } from "./utils";
 
 import type { AppConfig } from "@dzangolab/vue3-config";
 import type { App, Plugin } from "vue";
@@ -26,7 +25,10 @@ const createI18n = (options: DzangolabVueI18nPluginOptions): Plugin => {
     setLocale(preferred);
   }
 
-  const messages = prependMessages(localeNames, i18nOptions?.messages);
+  const messages = prependMessages(
+    getLocaleNames(i18nOptions.supportedLocales),
+    i18nOptions?.messages
+  );
 
   const i18n = baseCreateI18n({
     ...i18nOptions,
