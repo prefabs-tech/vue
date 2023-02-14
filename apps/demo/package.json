@@ -14,7 +14,7 @@
   "dependencies": {
     "@dzangolab/vue3-config": "0.6.9",
     "@dzangolab/vue3-i18n": "0.6.9",
-    "@dzangolab/vue3-layout": "0.6.9",
+    "@dzangolab/vue3-layout": "0.6.8",
     "@dzangolab/vue3-ui": "0.6.9",
     "@kyvg/vue3-notification": "2.8.0",
     "pinia": "2.0.30",
