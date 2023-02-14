@@ -35,7 +35,7 @@ defineProps({
 });
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 nav.menu > ul {
   align-items: stretch;
   display: flex;

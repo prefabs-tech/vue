@@ -92,7 +92,7 @@ const toggle = () => {
 .layout header > nav {
   align-items: stretch;
   background-color: #fff;
-  border-bottom: 1px solid var(--header-border-color, #000);
+  border-bottom: 1px solid var(--menu-border-color, #000);
   opacity: 1;
   display: flex;
   flex-direction: column;
