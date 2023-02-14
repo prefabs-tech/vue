@@ -1,3 +1,48 @@
+## [0.6.10](https://github.com/dzangolab/vue/compare/v0.6.9...v0.6.10) (2023-02-14)
+
+
+
+## [0.6.9](https://github.com/dzangolab/vue/compare/v0.6.8...v0.6.9) (2023-02-14)
+
+
+
+## [0.6.8](https://github.com/dzangolab/vue/compare/v0.6.7...v0.6.8) (2023-02-14)
+
+
+### Bug Fixes
+
+* **deps:** update sentry-javascript monorepo to v7.37.2 ([#129](https://github.com/dzangolab/vue/issues/129)) ([a4446c1](https://github.com/dzangolab/vue/commit/a4446c10ac1a9c40149c3be14b55fa0d8eae126d))
+* **deps:** update typescript-eslint monorepo to v5.52.0 ([#130](https://github.com/dzangolab/vue/issues/130)) ([987afb1](https://github.com/dzangolab/vue/commit/987afb1c2053f761b2af85a87aa503f59ec4cfed))
+
+
+
+## [0.6.7](https://github.com/dzangolab/vue/compare/v0.6.5...v0.6.7) (2023-02-12)
+
+
+### Bug Fixes
+
+* **i18n:** fix locale badge in locale switcher ([63b1765](https://github.com/dzangolab/vue/commit/63b17657413969d3b24e58f45eb3eae6ea16896a))
+* **i18n:** fix locale names ([f478a8d](https://github.com/dzangolab/vue/commit/f478a8da67392debac0e72e175cae6df6ad0ce31))
+* **layout:** fix layout header ([9b5f07b](https://github.com/dzangolab/vue/commit/9b5f07b61b88cadf1f2c9a4b79d652510369a4da))
+
+
+
+## [0.6.6](https://github.com/dzangolab/vue/compare/v0.6.5...v0.6.6) (2023-02-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency pinia to v2.0.30 ([#117](https://github.com/dzangolab/vue/issues/117)) ([079f710](https://github.com/dzangolab/vue/commit/079f71073fd3fa2a338ebc20f7976865ef6777f9))
+* **deps:** update sentry-javascript monorepo to v7.33.0 ([#92](https://github.com/dzangolab/vue/issues/92)) ([930bff6](https://github.com/dzangolab/vue/commit/930bff6b7ade093aeef44e38b6dd6b1ddde24e60))
+* **deps:** update sentry-javascript monorepo to v7.34.0 ([#94](https://github.com/dzangolab/vue/issues/94)) ([36fa667](https://github.com/dzangolab/vue/commit/36fa667ec824d34164821548b9548078e904929a))
+* **deps:** update sentry-javascript monorepo to v7.36.0 ([#104](https://github.com/dzangolab/vue/issues/104)) ([a9ad011](https://github.com/dzangolab/vue/commit/a9ad011db716fe191609aaa672ddb48fd1b89e7e))
+* **deps:** update sentry-javascript monorepo to v7.37.0 ([#113](https://github.com/dzangolab/vue/issues/113)) ([51c5cf6](https://github.com/dzangolab/vue/commit/51c5cf6bd59507600e3149d93c3bd4539ede7156))
+* **deps:** update sentry-javascript monorepo to v7.37.1 ([#114](https://github.com/dzangolab/vue/issues/114)) ([e290389](https://github.com/dzangolab/vue/commit/e290389df887eeb37b580944fb0db8e0676df6c3))
+* **deps:** update typescript-eslint monorepo to v5.50.0 ([#101](https://github.com/dzangolab/vue/issues/101)) ([0ce658c](https://github.com/dzangolab/vue/commit/0ce658cced6ff5fab90b89b08e78eb74b274624a))
+* **deps:** update typescript-eslint monorepo to v5.51.0 ([#109](https://github.com/dzangolab/vue/issues/109)) ([0282ae4](https://github.com/dzangolab/vue/commit/0282ae41f96ffb5b57852d32c911d96e868b872a))
+
+
+
 ## [0.6.5](https://github.com/dzangolab/vue/compare/v0.6.4...v0.6.5) (2023-01-24)
 
 

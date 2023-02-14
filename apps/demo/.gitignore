@@ -1,0 +1,7 @@
+.env*
+!.env.example
+**/*.log*
+/coverage
+/cypress/videos
+/dist
+/node_modules

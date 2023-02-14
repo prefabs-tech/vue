@@ -1,7 +1,11 @@
 <template>
   <nav class="menu">
     <ul>
-      <li v-for="(route, index) in routes" :key="index">
+      <li
+        v-for="(route, index) in routes"
+        :key="index"
+        @click="$emit('change-route', route.route)"
+      >
         <router-link :to="{ name: route.route }">
           {{ route.name }}
         </router-link>
@@ -19,6 +23,10 @@ export default {
 <script setup lang="ts">
 import type { PropType } from "vue";
 
+defineEmits<{
+  (e: "change-route", route: string): void;
+}>();
+
 defineProps({
   routes: {
     required: true,
@@ -27,31 +35,42 @@ defineProps({
 });
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 nav.menu > ul {
-  align-items: start;
+  align-items: stretch;
   display: flex;
   flex-direction: column;
-  gap: var(--grid-gap, 1rem);
+  gap: var(--menu-gap, 0);
   justify-content: flex-start;
   list-style: none;
+  margin-left: var(--menu-margin-left, 0.25em);
   padding: 0;
-  margin-left: 0.2rem;
+}
+
+nav.menu li {
+  padding: 0.5rem 0;
+}
+
+nav.menu li:hover {
+  background-color: var(--menu-highlight-color, grey);
+}
+
+nav.menu a {
+  color: inherit;
+  display: block;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 576px) {
   nav.menu > ul {
     align-items: center;
     flex-direction: row;
+    gap: var(--menu-gap, 0);
   }
-}
 
-nav.menu > ul > li {
-  padding: 0.25rem 0;
-}
-
-nav.menu > ul > li > a {
-  color: inherit;
-  text-decoration: none;
+  nav.menu li {
+    padding: var(--menu-item-padding-v, 0.25em)
+      var(--menu-item-padding-h, 0.5em);
+  }
 }
 </style>

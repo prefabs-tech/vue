@@ -3,27 +3,16 @@
 exports[`SignInUpMenu > matches snapshot in en 1`] = `
 <nav
   class="menu"
-  data-v-e9db1b61=""
 >
-  <ul
-    data-v-e9db1b61=""
-  >
+  <ul>
     
-    <li
-      data-v-e9db1b61=""
-    >
-      <a
-        data-v-e9db1b61=""
-      >
+    <li>
+      <a>
         Signin
       </a>
     </li>
-    <li
-      data-v-e9db1b61=""
-    >
-      <a
-        data-v-e9db1b61=""
-      >
+    <li>
+      <a>
         Signup
       </a>
     </li>
@@ -35,27 +24,16 @@ exports[`SignInUpMenu > matches snapshot in en 1`] = `
 exports[`SignInUpMenu > matches snapshot in fr 1`] = `
 <nav
   class="menu"
-  data-v-e9db1b61=""
 >
-  <ul
-    data-v-e9db1b61=""
-  >
+  <ul>
     
-    <li
-      data-v-e9db1b61=""
-    >
-      <a
-        data-v-e9db1b61=""
-      >
+    <li>
+      <a>
         Connexion
       </a>
     </li>
-    <li
-      data-v-e9db1b61=""
-    >
-      <a
-        data-v-e9db1b61=""
-      >
+    <li>
+      <a>
         Inscription
       </a>
     </li>

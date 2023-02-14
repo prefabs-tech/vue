@@ -3,32 +3,121 @@
 exports[`AppHeader Snapshot > matches snapshot 1`] = `
 <header>
   
-  <logo-stub
+  <a
     class="logo"
-    logo="logo.png"
-  />
+  >
+    <img
+      alt=""
+      src="/logo.png"
+    />
+  </a>
   
-  
-  <main-menu-stub
-    class="mainMenu"
-  />
-  
-  
-  
-  
-  <locale-switcher-stub
-    class="locales"
-  />
-  
-  
+  <nav
+    data-expanded="false"
+  >
+    
+    <nav
+      class="menu mainMenu"
+    >
+      <ul>
+        
+        <li>
+          <a>
+            Home
+          </a>
+        </li>
+        <li>
+          <a>
+            About
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    
+    
+    <nav
+      class="locale-switcher locales"
+      data-v-06ab71f8=""
+    >
+      <div
+        class="locale truncated"
+        data-v-06ab71f8=""
+      >
+        English (US)
+      </div>
+      <span
+        class="truncated"
+        data-v-06ab71f8=""
+      >
+        ▾
+      </span>
+      <ul
+        class="dropdown"
+        data-v-06ab71f8=""
+      >
+        
+        <li
+          class="truncated"
+          data-v-06ab71f8=""
+        >
+          <div
+            class="locale"
+            data-v-06ab71f8=""
+            data-v-5ee88038=""
+          >
+            <span
+              class="badge"
+              data-v-5ee88038=""
+              data-v-77555a4b=""
+            >
+              en 
+              <!---->
+            </span>
+             English
+          </div>
+        </li>
+        <li
+          class="truncated"
+          data-v-06ab71f8=""
+        >
+          <div
+            class="locale"
+            data-v-06ab71f8=""
+            data-v-5ee88038=""
+          >
+            <span
+              class="badge"
+              data-v-5ee88038=""
+              data-v-77555a4b=""
+            >
+              fr 
+              <!---->
+            </span>
+             Français
+          </div>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  </nav>
   <div
     class="toggle"
   >
-    <anonymous-stub
+    
+    <svg
+      aria-hidden="true"
       height="1.5rem"
-      icon="fa6-solid:bars"
+      role="img"
+      viewBox="0 0 16 16"
+      width="1.5rem"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
     />
+    
   </div>
-  
 </header>
 `;

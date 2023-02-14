@@ -1,8 +1,8 @@
 {
-  "extends": "tsconfig/base",
+  "extends": "tsconfig-custom/base",
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/src"
+    "outDir": "./dist/src",
   },
   "include": [
     "src/**/*",

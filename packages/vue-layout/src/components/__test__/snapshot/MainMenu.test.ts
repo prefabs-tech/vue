@@ -13,6 +13,18 @@ describe("MainMenu", () => {
           RouterLink: RouterLinkStub,
         },
       },
+      props: {
+        routes: [
+          {
+            name: "Home",
+            route: "home",
+          },
+          {
+            name: "About",
+            route: "about",
+          },
+        ],
+      },
     });
 
     expect(wrapper.html()).toMatchSnapshot();

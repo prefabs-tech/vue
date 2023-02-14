@@ -2,7 +2,8 @@ import i18nPlugin, { useLocaleStore } from "@dzangolab/vue3-i18n";
 import { shallowMount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import Copyright from "../../Copyright.vue";
+import Copyright from "@/components/Copyright.vue";
+
 import appConfig from "../config";
 
 import type { VueWrapper } from "@vue/test-utils";

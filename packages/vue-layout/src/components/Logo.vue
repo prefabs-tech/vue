@@ -1,5 +1,7 @@
 <template>
-  <img class="logo" :src="logo" alt="" @click="redirectToHome" />
+  <router-link :to="{ name: route }" class="logo">
+    <img :src="logo" alt="" />
+  </router-link>
 </template>
 
 <script lang="ts">
@@ -9,20 +11,19 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router";
+import { useConfig } from "@dzangolab/vue3-config";
 
 import type { PropType } from "vue";
 
 defineProps({
-  logo: {
-    default: "logo.png",
+  route: {
+    default: "home",
     type: String as PropType<string>,
   },
 });
 
-const router = useRouter();
+const { layout: layoutConfig } = useConfig();
 
-const redirectToHome = () => {
-  router.push({ name: "home" });
-};
+const logo =
+  layoutConfig && layoutConfig?.logo ? layoutConfig.logo : "/logo.png";
 </script>

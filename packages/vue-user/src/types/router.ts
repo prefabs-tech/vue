@@ -7,6 +7,7 @@ interface RouteOverride {
 }
 
 interface RouteOverrides {
+  home?: string;
   login: RouteOverride;
   signup: RouteOverride;
   passwordReset: RouteOverride;
