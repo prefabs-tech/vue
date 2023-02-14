@@ -51,8 +51,13 @@ nav.menu li {
   padding: 0.5rem 0;
 }
 
+nav.menu li:hover {
+  background-color: var(--menu-highlight-color, grey);
+}
+
 nav.menu a {
   color: inherit;
+  display: block;
   text-decoration: none;
 }
 
@@ -60,7 +65,12 @@ nav.menu a {
   nav.menu > ul {
     align-items: center;
     flex-direction: row;
-    gap: var(--menu-gap, 0.5em);
+    gap: var(--menu-gap, 0);
+  }
+
+  nav.menu li {
+    padding: var(--menu-item-padding-v, 0.25em)
+      var(--menu-item-padding-h, 0.5em);
   }
 }
 </style>
