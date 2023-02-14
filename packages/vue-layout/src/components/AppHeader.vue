@@ -55,7 +55,7 @@ const toggle = () => {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .layout header {
   align-items: center;
   border-bottom: 1px solid var(--header-border-color, var(--border-color, #000));
@@ -91,7 +91,9 @@ const toggle = () => {
 
 .layout header > nav {
   align-items: stretch;
-  background-color: var(--header-bg-color, transparent);
+  background-color: #fff;
+  border-bottom: 1px solid var(--menu-border-color, #000);
+  opacity: 1;
   display: flex;
   flex-direction: column;
   gap: var(--menu-gap, 1em);
@@ -106,7 +108,7 @@ const toggle = () => {
   padding-top: var(--header-padding-top, 1em);
   position: absolute;
   right: 0;
-  top: 0;
+  top: var(--ehader-padding-top, 1em);
   z-index: 1;
 }
 
@@ -129,12 +131,6 @@ const toggle = () => {
   flex: 1;
 }
 
-.layout header .userMenu {
-}
-
-.layout header .locales {
-}
-
 @media screen and (min-width: 576px) {
   .layout header {
     grid-template-areas: "logo nav";
@@ -144,12 +140,15 @@ const toggle = () => {
 
   .layout header > nav {
     align-items: center;
+    background-color: var(--header-bg-color, transparent);
+    border: none;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     margin: 0;
     padding: 0;
     position: relative;
+    top: 0;
   }
 
   .layout header > nav[data-expanded="false"] {

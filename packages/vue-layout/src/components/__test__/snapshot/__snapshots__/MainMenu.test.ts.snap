@@ -1,10 +1,10 @@
 // Vitest Snapshot v1
 
 exports[`MainMenu > matches snapshot 1`] = `
-"<nav data-v-007f6a1d=\\"\\" class=\\"menu\\">
-  <ul data-v-007f6a1d=\\"\\">
-    <li data-v-007f6a1d=\\"\\"><a data-v-007f6a1d=\\"\\">Home</a></li>
-    <li data-v-007f6a1d=\\"\\"><a data-v-007f6a1d=\\"\\">About</a></li>
+"<nav class=\\"menu\\">
+  <ul>
+    <li><a>Home</a></li>
+    <li><a>About</a></li>
   </ul>
 </nav>"
 `;

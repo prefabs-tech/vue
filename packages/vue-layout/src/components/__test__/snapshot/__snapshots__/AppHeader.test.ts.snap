@@ -1,13 +1,10 @@
 // Vitest Snapshot v1
 
 exports[`AppHeader Snapshot > matches snapshot 1`] = `
-<header
-  data-v-48a13218=""
->
+<header>
   
   <a
     class="logo"
-    data-v-48a13218=""
   >
     <img
       alt=""
@@ -18,33 +15,20 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
   
   <nav
     data-expanded="false"
-    data-v-48a13218=""
   >
     
     <nav
       class="menu mainMenu"
-      data-v-007f6a1d=""
-      data-v-48a13218=""
     >
-      <ul
-        data-v-007f6a1d=""
-      >
+      <ul>
         
-        <li
-          data-v-007f6a1d=""
-        >
-          <a
-            data-v-007f6a1d=""
-          >
+        <li>
+          <a>
             Home
           </a>
         </li>
-        <li
-          data-v-007f6a1d=""
-        >
-          <a
-            data-v-007f6a1d=""
-          >
+        <li>
+          <a>
             About
           </a>
         </li>
@@ -58,7 +42,6 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     <nav
       class="locale-switcher locales"
       data-v-06ab71f8=""
-      data-v-48a13218=""
     >
       <div
         class="locale truncated"
@@ -124,12 +107,10 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
   </nav>
   <div
     class="toggle"
-    data-v-48a13218=""
   >
     
     <svg
       aria-hidden="true"
-      data-v-48a13218=""
       height="1.5rem"
       role="img"
       viewBox="0 0 16 16"
