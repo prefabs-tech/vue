@@ -18,6 +18,18 @@ const config: AppConfig = {
     showVersion: true,
     sentry: true,
   },
+  layout: {
+    mainMenu: [
+      {
+        name: "Home",
+        route: "home",
+      },
+      {
+        name: "About",
+        route: "about",
+      },
+    ],
+  },
   sentry: {
     dsn: "tbd",
   },

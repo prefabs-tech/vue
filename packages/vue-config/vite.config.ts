@@ -25,5 +25,16 @@ export default defineConfig(({ mode }) => {
       },
       target: "esnext",
     },
+    resolve: {
+      alias: {
+        "@/": new URL("./src/", import.meta.url).pathname,
+      },
+    },
+    test: {
+      coverage: {
+        provider: "istanbul",
+        reporter: ["text", "json", "html"],
+      },
+    },
   };
 });

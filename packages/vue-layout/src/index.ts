@@ -1,3 +1,5 @@
+import "./assets/css/index.css";
+
 import { prependMessages } from "@dzangolab/vue3-i18n";
 import { inject } from "vue";
 
@@ -9,9 +11,24 @@ import BasicLayout from "./layouts/BasicLayout.vue";
 import NullLayout from "./layouts/NullLayout.vue";
 import messages from "./locales/messages.json";
 
-import type { LayoutType } from "./types";
-import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
+import type {
+  DzangolabVue3LayoutConfig,
+  DzangolabVue3LayoutPluginOptions,
+  LayoutType,
+} from "./types";
 import type { App } from "vue";
+
+declare module "@dzangolab/vue3-config" {
+  interface AppConfig {
+    layout?: DzangolabVue3LayoutConfig;
+  }
+}
+
+declare module "vue-router" {
+  interface RouteMeta {
+    layout?: LayoutType;
+  }
+}
 
 const __dzangolabVueLayoutTranslations = Symbol.for(
   "dzangolab.vue-layout.translations"
@@ -22,13 +39,10 @@ const useTranslations = () => {
 };
 
 const plugin = {
-  install: (
-    app: App,
-    options: { translations?: LocaleMessages<VueMessageType> }
-  ): void => {
+  install: (app: App, options: DzangolabVue3LayoutPluginOptions): void => {
     app.component("Layout", Layout);
 
-    const translations: LocaleMessages<VueMessageType> = options?.translations
+    const translations = options?.translations
       ? prependMessages(messages, options.translations)
       : messages;
 
@@ -48,4 +62,9 @@ export {
   useTranslations,
 };
 
-export type { LayoutType };
+export type {
+  DzangolabVue3LayoutConfig,
+  DzangolabVue3LayoutPluginOptions,
+  LayoutType,
+  MenuItem,
+} from "./types";

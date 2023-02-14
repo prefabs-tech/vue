@@ -51,15 +51,15 @@ const country = computed(() => {
 }
 
 .badge {
-  align-items: flex-start;
+  align-items: center;
   background-color: var(--locale-switcher-badge-bg-color, #c6deff);
   border-radius: 50%;
   display: flex;
   font-size: 0.9rem;
-  height: 1.5rem;
+  height: 2em;
   justify-content: center;
   position: relative;
   text-align: center;
-  width: 1.5rem;
+  width: 2em;
 }
 </style>

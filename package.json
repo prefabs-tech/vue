@@ -1,9 +1,10 @@
 {
   "name": "@dzangolab/vue",
-  "version": "0.6.5",
+  "version": "0.6.9",
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "dev": "turbo run dev --parallel --no-cache",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "prepare": "husky install",
@@ -15,8 +16,8 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.2",
-    "@commitlint/config-conventional": "17.4.2",
+    "@commitlint/cli": "17.4.3",
+    "@commitlint/config-conventional": "17.4.3",
     "eslint-config-custom": "workspace:*",
     "husky": "8.0.3",
     "shipjs": "0.25.1",

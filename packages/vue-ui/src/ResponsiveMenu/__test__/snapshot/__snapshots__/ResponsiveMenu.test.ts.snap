@@ -3,72 +3,41 @@
 exports[`ResponsiveMenu > should render 1`] = `
 <nav
   class="menu"
-  data-v-52282577=""
 >
-  <ul
-    data-v-52282577=""
-  >
+  <ul>
     
-    <li
-      data-v-52282577=""
-    >
-      <a
-        data-v-52282577=""
-      >
+    <li>
+      <a>
         Home
       </a>
     </li>
-    <li
-      data-v-52282577=""
-    >
-      <a
-        data-v-52282577=""
-      >
+    <li>
+      <a>
         About
       </a>
     </li>
-    <li
-      data-v-52282577=""
-    >
-      <a
-        data-v-52282577=""
-      >
+    <li>
+      <a>
         Test
       </a>
     </li>
-    <li
-      data-v-52282577=""
-    >
-      <a
-        data-v-52282577=""
-      >
+    <li>
+      <a>
         Abc
       </a>
     </li>
-    <li
-      data-v-52282577=""
-    >
-      <a
-        data-v-52282577=""
-      >
+    <li>
+      <a>
         Hello
       </a>
     </li>
-    <li
-      data-v-52282577=""
-    >
-      <a
-        data-v-52282577=""
-      >
+    <li>
+      <a>
         Namaste
       </a>
     </li>
-    <li
-      data-v-52282577=""
-    >
-      <a
-        data-v-52282577=""
-      >
+    <li>
+      <a>
         Check
       </a>
     </li>

@@ -1,3 +1,5 @@
+import "./assets/css/index.css";
+
 import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
 import Errors from "./Errors/Index.vue";
