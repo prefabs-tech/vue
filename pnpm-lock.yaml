@@ -23,7 +23,7 @@ importers:
       '@dzangolab/vue3-config': 0.6.9
       '@dzangolab/vue3-i18n': 0.6.9
       '@dzangolab/vue3-layout': 0.6.9
-      '@dzangolab/vue3-ui': 0.6.9
+      '@dzangolab/vue3-ui': 0.6.8
       '@kyvg/vue3-notification': 2.8.0
       '@types/jsdom': 21.1.0
       '@types/node': 18.13.0
@@ -50,7 +50,7 @@ importers:
       '@dzangolab/vue3-config': link:../../packages/vue-config
       '@dzangolab/vue3-i18n': link:../../packages/vue-i18n
       '@dzangolab/vue3-layout': link:../../packages/vue-layout
-      '@dzangolab/vue3-ui': link:../../packages/vue-ui
+      '@dzangolab/vue3-ui': 0.6.8_vue@3.2.47
       '@kyvg/vue3-notification': 2.8.0_vue@3.2.47
       pinia: 2.0.30_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
@@ -159,7 +159,7 @@ importers:
     specifiers:
       '@dzangolab/vue3-config': 0.6.9
       '@dzangolab/vue3-i18n': 0.6.9
-      '@dzangolab/vue3-ui': 0.6.9
+      '@dzangolab/vue3-ui': 0.6.8
       '@iconify/vue': 4.1.0
       '@types/node': 18.13.0
       '@vitejs/plugin-vue': 4.0.0
@@ -180,7 +180,7 @@ importers:
     devDependencies:
       '@dzangolab/vue3-config': link:../vue-config
       '@dzangolab/vue3-i18n': link:../vue-i18n
-      '@dzangolab/vue3-ui': link:../vue-ui
+      '@dzangolab/vue3-ui': 0.6.8_vue@3.2.47
       '@iconify/vue': 4.1.0_vue@3.2.47
       '@types/node': 18.13.0
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
@@ -738,6 +738,14 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
+
+  /@dzangolab/vue3-ui/0.6.8_vue@3.2.47:
+    resolution: {integrity: sha512-xLZsncTBmt4sCKAVv1S9KKdp3+Fq0iUsJJxLboUFyzqgmy9SgpZFcSW/w5RLYW/U5+RbxiFuhgbirfMxFmXORQ==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      vue: '>=3.2'
+    dependencies:
+      vue: 3.2.47
 
   /@esbuild/android-arm/0.16.17:
     resolution: {integrity: sha512-N9x1CMXVhtWEAMS7pNNONyA14f71VPQN9Cnavj1XQh6T7bskqiLLrSca4O0Vr8Wdcga943eThxnVp3JLnBMYtw==}
