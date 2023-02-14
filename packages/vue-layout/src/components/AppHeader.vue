@@ -58,7 +58,7 @@ const toggle = () => {
 <style lang="css" scoped>
 .layout header {
   align-items: center;
-  border-bottom: 1px solid var(--header-border-color, #555);
+  border-bottom: 1px solid var(--header-border-color, var(--border-color, #000));
   display: grid;
   font-size: var(--header-font-size, 1rem);
   gap: var(--header-gap, 0.5em);
@@ -75,22 +75,23 @@ const toggle = () => {
 
 .layout header::before {
   content: "";
-  background-color: var(--header-bg-color, lightblue);
-  box-shadow: 0 0 0 100vmax var(--header-bg-color, lightblue);
+  background-color: var(--header-bg-color, transparent);
+  box-shadow: 0 0 0 100vmax var(--header-bg-color, transparent);
   clip-path: inset(
     calc(-1 * var(--header-padding-top, 1em)) -100vmax calc(
         -1 * var(--header-padding-bottom, 1em)
       ) -100vmax
   );
-  grid-column: 1 / 2;
+  grid-column: 1 / span 2;
   grid-row: 1 / 1;
   height: 100%;
+  width: 100%;
   z-index: -1;
 }
 
 .layout header > nav {
   align-items: stretch;
-  background-color: var(--header-bg-color, lightblue);
+  background-color: var(--header-bg-color, transparent);
   display: flex;
   flex-direction: column;
   gap: var(--menu-gap, 1em);

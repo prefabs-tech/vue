@@ -1,3 +1,5 @@
+import "./assets/css/index.css";
+
 import { prependMessages } from "@dzangolab/vue3-i18n";
 import { inject } from "vue";
 

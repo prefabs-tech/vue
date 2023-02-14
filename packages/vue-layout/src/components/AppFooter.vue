@@ -36,7 +36,7 @@ const config = useConfig() as AppConfig;
 footer {
   align-items: center;
   background-color: var(--footer-bg-color, transparent);
-  border-top: 1px solid var(--footer-border-color, #4169e1);
+  border-top: 1px solid var(--footer-border-color, #000);
   box-shadow: 0 0 0 100vmax var(--footer-bg-color, transparent);
   clip-path: inset(0 -100vmax);
   display: flex;

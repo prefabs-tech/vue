@@ -13,6 +13,7 @@ import router from "./router";
 import "@dzangolab/vue3-ui/dist/DzangolabVue3UI.css";
 import "@dzangolab/vue3-i18n/dist/DzangolabVue3I18n.css";
 import "@dzangolab/vue3-layout/dist/DzangolabVue3Layout.css";
+import "./assets/css/index.css";
 
 const pinia = createPinia();
 const app = createApp(App);
