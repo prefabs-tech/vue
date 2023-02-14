@@ -58,7 +58,7 @@ const toggle = () => {
 <style lang="css" scoped>
 .layout header {
   align-items: center;
-  border-bottom: 1px solid var(--header-border-color, #4169e1);
+  border-bottom: 1px solid var(--header-border-color, #555);
   display: grid;
   font-size: var(--header-font-size, 1rem);
   gap: var(--header-gap, 0.5em);
