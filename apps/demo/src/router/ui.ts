@@ -8,7 +8,7 @@ const routes = [
       {
         component: UI,
         name: "ui",
-        path: ""
+        path: "",
       },
       {
         component: Password,
@@ -16,7 +16,7 @@ const routes = [
         path: "password",
       },
     ],
-  }
+  },
 ];
 
 export default routes;

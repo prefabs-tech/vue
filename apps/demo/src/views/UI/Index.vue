@@ -3,7 +3,7 @@
     <ul>
       <li>
         <router-link :to="{ name: 'password' }">
-          {{ $t('ui.pages.password') }}
+          {{ $t("ui.pages.password") }}
         </router-link>
       </li>
     </ul>
