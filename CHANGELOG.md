@@ -1,3 +1,12 @@
+# [0.7.0](https://github.com/dzangolab/vue/compare/v0.6.10...v0.7.0) (2023-02-16)
+
+
+### Features
+
+* add vue-user package ([#126](https://github.com/dzangolab/vue/issues/126)) ([6d2cfaf](https://github.com/dzangolab/vue/commit/6d2cfaff4108e67c53e97b791e3ffd9ab175af13))
+
+
+
 ## [0.6.10](https://github.com/dzangolab/vue/compare/v0.6.9...v0.6.10) (2023-02-14)
 
 
