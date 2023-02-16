@@ -108,6 +108,7 @@ export default router;
 | Name | Type | Description | Default value |
 |------|------|-------------|---------------|
 | `homeRoute` | `string` | The name of the "home" route, ie the route that points to your app's home page | `home` |
+| `logo` `string` | The path to the logo | `/logo.png` |
 | `mainMenu` | `{ name: string; route: string; }[]` | An array of items to display in the app header's main menu | none |
 
 

@@ -1,0 +1,47 @@
+// Vitest Snapshot v1
+
+exports[`Profile > matches snapshot in en 1`] = `
+<div
+  class="page"
+  data-v-92e92a88=""
+>
+  <h1
+    data-v-92e92a88=""
+  >
+    Profile 
+    <!---->
+  </h1>
+  <div
+    class="toolbar"
+    data-v-92e92a88=""
+  >
+    
+    
+  </div>
+  
+  
+</div>
+`;
+
+exports[`Profile > matches snapshot in fr 1`] = `
+<div
+  class="page"
+  data-v-92e92a88=""
+>
+  <h1
+    data-v-92e92a88=""
+  >
+    Profil 
+    <!---->
+  </h1>
+  <div
+    class="toolbar"
+    data-v-92e92a88=""
+  >
+    
+    
+  </div>
+  
+  
+</div>
+`;
