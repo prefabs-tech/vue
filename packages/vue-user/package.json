@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@dzangolab/vue3-config": "0.7.1",
-    "@dzangolab/vue3-i18n": "0.7.1",
+    "@dzangolab/vue3-i18n": "0.7.0",
     "@dzangolab/vue3-layout": "0.7.1",
     "@dzangolab/vue3-ui": "0.7.1",
     "@iconify/vue": "4.1.0",
@@ -59,7 +59,7 @@
   },
   "peerDependencies": {
     "@dzangolab/vue3-config": ">=0.7.1",
-    "@dzangolab/vue3-i18n": ">=0.7.1",
+    "@dzangolab/vue3-i18n": "0.7.0",
     "@dzangolab/vue3-layout": ">=0.7.1",
     "@dzangolab/vue3-ui": ">=0.7.1",
     "@vee-validate/i18n": ">=4.7.1",

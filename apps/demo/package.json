@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@dzangolab/vue3-config": "0.7.1",
-    "@dzangolab/vue3-i18n": "0.7.1",
+    "@dzangolab/vue3-i18n": "0.7.0",
     "@dzangolab/vue3-layout": "0.7.1",
     "@dzangolab/vue3-ui": "0.7.1",
     "@dzangolab/vue3-user": "0.7.1",
