@@ -1,0 +1,27 @@
+form {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+form input {
+  border-radius: 6px;
+  border: 1px solid var(--form-input-border-color);
+  font-size: 1rem;
+  padding: var(--form-input-padding-v, 0.8125em) var(--form-input-padding-h, 1em);
+  width: 100%;
+}
+
+form input:focus {
+  border-color: var(--form-input-border-color-highlight, blue);
+  outline: none;
+}
+
+form input:focus + i {
+  color: $color-blue;
+}
+
+form label {
+  font-size: var(--form-label-font-size, 0.8em);
+}
