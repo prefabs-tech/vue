@@ -12,7 +12,9 @@
   "main": "dist//DzangolabVue3Layout.umd.js",
   "module": "dist//DzangolabVue3Layout.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -47,9 +49,9 @@
     "vue-tsc": "1.0.24"
   },
   "peerDependencies": {
-    "@dzangolab/vue3-config": "0.7.1",
-    "@dzangolab/vue3-i18n": "0.7.1",
-    "@dzangolab/vue3-ui": "0.7.1",
+    "@dzangolab/vue3-config": ">=0.7.1",
+    "@dzangolab/vue3-i18n": ">=0.7.1",
+    "@dzangolab/vue3-ui": ">=0.7.1",
     "@vueuse/core": ">=9.4.0",
     "vue": ">=3.2",
     "vue-router": ">=4.0"

@@ -12,7 +12,9 @@
   "main": "dist//DzangolabVue3User.umd.js",
   "module": "dist//DzangolabVue3User.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -56,10 +58,10 @@
     "yup": "0.32.11"
   },
   "peerDependencies": {
-    "@dzangolab/vue3-config": "0.7.1",
-    "@dzangolab/vue3-i18n": "0.7.1",
-    "@dzangolab/vue3-layout": "0.7.1",
-    "@dzangolab/vue3-ui": "0.7.1",
+    "@dzangolab/vue3-config": ">=0.7.1",
+    "@dzangolab/vue3-i18n": ">=0.7.1",
+    "@dzangolab/vue3-layout": ">=0.7.1",
+    "@dzangolab/vue3-ui": ">=0.7.1",
     "@vee-validate/i18n": ">=4.7.1",
     "@vee-validate/rules": ">=4.7.1",
     "@vueuse/core": ">=9.4.0",
