@@ -1,6 +1,6 @@
 <template>
   <Page :title="$t('ui.title')"> </Page>
-  <h3>Accordion</h3>
+  <h3>{{ $t("ui.accordion.title") }}</h3>
   <Accordion
     :canSelfCollapse="true"
     activeIcon="upchevron.svg"
