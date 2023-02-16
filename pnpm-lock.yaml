@@ -25,7 +25,7 @@ importers:
       '@dzangolab/vue3-layout': 0.7.1
       '@dzangolab/vue3-ui': 0.7.1
       '@dzangolab/vue3-user': 0.7.1
-      '@kyvg/vue3-notification': 2.8.0
+      '@kyvg/vue3-notification': 2.9.0
       '@types/jsdom': 21.1.0
       '@types/node': 18.13.0
       '@vitejs/plugin-vue': 4.0.0
@@ -53,7 +53,7 @@ importers:
       '@dzangolab/vue3-layout': link:../../packages/vue-layout
       '@dzangolab/vue3-ui': link:../../packages/vue-ui
       '@dzangolab/vue3-user': link:../../packages/vue-user
-      '@kyvg/vue3-notification': 2.8.0_vue@3.2.47
+      '@kyvg/vue3-notification': 2.9.0_vue@3.2.47
       pinia: 2.0.30_hmuptsblhheur2tugfgucj7gc4
       vue: 3.2.47
       vue-router: 4.1.6_vue@3.2.47
@@ -1165,8 +1165,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@kyvg/vue3-notification/2.8.0_vue@3.2.47:
-    resolution: {integrity: sha512-jHa90wSpafIYfYgMHc4WZVkrjxhQdSUFWEJFYR7i4fertev4BYuOh46FRuSYOL8DQdVoP4tH3gdtyEuNuBuUww==}
+  /@kyvg/vue3-notification/2.9.0_vue@3.2.47:
+    resolution: {integrity: sha512-5Vxl8h/+PFtBmzGgMxTjkH4gwEpvmTEka+dLqpek+8GJFm6LDfSji+rFx9vumgBF7db0KenGWeSrA+Qnclz9vg==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
