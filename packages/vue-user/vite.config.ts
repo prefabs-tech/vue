@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 import vue from "@vitejs/plugin-vue";
 import { defineConfig, loadEnv } from "vite";
 
+import { dependencies, peerDependencies } from "./package.json";
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
@@ -17,13 +19,9 @@ export default defineConfig(({ mode }) => {
       },
       rollupOptions: {
         external: [
-          "@dzangolab/vue3-config",
-          "@dzangolab/vue3-i18n",
-          "@dzangolab/vue3-layout",
-          "@dzangolab/vue3-ui",
-          "pinia",
-          "vue",
-          "vue-router",
+          ...Object.keys(peerDependencies),
+          ...Object.keys(dependencies),
+          /supertokens-w+/,
         ],
         output: {
           exports: "named",
@@ -35,6 +33,14 @@ export default defineConfig(({ mode }) => {
             pinia: "Pinia",
             vue: "Vue",
             "vue-router": "VueRouter",
+            "supertokens-web-js": "SupertokensWebJs",
+            "supertokens-web-js/recipe/session":
+              "SupertokensWebJsRecipeSession",
+            "supertokens-web-js/recipe/thirdpartyemailpassword":
+              "SupertokensWebJsRecipeThirdpartyemailpassword",
+            "@vueuse/core": "VueuseCore",
+            "vee-validate": "Veevalidate",
+            yup: "Yup",
           },
         },
       },

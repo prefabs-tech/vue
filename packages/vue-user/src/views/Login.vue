@@ -92,6 +92,10 @@ div.login {
   max-width: 20rem;
 }
 
+div.login > form {
+  width: 100%;
+}
+
 .login .links {
   align-items: center;
   display: flex;
