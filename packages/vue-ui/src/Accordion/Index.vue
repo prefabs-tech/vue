@@ -2,8 +2,8 @@
   <ul
     v-if="$slots.default"
     :class="props.direction"
-    class="accordion"
     :aria-orientation="props.direction"
+    class="accordion"
   >
     <li
       v-for="(slot, index) in $slots.default()"
@@ -21,7 +21,7 @@
       </button>
 
       <div v-if="index === active">
-        <slot></slot>
+        <component :is="slot" />
       </div>
     </li>
   </ul>
@@ -116,6 +116,7 @@ const handleClick = (index: number) => {
   flex-direction: column;
   justify-content: space-between;
   transform: rotate(180deg);
+  width: auto;
 }
 
 .accordion.horizontal > li > button > span {

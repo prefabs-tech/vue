@@ -9,3 +9,9 @@ export default {
   name: "SubPane",
 };
 </script>
+
+<style scoped>
+.sub-pane {
+  flex-grow: 1;
+}
+</style>

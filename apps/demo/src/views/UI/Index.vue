@@ -1,13 +1,16 @@
 <template>
   <Page :title="$t('ui.title')"> </Page>
   <h3>{{ $t("ui.accordion.title") }}</h3>
-  <Accordion
-    :canSelfCollapse="true"
-    activeIcon="upchevron.svg"
-    inactiveIcon="downchevron.svg"
-  >
-    <SubPane title="Subpane 1">
-      <p>Subpane 1 content</p>
+  <Accordion activeIcon="upchevron.svg" inactiveIcon="downchevron.svg">
+    <SubPane title="Subpane 1" icon="home.svg">
+      <p>Subpan 1 content</p>
+    </SubPane>
+
+    <SubPane title="Subpane 2">
+      <p>Subpane 2 content</p>
+    </SubPane>
+    <SubPane title="Subpane 3">
+      <p>Subpane 3 content</p>
     </SubPane>
   </Accordion>
 </template>
