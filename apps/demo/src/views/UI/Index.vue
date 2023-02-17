@@ -1,16 +1,18 @@
 <template>
   <Page :title="$t('ui.title')"> </Page>
-  <h3>{{ $t("ui.accordion.title") }}</h3>
   <Accordion active-icon="upchevron.svg" inactive-icon="downchevron.svg">
-    <SubPane title="Subpane 1" icon="home.svg">
-      <p>Subpan 1 content</p>
+    <template #title>
+      <h2>{{ $t("ui.accordion.title") }}</h2>
+    </template>
+    <SubPane :title="$t('ui.accordion.contents[0].title')" icon="home.svg">
+      <p>{{ $t("ui.accordion.contents[0].content") }}</p>
     </SubPane>
 
-    <SubPane title="Subpane 2">
-      <p>Subpane 2 content</p>
+    <SubPane :title="$t('ui.accordion.contents[1].title')">
+      <p>{{ $t("ui.accordion.contents[1].content") }}</p>
     </SubPane>
-    <SubPane title="Subpane 3">
-      <p>Subpane 3 content</p>
+    <SubPane :title="$t('ui.accordion.contents[2].title')">
+      <p>{{ $t("ui.accordion.contents[2].content") }}</p>
     </SubPane>
   </Accordion>
 </template>

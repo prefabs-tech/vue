@@ -1,4 +1,5 @@
 <template>
+  <slot name="title"></slot>
   <ul
     v-if="$slots.default"
     :class="props.direction"

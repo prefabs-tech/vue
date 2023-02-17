@@ -1,6 +1,20 @@
 {
-  "title": "Librairie de composants d'interface utilisateur",
   "accordion": {
-    "title": "Accordion[FR]"
-  }
+    "title": "Accordion[FR]",
+    "contents": [
+      {
+        "title": "Accordion 1[fr]",
+        "content": "Accordion 1 content[fr]"
+      },
+      {
+        "title": "Accordion 2[fr]",
+        "content": "Accordion 2 content[fr]"
+      },
+      {
+        "title": "Accordion 3[fr]",
+        "content": "Accordion 3 content[fr]"
+      }
+    ]
+  },
+  "title": "Librairie de composants d'interface utilisateur"
 }

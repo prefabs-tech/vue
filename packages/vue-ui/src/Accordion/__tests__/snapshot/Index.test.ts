@@ -21,6 +21,7 @@ describe("Accordion", () => {
             <SubPane title="Subpane 3">
             <p>Subpane 3 content</p>
             </SubPane>`,
+        title: "Accordion title",
       },
     });
 
