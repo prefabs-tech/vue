@@ -81,8 +81,8 @@ const handleClick = (index: number) => {
 .accordion {
   display: flex;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 0rem;
+  padding: 0rem;
 }
 
 .accordion > li {
@@ -94,7 +94,8 @@ const handleClick = (index: number) => {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem;
   width: 100%;
 }
 
@@ -136,5 +137,9 @@ const handleClick = (index: number) => {
 .accordion.vertical > li {
   flex-direction: column;
   width: 100%;
+}
+
+.accordion.vertical > li > button > img:last-child {
+  margin-left: auto;
 }
 </style>
