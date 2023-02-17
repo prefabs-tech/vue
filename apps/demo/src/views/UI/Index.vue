@@ -1,7 +1,7 @@
 <template>
   <Page :title="$t('ui.title')"> </Page>
   <h3>{{ $t("ui.accordion.title") }}</h3>
-  <Accordion activeIcon="upchevron.svg" inactiveIcon="downchevron.svg" direction="horizontal">
+  <Accordion active-icon="upchevron.svg" inactive-icon="downchevron.svg">
     <SubPane title="Subpane 1" icon="home.svg">
       <p>Subpan 1 content</p>
     </SubPane>
