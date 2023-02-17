@@ -1,9 +1,8 @@
 <template>
-  <Page :title="$t('ui.title')"> </Page>
+  <Page :title="$t('ui.title')">
+    <h2>{{ $t("ui.accordion.title") }}</h2>
+  </Page>
   <Accordion active-icon="upchevron.svg" inactive-icon="downchevron.svg">
-    <template #title>
-      <h2>{{ $t("ui.accordion.title") }}</h2>
-    </template>
     <SubPane :title="$t('ui.accordion.contents[0].title')" icon="home.svg">
       <p>{{ $t("ui.accordion.contents[0].content") }}</p>
     </SubPane>
