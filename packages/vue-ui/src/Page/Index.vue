@@ -38,13 +38,10 @@ defineProps({
 
 <style lang="css" scoped>
 .page {
+  align-items: stretch;
   display: flex;
   flex-direction: column;
-}
-
-.page .content {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  flex-grow: 2;
+  gap: var(--page-gap, 1em);
+  justify-items: flex-start;
 }
 </style>

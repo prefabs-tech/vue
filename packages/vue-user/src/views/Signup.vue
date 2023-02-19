@@ -1,7 +1,5 @@
 <template>
-  <div class="signup">
-    <h1>{{ t("user.signup.title") }}</h1>
-
+  <Page :title="t('user.signup.title')" class="auth signup">
     <Errors v-if="errors.length" :errors="errors" />
 
     <slot name="instructions"></slot>
@@ -19,7 +17,7 @@
         {{ t("user.signup.links.forgotPassword") }}
       </router-link>
     </div>
-  </div>
+  </Page>
 </template>
 
 <script lang="ts">
@@ -31,7 +29,7 @@ export default {
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Errors } from "@dzangolab/vue3-ui";
+import { Errors, Page } from "@dzangolab/vue3-ui";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -78,21 +76,3 @@ const handleSubmit = async (credentials: LoginCredentials) => {
   }
 };
 </script>
-
-<style lang="css">
-div.signup {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 20rem;
-}
-
-.signup .links {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-</style>

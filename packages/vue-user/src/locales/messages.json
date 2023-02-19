@@ -11,11 +11,11 @@
           },
           "email": {
             "error": {
-              "email": "Please supply a valid email address",
+              "invalid": "Please provide a valid email address",
               "required": "Your email adress is required"
             },
             "label": "Your email",
-            "placeholder": "john.doe.at.example.com"
+            "placeholder": "john.doe@example.com"
           },
           "password": {
             "error": {
@@ -118,8 +118,8 @@
           },
           "password": {
             "error": {
-              "min": "Your password must be at least {min} characters long",
-              "required": "Please provide a password"
+              "required": "Please provide a password",
+              "weak": "Your password should be at least 8 characters long"
             },
             "label": "Your password"
           }
@@ -147,11 +147,11 @@
           },
           "email": {
             "error": {
-              "email": "Veuillez saisir une adresse email valide",
+              "invalid": "Veuillez saisir une adresse email valide",
               "required": "Veuillez saisir votre adresse email"
             },
             "label": "Votre adresse mail",
-            "placeholder": "john.doe.at.example.com"
+            "placeholder": "john.doe@example.com"
           },
           "password": {
             "error": {
@@ -253,8 +253,8 @@
           },
           "password": {
             "error": {
-              "min": "Votre mot de passe doit avoir au minimum {min} caractères",
-              "required": "Veuillez saisir un mot de passe"
+              "required": "Veuillez saisir un mot de passe",
+              "weak": "Votre mot de passe doit avoir au moins 8 caractères"
             },
             "label": "Votre mot de passe"
           }

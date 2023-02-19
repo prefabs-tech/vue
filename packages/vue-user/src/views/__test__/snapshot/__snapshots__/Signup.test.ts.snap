@@ -2,11 +2,23 @@
 
 exports[`SignUp > matches snapshot in en 1`] = `
 <div
-  class="signup"
+  class="page auth signup"
+  data-v-98aa2ee3=""
 >
-  <h1>
-    Register
+  <h1
+    data-v-98aa2ee3=""
+  >
+    Register 
+    <!---->
   </h1>
+  <div
+    class="toolbar"
+    data-v-98aa2ee3=""
+  >
+    
+    
+  </div>
+  
   <!--v-if-->
   
   
@@ -16,18 +28,22 @@ exports[`SignUp > matches snapshot in en 1`] = `
   >
     <div
       class="field email"
+      placeholder="john.doe.at.example.com"
     >
       <label
         for="email"
       >
         Your email
       </label>
+      
       <input
+        class=""
         name="email"
-        placeholder="john.doe.at.example.com"
+        tabindex="0"
         type="email"
       />
       <!---->
+      
     </div>
     <div
       class="field password"
@@ -37,26 +53,33 @@ exports[`SignUp > matches snapshot in en 1`] = `
       >
         Your password
       </label>
+      
       <input
+        class=""
         name="password"
+        tabindex="0"
         type="password"
       />
       <!---->
+      
     </div>
     <div
-      class="field confirm-password"
+      class="field password confirm-password"
     >
       <label
-        for="confirmation"
+        for="password"
       >
         Confirm your password
       </label>
+      
       <input
-        class="field"
+        class=""
         name="confirmation"
+        tabindex="0"
         type="password"
       />
       <!---->
+      
     </div>
     <div
       class="actions"
@@ -93,16 +116,29 @@ exports[`SignUp > matches snapshot in en 1`] = `
       Forgot password
     </a>
   </div>
+  
 </div>
 `;
 
 exports[`SignUp > matches snapshot in fr 1`] = `
 <div
-  class="signup"
+  class="page auth signup"
+  data-v-98aa2ee3=""
 >
-  <h1>
-    Inscription
+  <h1
+    data-v-98aa2ee3=""
+  >
+    Inscription 
+    <!---->
   </h1>
+  <div
+    class="toolbar"
+    data-v-98aa2ee3=""
+  >
+    
+    
+  </div>
+  
   <!--v-if-->
   
   
@@ -112,18 +148,22 @@ exports[`SignUp > matches snapshot in fr 1`] = `
   >
     <div
       class="field email"
+      placeholder="john.doe.at.example.com"
     >
       <label
         for="email"
       >
         Votre adresse e-mail
       </label>
+      
       <input
+        class=""
         name="email"
-        placeholder="john.doe.at.example.com"
+        tabindex="0"
         type="email"
       />
       <!---->
+      
     </div>
     <div
       class="field password"
@@ -133,26 +173,33 @@ exports[`SignUp > matches snapshot in fr 1`] = `
       >
         Votre mot de passe
       </label>
+      
       <input
+        class=""
         name="password"
+        tabindex="0"
         type="password"
       />
       <!---->
+      
     </div>
     <div
-      class="field confirm-password"
+      class="field password confirm-password"
     >
       <label
-        for="confirmation"
+        for="password"
       >
         Confirmez votre mot de passe
       </label>
+      
       <input
-        class="field"
+        class=""
         name="confirmation"
+        tabindex="0"
         type="password"
       />
       <!---->
+      
     </div>
     <div
       class="actions"
@@ -189,5 +236,6 @@ exports[`SignUp > matches snapshot in fr 1`] = `
       Mot de passe oublié
     </a>
   </div>
+  
 </div>
 `;

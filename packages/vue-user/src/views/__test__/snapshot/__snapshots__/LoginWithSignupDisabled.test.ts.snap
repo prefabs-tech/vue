@@ -2,11 +2,23 @@
 
 exports[`Login with signup disabled > matches snapshot in en 1`] = `
 <div
-  class="login"
+  class="page auth login"
+  data-v-98aa2ee3=""
 >
-  <h1>
-    Login
+  <h1
+    data-v-98aa2ee3=""
+  >
+    Login 
+    <!---->
   </h1>
+  <div
+    class="toolbar"
+    data-v-98aa2ee3=""
+  >
+    
+    
+  </div>
+  
   <!--v-if-->
   
   
@@ -22,13 +34,15 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
       >
         Your email
       </label>
+      
       <input
-        class="c-form__input-field"
+        class=""
         name="email"
-        placeholder="john.doe.at.example.com"
+        tabindex="0"
         type="email"
       />
       <!---->
+      
     </div>
     <div
       class="field password"
@@ -38,12 +52,15 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
       >
         Your password
       </label>
+      
       <input
-        class="c-form__input-field"
+        class=""
         name="password"
+        tabindex="0"
         type="password"
       />
       <!---->
+      
     </div>
     <div
       class="actions"
@@ -51,6 +68,7 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
       <button
         class="loading-button"
         data-v-3fdbc7b3=""
+        tabindex="0"
       >
         <div
           class="label"
@@ -76,16 +94,29 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
       Forgot password
     </a>
   </div>
+  
 </div>
 `;
 
 exports[`Login with signup disabled > matches snapshot in fr 1`] = `
 <div
-  class="login"
+  class="page auth login"
+  data-v-98aa2ee3=""
 >
-  <h1>
-    Connexion
+  <h1
+    data-v-98aa2ee3=""
+  >
+    Connexion 
+    <!---->
   </h1>
+  <div
+    class="toolbar"
+    data-v-98aa2ee3=""
+  >
+    
+    
+  </div>
+  
   <!--v-if-->
   
   
@@ -101,13 +132,15 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
       >
         Votre adresse mail
       </label>
+      
       <input
-        class="c-form__input-field"
+        class=""
         name="email"
-        placeholder="john.doe.at.example.com"
+        tabindex="0"
         type="email"
       />
       <!---->
+      
     </div>
     <div
       class="field password"
@@ -117,12 +150,15 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
       >
         Votre mot de passe
       </label>
+      
       <input
-        class="c-form__input-field"
+        class=""
         name="password"
+        tabindex="0"
         type="password"
       />
       <!---->
+      
     </div>
     <div
       class="actions"
@@ -130,6 +166,7 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
       <button
         class="loading-button"
         data-v-3fdbc7b3=""
+        tabindex="0"
       >
         <div
           class="label"
@@ -155,5 +192,6 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
       Mot de passe oublié
     </a>
   </div>
+  
 </div>
 `;

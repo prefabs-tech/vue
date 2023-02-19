@@ -17,8 +17,8 @@ interface PasswordResetRequestPayload {
 }
 
 interface LoginCredentials {
-  email: string | undefined;
-  password: string | undefined;
+  email: string;
+  password: string;
 }
 
 interface User extends EmailPasswordUserType {

@@ -1,33 +1,31 @@
 <template>
   <Form class="form auth-form" :validation-schema="schema" @submit="onSubmit">
-    <div class="field email">
-      <label for="email">
-        {{ t("user.signup.form.email.label") }}
-      </label>
-      <Field
-        v-model="credentials.email"
-        :placeholder="t('user.signup.form.email.placeholder')"
-        name="email"
-        type="email"
-      />
-      <ErrorMessage class="c-form__field-error" name="email" />
-    </div>
+    <Email
+      v-model="credentials.email"
+      :error-messages="{
+        invalid: t('user.login.form.email.error.invalid'),
+        required: t('user.login.form.email.error.required'),
+      }"
+      :label="t('user.signup.form.email.label')"
+      :placeholder="t('user.signup.form.email.placeholder')"
+    />
 
-    <div class="field password">
-      <label for="password">
-        {{ t("user.signup.form.password.label") }}
-      </label>
-      <Field v-model="credentials.password" name="password" type="password" />
-      <ErrorMessage class="c-form__field-error" name="password" />
-    </div>
+    <Password
+      v-model="credentials.password"
+      :error-messages="{
+        required: t('user.signup.form.password.error.required'),
+        weak: t('user.signup.form.password.error.weak'),
+      }"
+      :label="t('user.signup.form.password.label')"
+      :options="{ minLength: 8 }"
+    />
 
-    <div class="field confirm-password">
-      <label for="confirmation">
-        {{ t("user.signup.form.confirmation.label") }}
-      </label>
-      <Field class="field" name="confirmation" type="password" />
-      <ErrorMessage class="c-form__field-error" name="confirmation" />
-    </div>
+    <Password
+      v-model="credentials.password"
+      :label="t('user.signup.form.confirmation.label')"
+      class="confirm-password"
+      name="confirmation"
+    />
 
     <div class="actions">
       <LoadingButton
@@ -46,8 +44,8 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { LoadingButton } from "@dzangolab/vue3-ui";
-import { ErrorMessage, Field, Form } from "vee-validate";
+import { Email, LoadingButton, Password } from "@dzangolab/vue3-ui";
+import { Form } from "vee-validate";
 import { computed } from "vue";
 import { object, ref as yref, string } from "yup";
 
@@ -72,8 +70,8 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 let credentials = {
-  email: undefined,
-  password: undefined,
+  email: "",
+  password: "",
 } as LoginCredentials;
 
 const schema = computed(() => {
@@ -102,15 +100,3 @@ const onSubmit = (credentials: LoginCredentials) => {
   emit("submit", credentials);
 };
 </script>
-
-<style lang="css">
-.signup > form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--form-gap, 0.5rem);
-}
-
-.actions > button {
-  width: 100%;
-}
-</style>

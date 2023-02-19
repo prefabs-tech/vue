@@ -93,7 +93,3 @@ const onSubmit = (payload: PasswordResetPayload) => {
   }
 };
 </script>
-
-<style lang="css" scoped>
-@import "../assets/css/components/auth.css";
-</style>

@@ -1,11 +1,12 @@
 <template>
-  <div class="password-reset-request">
-    <h1>{{ t("user.passwordResetRequest.title") }}</h1>
-
+  <Page
+    :title="t('user.passwordResetRequest.title')"
+    class="auth password-reset-request"
+  >
     <slot name="instructions"></slot>
 
     <PasswordResetRequestForm @submit="handleSubmit" />
-  </div>
+  </Page>
 </template>
 
 <script lang="ts">
