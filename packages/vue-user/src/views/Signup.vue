@@ -4,10 +4,7 @@
 
     <slot name="instructions"></slot>
 
-    <SignupForm
-      :password-minimum-length="passwordMinimumLength"
-      @submit="handleSubmit"
-    />
+    <SignupForm @submit="handleSubmit" />
 
     <div class="links">
       <router-link :to="{ name: 'login' }" class="login">
@@ -27,7 +24,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Errors, Page } from "@dzangolab/vue3-ui";
 import { storeToRefs } from "pinia";
@@ -39,15 +35,8 @@ import { useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
-import type { AppConfig } from "@dzangolab/vue3-config";
 import type { Error as ErrorType } from "@dzangolab/vue3-ui";
 import type { Ref } from "vue";
-
-const config = useConfig() as AppConfig;
-
-const passwordMinimumLength = config?.user?.password?.minLength
-  ? config.user.password.minLength
-  : undefined;
 
 const messages = useTranslations();
 

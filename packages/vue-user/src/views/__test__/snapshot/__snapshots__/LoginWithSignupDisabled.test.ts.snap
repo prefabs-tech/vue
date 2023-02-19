@@ -3,17 +3,13 @@
 exports[`Login with signup disabled > matches snapshot in en 1`] = `
 <div
   class="page auth login"
-  data-v-98aa2ee3=""
 >
-  <h1
-    data-v-98aa2ee3=""
-  >
+  <h1>
     Login 
     <!---->
   </h1>
   <div
     class="toolbar"
-    data-v-98aa2ee3=""
   >
     
     
@@ -101,17 +97,13 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
 exports[`Login with signup disabled > matches snapshot in fr 1`] = `
 <div
   class="page auth login"
-  data-v-98aa2ee3=""
 >
-  <h1
-    data-v-98aa2ee3=""
-  >
+  <h1>
     Connexion 
     <!---->
   </h1>
   <div
     class="toolbar"
-    data-v-98aa2ee3=""
   >
     
     
@@ -130,7 +122,7 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
       <label
         for="email"
       >
-        Votre adresse mail
+        Votre adresse courriel
       </label>
       
       <input

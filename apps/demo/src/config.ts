@@ -63,6 +63,7 @@ const config: AppConfig = {
     environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
   },
   slug: import.meta.env.VITE_APP_SLUG as string,
+  user: {},
   websiteDomain: (window.location.protocol +
     "//" +
     window.location.host) as string,

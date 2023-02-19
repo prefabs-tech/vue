@@ -17,6 +17,7 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { Page } from "@dzangolab/vue3-ui";
 import { useRouter } from "vue-router";
 
 import PasswordResetRequestForm from "../components/PasswordResetRequestForm.vue";
@@ -42,13 +43,3 @@ const handleSubmit = async (payload: PasswordResetRequestPayload) => {
   });
 };
 </script>
-
-<style lang="css">
-.password-reset-request {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-}
-</style>

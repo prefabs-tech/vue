@@ -57,7 +57,7 @@ const props = defineProps({
   },
   modelValue: {
     required: true,
-    type: String as PropType<string>,
+    type: String as PropType<string | null | undefined>,
   },
   name: {
     default: "password",

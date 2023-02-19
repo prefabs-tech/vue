@@ -1,5 +1,5 @@
 import i18Plugin, { useLocaleStore } from "@dzangolab/vue3-i18n";
-import { LoadingButton, LoadingIcon, Page } from "@dzangolab/vue3-ui";
+import { LoadingButton, LoadingIcon } from "@dzangolab/vue3-ui";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { createPinia } from "pinia";
 import { describe, it, expect } from "vitest";

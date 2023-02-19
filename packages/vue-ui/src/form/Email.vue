@@ -57,7 +57,7 @@ const props = defineProps({
   },
   modelValue: {
     default: "",
-    type: String as PropType<string | undefined>,
+    type: String as PropType<string | null | undefined>,
   },
   name: {
     default: "email",

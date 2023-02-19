@@ -48,9 +48,9 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 let credentials = {
-  email: "",
-  password: "",
-} as LoginCredentials;
+  email: undefined,
+  password: undefined,
+} as Partial<LoginCredentials>;
 
 const emit = defineEmits(["submit"]);
 

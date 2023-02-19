@@ -35,13 +35,3 @@ defineProps({
   },
 });
 </script>
-
-<style lang="css" scoped>
-.page {
-  align-items: stretch;
-  display: flex;
-  flex-direction: column;
-  gap: var(--page-gap, 1em);
-  justify-items: flex-start;
-}
-</style>

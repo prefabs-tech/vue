@@ -1,14 +1,7 @@
 .auth {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: var(--auth-page-gap, 0.5em);
   margin: 0 auto;
   max-width: var(--user-auth-max-width, 20rem);
-}
-
-.auth h1 {
-  align-self: center;
 }
 
 .auth .links {

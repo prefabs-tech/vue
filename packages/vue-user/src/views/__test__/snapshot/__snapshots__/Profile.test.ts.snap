@@ -3,17 +3,13 @@
 exports[`Profile > matches snapshot in en 1`] = `
 <div
   class="page"
-  data-v-98aa2ee3=""
 >
-  <h1
-    data-v-98aa2ee3=""
-  >
+  <h1>
     Profile 
     <!---->
   </h1>
   <div
     class="toolbar"
-    data-v-98aa2ee3=""
   >
     
     
@@ -26,17 +22,13 @@ exports[`Profile > matches snapshot in en 1`] = `
 exports[`Profile > matches snapshot in fr 1`] = `
 <div
   class="page"
-  data-v-98aa2ee3=""
 >
-  <h1
-    data-v-98aa2ee3=""
-  >
+  <h1>
     Profil 
     <!---->
   </h1>
   <div
     class="toolbar"
-    data-v-98aa2ee3=""
   >
     
     
