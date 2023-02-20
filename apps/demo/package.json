@@ -18,7 +18,7 @@
     "@dzangolab/vue3-ui": "0.7.1",
     "@dzangolab/vue3-user": "0.7.1",
     "@kyvg/vue3-notification": "2.9.0",
-    "pinia": "2.0.30",
+    "pinia": "2.0.31",
     "vue": "3.2.47",
     "vue-router": "4.1.6"
   },
