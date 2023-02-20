@@ -1,5 +1,5 @@
 <template>
-  <Form class="form auth-form" @submit="onSubmit">
+  <Form @submit="onSubmit">
     <Email
       v-model="payload.email"
       :error-messages="{
@@ -25,8 +25,9 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { Email } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Email, LoadingButton } from "@dzangolab/vue3-ui";
+import { LoadingButton } from "@dzangolab/vue3-ui";
 import { Form } from "vee-validate";
 
 import { useTranslations } from "../index";

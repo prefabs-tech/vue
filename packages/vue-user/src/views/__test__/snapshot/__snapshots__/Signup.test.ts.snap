@@ -19,7 +19,6 @@ exports[`SignUp > matches snapshot in en 1`] = `
   
   
   <form
-    class="form auth-form"
     novalidate=""
   >
     <div
@@ -60,7 +59,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
       
     </div>
     <div
-      class="field password confirm-password"
+      class="field password"
     >
       <label
         for="password"
@@ -135,7 +134,6 @@ exports[`SignUp > matches snapshot in fr 1`] = `
   
   
   <form
-    class="form auth-form"
     novalidate=""
   >
     <div
@@ -176,7 +174,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
       
     </div>
     <div
-      class="field password confirm-password"
+      class="field password"
     >
       <label
         for="password"

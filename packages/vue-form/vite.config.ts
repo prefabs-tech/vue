@@ -14,33 +14,23 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3User.${format}.js`,
-        name: "@dzangolab/vue3-user",
+        fileName: (format) => `DzangolabVue3Form.${format}.js`,
+        name: "@dzangolab/vue3-form",
       },
       rollupOptions: {
         external: [
           ...Object.keys(peerDependencies),
           ...Object.keys(dependencies),
-          /supertokens-w+/,
         ],
         output: {
           exports: "named",
           globals: {
-            "@dzangolab/vue3-config": "DzangolabVue3Config",
-            "@dzangolab/vue3-i18n": "DzangolabVue3I18n",
-            "@dzangolab/vue3-layout": "DzangolabVue3Layout",
-            "@dzangolab/vue3-ui": "DzangolabVue3UI",
-            pinia: "Pinia",
+            "@vee-validate/i18n": "VeeValidateI18n",
+            "@vee-validate/rules": "VeeValidateRules",
+            "@vee-validate/zod": "VeeValidateZod",
+            "vee-validate": "VeeValidate",
+            validator: "Validator",
             vue: "Vue",
-            "vue-router": "VueRouter",
-            "supertokens-web-js": "SupertokensWebJs",
-            "supertokens-web-js/recipe/session":
-              "SupertokensWebJsRecipeSession",
-            "supertokens-web-js/recipe/thirdpartyemailpassword":
-              "SupertokensWebJsRecipeThirdpartyemailpassword",
-            "@vueuse/core": "VueuseCore",
-            "vee-validate": "Veevalidate",
-            yup: "Yup",
             zod: "Zod",
           },
         },
@@ -49,7 +39,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       vue({
-        reactivityTransform: false,
+        reactivityTransform: true,
       }),
     ],
     resolve: {
@@ -62,7 +52,6 @@ export default defineConfig(({ mode }) => {
         provider: "istanbul",
         reporter: ["text", "json", "html"],
       },
-      environment: "jsdom",
     },
   };
 });

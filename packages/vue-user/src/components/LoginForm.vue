@@ -1,5 +1,5 @@
 <template>
-  <Form class="form auth-form" @submit="onSubmit">
+  <Form @submit="onSubmit">
     <Email
       v-model="credentials.email"
       :error-messages="{
@@ -7,6 +7,8 @@
         required: t('user.login.form.email.error.required'),
       }"
       :label="t('user.login.form.email.label')"
+      :options="userConfig?.options?.email"
+      :placeholder="t('user.login.form.email.placeholder')"
     />
 
     <Password
@@ -35,13 +37,17 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useConfig } from "@dzangolab/vue3-config";
+import { Email, Password } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Email, LoadingButton, Password } from "@dzangolab/vue3-ui";
+import { LoadingButton } from "@dzangolab/vue3-ui";
 import { Form } from "vee-validate";
 
 import { useTranslations } from "../index";
 
 import type { LoginCredentials } from "../types";
+
+const { user: userConfig } = useConfig();
 
 const messages = useTranslations();
 

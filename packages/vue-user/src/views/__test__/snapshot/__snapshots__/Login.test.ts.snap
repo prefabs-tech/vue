@@ -19,11 +19,11 @@ exports[`Login > matches snapshot in en 1`] = `
   
   
   <form
-    class="form auth-form"
     novalidate=""
   >
     <div
       class="field email"
+      placeholder="john.doe@example.com"
     >
       <label
         for="email"
@@ -117,11 +117,11 @@ exports[`Login > matches snapshot in fr 1`] = `
   
   
   <form
-    class="form auth-form"
     novalidate=""
   >
     <div
       class="field email"
+      placeholder="john.doe@example.com"
     >
       <label
         for="email"

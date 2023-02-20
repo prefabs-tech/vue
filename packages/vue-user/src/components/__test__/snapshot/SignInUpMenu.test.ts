@@ -4,7 +4,8 @@ import { mount, RouterLinkStub } from "@vue/test-utils";
 import { createPinia } from "pinia";
 import { describe, it, expect } from "vitest";
 
-import SignInUpMenu from "../../SignInUpMenu.vue";
+import SignInUpMenu from "@/components/SignInUpMenu.vue";
+
 import appConfig from "../config";
 
 import type { VueWrapper } from "@vue/test-utils";

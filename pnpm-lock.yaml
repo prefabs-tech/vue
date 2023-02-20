@@ -126,6 +126,55 @@ importers:
       vue-router: 4.1.6_vue@3.2.47
       vue-tsc: 1.0.24_typescript@4.9.5
 
+  packages/vue-form:
+    specifiers:
+      '@types/node': 18.13.0
+      '@types/validator': 13.7.12
+      '@vee-validate/i18n': 4.7.4
+      '@vee-validate/rules': 4.7.4
+      '@vee-validate/zod': 4.7.4
+      '@vitejs/plugin-vue': 4.0.0
+      '@vitejs/plugin-vue-jsx': 3.0.0
+      '@vitest/coverage-istanbul': 0.28.5
+      '@vue/test-utils': 2.2.10
+      '@vueuse/core': 9.12.0
+      eslint: 8.34.0
+      eslint-config-custom: 0.7.1
+      prettier: 2.8.4
+      tsconfig-custom: 0.7.1
+      typescript: 4.9.5
+      validator: 13.9.0
+      vee-validate: 4.7.4
+      vite: 4.1.1
+      vitest: 0.28.5
+      vue: 3.2.47
+      vue-tsc: 1.0.24
+      zod: 3.20.6
+    dependencies:
+      validator: 13.9.0
+    devDependencies:
+      '@types/node': 18.13.0
+      '@types/validator': 13.7.12
+      '@vee-validate/i18n': 4.7.4
+      '@vee-validate/rules': 4.7.4
+      '@vee-validate/zod': 4.7.4_522g255ggq6pz2xydelfqygu34
+      '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
+      '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.1.1+vue@3.2.47
+      '@vitest/coverage-istanbul': 0.28.5
+      '@vue/test-utils': 2.2.10_vue@3.2.47
+      '@vueuse/core': 9.12.0_vue@3.2.47
+      eslint: 8.34.0
+      eslint-config-custom: link:../../tools/eslint-config-custom
+      prettier: 2.8.4
+      tsconfig-custom: link:../../tools/tsconfig-custom
+      typescript: 4.9.5
+      vee-validate: 4.7.4_vue@3.2.47
+      vite: 4.1.1_@types+node@18.13.0
+      vitest: 0.28.5
+      vue: 3.2.47
+      vue-tsc: 1.0.24_typescript@4.9.5
+      zod: 3.20.6
+
   packages/vue-i18n:
     specifiers:
       '@dzangolab/vue3-config': 0.7.1
@@ -263,11 +312,14 @@ importers:
   packages/vue-user:
     specifiers:
       '@dzangolab/vue3-config': 0.7.1
+      '@dzangolab/vue3-form': 0.7.1
       '@dzangolab/vue3-i18n': 0.7.1
       '@dzangolab/vue3-layout': 0.7.1
       '@dzangolab/vue3-ui': 0.7.1
       '@iconify/vue': 4.1.0
       '@types/node': 18.13.0
+      '@vee-validate/rules': 4.7.4
+      '@vee-validate/zod': 4.7.4
       '@vitejs/plugin-vue': 4.0.0
       '@vitejs/plugin-vue-jsx': 3.0.0
       '@vitest/coverage-istanbul': 0.28.5
@@ -282,23 +334,27 @@ importers:
       supertokens-website: 15.0.0
       tsconfig-custom: 0.7.1
       typescript: 4.9.5
-      vee-validate: 4.7.3
+      vee-validate: 4.7.4
       vite: 4.1.1
       vitest: 0.28.5
       vue: 3.2.47
       vue-router: 4.1.6
       vue-tsc: 1.0.24
       yup: 0.32.11
+      zod: 3.20.6
     dependencies:
       supertokens-web-js: 0.4.0
       supertokens-website: 15.0.0
     devDependencies:
       '@dzangolab/vue3-config': link:../vue-config
+      '@dzangolab/vue3-form': link:../vue-form
       '@dzangolab/vue3-i18n': link:../vue-i18n
       '@dzangolab/vue3-layout': link:../vue-layout
       '@dzangolab/vue3-ui': link:../vue-ui
       '@iconify/vue': 4.1.0_vue@3.2.47
       '@types/node': 18.13.0
+      '@vee-validate/rules': 4.7.4
+      '@vee-validate/zod': 4.7.4_522g255ggq6pz2xydelfqygu34
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.1.1+vue@3.2.47
       '@vitest/coverage-istanbul': 0.28.5
@@ -311,13 +367,14 @@ importers:
       prettier: 2.8.4
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
-      vee-validate: 4.7.3_vue@3.2.47
+      vee-validate: 4.7.4_vue@3.2.47
       vite: 4.1.1_@types+node@18.13.0
       vitest: 0.28.5
       vue: 3.2.47
       vue-router: 4.1.6_vue@3.2.47
       vue-tsc: 1.0.24_typescript@4.9.5
       yup: 0.32.11
+      zod: 3.20.6
 
   tools/eslint-config-custom:
     specifiers:
@@ -5917,15 +5974,6 @@ packages:
     resolution: {integrity: sha512-B+dGG8U3fdtM0/aNK4/X8CXq/EcxU2WPrPEkJGslb47qyHsxmbggTWK0yEA4qnYVNF+nxNlN88o14hIcPmSIEA==}
     engines: {node: '>= 0.10'}
     dev: false
-
-  /vee-validate/4.7.3_vue@3.2.47:
-    resolution: {integrity: sha512-1MwHLOzCrabSeChySZVVMamWStcucM1hHxapoebY9mJ7KWOvncMG19a7AlPl38zpE9pcD+G3CHKLvviGmTl5BQ==}
-    peerDependencies:
-      vue: ^3.0.0
-    dependencies:
-      '@vue/devtools-api': 6.4.5
-      vue: 3.2.47
-    dev: true
 
   /vee-validate/4.7.4_vue@3.2.47:
     resolution: {integrity: sha512-pfhKluYimYvSQIiFoIY29NAgl0j24DqPsodlCny/NlOrYbougdjbL1C9yYqmba4Ka3YUY6vOZ0GE2wcwMsKQ5A==}

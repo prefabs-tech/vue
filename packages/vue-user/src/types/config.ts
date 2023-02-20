@@ -1,5 +1,8 @@
 import type { RouteOverrides } from "./router";
-import type { IsEmailOptions, StrongPasswordOptions } from "@dzangolab/vue3-ui";
+import type {
+  IsEmailOptions,
+  StrongPasswordOptions,
+} from "@dzangolab/vue3-form";
 
 interface DzangolabVueUserConfig {
   password?: {

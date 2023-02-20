@@ -20,12 +20,4 @@ export default plugin;
 
 export { Errors, LoadingButton, LoadingIcon, Page, ResponsiveMenu };
 
-export * from "./form";
-
-export type {
-  EmailErrorMessages,
-  Error,
-  IsEmailOptions,
-  StrongPasswordOptions,
-  PasswordErrorMessages,
-} from "./types";
+export type { Error } from "./types";

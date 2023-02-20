@@ -1,11 +1,9 @@
 <template>
-  <div class="password-reset">
-    <h1>{{ t("user.passwordReset.title") }}</h1>
-
+  <Page :title="t('user.passwordReset.title')" class="auth password-reset">
     <slot name="instructions"></slot>
 
     <PasswordResetForm @submit="handleSubmit" />
-  </div>
+  </Page>
 </template>
 
 <script lang="ts">
@@ -38,14 +36,3 @@ const handleSubmit = async (payload: PasswordResetPayload) => {
   });
 };
 </script>
-
-<style lang="css" scoped>
-.password-reset {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  width: var(--form-width);
-}
-</style>

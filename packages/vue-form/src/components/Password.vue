@@ -1,6 +1,6 @@
 <template>
-  <div class="field email">
-    <label v-if="label" for="email">
+  <div class="field password">
+    <label v-if="label" for="password">
       {{ label }}
     </label>
     <Field
@@ -16,7 +16,7 @@
           valid: meta.dirty && meta.valid,
         }"
         tabindex="0"
-        type="email"
+        type="password"
       />
       <ErrorMessage :name="name" />
     </Field>
@@ -25,42 +25,42 @@
 
 <script lang="ts">
 export default {
-  name: "Email",
+  name: "Password",
 };
 </script>
 
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
-import validator from "validator";
 import { ErrorMessage, Field } from "vee-validate";
-import { z } from "zod";
 
-import type { EmailErrorMessages } from "../types/form";
-import type { IsEmailOptions } from "../types/validator";
+import { passwordSchema } from "../schemas";
+
+import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
   errorMessages: {
     default: () => {
       return {
-        invalid: "Please provide a valid email address",
-        required: "Email address is required",
+        required: "A password is required",
+        weak: "This password is too weak",
       };
     },
     required: false,
-    type: Object as PropType<EmailErrorMessages>,
+    type: Object as PropType<PasswordErrorMessages>,
   },
   label: {
-    default: "",
+    default: null,
     required: false,
-    type: String as PropType<string>,
+    type: String as PropType<string | null | undefined>,
   },
   modelValue: {
-    default: "",
+    default: null,
+    required: false,
     type: String as PropType<string | null | undefined>,
   },
   name: {
-    default: "email",
+    default: "password",
     required: false,
     type: String as PropType<string>,
   },
@@ -69,19 +69,16 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<IsEmailOptions>,
+    type: Object as PropType<StrongPasswordOptions>,
   },
 });
 
 defineEmits(["update:modelValue"]);
 
 const fieldSchema = toFieldValidator(
-  z
-    .string({
-      required_error: props.errorMessages.required,
-    })
-    .refine((value) => validator.isEmail(value, props.options), {
-      message: props.errorMessages.invalid,
-    })
+  passwordSchema(
+    props.errorMessages,
+    props.options as StrongPasswordOptions & { returnScore: false | undefined }
+  )
 );
 </script>

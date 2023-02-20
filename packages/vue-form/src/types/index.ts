@@ -4,8 +4,10 @@ interface EmailErrorMessages {
 }
 
 interface PasswordErrorMessages {
-  weak?: string;
   required?: string;
+  weak?: string;
 }
 
 export type { EmailErrorMessages, PasswordErrorMessages };
+
+export type { IsEmailOptions, StrongPasswordOptions } from "./validator";
