@@ -71,7 +71,7 @@ const config: AppConfig = {
       password: {
         minNumbers: 2,
         minSymbols: 1,
-      }
+      },
     },
   },
   websiteDomain: (window.location.protocol +

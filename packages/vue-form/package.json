@@ -8,7 +8,8 @@
     ".": {
       "import": "./dist/DzangolabVue3Form.es.js",
       "require": "./dist/DzangolabVue3Form.umd.js"
-    }
+    },
+    "./dist/DzangolabVue3Form.css": "./dist/style.css"
   },
   "main": "dist//DzangolabVue3Form.umd.js",
   "module": "dist//DzangolabVue3Form.es.js",

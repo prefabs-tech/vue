@@ -25,6 +25,7 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
+            "@dzangolab/vue3-ui": "DzangolabVue3UI",
             "@vee-validate/i18n": "VeeValidateI18n",
             "@vee-validate/rules": "VeeValidateRules",
             "@vee-validate/zod": "VeeValidateZod",

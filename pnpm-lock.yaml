@@ -21,6 +21,7 @@ importers:
   apps/demo:
     specifiers:
       '@dzangolab/vue3-config': 0.7.1
+      '@dzangolab/vue3-form': 0.7.1
       '@dzangolab/vue3-i18n': 0.7.1
       '@dzangolab/vue3-layout': 0.7.1
       '@dzangolab/vue3-ui': 0.7.1
@@ -54,6 +55,7 @@ importers:
       zod: 3.20.6
     dependencies:
       '@dzangolab/vue3-config': link:../../packages/vue-config
+      '@dzangolab/vue3-form': link:../../packages/vue-form
       '@dzangolab/vue3-i18n': link:../../packages/vue-i18n
       '@dzangolab/vue3-layout': link:../../packages/vue-layout
       '@dzangolab/vue3-ui': link:../../packages/vue-ui
@@ -263,10 +265,6 @@ importers:
   packages/vue-ui:
     specifiers:
       '@types/node': 18.13.0
-      '@types/validator': 13.7.12
-      '@vee-validate/i18n': 4.7.4
-      '@vee-validate/rules': 4.7.4
-      '@vee-validate/zod': 4.7.4
       '@vitejs/plugin-vue': 4.0.0
       '@vitejs/plugin-vue-jsx': 3.0.0
       '@vitest/coverage-istanbul': 0.28.5
@@ -277,21 +275,12 @@ importers:
       prettier: 2.8.4
       tsconfig-custom: 0.7.1
       typescript: 4.9.5
-      validator: ^13.9.0
-      vee-validate: 4.7.4
       vite: 4.1.1
       vitest: 0.28.5
       vue: 3.2.47
       vue-tsc: 1.0.24
-      zod: 3.20.6
-    dependencies:
-      validator: 13.9.0
     devDependencies:
       '@types/node': 18.13.0
-      '@types/validator': 13.7.12
-      '@vee-validate/i18n': 4.7.4
-      '@vee-validate/rules': 4.7.4
-      '@vee-validate/zod': 4.7.4_522g255ggq6pz2xydelfqygu34
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.1.1+vue@3.2.47
       '@vitest/coverage-istanbul': 0.28.5
@@ -302,12 +291,10 @@ importers:
       prettier: 2.8.4
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
-      vee-validate: 4.7.4_vue@3.2.47
       vite: 4.1.1_@types+node@18.13.0
       vitest: 0.28.5
       vue: 3.2.47
       vue-tsc: 1.0.24_typescript@4.9.5
-      zod: 3.20.6
 
   packages/vue-user:
     specifiers:
@@ -318,6 +305,7 @@ importers:
       '@dzangolab/vue3-ui': 0.7.1
       '@iconify/vue': 4.1.0
       '@types/node': 18.13.0
+      '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4
       '@vitejs/plugin-vue': 4.0.0
@@ -340,7 +328,6 @@ importers:
       vue: 3.2.47
       vue-router: 4.1.6
       vue-tsc: 1.0.24
-      yup: 0.32.11
       zod: 3.20.6
     dependencies:
       supertokens-web-js: 0.4.0
@@ -353,6 +340,7 @@ importers:
       '@dzangolab/vue3-ui': link:../vue-ui
       '@iconify/vue': 4.1.0_vue@3.2.47
       '@types/node': 18.13.0
+      '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4_522g255ggq6pz2xydelfqygu34
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
@@ -373,7 +361,6 @@ importers:
       vue: 3.2.47
       vue-router: 4.1.6_vue@3.2.47
       vue-tsc: 1.0.24_typescript@4.9.5
-      yup: 0.32.11
       zod: 3.20.6
 
   tools/eslint-config-custom:
@@ -1535,10 +1522,6 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
-
-  /@types/lodash/4.14.191:
-    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
-    dev: true
 
   /@types/minimatch/5.1.2:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
@@ -4247,10 +4230,6 @@ packages:
     dependencies:
       p-locate: 5.0.0
 
-  /lodash-es/4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: true
-
   /lodash.camelcase/4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: true
@@ -4468,10 +4447,6 @@ packages:
 
   /mute-stream/0.0.8:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
-    dev: true
-
-  /nanoclone/0.2.1:
-    resolution: {integrity: sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==}
     dev: true
 
   /nanoid/3.3.4:
@@ -4951,10 +4926,6 @@ packages:
 
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
-    dev: true
-
-  /property-expr/2.0.5:
-    resolution: {integrity: sha512-IJUkICM5dP5znhCckHSv30Q4b5/JA5enCtkRHYaOVOAocnH/1BQEYTC5NMfT3AVl/iXKdr3aqQbQn9DxyWknwA==}
     dev: true
 
   /proto-list/1.2.4:
@@ -5683,10 +5654,6 @@ packages:
     engines: {node: '>=8.0'}
     dependencies:
       is-number: 7.0.0
-
-  /toposort/2.0.2:
-    resolution: {integrity: sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==}
-    dev: true
 
   /tough-cookie/4.1.2:
     resolution: {integrity: sha512-G9fqXWoYFZgTc2z8Q5zaHy/vJMjm+WV0AkAeHxVCQiEB1b+dGvWzFW6QV07cY5jQ5gRkeid2qIkzkxUnmoQZUQ==}
@@ -6420,19 +6387,6 @@ packages:
   /yocto-queue/1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
-    dev: true
-
-  /yup/0.32.11:
-    resolution: {integrity: sha512-Z2Fe1bn+eLstG8DRR6FTavGD+MeAwyfmouhHsIUgaADz8jvFKbO/fXc2trJKZg+5EBjh4gGm3iU/t3onKlXHIg==}
-    engines: {node: '>=10'}
-    dependencies:
-      '@babel/runtime': 7.20.1
-      '@types/lodash': 4.14.191
-      lodash: 4.17.21
-      lodash-es: 4.17.21
-      nanoclone: 0.2.1
-      property-expr: 2.0.5
-      toposort: 2.0.2
     dev: true
 
   /zod/3.20.6:
