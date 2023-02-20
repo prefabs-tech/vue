@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-user",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Vue3 User Plugin",
   "exports": {
     ".": {
@@ -12,9 +12,7 @@
   "main": "dist//DzangolabVue3User.umd.js",
   "module": "dist//DzangolabVue3User.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -27,15 +25,15 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "supertokens-web-js": "0.4.0",
-    "supertokens-website": "15.0.0"
+    "supertokens-web-js": "0.5.0",
+    "supertokens-website": "16.0.1"
   },
   "devDependencies": {
-    "@dzangolab/vue3-config": "0.7.1",
-    "@dzangolab/vue3-form": "0.7.1",
-    "@dzangolab/vue3-i18n": "0.7.1",
-    "@dzangolab/vue3-layout": "0.7.1",
-    "@dzangolab/vue3-ui": "0.7.1",
+    "@dzangolab/vue3-config": "0.7.2",
+    "@dzangolab/vue3-form": "0.7.2",
+    "@dzangolab/vue3-i18n": "0.7.2",
+    "@dzangolab/vue3-layout": "0.7.2",
+    "@dzangolab/vue3-ui": "0.7.2",
     "@iconify/vue": "4.1.0",
     "@types/node": "18.13.0",
     "@vee-validate/i18n": "4.7.4",
@@ -46,26 +44,26 @@
     "@vitest/coverage-istanbul": "0.28.5",
     "@vue/test-utils": "2.2.10",
     "@vueuse/core": "9.12.0",
-    "axios": "1.2.3",
+    "axios": "1.3.3",
     "eslint": "8.34.0",
-    "eslint-config-custom": "0.7.1",
-    "pinia": "2.0.29",
+    "eslint-config-custom": "0.7.2",
+    "pinia": "2.0.31",
     "prettier": "2.8.4",
-    "tsconfig-custom": "0.7.1",
+    "tsconfig-custom": "0.7.2",
     "typescript": "4.9.5",
     "vee-validate": "4.7.4",
-    "vite": "4.1.1",
+    "vite": "4.1.3",
     "vitest": "0.28.5",
     "vue": "3.2.47",
     "vue-router": "4.1.6",
-    "vue-tsc": "1.0.24",
+    "vue-tsc": "1.1.4",
     "zod": "3.20.6"
   },
   "peerDependencies": {
-    "@dzangolab/vue3-config": ">=0.7.1",
-    "@dzangolab/vue3-i18n": ">=0.7.1",
-    "@dzangolab/vue3-layout": ">=0.7.1",
-    "@dzangolab/vue3-ui": ">=0.7.1",
+    "@dzangolab/vue3-config": "0.7.2",
+    "@dzangolab/vue3-i18n": "0.7.2",
+    "@dzangolab/vue3-layout": "0.7.2",
+    "@dzangolab/vue3-ui": "0.7.2",
     "@vee-validate/i18n": ">=4.7.1",
     "@vee-validate/rules": ">=4.7.1",
     "@vueuse/core": ">=9.4.0",
@@ -74,7 +72,7 @@
     "vee-validate": ">=4.7.1",
     "vue": ">=3.2",
     "vue-router": ">=4.0",
-    "yup": ">=0.32.11"
+    "zod": ">=3.20.6"
   },
   "engines": {
     "node": ">=16",
