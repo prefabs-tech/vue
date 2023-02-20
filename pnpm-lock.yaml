@@ -257,7 +257,7 @@ importers:
       supertokens-website: 15.0.0
       tsconfig-custom: 0.7.1
       typescript: 4.9.5
-      vee-validate: 4.7.3
+      vee-validate: 4.7.4
       vite: 4.1.1
       vitest: 0.28.5
       vue: 3.2.47
@@ -286,7 +286,7 @@ importers:
       prettier: 2.8.4
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
-      vee-validate: 4.7.3_vue@3.2.47
+      vee-validate: 4.7.4_vue@3.2.47
       vite: 4.1.1_@types+node@18.13.0
       vitest: 0.28.5
       vue: 3.2.47
@@ -5865,8 +5865,8 @@ packages:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
 
-  /vee-validate/4.7.3_vue@3.2.47:
-    resolution: {integrity: sha512-1MwHLOzCrabSeChySZVVMamWStcucM1hHxapoebY9mJ7KWOvncMG19a7AlPl38zpE9pcD+G3CHKLvviGmTl5BQ==}
+  /vee-validate/4.7.4_vue@3.2.47:
+    resolution: {integrity: sha512-pfhKluYimYvSQIiFoIY29NAgl0j24DqPsodlCny/NlOrYbougdjbL1C9yYqmba4Ka3YUY6vOZ0GE2wcwMsKQ5A==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
