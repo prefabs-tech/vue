@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@dzangolab/vue3-config": "0.7.2",
-    "@types/node": "18.13.0",
+    "@types/node": "18.14.0",
     "@vitejs/plugin-vue": "4.0.0",
     "@vitejs/plugin-vue-jsx": "3.0.0",
     "@vitest/coverage-istanbul": "0.28.5",
