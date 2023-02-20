@@ -1,3 +1,12 @@
+## [0.7.3](https://github.com/dzangolab/vue/compare/v0.7.2...v0.7.3) (2023-02-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-config-turbo to v0.0.8 ([#158](https://github.com/dzangolab/vue/issues/158)) ([14d7426](https://github.com/dzangolab/vue/commit/14d7426333e0922c5d5d816a8c2da662eb22c142))
+
+
+
 ## [0.7.2](https://github.com/dzangolab/vue/compare/v0.7.1...v0.7.2) (2023-02-20)
 
 
