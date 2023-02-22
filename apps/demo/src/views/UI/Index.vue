@@ -21,7 +21,7 @@
 
     <section>
       <h3>{{ $t("ui.accordion.defaultIndex") }}</h3>
-      <Accordion :defaultIndex="1">
+      <Accordion :default-index="1">
         <SubPane :title="$t('ui.accordion.contents.first.title')">
           <p>{{ $t("ui.accordion.contents.first.content") }}</p>
         </SubPane>
@@ -38,7 +38,7 @@
 
     <section>
       <h3>{{ $t("ui.accordion.canSelfCollapse") }}</h3>
-      <Accordion :canSelfCollapse="true">
+      <Accordion :can-self-collapse="true">
         <SubPane :title="$t('ui.accordion.contents.first.title')">
           <p>{{ $t("ui.accordion.contents.first.content") }}</p>
         </SubPane>
@@ -98,7 +98,7 @@
 
     <section>
       <h3>{{ $t("ui.accordion.icons.activeInactive") }}</h3>
-      <Accordion activeIcon="downchevron.svg" inactiveIcon="upchevron.svg">
+      <Accordion active-icon="downchevron.svg" inactive-icon="upchevron.svg">
         <SubPane :title="$t('ui.accordion.contents.first.title')">
           <p>{{ $t("ui.accordion.contents.first.content") }}</p>
         </SubPane>
@@ -116,8 +116,8 @@
     <h3>{{ $t("ui.accordion.all") }}</h3>
 
     <Accordion
-      :defaultIndex="2"
-      :canSelfCollapse="true"
+      :default-index="2"
+      :can-self-collapse="true"
       active-icon="downchevron.svg"
       inactive-icon="upchevron.svg"
     >
