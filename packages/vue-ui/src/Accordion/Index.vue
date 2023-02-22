@@ -80,7 +80,6 @@ const handleClick = (index: number) => {
 <style scoped>
 .accordion {
   display: flex;
-  list-style-type: none;
   margin: 0rem;
   padding: 0rem;
 }
@@ -94,30 +93,11 @@ const handleClick = (index: number) => {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
-  padding: 1rem;
-  width: 100%;
 }
 
 .accordion.horizontal > li > button {
   flex-direction: column;
-}
-
-.accordion.horizontal {
-  align-items: stretch;
-  flex-direction: row;
-}
-
-.accordion.horizontal > li {
-  flex-direction: row;
-}
-
-.accordion.horizontal > li > button {
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
   transform: rotate(180deg);
-  width: auto;
 }
 
 .accordion.horizontal > li > button > span {
