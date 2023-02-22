@@ -50,7 +50,7 @@ const props = defineProps({
     type: Boolean,
   },
   defaultIndex: {
-    default: 0,
+    default: -1,
     required: false,
     type: Number,
   },

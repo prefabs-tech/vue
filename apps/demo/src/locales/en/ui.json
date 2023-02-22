@@ -1,5 +1,14 @@
 {
   "accordion": {
+    "all": "With default-index, active-icon, inactive-icon, icon, can-self-collapse",
+    "basic": "Basic",
+    "can-self-collapse": " With can-self-collapse = true",
+    "default-index": "With default-index = 1",
+    "direction": "With direction = horizontal",
+    "icons": {
+      "active-inactive": "With active and inactive icons",
+      "basic": "With icons"
+    },
     "title": "Accordion"
   },
   "title": "UI Library"
