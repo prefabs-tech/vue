@@ -2,17 +2,138 @@
   <Page :title="$t('ui.title')">
     <h2>{{ $t("ui.accordion.title") }}</h2>
 
-    <Accordion active-icon="upchevron.svg" inactive-icon="downchevron.svg">
-      <SubPane title="Accordion 1" icon="home.svg">
-        <p>Accordion 1 content</p>
+    <section>
+      <h3>{{ $t("ui.accordion.basic") }}</h3>
+      <Accordion>
+        <SubPane :title="$t('ui.accordion.contents.first.title')">
+          <p>{{ $t("ui.accordion.contents.first.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.second.title')">
+          <p>{{ $t("ui.accordion.contents.second.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.third.title')">
+          <p>{{ $t("ui.accordion.contents.third.content") }}</p>
+        </SubPane>
+      </Accordion>
+    </section>
+
+    <section>
+      <h3>{{ $t("ui.accordion.defaultIndex") }}</h3>
+      <Accordion :default-index="1">
+        <SubPane :title="$t('ui.accordion.contents.first.title')">
+          <p>{{ $t("ui.accordion.contents.first.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.second.title')">
+          <p>{{ $t("ui.accordion.contents.second.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.third.title')">
+          <p>{{ $t("ui.accordion.contents.third.content") }}</p>
+        </SubPane>
+      </Accordion>
+    </section>
+
+    <section>
+      <h3>{{ $t("ui.accordion.canSelfCollapse") }}</h3>
+      <Accordion :can-self-collapse="true">
+        <SubPane :title="$t('ui.accordion.contents.first.title')">
+          <p>{{ $t("ui.accordion.contents.first.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.second.title')">
+          <p>{{ $t("ui.accordion.contents.second.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.third.title')">
+          <p>{{ $t("ui.accordion.contents.third.content") }}</p>
+        </SubPane>
+      </Accordion>
+    </section>
+
+    <section>
+      <h3>{{ $t("ui.accordion.direction") }}</h3>
+      <Accordion direction="horizontal">
+        <SubPane :title="$t('ui.accordion.contents.first.title')">
+          <p>{{ $t("ui.accordion.contents.first.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.second.title')">
+          <p>{{ $t("ui.accordion.contents.second.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.third.title')">
+          <p>{{ $t("ui.accordion.contents.third.content") }}</p>
+        </SubPane>
+      </Accordion>
+    </section>
+
+    <section>
+      <h3>{{ $t("ui.accordion.icons.basic") }}</h3>
+      <Accordion>
+        <SubPane
+          :title="$t('ui.accordion.contents.first.title')"
+          icon="home.svg"
+        >
+          <p>{{ $t("ui.accordion.contents.first.content") }}</p>
+        </SubPane>
+
+        <SubPane
+          :title="$t('ui.accordion.contents.second.title')"
+          icon="home.svg"
+        >
+          <p>{{ $t("ui.accordion.contents.second.content") }}</p>
+        </SubPane>
+
+        <SubPane
+          :title="$t('ui.accordion.contents.third.title')"
+          icon="home.svg"
+        >
+          <p>{{ $t("ui.accordion.contents.third.content") }}</p>
+        </SubPane>
+      </Accordion>
+    </section>
+
+    <section>
+      <h3>{{ $t("ui.accordion.icons.activeInactive") }}</h3>
+      <Accordion active-icon="downchevron.svg" inactive-icon="upchevron.svg">
+        <SubPane :title="$t('ui.accordion.contents.first.title')">
+          <p>{{ $t("ui.accordion.contents.first.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.second.title')">
+          <p>{{ $t("ui.accordion.contents.second.content") }}</p>
+        </SubPane>
+
+        <SubPane :title="$t('ui.accordion.contents.third.title')">
+          <p>{{ $t("ui.accordion.contents.third.content") }}</p>
+        </SubPane>
+      </Accordion>
+    </section>
+
+    <h3>{{ $t("ui.accordion.all") }}</h3>
+
+    <Accordion
+      :default-index="2"
+      :can-self-collapse="true"
+      active-icon="downchevron.svg"
+      inactive-icon="upchevron.svg"
+    >
+      <SubPane :title="$t('ui.accordion.contents.first.title')" icon="home.svg">
+        <p>{{ $t("ui.accordion.contents.first.content") }}</p>
       </SubPane>
 
-      <SubPane title="Accordion 2">
-        <p>Accordion 2 content</p>
+      <SubPane
+        :title="$t('ui.accordion.contents.second.title')"
+        icon="home.svg"
+      >
+        <p>{{ $t("ui.accordion.contents.second.content") }}</p>
       </SubPane>
 
-      <SubPane title="Accordion 3">
-        <p>Accordion 3 content</p>
+      <SubPane :title="$t('ui.accordion.contents.third.title')" icon="home.svg">
+        <p>{{ $t("ui.accordion.contents.third.content") }}</p>
       </SubPane>
     </Accordion>
   </Page>

@@ -99,7 +99,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
 >
   
   <li
-    class="active"
+    class=""
     data-v-a0315011=""
   >
     <button
@@ -117,22 +117,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
       </span>
       <!--v-if-->
     </button>
-    <div
-      data-v-a0315011=""
-    >
-      <div
-        class="sub-pane"
-        data-v-a728ca9d=""
-        icon="home.svg"
-        title="Subpane 1"
-      >
-        
-        <p>
-          Subpan 1 content
-        </p>
-        
-      </div>
-    </div>
+    <!--v-if-->
   </li>
   <li
     class=""
