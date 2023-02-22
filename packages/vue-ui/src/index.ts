@@ -1,9 +1,9 @@
 import "./assets/css/index.css";
 
 import Accordion from "./Accordion/Index.vue";
-import SubPane from "./Accordion/SubPane.vue";
 import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
+import SubPane from "./components/SubPane.vue";
 import Errors from "./Errors/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";

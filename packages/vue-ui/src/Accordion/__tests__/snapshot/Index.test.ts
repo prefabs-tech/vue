@@ -1,8 +1,8 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
+import SubPane from "../../../components/SubPane.vue";
 import Index from "../../Index.vue";
-import SubPane from "../../SubPane.vue";
 
 describe("Accordion", () => {
   it("renders correctly with slot", () => {
