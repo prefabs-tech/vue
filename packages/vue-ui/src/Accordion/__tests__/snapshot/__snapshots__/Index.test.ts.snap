@@ -55,7 +55,7 @@ exports[`Accordion > renders correctly with props 1`] = `
     >
       <div
         class="sub-pane"
-        data-v-1561e4d2=""
+        data-v-a728ca9d=""
         title="Subpane 2"
       >
         
@@ -122,7 +122,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
     >
       <div
         class="sub-pane"
-        data-v-1561e4d2=""
+        data-v-a728ca9d=""
         icon="home.svg"
         title="Subpane 1"
       >
