@@ -1,12 +1,26 @@
 {
   "accordion": {
-    "all": "With default-index, active-icon, inactive-icon, icon, can-self-collapse",
+    "all": "With defaultIndex, activeIcon, inactiveIcon, icon, canSelfCcollapse",
     "basic": "Basic",
-    "can-self-collapse": " With can-self-collapse = true",
-    "default-index": "With default-index = 1",
+    "canSelfCollapse": " With canSelfCollapse = true",
+    "contents": {
+      "first": {
+        "title": "Accordion 1",
+        "content": "Accordion 1 content"
+      },
+      "second": {
+        "title": "Accordion 2",
+        "content": "Accordion 2 content"
+      },
+      "third": {
+        "title": "Accordion 3",
+        "content": "Accordion 3 content"
+      }
+    },
+    "defaultIndex": "With defaultIndex = 1",
     "direction": "With direction = horizontal",
     "icons": {
-      "active-inactive": "With active and inactive icons",
+      "activeInactive": "With active and inactive icons",
       "basic": "With icons"
     },
     "title": "Accordion"
