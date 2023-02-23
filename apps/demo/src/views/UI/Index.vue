@@ -1,5 +1,11 @@
 <template>
-  <Page :title="$t('ui.title')"> </Page>
+  <Page :title="$t('ui.title')">
+    <RouterLink v-if="$route.matched.length === 1" :to="{ name: 'tabbedPanel' }"
+      ><button>{{ $t("ui.tabbedpanel.title") }}</button>
+    </RouterLink>
+
+    <RouterView />
+  </Page>
 </template>
 
 <script lang="ts">
