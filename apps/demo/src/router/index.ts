@@ -55,7 +55,7 @@ const router: Router = createRouter({
         },
         {
           component: TabbedPanel,
-          name: "tabbedpanel",
+          name: "tabbedPanel",
           path: "tabbed-panel",
         },
       ],

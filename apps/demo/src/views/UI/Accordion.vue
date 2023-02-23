@@ -151,7 +151,7 @@
 
 <script lang="ts">
 export default {
-  name: "AccordionDemo",
+  name: "Accordion",
 };
 </script>
 
