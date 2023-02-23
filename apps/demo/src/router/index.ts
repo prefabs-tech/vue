@@ -17,7 +17,6 @@ const About = () => import("@/views/About.vue");
 const Home = () => import("@/views/Home.vue");
 const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
-const TabbedPanel = () => import("@/views/UI/TabbedPanelPage.vue");
 const UI = () => import("@/views/UI/Index.vue");
 
 const router: Router = createRouter({
@@ -52,11 +51,6 @@ const router: Router = createRouter({
           component: Accordion,
           name: "accordion",
           path: "accordion",
-        },
-        {
-          component: TabbedPanel,
-          name: "tabbedPanel",
-          path: "tabbed-panel",
         },
       ],
     },

@@ -4,10 +4,6 @@
       ><button>{{ $t("ui.accordion.title") }}</button>
     </RouterLink>
 
-    <RouterLink v-if="$route.matched.length === 1" :to="{ name: 'tabbedPanel' }"
-      ><button>{{ $t("ui.tabbedpanel.title") }}</button>
-    </RouterLink>
-
     <RouterView />
   </Page>
 </template>
