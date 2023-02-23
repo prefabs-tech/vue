@@ -25,5 +25,8 @@
     },
     "title": "Accordion"
   },
+  "tabbedpanel": {
+    "title": "Tabbed Panel"
+  },
   "title": "UI Library"
 }

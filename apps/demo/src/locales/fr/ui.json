@@ -25,5 +25,8 @@
     },
     "title": "Accordion[FR]"
   },
+  "tabbedpanel": {
+    "title": "Tabbed Panel[fr]"
+  },
   "title": "Librairie de composants d'interface utilisateur"
 }

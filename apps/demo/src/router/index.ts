@@ -12,10 +12,12 @@ interface AppRouteMeta extends RouteMeta {
   layout?: LayoutType;
 }
 
+const Accordion = () => import("@/views/UI/Accordion.vue");
 const About = () => import("@/views/About.vue");
 const Home = () => import("@/views/Home.vue");
 const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
+const TabbedPanel = () => import("@/views/UI/TabbedPanel.vue");
 const UI = () => import("@/views/UI/Index.vue");
 
 const router: Router = createRouter({
@@ -45,6 +47,18 @@ const router: Router = createRouter({
       component: UI,
       name: "ui",
       path: "/ui",
+      children: [
+        {
+          component: Accordion,
+          name: "accordion",
+          path: "accordion",
+        },
+        {
+          component: TabbedPanel,
+          name: "tabbedpanel",
+          path: "tabbed-panel",
+        },
+      ],
     },
   ],
 } as RouterOptions);
