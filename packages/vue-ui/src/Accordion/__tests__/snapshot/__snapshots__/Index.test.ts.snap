@@ -39,7 +39,9 @@ exports[`Accordion > renders correctly with props 1`] = `
       data-v-a0315011=""
       type="button"
     >
-      <!--v-if-->
+      <img
+        data-v-a0315011=""
+      />
       <span
         data-v-a0315011=""
       >
@@ -74,7 +76,9 @@ exports[`Accordion > renders correctly with props 1`] = `
       data-v-a0315011=""
       type="button"
     >
-      <!--v-if-->
+      <img
+        data-v-a0315011=""
+      />
       <span
         data-v-a0315011=""
       >
@@ -127,7 +131,9 @@ exports[`Accordion > renders correctly with slot 1`] = `
       data-v-a0315011=""
       type="button"
     >
-      <!--v-if-->
+      <img
+        data-v-a0315011=""
+      />
       <span
         data-v-a0315011=""
       >
@@ -145,7 +151,9 @@ exports[`Accordion > renders correctly with slot 1`] = `
       data-v-a0315011=""
       type="button"
     >
-      <!--v-if-->
+      <img
+        data-v-a0315011=""
+      />
       <span
         data-v-a0315011=""
       >
