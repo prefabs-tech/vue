@@ -1,7 +1,7 @@
 <template>
   <header>
-    <slot name="logo">
-      <Logo class="logo" />
+    <slot name="logo" class="logo">
+      <Logo :route="home" />
     </slot>
     <nav :data-expanded="expanded">
       <slot name="menu">
@@ -45,6 +45,9 @@ import MainMenu from "./MainMenu.vue";
 const { layout: layoutConfig } = useConfig();
 
 const expanded = ref(false);
+
+const home =
+  layoutConfig && layoutConfig?.homeRoute ? layoutConfig.homeRoute : undefined;
 
 const close = () => {
   expanded.value = false;

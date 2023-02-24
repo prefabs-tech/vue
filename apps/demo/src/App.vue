@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { BasicLayout } from "@dzangolab/vue3-layout";
+import { BasicLayout } from "@dzangolab/vue3-user";
 import { computed } from "vue";
 
 const defaultLayout = computed(() => {
