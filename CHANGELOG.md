@@ -1,3 +1,37 @@
+## [0.7.3](https://github.com/dzangolab/vue/compare/v0.7.2...v0.7.3) (2023-02-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-config-turbo to v0.0.8 ([#158](https://github.com/dzangolab/vue/issues/158)) ([14d7426](https://github.com/dzangolab/vue/commit/14d7426333e0922c5d5d816a8c2da662eb22c142))
+
+
+
+## [0.7.2](https://github.com/dzangolab/vue/compare/v0.7.1...v0.7.2) (2023-02-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @kyvg/vue3-notification to v2.9.0 ([#139](https://github.com/dzangolab/vue/issues/139)) ([932fea0](https://github.com/dzangolab/vue/commit/932fea0bb9a6cfdb28f07bbc03c20797b21c44a9))
+* **deps:** update dependency supertokens-web-js to v0.5.0 ([#144](https://github.com/dzangolab/vue/issues/144)) ([be82a30](https://github.com/dzangolab/vue/commit/be82a30d2a28ddcba3bdb0420f2ce6c3547c61a9))
+* **deps:** update dependency supertokens-website to v16 ([#151](https://github.com/dzangolab/vue/issues/151)) ([a4654e8](https://github.com/dzangolab/vue/commit/a4654e8cbaa717ff5c4a49a9f150619bcda9c725))
+* **deps:** update sentry-javascript monorepo to v7.38.0 ([#153](https://github.com/dzangolab/vue/issues/153)) ([50fc002](https://github.com/dzangolab/vue/commit/50fc0025bf16b78b396062269d1c338e7ea0dcd2))
+
+
+
+## [0.7.1](https://github.com/dzangolab/vue/compare/v0.7.0...v0.7.1) (2023-02-16)
+
+
+
+# [0.7.0](https://github.com/dzangolab/vue/compare/v0.6.10...v0.7.0) (2023-02-16)
+
+
+### Features
+
+* add vue-user package ([#126](https://github.com/dzangolab/vue/issues/126)) ([6d2cfaf](https://github.com/dzangolab/vue/commit/6d2cfaff4108e67c53e97b791e3ffd9ab175af13))
+
+
+
 ## [0.6.10](https://github.com/dzangolab/vue/compare/v0.6.9...v0.6.10) (2023-02-14)
 
 

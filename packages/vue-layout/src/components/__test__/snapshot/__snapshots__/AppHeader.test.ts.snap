@@ -8,8 +8,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
   >
     <img
       alt=""
-      class="logo"
-      src="logo.png"
+      src="/logo.png"
     />
   </a>
   
