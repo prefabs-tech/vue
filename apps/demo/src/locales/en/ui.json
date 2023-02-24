@@ -13,5 +13,9 @@
     },
     "title": "Tabbed Panel"
   },
+  "subpane": {
+    "title": "Subpane",
+    "content": "This is a subpane"
+  },
   "title": "UI Library"
 }

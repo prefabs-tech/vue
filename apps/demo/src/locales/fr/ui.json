@@ -1,4 +1,8 @@
 {
+  "subpane": {
+    "title": "Subpane[fr]",
+    "content": "This is a subpane[fr]"
+  },
   "tabbedpanel": {
     "basics": "Basics[fr]",
     "contents": {
