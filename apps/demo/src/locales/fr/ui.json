@@ -1,3 +1,7 @@
 {
+  "subpane": {
+    "title": "Subpane[fr]",
+    "content": "This is a subpane[fr]"
+  },
   "title": "Librairie de composants d'interface utilisateur"
 }
