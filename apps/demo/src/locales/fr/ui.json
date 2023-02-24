@@ -1,6 +1,17 @@
 {
   "tabbedpanel": {
-    "title": "Tabbed Panel[fr]"
+    "basics": "Basics[fr]",
+    "contents": {
+      "first": {
+        "title": "Tab 1[fr]",
+        "content": "This is the first tab[fr]"
+      },
+      "second": {
+        "title": "Tab 2[fr]",
+        "content": "This is the second tab[fr]"
+      }
+    },
+    "title": "Tabbed Panel"
   },
   "title": "Librairie de composants d'interface utilisateur"
 }
