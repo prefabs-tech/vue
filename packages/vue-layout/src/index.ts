@@ -6,6 +6,7 @@ import { inject } from "vue";
 import AppFooter from "./components/AppFooter.vue";
 import AppHeader from "./components/AppHeader.vue";
 import Copyright from "./components/Copyright.vue";
+import Logo from "./components/Logo.vue";
 import Layout from "./Layout.vue";
 import BasicLayout from "./layouts/BasicLayout.vue";
 import NullLayout from "./layouts/NullLayout.vue";
@@ -58,6 +59,7 @@ export {
   BasicLayout,
   Copyright,
   Layout,
+  Logo,
   NullLayout,
   useTranslations,
 };

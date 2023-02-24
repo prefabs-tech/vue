@@ -1,0 +1,159 @@
+// Vitest Snapshot v1
+
+exports[`Login with signup disabled > matches snapshot in en 1`] = `
+<div
+  class="login"
+>
+  <h1>
+    Login
+  </h1>
+  <!--v-if-->
+  
+  
+  <form
+    class="form auth-form"
+    novalidate=""
+  >
+    <div
+      class="field email"
+    >
+      <label
+        for="email"
+      >
+        Your email
+      </label>
+      <input
+        class="c-form__input-field"
+        name="email"
+        placeholder="john.doe.at.example.com"
+        type="email"
+      />
+      <!---->
+    </div>
+    <div
+      class="field password"
+    >
+      <label
+        for="password"
+      >
+        Your password
+      </label>
+      <input
+        class="c-form__input-field"
+        name="password"
+        type="password"
+      />
+      <!---->
+    </div>
+    <div
+      class="actions"
+    >
+      <button
+        class="loading-button"
+        data-v-3fdbc7b3=""
+      >
+        <div
+          class="label"
+          data-v-3fdbc7b3=""
+        >
+          <span
+            data-v-3fdbc7b3=""
+          >
+            Sign in
+          </span>
+        </div>
+        <!---->
+      </button>
+    </div>
+  </form>
+  <div
+    class="links"
+  >
+    <!--v-if-->
+    <a
+      class="reset"
+    >
+      Forgot password
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Login with signup disabled > matches snapshot in fr 1`] = `
+<div
+  class="login"
+>
+  <h1>
+    Connexion
+  </h1>
+  <!--v-if-->
+  
+  
+  <form
+    class="form auth-form"
+    novalidate=""
+  >
+    <div
+      class="field email"
+    >
+      <label
+        for="email"
+      >
+        Votre adresse mail
+      </label>
+      <input
+        class="c-form__input-field"
+        name="email"
+        placeholder="john.doe.at.example.com"
+        type="email"
+      />
+      <!---->
+    </div>
+    <div
+      class="field password"
+    >
+      <label
+        for="password"
+      >
+        Votre mot de passe
+      </label>
+      <input
+        class="c-form__input-field"
+        name="password"
+        type="password"
+      />
+      <!---->
+    </div>
+    <div
+      class="actions"
+    >
+      <button
+        class="loading-button"
+        data-v-3fdbc7b3=""
+      >
+        <div
+          class="label"
+          data-v-3fdbc7b3=""
+        >
+          <span
+            data-v-3fdbc7b3=""
+          >
+            Connexion
+          </span>
+        </div>
+        <!---->
+      </button>
+    </div>
+  </form>
+  <div
+    class="links"
+  >
+    <!--v-if-->
+    <a
+      class="reset"
+    >
+      Mot de passe oublié
+    </a>
+  </div>
+</div>
+`;

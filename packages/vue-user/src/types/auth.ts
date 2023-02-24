@@ -1,0 +1,36 @@
+import type { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
+
+interface AuthTokens {
+  accessToken: string | null;
+  expiresIn?: number | null;
+  refreshToken?: string | null;
+}
+
+interface PasswordResetPayload {
+  password: string | null | undefined;
+  token: string | null | undefined;
+}
+
+interface PasswordResetRequestPayload {
+  email: string | null | undefined;
+  url: string | null | undefined;
+}
+
+interface LoginCredentials {
+  email: string | undefined;
+  password: string | undefined;
+}
+
+interface User extends EmailPasswordUserType {
+  //usertype and emailusertype are same one type with different name in different recipe
+  email: string;
+  username?: string;
+}
+
+export type {
+  AuthTokens,
+  LoginCredentials,
+  PasswordResetPayload,
+  PasswordResetRequestPayload,
+  User,
+};
