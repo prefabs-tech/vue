@@ -145,7 +145,7 @@
   </section>
 
   <RouterLink :to="{ name: 'ui' }">
-    <button>{{ $t("common.back") }}</button>
+    {{ $t("common.back") }}
   </RouterLink>
 </template>
 
@@ -158,3 +158,13 @@ export default {
 <script lang="ts" setup>
 import { Accordion, SubPane } from "@dzangolab/vue3-ui";
 </script>
+
+<style scoped>
+section {
+  margin: var(--accordion-sections, 1rem 0);
+}
+
+.sub-pane {
+  padding: var(--accordion-subpane, 1rem 0);
+}
+</style>
