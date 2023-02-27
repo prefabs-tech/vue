@@ -46,14 +46,14 @@ const router: Router = createRouter({
     {
       children: [
         {
-          component: TabbedPanel,
-          name: "tabbedPanel",
-          path: "tabbed-panel",
-        },
-        {
           component: SubPane,
           name: "subpane",
           path: "subpane",
+        },
+        {
+          component: TabbedPanel,
+          name: "tabbedPanel",
+          path: "tabbed-panel",
         },
       ],
       component: UI,
