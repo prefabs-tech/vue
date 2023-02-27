@@ -34,7 +34,7 @@ const props = defineProps({
   position: {
     default: "top",
     required: false,
-    type: String as PropType<"vertical" | "horizontal">,
+    type: String as PropType<"bottom" | "left" | "right" | "top">,
   },
 });
 
