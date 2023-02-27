@@ -1,18 +1,18 @@
 {
   "subpane": {
-    "title": "Subpane[fr]",
-    "content": "This is a subpane[fr]"
+    "content": "This is a subpane[fr]",
+    "title": "Subpane[fr]"
   },
   "tabbedpanel": {
     "basics": "Basics[fr]",
     "contents": {
       "first": {
-        "title": "Tab 1[fr]",
-        "content": "This is the first tab[fr]"
+        "content": "This is the first tab[fr]",
+        "title": "Tab 1[fr]"
       },
       "second": {
-        "title": "Tab 2[fr]",
-        "content": "This is the second tab[fr]"
+        "content": "This is the second tab[fr]",
+        "title": "Tab 2[fr]"
       }
     },
     "position": {
