@@ -89,5 +89,6 @@ const handleClick = (index: number) => {
   display: flex;
   flex-direction: row;
   padding: var(--tab-padding, 1rem);
+  width: max-content;
 }
 </style>
