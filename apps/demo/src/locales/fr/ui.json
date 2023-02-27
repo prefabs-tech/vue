@@ -5,16 +5,16 @@
     "canSelfCollapse": " With canSelfCollapse = true[fr]",
     "contents": {
       "first": {
-        "title": "Accordion 1[fr]",
-        "content": "Accordion 1 content[fr]"
+        "content": "Accordion 1 content[fr]",
+        "title": "Accordion 1[fr]"
       },
       "second": {
-        "title": "Accordion 2[fr]",
-        "content": "Accordion 2 content[fr]"
+        "content": "Accordion 2 content[fr]",
+        "title": "Accordion 2[fr]"
       },
       "third": {
-        "title": "Accordion 3[fr]",
-        "content": "Accordion 3 content[fr]"
+        "content": "Accordion 3 content[fr]",
+        "title": "Accordion 3[fr]"
       }
     },
     "defaultIndex": "With defaultIndex = 1[fr]",
