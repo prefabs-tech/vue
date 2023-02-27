@@ -16,6 +16,7 @@ const About = () => import("@/views/About.vue");
 const Home = () => import("@/views/Home.vue");
 const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
+const SubPane = () => import("@/views/UI/SubPanePage.vue");
 const UI = () => import("@/views/UI/Index.vue");
 
 const router: Router = createRouter({
@@ -42,6 +43,13 @@ const router: Router = createRouter({
       path: "/sentry",
     },
     {
+      children: [
+        {
+          component: SubPane,
+          name: "subpane",
+          path: "subpane",
+        },
+      ],
       component: UI,
       name: "ui",
       path: "/ui",

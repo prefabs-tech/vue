@@ -1,10 +1,10 @@
 <template>
   <Page :title="$t('ui.title')">
-    <h2>{{ $t("ui.subpane.title") }}</h2>
+    <RouterLink v-if="$route.matched.length === 1" :to="{ name: 'subpane' }"
+      >{{ $t("ui.subpane.title") }}
+    </RouterLink>
 
-    <SubPane>
-      <p>{{ $t("ui.subpane.content") }}</p>
-    </SubPane>
+    <RouterView />
   </Page>
 </template>
 
