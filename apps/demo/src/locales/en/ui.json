@@ -1,6 +1,6 @@
 {
-  "subpane": {
-    "title": "Subpane",
+  "subPane": {
+    "title": "SubPane",
     "content": "This is a subpane"
   },
   "title": "UI Library"

@@ -46,8 +46,8 @@ const router: Router = createRouter({
       children: [
         {
           component: SubPane,
-          name: "subpane",
-          path: "subpane",
+          name: "subPane",
+          path: "sub-pane",
         },
       ],
       component: UI,
