@@ -4,13 +4,11 @@
       >{{ $t("ui.tabbedpanel.title") }}
     </RouterLink>
 
+    <RouterLink v-if="$route.matched.length === 1" :to="{ name: 'subpane' }"
+      >{{ $t("ui.subpane.title") }}
+    </RouterLink>
+
     <RouterView />
-
-    <h2>{{ $t("ui.subpane.title") }}</h2>
-
-    <SubPane>
-      <p>{{ $t("ui.subpane.content") }}</p>
-    </SubPane>
   </Page>
 </template>
 
