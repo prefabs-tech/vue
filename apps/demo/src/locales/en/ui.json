@@ -1,10 +1,10 @@
 {
-  "subpane": {
-    "content": "This is a subpane",
-    "title": "Subpane"
+  "subPane": {
+    "title": "SubPane",
+    "content": "This is a subpane"
   },
-  "tabbedpanel": {
-    "basic": "Basic",
+  "tabbedPanel": {
+    "basics": "Basics",
     "contents": {
       "first": {
         "content": "This is the first tab ",

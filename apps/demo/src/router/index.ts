@@ -55,6 +55,11 @@ const router: Router = createRouter({
           name: "tabbedPanel",
           path: "tabbed-panel",
         },
+        {
+          component: SubPane,
+          name: "subPane",
+          path: "sub-pane",
+        },
       ],
       component: UI,
       name: "ui",
