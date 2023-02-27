@@ -1,6 +1,10 @@
 {
+  "subpane": {
+    "title": "Subpane",
+    "content": "This is a subpane"
+  },
   "tabbedpanel": {
-    "basics": "Basics",
+    "basic": "Basic",
     "contents": {
       "first": {
         "title": "Tab 1",
@@ -11,11 +15,12 @@
         "content": "This is the second tab"
       }
     },
+    "position": {
+      "bottom": "Bottom",
+      "left": "Left",
+      "right": "Right"
+    },
     "title": "Tabbed Panel"
-  },
-  "subpane": {
-    "title": "Subpane",
-    "content": "This is a subpane"
   },
   "title": "UI Library"
 }

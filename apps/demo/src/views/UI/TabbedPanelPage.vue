@@ -2,8 +2,44 @@
   <h2>{{ $t("ui.tabbedpanel.title") }}</h2>
 
   <section>
-    <h3>{{ $t("ui.tabbedpanel.basics") }}</h3>
+    <h3>{{ $t("ui.tabbedpanel.basic") }}</h3>
+    <TabbedPanel>
+      <SubPane :title="$t('ui.tabbedpanel.contents.first.title')">
+        <p>{{ $t("ui.tabbedpanel.contents.first.content") }}</p>
+      </SubPane>
+      <SubPane :title="$t('ui.tabbedpanel.contents.second.title')">
+        <p>{{ $t("ui.tabbedpanel.contents.second.content") }}</p>
+      </SubPane>
+    </TabbedPanel>
+  </section>
+
+  <section>
+    <h3>{{ $t("ui.tabbedpanel.position.bottom") }}</h3>
     <TabbedPanel position="bottom">
+      <SubPane :title="$t('ui.tabbedpanel.contents.first.title')">
+        <p>{{ $t("ui.tabbedpanel.contents.first.content") }}</p>
+      </SubPane>
+      <SubPane :title="$t('ui.tabbedpanel.contents.second.title')">
+        <p>{{ $t("ui.tabbedpanel.contents.second.content") }}</p>
+      </SubPane>
+    </TabbedPanel>
+  </section>
+
+  <section>
+    <h3>{{ $t("ui.tabbedpanel.position.left") }}</h3>
+    <TabbedPanel position="left">
+      <SubPane :title="$t('ui.tabbedpanel.contents.first.title')">
+        <p>{{ $t("ui.tabbedpanel.contents.first.content") }}</p>
+      </SubPane>
+      <SubPane :title="$t('ui.tabbedpanel.contents.second.title')">
+        <p>{{ $t("ui.tabbedpanel.contents.second.content") }}</p>
+      </SubPane>
+    </TabbedPanel>
+  </section>
+
+  <section>
+    <h3>{{ $t("ui.tabbedpanel.position.right") }}</h3>
+    <TabbedPanel position="right">
       <SubPane :title="$t('ui.tabbedpanel.contents.first.title')">
         <p>{{ $t("ui.tabbedpanel.contents.first.content") }}</p>
       </SubPane>
