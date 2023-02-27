@@ -58,4 +58,8 @@ const handleClick = (index: number) => {
   display: flex;
   flex-direction: column;
 }
+
+.tabbed-panel.bottom {
+  flex-direction: column-reverse;
+}
 </style>
