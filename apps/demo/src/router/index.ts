@@ -16,6 +16,7 @@ const About = () => import("@/views/About.vue");
 const Home = () => import("@/views/Home.vue");
 const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
+const SubPane = () => import("@/views/UI/SubPanePage.vue");
 const TabbedPanel = () => import("@/views/UI/TabbedPanelPage.vue");
 const UI = () => import("@/views/UI/Index.vue");
 
@@ -44,6 +45,11 @@ const router: Router = createRouter({
     },
     {
       children: [
+        {
+          component: SubPane,
+          name: "subPane",
+          path: "sub-pane",
+        },
         {
           component: TabbedPanel,
           name: "tabbedPanel",

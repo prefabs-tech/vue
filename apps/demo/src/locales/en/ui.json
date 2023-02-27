@@ -1,5 +1,9 @@
 {
-  "tabbedpanel": {
+  "subPane": {
+    "title": "SubPane",
+    "content": "This is a subpane"
+  },
+  "tabbedPanel": {
     "title": "Tabbed Panel"
   },
   "title": "UI Library"

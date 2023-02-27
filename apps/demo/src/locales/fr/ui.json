@@ -1,5 +1,9 @@
 {
-  "tabbedpanel": {
+  "subPane": {
+    "title": "SubPane[fr]",
+    "content": "This is a subpane[fr]"
+  },
+  "tabbedPanel": {
     "title": "Tabbed Panel[fr]"
   },
   "title": "Librairie de composants d'interface utilisateur"

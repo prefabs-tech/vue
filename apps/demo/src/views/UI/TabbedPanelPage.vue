@@ -1,5 +1,5 @@
 <template>
-  <h2>{{ $t("ui.tabbedpanel.title") }}</h2>
+  <h2>{{ $t("ui.tabbedPanel.title") }}</h2>
 
   <RouterLink :to="{ name: 'ui' }">
     <button>{{ $t("common.back") }}</button>
