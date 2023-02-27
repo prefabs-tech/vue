@@ -1,11 +1,11 @@
 <template>
   <Page :title="$t('ui.title')">
     <RouterLink v-if="$route.matched.length === 1" :to="{ name: 'tabbedPanel' }"
-      >{{ $t("ui.tabbedpanel.title") }}
+      >{{ $t("ui.tabbedPanel.title") }}
     </RouterLink>
 
-    <RouterLink v-if="$route.matched.length === 1" :to="{ name: 'subpane' }"
-      >{{ $t("ui.subpane.title") }}
+    <RouterLink v-if="$route.matched.length === 1" :to="{ name: 'subPane' }"
+      >{{ $t("ui.subPane.title") }}
     </RouterLink>
 
     <RouterView />
@@ -16,8 +16,4 @@
 export default {
   name: "UI",
 };
-</script>
-
-<script setup lang="ts">
-import { SubPane } from "@dzangolab/vue3-ui";
 </script>

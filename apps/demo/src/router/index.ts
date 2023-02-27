@@ -52,8 +52,8 @@ const router: Router = createRouter({
         },
         {
           component: SubPane,
-          name: "subpane",
-          path: "subpane",
+          name: "subPane",
+          path: "sub-pane",
         },
       ],
       component: UI,

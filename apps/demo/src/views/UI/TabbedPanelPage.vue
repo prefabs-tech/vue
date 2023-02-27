@@ -1,14 +1,14 @@
 <template>
-  <h2>{{ $t("ui.tabbedpanel.title") }}</h2>
+  <h2>{{ $t("ui.tabbedPanel.title") }}</h2>
 
   <section>
-    <h3>{{ $t("ui.tabbedpanel.basics") }}</h3>
+    <h3>{{ $t("ui.tabbedPanel.basics") }}</h3>
     <TabbedPanel>
-      <SubPane :title="$t('ui.tabbedpanel.contents.first.title')">
-        <p>{{ $t("ui.tabbedpanel.contents.first.content") }}</p>
+      <SubPane :title="$t('ui.tabbedPanel.contents.first.title')">
+        <p>{{ $t("ui.tabbedPanel.contents.first.content") }}</p>
       </SubPane>
-      <SubPane :title="$t('ui.tabbedpanel.contents.second.title')">
-        <p>{{ $t("ui.tabbedpanel.contents.second.content") }}</p>
+      <SubPane :title="$t('ui.tabbedPanel.contents.second.title')">
+        <p>{{ $t("ui.tabbedPanel.contents.second.content") }}</p>
       </SubPane>
     </TabbedPanel>
   </section>

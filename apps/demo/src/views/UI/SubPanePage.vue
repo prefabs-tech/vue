@@ -1,8 +1,8 @@
 <template>
-  <h2>{{ $t("ui.subpane.title") }}</h2>
+  <h2>{{ $t("ui.subPane.title") }}</h2>
 
-  <SubPane :title="$t('ui.subpane.title')">
-    <p>{{ $t("ui.subpane.content") }}</p>
+  <SubPane :title="$t('ui.subPane.title')">
+    <p>{{ $t("ui.subPane.content") }}</p>
   </SubPane>
 
   <RouterLink :to="{ name: 'ui' }">

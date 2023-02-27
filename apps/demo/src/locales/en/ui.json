@@ -1,5 +1,9 @@
 {
-  "tabbedpanel": {
+  "subPane": {
+    "title": "SubPane",
+    "content": "This is a subpane"
+  },
+  "tabbedPanel": {
     "basics": "Basics",
     "contents": {
       "first": {
@@ -12,10 +16,6 @@
       }
     },
     "title": "Tabbed Panel"
-  },
-  "subpane": {
-    "title": "Subpane",
-    "content": "This is a subpane"
   },
   "title": "UI Library"
 }
