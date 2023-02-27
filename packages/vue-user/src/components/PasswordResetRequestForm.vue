@@ -3,8 +3,8 @@
     <Email
       v-model="payload.email"
       :error-messages="{
-        invalid: t('user.passwordResetRequest.form.email.error.invalid'),
-        required: t('user.passwordResetRequest.form.email.error.required'),
+        invalid: t('user.passwordResetRequest.form.email.errors.invalid'),
+        required: t('user.passwordResetRequest.form.email.errors.required'),
       }"
       :label="t('user.passwordResetRequest.form.email.label')"
       :placeholder="t('user.passwordResetRequest.form.email.placeholder')"

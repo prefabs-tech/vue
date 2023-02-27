@@ -63,22 +63,22 @@ const validationSchema = toFormValidator(
     .object({
       email: emailSchema(
         {
-          invalid: t("user.signup.form.email.error.invalid"),
-          required: t("user.signup.form.email.error.required"),
+          invalid: t("user.signup.form.email.errors.invalid"),
+          required: t("user.signup.form.email.errors.required"),
         },
         config?.user?.options?.email
       ),
       password: passwordSchema(
         {
-          required: t("user.signup.form.password.error.required"),
-          weak: t("user.signup.form.password.error.weak"),
+          required: t("user.signup.form.password.errors.required"),
+          weak: t("user.signup.form.password.errors.weak"),
         },
         config?.user?.options?.password
       ),
       confirmation: passwordSchema(
         {
-          required: t("user.signup.form.password.error.required"),
-          weak: t("user.signup.form.password.error.weak"),
+          required: t("user.signup.form.password.errors.required"),
+          weak: t("user.signup.form.password.errors.weak"),
         },
         { minLength: 0 }
       ),
@@ -88,7 +88,7 @@ const validationSchema = toFormValidator(
         return data.password === data.confirmation;
       },
       {
-        message: t("user.signup.form.confirmation.error.match"),
+        message: t("user.signup.form.confirmation.errors.match"),
         path: ["confirmation"],
       }
     )

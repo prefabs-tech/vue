@@ -14,6 +14,7 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { Page } from "@dzangolab/vue3-ui";
 import { useRouter } from "vue-router";
 
 import PasswordResetForm from "../components/PasswordResetForm.vue";

@@ -3,8 +3,8 @@
     <Email
       v-model="credentials.email"
       :error-messages="{
-        invalid: t('user.login.form.email.error.invalid'),
-        required: t('user.login.form.email.error.required'),
+        invalid: t('user.login.form.email.errors.invalid'),
+        required: t('user.login.form.email.errors.required'),
       }"
       :label="t('user.login.form.email.label')"
       :options="userConfig?.options?.email"
@@ -14,7 +14,7 @@
     <Password
       v-model="credentials.password"
       :error-messages="{
-        required: t('user.login.form.password.error.required'),
+        required: t('user.login.form.password.errors.required'),
       }"
       :label="t('user.login.form.password.label')"
       :options="{ minLength: 0 }"

@@ -53,15 +53,15 @@ const validationSchema = toFormValidator(
     .object({
       password: passwordSchema(
         {
-          required: t("user.passwordReset.form.password.error.required"),
-          weak: t("user.passwordReset.form.password.error.weak"),
+          required: t("user.passwordReset.form.password.errors.required"),
+          weak: t("user.passwordReset.form.password.errors.weak"),
         },
         config?.user?.options?.password
       ),
       confirmation: passwordSchema(
         {
-          required: t("user.passwordReset.form.password.error.required"),
-          weak: t("user.passwordReset.form.password.error.weak"),
+          required: t("user.passwordReset.form.password.errors.required"),
+          weak: t("user.passwordReset.form.password.errors.weak"),
         },
         {}
       ),
@@ -71,7 +71,7 @@ const validationSchema = toFormValidator(
         return data.password === data.confirmation;
       },
       {
-        message: t("user.passwordReset.form.confirmation.error.match"),
+        message: t("user.passwordReset.form.confirmation.errors.match"),
         path: ["confirmation"],
       }
     )

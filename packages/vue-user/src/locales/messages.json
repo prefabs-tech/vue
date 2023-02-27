@@ -10,15 +10,15 @@
             "submit": "Sign in"
           },
           "email": {
-            "error": {
+            "errors": {
               "invalid": "Please provide a valid email address",
               "required": "Your email adress is required"
             },
             "label": "Your email",
-            "placeholder": "john.doe@example.com"
+            "placeholder": "john.doe{'@'}example.com"
           },
           "password": {
-            "error": {
+            "errors": {
               "required": "Please provide a password"
             },
             "label": "Your password"
@@ -51,8 +51,8 @@
           },
           "password": {
             "errors": {
-              "min": "Your password must be at least {min} characters long",
-              "required": "Please provide a password"
+              "required": "Please provide a password",
+              "weak": "Your password should be at least 8 characters long"
             },
             "label": "Enter password"
           }
@@ -77,12 +77,12 @@
             "submit": "Email me"
           },
           "email": {
-            "error": {
+            "errors": {
               "invalid": "Please supply a valid email address",
               "required": "Your email address is required"
             },
             "label": "Your email",
-            "placeholder": "john.doe.at.example.com"
+            "placeholder": "john.doe{'@'}example.com"
           }
         },
         "description": "We will send you an email to reset your password",
@@ -103,21 +103,21 @@
             "submit": "Create my account"
           },
           "confirmation": {
-            "error": {
+            "errors": {
               "match": "The 2 passwords must match"
             },
             "label": "Confirm your password"
           },
           "email": {
-            "error": {
+            "errors": {
               "invalid": "Please supply a valid email address",
               "required": "Your email address is required"
             },
             "label": "Your email",
-            "placeholder": "john.doe.at.example.com"
+            "placeholder": "john.doe{'@'}example.com"
           },
           "password": {
-            "error": {
+            "errors": {
               "required": "Please provide a password",
               "weak": "Your password should be at least 8 characters long"
             },
@@ -146,15 +146,15 @@
             "submit": "Connexion"
           },
           "email": {
-            "error": {
+            "errors": {
               "invalid": "Veuillez saisir une adresse courriel valide",
               "required": "Veuillez saisir votre adresse courriel"
             },
             "label": "Votre adresse courriel",
-            "placeholder": "john.doe@example.com"
+            "placeholder": "john.doe{'@'}example.com"
           },
           "password": {
-            "error": {
+            "errors": {
               "required": "Veuillez saisir un mot de passe"
             },
             "label": "Votre mot de passe"
@@ -186,8 +186,8 @@
           },
           "password": {
             "errors": {
-              "min": "Your password must be at least {min} characters long",
-              "required": "Merci de saisir votre nouveau mot de passe"
+              "required": "Veuillez saisir un mot de passe",
+              "weak": "Votre mot de passe doit avoir au moins 8 caractères"
             },
             "label": "Nouveau mot de passe"
           }
@@ -212,12 +212,12 @@
             "submit": "Réinitialiser"
           },
           "email": {
-            "error": {
+            "errors": {
               "invalid": "Veuillez saisir une adresse courriel valide",
               "required": "Veuillez saisir votre adresse courriel"
             },
             "label": "Votre adresse courriel",
-            "placeholder": "john.doe@example.com"
+            "placeholder": "john.doe{'@'}example.com"
           }
         },
         "description": "We will send you an email to reset your password",
@@ -238,21 +238,21 @@
             "submit": "M'inscrire"
           },
           "confirmation": {
-            "error": {
+            "errors": {
               "match": "Les 2 mots de passe doivent être identiques"
             },
             "label": "Confirmez votre mot de passe"
           },
           "email": {
-            "error": {
+            "errors": {
               "invalid": "Veuillez saisir une adresse email valide",
               "required": "Veuillez saisir votre adresse email"
             },
             "label": "Votre adresse e-mail",
-            "placeholder": "john.doe.at.example.com"
+            "placeholder": "john.doe{'@'}example.com"
           },
           "password": {
-            "error": {
+            "errors": {
               "required": "Veuillez saisir un mot de passe",
               "weak": "Votre mot de passe doit avoir au moins 8 caractères"
             },

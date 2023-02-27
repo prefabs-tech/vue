@@ -23,7 +23,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
   >
     <div
       class="field email"
-      placeholder="john.doe.at.example.com"
+      placeholder="john.doe@example.com"
     >
       <label
         for="email"
@@ -138,7 +138,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
   >
     <div
       class="field email"
-      placeholder="john.doe.at.example.com"
+      placeholder="john.doe@example.com"
     >
       <label
         for="email"
