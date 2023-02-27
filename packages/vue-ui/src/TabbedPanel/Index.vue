@@ -67,8 +67,13 @@ const handleClick = (index: number) => {
   flex-direction: row;
 }
 
-.tabbed-panel.left > div[role="tablist"] {
+.tabbed-panel.left > div[role="tablist"],
+.tabbed-panel.right > div[role="tablist"] {
   display: flex;
   flex-direction: column;
+}
+
+.tabbed-panel.right {
+  flex-direction: row-reverse;
 }
 </style>

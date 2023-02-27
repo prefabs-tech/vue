@@ -3,7 +3,7 @@
 
   <section>
     <h3>{{ $t("ui.tabbedpanel.basics") }}</h3>
-    <TabbedPanel position="left">
+    <TabbedPanel position="bottom">
       <SubPane :title="$t('ui.tabbedpanel.contents.first.title')">
         <p>{{ $t("ui.tabbedpanel.contents.first.content") }}</p>
       </SubPane>
