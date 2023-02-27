@@ -17,7 +17,3 @@ export default {
   name: "UI",
 };
 </script>
-
-<script setup lang="ts">
-import { SubPane } from "@dzangolab/vue3-ui";
-</script>

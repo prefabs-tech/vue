@@ -4,10 +4,16 @@
   <section>
     <h3>{{ $t("ui.tabbedpanel.basic") }}</h3>
     <TabbedPanel>
-      <SubPane :title="$t('ui.tabbedpanel.contents.first.title')">
+      <SubPane
+        :title="$t('ui.tabbedpanel.contents.first.title')"
+        icon="/home.svg"
+      >
         <p>{{ $t("ui.tabbedpanel.contents.first.content") }}</p>
       </SubPane>
-      <SubPane :title="$t('ui.tabbedpanel.contents.second.title')">
+      <SubPane
+        :title="$t('ui.tabbedpanel.contents.second.title')"
+        icon="/home.svg"
+      >
         <p>{{ $t("ui.tabbedpanel.contents.second.content") }}</p>
       </SubPane>
     </TabbedPanel>
@@ -28,10 +34,16 @@
   <section>
     <h3>{{ $t("ui.tabbedpanel.position.left") }}</h3>
     <TabbedPanel position="left">
-      <SubPane :title="$t('ui.tabbedpanel.contents.first.title')">
+      <SubPane
+        :title="$t('ui.tabbedpanel.contents.first.title')"
+        icon="/home.svg"
+      >
         <p>{{ $t("ui.tabbedpanel.contents.first.content") }}</p>
       </SubPane>
-      <SubPane :title="$t('ui.tabbedpanel.contents.second.title')">
+      <SubPane
+        :title="$t('ui.tabbedpanel.contents.second.title')"
+        icon="/home.svg"
+      >
         <p>{{ $t("ui.tabbedpanel.contents.second.content") }}</p>
       </SubPane>
     </TabbedPanel>

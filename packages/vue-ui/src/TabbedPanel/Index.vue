@@ -47,13 +47,16 @@ const activeSlot = computed(() => {
 const handleClick = (index: number) => {
   if (active.value !== index) {
     active.value = index;
-  } else {
-    active.value = -1;
   }
+  return;
 };
 </script>
 
 <style scoped>
+.active {
+  background-color: var(--tab-active-background-color, #ffffff);
+}
+
 .tabbed-panel {
   display: flex;
   flex-direction: column;
@@ -63,17 +66,28 @@ const handleClick = (index: number) => {
   flex-direction: column-reverse;
 }
 
-.tabbed-panel.left {
+.tabbed-panel.top > div[role="tablist"],
+.tabbed-panel.bottom > div[role="tablist"] {
+  display: flex;
   flex-direction: row;
 }
 
+.tabbed-panel.left {
+  flex-direction: row;
+}
+.tabbed-panel.right {
+  flex-direction: row-reverse;
+}
 .tabbed-panel.left > div[role="tablist"],
 .tabbed-panel.right > div[role="tablist"] {
   display: flex;
   flex-direction: column;
 }
 
-.tabbed-panel.right {
-  flex-direction: row-reverse;
+.tabbed-panel > div > button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding: var(--tab-padding, 1rem);
 }
 </style>
