@@ -144,6 +144,23 @@
     </Accordion>
   </section>
 
+  <section>
+    <h3>{{ $t("ui.accordion.customSlot") }}</h3>
+    <Accordion>
+      <div class="sub-pane" :title="$t('ui.accordion.contents.first.title')">
+        <p>{{ $t("ui.accordion.contents.first.content") }}</p>
+      </div>
+
+      <div class="sub-pane" :title="$t('ui.accordion.contents.second.title')">
+        <p>{{ $t("ui.accordion.contents.second.content") }}</p>
+      </div>
+
+      <div class="sub-pane" :title="$t('ui.accordion.contents.third.title')">
+        <p>{{ $t("ui.accordion.contents.third.content") }}</p>
+      </div>
+    </Accordion>
+  </section>
+
   <RouterLink :to="{ name: 'ui' }">
     {{ $t("common.back") }}
   </RouterLink>

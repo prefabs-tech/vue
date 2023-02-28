@@ -17,6 +17,7 @@
         "title": "Accordion 3"
       }
     },
+    "customSlot": "When slot is not SubPane component",
     "defaultIndex": "With defaultIndex = 1",
     "direction": "With direction = horizontal",
     "icons": {
