@@ -10,6 +10,9 @@ describe("TabbedPanel", () => {
       global: {
         components: { SubPane },
       },
+      props: {
+        position: "bottom",
+      },
       slots: {
         default: `
             <SubPane title="Subpane 1" icon="home.svg">

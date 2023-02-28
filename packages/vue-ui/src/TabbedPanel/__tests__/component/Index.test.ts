@@ -29,7 +29,7 @@ describe("TabbedPanel", () => {
           <p>${contents.first.content}</p>
           </SubPane>
           <SubPane title="${contents.second.title}">
-          <p>${contents.second.content}}</p>
+          <p>${contents.second.content}</p>
           </SubPane>`,
     },
   });
@@ -46,6 +46,21 @@ describe("TabbedPanel", () => {
 
     expect(wrapper.find(".tabbed-panel > .sub-pane > p").text()).toBe(
       contents.first.content
+    );
+  });
+
+  it("should show correct tab on multiple tab click", async () => {
+    const firstTab = wrapper.find(
+      ".tabbed-panel > div[role='tablist'] > button:first-child"
+    );
+    const secondTab = wrapper.find(
+      ".tabbed-panel > div[role='tablist'] > button:last-child"
+    );
+    await firstTab.trigger("click");
+    await secondTab.trigger("click");
+
+    expect(wrapper.find(".tabbed-panel > .sub-pane > p").text()).toBe(
+      contents.second.content
     );
   });
 });

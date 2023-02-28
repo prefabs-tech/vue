@@ -2,7 +2,7 @@
 
 exports[`TabbedPanel > matches snapshot 1`] = `
 <div
-  class="tabbed-panel top"
+  class="tabbed-panel bottom"
   data-v-fddfca6f=""
 >
   <div
