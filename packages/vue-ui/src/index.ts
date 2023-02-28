@@ -8,7 +8,6 @@ import Errors from "./Errors/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 
-import type { Error } from "./types";
 import type { App } from "vue";
 
 const plugin = {
@@ -31,4 +30,4 @@ export {
   SubPane,
 };
 
-export type { Error };
+export type { Error } from "./types";

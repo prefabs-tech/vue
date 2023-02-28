@@ -35,16 +35,3 @@ defineProps({
   },
 });
 </script>
-
-<style lang="css" scoped>
-.page {
-  display: flex;
-  flex-direction: column;
-}
-
-.page .content {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  flex-grow: 2;
-}
-</style>

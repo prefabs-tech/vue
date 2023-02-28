@@ -3,21 +3,15 @@
 exports[`Page > matches snapshot 1`] = `
 <div
   class="page"
-  data-v-82d6bbf2=""
 >
-  <h1
-    data-v-82d6bbf2=""
-  >
+  <h1>
     Home 
-    <small
-      data-v-82d6bbf2=""
-    >
+    <small>
       Welcome to the home page
     </small>
   </h1>
   <div
     class="toolbar"
-    data-v-82d6bbf2=""
   >
     
     

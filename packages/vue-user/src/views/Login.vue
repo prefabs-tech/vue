@@ -1,7 +1,5 @@
 <template>
-  <div class="login">
-    <h1>{{ t("user.login.title") }}</h1>
-
+  <Page :title="t('user.login.title')" class="auth login">
     <Errors v-if="errors.length" :errors="errors" />
 
     <slot name="instructions"></slot>
@@ -20,7 +18,7 @@
         {{ t("user.login.links.forgotPassword") }}
       </router-link>
     </div>
-  </div>
+  </Page>
 </template>
 
 <script lang="ts">
@@ -32,7 +30,7 @@ export default {
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Errors } from "@dzangolab/vue3-ui";
+import { Errors, Page } from "@dzangolab/vue3-ui";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -81,33 +79,3 @@ const handleSubmit = async (credentials: LoginCredentials) => {
   loading.value = false;
 };
 </script>
-
-<style lang="css">
-div.login {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 20rem;
-}
-
-.login .links {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5rem;
-  width: 100%;
-}
-
-.login .links a {
-  color: inherit;
-  font-size: 90%;
-  text-decoration: none;
-}
-
-.login .links a:only-child {
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>

@@ -1,11 +1,9 @@
 <template>
-  <div class="password-reset">
-    <h1>{{ t("user.passwordReset.title") }}</h1>
-
+  <Page :title="t('user.passwordReset.title')" class="auth password-reset">
     <slot name="instructions"></slot>
 
     <PasswordResetForm @submit="handleSubmit" />
-  </div>
+  </Page>
 </template>
 
 <script lang="ts">
@@ -16,6 +14,7 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { Page } from "@dzangolab/vue3-ui";
 import { useRouter } from "vue-router";
 
 import PasswordResetForm from "../components/PasswordResetForm.vue";
@@ -38,14 +37,3 @@ const handleSubmit = async (payload: PasswordResetPayload) => {
   });
 };
 </script>
-
-<style lang="css" scoped>
-.password-reset {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  width: var(--form-width);
-}
-</style>

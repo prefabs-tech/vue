@@ -3,13 +3,12 @@ import type { RouteComponent } from "vue-router";
 interface RouteOverride {
   component?: RouteComponent;
   path?: string;
-  disabled?: boolean;
 }
 
 interface RouteOverrides {
   home?: string;
   login: RouteOverride;
-  signup: RouteOverride;
+  signup: RouteOverride & { disabled?: boolean };
   passwordReset: RouteOverride;
   passwordResetRequest: RouteOverride;
   passwordResetRequestAcknowledge: RouteOverride;
