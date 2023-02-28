@@ -2,27 +2,36 @@ import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import SubPane from "../../../components/SubPane.vue";
-import Index from "../../Index.vue";
+import TabbedPanel from "../../Index.vue";
 
 describe("TabbedPanel", () => {
-  it("matches snapshot", () => {
-    const wrapper = mount(Index, {
-      global: {
-        components: { SubPane },
-      },
-      props: {
-        position: "bottom",
-      },
-      slots: {
-        default: `
-            <SubPane title="Subpane 1" icon="home.svg">
-            <p>Tabbed Panel 1 content</p>
-            </SubPane>
-            <SubPane title="Subpane 2">
-            <p>Tabbed Panel 2 content</p>
-            </SubPane>`,
-      },
-    });
+  const wrapper = mount(TabbedPanel, {
+    global: {
+      components: { SubPane },
+    },
+    props: {
+      position: "bottom",
+    },
+    slots: {
+      default: `
+        <SubPane title="Subpane 1" icon="home.svg">
+          <p>Tabbed Panel 1 content</p>
+        </SubPane>
+        <SubPane title="Subpane 2">
+          <p>Tabbed Panel 2 content</p>
+        </SubPane>
+      `,
+    },
+  });
+  it("matches snapshot when there is no active tab", () => {
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it("matches snapshot when there is an active tab", async () => {
+    const firstTab = wrapper.find(
+      ".tabbed-panel > div[role='tablist'] > button:first-child"
+    );
+    await firstTab.trigger("click");
 
     expect(wrapper.element).toMatchSnapshot();
   });

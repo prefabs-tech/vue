@@ -2,7 +2,7 @@ import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import SubPane from "../../../components/SubPane.vue";
-import Index from "../../Index.vue";
+import TabbedPanel from "../../Index.vue";
 
 describe("TabbedPanel", () => {
   const contents = {
@@ -16,7 +16,7 @@ describe("TabbedPanel", () => {
     },
   };
 
-  const wrapper = mount(Index, {
+  const wrapper = mount(TabbedPanel, {
     global: {
       components: { SubPane },
     },
@@ -25,12 +25,13 @@ describe("TabbedPanel", () => {
     },
     slots: {
       default: `
-          <SubPane title="${contents.first.title}" icon="home.svg">
+        <SubPane title="${contents.first.title}" icon="home.svg">
           <p>${contents.first.content}</p>
-          </SubPane>
-          <SubPane title="${contents.second.title}">
+        </SubPane>
+        <SubPane title="${contents.second.title}">
           <p>${contents.second.content}</p>
-          </SubPane>`,
+        </SubPane>
+      `,
     },
   });
 
