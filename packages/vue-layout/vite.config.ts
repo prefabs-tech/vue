@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 import vue from "@vitejs/plugin-vue";
 import { defineConfig, loadEnv } from "vite";
 
+import { peerDependencies } from "./package.json";
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
@@ -16,13 +18,7 @@ export default defineConfig(({ mode }) => {
         name: "@dzangolab/vue3-layout",
       },
       rollupOptions: {
-        external: [
-          "@dzangolab/vue3-config",
-          "@dzangolab/vue3-i18n",
-          "@dzangolab/vue3-ui",
-          "vue",
-          "vue-router",
-        ],
+        external: [...Object.keys(peerDependencies)],
         output: {
           exports: "named",
           // Provide global variables to use in the UMD build

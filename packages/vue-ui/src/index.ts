@@ -6,7 +6,6 @@ import Errors from "./Errors/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 
-import type { Error } from "./types";
 import type { App } from "vue";
 
 const plugin = {
@@ -21,4 +20,4 @@ export default plugin;
 
 export { Errors, LoadingButton, LoadingIcon, Page, ResponsiveMenu };
 
-export type { Error };
+export type { Error } from "./types";
