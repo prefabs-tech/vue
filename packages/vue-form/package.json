@@ -40,7 +40,7 @@
     "@vitejs/plugin-vue": "4.0.0",
     "@vitejs/plugin-vue-jsx": "3.0.0",
     "@vitest/coverage-istanbul": "0.28.5",
-    "@vue/test-utils": "2.2.10",
+    "@vue/test-utils": "2.3.0",
     "@vueuse/core": "9.12.0",
     "eslint": "8.34.0",
     "eslint-config-custom": "0.7.3",
