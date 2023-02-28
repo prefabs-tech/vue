@@ -1,0 +1,102 @@
+// Vitest Snapshot v1
+
+exports[`TabbedPanel > matches snapshot when there is an active tab 1`] = `
+<div
+  class="tabbed-panel bottom"
+  data-v-fddfca6f=""
+>
+  <div
+    data-v-fddfca6f=""
+    role="tablist"
+  >
+    
+    <button
+      class="active"
+      data-v-fddfca6f=""
+      type="button"
+    >
+      <img
+        data-v-fddfca6f=""
+        src="home.svg"
+      />
+      <span
+        data-v-fddfca6f=""
+      >
+        Subpane 1
+      </span>
+    </button>
+    <button
+      class=""
+      data-v-fddfca6f=""
+      type="button"
+    >
+      <img
+        data-v-fddfca6f=""
+      />
+      <span
+        data-v-fddfca6f=""
+      >
+        Subpane 2
+      </span>
+    </button>
+    
+  </div>
+  <div
+    class="sub-pane"
+    data-v-a728ca9d=""
+    icon="home.svg"
+    title="Subpane 1"
+  >
+    
+    <p>
+      Tabbed Panel 1 content
+    </p>
+    
+  </div>
+</div>
+`;
+
+exports[`TabbedPanel > matches snapshot when there is no active tab 1`] = `
+<div
+  class="tabbed-panel bottom"
+  data-v-fddfca6f=""
+>
+  <div
+    data-v-fddfca6f=""
+    role="tablist"
+  >
+    
+    <button
+      class=""
+      data-v-fddfca6f=""
+      type="button"
+    >
+      <img
+        data-v-fddfca6f=""
+        src="home.svg"
+      />
+      <span
+        data-v-fddfca6f=""
+      >
+        Subpane 1
+      </span>
+    </button>
+    <button
+      class=""
+      data-v-fddfca6f=""
+      type="button"
+    >
+      <img
+        data-v-fddfca6f=""
+      />
+      <span
+        data-v-fddfca6f=""
+      >
+        Subpane 2
+      </span>
+    </button>
+    
+  </div>
+  <!---->
+</div>
+`;
