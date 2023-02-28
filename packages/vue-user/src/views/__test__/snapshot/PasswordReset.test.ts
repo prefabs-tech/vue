@@ -1,3 +1,4 @@
+import configPlugin from "@dzangolab/vue3-config";
 import i18Plugin, { useLocaleStore } from "@dzangolab/vue3-i18n";
 import { LoadingButton, LoadingIcon } from "@dzangolab/vue3-ui";
 import { mount, RouterLinkStub } from "@vue/test-utils";
@@ -27,6 +28,12 @@ describe("PasswordReset", () => {
           LoadingIcon,
         },
         plugins: [
+          [
+            configPlugin,
+            {
+              config: appConfig,
+            },
+          ],
           pinia,
           [
             i18Plugin,

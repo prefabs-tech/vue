@@ -6,6 +6,11 @@ interface AuthTokens {
   refreshToken?: string | null;
 }
 
+interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
 interface PasswordResetPayload {
   password: string | null | undefined;
   token: string | null | undefined;
@@ -14,11 +19,6 @@ interface PasswordResetPayload {
 interface PasswordResetRequestPayload {
   email: string | null | undefined;
   url: string | null | undefined;
-}
-
-interface LoginCredentials {
-  email: string | undefined;
-  password: string | undefined;
 }
 
 interface User extends EmailPasswordUserType {

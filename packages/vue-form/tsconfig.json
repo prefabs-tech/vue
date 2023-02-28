@@ -1,0 +1,11 @@
+{
+  "extends": "tsconfig-custom/base",
+  "compilerOptions": {
+    "module": "esnext",
+    "outDir": "./dist/src"
+  },
+  "include": [
+    "__test__/**/*",
+    "src/**/*"
+  ]
+}

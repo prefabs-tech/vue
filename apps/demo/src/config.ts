@@ -63,6 +63,17 @@ const config: AppConfig = {
     environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
   },
   slug: import.meta.env.VITE_APP_SLUG as string,
+  user: {
+    options: {
+      email: {
+        host_whitelist: ["dzangolab.com", "dzango.com"],
+      },
+      password: {
+        minNumbers: 2,
+        minSymbols: 1,
+      },
+    },
+  },
   websiteDomain: (window.location.protocol +
     "//" +
     window.location.host) as string,

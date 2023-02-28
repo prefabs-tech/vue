@@ -41,6 +41,7 @@ export default defineConfig(({ mode }) => {
             "@vueuse/core": "VueuseCore",
             "vee-validate": "Veevalidate",
             yup: "Yup",
+            zod: "Zod",
           },
         },
       },
