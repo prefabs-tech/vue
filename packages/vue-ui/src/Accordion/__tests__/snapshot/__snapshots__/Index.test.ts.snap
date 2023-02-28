@@ -58,7 +58,6 @@ exports[`Accordion > renders correctly with props 1`] = `
       <div
         class="sub-pane"
         data-v-a728ca9d=""
-        title="Subpane 2"
       >
         
         <p>
