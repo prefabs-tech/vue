@@ -8,7 +8,7 @@
     <li
       v-for="(slot, index) in $slots.default()"
       :key="index"
-      :class="{ active: index === props.defaultIndex }"
+      :class="{ active: index === active }"
     >
       <button
         v-if="slot.props?.title"
