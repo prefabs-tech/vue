@@ -1,14 +1,12 @@
 <template>
   <Page :title="$t('ui.title')">
-    <ul v-if="$route.matched.length === 1">
+    <ul>
       <li>
         <RouterLink :to="{ name: 'accordion' }"
           >{{ $t("ui.accordion.title") }}
         </RouterLink>
       </li>
     </ul>
-
-    <RouterView />
   </Page>
 </template>
 
