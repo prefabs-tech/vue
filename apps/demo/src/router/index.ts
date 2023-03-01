@@ -28,11 +28,6 @@ const router: Router = createRouter({
       path: "/about",
     },
     {
-      component: Accordion,
-      name: "accordion",
-      path: "/accordion",
-    },
-    {
       component: Home,
       name: "home",
       path: "/",
@@ -48,9 +43,20 @@ const router: Router = createRouter({
       path: "/sentry",
     },
     {
-      component: UI,
-      name: "ui",
       path: "/ui",
+      children: [
+        {
+          component: Accordion,
+          name: "accordion",
+          path: "accordion",
+        },
+        {
+          component: UI,
+          name: "ui",
+          path: "index",
+        },
+      ],
+      redirect: { name: "ui" },
     },
   ],
 } as RouterOptions);
