@@ -12,15 +12,16 @@ describe("Accordion", () => {
       },
       slots: {
         default: `
-            <SubPane title="Subpane 1" icon="home.svg">
+          <SubPane title="Subpane 1" icon="home.svg">
             <p>Subpan 1 content</p>
-            </SubPane>
-            <SubPane title="Subpane 2">
+          </SubPane>
+          <SubPane title="Subpane 2">
             <p>Subpane 2 content</p>
-            </SubPane>
-            <SubPane title="Subpane 3">
+          </SubPane>
+          <SubPane title="Subpane 3">
             <p>Subpane 3 content</p>
-            </SubPane>`,
+          </SubPane>
+        `,
       },
     });
 
@@ -34,21 +35,22 @@ describe("Accordion", () => {
       },
       props: {
         activeIcon: "upchevron.svg",
+        defaultIndex: 1,
         direction: "horizontal",
         inactiveIcon: "downchevron.svg",
-        defaultIndex: 1,
       },
       slots: {
         default: `
-            <SubPane title="Subpane 1" icon="home.svg">
+          <SubPane title="Subpane 1" icon="home.svg">
             <p>Subpan 1 content</p>
-            </SubPane>
-            <SubPane title="Subpane 2">
+          </SubPane>
+          <SubPane title="Subpane 2">
             <p>Subpane 2 content</p>
-            </SubPane>
-            <SubPane title="Subpane 3">
+          </SubPane>
+          <SubPane title="Subpane 3">
             <p>Subpane 3 content</p>
-            </SubPane>`,
+          </SubPane>
+        `,
       },
     });
 
