@@ -12,6 +12,14 @@ interface AccordionContent {
   };
 }
 
+interface AccordionProperties {
+  activeIcon?: string;
+  canSelfCollapse?: boolean;
+  defaultIndex: number;
+  direction: "horizontal" | "vertical";
+  inactiveIcon?: string;
+}
+
 describe("Accordion", () => {
   const contents: AccordionContent = {
     first: {
@@ -29,7 +37,7 @@ describe("Accordion", () => {
     },
   };
 
-  const props = {
+  const props: AccordionProperties = {
     activeIcon: "upchevron.svg",
     canSelfCollapse: true,
     defaultIndex: 1,
@@ -41,7 +49,7 @@ describe("Accordion", () => {
     global: {
       components: { SubPane },
     },
-    props: props as any,
+    props: props,
     slots: {
       default: `
         <SubPane title="${contents.first.title}" icon="${contents.first.icon}">
