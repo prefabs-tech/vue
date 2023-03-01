@@ -10,7 +10,11 @@
       :key="index"
       :class="{ active: index === props.defaultIndex }"
     >
-      <button v-if="slot.props" type="button" @click="handleClick(index)">
+      <button
+        v-if="slot.props?.title"
+        type="button"
+        @click="handleClick(index)"
+      >
         <img :src="slot.props.icon" />
         <span>{{ slot.props.title }}</span>
 

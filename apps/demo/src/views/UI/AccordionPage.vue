@@ -162,7 +162,8 @@
         <p>{{ $t("ui.accordion.contents.second.content") }}</p>
       </div>
 
-      <div class="sub-pane" :title="$t('ui.accordion.contents.third.title')">
+      <!-- this slot will be ignored -->
+      <div class="sub-pane">
         <p>{{ $t("ui.accordion.contents.third.content") }}</p>
       </div>
     </Accordion>
