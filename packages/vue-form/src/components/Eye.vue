@@ -1,6 +1,6 @@
 <template>
   <svg
-    v-if="active"
+    v-if="visible"
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"
@@ -33,7 +33,7 @@ export default {
 
 <script setup lang="ts">
 defineProps({
-  active: {
+  visible: {
     default: false,
     required: true,
     type: Boolean,
