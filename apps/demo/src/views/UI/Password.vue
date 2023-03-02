@@ -21,8 +21,4 @@ import { Password } from "@dzangolab/vue3-form";
   flex-direction: row;
   align-items: center;
 }
-
-.field > button {
-  transform: translate(-2rem);
-}
 </style>
