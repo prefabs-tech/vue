@@ -18,9 +18,7 @@
         tabindex="0"
         :type="type"
       />
-      <button>
-        <Eye :visible="visible" @click="togglePasswordVisibility" />
-      </button>
+      <Eye :visible="visible" @click="togglePasswordVisibility" />
       <ErrorMessage :name="name" />
     </Field>
   </div>
