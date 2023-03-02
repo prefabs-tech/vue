@@ -29,8 +29,8 @@ importers:
       '@kyvg/vue3-notification': 2.9.0
       '@types/jsdom': 21.1.0
       '@types/node': 18.14.4
-      '@vee-validate/i18n': 4.7.1
-      '@vee-validate/rules': 4.7.1
+      '@vee-validate/i18n': 4.7.4
+      '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4
       '@vitejs/plugin-vue': 4.0.0
       '@vitejs/plugin-vue-jsx': 3.0.0
@@ -67,8 +67,8 @@ importers:
     devDependencies:
       '@types/jsdom': 21.1.0
       '@types/node': 18.14.4
-      '@vee-validate/i18n': 4.7.1
-      '@vee-validate/rules': 4.7.1
+      '@vee-validate/i18n': 4.7.4
+      '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4_522g255ggq6pz2xydelfqygu34
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.1.4+vue@3.2.47
@@ -1684,16 +1684,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: false
 
-  /@vee-validate/i18n/4.7.1:
-    resolution: {integrity: sha512-W4HjkcnaU4ykSFw6ZoveCPk9ysqmCiidkeKSljEgPHfWx1OFsep9z6N/JaaHRgAtHSSCCSrCc/WfhzdM5x/Gbw==}
-    dev: true
-
   /@vee-validate/i18n/4.7.4:
     resolution: {integrity: sha512-zK5rnPjgd4kBEfUj4jWUu6GHsldETji/JuorBb+emWSD1QUo4nEr1R7zFqHHunbAQu664iIQnzAlsfzkkXM40A==}
-    dev: true
-
-  /@vee-validate/rules/4.7.1:
-    resolution: {integrity: sha512-LtXMa7zQyLv7XV5oILdEQfxhFyjmSvefKSmC+YGa/i/84SqPf+zAgmOdgHxLxw7Hayq3MiJYD7xuvVFDWjtkxA==}
     dev: true
 
   /@vee-validate/rules/4.7.4:
