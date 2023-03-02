@@ -131,7 +131,7 @@ importers:
   packages/vue-form:
     specifiers:
       '@types/node': 18.13.0
-      '@types/validator': 13.7.12
+      '@types/validator': 13.7.13
       '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4
@@ -156,7 +156,7 @@ importers:
       validator: 13.9.0
     devDependencies:
       '@types/node': 18.13.0
-      '@types/validator': 13.7.12
+      '@types/validator': 13.7.13
       '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4_522g255ggq6pz2xydelfqygu34
@@ -1550,8 +1550,8 @@ packages:
     resolution: {integrity: sha512-Q5vtl1W5ue16D+nIaW8JWebSSraJVlK+EthKn7e7UcD4KWsaSJ8BqGPXNaPghgtcn/fhvrN17Tv8ksUsQpiplw==}
     dev: true
 
-  /@types/validator/13.7.12:
-    resolution: {integrity: sha512-YVtyAPqpefU+Mm/qqnOANW6IkqKpCSrarcyV269C8MA8Ux0dbkEuQwM/4CjL47kVEM2LgBef/ETfkH+c6+moFA==}
+  /@types/validator/13.7.13:
+    resolution: {integrity: sha512-EMfHccxNKXaSxTK6DN0En9WsXa7uR4w3LQtx31f6Z2JjG5hJQeVX5zUYMZoatjZgnoQmRcT94WnNWwi0BzQW6Q==}
     dev: true
 
   /@types/web-bluetooth/0.0.16:
