@@ -1,7 +1,7 @@
 <template>
   <Page :title="$t('password.title')">
     <form>
-      <Password />
+      <Password> </Password>
     </form>
   </Page>
 </template>
