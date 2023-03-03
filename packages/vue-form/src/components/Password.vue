@@ -20,10 +20,10 @@
       />
       <Eye :visible="visible" @click="togglePasswordVisibility">
         <template #active-icon>
-          <slot name="inactive-icon" />
+          <slot name="active-icon" />
         </template>
         <template #inactive-icon>
-          <slot name="active-icon" />
+          <slot name="inactive-icon" />
         </template>
       </Eye>
       <ErrorMessage :name="name" />
