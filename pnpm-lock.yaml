@@ -24,6 +24,7 @@ importers:
       '@dzangolab/vue3-form': 0.7.3
       '@dzangolab/vue3-i18n': 0.7.3
       '@dzangolab/vue3-layout': 0.7.3
+      '@dzangolab/vue3-tanstack-table': link:../../packages/vue-tanstack-table
       '@dzangolab/vue3-ui': 0.7.3
       '@dzangolab/vue3-user': 0.7.3
       '@kyvg/vue3-notification': 2.9.0
@@ -58,6 +59,7 @@ importers:
       '@dzangolab/vue3-form': link:../../packages/vue-form
       '@dzangolab/vue3-i18n': link:../../packages/vue-i18n
       '@dzangolab/vue3-layout': link:../../packages/vue-layout
+      '@dzangolab/vue3-tanstack-table': link:../../packages/vue-tanstack-table
       '@dzangolab/vue3-ui': link:../../packages/vue-ui
       '@dzangolab/vue3-user': link:../../packages/vue-user
       '@kyvg/vue3-notification': 2.9.0_vue@3.2.47
