@@ -1,0 +1,68 @@
+.accordion {
+  display: flex;
+  list-style-type: none;
+  margin: var(--accordion-margin, 0rem);
+  padding: var(--accordion-padding, 0rem);
+}
+
+.accordion > li {
+  display: flex;
+}
+
+.accordion-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: var(--accordion-button-gap, 0.5rem);
+  padding: var(--accordion-button-padding, 0.5rem);
+  width: 100%;
+}
+
+.accordion.horizontal.accordion-button {
+  flex-direction: column;
+}
+
+.accordion.horizontal {
+  align-items: stretch;
+  flex-direction: row;
+}
+
+.accordion.horizontal > li {
+  flex-direction: row;
+}
+
+.accordion.horizontal > li > button {
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotate(180deg);
+  width: var(--accordion-horizontal-width, auto);
+}
+
+.accordion.horizontal > li > button > span {
+  text-orientation: sideways-right;
+  writing-mode: vertical-rl;
+}
+
+.accordion.horizontal .subpane-icon {
+  transform: rotate(90deg);
+}
+
+.accordion.horizontal .toggle-icon {
+  transform: rotate(270deg);
+}
+
+.accordion.vertical,
+.accordion.vertical > li {
+  flex-direction: column;
+  width: var(--accordion-vertical-width, 100%);
+}
+
+.accordion.vertical .toggle-icon {
+  margin-left: var(--accordion-vertical-img-margin-left, auto);
+}
+
+.subpane-wrapper{
+  padding: var(--accordion-subpane, 1rem);
+}

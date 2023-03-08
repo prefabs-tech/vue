@@ -1,92 +1,83 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Accordion > renders correctly with props 1`] = `
 <ul
   aria-orientation="horizontal"
   class="horizontal accordion"
-  data-v-a0315011=""
 >
   
   <li
     class=""
-    data-v-a0315011=""
   >
     <button
-      data-v-a0315011=""
+      class="accordion-button"
       type="button"
     >
       <img
-        data-v-a0315011=""
+        class="subpane-icon"
         src="home.svg"
       />
-      <span
-        data-v-a0315011=""
-      >
+      <span>
         Subpane 1
       </span>
+      
       <img
-        data-v-a0315011=""
+        class="toggle-icon"
         src="downchevron.svg"
       />
+      
     </button>
     <!--v-if-->
   </li>
   <li
     class="active"
-    data-v-a0315011=""
   >
     <button
-      data-v-a0315011=""
+      class="accordion-button"
       type="button"
     >
       <img
-        data-v-a0315011=""
+        class="subpane-icon"
       />
-      <span
-        data-v-a0315011=""
-      >
+      <span>
         Subpane 2
       </span>
+      
       <img
-        data-v-a0315011=""
+        class="toggle-icon"
         src="upchevron.svg"
       />
+      
     </button>
     <div
-      data-v-a0315011=""
+      class="subpane-wrapper"
     >
-      <div
-        class="sub-pane"
-        data-v-a728ca9d=""
-      >
-        
-        <p>
-          Subpane 2 content
-        </p>
-        
-      </div>
+      
+      <p>
+        Subpane 2 content
+      </p>
+      
     </div>
   </li>
   <li
     class=""
-    data-v-a0315011=""
   >
     <button
-      data-v-a0315011=""
+      class="accordion-button"
       type="button"
     >
       <img
-        data-v-a0315011=""
+        class="subpane-icon"
       />
-      <span
-        data-v-a0315011=""
-      >
+      <span>
         Subpane 3
       </span>
+      
       <img
-        data-v-a0315011=""
+        class="toggle-icon"
         src="downchevron.svg"
       />
+      
     </button>
     <!--v-if-->
   </li>
@@ -98,67 +89,72 @@ exports[`Accordion > renders correctly with slot 1`] = `
 <ul
   aria-orientation="vertical"
   class="vertical accordion"
-  data-v-a0315011=""
 >
   
   <li
     class=""
-    data-v-a0315011=""
   >
     <button
-      data-v-a0315011=""
+      class="accordion-button"
       type="button"
     >
       <img
-        data-v-a0315011=""
+        class="subpane-icon"
         src="home.svg"
       />
-      <span
-        data-v-a0315011=""
-      >
+      <span>
         Subpane 1
       </span>
-      <!--v-if-->
+      
+      <img
+        class="toggle-icon"
+        src=""
+      />
+      
     </button>
     <!--v-if-->
   </li>
   <li
     class=""
-    data-v-a0315011=""
   >
     <button
-      data-v-a0315011=""
+      class="accordion-button"
       type="button"
     >
       <img
-        data-v-a0315011=""
+        class="subpane-icon"
       />
-      <span
-        data-v-a0315011=""
-      >
+      <span>
         Subpane 2
       </span>
-      <!--v-if-->
+      
+      <img
+        class="toggle-icon"
+        src=""
+      />
+      
     </button>
     <!--v-if-->
   </li>
   <li
     class=""
-    data-v-a0315011=""
   >
     <button
-      data-v-a0315011=""
+      class="accordion-button"
       type="button"
     >
       <img
-        data-v-a0315011=""
+        class="subpane-icon"
       />
-      <span
-        data-v-a0315011=""
-      >
+      <span>
         Subpane 3
       </span>
-      <!--v-if-->
+      
+      <img
+        class="toggle-icon"
+        src=""
+      />
+      
     </button>
     <!--v-if-->
   </li>

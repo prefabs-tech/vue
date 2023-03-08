@@ -58,8 +58,15 @@
   <section>
     <h3>{{ $t("ui.accordion.direction") }}</h3>
 
-    <Accordion direction="horizontal">
-      <SubPane :title="$t('ui.accordion.contents.first.title')">
+    <Accordion
+      direction="horizontal"
+      active-icon="/downchevron.svg"
+      inactive-icon="/upchevron.svg"
+    >
+      <SubPane
+        :title="$t('ui.accordion.contents.first.title')"
+        icon="/home.svg"
+      >
         <p>{{ $t("ui.accordion.contents.first.content") }}</p>
       </SubPane>
 
@@ -183,13 +190,3 @@ export default {
 <script lang="ts" setup>
 import { Accordion, SubPane } from "@dzangolab/vue3-ui";
 </script>
-
-<style scoped>
-section {
-  margin: var(--accordion-sections, 1rem 0);
-}
-
-.sub-pane {
-  padding: var(--accordion-subpane, 1rem 0);
-}
-</style>
