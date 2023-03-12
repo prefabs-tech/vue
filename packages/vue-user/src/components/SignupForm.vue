@@ -1,10 +1,15 @@
 <template>
   <Form @submit="onSubmit">
-    <Field name="email" :rules="validationSchema">
+    <Field name="email">
       <Email
         v-model="credentials.email"
         :label="t('user.signup.form.email.label')"
         :placeholder="t('user.signup.form.email.placeholder')"
+        :error-messages="{
+          required: t('user.signup.form.email.errors.required'),
+          invalid: t('user.signup.form.email.errors.invalid'),
+        }"
+        :options="config?.user?.options?.email"
       />
     </Field>
 
@@ -29,10 +34,9 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
-import { Email, emailSchema } from "@dzangolab/vue3-form";
+import { Email } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
-import { toFieldValidator } from "@vee-validate/zod";
 import { Form, Field } from "vee-validate";
 
 import PasswordConfirmation from "./PasswordConfirmation.vue";
@@ -50,16 +54,6 @@ let credentials = {
   email: undefined,
   password: undefined,
 } as Partial<LoginCredentials>;
-
-const validationSchema = toFieldValidator(
-  emailSchema(
-    {
-      invalid: "Invalid email address",
-      required: t("user.signup.form.email.errors.required"),
-    },
-    config?.user?.options?.email
-  )
-);
 
 const emit = defineEmits(["submit"]);
 
