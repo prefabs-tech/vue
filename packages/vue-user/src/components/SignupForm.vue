@@ -1,12 +1,15 @@
 <template>
-  <Form :validation-schema="validationSchema" @submit="onSubmit">
-    <Email
-      v-model="credentials.email"
-      :label="t('user.signup.form.email.label')"
-      :placeholder="t('user.signup.form.email.placeholder')"
-    />
+  <Form @submit="onSubmit">
+    <Field name="email" :rules="validationSchema">
+      <Email
+        v-model="credentials.email"
+        :label="t('user.signup.form.email.label')"
+        :placeholder="t('user.signup.form.email.placeholder')"
+      />
+    </Field>
 
     <PasswordConfirmation
+      v-model="credentials.password"
       :label="{
         password: t('user.signup.form.password.label'),
         confirmation: t('user.signup.form.confirmation.label'),
@@ -26,12 +29,11 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
-import { Email, emailSchema, passwordSchema } from "@dzangolab/vue3-form";
+import { Email, emailSchema } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
-import { toFormValidator } from "@vee-validate/zod";
-import { Form } from "vee-validate";
-import { z } from "zod";
+import { toFieldValidator } from "@vee-validate/zod";
+import { Form, Field } from "vee-validate";
 
 import PasswordConfirmation from "./PasswordConfirmation.vue";
 import { useTranslations } from "../index";
@@ -49,40 +51,14 @@ let credentials = {
   password: undefined,
 } as Partial<LoginCredentials>;
 
-const validationSchema = toFormValidator(
-  z
-    .object({
-      email: emailSchema(
-        {
-          invalid: t("user.signup.form.email.errors.invalid"),
-          required: t("user.signup.form.email.errors.required"),
-        },
-        config?.user?.options?.email
-      ),
-      password: passwordSchema(
-        {
-          required: t("user.signup.form.password.errors.required"),
-          weak: t("user.signup.form.password.errors.weak"),
-        },
-        config?.user?.options?.password
-      ),
-      confirmation: passwordSchema(
-        {
-          required: t("user.signup.form.password.errors.required"),
-          weak: t("user.signup.form.password.errors.weak"),
-        },
-        { minLength: 0 }
-      ),
-    })
-    .refine(
-      (data) => {
-        return data.password === data.confirmation;
-      },
-      {
-        message: t("user.signup.form.confirmation.errors.match"),
-        path: ["confirmation"],
-      }
-    )
+const validationSchema = toFieldValidator(
+  emailSchema(
+    {
+      invalid: "Invalid email address",
+      required: t("user.signup.form.email.errors.required"),
+    },
+    config?.user?.options?.email
+  )
 );
 
 const emit = defineEmits(["submit"]);
