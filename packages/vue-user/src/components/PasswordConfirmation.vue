@@ -48,10 +48,5 @@ defineProps({
     type: Object,
     required: true,
   },
-  modelValue: {
-    default: null,
-    required: false,
-    type: String,
-  },
 });
 </script>
