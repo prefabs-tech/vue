@@ -1,6 +1,11 @@
 <template>
   <div class="table">
-    <EasyDataTable :headers="headers" :items="items" />
+    <EasyDataTable
+      buttons-pagination
+      :headers="headers"
+      :items="items"
+      :hide-footer="true"
+    />
   </div>
 </template>
 
