@@ -55,5 +55,5 @@ const headers = [
     header: "Status",
     cell: "status",
   },
-]
+];
 </script>

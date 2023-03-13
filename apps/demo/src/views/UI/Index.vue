@@ -7,6 +7,7 @@
         </router-link>
       </li>
     </ul>
+    <EasyTable />
   </Page>
 </template>
 
@@ -17,5 +18,5 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { TanstackTable } from "@dzangolab/vue3-tanstack-table";
+import EasyTable from "./EasyTable.vue";
 </script>

@@ -2,11 +2,11 @@
   <div class="table">
     <table>
       <thead>
-        <tr v-for="column in table.getAllColumns()" :key="column.id">
-          <!-- <th v-for="header in column.getHeaders()" :key="header.id">
+        <!-- <tr v-for="column in table.getAllColumns()" :key="column.id"> -->
+        <!-- <th v-for="header in column.getHeaders()" :key="header.id">
             <FlexRender :render="header" :props="header.getContext()" />
           </th> -->
-        </tr>
+        <!-- </tr> -->
       </thead>
     </table>
   </div>
@@ -19,55 +19,56 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {
-  FlexRender,
-  getCoreRowModel,
-  useVueTable,
-  createColumnHelper,
-} from "@tanstack/vue-table";
-import { computed, ref } from "vue";
+// import {
+//   FlexRender,
+//   getCoreRowModel,
+//   useVueTable,
+//   createColumnHelper,
+// } from "@tanstack/vue-table";
+// import { computed, ref } from "vue";
 
-import type { PropType } from "vue";
-import type { ColumnDef } from "@tanstack/vue-table";
+// import type { PropType } from "vue";
+// import type { ColumnDef } from "@tanstack/vue-table";
 
-const props = defineProps({
-  data: {
-    type: Array as PropType<Record<string, string | number>[]>,
-    required: true,
-  },
-  headers: {
-    type: Array as PropType<ColumnDef<Record<string, string | number>, any>[]>,
-    required: true,
-  }
-})
+// const props = defineProps({
+//   data: {
+//     type: Array as PropType<Record<string, string | number>[]>,
+//     required: true,
+//   },
+//   headers: {
+//     type: Array as PropType<ColumnDef<Record<string, string | number>, any>[]>,
+//     required: true,
+//   },
+// });
 
-const data = ref(props.data);
+// const data = ref(props.data);
 
-const columnHelper = createColumnHelper();
+// const columnHelper = createColumnHelper();
 
-// const column = [
-//   columnHelper.group({
-//     columns: [
+// // const column = [
+// //   columnHelper.group({
+// //     columns: [
 
-//     ]
-//   })
-// ];
+// //     ]
+// //   })
+// // ];
 
-const columns: ColumnDef<Record<string, string | number>, any>[] = props.headers;
+// const columns: ColumnDef<Record<string, string | number>, any>[] =
+//   props.headers;
 
-// props.headers.forEach(header => {
-//   columns.push(columnHelper.accessor(header.id, {
-//     header: () => header.header
-//   }))
-// })
+// // props.headers.forEach(header => {
+// //   columns.push(columnHelper.accessor(header.id, {
+// //     header: () => header.header
+// //   }))
+// // })
 
-const table = useVueTable({
-  get data() {
-    return data.value;
-  },
-  columns,
-  getCoreRowModel: getCoreRowModel(),
-});
+// const table = useVueTable({
+//   get data() {
+//     return data.value;
+//   },
+//   columns,
+//   getCoreRowModel: getCoreRowModel(),
+// });
 </script>
 
 <style scoped>
