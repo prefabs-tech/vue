@@ -7,7 +7,7 @@
       "import": "./dist/DzangolabVue3TanstackTable.es.js",
       "require": "./dist/DzangolabVue3TanstackTable.umd.js"
     },
-    "./dist/DzangolabVue3DzangolabVue3TanstackTable.css": "./dist/style.css"
+    "./dist/DzangolabVue3TanstackTable.css": "./dist/style.css"
   },
   "main": "dist//DzangolabVue3TanstackTable.umd.js",
   "module": "dist//DzangolabVue3TanstackTable.es.js",
