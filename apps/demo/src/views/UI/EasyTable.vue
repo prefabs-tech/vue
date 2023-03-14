@@ -1,5 +1,7 @@
 <template>
-  <EasyTable />
+  <Page :title="$t('ui.pages.easy-table')">
+    <EasyTable />
+  </Page>
 </template>
 
 <script lang="ts">
