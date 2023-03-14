@@ -1,4 +1,4 @@
-const TanstackTable = () => import("@/views/UI/TanstackTable.vue");
+const EasyTable = () => import("@/views/UI/EasyTable.vue");
 const UI = () => import("@/views/UI/Index.vue");
 
 const routes = [
@@ -11,9 +11,9 @@ const routes = [
         path: "",
       },
       {
-        component: TanstackTable,
-        name: "table",
-        path: "table",
+        component: EasyTable,
+        name: "easy-table",
+        path: "easy-table",
       },
     ],
   },
