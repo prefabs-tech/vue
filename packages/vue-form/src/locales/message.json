@@ -1,0 +1,16 @@
+{
+  "en": {
+    "validation": {
+      "errors": {
+        "email": {
+          "invalid": "Please provide a valid email address",
+          "required": "Email address is required"
+        },
+        "password": {
+          "required": "A password is require",
+          "weak": "Your password is too weak"
+        }
+      }
+    }
+  }
+}
