@@ -3,8 +3,8 @@
     <EasyDataTable
       buttons-pagination
       :headers="columns"
-      :items="rows"
       :hide-footer="true"
+      :items="rows"
     />
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { PropType, ref } from "vue";
+import { PropType, reactive } from "vue";
 import EasyDataTable from "vue3-easy-data-table";
 
 import type { Column, Row } from "../types";
@@ -32,6 +32,6 @@ const props = defineProps({
   },
 });
 
-const columns = ref(props.columns);
-const rows = ref(props.rows);
+const columns = reactive(props.columns);
+const rows = reactive(props.rows);
 </script>
