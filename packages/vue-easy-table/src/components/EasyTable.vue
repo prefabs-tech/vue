@@ -3,8 +3,8 @@
     <EasyDataTable
       buttons-pagination
       :headers="headers"
-      :items="items"
       :hide-footer="true"
+      :items="items"
     />
   </div>
 </template>
@@ -21,52 +21,46 @@ import EasyDataTable from "vue3-easy-data-table";
 import type { Header, Item } from "vue3-easy-data-table";
 
 const headers: Header[] = [
-  { text: "PLAYER", value: "player", sortable: true },
-  { text: "TEAM", value: "team" },
+  { sortable: true, text: "PLAYER", value: "name" },
+  { text: "COUNTRY", value: "country" },
+  { text: "LAST ATTENDED", value: "lastAttended", width: 200 },
   { text: "NUMBER", value: "number" },
   { text: "POSITION", value: "position" },
-  { text: "HEIGHT", value: "indicator.height" },
-  { text: "WEIGHT (lbs)", value: "indicator.weight", sortable: true },
-  { text: "LAST ATTENDED", value: "lastAttended", width: 200 },
-  { text: "COUNTRY", value: "country" },
+  { text: "TEAM", value: "team" },
 ];
 
 const items: Item[] = [
   {
-    player: "Stephen Curry",
-    team: "GSW",
+    name: "Stephen Curry",
+    country: "USA",
+    lastAttended: "Davidson",
     number: 30,
     position: "G",
-    indicator: { height: "6-2", weight: 185 },
-    lastAttended: "Davidson",
-    country: "USA",
+    team: "GSW",
   },
   {
-    player: "Lebron James",
-    team: "LAL",
+    name: "Lebron James",
+    country: "USA",
+    lastAttended: "St. Vincent-St. Mary HS (OH)",
     number: 6,
     position: "F",
-    indicator: { height: "6-9", weight: 250 },
-    lastAttended: "St. Vincent-St. Mary HS (OH)",
-    country: "USA",
+    team: "LAL",
   },
   {
-    player: "Kevin Durant",
-    team: "BKN",
+    name: "Kevin Durant",
+    country: "USA",
+    lastAttended: "Texas-Austin",
     number: 7,
     position: "F",
-    indicator: { height: "6-10", weight: 240 },
-    lastAttended: "Texas-Austin",
-    country: "USA",
+    team: "BKN",
   },
   {
-    player: "Giannis Antetokounmpo",
-    team: "MIL",
+    name: "Giannis Antetokounmpo",
+    country: "Greece",
+    lastAttended: "Filathlitikos",
     number: 34,
     position: "F",
-    indicator: { height: "6-11", weight: 242 },
-    lastAttended: "Filathlitikos",
-    country: "Greece",
+    team: "MIL",
   },
 ];
 </script>
