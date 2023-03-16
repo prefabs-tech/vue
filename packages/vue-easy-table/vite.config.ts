@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import vue from "@vitejs/plugin-vue";
 import { defineConfig, loadEnv } from "vite";
 
-import { peerDependencies } from "./package.json";
+import { dependencies, peerDependencies } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -18,15 +18,15 @@ export default defineConfig(({ mode }) => {
         name: "@dzangolab/vue3-easy-table",
       },
       rollupOptions: {
-        external: [...Object.keys(peerDependencies)],
+        external: [
+          ...Object.keys(peerDependencies),
+          ...Object.keys(dependencies),
+        ],
         output: {
           exports: "named",
           globals: {
-            "@dzangolab/vue3-config": "DzangolabVue3Config",
-            "@dzangolab/vue3-i18n": "DzangolabVue3I18n",
-            "@dzangolab/vue3-ui": "DzangolabVue3UI",
             vue: "Vue",
-            "vue-router": "VueRouter",
+            "vue3-easy-data-table": "Vue3EasyDataTable",
           },
         },
       },
