@@ -6,14 +6,14 @@ const routes = [
     path: "/ui",
     children: [
       {
-        component: UI,
-        name: "ui",
-        path: "",
-      },
-      {
         component: EasyTable,
         name: "easy-table",
         path: "easy-table",
+      },
+      {
+        component: UI,
+        name: "ui",
+        path: "",
       },
     ],
   },
