@@ -130,6 +130,7 @@ importers:
 
   packages/vue-form:
     specifiers:
+      '@dzangolab/vue3-config': 0.7.4
       '@dzangolab/vue3-i18n': 0.7.4
       '@types/node': 18.14.4
       '@types/validator': 13.7.13
@@ -156,6 +157,7 @@ importers:
     dependencies:
       validator: 13.9.0
     devDependencies:
+      '@dzangolab/vue3-config': 0.7.4_lavcef455lp3wtm2mcdrwhgymm
       '@dzangolab/vue3-i18n': 0.7.4_yyvfxcrxrygkw56kokqwcmt23i
       '@types/node': 18.14.4
       '@types/validator': 13.7.13
