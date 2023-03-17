@@ -1,3 +1,6 @@
 {
-  "title": "Librairie de composants d'interface utilisateur"
+  "title": "Librairie de composants d'interface utilisateur",
+  "pages": {
+    "table": "Table[fr]"
+  }
 }

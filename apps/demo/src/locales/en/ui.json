@@ -1,3 +1,6 @@
 {
-  "title": "UI Library"
+  "title": "UI Library",
+  "pages": {
+    "easy-table": "Easy Table"
+  }
 }
