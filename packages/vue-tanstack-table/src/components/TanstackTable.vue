@@ -1,18 +1,17 @@
 <template>
   <table :style="`width: ${table.getCenterTotalSize()}`">
     <thead>
-      <tr :key="headerGroup.id" v-for="headerGroup in table.getHeaderGroups()">
+      <tr v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
         <th
-          :colSpan="header.colSpan"
-          :key="header.id"
-          :style="`width: ${header.getSize()}`"
           v-for="header in headerGroup.headers"
+          :key="header.id"
+          :colSpan="header.colSpan"
+          :style="`width: ${header.getSize()}`"
         >
           <div
             :className="`resizer ${
               header.column.getIsResizing() ? 'isResizing' : ''
             }`"
-            @mousedown="header.getResizeHandler()"
             :style="`
               transform:
                 ${header.column.getIsResizing()}
@@ -20,19 +19,20 @@
                     table.getState().columnSizingInfo.deltaOffset
                   }px)
                   : ''`"
+            @mousedown="header.getResizeHandler()"
           >
             <FlexRender
+              v-if="!header.isPlaceholder"
               :props="header.getContext()"
               :render="header.column.columnDef.header"
-              v-if="!header.isPlaceholder"
             />
           </div>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr :key="row.id" v-for="row in table.getRowModel().rows">
-        <td :key="cell.id" v-for="cell in row.getVisibleCells()">
+      <tr v-for="row in table.getRowModel().rows" :key="row.id">
+        <td v-for="cell in row.getVisibleCells()" :key="cell.id">
           <FlexRender
             :props="cell.getContext()"
             :render="cell.column.columnDef.cell"
@@ -56,45 +56,38 @@ import {
   getCoreRowModel,
   useVueTable,
 } from "@tanstack/vue-table";
+import { PropType } from "vue";
+
+import type { ColumnDef } from "@tanstack/vue-table";
+
+const props = defineProps({
+  columns: {
+    type: Array as PropType<string[]>,
+    default: () => [],
+  },
+  rows: {
+    type: Array,
+    default: () => [],
+  },
+});
 
 const columnHelper = createColumnHelper<any>();
 
-const columns = [
-  columnHelper.accessor("id", {
-    header: () => "Id",
+const columns: ColumnDef<unknown, unknown>[] = [];
+
+props.columns.forEach((column) => {
+  const columnDef = columnHelper.accessor(column, {
+    header: () => column,
     footer: (props) => props.column.id,
-  }),
-  columnHelper.accessor("name", {
-    header: () => "Name",
-    footer: (props) => props.column.id,
-  }),
-  columnHelper.accessor("age", {
-    header: () => "Age",
-    footer: (props) => props.column.id,
-  }),
-];
+  }) as ColumnDef<unknown, unknown>;
+  columns.push(columnDef);
+});
 
 const table = useVueTable({
   columns,
   enableColumnResizing: true,
   columnResizeMode: "onChange",
-  data: [
-    {
-      id: 1,
-      name: "John",
-      age: 30,
-    },
-    {
-      id: 2,
-      name: "Jane",
-      age: 25,
-    },
-    {
-      id: 3,
-      name: "Bob",
-      age: 40,
-    },
-  ],
+  data: props.rows,
   getCoreRowModel: getCoreRowModel(),
 });
 </script>
