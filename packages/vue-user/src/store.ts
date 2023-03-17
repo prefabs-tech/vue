@@ -26,6 +26,9 @@ const useUserStore = defineStore("user", () => {
   const logout = async () => {
     await doLogout().then(() => {
       user.value = undefined;
+
+      document.cookie =
+        "sFrontToken=; Max-Age=0; path=/; domain=" + location.hostname;
     });
   };
 
