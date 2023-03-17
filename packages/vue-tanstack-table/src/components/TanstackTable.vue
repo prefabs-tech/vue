@@ -1,15 +1,46 @@
 <template>
-  <div class="table">
-    <table>
-      <thead>
-        <tr v-for="column in table.getAllColumns()" :key="column.id">
-          <!-- <th v-for="header in column.getHeaders()" :key="header.id">
-            <FlexRender :render="header" :props="header.getContext()" />
-          </th> -->
-        </tr>
-      </thead>
-    </table>
-  </div>
+  <table :style="`width: ${table.getCenterTotalSize()}`">
+    <thead>
+      <tr :key="headerGroup.id" v-for="headerGroup in table.getHeaderGroups()">
+        <th
+          :colSpan="header.colSpan"
+          :key="header.id"
+          :style="`width: ${header.getSize()}`"
+          v-for="header in headerGroup.headers"
+        >
+          <div
+            :className="`resizer ${
+              header.column.getIsResizing() ? 'isResizing' : ''
+            }`"
+            @mousedown="header.getResizeHandler()"
+            :style="`
+              transform:
+                ${header.column.getIsResizing()}
+                  ? translateX(${
+                    table.getState().columnSizingInfo.deltaOffset
+                  }px)
+                  : ''`"
+          >
+            <FlexRender
+              :props="header.getContext()"
+              :render="header.column.columnDef.header"
+              v-if="!header.isPlaceholder"
+            />
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr :key="row.id" v-for="row in table.getRowModel().rows">
+        <td :key="cell.id" v-for="cell in row.getVisibleCells()">
+          <FlexRender
+            :props="cell.getContext()"
+            :render="cell.column.columnDef.cell"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script lang="ts">
@@ -20,76 +51,88 @@ export default {
 
 <script setup lang="ts">
 import {
+  createColumnHelper,
   FlexRender,
   getCoreRowModel,
   useVueTable,
-  createColumnHelper,
 } from "@tanstack/vue-table";
-import { computed, ref } from "vue";
 
-import type { PropType } from "vue";
-import type { ColumnDef } from "@tanstack/vue-table";
+const columnHelper = createColumnHelper<any>();
 
-const props = defineProps({
-  data: {
-    type: Array as PropType<Record<string, string | number>[]>,
-    required: true,
-  },
-  headers: {
-    type: Array as PropType<ColumnDef<Record<string, string | number>, any>[]>,
-    required: true,
-  }
-})
-
-const data = ref(props.data);
-
-const columnHelper = createColumnHelper();
-
-// const column = [
-//   columnHelper.group({
-//     columns: [
-
-//     ]
-//   })
-// ];
-
-const columns: ColumnDef<Record<string, string | number>, any>[] = props.headers;
-
-// props.headers.forEach(header => {
-//   columns.push(columnHelper.accessor(header.id, {
-//     header: () => header.header
-//   }))
-// })
+const columns = [
+  columnHelper.accessor("id", {
+    header: () => "Id",
+    footer: (props) => props.column.id,
+  }),
+  columnHelper.accessor("name", {
+    header: () => "Name",
+    footer: (props) => props.column.id,
+  }),
+  columnHelper.accessor("age", {
+    header: () => "Age",
+    footer: (props) => props.column.id,
+  }),
+];
 
 const table = useVueTable({
-  get data() {
-    return data.value;
-  },
   columns,
+  enableColumnResizing: true,
+  columnResizeMode: "onChange",
+  data: [
+    {
+      id: 1,
+      name: "John",
+      age: 30,
+    },
+    {
+      id: 2,
+      name: "Jane",
+      age: 25,
+    },
+    {
+      id: 3,
+      name: "Bob",
+      age: 40,
+    },
+  ],
   getCoreRowModel: getCoreRowModel(),
 });
 </script>
 
 <style scoped>
-table {
-  border: 1px solid #000 !important;
+table,
+th,
+td {
+  border: 0.5px solid #f5f5f5;
+  border-collapse: collapse;
 }
 
-tbody {
-  border-bottom: 1px solid #000;
+table {
+  background-color: #ffffff;
+  border-bottom: 0.063rem solid #f5f5f5;
+  border-collapse: collapse;
+  font-size: 0.875em;
+  width: 100%;
+}
+
+thead {
+  background-color: #009879;
+  color: #ffffff;
 }
 
 th {
-  border-bottom: 1px solid #000;
-  border-right: 1px solid #000;
-  padding: 2px 4px;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 0.75rem 0;
 }
 
-tfoot {
-  color: gray;
+tbody {
+  border-bottom: 0.063rem solid #f5f5f5;
 }
 
-tfoot th {
-  font-weight: normal;
+td {
+  align-items: center;
+  font-size: 1.2em;
+  padding: 1rem 0;
 }
 </style>
