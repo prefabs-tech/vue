@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-easy-table",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Vue3 Easy Table Component Library",
   "exports": {
     ".": {
@@ -34,10 +34,10 @@
     "@vue/test-utils": "2.3.0",
     "@vueuse/core": "9.12.0",
     "eslint": "8.34.0",
-    "eslint-config-custom": "0.7.3",
+    "eslint-config-custom": "0.7.4",
     "jsdom": "21.1.0",
     "prettier": "2.8.4",
-    "tsconfig-custom": "0.7.3",
+    "tsconfig-custom": "0.7.4",
     "typescript": "4.9.5",
     "vite": "4.1.4",
     "vitest": "0.29.2",
