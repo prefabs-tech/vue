@@ -1,6 +1,7 @@
 <template>
   <div class="table">
     <EasyDataTable
+      alternating
       buttons-pagination
       :headers="columns"
       :hide-footer="true"
