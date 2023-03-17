@@ -20,13 +20,13 @@ importers:
 
   apps/demo:
     specifiers:
-      '@dzangolab/vue3-config': 0.7.3
+      '@dzangolab/vue3-config': 0.7.4
       '@dzangolab/vue3-easy-table': link:../../packages/vue-easy-table
-      '@dzangolab/vue3-form': 0.7.3
-      '@dzangolab/vue3-i18n': 0.7.3
-      '@dzangolab/vue3-layout': 0.7.3
-      '@dzangolab/vue3-ui': 0.7.3
-      '@dzangolab/vue3-user': 0.7.3
+      '@dzangolab/vue3-form': 0.7.4
+      '@dzangolab/vue3-i18n': 0.7.4
+      '@dzangolab/vue3-layout': 0.7.4
+      '@dzangolab/vue3-ui': 0.7.4
+      '@dzangolab/vue3-user': 0.7.4
       '@kyvg/vue3-notification': 2.9.0
       '@types/jsdom': 21.1.0
       '@types/node': 18.14.4
@@ -39,13 +39,13 @@ importers:
       '@vue/test-utils': 2.3.0
       '@vue/tsconfig': 0.1.3
       eslint: 8.34.0
-      eslint-config-custom: 0.7.3
+      eslint-config-custom: 0.7.4
       eslint-plugin-cypress: 2.12.1
       jsdom: 21.1.0
       npm-run-all: 4.1.5
       pinia: 2.0.32
       prettier: 2.8.4
-      tsconfig-custom: 0.7.3
+      tsconfig-custom: 0.7.4
       typescript: 4.9.5
       vee-validate: 4.7.4
       vite: 4.1.4
@@ -102,10 +102,10 @@ importers:
       '@vitejs/plugin-vue-jsx': 3.0.0
       '@vitest/coverage-istanbul': 0.29.2
       eslint: 8.34.0
-      eslint-config-custom: 0.7.3
+      eslint-config-custom: 0.7.4
       jsdom: 21.1.0
       prettier: 2.8.4
-      tsconfig-custom: 0.7.3
+      tsconfig-custom: 0.7.4
       typescript: 4.9.5
       vite: 4.1.4
       vitest: 0.29.2
@@ -144,10 +144,10 @@ importers:
       '@vue/test-utils': 2.3.0
       '@vueuse/core': 9.12.0
       eslint: 8.34.0
-      eslint-config-custom: 0.7.3
+      eslint-config-custom: 0.7.4
       jsdom: 21.1.0
       prettier: 2.8.4
-      tsconfig-custom: 0.7.3
+      tsconfig-custom: 0.7.4
       typescript: 4.9.5
       vite: 4.1.4
       vitest: 0.29.2
@@ -189,10 +189,10 @@ importers:
       '@vue/test-utils': 2.3.0
       '@vueuse/core': 9.12.0
       eslint: 8.34.0
-      eslint-config-custom: 0.7.3
+      eslint-config-custom: 0.7.4
       jsdom: 21.1.0
       prettier: 2.8.4
-      tsconfig-custom: 0.7.3
+      tsconfig-custom: 0.7.4
       typescript: 4.9.5
       validator: 13.9.0
       vee-validate: 4.7.4
@@ -238,11 +238,11 @@ importers:
       '@vitest/coverage-istanbul': 0.29.2
       '@vueuse/core': 9.12.0
       eslint: 8.34.0
-      eslint-config-custom: 0.7.3
+      eslint-config-custom: 0.7.4
       jsdom: 21.1.0
       pinia: 2.0.32
       prettier: 2.8.4
-      tsconfig-custom: 0.7.3
+      tsconfig-custom: 0.7.4
       typescript: 4.9.5
       vite: 4.1.4
       vitest: 0.29.2
@@ -252,7 +252,7 @@ importers:
     dependencies:
       vue-i18n: 9.1.10_vue@3.2.47
     devDependencies:
-      '@dzangolab/vue3-config': link:../vue-config
+      '@dzangolab/vue3-config': 0.7.3_vue@3.2.47
       '@types/jsdom': 21.1.0
       '@types/node': 18.14.4
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
@@ -273,9 +273,9 @@ importers:
 
   packages/vue-layout:
     specifiers:
-      '@dzangolab/vue3-config': 0.7.3
-      '@dzangolab/vue3-i18n': 0.7.3
-      '@dzangolab/vue3-ui': 0.7.3
+      '@dzangolab/vue3-config': 0.7.4
+      '@dzangolab/vue3-i18n': 0.7.4
+      '@dzangolab/vue3-ui': 0.7.4
       '@iconify/vue': 4.1.0
       '@types/jsdom': 21.1.0
       '@types/node': 18.14.4
@@ -285,10 +285,10 @@ importers:
       '@vue/test-utils': 2.3.0
       '@vueuse/core': 9.12.0
       eslint: 8.34.0
-      eslint-config-custom: 0.7.3
+      eslint-config-custom: 0.7.4
       jsdom: 21.1.0
       prettier: 2.8.4
-      tsconfig-custom: 0.7.3
+      tsconfig-custom: 0.7.4
       typescript: 4.9.5
       vite: 4.1.4
       vitest: 0.29.2
@@ -329,10 +329,10 @@ importers:
       '@vue/test-utils': 2.3.0
       '@vueuse/core': 9.12.0
       eslint: 8.34.0
-      eslint-config-custom: 0.7.3
+      eslint-config-custom: 0.7.4
       jsdom: 21.1.0
       prettier: 2.8.4
-      tsconfig-custom: 0.7.3
+      tsconfig-custom: 0.7.4
       typescript: 4.9.5
       vite: 4.1.4
       vitest: 0.29.2
@@ -359,11 +359,11 @@ importers:
 
   packages/vue-user:
     specifiers:
-      '@dzangolab/vue3-config': 0.7.3
-      '@dzangolab/vue3-form': 0.7.3
-      '@dzangolab/vue3-i18n': 0.7.3
-      '@dzangolab/vue3-layout': 0.7.3
-      '@dzangolab/vue3-ui': 0.7.3
+      '@dzangolab/vue3-config': 0.7.4
+      '@dzangolab/vue3-form': 0.7.4
+      '@dzangolab/vue3-i18n': 0.7.4
+      '@dzangolab/vue3-layout': 0.7.4
+      '@dzangolab/vue3-ui': 0.7.4
       '@iconify/vue': 4.1.0
       '@types/jsdom': 21.1.0
       '@types/node': 18.14.4
@@ -377,13 +377,13 @@ importers:
       '@vueuse/core': 9.12.0
       axios: 1.3.4
       eslint: 8.34.0
-      eslint-config-custom: 0.7.3
+      eslint-config-custom: 0.7.4
       jsdom: 21.1.0
       pinia: 2.0.32
       prettier: 2.8.4
       supertokens-web-js: 0.5.0
       supertokens-website: 16.0.1
-      tsconfig-custom: 0.7.3
+      tsconfig-custom: 0.7.4
       typescript: 4.9.5
       vee-validate: 4.7.4
       vite: 4.1.4
@@ -934,6 +934,19 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
+  /@dzangolab/vue3-config/0.7.3_vue@3.2.47:
+    resolution: {integrity: sha512-NVaE9JefZuOmPUaSRNG81kIqkrSvCYSu82Ke4eJEO39uHQIOzp7Is5+q46555cAYoYFzBGEQqddkKYasxFUHFw==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      vue: '>=3.2'
+      vue-router: '>=4.0'
+    dependencies:
+      '@sentry/tracing': 7.38.0
+      '@sentry/types': 7.38.0
+      '@sentry/vue': 7.38.0_vue@3.2.47
+      vue: 3.2.47
+    dev: true
+
   /@esbuild/android-arm/0.16.17:
     resolution: {integrity: sha512-N9x1CMXVhtWEAMS7pNNONyA14f71VPQN9Cnavj1XQh6T7bskqiLLrSca4O0Vr8Wdcga943eThxnVp3JLnBMYtw==}
     engines: {node: '>=12'}
@@ -1461,7 +1474,6 @@ packages:
       '@sentry/types': 7.38.0
       '@sentry/utils': 7.38.0
       tslib: 1.14.1
-    dev: false
 
   /@sentry/core/7.38.0:
     resolution: {integrity: sha512-+hXh/SO3Ie6WC2b+wi01xLhyVREdkRXS5QBmCiv3z2ks2HvYXp7PoKSXJvNKiwCP+pBD+enOnM1YEzM2yEy5yw==}
@@ -1470,7 +1482,6 @@ packages:
       '@sentry/types': 7.38.0
       '@sentry/utils': 7.38.0
       tslib: 1.14.1
-    dev: false
 
   /@sentry/replay/7.38.0:
     resolution: {integrity: sha512-Ai78/OIYedny605x8uS0n/a5uj7qnuevogGD6agLat9lGc8DFvC07m2iS+EFyGOwtQzyDlRYJvYkHL8peR3crQ==}
@@ -1479,7 +1490,6 @@ packages:
       '@sentry/core': 7.38.0
       '@sentry/types': 7.38.0
       '@sentry/utils': 7.38.0
-    dev: false
 
   /@sentry/tracing/7.38.0:
     resolution: {integrity: sha512-ejXJp8oOT64MVtBzqdECUUaNzKbpu25St8Klub1i4Sm7xO+ZjDQDI4TIHvWojZvtkwQ3F4jcsCclc8KuyJunyQ==}
@@ -1489,12 +1499,10 @@ packages:
       '@sentry/types': 7.38.0
       '@sentry/utils': 7.38.0
       tslib: 1.14.1
-    dev: false
 
   /@sentry/types/7.38.0:
     resolution: {integrity: sha512-NKOALR6pNUMzUrsk2m+dkPrO8uGNvNh1LD0BCPswKNjC2qHo1h1mDGCgBmF9+EWyii8ZoACTIsxvsda+MBf97Q==}
     engines: {node: '>=8'}
-    dev: false
 
   /@sentry/utils/7.38.0:
     resolution: {integrity: sha512-MgbI3YmYuyyhUtvcXkgGBqjOW+nuLLNGUdWCK+C4kObf8VbLt3dSE/7SEMT6TSHLYQmxs2BxFgx5Agn97m68kQ==}
@@ -1502,7 +1510,6 @@ packages:
     dependencies:
       '@sentry/types': 7.38.0
       tslib: 1.14.1
-    dev: false
 
   /@sentry/vue/7.38.0_vue@3.2.47:
     resolution: {integrity: sha512-0RqMUzjoQEpr36wvNO3OYZ+wR3iPpiFNRQjldnhhvkyNgPJG8aq4Z5hMYXGm0diQBNYqPWTP5hGGZJ/XTKc/zQ==}
@@ -1516,7 +1523,6 @@ packages:
       '@sentry/utils': 7.38.0
       tslib: 1.14.1
       vue: 3.2.47
-    dev: false
 
   /@slack/types/1.10.0:
     resolution: {integrity: sha512-tA7GG7Tj479vojfV3AoxbckalA48aK6giGjNtgH6ihpLwTyHE3fIgRrvt8TWfLwW8X8dyu7vgmAsGLRG7hWWOg==}
