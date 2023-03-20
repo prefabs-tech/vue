@@ -98,39 +98,8 @@ const table = useVueTable({
 </script>
 
 <style scoped>
-table,
-th,
-td {
-  border: 0.5px solid #f5f5f5;
-  border-collapse: collapse;
-}
-
-table {
-  background-color: #ffffff;
-  border-bottom: 0.063rem solid #f5f5f5;
-  border-collapse: collapse;
-  font-size: 0.875em;
-  width: 100%;
-}
-
-thead {
-  background-color: #009879;
-  color: #ffffff;
-}
-
+td,
 th {
-  font-size: 1.2em;
-  font-weight: 600;
-  padding: 0.75rem 0;
-}
-
-tbody {
-  border-bottom: 0.063rem solid #f5f5f5;
-}
-
-td {
-  align-items: center;
-  font-size: 1.2em;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 </style>
