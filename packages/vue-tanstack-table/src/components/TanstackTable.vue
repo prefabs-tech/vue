@@ -60,9 +60,14 @@ import { PropType } from "vue";
 
 import type { ColumnDef } from "@tanstack/vue-table";
 
+type ColumnProperty = {
+  accessorKey: string;
+  header: string;
+};
+
 const props = defineProps({
   columns: {
-    type: Array as PropType<string[]>,
+    type: Array as PropType<ColumnProperty[]>,
     default: () => [],
   },
   rows: {
@@ -76,8 +81,8 @@ const columnHelper = createColumnHelper<any>();
 const columns: ColumnDef<unknown, unknown>[] = [];
 
 props.columns.forEach((column) => {
-  const columnDef = columnHelper.accessor(column, {
-    header: () => column,
+  const columnDef = columnHelper.accessor(column.accessorKey, {
+    header: () => column.header,
     footer: (props) => props.column.id,
   }) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);

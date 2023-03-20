@@ -7,7 +7,21 @@
 <script setup lang="ts">
 import { TanstackTable } from "@dzangolab/vue3-tanstack-table";
 
-const columns = ["id", "name", "age"];
+const columns = [
+  {
+    accessorKey: "id",
+    header: "Id",
+  },
+  {
+    accessorKey: "name",
+    header: "Name",
+  },
+  {
+    accessorKey: "age",
+    header: "Age",
+  },
+];
+
 const rows = [
   {
     id: 1,
