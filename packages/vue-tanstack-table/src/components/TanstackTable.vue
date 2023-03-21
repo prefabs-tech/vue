@@ -32,7 +32,11 @@
     </thead>
     <tbody>
       <tr v-for="row in table.getRowModel().rows" :key="row.id">
-        <td v-for="cell in row.getVisibleCells()" :key="cell.id">
+        <td
+          v-for="cell in row.getVisibleCells()"
+          :key="cell.id"
+          :data-label="cell.column.id"
+        >
           <FlexRender
             :props="cell.getContext()"
             :render="cell.column.columnDef.cell"
