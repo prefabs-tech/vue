@@ -96,10 +96,3 @@ const table = useVueTable({
   getCoreRowModel: getCoreRowModel(),
 });
 </script>
-
-<style scoped>
-td,
-th {
-  padding: 1rem;
-}
-</style>
