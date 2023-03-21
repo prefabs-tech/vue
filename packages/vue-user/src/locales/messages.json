@@ -156,8 +156,8 @@
           },
           "password": {
             "errors": {
-              "required": "Veuillez saisir un mot de passe",
-              "invalid": "Your password should be at least 8 characters long[fr]"
+              "invalid": "Your password should be at least 8 characters long[fr]",
+              "required": "Veuillez saisir un mot de passe"
             },
             "label": "Votre mot de passe"
           }
