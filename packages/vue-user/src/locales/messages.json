@@ -19,6 +19,7 @@
           },
           "password": {
             "errors": {
+              "invalid": "Your password should be at least 8 characters long",
               "required": "Please provide a password"
             },
             "label": "Your password"
