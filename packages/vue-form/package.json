@@ -32,7 +32,7 @@
     "validator": "13.9.0"
   },
   "devDependencies": {
-    "@types/node": "18.14.4",
+    "@types/node": "18.15.5",
     "@types/validator": "13.7.13",
     "@vee-validate/i18n": "4.7.4",
     "@vee-validate/rules": "4.7.4",
