@@ -6,9 +6,9 @@ footer {
   clip-path: inset(0 -100vmax);
   display: flex;
   flex-direction: column;
+  font-size: var(--footer-font-size, 0.9em);
   gap: var(--footer-gap, 0.5em);
   justify-content: center;
-  font-size: var(--footer-font-size, 0.9em);
   padding: 1em 0;
   text-align: center;
 }

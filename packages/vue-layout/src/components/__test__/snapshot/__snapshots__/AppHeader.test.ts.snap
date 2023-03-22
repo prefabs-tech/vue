@@ -17,7 +17,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
   >
     
     <nav
-      class="menu mainMenu"
+      class="menu main-menu"
     >
       <ul>
         
