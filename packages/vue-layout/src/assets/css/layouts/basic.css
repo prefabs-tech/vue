@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-.basic-layout>main {
+.basic-layout > main {
   flex: 1;
 }
 

@@ -1,4 +1,4 @@
-.layout header {
+.layout > header {
   align-items: center;
   border-bottom: 1px solid var(--header-border-color, var(--border-color, #000));
   display: grid;
@@ -15,7 +15,7 @@
   position: relative;
 }
 
-.layout header::before {
+.layout > header::before {
   content: "";
   background-color: var(--header-bg-color, transparent);
   box-shadow: 0 0 0 100vmax var(--header-bg-color, transparent);
@@ -28,7 +28,7 @@
   z-index: -1;
 }
 
-.layout header>nav {
+.layout > header > nav {
   align-items: stretch;
   background-color: #fff;
   border-bottom: 1px solid var(--menu-border-color, #000);
@@ -51,33 +51,33 @@
   z-index: 1;
 }
 
-.layout header>nav[data-expanded="false"] {
+.layout > header > nav[data-expanded="false"] {
   display: none;
 }
 
-.layout header .logo {
+.layout > header .logo {
   grid-area: logo;
   max-width: var(--header-logo-max-width, 150px);
 }
 
-.layout header .toggle {
+.layout > header .toggle {
   cursor: pointer;
   grid-area: toggle;
   justify-self: right;
 }
 
-.layout header .mainMenu {
+.layout > header .mainMenu {
   flex: 1;
 }
 
 @media screen and (min-width: 576px) {
-  .layout header {
+  .layout > header {
     grid-template-areas: "logo nav";
     grid-template-columns: auto 1fr;
     justify-items: stretch;
   }
 
-  .layout header>nav {
+  .layout > header > nav {
     align-items: center;
     background-color: var(--header-bg-color, transparent);
     border: none;
@@ -90,11 +90,11 @@
     top: 0;
   }
 
-  .layout header>nav[data-expanded="false"] {
+  .layout > header > nav[data-expanded="false"] {
     display: flex;
   }
 
-  .layout header .toggle {
+  .layout > header .toggle {
     display: none;
   }
 }
