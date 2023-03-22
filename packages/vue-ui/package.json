@@ -31,7 +31,7 @@
     "@vitejs/plugin-vue": "4.0.0",
     "@vitejs/plugin-vue-jsx": "3.0.1",
     "@vitest/coverage-istanbul": "0.29.2",
-    "@vue/test-utils": "2.3.0",
+    "@vue/test-utils": "2.3.2",
     "@vueuse/core": "9.12.0",
     "eslint": "8.34.0",
     "eslint-config-custom": "0.7.5",
