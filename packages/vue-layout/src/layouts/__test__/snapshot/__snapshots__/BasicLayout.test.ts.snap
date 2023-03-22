@@ -3,23 +3,16 @@
 exports[`BasicLayout > matches snapshot 1`] = `
 <div
   class="basic-layout"
-  data-v-f20da734=""
 >
   
-  <app-header-stub
-    data-v-f20da734=""
-  />
+  <app-header-stub />
   
-  <main
-    data-v-f20da734=""
-  >
+  <main>
     
     
   </main>
   
-  <app-footer-stub
-    data-v-f20da734=""
-  />
+  <app-footer-stub />
   
 </div>
 `;
