@@ -1,3 +1,16 @@
+## [0.7.5](https://github.com/dzangolab/vue/compare/v0.7.4...v0.7.5) (2023-03-20)
+
+
+
+## [0.7.4](https://github.com/dzangolab/vue/compare/v0.7.3...v0.7.4) (2023-03-10)
+
+
+### Bug Fixes
+
+* **deps:** update typescript-eslint monorepo to v5.54.0 ([#165](https://github.com/dzangolab/vue/issues/165)) ([57d5c5b](https://github.com/dzangolab/vue/commit/57d5c5b6b8c9410d5cb5b41d9142905af0e5a052))
+
+
+
 ## [0.7.3](https://github.com/dzangolab/vue/compare/v0.7.2...v0.7.3) (2023-02-20)
 
 
