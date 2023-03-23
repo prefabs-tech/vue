@@ -1,4 +1,4 @@
-button {
+.toggle {
   border: none;
   outline: none;
   background-color: #009879;
@@ -54,6 +54,10 @@ tbody {
 td {
   align-items: center;
   font-size: 0.9rem;
+}
+
+.page-number-indicators {
+  font-weight: bold;
 }
 
 @media(max-width: 600px) {
