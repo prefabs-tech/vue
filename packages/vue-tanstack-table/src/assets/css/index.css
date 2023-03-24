@@ -1,10 +1,21 @@
-.toggle {
+.table-wrapper {
+  display: block;
+  max-width: 100%;
+  max-height: 60vh;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.table-toggle {
   border: none;
   outline: none;
   background-color: #009879;
   height: 2rem;
   width: 2rem;
   padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 table {
@@ -13,6 +24,8 @@ table {
   border-collapse: collapse;
   font-size: 0.875em;
   width: 100%;
+  table-layout: fixed;
+  position: relative;
 }
 
 tr {
@@ -34,11 +47,16 @@ tbody > tr:hover {
 th,
 td {
   padding: 12px 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 thead {
   background-color: #009879;
   color: #ffffff;
+  position: sticky;
+  top: 0;
 }
 
 th {
@@ -56,11 +74,67 @@ td {
   font-size: 0.9rem;
 }
 
-.page-number-indicators {
-  font-weight: bold;
+.page-navigation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-@media(max-width: 600px) {
+.page-number-indicators {
+  font-weight: bold;
+  margin-right: 8px;
+  border-right: 2px solid #000;
+  padding-right: 8px;
+}
+
+.go-to-page-container {
+  margin-right: 4px;
+}
+
+.go-to-page-text {
+  margin-right: 4px;
+}
+
+.page-input {
+  width: 3rem;
+  height: 25px;
+}
+
+.page-navigation-buttons-container {
+  display: flex;
+  align-items: center;
+}
+
+.page-navigation-button {
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #808080;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.page-navigation-button:disabled {
+  cursor: not-allowed;
+  background-color: #e7e7e7;
+}
+
+.page-navigation-button:focus {
+  outline: none !important;
+}
+
+.navigation-button-icon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 600px) {
   .toggle-wrap {
     display: block;
   }
@@ -79,7 +153,12 @@ td {
     display: none;
   }
 
-  table, table thead.expand, table tbody, table th, table tr, table td {
+  table,
+  table thead.expand,
+  table tbody,
+  table th,
+  table tr,
+  table td {
     display: block;
     width: 100%;
   }
@@ -89,7 +168,7 @@ td {
     top: 0;
     z-index: 1;
   }
-  
+
   thead tr {
     margin-bottom: 1rem;
   }

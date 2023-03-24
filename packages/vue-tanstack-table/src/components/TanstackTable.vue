@@ -2,7 +2,7 @@
   <div class="table-wrapper">
     <table :style="`width: ${table.getCenterTotalSize()}`">
       <div v-if="props.enableToggle" class="toggle-wrap">
-        <button class="toggle" @click="toggleHeader">
+        <button class="table-toggle" @click="toggleHeader">
           <Icon icon="mingcute:menu-fill" class="toggle-icon" />
         </button>
       </div>
@@ -17,19 +17,7 @@
             :colSpan="header.colSpan"
             :style="`width: ${header.getSize()}px`"
           >
-            <div
-              :className="`resizer ${
-                header.column.getIsResizing() ? 'isResizing' : ''
-              }`"
-              :style="`
-                transform:
-                  ${header.column.getIsResizing()}
-                    ? translateX(${
-                      table.getState().columnSizingInfo.deltaOffset
-                    }px)
-                    : ''`"
-              @mousedown="header.getResizeHandler()"
-            >
+            <div>
               <FlexRender
                 v-if="!header.isPlaceholder"
                 :props="header.getContext()"
@@ -54,54 +42,77 @@
         </tr>
       </tbody>
     </table>
-    <button
-      @click="table.setPageIndex(0)"
-      :disabled="!table.getCanPreviousPage()"
-    >
-      <Icon icon="material-symbols:keyboard-double-arrow-left-rounded" />
-    </button>
-    <button
-      @click="table.previousPage()"
-      :disabled="!table.getCanPreviousPage()"
-    >
-      <Icon icon="material-symbols:arrow-back-ios-new-rounded" />
-    </button>
-    <button @click="table.nextPage()" :disabled="!table.getCanNextPage()">
-      <Icon icon="material-symbols:arrow-forward-ios-rounded" />
-    </button>
-    <button
-      @click="table.setPageIndex(table.getPageCount() - 1)"
-      :disabled="!table.getCanNextPage()"
-    >
-      <Icon icon="material-symbols:keyboard-double-arrow-right-rounded" />
-    </button>
-    <span
-      >Page
-      <span class="page-number-indicators"
-        >{{ table.getState().pagination.pageIndex + 1 }} of
-        {{ table.getPageCount() }}</span
-      ></span
-    >
-    <span
-      >| Go to page:
-      <input
-        type="number"
-        :value="table.getState().pagination.pageIndex + 1"
-        :max="table.getPageCount()"
-        @input="onPageChange($event)"
-    /></span>
-    <select
-      :value="table.getState().pagination.pageSize"
-      @change="setPageSize($event)"
-    >
-      <option
-        v-for="pageSize in [10, 20, 30, 40, 50]"
-        :key="pageSize"
-        :value="pageSize"
-      >
-        Show {{ pageSize }}
-      </option>
-    </select>
+    <div class="page-navigation-container">
+      <div class="page-indicators-selection-container">
+        <span class="page-number-indicators"
+          >{{ table.getState().pagination.pageIndex + 1 }} of
+          {{ table.getPageCount() }}</span
+        >
+        <span class="go-to-page-container">
+          <span class="go-to-page-text"> Go to page: </span>
+          <input
+            class="page-input"
+            type="number"
+            :value="table.getState().pagination.pageIndex + 1"
+            :max="table.getPageCount()"
+            @input="onPageChange($event)"
+        /></span>
+        <select
+          :value="table.getState().pagination.pageSize"
+          @change="setPageSize($event)"
+        >
+          <option
+            v-for="pageSize in [10, 20, 30, 40, 50]"
+            :key="pageSize"
+            :value="pageSize"
+          >
+            Show {{ pageSize }}
+          </option>
+        </select>
+      </div>
+      <div class="page-navigation-buttons-container">
+        <button
+          class="page-navigation-button"
+          @click="table.setPageIndex(0)"
+          :disabled="!table.getCanPreviousPage()"
+        >
+          <Icon
+            icon="material-symbols:keyboard-double-arrow-left-rounded"
+            class="navigation-button-icon"
+          />
+        </button>
+        <button
+          class="page-navigation-button"
+          @click="table.previousPage()"
+          :disabled="!table.getCanPreviousPage()"
+        >
+          <Icon
+            icon="material-symbols:arrow-back-ios-new-rounded"
+            class="navigation-button-icon"
+          />
+        </button>
+        <button
+          class="page-navigation-button"
+          @click="table.nextPage()"
+          :disabled="!table.getCanNextPage()"
+        >
+          <Icon
+            icon="material-symbols:arrow-forward-ios-rounded"
+            class="navigation-button-icon"
+          />
+        </button>
+        <button
+          class="page-navigation-button"
+          @click="table.setPageIndex(table.getPageCount() - 1)"
+          :disabled="!table.getCanNextPage()"
+        >
+          <Icon
+            icon="material-symbols:keyboard-double-arrow-right-rounded"
+            class="navigation-button-icon"
+          />
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -161,7 +172,6 @@ props.columns.forEach((column) => {
 
 const table = useVueTable({
   columns,
-  enableColumnResizing: true,
   columnResizeMode: "onChange",
   data: props.rows,
   getCoreRowModel: getCoreRowModel(),
