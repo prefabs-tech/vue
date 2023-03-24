@@ -207,4 +207,12 @@ td {
     font-weight: bold;
     font-size: 0.9rem;
   }
+
+  .page-navigation-container {
+    flex-direction: column;
+  }
+
+  .page-navigation-buttons-container {
+    margin-top: 8px;
+  }
 }

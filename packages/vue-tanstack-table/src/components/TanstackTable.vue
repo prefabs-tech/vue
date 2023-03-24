@@ -6,6 +6,13 @@
           <Icon icon="mingcute:menu-fill" class="toggle-icon" />
         </button>
       </div>
+      <colgroup>
+        <col
+          v-for="column in props.columns"
+          :key="column.accessorKey"
+          :style="`width: ${column.size}px`"
+        />
+      </colgroup>
       <thead :class="{ expand: expand }">
         <tr
           v-for="headerGroup in table.getHeaderGroups()"
@@ -15,7 +22,6 @@
             v-for="header in headerGroup.headers"
             :key="header.id"
             :colSpan="header.colSpan"
-            :style="`width: ${header.getSize()}px`"
           >
             <div>
               <FlexRender
@@ -165,7 +171,6 @@ props.columns.forEach((column) => {
   const columnDef = columnHelper.accessor(column.accessorKey, {
     header: () => column.header,
     footer: (props) => props.column.id,
-    size: column.size,
   }) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);
 });
