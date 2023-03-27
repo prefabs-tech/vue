@@ -43,11 +43,6 @@
                 "
                 class="sort-icon"
               />
-              <!-- {{
-                { asc: " 🔼", desc: " 🔽" }[
-                  header.column.getIsSorted().toString()
-                ]
-              }} -->
             </div>
           </th>
         </tr>
