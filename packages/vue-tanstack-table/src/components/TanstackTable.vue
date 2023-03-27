@@ -22,9 +22,6 @@
             v-for="header in headerGroup.headers"
             :key="header.id"
             :colSpan="header.colSpan"
-            :class="
-              header.column.getCanSort() ? 'cursor-pointer select-none' : ''
-            "
             @click="header.column.getToggleSortingHandler()?.($event)"
           >
             <div v-if="!header.isPlaceholder">
@@ -32,11 +29,25 @@
                 :props="header.getContext()"
                 :render="header.column.columnDef.header"
               />
-              {{
+              <Icon
+                v-if="!header.column.getIsSorted()"
+                icon="ri:arrow-up-down-line"
+                class="sort-icon"
+              />
+              <Icon
+                v-if="header.column.getIsSorted()"
+                :icon="
+                  header.column.getIsSorted() === 'asc'
+                    ? 'mdi:arrow-up'
+                    : 'mdi:arrow-down'
+                "
+                class="sort-icon"
+              />
+              <!-- {{
                 { asc: " 🔼", desc: " 🔽" }[
                   header.column.getIsSorted().toString()
                 ]
-              }}
+              }} -->
             </div>
           </th>
         </tr>
