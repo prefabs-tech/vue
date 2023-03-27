@@ -22,13 +22,21 @@
             v-for="header in headerGroup.headers"
             :key="header.id"
             :colSpan="header.colSpan"
+            :class="
+              header.column.getCanSort() ? 'cursor-pointer select-none' : ''
+            "
+            @click="header.column.getToggleSortingHandler()?.($event)"
           >
-            <div>
+            <div v-if="!header.isPlaceholder">
               <FlexRender
-                v-if="!header.isPlaceholder"
                 :props="header.getContext()"
                 :render="header.column.columnDef.header"
               />
+              {{
+                { asc: " 🔼", desc: " 🔽" }[
+                  header.column.getIsSorted().toString()
+                ]
+              }}
             </div>
           </th>
         </tr>
@@ -136,6 +144,8 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
+  getSortedRowModel,
+  SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
 import { PropType, ref } from "vue";
@@ -175,13 +185,27 @@ props.columns.forEach((column) => {
   columns.push(columnDef);
 });
 
+const sorting = ref<SortingState>([]);
+
 const table = useVueTable({
   columns,
+  state: {
+    get sorting() {
+      return sorting.value;
+    },
+  },
+  onSortingChange: (updaterOrValue) => {
+    sorting.value =
+      typeof updaterOrValue === "function"
+        ? updaterOrValue(sorting.value)
+        : updaterOrValue;
+  },
   columnResizeMode: "onChange",
   data: props.rows,
   getCoreRowModel: getCoreRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
+  getSortedRowModel: getSortedRowModel(),
 });
 
 const expand = ref(false);
