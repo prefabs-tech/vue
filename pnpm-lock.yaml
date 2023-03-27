@@ -44,7 +44,7 @@ importers:
       jsdom: 21.1.1
       npm-run-all: 4.1.5
       pinia: 2.0.32
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: 0.7.6
       typescript: 4.9.5
       vee-validate: 4.7.4
@@ -82,7 +82,7 @@ importers:
       eslint-plugin-cypress: 2.12.1_eslint@8.36.0
       jsdom: 21.1.1
       npm-run-all: 4.1.5
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
       vee-validate: 4.7.4_vue@3.2.47
@@ -102,7 +102,7 @@ importers:
       '@vitest/coverage-istanbul': 0.29.2
       eslint: 8.36.0
       eslint-config-custom: 0.7.6
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: 0.7.6
       typescript: 4.9.5
       vite: 4.1.4
@@ -121,7 +121,7 @@ importers:
       '@vitest/coverage-istanbul': 0.29.2_vitest@0.29.2
       eslint: 8.36.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.15.5
@@ -144,7 +144,7 @@ importers:
       '@vueuse/core': 9.12.0
       eslint: 8.36.0
       eslint-config-custom: 0.7.6
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: 0.7.6
       typescript: 4.9.5
       validator: 13.9.0
@@ -169,7 +169,7 @@ importers:
       '@vueuse/core': 9.12.0_vue@3.2.47
       eslint: 8.36.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
       vee-validate: 4.7.4_vue@3.2.47
@@ -191,7 +191,7 @@ importers:
       eslint-config-custom: 0.7.6
       jsdom: 21.1.1
       pinia: 2.0.32
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: 0.7.6
       typescript: 4.9.5
       vite: 4.1.4
@@ -212,7 +212,7 @@ importers:
       eslint-config-custom: link:../../tools/eslint-config-custom
       jsdom: 21.1.1
       pinia: 2.0.32_hmuptsblhheur2tugfgucj7gc4
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.15.5
@@ -234,7 +234,7 @@ importers:
       '@vueuse/core': 9.12.0
       eslint: 8.36.0
       eslint-config-custom: 0.7.6
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: 0.7.6
       typescript: 4.9.5
       vite: 4.1.4
@@ -255,7 +255,7 @@ importers:
       '@vueuse/core': 9.12.0_vue@3.2.47
       eslint: 8.36.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.15.5
@@ -276,7 +276,7 @@ importers:
       '@vueuse/core': 9.12.0
       eslint: 8.36.0
       eslint-config-custom: 0.7.6
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: 0.7.6
       typescript: 4.9.5
       vite: 4.1.4
@@ -295,7 +295,7 @@ importers:
       '@vueuse/core': 9.12.0_vue@3.2.47
       eslint: 8.36.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.15.5
@@ -313,7 +313,7 @@ importers:
       '@vueuse/core': 9.12.0
       eslint: 8.36.0
       eslint-config-custom: 0.7.6
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: 0.7.6
       typescript: 4.9.5
       vite: 4.1.4
@@ -329,7 +329,7 @@ importers:
       '@vueuse/core': 9.12.0_vue@3.2.47
       eslint: 8.36.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.15.5
@@ -358,7 +358,7 @@ importers:
       eslint: 8.36.0
       eslint-config-custom: 0.7.6
       pinia: 2.0.32
-      prettier: 2.8.4
+      prettier: 2.8.7
       supertokens-web-js: 0.5.0
       supertokens-website: 16.0.1
       tsconfig-custom: 0.7.6
@@ -393,7 +393,7 @@ importers:
       eslint: 8.36.0
       eslint-config-custom: link:../../tools/eslint-config-custom
       pinia: 2.0.32_hmuptsblhheur2tugfgucj7gc4
-      prettier: 2.8.4
+      prettier: 2.8.7
       tsconfig-custom: link:../../tools/tsconfig-custom
       typescript: 4.9.5
       vee-validate: 4.7.4_vue@3.2.47
@@ -417,7 +417,7 @@ importers:
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-unicorn: 46.0.0
       eslint-plugin-vue: 9.9.0
-      prettier: 2.8.4
+      prettier: 2.8.7
       typescript: 4.9.5
       vue-eslint-parser: 9.1.0
     dependencies:
@@ -428,13 +428,13 @@ importers:
       eslint-import-resolver-alias: 1.1.2_5rfvta7qn57kxm7ir36ta6fixq
       eslint-import-resolver-typescript: 3.5.3_eakrjjutlgqjxe5ydhtnd4qdmy
       eslint-plugin-import: 2.27.5_cixltmqtmbigovtdpc6itaiq6u
-      eslint-plugin-prettier: 4.2.1_7sb2khnpunhlasziblb2dlqwge
+      eslint-plugin-prettier: 4.2.1_ywlv3zveqg2kxfq44lflihh5mm
       eslint-plugin-unicorn: 46.0.0_eslint@8.36.0
       eslint-plugin-vue: 9.9.0_eslint@8.36.0
       vue-eslint-parser: 9.1.0_eslint@8.36.0
     devDependencies:
       eslint: 8.36.0
-      prettier: 2.8.4
+      prettier: 2.8.7
       typescript: 4.9.5
 
   tools/tsconfig-custom:
@@ -3114,7 +3114,7 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-prettier/4.2.1_7sb2khnpunhlasziblb2dlqwge:
+  /eslint-plugin-prettier/4.2.1_ywlv3zveqg2kxfq44lflihh5mm:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -3127,7 +3127,7 @@ packages:
     dependencies:
       eslint: 8.36.0
       eslint-config-prettier: 8.8.0_eslint@8.36.0
-      prettier: 2.8.4
+      prettier: 2.8.7
       prettier-linter-helpers: 1.0.0
     dev: false
 
@@ -4972,8 +4972,8 @@ packages:
       fast-diff: 1.2.0
     dev: false
 
-  /prettier/2.8.4:
-    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
+  /prettier/2.8.7:
+    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
 
@@ -5359,7 +5359,7 @@ packages:
       mime-types: 2.1.35
       mkdirp: 1.0.4
       open: 7.4.2
-      prettier: 2.8.4
+      prettier: 2.8.7
       serialize-javascript: 3.1.0
       shell-quote: 1.7.4
       shipjs-lib: 0.25.1
