@@ -79,8 +79,8 @@
       <div class="page-navigation-buttons-container">
         <button
           class="page-navigation-button"
-          @click="table.setPageIndex(0)"
           :disabled="!table.getCanPreviousPage()"
+          @click="table.setPageIndex(0)"
         >
           <Icon
             icon="material-symbols:keyboard-double-arrow-left-rounded"
@@ -89,8 +89,8 @@
         </button>
         <button
           class="page-navigation-button"
-          @click="table.previousPage()"
           :disabled="!table.getCanPreviousPage()"
+          @click="table.previousPage()"
         >
           <Icon
             icon="material-symbols:arrow-back-ios-new-rounded"
@@ -99,8 +99,8 @@
         </button>
         <button
           class="page-navigation-button"
-          @click="table.nextPage()"
           :disabled="!table.getCanNextPage()"
+          @click="table.nextPage()"
         >
           <Icon
             icon="material-symbols:arrow-forward-ios-rounded"
@@ -109,8 +109,8 @@
         </button>
         <button
           class="page-navigation-button"
-          @click="table.setPageIndex(table.getPageCount() - 1)"
           :disabled="!table.getCanNextPage()"
+          @click="table.setPageIndex(table.getPageCount() - 1)"
         >
           <Icon
             icon="material-symbols:keyboard-double-arrow-right-rounded"
