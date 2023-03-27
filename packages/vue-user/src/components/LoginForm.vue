@@ -15,9 +15,10 @@
       v-model="credentials.password"
       :error-messages="{
         required: t('user.login.form.password.errors.required'),
+        weak: t('user.login.form.password.errors.invalid'),
       }"
       :label="t('user.login.form.password.label')"
-      :options="{ minLength: 0 }"
+      :options="{ minLength: 8 }"
     />
 
     <div class="actions">
