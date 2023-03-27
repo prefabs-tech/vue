@@ -26,6 +26,10 @@ const useUserStore = defineStore("user", () => {
   const logout = async () => {
     await doLogout().then(() => {
       user.value = undefined;
+
+      // FIXME [SS 17 MARCH 2023]
+      document.cookie =
+        "sFrontToken=; Max-Age=0; path=/; domain=" + location.hostname;
     });
   };
 
