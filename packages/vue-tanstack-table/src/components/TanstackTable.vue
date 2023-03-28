@@ -22,7 +22,11 @@
             v-for="header in headerGroup.headers"
             :key="header.id"
             :colSpan="header.colSpan"
-            @click="header.column.getToggleSortingHandler()?.($event)"
+            @click="
+              header.column.getCanSort()
+                ? header.column.getToggleSortingHandler()?.($event)
+                : null
+            "
           >
             <div v-if="!header.isPlaceholder">
               <FlexRender
@@ -30,12 +34,14 @@
                 :render="header.column.columnDef.header"
               />
               <Icon
-                v-if="!header.column.getIsSorted()"
+                v-if="
+                  !header.column.getIsSorted() && header.column.getCanSort()
+                "
                 icon="ri:arrow-up-down-line"
                 class="sort-icon"
               />
               <Icon
-                v-if="header.column.getIsSorted()"
+                v-if="header.column.getIsSorted() && header.column.getCanSort()"
                 :icon="
                   header.column.getIsSorted() === 'asc'
                     ? 'mdi:arrow-up'
@@ -162,6 +168,7 @@ type ColumnProperty = {
   accessorKey: string;
   header: string;
   size?: number;
+  sort?: boolean;
 };
 
 const props = defineProps({
@@ -187,6 +194,7 @@ props.columns.forEach((column) => {
   const columnDef = columnHelper.accessor(column.accessorKey, {
     header: () => column.header,
     footer: (props) => props.column.id,
+    enableSorting: column.sort !== undefined ? column.sort : false,
   }) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);
 });
