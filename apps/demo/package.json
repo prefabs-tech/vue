@@ -16,7 +16,7 @@
     "@dzangolab/vue3-form": "0.7.6",
     "@dzangolab/vue3-i18n": "0.7.6",
     "@dzangolab/vue3-layout": "0.7.6",
-    "@dzangolab/vue3-tanstack-table": "0.7.6",
+    "@dzangolab/vue3-tanstack-table": "link:../../packages/vue-tanstack-table",
     "@dzangolab/vue3-ui": "0.7.6",
     "@dzangolab/vue3-user": "0.7.6",
     "@kyvg/vue3-notification": "2.9.0",
