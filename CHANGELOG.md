@@ -1,3 +1,12 @@
+## [0.7.7](https://github.com/dzangolab/vue/compare/v0.7.6...v0.7.7) (2023-03-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-unicorn to v46 ([#193](https://github.com/dzangolab/vue/issues/193)) ([c00efe0](https://github.com/dzangolab/vue/commit/c00efe04dc02445e193fda3b090dae5637ca3e1d))
+
+
+
 ## [0.7.6](https://github.com/dzangolab/vue/compare/v0.7.5...v0.7.6) (2023-03-27)
 
 
