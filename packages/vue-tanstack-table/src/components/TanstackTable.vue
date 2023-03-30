@@ -160,7 +160,7 @@ import {
   SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
-import { PropType, ref } from "vue";
+import { onMounted, PropType, ref } from "vue";
 
 import type { ColumnDef } from "@tanstack/vue-table";
 
@@ -176,13 +176,13 @@ const props = defineProps({
     type: Array as PropType<ColumnProperty[]>,
     default: () => [],
   },
-  rows: {
-    type: Array,
-    default: () => [],
-  },
   enableToggle: {
     type: Boolean,
     default: () => false,
+  },
+  fetchRows: {
+    type: Function,
+    required: true,
   },
 });
 
@@ -197,6 +197,16 @@ props.columns.forEach((column) => {
     enableSorting: column.sort !== undefined ? column.sort : false,
   }) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);
+});
+
+const rows = ref([]);
+
+onMounted(async () => {
+  try {
+    rows.value = await props.fetchRows();
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 const sorting = ref<SortingState>([]);
@@ -215,10 +225,12 @@ const table = useVueTable({
         : updaterOrValue;
   },
   columnResizeMode: "onChange",
-  data: props.rows,
+  get data() {
+    return rows.value;
+  },
   getCoreRowModel: getCoreRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
+  manualPagination: true,
   getSortedRowModel: getSortedRowModel(),
 });
 
