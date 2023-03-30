@@ -8,6 +8,7 @@ import requestPasswordReset from "./request-password-reset";
 import resetPassword from "./reset-password";
 import signup from "./signup";
 import useUserStore from "../store";
+import { getUserData } from "../utils";
 
 import type { User } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
@@ -30,9 +31,7 @@ const isLoggedIn = async () => {
 
 const getUser = async (): Promise<User | undefined> => {
   if (await isLoggedIn()) {
-    const accessTokenPayload = await Session.getAccessTokenPayloadSecurely();
-
-    return accessTokenPayload.user;
+    return getUserData();
   }
 };
 

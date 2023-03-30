@@ -1,5 +1,7 @@
 import { emailPasswordSignIn } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+import { setUserData } from "../utils";
+
 import type { LoginCredentials, User } from "../types";
 
 const login = async (
@@ -22,6 +24,8 @@ const login = async (
 
   if (response.status === "OK") {
     user = response.user;
+
+    setUserData(user);
   } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
     throw new Error("401");
   }
