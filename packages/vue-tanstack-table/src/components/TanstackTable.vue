@@ -72,7 +72,7 @@
       <div class="page-indicators-selection-container">
         <span class="page-number-indicators"
           >{{ table.getState().pagination.pageIndex + 1 }} of
-          {{ table.getPageCount() }}</span
+          {{ pageCount }}</span
         >
         <span class="go-to-page-container">
           <span class="go-to-page-text"> Go to page: </span>
@@ -80,7 +80,8 @@
             class="page-input"
             type="number"
             :value="table.getState().pagination.pageIndex + 1"
-            :max="table.getPageCount()"
+            :max="pageCount"
+            :min="1"
             @input="onPageChange($event)"
         /></span>
         <select
@@ -99,8 +100,8 @@
       <div class="page-navigation-buttons-container">
         <button
           class="page-navigation-button"
-          :disabled="!table.getCanPreviousPage()"
-          @click="table.setPageIndex(0)"
+          :disabled="table.getState().pagination.pageIndex === 0 ? true : false"
+          @click="getfirstPage()"
         >
           <Icon
             icon="material-symbols:keyboard-double-arrow-left-rounded"
@@ -109,8 +110,8 @@
         </button>
         <button
           class="page-navigation-button"
-          :disabled="!table.getCanPreviousPage()"
-          @click="table.previousPage()"
+          :disabled="table.getState().pagination.pageIndex === 0 ? true : false"
+          @click="getPreviousPage()"
         >
           <Icon
             icon="material-symbols:arrow-back-ios-new-rounded"
@@ -119,8 +120,12 @@
         </button>
         <button
           class="page-navigation-button"
-          :disabled="!table.getCanNextPage()"
-          @click="table.nextPage()"
+          :disabled="
+            table.getState().pagination.pageIndex === pageCount - 1
+              ? true
+              : false
+          "
+          @click="getNextPage()"
         >
           <Icon
             icon="material-symbols:arrow-forward-ios-rounded"
@@ -129,8 +134,12 @@
         </button>
         <button
           class="page-navigation-button"
-          :disabled="!table.getCanNextPage()"
-          @click="table.setPageIndex(table.getPageCount() - 1)"
+          :disabled="
+            table.getState().pagination.pageIndex === pageCount - 1
+              ? true
+              : false
+          "
+          @click="getLastPage()"
         >
           <Icon
             icon="material-symbols:keyboard-double-arrow-right-rounded"
@@ -154,13 +163,11 @@ import {
   createColumnHelper,
   FlexRender,
   getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
   getSortedRowModel,
   SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
-import { onMounted, PropType, ref } from "vue";
+import { onMounted, PropType, ref, watch } from "vue";
 
 import type { ColumnDef } from "@tanstack/vue-table";
 
@@ -184,6 +191,10 @@ const props = defineProps({
     type: Function,
     required: true,
   },
+  totalRows: {
+    type: Number,
+    required: true,
+  },
 });
 
 const columnHelper = createColumnHelper<any>();
@@ -200,13 +211,24 @@ props.columns.forEach((column) => {
 });
 
 const rows = ref([]);
+const pageSize = ref(10);
+const pageIndex = ref(0);
 
-onMounted(async () => {
+const updateRows = async () => {
   try {
-    rows.value = await props.fetchRows();
+    rows.value = await props.fetchRows(pageSize.value, pageIndex.value);
   } catch (error) {
     console.error(error);
   }
+};
+
+onMounted(() => {
+  updateRows();
+});
+
+watch([pageSize, pageIndex], () => {
+  updateRows();
+  pageCount.value = Math.ceil(props.totalRows / pageSize.value);
 });
 
 const sorting = ref<SortingState>([]);
@@ -229,10 +251,14 @@ const table = useVueTable({
     return rows.value;
   },
   getCoreRowModel: getCoreRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
   manualPagination: true,
   getSortedRowModel: getSortedRowModel(),
 });
+
+const pageCount = ref(1);
+const pageNumber = ref(0);
+
+pageCount.value = Math.ceil(props.totalRows / pageSize.value);
 
 const expand = ref(false);
 
@@ -242,13 +268,42 @@ const toggleHeader = () => {
 
 const onPageChange = (e: Event) => {
   const input = e.target as HTMLInputElement;
-  const page = input.value ? Number(input.value) - 1 : 0;
-  table.setPageIndex(page);
+  pageNumber.value = input.value ? Number(input.value) - 1 : 0;
+  table.setPageIndex(pageNumber.value);
+  pageIndex.value = pageNumber.value * pageSize.value;
 };
 
 const setPageSize = (e: Event) => {
   const input = e.target as HTMLInputElement;
-  const pageSize = input.value ? Number(input.value) : 10;
-  table.setPageSize(pageSize);
+  pageSize.value = input.value ? Number(input.value) : 10;
+  table.setPageSize(pageSize.value);
+};
+
+const getNextPage = () => {
+  if (pageNumber.value < pageCount.value - 1) {
+    pageNumber.value++;
+  }
+  pageIndex.value = pageNumber.value * pageSize.value;
+  table.setPageIndex(pageNumber.value);
+};
+
+const getPreviousPage = () => {
+  if (pageNumber.value > 0) {
+    pageNumber.value--;
+  }
+  pageIndex.value = pageNumber.value * pageSize.value;
+  table.setPageIndex(pageNumber.value);
+};
+
+const getfirstPage = () => {
+  pageNumber.value = 0;
+  pageIndex.value = pageNumber.value * pageSize.value;
+  table.setPageIndex(pageNumber.value);
+};
+
+const getLastPage = () => {
+  pageNumber.value = pageCount.value - 1;
+  pageIndex.value = pageNumber.value * pageSize.value;
+  table.setPageIndex(pageNumber.value);
 };
 </script>
