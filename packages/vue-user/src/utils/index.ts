@@ -7,7 +7,9 @@ const setUserData = (data: User) => {
 };
 
 const getUserData = (): User => {
-  return JSON.parse(localStorage.getItem(USER_KEY) || "");
+  const data = localStorage.getItem(USER_KEY);
+
+  return data ? JSON.parse(data) : undefined;
 };
 
 const removeUserData = () => {
