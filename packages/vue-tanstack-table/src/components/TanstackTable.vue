@@ -277,6 +277,7 @@ const setPageSize = (e: Event) => {
   const input = e.target as HTMLInputElement;
   pageSize.value = input.value ? Number(input.value) : 10;
   table.setPageSize(pageSize.value);
+  table.setPageIndex(pageNumber.value);
 };
 
 const getNextPage = () => {
