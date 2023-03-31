@@ -1,20 +1,20 @@
 .table-wrapper {
   display: block;
-  max-width: 100%;
   max-height: 60vh;
+  max-width: 100%;
   overflow-y: scroll;
   position: relative;
 }
 
 .table-toggle {
-  border: none;
-  outline: none;
   background-color: #009879;
+  border: none;
   height: 2rem;
-  width: 2rem;
+  outline: none;
   padding: 0;
   position: sticky;
   top: 0;
+  width: 2rem;
   z-index: 1;
 }
 
@@ -22,9 +22,9 @@ table {
   background-color: #ffffff;
   border-collapse: collapse;
   font-size: 0.875em;
-  width: 100%;
-  table-layout: fixed;
   position: relative;
+  table-layout: fixed;
+  width: 100%;
 }
 
 tr {
@@ -49,10 +49,10 @@ tbody > tr:hover {
 
 th,
 td {
+  overflow: hidden;
   padding: 12px 15px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 thead {
@@ -70,14 +70,14 @@ th {
 }
 
 th div {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .sort-icon {
-  opacity: 0;
-  margin-left: 8px;
   color: #e7e7e7;
+  margin-left: 8px;
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
@@ -95,19 +95,19 @@ td {
 }
 
 .page-navigation-container {
+  align-items: center;
   background-color: #fff;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 10px 0;
   position: sticky;
-  bottom: 0;
 }
 
 .page-number-indicators {
+  border-right: 2px solid #000;
   font-weight: bold;
   margin-right: 8px;
-  border-right: 2px solid #000;
   padding-right: 8px;
 }
 
@@ -120,31 +120,31 @@ td {
 }
 
 .page-input {
-  width: 3rem;
   height: 25px;
+  width: 3rem;
 }
 
 .page-navigation-buttons-container {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .page-navigation-button {
-  cursor: pointer;
-  padding: 0;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
   border: 1px solid #808080;
   border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: 2rem;
+  justify-content: center;
   margin-right: 4px;
+  padding: 0;
+  width: 2rem;
 }
 
 .page-navigation-button:disabled {
-  cursor: not-allowed;
   background-color: #e7e7e7;
+  cursor: not-allowed;
 }
 
 .page-navigation-button:focus {
@@ -152,8 +152,8 @@ td {
 }
 
 .navigation-button-icon {
-  width: 18px;
   height: 18px;
+  width: 18px;
 }
 
 @media (max-width: 600px) {
@@ -162,13 +162,13 @@ td {
   }
 
   .toggle-icon {
+    color: #fff;
+    height: 1.5rem;
     margin: auto;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    height: 1.5rem;
     width: 1.5rem;
-    color: #fff;
   }
 
   table thead {
@@ -209,10 +209,10 @@ td {
   }
 
   td {
-    font-size: 0.8rem;
-    text-align: right;
-    position: relative;
     border-bottom: 1px solid #000;
+    font-size: 0.8rem;
+    position: relative;
+    text-align: right;
   }
 
   td:last-child {
@@ -221,13 +221,13 @@ td {
 
   td::before {
     content: attr(data-label);
-    left: 0;
-    width: 50%;
     float: left;
+    font-size: 0.9rem;
+    font-weight: bold;
+    left: 0;
     text-align: left;
     text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.9rem;
+    width: 50%;
   }
 
   .page-navigation-container {
