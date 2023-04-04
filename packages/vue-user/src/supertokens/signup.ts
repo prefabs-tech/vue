@@ -1,7 +1,5 @@
 import { emailPasswordSignUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { setUserData } from "../utils";
-
 import type { LoginCredentials, User } from "../types";
 
 const signup = async (
@@ -24,8 +22,6 @@ const signup = async (
 
   if (response.status === "OK") {
     user = response.user;
-
-    setUserData(user);
   } else if (response.status === "FIELD_ERROR") {
     throw new Error("409");
   }
