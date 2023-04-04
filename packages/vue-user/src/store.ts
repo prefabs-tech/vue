@@ -25,6 +25,7 @@ const useUserStore = defineStore("user", () => {
     if (user.value) {
       return user.value;
     }
+
     const data = localStorage.getItem(USER_KEY);
 
     return data ? JSON.parse(data) : undefined;
@@ -33,9 +34,7 @@ const useUserStore = defineStore("user", () => {
   const login = async (credentials: LoginCredentials) => {
     const response = await doLogin(credentials);
 
-    user.value = response;
-
-    localStorage.setItem(USER_KEY, JSON.stringify(response));
+    setUser(response);
   };
 
   const logout = async () => {
@@ -62,12 +61,16 @@ const useUserStore = defineStore("user", () => {
     return doResetPassword(payload);
   };
 
+  const setUser = (userData: User | undefined) => {
+    user.value = userData;
+
+    localStorage.setItem(USER_KEY, JSON.stringify(userData));
+  };
+
   const signup = async (credentials: LoginCredentials): Promise<void> => {
     const response = await doSignup(credentials);
 
-    user.value = response;
-
-    localStorage.setItem(USER_KEY, JSON.stringify(response));
+    setUser(response);
   };
 
   return {
