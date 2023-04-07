@@ -66,7 +66,7 @@
   justify-self: right;
 }
 
-.layout > header .main-menu {
+.layout > header .mainMenu {
   flex: 1;
 }
 
