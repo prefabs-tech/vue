@@ -1,3 +1,12 @@
+## [0.7.9](https://github.com/dzangolab/vue/compare/v0.7.8...v0.7.9) (2023-04-07)
+
+
+### Bug Fixes
+
+* fix main menu ([#241](https://github.com/dzangolab/vue/issues/241)) ([17fd937](https://github.com/dzangolab/vue/commit/17fd937f51ba66fdddb5640000bfb7fbdacc86ce))
+
+
+
 ## [0.7.8](https://github.com/dzangolab/vue/compare/v0.7.7...v0.7.8) (2023-04-05)
 
 
