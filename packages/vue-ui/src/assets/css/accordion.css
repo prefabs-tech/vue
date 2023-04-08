@@ -9,8 +9,10 @@
   display: flex;
 }
 
-.accordion-button {
+.accordion li > .header {
   align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius) 0;
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -19,7 +21,7 @@
   width: 100%;
 }
 
-.accordion.horizontal.accordion-button {
+.accordion.horizontal li > .header {
   flex-direction: column;
 }
 
@@ -32,7 +34,7 @@
   flex-direction: row;
 }
 
-.accordion.horizontal > li > button {
+.accordion.horizontal > li > .header {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
@@ -40,7 +42,7 @@
   width: var(--accordion-horizontal-width, auto);
 }
 
-.accordion.horizontal > li > button > span {
+.accordion.horizontal > li > .header > span {
   text-orientation: sideways-right;
   writing-mode: vertical-rl;
 }
