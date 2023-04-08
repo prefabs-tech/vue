@@ -26,5 +26,8 @@
     },
     "title": "Accordion[FR]"
   },
-  "title": "Librairie de composants d'interface utilisateur"
+  "title": "Librairie de composants d'interface utilisateur",
+  "pages": {
+    "table": "Tanstack Table[fr]"
+  }
 }

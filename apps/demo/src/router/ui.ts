@@ -9,12 +9,9 @@ const routes = [
       {
         component: Accordion,
         name: "accordion",
-        path: "accordion",
       },
       {
         component: UI,
-        name: "ui",
-        path: "",
       },
       {
         component: TanstackTable,

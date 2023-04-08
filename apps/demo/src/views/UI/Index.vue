@@ -20,5 +20,3 @@ export default {
   name: "UI",
 };
 </script>
-
-<script setup lang="ts"></script>
