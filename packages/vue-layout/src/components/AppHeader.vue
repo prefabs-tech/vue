@@ -8,7 +8,6 @@
         <MainMenu
           v-if="layoutConfig?.mainMenu"
           class="main-menu"
-          :class="{ menuExpanded: expanded }"
           :routes="layoutConfig?.mainMenu"
           @close="close"
         />
