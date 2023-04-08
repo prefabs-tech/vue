@@ -3,14 +3,14 @@
 exports[`Accordion > renders correctly with props 1`] = `
 <ul
   aria-orientation="horizontal"
-  class="horizontal accordion"
+  class="accordion horizontal"
 >
   
   <li
     class=""
   >
     <button
-      class="accordion-button"
+      class="header"
       type="button"
     >
       <img
@@ -33,7 +33,7 @@ exports[`Accordion > renders correctly with props 1`] = `
     class="active"
   >
     <button
-      class="accordion-button"
+      class="header"
       type="button"
     >
       <img
@@ -63,7 +63,7 @@ exports[`Accordion > renders correctly with props 1`] = `
     class=""
   >
     <button
-      class="accordion-button"
+      class="header"
       type="button"
     >
       <img
@@ -88,14 +88,14 @@ exports[`Accordion > renders correctly with props 1`] = `
 exports[`Accordion > renders correctly with slot 1`] = `
 <ul
   aria-orientation="vertical"
-  class="vertical accordion"
+  class="accordion vertical"
 >
   
   <li
     class=""
   >
     <button
-      class="accordion-button"
+      class="header"
       type="button"
     >
       <img
@@ -118,7 +118,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
     class=""
   >
     <button
-      class="accordion-button"
+      class="header"
       type="button"
     >
       <img
@@ -140,7 +140,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
     class=""
   >
     <button
-      class="accordion-button"
+      class="header"
       type="button"
     >
       <img

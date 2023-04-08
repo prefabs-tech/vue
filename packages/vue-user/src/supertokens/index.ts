@@ -29,10 +29,10 @@ const isLoggedIn = async () => {
 };
 
 const getUser = async (): Promise<User | undefined> => {
-  if (await isLoggedIn()) {
-    const accessTokenPayload = await Session.getAccessTokenPayloadSecurely();
+  const { getUser } = useUserStore();
 
-    return accessTokenPayload.user;
+  if (await isLoggedIn()) {
+    return getUser();
   }
 };
 

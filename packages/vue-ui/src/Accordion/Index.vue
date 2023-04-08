@@ -1,9 +1,8 @@
 <template>
   <ul
     v-if="$slots.default"
-    :class="props.direction"
+    :class="['accordion', props.direction]"
     :aria-orientation="props.direction"
-    class="accordion"
   >
     <li
       v-for="(slot, index) in $slots.default()"
@@ -13,7 +12,7 @@
       <button
         v-if="slot.props?.title"
         type="button"
-        class="accordion-button"
+        class="header"
         @click="handleClick(index)"
       >
         <img :src="slot.props.icon" class="subpane-icon" />
