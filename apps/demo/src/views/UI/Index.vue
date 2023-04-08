@@ -2,8 +2,8 @@
   <Page :title="$t('ui.title')">
     <ul role="list">
       <li>
-        <router-link :to="{ name: 'accordion' }"
-          >{{ $t("ui.accordion.title") }}
+        <router-link :to="{ name: 'accordion' }">
+          {{ $t("ui.accordion.title") }}
         </router-link>
       </li>
       <li>
@@ -20,3 +20,5 @@ export default {
   name: "UI",
 };
 </script>
+
+<script setup lang="ts"></script>

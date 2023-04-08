@@ -14,7 +14,6 @@ interface AppRouteMeta extends RouteMeta {
 }
 
 const About = () => import("@/views/About.vue");
-const Accordion = () => import("@/views/UI/accordion/Index.vue");
 const Home = () => import("@/views/Home.vue");
 const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
