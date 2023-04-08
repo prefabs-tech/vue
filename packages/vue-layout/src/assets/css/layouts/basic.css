@@ -5,7 +5,7 @@
   gap: var(--layout-basic-gap, 1em);
 }
 
-.layout.basic :is(footer, header, main) {
+.layout.basic > :is(footer, header, main) {
   margin: 0 auto;
   max-width: var(--layout-basic-max-width, 1200px);
   padding-left: var(--layout-basic-padding-left, 1em);
@@ -18,7 +18,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .basic-layout :is(footer, header, main) {
+  .basic-layout > :is(footer, header, main) {
     padding-left: 0;
     padding-right: 0;
   }

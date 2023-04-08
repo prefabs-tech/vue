@@ -1,7 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import SubPane from "../../../components/SubPane.vue";
 import Accordion from "../../Index.vue";
 
 interface AccordionContent {
@@ -46,21 +45,18 @@ describe("Accordion", () => {
   };
 
   const wrapper = mount(Accordion, {
-    global: {
-      components: { SubPane },
-    },
     props: props,
     slots: {
       default: `
-        <SubPane title="${contents.first.title}" icon="${contents.first.icon}">
+        <div title="${contents.first.title}" icon="${contents.first.icon}">
           <p>${contents.first.content}</p>
-        </SubPane>
-        <SubPane title="${contents.second.title}">
+        </div>
+        <div title="${contents.second.title}">
           <p>${contents.second.content}</p>
-        </SubPane>
-        <SubPane title="${contents.third.title}">
+        </div>
+        <div title="${contents.third.title}">
           <p>${contents.third.content}</p>
-        </SubPane>
+        </div>
       `,
     },
   });
@@ -88,7 +84,7 @@ describe("Accordion", () => {
   });
 
   it("correctly show SubPane with matching defaultIndex", () => {
-    const active = wrapper.findAll(".accordion > li");
+    const active = wrapper.findAll(".accordion > section");
 
     expect(active[props.defaultIndex].html()).toContain(
       contents.second.content

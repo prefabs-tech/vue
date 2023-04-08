@@ -1,163 +1,239 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Accordion > renders correctly with props 1`] = `
-<ul
+<div
   aria-orientation="horizontal"
   class="accordion horizontal"
 >
   
-  <li
+  <section
+    aria-expanded="false"
     class=""
   >
-    <button
-      class="header"
-      type="button"
+    <header>
+      <button
+        tabindex="0"
+        type="button"
+      >
+        
+        <img
+          class="icon"
+          src="home.svg"
+        />
+        
+        <span>
+          Subpane 1
+        </span>
+        
+        <div
+          class="toggle"
+        />
+        
+      </button>
+    </header>
+    <div
+      class="pane"
+      role="region"
     >
-      <img
-        class="subpane-icon"
-        src="home.svg"
-      />
-      <span>
-        Subpane 1
-      </span>
-      
-      <img
-        class="toggle-icon"
-        src="downchevron.svg"
-      />
-      
-    </button>
-    <!--v-if-->
-  </li>
-  <li
+      <div
+        icon="home.svg"
+        title="Subpane 1"
+      >
+        <p>
+          Subpane 1 content
+        </p>
+      </div>
+    </div>
+  </section>
+  <section
+    aria-expanded="true"
     class="active"
   >
-    <button
-      class="header"
-      type="button"
-    >
-      <img
-        class="subpane-icon"
-      />
-      <span>
-        Subpane 2
-      </span>
-      
-      <img
-        class="toggle-icon"
-        src="upchevron.svg"
-      />
-      
-    </button>
+    <header>
+      <button
+        tabindex="0"
+        type="button"
+      >
+        
+        <!--v-if-->
+        
+        <span>
+          Subpane 2
+        </span>
+        
+        <div
+          class="toggle"
+        />
+        
+      </button>
+    </header>
     <div
-      class="subpane-wrapper"
+      class="pane"
+      role="region"
     >
-      
-      <p>
-        Subpane 2 content
-      </p>
-      
+      <div
+        title="Subpane 2"
+      >
+        <p>
+          Subpane 2 content
+        </p>
+      </div>
     </div>
-  </li>
-  <li
+  </section>
+  <section
+    aria-expanded="false"
     class=""
   >
-    <button
-      class="header"
-      type="button"
+    <header>
+      <button
+        tabindex="0"
+        type="button"
+      >
+        
+        <!--v-if-->
+        
+        <span>
+          Subpane 3
+        </span>
+        
+        <div
+          class="toggle"
+        />
+        
+      </button>
+    </header>
+    <div
+      class="pane"
+      role="region"
     >
-      <img
-        class="subpane-icon"
-      />
-      <span>
-        Subpane 3
-      </span>
-      
-      <img
-        class="toggle-icon"
-        src="downchevron.svg"
-      />
-      
-    </button>
-    <!--v-if-->
-  </li>
+      <div
+        title="Subpane 3"
+      >
+        <p>
+          Subpane 3 content
+        </p>
+      </div>
+    </div>
+  </section>
   
-</ul>
+</div>
 `;
 
 exports[`Accordion > renders correctly with slot 1`] = `
-<ul
+<div
   aria-orientation="vertical"
   class="accordion vertical"
 >
   
-  <li
+  <section
+    aria-expanded="false"
     class=""
   >
-    <button
-      class="header"
-      type="button"
+    <header>
+      <button
+        tabindex="0"
+        type="button"
+      >
+        
+        <img
+          class="icon"
+          src="home.svg"
+        />
+        
+        <span>
+          Subpane 1
+        </span>
+        
+        <div
+          class="toggle"
+        />
+        
+      </button>
+    </header>
+    <div
+      class="pane"
+      role="region"
     >
-      <img
-        class="subpane-icon"
-        src="home.svg"
-      />
-      <span>
-        Subpane 1
-      </span>
-      
-      <img
-        class="toggle-icon"
-        src=""
-      />
-      
-    </button>
-    <!--v-if-->
-  </li>
-  <li
+      <div
+        icon="home.svg"
+        title="Subpane 1"
+      >
+        <p>
+          Subpane 1 content
+        </p>
+      </div>
+    </div>
+  </section>
+  <section
+    aria-expanded="false"
     class=""
   >
-    <button
-      class="header"
-      type="button"
+    <header>
+      <button
+        tabindex="0"
+        type="button"
+      >
+        
+        <!--v-if-->
+        
+        <span>
+          Subpane 2
+        </span>
+        
+        <div
+          class="toggle"
+        />
+        
+      </button>
+    </header>
+    <div
+      class="pane"
+      role="region"
     >
-      <img
-        class="subpane-icon"
-      />
-      <span>
-        Subpane 2
-      </span>
-      
-      <img
-        class="toggle-icon"
-        src=""
-      />
-      
-    </button>
-    <!--v-if-->
-  </li>
-  <li
+      <div
+        title="Subpane 2"
+      >
+        <p>
+          Subpane 2 content
+        </p>
+      </div>
+    </div>
+  </section>
+  <section
+    aria-expanded="false"
     class=""
   >
-    <button
-      class="header"
-      type="button"
+    <header>
+      <button
+        tabindex="0"
+        type="button"
+      >
+        
+        <!--v-if-->
+        
+        <span>
+          Subpane 3
+        </span>
+        
+        <div
+          class="toggle"
+        />
+        
+      </button>
+    </header>
+    <div
+      class="pane"
+      role="region"
     >
-      <img
-        class="subpane-icon"
-      />
-      <span>
-        Subpane 3
-      </span>
-      
-      <img
-        class="toggle-icon"
-        src=""
-      />
-      
-    </button>
-    <!--v-if-->
-  </li>
+      <div
+        title="Subpane 3"
+      >
+        <p>
+          Subpane 3 content
+        </p>
+      </div>
+    </div>
+  </section>
   
-</ul>
+</div>
 `;

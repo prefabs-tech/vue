@@ -1,5 +1,7 @@
 :root {
-  --border-color: #555;
+  --accordion-border-color: #dee2e6;
+
+  --border-color: #dee2e6;
   --border-radius: 0.5em;
 
   --color: #555;

@@ -1,36 +1,35 @@
 <template>
-  <ul
-    v-if="$slots.default"
+  <div
+    v-if="filteredSlots"
     :class="['accordion', props.direction]"
     :aria-orientation="props.direction"
   >
-    <li
-      v-for="(slot, index) in $slots.default()"
+    <section
+      v-for="(slot, index) in filteredSlots"
       :key="index"
       :class="{ active: index === active }"
+      :aria-expanded="index === active ? true : false"
     >
-      <button
-        v-if="slot.props?.title"
-        type="button"
-        class="header"
-        @click="handleClick(index)"
-      >
-        <img :src="slot.props.icon" class="subpane-icon" />
-        <span>{{ slot.props.title }}</span>
-
-        <slot name="toggle-icon">
-          <img
-            :src="index === active ? props.activeIcon : props.inactiveIcon"
-            class="toggle-icon"
-          />
-        </slot>
-      </button>
-
-      <div v-if="index === active" class="subpane-wrapper">
+      <header>
+        <button tabindex="0" type="button" @click="handleClick(index)">
+          <slot name="icon">
+            <img
+              v-if="slot?.props?.icon"
+              :src="slot?.props?.icon"
+              class="icon"
+            />
+          </slot>
+          <span>{{ slot?.props?.title }}</span>
+          <slot name="toggle">
+            <div class="toggle" />
+          </slot>
+        </button>
+      </header>
+      <div class="pane" role="region">
         <component :is="slot" />
       </div>
-    </li>
-  </ul>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -40,7 +39,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, useSlots } from "vue";
 
 import type { PropType } from "vue";
 
@@ -81,4 +80,12 @@ const handleClick = (index: number) => {
     active.value = -1;
   }
 };
+
+const slots = useSlots();
+
+const filteredSlots = slots?.default
+  ? slots.default().filter((slot) => {
+      return slot?.props?.title;
+    })
+  : null;
 </script>

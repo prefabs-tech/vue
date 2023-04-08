@@ -2,3 +2,7 @@
 @import "./page.css";
 @import "./reset.css";
 @import "./vars.css";
+
+p {
+  padding-bottom: 0.5rem;
+}

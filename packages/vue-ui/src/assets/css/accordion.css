@@ -1,28 +1,71 @@
 .accordion {
+  border: 1px solid var(--accordion-border-color, #dee2e6);
+  border-radius: var(--accordion-border-radius, 0.25em);
   display: flex;
-  list-style-type: none;
-  margin: var(--accordion-margin, 0rem);
-  padding: var(--accordion-padding, 0rem);
+  flex-direction: column;
+  padding: 0;
 }
 
-.accordion > li {
+.accordion > section {
   display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.accordion li > .header {
+.accordion > section:not(:last-of-type) {
+  border: none;
+  border-bottom: 1px solid var(--accordion-border-color, #dee2e6);
+}
+
+.accordion > section > header {
+  padding: var(--accordion-padding, 0.5rem 1rem);
+}
+
+.accordion > section > header:not(:last-of-type),
+.accordion > section.active > header {
+  border: none;
+  border-bottom: 1px solid var(--accordion-border-color, #dee2e6);
+}
+
+.accordion > section > header > button {
   align-items: center;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius) 0;
+  border: none;
   cursor: pointer;
   display: flex;
   flex-direction: row;
   gap: var(--accordion-button-gap, 0.5rem);
-  padding: var(--accordion-button-padding, 0.5rem);
+  justify-content: space-between;
+  padding: 0;
   width: 100%;
 }
 
-.accordion.horizontal li > .header {
-  flex-direction: column;
+.accordion > section > header > button:focus {
+  box-shadow: none;
+}
+
+.accordion > section > header > button > span {
+  flex: 1;
+  text-align: left;
+}
+
+.accordion > section > header > button > .toggle {
+  background-image: url("@/assets/svg/chevron-down.svg");
+  background-size: cover;
+  height: var(--accordion-icon-width, 1.5rem);
+  width: var(--accordion-icon-height, 1.5rem);
+}
+
+.accordion > section.active > header > button > .toggle {
+  background-image: url("@/assets/svg/chevron-up.svg");
+}
+
+.accordion > section > .pane {
+  display: none;
+  padding: var(--accordion-padding, 1rem);
+}
+
+.accordion > section.active > .pane {
+  display: block;
 }
 
 .accordion.horizontal {
@@ -30,41 +73,35 @@
   flex-direction: row;
 }
 
-.accordion.horizontal > li {
+.accordion.horizontal > section {
   flex-direction: row;
 }
 
-.accordion.horizontal > li > .header {
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-  transform: rotate(180deg);
-  width: var(--accordion-horizontal-width, auto);
+.accordion.horizontal > section:not(:last-of-type) {
+  border: none;
+  border-right: 1px solid var(--accordion-border-color, #dee2e6);
 }
 
-.accordion.horizontal > li > .header > span {
-  text-orientation: sideways-right;
-  writing-mode: vertical-rl;
+.accordion.horizontal > section > header:not(:last-of-type),
+.accordion.horizontal > section.active > header {
+  border: none;
+  border-right: 1px solid var(--accordion-border-color, #dee2e6);
 }
 
-.accordion.horizontal .subpane-icon {
-  transform: rotate(90deg);
+.accordion.horizontal > section > header > button {
+  flex-direction: column-reverse;
 }
 
-.accordion.horizontal .toggle-icon {
-  transform: rotate(270deg);
+.accordion.horizontal > section > header > button > span {
+  text-orientation: sideways;
+  white-space: nowrap;
+  writing-mode: vertical-lr;
 }
 
-.accordion.vertical,
-.accordion.vertical > li {
-  flex-direction: column;
-  width: var(--accordion-vertical-width, 100%);
+.accordion.horizontal > section > header > button > .toggle {
+  background-image: url("@/assets/svg/chevron-right.svg");
 }
 
-.accordion.vertical .toggle-icon {
-  margin-left: var(--accordion-vertical-img-margin-left, auto);
-}
-
-.subpane-wrapper{
-  padding: var(--accordion-subpane, 1rem);
+.accordion.horizontal > section.active > header > button > .toggle {
+  background-image: url("@/assets/svg/chevron-left.svg");
 }
