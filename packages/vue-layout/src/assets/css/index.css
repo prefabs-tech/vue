@@ -1,1 +1,4 @@
 @import "vars.css";
+@import "layouts/basic.css";
+@import "components/footer.css";
+@import "components/header.css";

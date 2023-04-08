@@ -4,15 +4,15 @@
     "basic": "Basic[fr]",
     "canSelfCollapse": " With canSelfCollapse = true[fr]",
     "contents": {
-      "first": {
+      "1": {
         "content": "Accordion 1 content[fr]",
         "title": "Accordion 1[fr]"
       },
-      "second": {
+      "2": {
         "content": "Accordion 2 content[fr]",
         "title": "Accordion 2[fr]"
       },
-      "third": {
+      "3": {
         "content": "Accordion 3 content[fr]",
         "title": "Accordion 3[fr]"
       }

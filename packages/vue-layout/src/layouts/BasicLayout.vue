@@ -1,5 +1,5 @@
 <template>
-  <div class="basic-layout">
+  <div class="layout basic">
     <slot name="header">
       <AppHeader>
         <template #logo>
@@ -47,31 +47,3 @@ export default {
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
 </script>
-
-<style scoped>
-.basic-layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: var(--layout-basic-gap, 1em);
-}
-
-.basic-layout :is(footer, header, main) {
-  margin: 0 auto;
-  max-width: var(--layout-basic-max-width, 1200px);
-  padding-left: var(--layout-basic-padding-left, 1em);
-  padding-right: var(--layout-basic-padding-right, 1em);
-  width: 100%;
-}
-
-.basic-layout > main {
-  flex: 1;
-}
-
-@media screen and (min-width: 1200px) {
-  .basic-layout :is(footer, header, main) {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-</style>

@@ -1,7 +1,5 @@
 <template>
-  <div class="sub-pane">
-    <slot></slot>
-  </div>
+  <slot></slot>
 </template>
 
 <script lang="ts">
