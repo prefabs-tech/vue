@@ -6,7 +6,7 @@
           <Logo :route="home" />
         </template>
         <template #userMenu>
-          <UserMenu class="userMenu" />
+          <UserMenu />
         </template>
       </AppHeader>
     </template>

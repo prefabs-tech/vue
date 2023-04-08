@@ -1,3 +1,52 @@
+## [0.7.9](https://github.com/dzangolab/vue/compare/v0.7.8...v0.7.9) (2023-04-07)
+
+
+### Bug Fixes
+
+* fix main menu ([#241](https://github.com/dzangolab/vue/issues/241)) ([17fd937](https://github.com/dzangolab/vue/commit/17fd937f51ba66fdddb5640000bfb7fbdacc86ce))
+
+
+
+## [0.7.8](https://github.com/dzangolab/vue/compare/v0.7.7...v0.7.8) (2023-04-05)
+
+
+
+## [0.7.7](https://github.com/dzangolab/vue/compare/v0.7.6...v0.7.7) (2023-03-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-unicorn to v46 ([#193](https://github.com/dzangolab/vue/issues/193)) ([c00efe0](https://github.com/dzangolab/vue/commit/c00efe04dc02445e193fda3b090dae5637ca3e1d))
+
+
+
+## [0.7.6](https://github.com/dzangolab/vue/compare/v0.7.5...v0.7.6) (2023-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-config-prettier to v8.8.0 ([#197](https://github.com/dzangolab/vue/issues/197)) ([d794845](https://github.com/dzangolab/vue/commit/d794845957e1b1e0eaf2ae5614569adf01406ce7))
+* **deps:** update dependency eslint-config-turbo to v0.0.10 ([#187](https://github.com/dzangolab/vue/issues/187)) ([014b112](https://github.com/dzangolab/vue/commit/014b1121b7eaa8a217caa023c4897da0ae293084))
+* **deps:** update sentry-javascript monorepo to v7.44.2 ([#191](https://github.com/dzangolab/vue/issues/191)) ([9c0e40f](https://github.com/dzangolab/vue/commit/9c0e40ffbc86a4ef6030ec016e42ecb4786bb1b3))
+* **layout:** fix header height in safari ([#218](https://github.com/dzangolab/vue/issues/218)) ([a1cab66](https://github.com/dzangolab/vue/commit/a1cab66a3665c1cafc6e7f502db0909263238214))
+* **layout:** fix layout style ([#220](https://github.com/dzangolab/vue/issues/220)) ([0fde927](https://github.com/dzangolab/vue/commit/0fde9276c3b93659c077158bd22d9093f7539afd))
+* refactor validation error for password field in login form ([#211](https://github.com/dzangolab/vue/issues/211)) ([67fdeef](https://github.com/dzangolab/vue/commit/67fdeef2d96ec66ede52706b62461f0a90e01f96))
+
+
+
+## [0.7.5](https://github.com/dzangolab/vue/compare/v0.7.4...v0.7.5) (2023-03-20)
+
+
+
+## [0.7.4](https://github.com/dzangolab/vue/compare/v0.7.3...v0.7.4) (2023-03-10)
+
+
+### Bug Fixes
+
+* **deps:** update typescript-eslint monorepo to v5.54.0 ([#165](https://github.com/dzangolab/vue/issues/165)) ([57d5c5b](https://github.com/dzangolab/vue/commit/57d5c5b6b8c9410d5cb5b41d9142905af0e5a052))
+
+
+
 ## [0.7.3](https://github.com/dzangolab/vue/compare/v0.7.2...v0.7.3) (2023-02-20)
 
 

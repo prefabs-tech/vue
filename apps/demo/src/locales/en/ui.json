@@ -26,5 +26,8 @@
     },
     "title": "Accordion"
   },
-  "title": "UI Library"
+  "title": "UI Library",
+  "pages": {
+    "table": "Tanstack Table"
+  }
 }
