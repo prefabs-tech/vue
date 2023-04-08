@@ -1,0 +1,163 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Accordion > renders correctly with props 1`] = `
+<ul
+  aria-orientation="horizontal"
+  class="accordion horizontal"
+>
+  
+  <li
+    class=""
+  >
+    <button
+      class="header"
+      type="button"
+    >
+      <img
+        class="subpane-icon"
+        src="home.svg"
+      />
+      <span>
+        Subpane 1
+      </span>
+      
+      <img
+        class="toggle-icon"
+        src="downchevron.svg"
+      />
+      
+    </button>
+    <!--v-if-->
+  </li>
+  <li
+    class="active"
+  >
+    <button
+      class="header"
+      type="button"
+    >
+      <img
+        class="subpane-icon"
+      />
+      <span>
+        Subpane 2
+      </span>
+      
+      <img
+        class="toggle-icon"
+        src="upchevron.svg"
+      />
+      
+    </button>
+    <div
+      class="subpane-wrapper"
+    >
+      
+      <p>
+        Subpane 2 content
+      </p>
+      
+    </div>
+  </li>
+  <li
+    class=""
+  >
+    <button
+      class="header"
+      type="button"
+    >
+      <img
+        class="subpane-icon"
+      />
+      <span>
+        Subpane 3
+      </span>
+      
+      <img
+        class="toggle-icon"
+        src="downchevron.svg"
+      />
+      
+    </button>
+    <!--v-if-->
+  </li>
+  
+</ul>
+`;
+
+exports[`Accordion > renders correctly with slot 1`] = `
+<ul
+  aria-orientation="vertical"
+  class="accordion vertical"
+>
+  
+  <li
+    class=""
+  >
+    <button
+      class="header"
+      type="button"
+    >
+      <img
+        class="subpane-icon"
+        src="home.svg"
+      />
+      <span>
+        Subpane 1
+      </span>
+      
+      <img
+        class="toggle-icon"
+        src=""
+      />
+      
+    </button>
+    <!--v-if-->
+  </li>
+  <li
+    class=""
+  >
+    <button
+      class="header"
+      type="button"
+    >
+      <img
+        class="subpane-icon"
+      />
+      <span>
+        Subpane 2
+      </span>
+      
+      <img
+        class="toggle-icon"
+        src=""
+      />
+      
+    </button>
+    <!--v-if-->
+  </li>
+  <li
+    class=""
+  >
+    <button
+      class="header"
+      type="button"
+    >
+      <img
+        class="subpane-icon"
+      />
+      <span>
+        Subpane 3
+      </span>
+      
+      <img
+        class="toggle-icon"
+        src=""
+      />
+      
+    </button>
+    <!--v-if-->
+  </li>
+  
+</ul>
+`;

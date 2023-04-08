@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-config",
-  "version": "0.7.3",
+  "version": "0.7.9",
   "description": "Vue config plugin",
   "license": "MIT",
   "type": "module",
@@ -13,7 +13,9 @@
   "main": "dist//DzangolabVue3Config.umd.js",
   "module": "dist//DzangolabVue3Config.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -26,22 +28,22 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "@sentry/tracing": "7.38.0",
-    "@sentry/types": "7.38.0",
-    "@sentry/vue": "7.38.0"
+    "@sentry/tracing": "7.44.2",
+    "@sentry/types": "7.44.2",
+    "@sentry/vue": "7.44.2"
   },
   "devDependencies": {
-    "@types/node": "18.14.4",
+    "@types/node": "18.15.11",
     "@vitejs/plugin-vue": "4.0.0",
-    "@vitejs/plugin-vue-jsx": "3.0.0",
-    "@vitest/coverage-istanbul": "0.29.2",
-    "eslint": "8.34.0",
-    "eslint-config-custom": "0.7.3",
-    "prettier": "2.8.4",
-    "tsconfig-custom": "0.7.3",
+    "@vitejs/plugin-vue-jsx": "3.0.1",
+    "@vitest/coverage-istanbul": "0.29.8",
+    "eslint": "8.36.0",
+    "eslint-config-custom": "0.7.9",
+    "prettier": "2.8.7",
+    "tsconfig-custom": "0.7.9",
     "typescript": "4.9.5",
     "vite": "4.1.4",
-    "vitest": "0.29.2",
+    "vitest": "0.29.8",
     "vue": "3.2.47",
     "vue-router": "4.1.6",
     "vue-tsc": "1.2.0"

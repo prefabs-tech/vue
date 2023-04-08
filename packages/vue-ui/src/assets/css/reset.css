@@ -64,6 +64,7 @@ input,
 button,
 textarea,
 select {
+  background-color: transparent;
   font: inherit;
   outline: none;
 }
