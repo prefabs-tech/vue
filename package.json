@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue",
-  "version": "0.7.6",
+  "version": "0.7.9",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -16,14 +16,14 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.5.0",
+    "@commitlint/cli": "17.5.1",
     "@commitlint/config-conventional": "17.4.4",
     "eslint-config-custom": "workspace:*",
     "husky": "8.0.3",
-    "shipjs": "0.25.1",
-    "turbo": "latest"
+    "shipjs": "0.26.2",
+    "turbo": "1.8.8"
   },
-  "packageManager": "pnpm@7.30.0",
+  "packageManager": "pnpm@7.31.0",
   "engines": {
     "node": ">=16"
   }

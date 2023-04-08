@@ -5,8 +5,8 @@ importers:
   .:
     devDependencies:
       '@commitlint/cli':
-        specifier: 17.5.0
-        version: 17.5.0
+        specifier: 17.5.1
+        version: 17.5.1
       '@commitlint/config-conventional':
         specifier: 17.4.4
         version: 17.4.4
@@ -17,34 +17,34 @@ importers:
         specifier: 8.0.3
         version: 8.0.3
       shipjs:
-        specifier: 0.25.1
-        version: 0.25.1
+        specifier: 0.26.2
+        version: 0.26.2
       turbo:
-        specifier: latest
-        version: 1.8.5
+        specifier: 1.8.8
+        version: 1.8.8
 
   apps/demo:
     dependencies:
       '@dzangolab/vue3-config':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../packages/vue-config
       '@dzangolab/vue3-form':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../packages/vue-form
       '@dzangolab/vue3-i18n':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../packages/vue-i18n
       '@dzangolab/vue3-layout':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../packages/vue-layout
       '@dzangolab/vue3-tanstack-table':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../packages/vue-tanstack-table
       '@dzangolab/vue3-ui':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../packages/vue-ui
       '@dzangolab/vue3-user':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../packages/vue-user
       '@kyvg/vue3-notification':
         specifier: 2.9.0
@@ -93,7 +93,7 @@ importers:
         specifier: 8.36.0
         version: 8.36.0
       eslint-config-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/eslint-config-custom
       eslint-plugin-cypress:
         specifier: 2.12.1
@@ -108,7 +108,7 @@ importers:
         specifier: 2.8.7
         version: 2.8.7
       tsconfig-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/tsconfig-custom
       typescript:
         specifier: 4.9.5
@@ -157,13 +157,13 @@ importers:
         specifier: 8.36.0
         version: 8.36.0
       eslint-config-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/eslint-config-custom
       prettier:
         specifier: 2.8.7
         version: 2.8.7
       tsconfig-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/tsconfig-custom
       typescript:
         specifier: 4.9.5
@@ -224,13 +224,13 @@ importers:
         specifier: 8.36.0
         version: 8.36.0
       eslint-config-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/eslint-config-custom
       prettier:
         specifier: 2.8.7
         version: 2.8.7
       tsconfig-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/tsconfig-custom
       typescript:
         specifier: 4.9.5
@@ -261,7 +261,7 @@ importers:
         version: 9.1.10(vue@3.2.47)
     devDependencies:
       '@dzangolab/vue3-config':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../vue-config
       '@types/node':
         specifier: 18.15.5
@@ -282,7 +282,7 @@ importers:
         specifier: 8.36.0
         version: 8.36.0
       eslint-config-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/eslint-config-custom
       jsdom:
         specifier: 21.1.1
@@ -294,7 +294,7 @@ importers:
         specifier: 2.8.7
         version: 2.8.7
       tsconfig-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/tsconfig-custom
       typescript:
         specifier: 4.9.5
@@ -315,13 +315,13 @@ importers:
   packages/vue-layout:
     devDependencies:
       '@dzangolab/vue3-config':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../vue-config
       '@dzangolab/vue3-i18n':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../vue-i18n
       '@dzangolab/vue3-ui':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../vue-ui
       '@iconify/vue':
         specifier: 4.1.0
@@ -348,13 +348,13 @@ importers:
         specifier: 8.36.0
         version: 8.36.0
       eslint-config-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/eslint-config-custom
       prettier:
         specifier: 2.8.7
         version: 2.8.7
       tsconfig-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/tsconfig-custom
       typescript:
         specifier: 4.9.5
@@ -406,13 +406,13 @@ importers:
         specifier: 8.36.0
         version: 8.36.0
       eslint-config-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/eslint-config-custom
       prettier:
         specifier: 2.8.7
         version: 2.8.7
       tsconfig-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/tsconfig-custom
       typescript:
         specifier: 4.9.5
@@ -454,13 +454,13 @@ importers:
         specifier: 8.36.0
         version: 8.36.0
       eslint-config-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/eslint-config-custom
       prettier:
         specifier: 2.8.7
         version: 2.8.7
       tsconfig-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/tsconfig-custom
       typescript:
         specifier: 4.9.5
@@ -488,19 +488,19 @@ importers:
         version: 16.0.1
     devDependencies:
       '@dzangolab/vue3-config':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../vue-config
       '@dzangolab/vue3-form':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../vue-form
       '@dzangolab/vue3-i18n':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../vue-i18n
       '@dzangolab/vue3-layout':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../vue-layout
       '@dzangolab/vue3-ui':
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../vue-ui
       '@iconify/vue':
         specifier: 4.1.0
@@ -539,7 +539,7 @@ importers:
         specifier: 8.36.0
         version: 8.36.0
       eslint-config-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/eslint-config-custom
       pinia:
         specifier: 2.0.32
@@ -548,7 +548,7 @@ importers:
         specifier: 2.8.7
         version: 2.8.7
       tsconfig-custom:
-        specifier: 0.7.6
+        specifier: 0.7.9
         version: link:../../tools/tsconfig-custom
       typescript:
         specifier: 4.9.5
@@ -937,15 +937,15 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
 
-  /@commitlint/cli@17.5.0:
-    resolution: {integrity: sha512-yNW3+M7UM1ioK28LKTrryIVB5qGpXlEv8+rJQiWPMZNayy9/1XR5+lL8qBTNlgopYtZWWnIm5RETcAN29ZTL/A==}
+  /@commitlint/cli@17.5.1:
+    resolution: {integrity: sha512-pRRgGSzdHQHehxZbGA3qF6wVPyl+EEQgTe/t321rtMLFbuJ7nRj2waS17s/v5oEbyZtiY5S8PGB6XtEIm0I+Sg==}
     engines: {node: '>=v14'}
     hasBin: true
     dependencies:
       '@commitlint/format': 17.4.4
       '@commitlint/lint': 17.4.4
       '@commitlint/load': 17.5.0
-      '@commitlint/read': 17.4.4
+      '@commitlint/read': 17.5.1
       '@commitlint/types': 17.4.4
       execa: 5.1.1
       lodash.isfunction: 3.0.9
@@ -1052,8 +1052,8 @@ packages:
       conventional-commits-parser: 3.2.4
     dev: true
 
-  /@commitlint/read@17.4.4:
-    resolution: {integrity: sha512-B2TvUMJKK+Svzs6eji23WXsRJ8PAD+orI44lVuVNsm5zmI7O8RSGJMvdEZEikiA4Vohfb+HevaPoWZ7PiFZ3zA==}
+  /@commitlint/read@17.5.1:
+    resolution: {integrity: sha512-7IhfvEvB//p9aYW09YVclHbdf1u7g7QhxeYW9ZHSO8Huzp8Rz7m05aCO1mFG7G8M+7yfFnXB5xOmG18brqQIBg==}
     engines: {node: '>=v14'}
     dependencies:
       '@commitlint/top-level': 17.4.0
@@ -5501,8 +5501,8 @@ packages:
       rechoir: 0.6.2
     dev: true
 
-  /shipjs-lib@0.25.1:
-    resolution: {integrity: sha512-oxK+bnCTVLYl9xtDe5SnEsUi3qatqAECuMPUqkJqffmdUPkQtTIrHsxmeeblK+hCdu32cm6+JjPrYvSRTL8Zrw==}
+  /shipjs-lib@0.26.2:
+    resolution: {integrity: sha512-R4X/YCH6yrppSjsH8uU4RbrM9nOk2TJhq0x98l+6z+UTAx9rtvgrftkIVdTiO+7doED/vzZGkwaKLwQV9fz/6Q==}
     dependencies:
       deepmerge: 4.2.2
       dotenv: 8.6.0
@@ -5511,8 +5511,8 @@ packages:
       shelljs: 0.8.5
     dev: true
 
-  /shipjs@0.25.1:
-    resolution: {integrity: sha512-xdZeZUH7klWaECEwrJLlIIexc9PfObz7JRwGpUgy0pCYgTKnQEFWVGzMAe1sL0PMLyWdLj9ZrBvsHNvZitBe7g==}
+  /shipjs@0.26.2:
+    resolution: {integrity: sha512-k3UEgDJYj/V13H2h6u6yYdGwH5VfPCwLlK+IKGLbFuw4wN/p6jAaOxR7gnjRNV7ltLkOAsvyQc/sSc/I9RTfkw==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
@@ -5538,7 +5538,7 @@ packages:
       prettier: 2.8.7
       serialize-javascript: 3.1.0
       shell-quote: 1.7.4
-      shipjs-lib: 0.25.1
+      shipjs-lib: 0.26.2
       temp-write: 4.0.0
       tempfile: 3.0.0
     transitivePeerDependencies:
@@ -5973,65 +5973,65 @@ packages:
       typescript: 4.9.5
     dev: false
 
-  /turbo-darwin-64@1.8.5:
-    resolution: {integrity: sha512-CAYh56bzeHfnh7jTm03r29bh8p5a/EjQo1Id5yLUH7hS7msTau/+YpxJWPodLbN0UQsUYivUqHQkglJ+eMJ7xA==}
+  /turbo-darwin-64@1.8.8:
+    resolution: {integrity: sha512-18cSeIm7aeEvIxGyq7PVoFyEnPpWDM/0CpZvXKHpQ6qMTkfNt517qVqUTAwsIYqNS8xazcKAqkNbvU1V49n65Q==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@1.8.5:
-    resolution: {integrity: sha512-R3jCPOv+lu3dcvMhj8b/Defv6dyUwX6W+tbX7d6YUCA46Plf/bGCQ8+MSbxmr/4E1GyGOVFsn1wRfiYk0us/Dg==}
+  /turbo-darwin-arm64@1.8.8:
+    resolution: {integrity: sha512-ruGRI9nHxojIGLQv1TPgN7ud4HO4V8mFBwSgO6oDoZTNuk5ybWybItGR+yu6fni5vJoyMHXOYA2srnxvOc7hjQ==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64@1.8.5:
-    resolution: {integrity: sha512-YRc/KNRZeUVvth11UO4SDQZR2IqGgl9MSsbzqoHuFz4B4Q5QXH7onHogv9aXWE/BZBBbcrSBTlwBSG0Gg+J8hg==}
+  /turbo-linux-64@1.8.8:
+    resolution: {integrity: sha512-N/GkHTHeIQogXB1/6ZWfxHx+ubYeb8Jlq3b/3jnU4zLucpZzTQ8XkXIAfJG/TL3Q7ON7xQ8yGOyGLhHL7MpFRg==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64@1.8.5:
-    resolution: {integrity: sha512-8exVZb7XBl/V3gHSweuUyG2D9IzfWqwLvlXoeLWlVYSj61Ajgdv+WU7lvUmx+H2s+sSKqmIFmewA5Lw6YY37sg==}
+  /turbo-linux-arm64@1.8.8:
+    resolution: {integrity: sha512-hKqLbBHgUkYf2Ww8uBL9UYdBFQ5677a7QXdsFhONXoACbDUPvpK4BKlz3NN7G4NZ+g9dGju+OJJjQP0VXRHb5w==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64@1.8.5:
-    resolution: {integrity: sha512-fA8PU5ZNoFnQkapG06WiEqfsVQ5wbIPkIqTwUsd/M2Lp+KgxE79SQbuEI+2vQ9SmwM5qoMi515IPjgvXAJXgCw==}
+  /turbo-windows-64@1.8.8:
+    resolution: {integrity: sha512-2ndjDJyzkNslXxLt+PQuU21AHJWc8f6MnLypXy3KsN4EyX/uKKGZS0QJWz27PeHg0JS75PVvhfFV+L9t9i+Yyg==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64@1.8.5:
-    resolution: {integrity: sha512-SW/NvIdhckLsAWjU/iqBbCB0S8kXupKscUK3kEW1DZIr3MYcP/yIuaE/IdPuqcoF3VP0I3TLD4VTYCCKAo3tKA==}
+  /turbo-windows-arm64@1.8.8:
+    resolution: {integrity: sha512-xCA3oxgmW9OMqpI34AAmKfOVsfDljhD5YBwgs0ZDsn5h3kCHhC4x9W5dDk1oyQ4F5EXSH3xVym5/xl1J6WRpUg==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo@1.8.5:
-    resolution: {integrity: sha512-UBnH2wIFb5g6OQCk8f34Ud15ZXV4xEMmugeDJTU5Ur2LpVRsNEny0isSCYdb3Iu3howoNyyXmtpaxWsAwNYkkg==}
+  /turbo@1.8.8:
+    resolution: {integrity: sha512-qYJ5NjoTX+591/x09KgsDOPVDUJfU9GoS+6jszQQlLp1AHrf1wRFA3Yps8U+/HTG03q0M4qouOfOLtRQP4QypA==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.8.5
-      turbo-darwin-arm64: 1.8.5
-      turbo-linux-64: 1.8.5
-      turbo-linux-arm64: 1.8.5
-      turbo-windows-64: 1.8.5
-      turbo-windows-arm64: 1.8.5
+      turbo-darwin-64: 1.8.8
+      turbo-darwin-arm64: 1.8.8
+      turbo-linux-64: 1.8.8
+      turbo-linux-arm64: 1.8.8
+      turbo-windows-64: 1.8.8
+      turbo-windows-arm64: 1.8.8
     dev: true
 
   /type-check@0.3.2:

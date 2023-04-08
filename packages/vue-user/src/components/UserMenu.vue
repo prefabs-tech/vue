@@ -1,11 +1,11 @@
 <template>
   <DropdownUserMenu
     v-if="user"
-    class="userMenu"
+    class="user-menu"
     :user="user"
     @logout="handleLogout"
   />
-  <SignInUpMenu v-else class="userMenu" />
+  <SignInUpMenu v-else class="user-menu" />
 </template>
 
 <script lang="ts">

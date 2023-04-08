@@ -22,12 +22,32 @@
             v-for="header in headerGroup.headers"
             :key="header.id"
             :colSpan="header.colSpan"
+            @click="
+              header.column.getCanSort()
+                ? header.column.getToggleSortingHandler()?.($event)
+                : null
+            "
           >
-            <div>
+            <div v-if="!header.isPlaceholder">
               <FlexRender
-                v-if="!header.isPlaceholder"
                 :props="header.getContext()"
                 :render="header.column.columnDef.header"
+              />
+              <Icon
+                v-if="
+                  !header.column.getIsSorted() && header.column.getCanSort()
+                "
+                icon="ri:arrow-up-down-line"
+                class="sort-icon"
+              />
+              <Icon
+                v-if="header.column.getIsSorted() && header.column.getCanSort()"
+                :icon="
+                  header.column.getIsSorted() === 'asc'
+                    ? 'mdi:arrow-up'
+                    : 'mdi:arrow-down'
+                "
+                class="sort-icon"
               />
             </div>
           </th>
@@ -136,6 +156,8 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
+  getSortedRowModel,
+  SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
 import { PropType, ref } from "vue";
@@ -146,6 +168,7 @@ type ColumnProperty = {
   accessorKey: string;
   header: string;
   size?: number;
+  sort?: boolean;
 };
 
 const props = defineProps({
@@ -171,17 +194,32 @@ props.columns.forEach((column) => {
   const columnDef = columnHelper.accessor(column.accessorKey, {
     header: () => column.header,
     footer: (props) => props.column.id,
+    enableSorting: column.sort !== undefined ? column.sort : false,
   }) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);
 });
 
+const sorting = ref<SortingState>([]);
+
 const table = useVueTable({
   columns,
+  state: {
+    get sorting() {
+      return sorting.value;
+    },
+  },
+  onSortingChange: (updaterOrValue) => {
+    sorting.value =
+      typeof updaterOrValue === "function"
+        ? updaterOrValue(sorting.value)
+        : updaterOrValue;
+  },
   columnResizeMode: "onChange",
   data: props.rows,
   getCoreRowModel: getCoreRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
+  getSortedRowModel: getSortedRowModel(),
 });
 
 const expand = ref(false);

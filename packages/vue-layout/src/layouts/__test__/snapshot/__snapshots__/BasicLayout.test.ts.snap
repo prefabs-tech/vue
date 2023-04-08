@@ -2,7 +2,7 @@
 
 exports[`BasicLayout > matches snapshot 1`] = `
 <div
-  class="basic-layout"
+  class="layout basic"
 >
   
   <app-header-stub />

@@ -29,11 +29,7 @@ export default defineConfig(({ mode }) => {
       },
       target: "esnext",
     },
-    plugins: [
-      vue({
-        reactivityTransform: true,
-      }),
-    ],
+    plugins: [vue()],
     resolve: {
       alias: {
         "@/": new URL("./src/", import.meta.url).pathname,
