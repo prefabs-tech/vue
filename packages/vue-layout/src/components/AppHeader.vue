@@ -7,8 +7,7 @@
       <slot name="menu">
         <MainMenu
           v-if="layoutConfig?.mainMenu"
-          class="mainMenu"
-          :class="{ menuExpanded: expanded }"
+          class="main-menu"
           :routes="layoutConfig?.mainMenu"
           @close="close"
         />

@@ -1,11 +1,11 @@
-.basic-layout {
+.layout.basic {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: var(--layout-basic-gap, 1em);
 }
 
-.basic-layout :is(footer, header, main) {
+.layout.basic :is(footer, header, main) {
   margin: 0 auto;
   max-width: var(--layout-basic-max-width, 1200px);
   padding-left: var(--layout-basic-padding-left, 1em);
@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-.basic-layout > main {
+.layout.basic > main {
   flex: 1;
 }
 

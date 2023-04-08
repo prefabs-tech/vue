@@ -1,5 +1,5 @@
 <template>
-  <div class="basic-layout">
+  <div class="layout basic">
     <slot name="header">
       <AppHeader>
         <template #logo>
