@@ -1,5 +1,11 @@
 <template>
   <Page :title="$t('ui.accordion.title')">
+    <template #toolbar>
+      <router-link :to="{ name: 'ui' }" class="back">
+        {{ $t("common.back") }}
+      </router-link>
+    </template>
+
     <section>
       <h2>{{ $t("ui.accordion.basic") }}</h2>
       <DemoAccordion />
@@ -8,6 +14,11 @@
     <section>
       <h2>{{ $t("ui.accordion.defaultIndex") }}</h2>
       <DemoAccordion :default-index="1" />
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.accordion.can-self-collapse") }}</h2>
+      <DemoAccordion :can-self-collapse="true" />
     </section>
 
     <section>
@@ -39,10 +50,6 @@
         </template>
       </DemoAccordion>
     </section>
-
-    <RouterLink :to="{ name: 'ui' }">
-      {{ $t("common.back") }}
-    </RouterLink>
   </Page>
 </template>
 

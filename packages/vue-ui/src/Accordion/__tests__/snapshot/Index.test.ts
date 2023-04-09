@@ -8,7 +8,7 @@ describe("Accordion", () => {
     const wrapper = mount(Index, {
       slots: {
         default: `
-          <div title="Subpane 1" icon="home.svg">
+          <div title="Subpane 1">
             <p>Subpane 1 content</p>
           </div>
           <div title="Subpane 2">
@@ -27,14 +27,12 @@ describe("Accordion", () => {
   it("renders correctly with props", () => {
     const wrapper = mount(Index, {
       props: {
-        activeIcon: "upchevron.svg",
         defaultIndex: 1,
         direction: "horizontal",
-        inactiveIcon: "downchevron.svg",
       },
       slots: {
         default: `
-          <div title="Subpane 1" icon="home.svg">
+          <div title="Subpane 1">
             <p>Subpane 1 content</p>
           </div>
           <div title="Subpane 2">

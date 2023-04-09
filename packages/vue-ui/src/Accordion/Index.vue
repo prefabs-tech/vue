@@ -12,17 +12,7 @@
     >
       <header>
         <button tabindex="0" type="button" @click="handleClick(index)">
-          <slot name="icon">
-            <img
-              v-if="slot?.props?.icon"
-              :src="slot?.props?.icon"
-              class="icon"
-            />
-          </slot>
           <span>{{ slot?.props?.title }}</span>
-          <slot name="toggle">
-            <div class="toggle" />
-          </slot>
         </button>
       </header>
       <div class="pane" role="region">

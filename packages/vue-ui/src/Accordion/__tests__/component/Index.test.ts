@@ -6,24 +6,20 @@ import Accordion from "../../Index.vue";
 interface AccordionContent {
   [key: string]: {
     content: string;
-    icon?: string;
     title: string;
   };
 }
 
 interface AccordionProperties {
-  activeIcon?: string;
   canSelfCollapse?: boolean;
   defaultIndex: number;
   direction: "horizontal" | "vertical";
-  inactiveIcon?: string;
 }
 
 describe("Accordion", () => {
   const contents: AccordionContent = {
     first: {
       content: "Accordion 1 content",
-      icon: "home.svg",
       title: "Accordion 1",
     },
     second: {
@@ -37,18 +33,16 @@ describe("Accordion", () => {
   };
 
   const props: AccordionProperties = {
-    activeIcon: "upchevron.svg",
     canSelfCollapse: true,
     defaultIndex: 1,
     direction: "horizontal",
-    inactiveIcon: "downchevron.svg",
   };
 
   const wrapper = mount(Accordion, {
     props: props,
     slots: {
       default: `
-        <div title="${contents.first.title}" icon="${contents.first.icon}">
+        <div title="${contents.first.title}">
           <p>${contents.first.content}</p>
         </div>
         <div title="${contents.second.title}">
@@ -67,20 +61,6 @@ describe("Accordion", () => {
 
       expect(wrapper.html()).toContain(title);
     }
-  });
-
-  it("correctly shows active and inactive icons", async () => {
-    const buttons = wrapper.findAll(".accordion > li");
-    buttons.map(async (button, index) => {
-      const icon = button.find("img:last-child");
-
-      if (props.defaultIndex === index) {
-        expect(icon.attributes("src")).toBe(props.activeIcon);
-        return;
-      }
-
-      expect(icon.attributes("src")).toBe(props.inactiveIcon);
-    });
   });
 
   it("correctly show SubPane with matching defaultIndex", () => {

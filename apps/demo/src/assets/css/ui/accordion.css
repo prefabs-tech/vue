@@ -1,31 +1,26 @@
-.accordion.custom-toggle-icons > section .toggle {
+.accordion.custom-toggle-icons > section > header {
   background-image: url("@/assets/svg/chevron-down-square.svg");
 }
 
-.accordion.custom-toggle-icons section.active .toggle {
+.accordion.custom-toggle-icons section.active > header {
   background-image: url("@/assets/svg/chevron-up-square.svg");
 }
 
-.accordion.with-icons > section > header:first-child {
-  background-image: url("@/assets/svg/number-1.svg");
-}
-
-.accordion.with-icons > section > header {
+.accordion.with-icons > section > header > button {
   background-position: center left;
   background-repeat: no-repeat;
   background-size: 1.5rem;
-  margin-left: 0.5rem;
   padding-left: 1.75rem;
 }
 
-.accordion.with-icons > section:first-child > header:first-child {
+.accordion.with-icons > section:first-child > header > button {
   background-image: url("@/assets/svg/number-1.svg");
 }
 
-.accordion.with-icons > section:nth-child(2) > header:nth-child(2) {
+.accordion.with-icons > section:nth-child(2) > header > button {
   background-image: url("@/assets/svg/number-2.svg");
 }
 
-.accordion.with-icons > section:nth-child(3) > header:nth-child(3) {
+.accordion.with-icons > section:nth-child(3) > header > button {
   background-image: url("@/assets/svg/number-1.svg");
 }

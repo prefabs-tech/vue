@@ -1,7 +1,7 @@
 {
   "accordion": {
     "basic": "Basic usage",
-    "canSelfCollapse": " With canSelfCollapse = true",
+    "can-self-collapse": " With canSelfCollapse = true",
     "custom-toggle-icons": "Custom toggle icons",
     "defaultIndex": "With defaultIndex = 1",
     "direction": "With direction = horizontal",
