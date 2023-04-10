@@ -1,4 +1,5 @@
 .accordion {
+  --_background-color: var(--background-color);
   --_border-color: var(--border-color);
   --_border-radius: var(--border-radius);
   --_header-font-size: var(--font-size);
@@ -18,11 +19,11 @@
   flex-direction: column;
   gap: 0;
   overflow: hidden;
+  transition: flex-basis 500ms;
 }
 
 .accordion > section.active {
-  flex-basis: fit-content;
-  transition: flex-basis 500ms;
+  flex-basis: auto;
 }
 
 .accordion > section:not(:last-of-type) {
@@ -31,8 +32,9 @@
 }
 
 .accordion > section > header {
+  background-color: var(--_background-color);
   margin: 0;
-  padding: var(--_padding, 1rem);
+  padding: 0;
 }
 
 .accordion > section > header:not(:last-of-type),
@@ -44,7 +46,7 @@
 .accordion > section > header > button {
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: var(--_padding);
   text-align: left;
   width: 100%;
 }
@@ -62,6 +64,10 @@
   padding: var(--_padding);
 }
 
+.accordion > section.active > .pane {
+  max-height: none;
+}
+
 .accordion.horizontal {
   align-items: stretch;
   flex-direction: row;
@@ -76,10 +82,8 @@
   border-right: 1px solid var(--_border-color);
 }
 
-.accordion.horizontal > section > header {
-  margin: 0;
-  padding: var(--_padding);
-  padding-top: calc(3 * var(--_padding));
+.accordion.horizontal > section.active {
+  flex-basis: fit-content;
 }
 
 .accordion.horizontal > section.active > header {
@@ -95,7 +99,6 @@
 .accordion.horizontal > section > header > button > span {
   text-orientation: sideways;
   white-space: nowrap;
-  width: 1.5rem;
   writing-mode: vertical-lr;
 }
 

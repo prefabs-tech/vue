@@ -12,6 +12,7 @@
     >
       <header>
         <button tabindex="0" type="button" @click="handleClick(index)">
+          <img v-if="slot?.props?.icon" src="slot?.props?.icon" class="icon" />
           <span>{{ slot?.props?.title }}</span>
         </button>
       </header>
@@ -34,11 +35,6 @@ import { ref, useSlots } from "vue";
 import type { PropType } from "vue";
 
 const props = defineProps({
-  activeIcon: {
-    default: "",
-    required: false,
-    type: String,
-  },
   canSelfCollapse: {
     default: false,
     required: false,
@@ -53,11 +49,6 @@ const props = defineProps({
     default: "vertical",
     required: false,
     type: String as PropType<"vertical" | "horizontal">,
-  },
-  inactiveIcon: {
-    default: "",
-    required: false,
-    type: String,
   },
 });
 

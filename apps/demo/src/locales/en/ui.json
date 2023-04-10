@@ -6,6 +6,7 @@
     "defaultIndex": "With defaultIndex = 1",
     "direction": "With direction = horizontal",
     "icons": "With icons",
+    "show-toggle-icon": "Show toggle icon",
     "slot-without-title": "Slots without 'title' prop are ignored",
     "title": "Accordion"
   },

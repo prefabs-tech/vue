@@ -9,8 +9,9 @@
 .accordion.with-icons > section > header > button {
   background-position: center left;
   background-repeat: no-repeat;
-  background-size: 1.5rem;
-  padding-left: 1.75rem;
+  background-size: var(--_icon-height);
+  margin-left: var(--_padding);
+  padding-left: calc(2 * var(--_padding));
 }
 
 .accordion.with-icons > section:first-child > header > button {
