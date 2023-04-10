@@ -1,9 +1,9 @@
 .accordion {
   --_border-color: var(--border-color);
-  --_border-radius: var(border-radius);
-  --_header-font-size: 1rem;
-  --_padding: 1rem;
-  --_icon-height: 1.5rem;
+  --_border-radius: var(--border-radius);
+  --_header-font-size: var(--font-size);
+  --_padding: var(--font-size);
+  --_icon-height: calc(1.5 * var(--font-size));
 
   border: 1px solid var(--_border-color);
   border-radius: var(--_border-radius);
@@ -58,6 +58,7 @@
 }
 
 .accordion > section > .pane {
+  max-height: 0;
   padding: var(--_padding);
 }
 
