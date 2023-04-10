@@ -15,6 +15,7 @@ exports[`Accordion > renders correctly with props 1`] = `
         tabindex="0"
         type="button"
       >
+        <!--v-if-->
         <span>
           Subpane 1
         </span>
@@ -42,6 +43,7 @@ exports[`Accordion > renders correctly with props 1`] = `
         tabindex="0"
         type="button"
       >
+        <!--v-if-->
         <span>
           Subpane 2
         </span>
@@ -69,6 +71,7 @@ exports[`Accordion > renders correctly with props 1`] = `
         tabindex="0"
         type="button"
       >
+        <!--v-if-->
         <span>
           Subpane 3
         </span>
@@ -106,6 +109,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
         tabindex="0"
         type="button"
       >
+        <!--v-if-->
         <span>
           Subpane 1
         </span>
@@ -133,6 +137,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
         tabindex="0"
         type="button"
       >
+        <!--v-if-->
         <span>
           Subpane 2
         </span>
@@ -160,6 +165,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
         tabindex="0"
         type="button"
       >
+        <!--v-if-->
         <span>
           Subpane 3
         </span>
