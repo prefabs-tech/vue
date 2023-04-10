@@ -2,6 +2,7 @@
   --_background-color: var(--background-color);
   --_border-color: var(--border-color);
   --_border-radius: var(--border-radius);
+  --_gap: 0.5rem;
   --_header-font-size: var(--font-size);
   --_padding: var(--font-size);
   --_icon-height: calc(1.5 * var(--font-size));
@@ -44,8 +45,12 @@
 }
 
 .accordion > section > header > button {
+  align-items: center;
   border: none;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: var(--_gap);
   padding: var(--_padding);
   text-align: left;
   width: 100%;
@@ -53,6 +58,11 @@
 
 .accordion > section > header > button:focus {
   box-shadow: none;
+}
+
+.accordion header img.icon {
+  aspect-ratio: 1 / 1;
+  height: var(--_icon-height);
 }
 
 .accordion > section > header > button > span {
@@ -96,8 +106,14 @@
   border-right: 1px solid var(--_border-color);
 }
 
+.accordion.horizontal > section > header > button {
+  flex-direction: column;
+  height: 100%;
+}
+
 .accordion.horizontal > section > header > button > span {
   text-orientation: sideways;
+  transform: rotate(180deg);
   white-space: nowrap;
   writing-mode: vertical-lr;
 }
@@ -106,24 +122,26 @@
   background-image: url("@/assets/svg/chevron-left.svg");
 }
 
-.accordion.show-toggle-icon > section > header {
+.accordion.show-toggle-icon > section > header > button {
   background-image: url("@/assets/svg/chevron-down.svg");
-  background-position: center right;
+  background-position: calc(100% - var(--_gap)) center;
   background-repeat: no-repeat;
   background-size: var(--_icon-height);
-  margin-right: var(--_padding, 1rem);
+  padding-right: calc(var(--_padding) + var(--_icon-height) + var(--_gap));
+  padding-top: var(--_padding); 
 }
 
-.accordion.show-toggle-icon > section.active > header {
+.accordion.show-toggle-icon > section.active > header > button {
   background-image: url("@/assets/svg/chevron-up.svg");
 }
 
-.accordion.horizontal.show-toggle-icon > section > header {
+.accordion.horizontal.show-toggle-icon > section > header > button {
   background-image: url("@/assets/svg/chevron-right.svg");
-  background-position: center top;
-  margin-top: var(--_padding);
+  background-position: center var(--_gap);
+  padding-right: var(--_padding); 
+  padding-top: calc(var(--_padding) + var(--_icon-height) + var(--_gap));
 }
 
-.accordion.horizontal.show-toggle-icon > section.active > header {
+.accordion.horizontal.show-toggle-icon > section.active > header > button {
   background-image: url("@/assets/svg/chevron-left.svg");
 }

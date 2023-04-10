@@ -12,7 +12,7 @@
     >
       <header>
         <button tabindex="0" type="button" @click="handleClick(index)">
-          <img v-if="slot?.props?.icon" src="slot?.props?.icon" class="icon" />
+          <img v-if="slot?.props?.icon" :src="slot.props.icon" class="icon" />
           <span>{{ slot?.props?.title }}</span>
         </button>
       </header>

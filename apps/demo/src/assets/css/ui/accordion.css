@@ -25,3 +25,7 @@
 .accordion.with-icons > section:nth-child(3) > header > button {
   background-image: url("@/assets/svg/number-1.svg");
 }
+
+.accordion.horizontal.show-toggle-icon > section > header > button {
+  flex-direction: column-reverse;
+}

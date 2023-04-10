@@ -37,8 +37,23 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.accordion.icons") }}</h2>
+      <DemoAccordionWithIcons />
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.accordion.icons") }}</h2>
+      <DemoAccordionWithIcons class="horizontal" />
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.accordion.icons") }}</h2>
+      <DemoAccordionWithIcons class="horizontal show-toggle-icon" />
+    </section>
+
+    <section>
       <h2>{{ $t("ui.accordion.custom-toggle-icons") }}</h2>
-      <DemoAccordion class="custom-toggle-icons" />
+      <DemoAccordion class="show-toggle-icon custom-toggle-icons" />
     </section>
 
     <section>
@@ -68,6 +83,7 @@ export default {
 import { Page } from "@dzangolab/vue3-ui";
 
 import DemoAccordion from "./DemoAccordion.vue";
+import DemoAccordionWithIcons from "./DemoAccordionWithIcons.vue";
 
 import "@/assets/css/ui/accordion.css";
 </script>
