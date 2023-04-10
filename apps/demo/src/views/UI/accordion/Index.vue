@@ -22,6 +22,11 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.accordion.show-toggle-icon") }}</h2>
+      <DemoAccordion class="show-toggle-icon" />
+    </section>
+
+    <section>
       <h2>{{ $t("ui.accordion.direction") }}</h2>
       <DemoAccordion direction="horizontal" />
     </section>

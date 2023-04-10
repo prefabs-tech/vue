@@ -98,8 +98,8 @@ exports[`Accordion > renders correctly with slot 1`] = `
 >
   
   <section
-    aria-expanded="false"
-    class=""
+    aria-expanded="true"
+    class="active"
   >
     <header>
       <button

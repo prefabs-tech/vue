@@ -47,6 +47,10 @@
       </ul>
     </div>
 
+    <div title="component">
+      <TestComponent />
+    </div>
+
     <slot name="extra-pane"></slot>
   </Accordion>
 </template>
@@ -59,4 +63,6 @@ export default {
 
 <script setup lang="ts">
 import { Accordion } from "@dzangolab/vue3-ui";
+
+import TestComponent from "./TestComponent.vue";
 </script>

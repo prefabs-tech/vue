@@ -1,6 +1,12 @@
 .accordion {
-  border: 1px solid var(--accordion-border-color, #dee2e6);
-  border-radius: var(--accordion-border-radius, 0.25em);
+  --_border-color: var(--border-color);
+  --_border-radius: var(border-radius);
+  --_header-font-size: 1rem;
+  --_padding: 1rem;
+  --_icon-height: 1.5rem;
+
+  border: 1px solid var(--_border-color);
+  border-radius: var(--_border-radius);
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -8,33 +14,31 @@
 
 .accordion > section {
   display: flex;
+  flex-basis: calc((2 * var(--_padding)) + var(--_icon-height));
   flex-direction: column;
   gap: 0;
+  overflow: hidden;
+}
+
+.accordion > section.active {
+  flex-basis: fit-content;
+  transition: flex-basis 500ms;
 }
 
 .accordion > section:not(:last-of-type) {
   border: none;
-  border-bottom: 1px solid var(--accordion-border-color, #dee2e6);
+  border-bottom: 1px solid var(--_border-color);
 }
 
 .accordion > section > header {
-  background-image: url("@/assets/svg/chevron-down.svg");
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: var(--accordion-icon-width, 1.5rem);
   margin: 0;
-  margin-right: var(--accordion-padding, 1rem);
-  padding: var(--accordion-padding, 1rem);
-}
-
-.accordion > section.active > header {
-  background-image: url("@/assets/svg/chevron-up.svg");
+  padding: var(--_padding, 1rem);
 }
 
 .accordion > section > header:not(:last-of-type),
 .accordion > section.active > header {
   border: none;
-  border-bottom: 1px solid var(--accordion-border-color, #dee2e6);
+  border-bottom: 1px solid var(--_border-color);
 }
 
 .accordion > section > header > button {
@@ -54,12 +58,7 @@
 }
 
 .accordion > section > .pane {
-  display: none;
-  padding: var(--accordion-padding, 1rem);
-}
-
-.accordion > section.active > .pane {
-  display: block;
+  padding: var(--_padding);
 }
 
 .accordion.horizontal {
@@ -73,16 +72,13 @@
 
 .accordion.horizontal > section:not(:last-of-type) {
   border: none;
-  border-right: 1px solid var(--accordion-border-color, #dee2e6);
+  border-right: 1px solid var(--_border-color);
 }
 
 .accordion.horizontal > section > header {
-  background-image: url("@/assets/svg/chevron-right.svg");
-  background-position: center top;
   margin: 0;
-  margin-top: var(--accordion-padding, 1rem);
-  padding: var(--accordion-padding, 1rem);
-  padding-top: calc(3 * var(--accordion-padding, 1rem));
+  padding: var(--_padding);
+  padding-top: calc(3 * var(--_padding));
 }
 
 .accordion.horizontal > section.active > header {
@@ -92,7 +88,7 @@
 .accordion.horizontal > section > header:not(:last-of-type),
 .accordion.horizontal > section.active > header {
   border: none;
-  border-right: 1px solid var(--accordion-border-color, #dee2e6);
+  border-right: 1px solid var(--_border-color);
 }
 
 .accordion.horizontal > section > header > button > span {
@@ -103,5 +99,27 @@
 }
 
 .accordion.horizontal > section.active > header > button > .toggle {
+  background-image: url("@/assets/svg/chevron-left.svg");
+}
+
+.accordion.show-toggle-icon > section > header {
+  background-image: url("@/assets/svg/chevron-down.svg");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: var(--_icon-height);
+  margin-right: var(--_padding, 1rem);
+}
+
+.accordion.show-toggle-icon > section.active > header {
+  background-image: url("@/assets/svg/chevron-up.svg");
+}
+
+.accordion.horizontal.show-toggle-icon > section > header {
+  background-image: url("@/assets/svg/chevron-right.svg");
+  background-position: center top;
+  margin-top: var(--_padding);
+}
+
+.accordion.horizontal.show-toggle-icon > section.active > header {
   background-image: url("@/assets/svg/chevron-left.svg");
 }
