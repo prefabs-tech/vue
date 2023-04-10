@@ -1,9 +1,6 @@
 <template>
   <Accordion>
-    <div
-			icon="/src/assets/svg/number-1.svg"
-			title="Sagittis a curabitur"
-    >
+    <div icon="/src/assets/svg/number-1.svg" title="Sagittis a curabitur">
       <p>
         A viverra adipiscing consequat vel non potenti ac vel consectetur
         tristique a integer suspendisse condimentum. Id donec cum aliquet a orci
@@ -18,9 +15,9 @@
     </div>
 
     <div
-			icon="/src/assets/svg/number-2.svg"
-			title="Diam mus id per posuere vivamus"
-		>
+      icon="/src/assets/svg/number-2.svg"
+      title="Diam mus id per posuere vivamus"
+    >
       <p>
         Libero ultrices vestibulum adipiscing enim venenatis lobortis ipsum a
         nam scelerisque condimentum sociis ligula parturient posuere enim a.
@@ -41,9 +38,9 @@
     </div>
 
     <div
-			icon="/src/assets/svg/number-3.svg"	
-			title="Diam a parturient sociosque"
-		>
+      icon="/src/assets/svg/number-3.svg"
+      title="Diam a parturient sociosque"
+    >
       <p>
         Potenti lacus suscipit in ac adipiscing consectetur suspendisse dui
         aliquam egestas scelerisque porttitor nullam ad a elementum dignissim
@@ -66,6 +63,4 @@ export default {
 
 <script setup lang="ts">
 import { Accordion } from "@dzangolab/vue3-ui";
-
-import TestComponent from "./TestComponent.vue";
 </script>
