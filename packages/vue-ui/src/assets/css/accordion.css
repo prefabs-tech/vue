@@ -39,8 +39,8 @@
   padding: 0;
 }
 
-.accordion > section > header:not(:last-of-type),
-.accordion > section[data-expanded="true"] > header {
+.accordion.vertical > section > header:not(:last-of-type),
+.accordion.vertical > section[data-expanded="true"] > header {
   border: none;
   border-bottom: 1px solid var(--_border-color);
 }
@@ -87,7 +87,6 @@
 }
 
 .accordion.horizontal > section:not(:last-of-type) {
-  border: none;
   border-right: 1px solid var(--_border-color);
 }
 
@@ -143,4 +142,14 @@
 
 .accordion.horizontal.show-toggle-icon > section[data-expanded="true"] > header > button {
   background-image: url("@/assets/svg/chevron-left.svg");
+}
+
+.accordion.separate {
+  border: none;
+  gap: var(--_gap);
+}
+
+.accordion.separate > section {
+  border: 1px solid var(--_border-color);
+  border-radius: var(--_border-radius);
 }

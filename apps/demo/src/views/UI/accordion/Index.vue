@@ -12,6 +12,11 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.accordion.separate") }}</h2>
+      <DemoAccordion class="separate" />
+    </section>
+
+    <section>
       <h2>{{ $t("ui.accordion.defaultIndex") }}</h2>
       <DemoAccordion :default-index="1" />
     </section>
@@ -27,8 +32,13 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.accordion.direction") }}</h2>
+      <h2>{{ $t("ui.accordion.horizontal.basic") }}</h2>
       <DemoAccordion direction="horizontal" />
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.accordion.horizontal.separate") }}</h2>
+      <DemoAccordion direction="horizontal" class="separate" />
     </section>
 
     <section>

@@ -4,13 +4,17 @@
     "can-self-collapse": " With canSelfCollapse = true",
     "custom-toggle-icons": "Custom toggle icons",
     "defaultIndex": "With defaultIndex = 1",
-    "direction": "With direction = horizontal",
+    "horizontal": {
+      "basic": "Horizontal orientation",
+      "separate": "Horizontal orientation with separate sections"
+    },
     "icons": {
       "css": "With CSS icons",
       "custom": "Custom toggle icons",
       "slot": "With icon slot",
       "toggle": "Show toggle icons"
     },
+    "separate": "Separate sections",
     "slot-without-title": "Slots without 'title' prop are ignored",
     "title": "Accordion"
   },

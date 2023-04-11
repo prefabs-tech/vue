@@ -20,7 +20,11 @@
           <span>{{ slot?.props?.title }}</span>
         </button>
       </header>
-      <div v-show="index === active" class="pane" role="region">
+      <div
+        v-show="index === active"
+        class="pane"
+        role="region"
+      >
         <component :is="slot" />
       </div>
     </section>
