@@ -7,11 +7,11 @@ exports[`Accordion > renders correctly with props 1`] = `
 >
   
   <section
-    aria-expanded="false"
-    class=""
+    data-expanded="false"
   >
     <header>
       <button
+        aria-expanded="false"
         tabindex="0"
         type="button"
       >
@@ -24,6 +24,7 @@ exports[`Accordion > renders correctly with props 1`] = `
     <div
       class="pane"
       role="region"
+      style="display: none;"
     >
       <div
         title="Subpane 1"
@@ -35,11 +36,11 @@ exports[`Accordion > renders correctly with props 1`] = `
     </div>
   </section>
   <section
-    aria-expanded="true"
-    class="active"
+    data-expanded="true"
   >
     <header>
       <button
+        aria-expanded="true"
         tabindex="0"
         type="button"
       >
@@ -63,11 +64,11 @@ exports[`Accordion > renders correctly with props 1`] = `
     </div>
   </section>
   <section
-    aria-expanded="false"
-    class=""
+    data-expanded="false"
   >
     <header>
       <button
+        aria-expanded="false"
         tabindex="0"
         type="button"
       >
@@ -80,6 +81,7 @@ exports[`Accordion > renders correctly with props 1`] = `
     <div
       class="pane"
       role="region"
+      style="display: none;"
     >
       <div
         title="Subpane 3"
@@ -101,11 +103,11 @@ exports[`Accordion > renders correctly with slot 1`] = `
 >
   
   <section
-    aria-expanded="true"
-    class="active"
+    data-expanded="true"
   >
     <header>
       <button
+        aria-expanded="true"
         tabindex="0"
         type="button"
       >
@@ -129,11 +131,11 @@ exports[`Accordion > renders correctly with slot 1`] = `
     </div>
   </section>
   <section
-    aria-expanded="false"
-    class=""
+    data-expanded="false"
   >
     <header>
       <button
+        aria-expanded="false"
         tabindex="0"
         type="button"
       >
@@ -146,6 +148,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
     <div
       class="pane"
       role="region"
+      style="display: none;"
     >
       <div
         title="Subpane 2"
@@ -157,11 +160,11 @@ exports[`Accordion > renders correctly with slot 1`] = `
     </div>
   </section>
   <section
-    aria-expanded="false"
-    class=""
+    data-expanded="false"
   >
     <header>
       <button
+        aria-expanded="false"
         tabindex="0"
         type="button"
       >
@@ -174,6 +177,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
     <div
       class="pane"
       role="region"
+      style="display: none;"
     >
       <div
         title="Subpane 3"
