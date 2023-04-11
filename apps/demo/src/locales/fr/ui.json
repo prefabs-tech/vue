@@ -5,8 +5,12 @@
     "custom-toggle-icons": "Icones de basculement sur mesure",
     "defaultIndex": "Avec 'defaultIndex = 1'",
     "direction": "Avec 'direction = horizontal'",
-    "icons": "Avec icones",
-    "show-toggle-icon": "Afficher le bouton de toggle",
+    "icons": {
+      "css": "Avec icônes CSS",
+      "custom": "Boutons de toggle personnalisés",
+      "slot": "Avec icônes par slot",
+      "toggle": "Afficher les boutons de toggle"
+    },
     "slot-without-title": "Slots sans prop 'title' sont ignorés",
     "title": "Accordéon"
   },

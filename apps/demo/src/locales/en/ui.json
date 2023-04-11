@@ -5,8 +5,12 @@
     "custom-toggle-icons": "Custom toggle icons",
     "defaultIndex": "With defaultIndex = 1",
     "direction": "With direction = horizontal",
-    "icons": "With icons",
-    "show-toggle-icon": "Show toggle icon",
+    "icons": {
+      "css": "With CSS icons",
+      "custom": "Custom toggle icons",
+      "slot": "With icon slot",
+      "toggle": "Show toggle icons"
+    },
     "slot-without-title": "Slots without 'title' prop are ignored",
     "title": "Accordion"
   },

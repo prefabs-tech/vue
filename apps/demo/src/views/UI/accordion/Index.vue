@@ -22,7 +22,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.accordion.show-toggle-icon") }}</h2>
+      <h2>{{ $t("ui.accordion.icons.toggle") }}</h2>
       <DemoAccordion class="show-toggle-icon" />
     </section>
 
@@ -32,27 +32,27 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.accordion.icons") }}</h2>
+      <h2>{{ $t("ui.accordion.icons.css") }}</h2>
       <DemoAccordion class="with-icons" />
     </section>
 
     <section>
-      <h2>{{ $t("ui.accordion.icons") }}</h2>
+      <h2>{{ $t("ui.accordion.icons.slot") }}</h2>
       <DemoAccordionWithIcons />
     </section>
 
     <section>
-      <h2>{{ $t("ui.accordion.icons") }}</h2>
+      <h2>{{ $t("ui.accordion.icons.css") }}</h2>
       <DemoAccordionWithIcons class="horizontal" />
     </section>
 
     <section>
-      <h2>{{ $t("ui.accordion.icons") }}</h2>
+      <h2>{{ $t("ui.accordion.icons.slot") }}</h2>
       <DemoAccordionWithIcons class="horizontal show-toggle-icon" />
     </section>
 
     <section>
-      <h2>{{ $t("ui.accordion.custom-toggle-icons") }}</h2>
+      <h2>{{ $t("ui.accordion.icons.toggle") }}</h2>
       <DemoAccordion class="show-toggle-icon custom-toggle-icons" />
     </section>
 

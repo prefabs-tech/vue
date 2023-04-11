@@ -7,16 +7,20 @@
     <section
       v-for="(slot, index) in filteredSlots"
       :key="index"
-      :class="{ active: index === active }"
-      :aria-expanded="index === active ? true : false"
+      :data-expanded="index === active"
     >
       <header>
-        <button tabindex="0" type="button" @click="handleClick(index)">
+        <button
+          tabindex="0"
+          type="button"
+          :aria-expanded="index === active ? true : false"
+          @click="handleClick(index)"
+        >
           <img v-if="slot?.props?.icon" :src="slot.props.icon" class="icon" />
           <span>{{ slot?.props?.title }}</span>
         </button>
       </header>
-      <div class="pane" role="region">
+      <div v-show="index === active" class="pane" role="region">
         <component :is="slot" />
       </div>
     </section>

@@ -4,6 +4,7 @@
   --_border-radius: var(--border-radius);
   --_gap: 0.5rem;
   --_header-font-size: var(--font-size);
+  --_header-height: calc((2 * var(--_padding)) + var(--_icon-height));
   --_padding: var(--font-size);
   --_icon-height: calc(1.5 * var(--font-size));
 
@@ -16,14 +17,14 @@
 
 .accordion > section {
   display: flex;
-  flex-basis: calc((2 * var(--_padding)) + var(--_icon-height));
+  flex-basis: var(--_header-height);
   flex-direction: column;
   gap: 0;
+  min-height: 100%;
   overflow: hidden;
-  transition: flex-basis 500ms;
 }
 
-.accordion > section.active {
+.accordion > section[data-expanded="true"] {
   flex-basis: auto;
 }
 
@@ -39,7 +40,7 @@
 }
 
 .accordion > section > header:not(:last-of-type),
-.accordion > section.active > header {
+.accordion > section[data-expanded="true"] > header {
   border: none;
   border-bottom: 1px solid var(--_border-color);
 }
@@ -51,6 +52,7 @@
   display: flex;
   flex-direction: row;
   gap: var(--_gap);
+  min-height: var(--_header-height);
   padding: var(--_padding);
   text-align: left;
   width: 100%;
@@ -70,12 +72,7 @@
 }
 
 .accordion > section > .pane {
-  max-height: 0;
   padding: var(--_padding);
-}
-
-.accordion > section.active > .pane {
-  max-height: none;
 }
 
 .accordion.horizontal {
@@ -85,6 +82,8 @@
 
 .accordion.horizontal > section {
   flex-direction: row;
+  flex-basis: calc((2 * var(--_padding)) + var(--_icon-height));
+  min-width: var(--_header-height);
 }
 
 .accordion.horizontal > section:not(:last-of-type) {
@@ -92,16 +91,16 @@
   border-right: 1px solid var(--_border-color);
 }
 
-.accordion.horizontal > section.active {
+.accordion.horizontal > section[data-expanded="true"] {
   flex-basis: fit-content;
 }
 
-.accordion.horizontal > section.active > header {
-  background-image: url("@/assets/svg/chevron-left.svg");
+.accordion.horizontal > section > header {
+  min-width: var(--_header-height);
 }
 
 .accordion.horizontal > section > header:not(:last-of-type),
-.accordion.horizontal > section.active > header {
+.accordion.horizontal > section[data-expanded="true"] > header {
   border: none;
   border-right: 1px solid var(--_border-color);
 }
@@ -118,7 +117,7 @@
   writing-mode: vertical-lr;
 }
 
-.accordion.horizontal > section.active > header > button > .toggle {
+.accordion.horizontal > section[data-expanded="true"] > header > button > .toggle {
   background-image: url("@/assets/svg/chevron-left.svg");
 }
 
@@ -131,7 +130,7 @@
   padding-top: var(--_padding); 
 }
 
-.accordion.show-toggle-icon > section.active > header > button {
+.accordion.show-toggle-icon > section[data-expanded="true"] > header > button {
   background-image: url("@/assets/svg/chevron-up.svg");
 }
 
@@ -142,6 +141,6 @@
   padding-top: calc(var(--_padding) + var(--_icon-height) + var(--_gap));
 }
 
-.accordion.horizontal.show-toggle-icon > section.active > header > button {
+.accordion.horizontal.show-toggle-icon > section[data-expanded="true"] > header > button {
   background-image: url("@/assets/svg/chevron-left.svg");
 }
