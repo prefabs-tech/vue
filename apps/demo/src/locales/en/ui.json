@@ -1,4 +1,23 @@
 {
+  "accordion": {
+    "basic": "Basic usage",
+    "can-self-collapse": " With canSelfCollapse = true",
+    "custom-toggle-icons": "Custom toggle icons",
+    "defaultIndex": "With defaultIndex = 1",
+    "horizontal": {
+      "basic": "Horizontal orientation",
+      "separate": "Horizontal orientation with separate sections"
+    },
+    "icons": {
+      "css": "With CSS icons",
+      "custom": "Custom toggle icons",
+      "slot": "With icon slot",
+      "toggle": "Show toggle icons"
+    },
+    "separate": "Separate sections",
+    "slot-without-title": "Slots without 'title' prop are ignored",
+    "title": "Accordion"
+  },
   "title": "UI Library",
   "pages": {
     "table": "Tanstack Table"

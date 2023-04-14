@@ -5,3 +5,11 @@
   gap: var(--page-gap, 1em);
   justify-items: flex-start;
 }
+
+.page .back {
+  background-image: url("@/assets/svg/chevron-left.svg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}

@@ -1,4 +1,23 @@
 {
+  "accordion": {
+    "basic": "Utilisation basique",
+    "can-self-collapse": "Avec 'canSelfCollapse = true'",
+    "custom-toggle-icons": "Icones de basculement sur mesure",
+    "defaultIndex": "Avec 'defaultIndex = 1'",
+    "horizontal": {
+      "basic": "Orientation horizontale",
+      "separate": "Orientation horizontale avec sections séparées"
+    },
+    "icons": {
+      "css": "Avec icônes CSS",
+      "custom": "Boutons de toggle personnalisés",
+      "slot": "Avec icônes par slot",
+      "toggle": "Afficher les boutons de toggle"
+    },
+    "separate": "Sections séparées",
+    "slot-without-title": "Slots sans prop 'title' sont ignorés",
+    "title": "Accordéon"
+  },
   "title": "Librairie de composants d'interface utilisateur",
   "pages": {
     "table": "Tanstack Table[fr]"

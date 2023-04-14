@@ -1,0 +1,31 @@
+.accordion.custom-toggle-icons > section > header {
+  background-image: url("@/assets/svg/chevron-down-square.svg");
+}
+
+.accordion.custom-toggle-icons section.active > header {
+  background-image: url("@/assets/svg/chevron-up-square.svg");
+}
+
+.accordion.with-icons > section > header > button {
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--_icon-height);
+  margin-left: var(--_padding);
+  padding-left: calc(2 * var(--_padding));
+}
+
+.accordion.with-icons > section:first-child > header > button {
+  background-image: url("@/assets/svg/number-1.svg");
+}
+
+.accordion.with-icons > section:nth-child(2) > header > button {
+  background-image: url("@/assets/svg/number-2.svg");
+}
+
+.accordion.with-icons > section:nth-child(3) > header > button {
+  background-image: url("@/assets/svg/number-1.svg");
+}
+
+.accordion.horizontal.show-toggle-icon > section > header > button {
+  flex-direction: column-reverse;
+}

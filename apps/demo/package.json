@@ -3,13 +3,15 @@
   "version": "0.7.9",
   "private": true,
   "scripts": {
-    "build": "run-p type-check build-only",
-    "dev": "vite",
-    "preview": "vite preview",
-    "test:unit": "vitest --environment jsdom --root src/",
+    "build": "run-p typecheck build-only",
     "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "dev": "vite",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
+    "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "preview": "vite preview",
+    "sort-package": "npx sort-package-json",
+    "test:unit": "vitest --environment jsdom --root src/",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
     "@dzangolab/vue3-config": "0.7.9",

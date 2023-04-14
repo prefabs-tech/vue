@@ -1,7 +1,9 @@
 import "./assets/css/index.css";
 
+import Accordion from "./Accordion/Index.vue";
 import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
+import SubPane from "./components/SubPane.vue";
 import Errors from "./Errors/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
@@ -18,6 +20,14 @@ const plugin = {
 
 export default plugin;
 
-export { Errors, LoadingButton, LoadingIcon, Page, ResponsiveMenu };
+export {
+  Accordion,
+  Errors,
+  LoadingButton,
+  LoadingIcon,
+  Page,
+  ResponsiveMenu,
+  SubPane,
+};
 
 export type { Error } from "./types";

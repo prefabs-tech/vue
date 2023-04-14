@@ -1,0 +1,175 @@
+.accordion {
+  --_background-color: var(--background-color);
+  --_border-color: var(--border-color);
+  --_border-radius: var(--border-radius);
+  --_gap: 0.5rem;
+  --_header-font-size: var(--font-size);
+  --_header-height: calc((2 * var(--_padding)) + var(--_icon-height));
+  --_padding: var(--font-size);
+  --_icon-height: calc(1.5 * var(--font-size));
+
+  border: 1px solid var(--_border-color);
+  border-radius: var(--_border-radius);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.accordion > section {
+  display: flex;
+  /* flex-basis: var(--_header-height); */
+  flex-direction: column;
+  gap: 0;
+  min-height: 100%;
+  overflow: hidden;
+  /* transition: flex-basis 5s ease-in-out; */
+}
+
+.accordion > section[data-expanded="true"] {
+  /* flex-basis: auto; */
+  /* transition: flex-basis 5s ease-in-out; */
+}
+
+.accordion > section:not(:last-of-type) {
+  border: none;
+  border-bottom: 1px solid var(--_border-color);
+}
+
+.accordion > section > header {
+  background-color: var(--_background-color);
+  margin: 0;
+  padding: 0;
+}
+
+.accordion.vertical > section > header:not(:last-of-type),
+.accordion.vertical > section[data-expanded="true"] > header {
+  border: none;
+  border-bottom: 1px solid var(--_border-color);
+}
+
+.accordion > section > header > button {
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: var(--_gap);
+  min-height: var(--_header-height);
+  padding: var(--_padding);
+  text-align: left;
+  width: 100%;
+}
+
+.accordion > section > header > button:focus {
+  box-shadow: none;
+}
+
+.accordion header img.icon {
+  aspect-ratio: 1 / 1;
+  height: var(--_icon-height);
+}
+
+.accordion > section > header > button > span {
+  text-align: left;
+}
+
+.accordion > section > .pane {
+  padding: var(--_padding);
+}
+
+.accordion.horizontal {
+  align-items: stretch;
+  flex-direction: row;
+}
+
+.accordion.horizontal > section {
+  flex-direction: row;
+  /* flex-basis: calc((2 * var(--_padding)) + var(--_icon-height)); */
+  min-width: var(--_header-height);
+}
+
+.accordion.horizontal > section:not(:last-of-type) {
+  border-right: 1px solid var(--_border-color);
+}
+
+.accordion.horizontal > section[data-expanded="true"] {
+  /* flex-basis: fit-content; */
+}
+
+.accordion.horizontal > section > header {
+  min-width: var(--_header-height);
+}
+
+.accordion.horizontal > section > header:not(:last-of-type),
+.accordion.horizontal > section[data-expanded="true"] > header {
+  border: none;
+  border-right: 1px solid var(--_border-color);
+}
+
+.accordion.horizontal > section > header > button {
+  flex-direction: column;
+  height: 100%;
+}
+
+.accordion.horizontal > section > header > button > span {
+  text-orientation: sideways;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  writing-mode: vertical-lr;
+}
+
+.accordion.horizontal > section[data-expanded="true"] > header > button > .toggle {
+  background-image: url("@/assets/svg/chevron-left.svg");
+}
+
+.accordion.show-toggle-icon > section > header > button {
+  background-image: url("@/assets/svg/chevron-down.svg");
+  background-position: calc(100% - var(--_gap)) center;
+  background-repeat: no-repeat;
+  background-size: var(--_icon-height);
+  padding-right: calc(var(--_padding) + var(--_icon-height) + var(--_gap));
+  padding-top: var(--_padding); 
+}
+
+.accordion.show-toggle-icon > section[data-expanded="true"] > header > button {
+  background-image: url("@/assets/svg/chevron-up.svg");
+}
+
+.accordion.horizontal.show-toggle-icon > section > header > button {
+  background-image: url("@/assets/svg/chevron-right.svg");
+  background-position: center var(--_gap);
+  padding-right: var(--_padding); 
+  padding-top: calc(var(--_padding) + var(--_icon-height) + var(--_gap));
+}
+
+.accordion.horizontal.show-toggle-icon > section[data-expanded="true"] > header > button {
+  background-image: url("@/assets/svg/chevron-left.svg");
+}
+
+.accordion.separate {
+  border: none;
+  gap: var(--_gap);
+}
+
+.accordion.separate > section {
+  border: 1px solid var(--_border-color);
+  border-radius: var(--_border-radius);
+}
+
+.expand-enter-active {
+  overflow: hidden;
+  transition: max-height 1s ease-in-out;
+}
+
+.expand-leave-active {
+  overflow: hidden;
+  /* transition: max-height 0.25s cubic-bezier(0, 1, 0, 1); */
+}
+
+.expand-enter-from, .expand-leave-to {
+  max-height: 0;
+}
+
+.expand-enter-to, .expand-leave-from {
+  max-height: 1000px;
+}
