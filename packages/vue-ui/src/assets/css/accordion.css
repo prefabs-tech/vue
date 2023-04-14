@@ -17,15 +17,17 @@
 
 .accordion > section {
   display: flex;
-  flex-basis: var(--_header-height);
+  /* flex-basis: var(--_header-height); */
   flex-direction: column;
   gap: 0;
   min-height: 100%;
   overflow: hidden;
+  /* transition: flex-basis 5s ease-in-out; */
 }
 
 .accordion > section[data-expanded="true"] {
-  flex-basis: auto;
+  /* flex-basis: auto; */
+  /* transition: flex-basis 5s ease-in-out; */
 }
 
 .accordion > section:not(:last-of-type) {
@@ -82,7 +84,7 @@
 
 .accordion.horizontal > section {
   flex-direction: row;
-  flex-basis: calc((2 * var(--_padding)) + var(--_icon-height));
+  /* flex-basis: calc((2 * var(--_padding)) + var(--_icon-height)); */
   min-width: var(--_header-height);
 }
 
@@ -91,7 +93,7 @@
 }
 
 .accordion.horizontal > section[data-expanded="true"] {
-  flex-basis: fit-content;
+  /* flex-basis: fit-content; */
 }
 
 .accordion.horizontal > section > header {
@@ -152,4 +154,22 @@
 .accordion.separate > section {
   border: 1px solid var(--_border-color);
   border-radius: var(--_border-radius);
+}
+
+.expand-enter-active {
+  overflow: hidden;
+  transition: max-height 1s ease-in-out;
+}
+
+.expand-leave-active {
+  overflow: hidden;
+  /* transition: max-height 0.25s cubic-bezier(0, 1, 0, 1); */
+}
+
+.expand-enter-from, .expand-leave-to {
+  max-height: 0;
+}
+
+.expand-enter-to, .expand-leave-from {
+  max-height: 1000px;
 }

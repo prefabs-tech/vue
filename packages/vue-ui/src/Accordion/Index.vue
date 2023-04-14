@@ -16,13 +16,15 @@
           :aria-expanded="index === active ? true : false"
           @click="handleClick(index)"
         >
-          <img v-if="slot?.props?.icon" :src="slot.props.icon" class="icon" />
+          <img v-show="slot?.props?.icon" :src="slot?.props?.icon" class="icon" />
           <span>{{ slot?.props?.title }}</span>
         </button>
       </header>
-      <div v-show="index === active" class="pane" role="region">
-        <component :is="slot" />
-      </div>
+      <Transition appear name="expand">
+        <div v-if="index === active" class="pane" role="region">
+          <component :is="slot" />
+        </div>
+      </Transition>
     </section>
   </div>
 </template>

@@ -1,7 +1,7 @@
 {
   "accordion": {
     "basic": "Utilisation basique",
-    "canSelfCollapse": "Avec 'canSelfCollapse = true'",
+    "can-self-collapse": "Avec 'canSelfCollapse = true'",
     "custom-toggle-icons": "Icones de basculement sur mesure",
     "defaultIndex": "Avec 'defaultIndex = 1'",
     "horizontal": {
