@@ -15,25 +15,23 @@ exports[`Accordion > renders correctly with props 1`] = `
         tabindex="0"
         type="button"
       >
-        <!--v-if-->
+        <img
+          class="icon"
+          style="display: none;"
+        />
         <span>
           Subpane 1
         </span>
       </button>
     </header>
-    <div
-      class="pane"
-      role="region"
-      style="display: none;"
+    <transition-stub
+      appear="true"
+      css="true"
+      name="expand"
+      persisted="false"
     >
-      <div
-        title="Subpane 1"
-      >
-        <p>
-          Subpane 1 content
-        </p>
-      </div>
-    </div>
+      <!--v-if-->
+    </transition-stub>
   </section>
   <section
     data-expanded="true"
@@ -44,24 +42,34 @@ exports[`Accordion > renders correctly with props 1`] = `
         tabindex="0"
         type="button"
       >
-        <!--v-if-->
+        <img
+          class="icon"
+          style="display: none;"
+        />
         <span>
           Subpane 2
         </span>
       </button>
     </header>
-    <div
-      class="pane"
-      role="region"
+    <transition-stub
+      appear="true"
+      css="true"
+      name="expand"
+      persisted="false"
     >
       <div
-        title="Subpane 2"
+        class="pane"
+        role="region"
       >
-        <p>
-          Subpane 2 content
-        </p>
+        <div
+          title="Subpane 2"
+        >
+          <p>
+            Subpane 2 content
+          </p>
+        </div>
       </div>
-    </div>
+    </transition-stub>
   </section>
   <section
     data-expanded="false"
@@ -72,25 +80,23 @@ exports[`Accordion > renders correctly with props 1`] = `
         tabindex="0"
         type="button"
       >
-        <!--v-if-->
+        <img
+          class="icon"
+          style="display: none;"
+        />
         <span>
           Subpane 3
         </span>
       </button>
     </header>
-    <div
-      class="pane"
-      role="region"
-      style="display: none;"
+    <transition-stub
+      appear="true"
+      css="true"
+      name="expand"
+      persisted="false"
     >
-      <div
-        title="Subpane 3"
-      >
-        <p>
-          Subpane 3 content
-        </p>
-      </div>
-    </div>
+      <!--v-if-->
+    </transition-stub>
   </section>
   
 </div>
@@ -111,24 +117,34 @@ exports[`Accordion > renders correctly with slot 1`] = `
         tabindex="0"
         type="button"
       >
-        <!--v-if-->
+        <img
+          class="icon"
+          style="display: none;"
+        />
         <span>
           Subpane 1
         </span>
       </button>
     </header>
-    <div
-      class="pane"
-      role="region"
+    <transition-stub
+      appear="true"
+      css="true"
+      name="expand"
+      persisted="false"
     >
       <div
-        title="Subpane 1"
+        class="pane"
+        role="region"
       >
-        <p>
-          Subpane 1 content
-        </p>
+        <div
+          title="Subpane 1"
+        >
+          <p>
+            Subpane 1 content
+          </p>
+        </div>
       </div>
-    </div>
+    </transition-stub>
   </section>
   <section
     data-expanded="false"
@@ -139,25 +155,23 @@ exports[`Accordion > renders correctly with slot 1`] = `
         tabindex="0"
         type="button"
       >
-        <!--v-if-->
+        <img
+          class="icon"
+          style="display: none;"
+        />
         <span>
           Subpane 2
         </span>
       </button>
     </header>
-    <div
-      class="pane"
-      role="region"
-      style="display: none;"
+    <transition-stub
+      appear="true"
+      css="true"
+      name="expand"
+      persisted="false"
     >
-      <div
-        title="Subpane 2"
-      >
-        <p>
-          Subpane 2 content
-        </p>
-      </div>
-    </div>
+      <!--v-if-->
+    </transition-stub>
   </section>
   <section
     data-expanded="false"
@@ -168,25 +182,23 @@ exports[`Accordion > renders correctly with slot 1`] = `
         tabindex="0"
         type="button"
       >
-        <!--v-if-->
+        <img
+          class="icon"
+          style="display: none;"
+        />
         <span>
           Subpane 3
         </span>
       </button>
     </header>
-    <div
-      class="pane"
-      role="region"
-      style="display: none;"
+    <transition-stub
+      appear="true"
+      css="true"
+      name="expand"
+      persisted="false"
     >
-      <div
-        title="Subpane 3"
-      >
-        <p>
-          Subpane 3 content
-        </p>
-      </div>
-    </div>
+      <!--v-if-->
+    </transition-stub>
   </section>
   
 </div>
