@@ -1,102 +1,131 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`TabbedPanel > matches snapshot when there is an active tab 1`] = `
 <div
-  class="tabbed-panel bottom"
-  data-v-fddfca6f=""
+  class="tabbed-panel"
+  data-position="bottom"
 >
-  <div
-    data-v-fddfca6f=""
-    role="tablist"
-  >
-    
-    <button
-      class="active"
-      data-v-fddfca6f=""
-      type="button"
+  <nav>
+    <ul
+      role="tablist"
     >
-      <img
-        data-v-fddfca6f=""
-        src="home.svg"
-      />
-      <span
-        data-v-fddfca6f=""
+      
+      <li
+        data-selected="true"
       >
-        Subpane 1
-      </span>
-    </button>
-    <button
-      class=""
-      data-v-fddfca6f=""
-      type="button"
-    >
-      <img
-        data-v-fddfca6f=""
-      />
-      <span
-        data-v-fddfca6f=""
+        <button
+          aria-expanded="true"
+          tabindex="0"
+          type="button"
+        >
+          <img
+            class="icon"
+            src="home.svg"
+          />
+          <span>
+            Subpane 1
+          </span>
+        </button>
+      </li>
+      <li
+        data-selected="false"
       >
-        Subpane 2
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="sub-pane"
-    data-v-a728ca9d=""
-    icon="home.svg"
-    title="Subpane 1"
+        <button
+          aria-expanded="false"
+          tabindex="0"
+          type="button"
+        >
+          <!--v-if-->
+          <span>
+            Subpane 2
+          </span>
+        </button>
+      </li>
+      
+    </ul>
+  </nav>
+  <transition-stub
+    appear="true"
+    css="true"
+    name="expand"
+    persisted="false"
   >
-    
-    <p>
-      Tabbed Panel 1 content
-    </p>
-    
-  </div>
+    <div
+      class="tabbed-pane"
+      role="region"
+    >
+      <div
+        class="sub-pane"
+        data-v-a728ca9d=""
+        icon="home.svg"
+        title="Subpane 1"
+      />
+    </div>
+  </transition-stub>
 </div>
 `;
 
 exports[`TabbedPanel > matches snapshot when there is no active tab 1`] = `
 <div
-  class="tabbed-panel bottom"
-  data-v-fddfca6f=""
+  class="tabbed-panel"
+  data-position="bottom"
 >
-  <div
-    data-v-fddfca6f=""
-    role="tablist"
+  <nav>
+    <ul
+      role="tablist"
+    >
+      
+      <li
+        data-selected="true"
+      >
+        <button
+          aria-expanded="true"
+          tabindex="0"
+          type="button"
+        >
+          <img
+            class="icon"
+            src="home.svg"
+          />
+          <span>
+            Subpane 1
+          </span>
+        </button>
+      </li>
+      <li
+        data-selected="false"
+      >
+        <button
+          aria-expanded="false"
+          tabindex="0"
+          type="button"
+        >
+          <!--v-if-->
+          <span>
+            Subpane 2
+          </span>
+        </button>
+      </li>
+      
+    </ul>
+  </nav>
+  <transition-stub
+    appear="true"
+    css="true"
+    name="expand"
+    persisted="false"
   >
-    
-    <button
-      class=""
-      data-v-fddfca6f=""
-      type="button"
+    <div
+      class="tabbed-pane"
+      role="region"
     >
-      <img
-        data-v-fddfca6f=""
-        src="home.svg"
+      <div
+        class="sub-pane"
+        data-v-a728ca9d=""
+        icon="home.svg"
+        title="Subpane 1"
       />
-      <span
-        data-v-fddfca6f=""
-      >
-        Subpane 1
-      </span>
-    </button>
-    <button
-      class=""
-      data-v-fddfca6f=""
-      type="button"
-    >
-      <img
-        data-v-fddfca6f=""
-      />
-      <span
-        data-v-fddfca6f=""
-      >
-        Subpane 2
-      </span>
-    </button>
-    
-  </div>
-  <!---->
+    </div>
+  </transition-stub>
 </div>
 `;

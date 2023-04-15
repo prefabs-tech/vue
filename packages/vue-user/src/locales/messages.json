@@ -10,15 +10,16 @@
             "submit": "Sign in"
           },
           "email": {
-            "error": {
-              "email": "Please supply a valid email address",
+            "errors": {
+              "invalid": "Please provide a valid email address",
               "required": "Your email adress is required"
             },
             "label": "Your email",
-            "placeholder": "john.doe.at.example.com"
+            "placeholder": "john.doe{'@'}example.com"
           },
           "password": {
-            "error": {
+            "errors": {
+              "invalid": "Your password should be at least 8 characters long",
               "required": "Please provide a password"
             },
             "label": "Your password"
@@ -51,8 +52,8 @@
           },
           "password": {
             "errors": {
-              "min": "Your password must be at least {min} characters long",
-              "required": "Please provide a password"
+              "required": "Please provide a password",
+              "weak": "Your password should be at least 8 characters long"
             },
             "label": "Enter password"
           }
@@ -78,11 +79,11 @@
           },
           "email": {
             "errors": {
-              "email": "Please supply a valid email address",
+              "invalid": "Please supply a valid email address",
               "required": "Your email address is required"
             },
             "label": "Your email",
-            "placeholder": "john.doe.at.example.com"
+            "placeholder": "john.doe{'@'}example.com"
           }
         },
         "description": "We will send you an email to reset your password",
@@ -103,23 +104,23 @@
             "submit": "Create my account"
           },
           "confirmation": {
-            "error": {
+            "errors": {
               "match": "The 2 passwords must match"
             },
             "label": "Confirm your password"
           },
           "email": {
-            "error": {
-              "email": "Please supply a valid email address",
+            "errors": {
+              "invalid": "Please supply a valid email address",
               "required": "Your email address is required"
             },
             "label": "Your email",
-            "placeholder": "john.doe.at.example.com"
+            "placeholder": "john.doe{'@'}example.com"
           },
           "password": {
-            "error": {
-              "min": "Your password must be at least {min} characters long",
-              "required": "Please provide a password"
+            "errors": {
+              "required": "Please provide a password",
+              "weak": "Your password should be at least 8 characters long"
             },
             "label": "Your password"
           }
@@ -146,15 +147,16 @@
             "submit": "Connexion"
           },
           "email": {
-            "error": {
-              "email": "Veuillez saisir une adresse email valide",
-              "required": "Veuillez saisir votre adresse email"
+            "errors": {
+              "invalid": "Veuillez saisir une adresse courriel valide",
+              "required": "Veuillez saisir votre adresse courriel"
             },
-            "label": "Votre adresse mail",
-            "placeholder": "john.doe.at.example.com"
+            "label": "Votre adresse courriel",
+            "placeholder": "john.doe{'@'}example.com"
           },
           "password": {
-            "error": {
+            "errors": {
+              "invalid": "Your password should be at least 8 characters long[fr]",
               "required": "Veuillez saisir un mot de passe"
             },
             "label": "Votre mot de passe"
@@ -165,7 +167,7 @@
           "signup": "Inscription"
         },
         "messages": {
-          "success": "Logged in successfully."
+          "success": "Vous êtes maintenant connecté(e)"
         },
         "title": "Connexion"
       },
@@ -176,27 +178,27 @@
       "passwordReset": {
         "form": {
           "actions": {
-            "submit": "Change Password"
+            "submit": "Modifier votre mot de passe"
           },
           "confirmation": {
             "errors": {
-              "match": "The 2 passwords must match"
+              "match": "Les 2 mots de passe doivent être identiques"
             },
-            "label": "Re-enter password"
+            "label": "Confirmation de votre nouveau mot de passe"
           },
           "password": {
             "errors": {
-              "min": "Your password must be at least {min} characters long",
-              "required": "Please provide a password"
+              "required": "Veuillez saisir un mot de passe",
+              "weak": "Votre mot de passe doit avoir au moins 8 caractères"
             },
-            "label": "Enter password"
+            "label": "Nouveau mot de passe"
           }
         },
         "messages": {
-          "success": "Your password is changed successfully.",
+          "success": "Votre mot de passe a été mis à jour.",
           "wrongPassword": "The password confirmation doesnot match"
         },
-        "title": "Enter your new password.[fr]"
+        "title": "Réinitialisation de votre mot de passe"
       },
       "password-reset-acknowledge": {
         "actions": {
@@ -209,22 +211,22 @@
       "passwordResetRequest": {
         "form": {
           "actions": {
-            "submit": "Email me"
+            "submit": "Réinitialiser"
           },
           "email": {
             "errors": {
-              "email": "Please supply a valid email address[fr]",
-              "required": "Your email address is required[fr]"
+              "invalid": "Veuillez saisir une adresse courriel valide",
+              "required": "Veuillez saisir votre adresse courriel"
             },
-            "label": "Votre adresse mail",
-            "placeholder": "john.doe.at.example.com"
+            "label": "Votre adresse courriel",
+            "placeholder": "john.doe{'@'}example.com"
           }
         },
         "description": "We will send you an email to reset your password",
         "messages": {
           "success": "Please check your provided email to reset your password."
         },
-        "title": "Reset your password[fr]"
+        "title": "Réinitialisation de votre mot de passe"
       },
       "profile": {
         "title": "Profil"
@@ -238,23 +240,23 @@
             "submit": "M'inscrire"
           },
           "confirmation": {
-            "error": {
+            "errors": {
               "match": "Les 2 mots de passe doivent être identiques"
             },
             "label": "Confirmez votre mot de passe"
           },
           "email": {
-            "error": {
-              "email": "Veuillez saisir une adresse email valide",
+            "errors": {
+              "invalid": "Veuillez saisir une adresse email valide",
               "required": "Veuillez saisir votre adresse email"
             },
             "label": "Votre adresse e-mail",
-            "placeholder": "john.doe.at.example.com"
+            "placeholder": "john.doe{'@'}example.com"
           },
           "password": {
-            "error": {
-              "min": "Votre mot de passe doit avoir au minimum {min} caractères",
-              "required": "Veuillez saisir un mot de passe"
+            "errors": {
+              "required": "Veuillez saisir un mot de passe",
+              "weak": "Votre mot de passe doit avoir au moins 8 caractères"
             },
             "label": "Votre mot de passe"
           }

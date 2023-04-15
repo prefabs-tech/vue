@@ -41,16 +41,13 @@ export default defineConfig(({ mode }) => {
             "@vueuse/core": "VueuseCore",
             "vee-validate": "Veevalidate",
             yup: "Yup",
+            zod: "Zod",
           },
         },
       },
       target: "esnext",
     },
-    plugins: [
-      vue({
-        reactivityTransform: false,
-      }),
-    ],
+    plugins: [vue()],
     resolve: {
       alias: {
         "@/": new URL("./src/", import.meta.url).pathname,

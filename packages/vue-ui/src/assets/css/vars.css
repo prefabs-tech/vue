@@ -1,5 +1,24 @@
 :root {
+  --background-color: #f9f8fa;
+  --border-color: #dee2e6;
+  --border-radius: 0.5em;
+
   --color: #555;
-  --border-color: #555;
+  --color-alert-danger: #ff0000;
+  --color-primary: green;
+
+  --font-size-max: 1rem;
+  --font-size-min: 1rem;
+  --font-size-val: 2.5vw;
+
+  --form-input-border-color: #555;
+  --form-input-border-color-highlight: #555;
+  --form-input-error-font-size: 0.8em;
+  --form-input-padding-h: 0.5em;
+  --form-input-padding-v: 0.5em;
+
+  --loading-button-bg-color: #1c4786;
+  --loading-button-color: #ffffff;
+
   --menu-border-color: #555;
 }

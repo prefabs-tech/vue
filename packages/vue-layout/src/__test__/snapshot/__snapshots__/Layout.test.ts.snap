@@ -1,7 +1,3 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Layout > should match snapshot 1`] = `
-<null-layout-stub
-  class="layout"
-/>
-`;
+exports[`Layout > should match snapshot 1`] = `<null-layout-stub />`;

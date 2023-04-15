@@ -1,19 +1,38 @@
 <template>
-  <div v-if="$slots.default" class="tabbed-panel" :class="props.position">
-    <div role="tablist">
-      <button
-        v-for="(slot, index) in $slots.default()"
-        :key="index"
-        type="button"
-        :class="{ active: index === active }"
-        @click="handleClick(index)"
-      >
-        <img :src="slot.props?.icon" />
-        <span>{{ slot.props?.title }}</span>
-      </button>
-    </div>
+  <div
+    v-if="filteredSlots"
+    class="tabbed-panel"
+    :data-position="props.position"
+  >
+    <nav>
+      <ul role="tablist">
+        <li
+          v-for="(slot, index) in filteredSlots"
+          :key="index"
+          :data-selected="index === active"
+        >
+          <button
+            :aria-expanded="index === active"
+            tabindex="0"
+            type="button"
+            @click="handleClick(index)"
+          >
+            <img
+              v-if="slot?.props?.icon"
+              :src="slot?.props?.icon"
+              class="icon"
+            />
+            <span>{{ slot.props?.title }}</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
 
-    <component :is="activeSlot" />
+    <Transition appear name="expand">
+      <div class="tabbed-pane" role="region">
+        <component :is="activeSlot" />
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -31,6 +50,11 @@ import type { PropType } from "vue";
 const slots = useSlots();
 
 const props = defineProps({
+  defaultIndex: {
+    default: 0,
+    required: false,
+    type: Number,
+  },
   position: {
     default: "top",
     required: false,
@@ -38,57 +62,19 @@ const props = defineProps({
   },
 });
 
-const active = ref();
+const active = ref(props.defaultIndex);
+
+const handleClick = (index: number) => {
+  active.value = index;
+};
 
 const activeSlot = computed(() => {
   return slots.default?.()[active.value];
 });
 
-const handleClick = (index: number) => {
-  if (active.value !== index) {
-    active.value = index;
-  }
-  return;
-};
+const filteredSlots = slots?.default
+  ? slots.default().filter((slot) => {
+      return slot?.props?.title;
+    })
+  : null;
 </script>
-
-<style scoped>
-.active {
-  background-color: var(--tab-active-background-color, #ffffff);
-}
-
-.tabbed-panel {
-  display: flex;
-  flex-direction: column;
-}
-
-.tabbed-panel.bottom {
-  flex-direction: column-reverse;
-}
-
-.tabbed-panel.top > div[role="tablist"],
-.tabbed-panel.bottom > div[role="tablist"] {
-  display: flex;
-  flex-direction: row;
-}
-
-.tabbed-panel.left {
-  flex-direction: row;
-}
-.tabbed-panel.right {
-  flex-direction: row-reverse;
-}
-.tabbed-panel.left > div[role="tablist"],
-.tabbed-panel.right > div[role="tablist"] {
-  display: flex;
-  flex-direction: column;
-}
-
-.tabbed-panel > div > button {
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  padding: var(--tab-padding, 1rem);
-  width: max-content;
-}
-</style>

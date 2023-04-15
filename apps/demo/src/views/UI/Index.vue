@@ -1,14 +1,32 @@
 <template>
   <Page :title="$t('ui.title')">
-    <RouterLink v-if="$route.matched.length === 1" :to="{ name: 'subPane' }"
-      >{{ $t("ui.subPane.title") }}
-    </RouterLink>
-
-    <RouterLink v-if="$route.matched.length === 1" :to="{ name: 'tabbedPanel' }"
-      >{{ $t("ui.tabbedPanel.title") }}
-    </RouterLink>
-
-    <RouterView />
+    <ul role="list">
+      <li>
+        <router-link :to="{ name: 'typography' }">
+          {{ $t("ui.typography.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'accordion' }">
+          {{ $t("ui.accordion.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'subpane' }">
+          {{ $t("ui.subPane.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'tabbedPanel' }">
+          {{ $t("ui.tabbedPanel.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'table' }">
+          {{ $t("ui.tanstack-table.title") }}
+        </router-link>
+      </li>
+    </ul>
   </Page>
 </template>
 
@@ -17,3 +35,5 @@ export default {
   name: "UI",
 };
 </script>
+
+<script setup lang="ts"></script>

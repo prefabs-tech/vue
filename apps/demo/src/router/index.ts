@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import { feature } from "@/config";
+import ui from "./ui";
 
 import type { AppFeatures } from "@dzangolab/vue3-config";
 import type { LayoutType } from "@dzangolab/vue3-layout";
@@ -16,9 +17,6 @@ const About = () => import("@/views/About.vue");
 const Home = () => import("@/views/Home.vue");
 const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
-const SubPane = () => import("@/views/UI/SubPanePage.vue");
-const TabbedPanel = () => import("@/views/UI/TabbedPanelPage.vue");
-const UI = () => import("@/views/UI/Index.vue");
 
 const router: Router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,28 +41,7 @@ const router: Router = createRouter({
       name: "sentry",
       path: "/sentry",
     },
-    {
-      children: [
-        {
-          component: SubPane,
-          name: "subpane",
-          path: "subpane",
-        },
-        {
-          component: TabbedPanel,
-          name: "tabbedPanel",
-          path: "tabbed-panel",
-        },
-        {
-          component: SubPane,
-          name: "subPane",
-          path: "sub-pane",
-        },
-      ],
-      component: UI,
-      name: "ui",
-      path: "/ui",
-    },
+    ...ui,
   ],
 } as RouterOptions);
 

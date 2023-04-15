@@ -1,7 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import SubPane from "../../../components/SubPane.vue";
 import TabbedPanel from "../../Index.vue";
 
 describe("TabbedPanel", () => {
@@ -17,50 +16,49 @@ describe("TabbedPanel", () => {
   };
 
   const wrapper = mount(TabbedPanel, {
-    global: {
-      components: { SubPane },
-    },
     props: {
       position: "bottom",
     },
     slots: {
       default: `
-        <SubPane title="${contents.first.title}" icon="home.svg">
+        <div title="${contents.first.title}" icon="home.svg">
           <p>${contents.first.content}</p>
-        </SubPane>
-        <SubPane title="${contents.second.title}">
+        </div>
+        <div title="${contents.second.title}">
           <p>${contents.second.content}</p>
-        </SubPane>
+        </div>
       `,
     },
   });
 
   it("should have the correct position", () => {
-    expect(wrapper.find(".tabbed-panel").classes()).toContain("bottom");
+    expect(wrapper.find(".tabbed-panel").attributes("data-position")).toBe(
+      "bottom"
+    );
   });
 
   it("should show correct tab on click", async () => {
     const firstTab = wrapper.find(
-      ".tabbed-panel > div[role='tablist'] > button:first-child"
+      ".tabbed-panel ul[role='tablist'] li:first-child button"
     );
     await firstTab.trigger("click");
 
-    expect(wrapper.find(".tabbed-panel > .sub-pane > p").text()).toBe(
+    expect(wrapper.find(".tabbed-panel .tabbed-pane p").text()).toBe(
       contents.first.content
     );
   });
 
   it("should show correct tab on multiple tab click", async () => {
     const firstTab = wrapper.find(
-      ".tabbed-panel > div[role='tablist'] > button:first-child"
+      ".tabbed-panel ul[role='tablist'] li:first-child button"
     );
     const secondTab = wrapper.find(
-      ".tabbed-panel > div[role='tablist'] > button:last-child"
+      ".tabbed-panel ul[role='tablist'] li:last-child button"
     );
     await firstTab.trigger("click");
     await secondTab.trigger("click");
 
-    expect(wrapper.find(".tabbed-panel > .sub-pane > p").text()).toBe(
+    expect(wrapper.find(".tabbed-panel .tabbed-pane p").text()).toBe(
       contents.second.content
     );
   });

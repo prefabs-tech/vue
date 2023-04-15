@@ -1,0 +1,35 @@
+.page {
+  align-items: stretch;
+  display: grid;
+  font-size: 1em;
+  grid-template-areas:
+    "title toolbar"
+    "main main";
+  grid-template-columns: 1fr auto;
+  gap: var(--page-gap, 0.5em);
+  justify-items: flex-start;
+}
+
+.page > h1 {
+  grid-area: title;
+}
+
+.page > main {
+  grid-area: main;
+  width: 100%;
+}
+
+.page .back {
+  background-image: url("@/assets/svg/chevron-left.svg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}
+
+.page > .toolbar {
+  align-self: center;
+  font-size: 1em;
+  grid-area: toolbar;
+  justify-self: right;
+}

@@ -9,7 +9,9 @@
       <slot name="toolbar"></slot>
     </div>
 
-    <slot name="default"></slot>
+    <main>
+      <slot name="default"></slot>
+    </main>
   </div>
 </template>
 
@@ -35,16 +37,3 @@ defineProps({
   },
 });
 </script>
-
-<style lang="css" scoped>
-.page {
-  display: flex;
-  flex-direction: column;
-}
-
-.page .content {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  flex-grow: 2;
-}
-</style>

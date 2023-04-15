@@ -1,0 +1,173 @@
+.tabbed-panel {
+  --_border-color: var(--border-color);
+  --_border-color_selected: var(--color-primary);
+  --_border-radius: var(--border-radius);
+  --_border-width: 3px;
+  --_border-width-colorized: 3px;
+  --_button-gap: 0.5em;
+  --_button-padding: 0.5em;
+  --_gap: 0.5em;
+  --_icon-height: calc(1.5 * 1rem);
+
+  align-items: flex-start;
+  display: grid;
+  gap: var(--_gap) 0;
+  grid-template-areas: "tabs" "pane";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+}
+
+.tabbed-panel > nav {
+  align-self: start;
+  grid-area: tabs;
+}
+
+.tabbed-panel ul[role="tablist"] {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: var(--_gap);
+  justify-items: flex-start;
+  justify-self: center;
+}
+
+.tabbed-panel ul[role="tablist"] li {
+  border-color: var(--_border-color);
+  border-style: solid;
+  border-width: 0 0 1px 0;
+}
+
+.tabbed-panel ul[role="tablist"] button {
+  align-items: center;
+  border-color: transparent;
+  border-radius: var(--_border-radius) var(--_border-radius) 0 0; 
+  border-style: solid;
+  border-width: 0 0 var(--_border-width) 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: var(--_button-gap);
+  justify-content: center;
+  padding: var(--_button-padding);
+  width: max-content;
+}
+
+.tabbed-panel ul[role="tablist"] button:focus {
+  box-shadow: none;
+}
+
+.tabbed-panel ul[role="tablist"] li[data-selected=true] button {
+  border-color: var(--_border-color);
+}
+
+.tabbed-panel ul[role="tablist"] img.icon {
+  aspect-ratio: 1 / 1;
+  height: var(--_icon-height);
+}
+
+.active {
+  background-color: var(--tab-active-background-color, #ffffff);
+}
+
+.tabbed-panel .tabbed-pane {
+  grid-area: pane;
+  height: 100%;
+  width: 100%;
+} 
+
+.tabbed-panel[data-position="bottom"] {
+  grid-template-areas: "pane" "tabs";
+  grid-template-rows: 1fr auto;
+}
+
+.tabbed-panel[data-position="bottom"] ul[role="tablist"] li {
+  border-width: 1px 0 0 0;
+}
+
+.tabbed-panel[data-position="bottom"] ul[role="tablist"] button {
+  border-radius: 0 0 var(--_border-radius) var(--_border-radius); 
+  border-width: var(--_border-width) 0 0 0;
+}
+
+.tabbed-panel[data-position="left"] {
+  gap: 0 var(--_gap);
+  grid-template-areas: "tabs pane";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+}
+
+.tabbed-panel[data-position="left"] > nav {
+  justify-self: end;
+}
+
+.tabbed-panel[data-position="left"] ul[role="tablist"] {
+  flex-direction: column;
+}
+
+.tabbed-panel[data-position="left"] ul[role="tablist"] li {
+  border-width: 0 1px 0 0;
+  width: 100%;
+}
+
+.tabbed-panel[data-position="left"] ul[role="tablist"] button {
+  border-radius: var(--_border-radius) 0 0 var(--_border-radius); 
+  border-width: 0 var(--_border-width) 0 0;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.tabbed-panel[data-position="right"] {
+  gap: 0 var(--_gap);
+  grid-template-areas: "pane tabs";
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+}
+
+.tabbed-panel[data-position="right"] > nav {
+  justify-self: end;
+}
+
+.tabbed-panel[data-position="right"] ul[role="tablist"] {
+  flex-direction: column;
+}
+
+.tabbed-panel[data-position="right"] ul[role="tablist"] li {
+  border-width: 0 0 0 1px;
+  width: 100%;
+}
+
+.tabbed-panel[data-position="right"] ul[role="tablist"] button {
+  align-items: left;
+  border-radius: 0 var(--_border-radius) var(--_border-radius) 0; 
+  border-width: 0 0 0 var(--_border-width);
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.tabbed-panel.colorized ul[role="tablist"] button {
+  border-width: var(--_border-width-colorized) 0 0 0;
+}
+
+.tabbed-panel.colorized[data-position="bottom"] ul[role="tablist"] button {
+  border-width: 0 0 var(--_border-width-colorized) 0;
+}
+
+.tabbed-panel.colorized[data-position="left"] ul[role="tablist"] button {
+  border-width: 0 0 0 var(--_border-width-colorized);
+}
+
+.tabbed-panel.colorized[data-position="right"] ul[role="tablist"] button {
+  border-width: 0 var(--_border-width-colorized) 0 0;
+}
+
+.tabbed-panel.colorized ul[role="tablist"] li[data-selected=true] button {
+  border-color: var(--color-primary);
+}
+
+.tabbed-panel.shadow ul[role="tablist"] li[data-selected=true] button {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+              0 2px 2px rgba(0,0,0,0.15), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.15);
+}

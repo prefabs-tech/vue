@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 import vue from "@vitejs/plugin-vue";
 import { defineConfig, loadEnv } from "vite";
 
+import { peerDependencies } from "./package.json";
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
@@ -16,21 +18,23 @@ export default defineConfig(({ mode }) => {
         name: "@dzangolab/vue3-ui",
       },
       rollupOptions: {
-        external: ["vue"],
+        external: [...Object.keys(peerDependencies)],
         output: {
           exports: "named",
           globals: {
+            "@vee-validate/i18n": "VeeValidateI18n",
+            "@vee-validate/rules": "VeeValidateRules",
+            "@vee-validate/zod": "VeeValidateZod",
+            "vee-validate": "VeeValidate",
+            validator: "Validator",
             vue: "Vue",
+            zod: "Zod",
           },
         },
       },
       target: "esnext",
     },
-    plugins: [
-      vue({
-        reactivityTransform: true,
-      }),
-    ],
+    plugins: [vue()],
     resolve: {
       alias: {
         "@/": new URL("./src/", import.meta.url).pathname,

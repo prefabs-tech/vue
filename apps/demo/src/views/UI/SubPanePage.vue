@@ -1,21 +1,21 @@
 <template>
   <h2>{{ $t("ui.subPane.title") }}</h2>
 
-  <SubPane :title="$t('ui.subPane.title')">
+  <SubPane>
     <p>{{ $t("ui.subPane.content") }}</p>
   </SubPane>
 
-  <RouterLink :to="{ name: 'ui' }">
+  <router-link :to="{ name: 'ui' }">
     {{ $t("common.back") }}
-  </RouterLink>
+  </router-link>
 </template>
 
 <script lang="ts">
 export default {
-  name: "SupPanePage",
+  name: "SubPanePage",
 };
 </script>
 
 <script setup lang="ts">
-import SubPane from "@dzangolab/vue3-ui";
+import { SubPane } from "@dzangolab/vue3-ui";
 </script>

@@ -1,10 +1,6 @@
 import { prependMessages } from "@dzangolab/vue3-i18n";
 import { inject } from "vue";
 
-import Logo from "./components/Logo.vue";
-import SignInUpMenu from "./components/SignInUpMenu.vue";
-import UserMenu from "./components/UserMenu.vue";
-import BasicLayout from "./layouts/BasicLayout.vue";
 import messages from "./locales/messages.json";
 import updateRouter from "./router";
 import initSupertokens from "./supertokens";
@@ -40,7 +36,11 @@ const useTranslations = () => {
 
 export default plugin;
 
-export { BasicLayout, Logo, SignInUpMenu, UserMenu, useTranslations };
+export { useTranslations };
+
+export * from "./components";
+
+export * from "./layouts";
 
 export type {
   AuthTokens,
