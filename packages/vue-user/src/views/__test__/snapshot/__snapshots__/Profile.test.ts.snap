@@ -14,8 +14,12 @@ exports[`Profile > matches snapshot in en 1`] = `
     
     
   </div>
-  
-  
+  <main
+    class="main"
+  >
+    
+    
+  </main>
 </div>
 `;
 
@@ -33,7 +37,11 @@ exports[`Profile > matches snapshot in fr 1`] = `
     
     
   </div>
-  
-  
+  <main
+    class="main"
+  >
+    
+    
+  </main>
 </div>
 `;

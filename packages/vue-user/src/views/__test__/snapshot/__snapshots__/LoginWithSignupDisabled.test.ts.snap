@@ -14,83 +14,87 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
     
     
   </div>
-  
-  <!--v-if-->
-  
-  
-  <form
-    novalidate=""
+  <main
+    class="main"
   >
-    <div
-      class="field email"
-      placeholder="john.doe@example.com"
+    
+    <!--v-if-->
+    
+    
+    <form
+      novalidate=""
     >
-      <label
-        for="email"
+      <div
+        class="field email"
+        placeholder="john.doe@example.com"
       >
-        Your email
-      </label>
-      
-      <input
-        class=""
-        name="email"
-        tabindex="0"
-        type="email"
-      />
-      <!---->
-      
-    </div>
-    <div
-      class="field password"
-    >
-      <label
-        for="password"
-      >
-        Your password
-      </label>
-      
-      <input
-        class=""
-        name="password"
-        tabindex="0"
-        type="password"
-      />
-      <!---->
-      
-    </div>
-    <div
-      class="actions"
-    >
-      <button
-        class="loading-button"
-        data-v-3fdbc7b3=""
-        tabindex="0"
-      >
-        <div
-          class="label"
-          data-v-3fdbc7b3=""
+        <label
+          for="email"
         >
-          <span
+          Your email
+        </label>
+        
+        <input
+          class=""
+          name="email"
+          tabindex="0"
+          type="email"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="field password"
+      >
+        <label
+          for="password"
+        >
+          Your password
+        </label>
+        
+        <input
+          class=""
+          name="password"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="actions"
+      >
+        <button
+          class="loading-button"
+          data-v-3fdbc7b3=""
+          tabindex="0"
+        >
+          <div
+            class="label"
             data-v-3fdbc7b3=""
           >
-            Sign in
-          </span>
-        </div>
-        <!---->
-      </button>
-    </div>
-  </form>
-  <div
-    class="links"
-  >
-    <!--v-if-->
-    <a
-      class="reset"
+            <span
+              data-v-3fdbc7b3=""
+            >
+              Sign in
+            </span>
+          </div>
+          <!---->
+        </button>
+      </div>
+    </form>
+    <div
+      class="links"
     >
-      Forgot password
-    </a>
-  </div>
-  
+      <!--v-if-->
+      <a
+        class="reset"
+      >
+        Forgot password
+      </a>
+    </div>
+    
+  </main>
 </div>
 `;
 
@@ -108,82 +112,86 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
     
     
   </div>
-  
-  <!--v-if-->
-  
-  
-  <form
-    novalidate=""
+  <main
+    class="main"
   >
-    <div
-      class="field email"
-      placeholder="john.doe@example.com"
+    
+    <!--v-if-->
+    
+    
+    <form
+      novalidate=""
     >
-      <label
-        for="email"
+      <div
+        class="field email"
+        placeholder="john.doe@example.com"
       >
-        Votre adresse courriel
-      </label>
-      
-      <input
-        class=""
-        name="email"
-        tabindex="0"
-        type="email"
-      />
-      <!---->
-      
-    </div>
-    <div
-      class="field password"
-    >
-      <label
-        for="password"
-      >
-        Votre mot de passe
-      </label>
-      
-      <input
-        class=""
-        name="password"
-        tabindex="0"
-        type="password"
-      />
-      <!---->
-      
-    </div>
-    <div
-      class="actions"
-    >
-      <button
-        class="loading-button"
-        data-v-3fdbc7b3=""
-        tabindex="0"
-      >
-        <div
-          class="label"
-          data-v-3fdbc7b3=""
+        <label
+          for="email"
         >
-          <span
+          Votre adresse courriel
+        </label>
+        
+        <input
+          class=""
+          name="email"
+          tabindex="0"
+          type="email"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="field password"
+      >
+        <label
+          for="password"
+        >
+          Votre mot de passe
+        </label>
+        
+        <input
+          class=""
+          name="password"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="actions"
+      >
+        <button
+          class="loading-button"
+          data-v-3fdbc7b3=""
+          tabindex="0"
+        >
+          <div
+            class="label"
             data-v-3fdbc7b3=""
           >
-            Connexion
-          </span>
-        </div>
-        <!---->
-      </button>
-    </div>
-  </form>
-  <div
-    class="links"
-  >
-    <!--v-if-->
-    <a
-      class="reset"
+            <span
+              data-v-3fdbc7b3=""
+            >
+              Connexion
+            </span>
+          </div>
+          <!---->
+        </button>
+      </div>
+    </form>
+    <div
+      class="links"
     >
-      Mot de passe oublié
-    </a>
-  </div>
-  
+      <!--v-if-->
+      <a
+        class="reset"
+      >
+        Mot de passe oublié
+      </a>
+    </div>
+    
+  </main>
 </div>
 `;

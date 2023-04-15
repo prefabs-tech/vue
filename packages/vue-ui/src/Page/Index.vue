@@ -9,7 +9,7 @@
       <slot name="toolbar"></slot>
     </div>
 
-    <main class="main">
+    <main>
       <slot name="default"></slot>
     </main>
   </div>
