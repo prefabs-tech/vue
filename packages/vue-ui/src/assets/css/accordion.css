@@ -3,10 +3,10 @@
   --_border-color: var(--border-color);
   --_border-radius: var(--border-radius);
   --_gap: 0.5rem;
-  --_header-font-size: var(--font-size);
+  --_header-font-size: 1rem;
   --_header-height: calc((2 * var(--_padding)) + var(--_icon-height));
-  --_padding: var(--font-size);
-  --_icon-height: calc(1.5 * var(--font-size));
+  --_padding: 1rem;
+  --_icon-height: calc(1.5 * 1rem);
 
   border: 1px solid var(--_border-color);
   border-radius: var(--_border-radius);
@@ -17,17 +17,10 @@
 
 .accordion > section {
   display: flex;
-  /* flex-basis: var(--_header-height); */
   flex-direction: column;
   gap: 0;
   min-height: 100%;
   overflow: hidden;
-  /* transition: flex-basis 5s ease-in-out; */
-}
-
-.accordion > section[data-expanded="true"] {
-  /* flex-basis: auto; */
-  /* transition: flex-basis 5s ease-in-out; */
 }
 
 .accordion > section:not(:last-of-type) {
@@ -84,16 +77,11 @@
 
 .accordion.horizontal > section {
   flex-direction: row;
-  /* flex-basis: calc((2 * var(--_padding)) + var(--_icon-height)); */
   min-width: var(--_header-height);
 }
 
 .accordion.horizontal > section:not(:last-of-type) {
   border-right: 1px solid var(--_border-color);
-}
-
-.accordion.horizontal > section[data-expanded="true"] {
-  /* flex-basis: fit-content; */
 }
 
 .accordion.horizontal > section > header {

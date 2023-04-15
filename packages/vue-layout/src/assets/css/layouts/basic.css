@@ -1,15 +1,19 @@
 .layout.basic {
-  min-height: 100vh;
+  --layout-basic-gap: 1em;
+  --layout-basic-max-width: 60rem;
+  --layout-basic-padding-h: 1em;
+
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  gap: var(--layout-basic-gap, 1em);
+  gap: var(--layout-basic-gap);
 }
 
 .layout.basic > :is(footer, header, main) {
   margin: 0 auto;
-  max-width: var(--layout-basic-max-width, 1200px);
-  padding-left: var(--layout-basic-padding-left, 1em);
-  padding-right: var(--layout-basic-padding-right, 1em);
+  max-width: var(--layout-basic-max-width);
+  padding-left: var(--layout-basic-padding-h);
+  padding-right: var(--layout-basic-padding-h);
   width: 100%;
 }
 
@@ -18,7 +22,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .basic-layout > :is(footer, header, main) {
+  .layout.basic > :is(footer, header, main) {
     padding-left: 0;
     padding-right: 0;
   }

@@ -1,5 +1,6 @@
 const Accordion = () => import("@/views/UI/accordion/Index.vue");
 const TanstackTable = () => import("@/views/UI/TanstackTable.vue");
+const Typography = () => import("@/views/UI/typography/Index.vue");
 const UI = () => import("@/views/UI/Index.vue");
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
         component: TanstackTable,
         name: "table",
         path: "table",
+      },
+      {
+        component: Typography,
+        name: "typography",
+        path: "typography",
       },
     ],
   },

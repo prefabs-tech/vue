@@ -7,24 +7,25 @@
 }
 
 /* Remove default margin */
+*,
 body,
 h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 figure,
 blockquote,
 dl,
 dd {
+  font-size: inherit;
   margin: 0;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul:not([role='list']),
-ol:not([role='list']) {
-  list-style: none;
-  margin: 0;
+html {
+  color-scheme: dark light;
 }
 
 /* Set core root defaults */
@@ -34,8 +35,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI',  Roboto, Oxygen, Ubuntu;
-  min-height: 100vh;
+  min-height: 100dvh;
   text-rendering: optimizeSpeed;
 }
 
@@ -54,19 +54,21 @@ a[target="_blank"]::after {
 
 /* Make images easier to work with */
 img,
-picture {
-  max-width: 100%;
+picture, 
+svg,
+video {
   display: block;
+  max-width: 100%;
 }
 
 /* Inherit fonts for inputs and buttons */
-input,
 button,
-textarea,
-select {
+input,
+select,
+textarea {
   background-color: transparent;
   font: inherit;
-  outline: none;
+  outline-color: transparent;
 }
 
 /* https: //www.tempertemper.net/blog/refining-focus-styles-with-focus-visible */
@@ -101,6 +103,9 @@ select {
   }
 }
 
-html {
-  font-size: 1rem;
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul:not([role='list']),
+ol:not([role='list']) {
+  list-style: none;
+  margin: 0;
 }
