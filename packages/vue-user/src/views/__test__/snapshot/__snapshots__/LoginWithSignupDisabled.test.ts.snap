@@ -14,9 +14,7 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
     
     
   </div>
-  <main
-    class="main"
-  >
+  <main>
     
     <!--v-if-->
     
@@ -112,9 +110,7 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
     
     
   </div>
-  <main
-    class="main"
-  >
+  <main>
     
     <!--v-if-->
     
