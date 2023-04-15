@@ -18,8 +18,11 @@
     "slot-without-title": "Slots without 'title' prop are ignored",
     "title": "Accordion"
   },
+  "tanstack-table": {
+    "title": "Tanstack Table"
+  },
   "title": "UI Library",
-  "pages": {
-    "table": "Tanstack Table"
+  "typography": {
+    "title": "Typography"
   }
 }

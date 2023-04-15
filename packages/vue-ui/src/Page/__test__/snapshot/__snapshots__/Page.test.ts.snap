@@ -16,7 +16,11 @@ exports[`Page > matches snapshot 1`] = `
     
     
   </div>
-  
-  
+  <main
+    class="main"
+  >
+    
+    
+  </main>
 </div>
 `;

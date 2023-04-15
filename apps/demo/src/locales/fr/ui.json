@@ -18,8 +18,11 @@
     "slot-without-title": "Slots sans prop 'title' sont ignorés",
     "title": "Accordéon"
   },
+  "tanstack-table": {
+    "title": "Tanstack Table[fr]"
+  },
   "title": "Librairie de composants d'interface utilisateur",
-  "pages": {
-    "table": "Tanstack Table[fr]"
+  "typography": {
+    "title": "Typography"
   }
 }

@@ -6,7 +6,9 @@
   --color: #555;
   --color-alert-danger: #ff0000;
 
-  --font-size: 1rem;
+  --font-size-max: 1rem;
+  --font-size-min: 1rem;
+  --font-size-val: 2.5vw;
 
   --form-input-border-color: #555;
   --form-input-border-color-highlight: #555;

@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.pages.table')">
+  <Page :title="$t('ui.tanstack-table.title')">
     <TanstackTable :columns="columns" :rows="rows" />
   </Page>
 </template>

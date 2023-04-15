@@ -3,10 +3,10 @@
   --_border-color: var(--border-color);
   --_border-radius: var(--border-radius);
   --_gap: 0.5rem;
-  --_header-font-size: var(--font-size);
+  --_header-font-size: 1rem;
   --_header-height: calc((2 * var(--_padding)) + var(--_icon-height));
-  --_padding: var(--font-size);
-  --_icon-height: calc(1.5 * var(--font-size));
+  --_padding: 1rem;
+  --_icon-height: calc(1.5 * 1rem);
 
   border: 1px solid var(--_border-color);
   border-radius: var(--_border-radius);
