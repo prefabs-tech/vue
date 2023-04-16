@@ -1,20 +1,11 @@
 <template>
-  <slot></slot>
+  <div class="sub-pane"></div>
 </template>
 
 <script lang="ts">
 export default {
   name: "SubPane",
 };
-</script>
-
-<script setup lang="ts">
-defineProps({
-  title: {
-    required: true,
-    type: String,
-  },
-});
 </script>
 
 <style scoped>

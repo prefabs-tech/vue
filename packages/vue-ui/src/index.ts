@@ -7,6 +7,7 @@ import SubPane from "./components/SubPane.vue";
 import Errors from "./Errors/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
+import TabbedPanel from "./TabbedPanel/Index.vue";
 
 import type { App } from "vue";
 
@@ -28,6 +29,7 @@ export {
   Page,
   ResponsiveMenu,
   SubPane,
+  TabbedPanel,
 };
 
 export type { Error } from "./types";

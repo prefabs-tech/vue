@@ -1,0 +1,139 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TabbedPanel > matches snapshot when there is an active tab 1`] = `
+<div
+  class="tabbed-panel"
+  data-position="bottom"
+>
+  <nav>
+    <ul
+      role="tablist"
+    >
+      
+      <li
+        data-selected="true"
+      >
+        <button
+          aria-expanded="true"
+          tabindex="0"
+          type="button"
+        >
+          
+          <img
+            class="icon"
+            src="home.svg"
+          />
+          
+          <span>
+            Subpane 1
+          </span>
+        </button>
+      </li>
+      <li
+        data-selected="false"
+      >
+        <button
+          aria-expanded="false"
+          tabindex="0"
+          type="button"
+        >
+          
+          <!--v-if-->
+          
+          <span>
+            Subpane 2
+          </span>
+        </button>
+      </li>
+      
+    </ul>
+  </nav>
+  <transition-stub
+    appear="true"
+    css="true"
+    name="expand"
+    persisted="false"
+  >
+    <div
+      class="tabbed-pane"
+      role="region"
+    >
+      <div
+        class="sub-pane"
+        data-v-a728ca9d=""
+        icon="home.svg"
+        title="Subpane 1"
+      />
+    </div>
+  </transition-stub>
+</div>
+`;
+
+exports[`TabbedPanel > matches snapshot when there is no active tab 1`] = `
+<div
+  class="tabbed-panel"
+  data-position="bottom"
+>
+  <nav>
+    <ul
+      role="tablist"
+    >
+      
+      <li
+        data-selected="true"
+      >
+        <button
+          aria-expanded="true"
+          tabindex="0"
+          type="button"
+        >
+          
+          <img
+            class="icon"
+            src="home.svg"
+          />
+          
+          <span>
+            Subpane 1
+          </span>
+        </button>
+      </li>
+      <li
+        data-selected="false"
+      >
+        <button
+          aria-expanded="false"
+          tabindex="0"
+          type="button"
+        >
+          
+          <!--v-if-->
+          
+          <span>
+            Subpane 2
+          </span>
+        </button>
+      </li>
+      
+    </ul>
+  </nav>
+  <transition-stub
+    appear="true"
+    css="true"
+    name="expand"
+    persisted="false"
+  >
+    <div
+      class="tabbed-pane"
+      role="region"
+    >
+      <div
+        class="sub-pane"
+        data-v-a728ca9d=""
+        icon="home.svg"
+        title="Subpane 1"
+      />
+    </div>
+  </transition-stub>
+</div>
+`;

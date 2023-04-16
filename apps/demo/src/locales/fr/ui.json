@@ -18,6 +18,33 @@
     "slot-without-title": "Slots sans prop 'title' sont ignorés",
     "title": "Accordéon"
   },
+  "subPane": {
+    "title": "SubPane[fr]",
+    "content": "This is a subpane[fr]"
+  },
+  "tabbed-panel": {
+    "basic-usage": "Usage de base",
+    "contents": {
+      "first": {
+        "content": "This is the first tab[fr]",
+        "title": "Tab 1[fr]"
+      },
+      "second": {
+        "content": "This is the second tab[fr]",
+        "title": "Tab 2[fr]"
+      }
+    },
+    "position": {
+      "bottom": "Au-dessous",
+      "left": "A gauche",
+      "right": "A droite",
+      "top": "Au-dessus (défault)"
+    },
+    "title": "Tabbed Panel",
+    "with-color": "Avec couleur",
+    "with-color-and-shadow": "Avec couleur et ombrage",
+    "with-custom-icons": "Avec icônes individualisés"
+  },
   "tanstack-table": {
     "title": "Tanstack Table[fr]"
   },

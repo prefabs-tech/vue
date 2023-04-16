@@ -12,6 +12,16 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{ name: 'subpane' }">
+          {{ $t("ui.subPane.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'tabbedPanel' }">
+          {{ $t("ui.tabbedPanel.title") }}
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'table' }">
           {{ $t("ui.tanstack-table.title") }}
         </router-link>

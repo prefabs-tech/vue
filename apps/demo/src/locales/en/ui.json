@@ -18,6 +18,33 @@
     "slot-without-title": "Slots without 'title' prop are ignored",
     "title": "Accordion"
   },
+  "subPane": {
+    "title": "SubPane",
+    "content": "This is a subpane"
+  },
+  "tabbed-panel": {
+    "basic-usage": "Basic usage",
+    "contents": {
+      "first": {
+        "content": "This is the first tab ",
+        "title": "Tab 1"
+      },
+      "second": {
+        "content": "This is the second tab",
+        "title": "Tab 2"
+      }
+    },
+    "position": {
+      "bottom": "Bottom",
+      "left": "Left",
+      "right": "Right",
+      "top": "Top (default)"
+    },
+    "title": "Tabbed Panel",
+    "with-color": "With color",
+    "with-color-and-shadow": "With color and shadow",
+    "with-custom-icons": "With custom icons"
+  },
   "tanstack-table": {
     "title": "Tanstack Table"
   },

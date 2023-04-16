@@ -16,6 +16,7 @@
 
 .page > main {
   grid-area: main;
+  width: 100%;
 }
 
 .page .back {
