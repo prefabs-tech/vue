@@ -30,6 +30,9 @@
       </ul>
     </nav>
 
+    <pre> 
+      {{ active }}
+    </pre>
     <Transition appear name="expand">
       <div class="tabbed-pane" role="region">
         <component :is="activeSlot" />

@@ -7,14 +7,16 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;TabbedPanel class="colorized shadow"&gt;
-          &lt;div title="Praesent" icon="mdi-light:home"&gt;
-            ...
-          &lt;/div&gt;
-          &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
-            ...
-          &lt;/div&gt;
-        &lt;/TabbedPanel&gt;
+        &lt;template&gt;
+          &lt;TabbedPanel class="colorized shadow"&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
         
         &lt;script setup lang="ts"&gt;
         import { TabbedPanel } from "@dzangolab/vue3-ui";

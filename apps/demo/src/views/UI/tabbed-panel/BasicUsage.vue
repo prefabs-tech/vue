@@ -7,15 +7,17 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;TabbedPanel&gt;
-          &lt;div title="Praesent" icon="mdi-light:home"&gt;
-            ...
-          &lt;/div&gt;
-          &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
-            ...
-          &lt;/div&gt;
-        &lt;/TabbedPanel&gt;
-        
+        &lt;template&gt;
+          &lt;TabbedPanel&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
+
         &lt;script setup lang="ts"&gt;
         import { TabbedPanel } from "@dzangolab/vue3-ui";
         &lt;/script&gt;
@@ -33,14 +35,16 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;TabbedPanel position="bottom"&gt;
-          &lt;div title="Praesent" icon="mdi-light:home"&gt;
-            ...
-          &lt;/div&gt;
-          &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
-            ...
-          &lt;/div&gt;
-        &lt;/TabbedPanel&gt;
+        &lt;template&gt;
+          &lt;TabbedPanel position="bottom"&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
         
         &lt;script setup lang="ts"&gt;
         import { TabbedPanel } from "@dzangolab/vue3-ui";
@@ -59,15 +63,17 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;TabbedPanel position="left"&gt;
-          &lt;div title="Praesent" icon="mdi-light:home"&gt;
-            ...
-          &lt;/div&gt;
-          &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
-            ...
-          &lt;/div&gt;
-        &lt;/TabbedPanel&gt;
-        
+        &lt;template&gt;
+          &lt;TabbedPanel position="left"&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
+
         &lt;script setup lang="ts"&gt;
         import { TabbedPanel } from "@dzangolab/vue3-ui";
         &lt;/script&gt;
@@ -85,14 +91,16 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;TabbedPanel position="right"&gt;
-          &lt;div title="Praesent" icon="mdi-light:home"&gt;
-            ...
-          &lt;/div&gt;
-          &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
-            ...
-          &lt;/div&gt;
-        &lt;/TabbedPanel&gt;
+        &lt;template&gt;
+          &lt;TabbedPanel position="right"&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
         
         &lt;script setup lang="ts"&gt;
         import { TabbedPanel } from "@dzangolab/vue3-ui";
@@ -111,17 +119,19 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;TabbedPanel position="right"&gt;
-          &lt;div title="Praesent" icon="mdi-light:home"&gt;
-            ...
-          &lt;/div&gt;
-          &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
-            ...
-          &lt;/div&gt;
-          &lt;div&gt;
-            no title - element will be ignored
-          &lt;/div&gt;
-        &lt;/TabbedPanel&gt;
+        &lt;template&gt;
+          &lt;TabbedPanel position="right"&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div&gt;
+              no title - element will be ignored
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
         
         &lt;script setup lang="ts"&gt;
         import { TabbedPanel } from "@dzangolab/vue3-ui";

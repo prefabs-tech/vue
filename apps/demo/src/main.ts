@@ -18,15 +18,11 @@ import "@dzangolab/vue3-i18n/dist/DzangolabVue3I18n.css";
 import "@dzangolab/vue3-layout/dist/DzangolabVue3Layout.css";
 import "@dzangolab/vue3-tanstack-table/dist/DzangolabVue3TanstackTable.css";
 import "@dzangolab/vue3-user/dist/DzangolabVue3User.css";
-//  import "simple-syntax-highlighter/dist/sshpre.css";
+import "simple-syntax-highlighter/dist/sshpre.css";
 import "./assets/css/index.css";
 
 const pinia = createPinia();
-const app = createApp(App, {
-  compilerOptions: {
-    whitespace: "preserve",
-  },
-});
+const app = createApp(App);
 
 app.use(pinia);
 app.use(configPlugin, { config });
