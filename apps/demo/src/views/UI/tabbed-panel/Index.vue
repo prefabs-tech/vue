@@ -12,6 +12,7 @@
       <ColorizedWithShadow
         :title="t('ui.tabbed-panel.with-color-and-shadow')"
       />
+      <CustomIcons :title="t('ui.tabbed-panel.with-custom-icons')" />
     </TabbedPanel>
   </Page>
 </template>

@@ -34,6 +34,7 @@
         "title": "Tab 2"
       }
     },
+    "no-title": "Child elements with no `title` prop will be ignored",
     "position": {
       "bottom": "Bottom",
       "left": "Left",

@@ -4,6 +4,26 @@
 
     <section>
       <h3>{{ t("ui.tabbed-panel.position.top") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;TabbedPanel&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { TabbedPanel } from "@dzangolab/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
       <TabbedPanel>
         <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
         <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
@@ -12,6 +32,26 @@
 
     <section>
       <h3>{{ t("ui.tabbed-panel.position.bottom") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;TabbedPanel position="bottom"&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
+        
+        &lt;script setup lang="ts"&gt;
+        import { TabbedPanel } from "@dzangolab/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
       <TabbedPanel position="bottom">
         <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
         <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
@@ -20,6 +60,26 @@
 
     <section>
       <h3>{{ t("ui.tabbed-panel.position.left") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;TabbedPanel position="left"&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { TabbedPanel } from "@dzangolab/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
       <TabbedPanel position="left">
         <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
         <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
@@ -28,9 +88,61 @@
 
     <section>
       <h3>{{ $t("ui.tabbed-panel.position.right") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;TabbedPanel position="right"&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
+        
+        &lt;script setup lang="ts"&gt;
+        import { TabbedPanel } from "@dzangolab/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
       <TabbedPanel position="right">
         <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
         <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+      </TabbedPanel>
+    </section>
+
+    <section>
+      <h3>{{ $t("ui.tabbed-panel.no-title") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;TabbedPanel position="right"&gt;
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div&gt;
+              no title - element will be ignored
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
+        
+        &lt;script setup lang="ts"&gt;
+        import { TabbedPanel } from "@dzangolab/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <TabbedPanel>
+        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
+        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+        <Pane2 />
       </TabbedPanel>
     </section>
   </section>

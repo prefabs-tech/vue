@@ -4,37 +4,70 @@
 
     <section>
       <h3>{{ t("ui.tabbed-panel.position.top") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;TabbedPanel class="colorized shadow"&gt;
+            &lt;template #icon="slot"&gt;
+              &lt;Icon :icon="slot?.props?.icon" height="1.5rem" /&gt;
+            &lt;/template&gt;
+            
+            &lt;div title="Praesent" icon="mdi-light:home"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/TabbedPanel&gt;
+        &lt;/template&gt;
+        
+        &lt;script setup lang="ts"&gt;
+        import { TabbedPanel } from "@dzangolab/vue3-ui";
+        import { Icon } from "@iconify/vue";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
       <TabbedPanel class="colorized shadow">
-        <Pane1 title="Praesent">
-          <template #icon>
-            <Icon icon="fa6-solid:bars-staggered" height="1.5rem" />
-          </template>
-        </Pane1>
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
     </section>
 
     <section>
       <h3>{{ t("ui.tabbed-panel.position.bottom") }}</h3>
       <TabbedPanel class="colorized shadow" position="bottom">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
     </section>
 
     <section>
       <h3>{{ t("ui.tabbed-panel.position.left") }}</h3>
       <TabbedPanel class="colorized shadow" position="left">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
     </section>
 
     <section>
       <h3>{{ $t("ui.tabbed-panel.position.right") }}</h3>
       <TabbedPanel class="colorized shadow" position="right">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
     </section>
   </section>

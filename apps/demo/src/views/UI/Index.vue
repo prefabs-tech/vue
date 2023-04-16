@@ -18,7 +18,7 @@
       </li>
       <li>
         <router-link :to="{ name: 'tabbedPanel' }">
-          {{ $t("ui.tabbedPanel.title") }}
+          {{ $t("ui.tabbed-panel.title") }}
         </router-link>
       </li>
       <li>

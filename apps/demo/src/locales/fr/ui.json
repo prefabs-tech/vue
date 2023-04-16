@@ -34,6 +34,7 @@
         "title": "Tab 2[fr]"
       }
     },
+    "no-title": "Les descendants sans prop `title` seront ignorés",
     "position": {
       "bottom": "Au-dessous",
       "left": "A gauche",
