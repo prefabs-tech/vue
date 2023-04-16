@@ -24,6 +24,7 @@
         
         &lt;script setup lang="ts"&gt;
         import { TabbedPanel } from "@dzangolab/vue3-ui";
+        import { Icon } from "@iconify/vue";
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
