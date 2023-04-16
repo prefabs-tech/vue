@@ -7,8 +7,8 @@
     </template>
 
     <TabbedPanel class="colorized shadow">
-      <Colorized :title="t('ui.tabbed-panel.with-color')" />
       <BasicUsage :title="t('ui.tabbed-panel.basic-usage')" />
+      <Colorized :title="t('ui.tabbed-panel.with-color')" />
       <ColorizedWithShadow
         :title="t('ui.tabbed-panel.with-color-and-shadow')"
       />

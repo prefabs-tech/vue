@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="filteredSlots"
+    v-if="filteredSlots.length"
     class="tabbed-panel"
     :data-position="props.position"
   >
@@ -70,13 +70,13 @@ const handleClick = (index: number) => {
   active.value = index;
 };
 
-const activeSlot = computed(() => {
-  return slots.default?.()[active.value];
-});
-
 const filteredSlots = slots?.default
   ? slots.default().filter((slot) => {
       return slot?.props?.title;
     })
-  : null;
+  : [];
+
+const activeSlot = computed(() => {
+  return filteredSlots[active.value];
+});
 </script>
