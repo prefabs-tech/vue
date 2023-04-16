@@ -8,8 +8,10 @@
 
     <TabbedPanel class="colorized shadow">
       <BasicUsage :title="t('ui.tabbed-panel.basic-usage')" />
-      <Colorized :title="t('ui.tabbed-panel.with-color')"  />
-      <ColorizedWithShadow :title="t('ui.tabbed-panel.with-color-and-shadow')"  />
+      <Colorized :title="t('ui.tabbed-panel.with-color')" />
+      <ColorizedWithShadow
+        :title="t('ui.tabbed-panel.with-color-and-shadow')"
+      />
     </TabbedPanel>
   </Page>
 </template>
