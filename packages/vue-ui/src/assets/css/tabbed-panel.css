@@ -53,6 +53,10 @@
   width: max-content;
 }
 
+.tabbed-panel ul[role="tablist"] li[data-selected=true] button:focus {
+  box-shadow: none;
+}
+
 .tabbed-panel ul[role="tablist"] li[data-selected=true] button {
   border-color: var(--_border-color);
 }

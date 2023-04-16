@@ -17,11 +17,13 @@
             type="button"
             @click="handleClick(index)"
           >
-            <img
-              v-if="slot?.props?.icon"
-              :src="slot?.props?.icon"
-              class="icon"
-            />
+            <slot name="icon" v-bind="slot">
+              <img
+                v-if="slot?.props?.icon"
+                :src="slot?.props?.icon"
+                class="icon"
+              />
+            </slot>
             <span>{{ slot.props?.title }}</span>
           </button>
         </li>
