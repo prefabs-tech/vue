@@ -18,10 +18,12 @@ exports[`TabbedPanel > matches snapshot when there is an active tab 1`] = `
           tabindex="0"
           type="button"
         >
+          
           <img
             class="icon"
             src="home.svg"
           />
+          
           <span>
             Subpane 1
           </span>
@@ -35,7 +37,9 @@ exports[`TabbedPanel > matches snapshot when there is an active tab 1`] = `
           tabindex="0"
           type="button"
         >
+          
           <!--v-if-->
+          
           <span>
             Subpane 2
           </span>
@@ -83,10 +87,12 @@ exports[`TabbedPanel > matches snapshot when there is no active tab 1`] = `
           tabindex="0"
           type="button"
         >
+          
           <img
             class="icon"
             src="home.svg"
           />
+          
           <span>
             Subpane 1
           </span>
@@ -100,7 +106,9 @@ exports[`TabbedPanel > matches snapshot when there is no active tab 1`] = `
           tabindex="0"
           type="button"
         >
+          
           <!--v-if-->
+          
           <span>
             Subpane 2
           </span>

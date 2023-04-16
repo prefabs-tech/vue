@@ -46,6 +46,9 @@ importers:
       '@dzangolab/vue3-user':
         specifier: 0.7.9
         version: link:../../packages/vue-user
+      '@iconify/vue':
+        specifier: 4.1.0
+        version: 4.1.0(vue@3.2.47)
       '@kyvg/vue3-notification':
         specifier: 2.9.0
         version: 2.9.0(vue@3.2.47)
@@ -1370,7 +1373,6 @@ packages:
 
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: true
 
   /@iconify/vue@4.1.0(vue@3.2.47):
     resolution: {integrity: sha512-rBQVxNoSDooqgWkQg2MqkIHkH/huNuvXGqui5wijc1zLnU7TKzbBHW9VGmbnV4asNTmIHmqV4Nvt0M2rZ/9nHA==}
@@ -1379,7 +1381,6 @@ packages:
     dependencies:
       '@iconify/types': 2.0.0
       vue: 3.2.47
-    dev: true
 
   /@intlify/core-base@9.1.10:
     resolution: {integrity: sha512-So9CNUavB/IsZ+zBmk2Cv6McQp6vc2wbGi1S0XQmJ8Vz+UFcNn9MFXAe9gY67PreIHrbLsLxDD0cwo1qsxM1Nw==}

@@ -1,106 +1,16 @@
 <template>
-  <Page :title="t('ui.tabbedPanel.title')">
+  <Page :title="t('ui.tabbed-panel.title')">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back" type="button">
         {{ t("common.back") }}
       </router-link>
     </template>
 
-    <section>
-      <h2>{{ t("ui.tabbedPanel.basics") }}</h2>
-      <TabbedPanel>
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ t("ui.tabbedPanel.position.bottom") }}</h2>
-      <TabbedPanel position="bottom">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ t("ui.tabbedPanel.position.left") }}</h2>
-      <TabbedPanel position="left">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.tabbedPanel.position.right") }}</h2>
-      <TabbedPanel position="right">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ t("ui.tabbedPanel.basics") }}</h2>
-      <TabbedPanel class="colorized">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ t("ui.tabbedPanel.position.bottom") }}</h2>
-      <TabbedPanel class="colorized" position="bottom">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ t("ui.tabbedPanel.position.left") }}</h2>
-      <TabbedPanel class="colorized" position="left">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.tabbedPanel.position.right") }}</h2>
-      <TabbedPanel class="colorized" position="right">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ t("ui.tabbedPanel.basics") }}</h2>
-      <TabbedPanel class="colorized shadow">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ t("ui.tabbedPanel.position.bottom") }}</h2>
-      <TabbedPanel class="colorized shadow" position="bottom">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ t("ui.tabbedPanel.position.left") }}</h2>
-      <TabbedPanel class="colorized shadow" position="left">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.tabbedPanel.position.right") }}</h2>
-      <TabbedPanel class="colorized shadow" position="right">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
-      </TabbedPanel>
-    </section>
+    <TabbedPanel class="colorized shadow">
+      <BasicUsage :title="t('ui.tabbed-panel.basic-usage')" />
+      <Colorized :title="t('ui.tabbed-panel.with-color')"  />
+      <ColorizedWithShadow :title="t('ui.tabbed-panel.with-color-and-shadow')"  />
+    </TabbedPanel>
   </Page>
 </template>
 
@@ -114,8 +24,10 @@ export default {
 import { TabbedPanel } from "@dzangolab/vue3-ui";
 import { useI18n } from "@dzangolab/vue3-i18n";
 
-import Pane1 from "./Pane1.vue";
-import Pane2 from "./Pane2.vue";
+import BasicUsage from "./BasicUsage.vue";
+import Colorized from "./Colorized.vue";
+import ColorizedWithShadow from "./ColorizedWithShadow.vue";
+import CustomIcons from "./CustomIcons.vue";
 
 const { t } = useI18n();
 </script>

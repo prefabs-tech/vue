@@ -22,8 +22,8 @@
     "title": "SubPane[fr]",
     "content": "This is a subpane[fr]"
   },
-  "tabbedPanel": {
-    "basics": "Basics[fr]",
+  "tabbed-panel": {
+    "basic-usage": "Usage de base",
     "contents": {
       "first": {
         "content": "This is the first tab[fr]",
@@ -35,11 +35,15 @@
       }
     },
     "position": {
-      "bottom": "Bottom[fr]",
-      "left": "Left[fr]",
-      "right": "Right[fr]"
+      "bottom": "Au-dessous",
+      "left": "A gauche",
+      "right": "A droite",
+      "top": "Au-dessus (défault)"
     },
-    "title": "Tabbed Panel"
+    "title": "Tabbed Panel",
+    "with-color": "Avec couleur",
+    "with-color-and-shadow": "Avec couleur et ombrage",
+    "with-custom-icons": "Avec icônes individualisés"
   },
   "tanstack-table": {
     "title": "Tanstack Table[fr]"

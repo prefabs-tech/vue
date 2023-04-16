@@ -145,27 +145,27 @@
   width: 100%;
 }
 
-.tabbed-panel.colorized ul[role="tablist"] button {
+.tabbed-panel.colorized > nav > ul[role="tablist"] button {
   border-width: var(--_border-width-colorized) 0 0 0;
 }
 
-.tabbed-panel.colorized[data-position="bottom"] ul[role="tablist"] button {
+.tabbed-panel.colorized[data-position="bottom"] > nav > ul[role="tablist"] button {
   border-width: 0 0 var(--_border-width-colorized) 0;
 }
 
-.tabbed-panel.colorized[data-position="left"] ul[role="tablist"] button {
+.tabbed-panel.colorized[data-position="left"] > nav > ul[role="tablist"] button {
   border-width: 0 0 0 var(--_border-width-colorized);
 }
 
-.tabbed-panel.colorized[data-position="right"] ul[role="tablist"] button {
+.tabbed-panel.colorized[data-position="right"] > nav > ul[role="tablist"] button {
   border-width: 0 var(--_border-width-colorized) 0 0;
 }
 
-.tabbed-panel.colorized ul[role="tablist"] li[data-selected=true] button {
+.tabbed-panel.colorized > nav > ul[role="tablist"] li[data-selected=true] button {
   border-color: var(--color-primary);
 }
 
-.tabbed-panel.shadow ul[role="tablist"] li[data-selected=true] button {
+.tabbed-panel.shadow > nav > ul[role="tablist"] li[data-selected=true] button {
   box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
               0 2px 2px rgba(0,0,0,0.15), 
               0 4px 4px rgba(0,0,0,0.15), 

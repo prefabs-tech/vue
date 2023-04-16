@@ -22,8 +22,8 @@
     "title": "SubPane",
     "content": "This is a subpane"
   },
-  "tabbedPanel": {
-    "basics": "Basics",
+  "tabbed-panel": {
+    "basic-usage": "Basic usage",
     "contents": {
       "first": {
         "content": "This is the first tab ",
@@ -37,9 +37,13 @@
     "position": {
       "bottom": "Bottom",
       "left": "Left",
-      "right": "Right"
+      "right": "Right",
+      "top": "Top (default)"
     },
-    "title": "Tabbed Panel"
+    "title": "Tabbed Panel",
+    "with-color": "With color",
+    "with-color-and-shadow": "With color and shadow",
+    "with-custom-icons": "With custom icons"
   },
   "tanstack-table": {
     "title": "Tanstack Table"
