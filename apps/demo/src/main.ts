@@ -5,6 +5,7 @@ import layoutPlugin from "@dzangolab/vue3-layout";
 import userPlugin from "@dzangolab/vue3-user";
 import Notifications from "@kyvg/vue3-notification";
 import { createPinia } from "pinia";
+import SshPre from "simple-syntax-highlighter";
 import { createApp } from "vue";
 
 import App from "./App.vue";
@@ -17,10 +18,15 @@ import "@dzangolab/vue3-i18n/dist/DzangolabVue3I18n.css";
 import "@dzangolab/vue3-layout/dist/DzangolabVue3Layout.css";
 import "@dzangolab/vue3-tanstack-table/dist/DzangolabVue3TanstackTable.css";
 import "@dzangolab/vue3-user/dist/DzangolabVue3User.css";
+//  import "simple-syntax-highlighter/dist/sshpre.css";
 import "./assets/css/index.css";
 
 const pinia = createPinia();
-const app = createApp(App);
+const app = createApp(App, {
+  compilerOptions: {
+    whitespace: "preserve",
+  },
+});
 
 app.use(pinia);
 app.use(configPlugin, { config });
@@ -37,5 +43,7 @@ app.use(userPlugin, {
 app.use(router);
 
 app.use(Notifications);
+
+app.component("SshPre", SshPre);
 
 app.mount("#app");

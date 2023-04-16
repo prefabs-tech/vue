@@ -4,6 +4,24 @@
 
     <section>
       <h3>{{ t("ui.tabbed-panel.position.top") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;TabbedPanel class="colorized"&gt;
+          &lt;div title="Praesent" icon="mdi-light:home"&gt;
+            ...
+          &lt;/div&gt;
+          &lt;div title="A ullamcorper eros" icon="mdi:cellphone-lock"&gt;
+            ...
+          &lt;/div&gt;
+        &lt;/TabbedPanel&gt;
+        
+        &lt;script setup lang="ts"&gt;
+        import { TabbedPanel } from "@dzangolab/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
       <TabbedPanel class="colorized">
         <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
         <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
