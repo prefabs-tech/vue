@@ -30,7 +30,7 @@ export default {
 
 <script setup lang="ts">
 import { useWindowSize } from "@vueuse/core";
-import { computed, onMounted, ref, useSlots } from "vue";
+import { computed, ref } from "vue";
 
 import type { PropType } from "vue";
 
@@ -47,16 +47,9 @@ defineProps({
   },
 });
 
-const slots = useSlots();
 const { width } = useWindowSize();
 
 const showSpeedDial = ref(false);
-
-onMounted(() => {
-  if (slots?.toolbar) {
-    console.log(slots?.toolbar().map((slot) => slot));
-  }
-});
 
 const isMobile = computed(() => {
   if (width.value <= 600) {
