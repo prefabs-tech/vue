@@ -6,6 +6,10 @@
 
     <LoginForm :loading="loading" @submit="handleSubmit" />
 
+    <div class="social-login">
+      <GoogleLogin />
+    </div>
+
     <div class="links">
       <router-link
         v-if="!config?.user?.routes?.signup.disabled"
@@ -35,6 +39,7 @@ import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
+import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
