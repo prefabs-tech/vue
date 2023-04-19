@@ -5,6 +5,9 @@
         <template #logo>
           <Logo :route="home" />
         </template>
+        <template #menu>
+          <MainMenu class="main-menu" :routes="routes" />
+        </template>
         <template #userMenu>
           <UserMenu />
         </template>
@@ -27,6 +30,7 @@ import {
   AppHeader,
   BasicLayout as OriginalBasicLayout,
   Logo,
+  MainMenu,
 } from "@dzangolab/vue3-layout";
 import { storeToRefs } from "pinia";
 import { computed } from "vue";
@@ -34,13 +38,15 @@ import { computed } from "vue";
 import UserMenu from "../components/UserMenu.vue";
 import useUserStore from "../store";
 
+import type { MenuItem } from "@dzangolab/vue3-layout";
+
 const userStore = useUserStore();
 
 const { user } = storeToRefs(userStore);
 
-const home = computed(() => {
-  const { layout: layoutConfig, user: userConfig } = useConfig();
+const { layout: layoutConfig, user: userConfig } = useConfig();
 
+const home = computed(() => {
   return user.value
     ? userConfig && userConfig?.routes?.home
       ? userConfig.routes.home
@@ -48,5 +54,15 @@ const home = computed(() => {
     : layoutConfig && layoutConfig?.homeRoute
     ? layoutConfig.homeRoute
     : undefined;
+});
+
+const routes = computed(() => {
+  if (!user.value) {
+    return layoutConfig?.mainMenu?.filter(
+      (route) => !route.protected
+    ) as MenuItem[];
+  }
+
+  return layoutConfig?.mainMenu as MenuItem[];
 });
 </script>

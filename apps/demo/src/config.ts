@@ -37,22 +37,27 @@ const config: AppConfig = {
     mainMenu: [
       {
         name: "Home",
+        protected: false,
         route: "home",
       },
       {
         name: "Layout",
+        protected: false,
         route: "layout",
       },
       {
         name: "UI",
+        protected: false,
         route: "ui",
       },
       {
         name: "Sentry",
+        protected: false,
         route: "sentry",
       },
       {
         name: "About",
+        protected: false,
         route: "about",
       },
     ],
