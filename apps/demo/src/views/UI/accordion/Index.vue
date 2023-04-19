@@ -6,8 +6,6 @@
       </router-link>
 
       <button class="reload">reload</button>
-      <button class="reload">reload</button>
-      <button class="reload">reload</button>
     </template>
 
     <section>

@@ -35,7 +35,7 @@
 }
 
 .page > .speed-dial {
-  align-self: center;
+  align-items: center;
   bottom: 5%;
   display: flex;
   grid-area: toolbar;
