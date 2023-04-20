@@ -34,6 +34,7 @@ import {
 } from "@dzangolab/vue3-layout";
 import { storeToRefs } from "pinia";
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 
 import UserMenu from "../components/UserMenu.vue";
 import useUserStore from "../store";
@@ -56,11 +57,17 @@ const home = computed(() => {
     : undefined;
 });
 
+const router = useRouter();
+
+const allRoutes = router.getRoutes();
+
 const routes = computed(() => {
   if (!user.value) {
-    return layoutConfig?.mainMenu?.filter(
-      (route) => !route.authenticated
-    ) as MenuItem[];
+    return layoutConfig?.mainMenu?.filter((item) => {
+      const route = allRoutes.find((r) => r.name === item.route);
+
+      return route && !route.meta?.authenticated;
+    }) as MenuItem[];
   }
 
   return layoutConfig?.mainMenu as MenuItem[];

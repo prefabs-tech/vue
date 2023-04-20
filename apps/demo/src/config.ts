@@ -36,27 +36,22 @@ const config: AppConfig = {
   layout: {
     mainMenu: [
       {
-        authenticated: false,
         name: "Home",
         route: "home",
       },
       {
-        authenticated: false,
         name: "Layout",
         route: "layout",
       },
       {
-        authenticated: false,
         name: "UI",
         route: "ui",
       },
       {
-        authenticated: false,
         name: "Sentry",
         route: "sentry",
       },
       {
-        authenticated: false,
         name: "About",
         route: "about",
       },
