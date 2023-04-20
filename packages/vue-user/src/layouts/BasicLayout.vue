@@ -59,7 +59,7 @@ const home = computed(() => {
 const routes = computed(() => {
   if (!user.value) {
     return layoutConfig?.mainMenu?.filter(
-      (route) => !route.protected
+      (route) => !route.authenticated
     ) as MenuItem[];
   }
 

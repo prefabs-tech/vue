@@ -1,6 +1,6 @@
 interface MenuItem {
+  authenticated: boolean;
   name: string;
-  protected: boolean;
   route: string;
 }
 
