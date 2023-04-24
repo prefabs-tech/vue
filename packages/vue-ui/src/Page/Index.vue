@@ -11,7 +11,7 @@
     <div
       v-else
       class="speed-dial"
-      :class="speedDialDirection"
+      :class="speedDial.direction"
       @click="toggleSpeedDial"
     >
       <slot v-if="showSpeedDial" name="toolbar"></slot>
@@ -39,11 +39,13 @@ import { computed, ref } from "vue";
 
 import type { PropType } from "vue";
 
-defineProps({
-  speedDialDirection: {
-    default: "vertical",
-    required: false,
-    type: String as PropType<"vertical" | "horizontal">,
+const props = defineProps({
+  speedDial: {
+    default: () => ({
+      breakPoint: 576,
+      direction: "vertical",
+    }),
+    type: Object,
   },
   subTitle: {
     default: undefined,
@@ -62,7 +64,7 @@ const { width } = useWindowSize();
 const showSpeedDial = ref(false);
 
 const isMobile = computed(() => {
-  if (width.value <= 600) {
+  if (width.value <= props.speedDial.breakPoint) {
     return true;
   }
   return false;
