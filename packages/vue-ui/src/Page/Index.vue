@@ -8,7 +8,12 @@
     <div v-if="!isMobile" class="toolbar">
       <slot name="toolbar"></slot>
     </div>
-    <div v-else class="speed-dial" @click="toggleSpeedDial">
+    <div
+      v-else
+      class="speed-dial"
+      :class="speedDialDirection"
+      @click="toggleSpeedDial"
+    >
       <slot v-if="showSpeedDial" name="toolbar"></slot>
       <button
         :class="{ rotate: showSpeedDial }"
@@ -35,6 +40,11 @@ import { computed, ref } from "vue";
 import type { PropType } from "vue";
 
 defineProps({
+  speedDialDirection: {
+    default: "vertical",
+    required: false,
+    type: String as PropType<"vertical" | "horizontal">,
+  },
   subTitle: {
     default: undefined,
     required: false,

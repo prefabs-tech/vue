@@ -43,6 +43,18 @@
   position: fixed;
 }
 
+.speed-dial.vertical {
+  flex-direction: column;
+}
+
+.speed-dial.vertical * {
+  margin-left: auto;
+}
+
+.speed-dial.horizontal {
+  flex-direction: row;
+}
+
 .toggle-speed-dial {
   background-image: url("../svg/add.svg");
   background-position: center left;
