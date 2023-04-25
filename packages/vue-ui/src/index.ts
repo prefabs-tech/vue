@@ -8,6 +8,7 @@ import Errors from "./Errors/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
+import ToolBar from "./ToolBar/Index.vue";
 
 import type { App } from "vue";
 
@@ -30,6 +31,7 @@ export {
   ResponsiveMenu,
   SubPane,
   TabbedPanel,
+  ToolBar,
 };
 
 export type { Error } from "./types";
