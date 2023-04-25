@@ -38,7 +38,7 @@ const props = defineProps({
 });
 
 const { width } = useWindowSize();
-const showSpeedDial = ref(true);
+const showSpeedDial = ref(false);
 
 const isMobile = computed(() => {
   if (width.value <= props.speedDialBreakPoint) {
