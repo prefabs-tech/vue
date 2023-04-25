@@ -2,16 +2,12 @@
   <div v-if="!isMobile" class="toolbar">
     <slot></slot>
   </div>
-  <div
-    v-else
-    class="speed-dial"
-    :class="speedDialDirection"
-    @click="toggleSpeedDial"
-  >
+  <div v-else class="speed-dial" :class="speedDialDirection">
     <slot v-if="showSpeedDial"></slot>
     <button
       :class="{ rotate: showSpeedDial }"
       class="toggle-speed-dial"
+      @click="toggleSpeedDial"
     ></button>
   </div>
 </template>
@@ -42,7 +38,7 @@ const props = defineProps({
 });
 
 const { width } = useWindowSize();
-const showSpeedDial = ref(false);
+const showSpeedDial = ref(true);
 
 const isMobile = computed(() => {
   if (width.value <= props.speedDialBreakPoint) {

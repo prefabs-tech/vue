@@ -5,8 +5,6 @@
         <router-link :to="{ name: 'ui' }" class="back">
           {{ $t("common.back") }}
         </router-link>
-
-        <button class="reload">reload</button>
       </ToolBar>
     </template>
 
