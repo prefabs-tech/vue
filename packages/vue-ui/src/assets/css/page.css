@@ -43,12 +43,22 @@
   position: fixed;
 }
 
+/* .speed-dial.quarter-circle {
+  bottom: calc(5% + 2rem);
+  right: calc(5% + 2rem);
+} */
+
 .speed-dial.vertical {
   flex-direction: column;
 }
 
 .speed-dial.vertical * {
   margin-left: auto;
+}
+
+.speed-dial.vertical > .speed-dial-elements * {
+  display: flex;
+  flex-direction: column;
 }
 
 .speed-dial.horizontal {

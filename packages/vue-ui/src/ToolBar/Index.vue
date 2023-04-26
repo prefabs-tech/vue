@@ -1,9 +1,25 @@
 <template>
   <div v-if="!isMobile" class="toolbar">
-    <slot></slot>
+    <button
+      v-for="button in buttons"
+      :key="button.text"
+      :class="button.class"
+      @click="button.action"
+    >
+      {{ button.text }}
+    </button>
   </div>
-  <div v-else class="speed-dial" :class="speedDialDirection">
-    <slot v-if="showSpeedDial"></slot>
+  <div v-else class="speed-dial quarter-circle" :class="speedDialDirection">
+    <div v-if="showSpeedDial" class="speed-dial-elements">
+      <button
+        v-for="button in buttons"
+        :key="button.text"
+        :class="button.class"
+        @click="button.action"
+      >
+        {{ button.text }}
+      </button>
+    </div>
     <button
       :class="{ rotate: showSpeedDial }"
       class="toggle-speed-dial"
@@ -11,12 +27,6 @@
     ></button>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  name: "ToolBar",
-};
-</script>
 
 <script setup lang="ts">
 import { useWindowSize } from "@vueuse/core";
@@ -37,6 +47,8 @@ const props = defineProps({
   },
 });
 
+const emit = defineEmits(["add", "delete"]);
+
 const { width } = useWindowSize();
 const showSpeedDial = ref(false);
 
@@ -50,4 +62,43 @@ const isMobile = computed(() => {
 const toggleSpeedDial = () => {
   showSpeedDial.value = !showSpeedDial.value;
 };
+
+const add = () => {
+  emit("add");
+};
+
+const back = () => {
+  window.history.back();
+};
+
+const remove = () => {
+  emit("delete");
+};
+
+const reload = () => {
+  window.location.reload();
+};
+
+const buttons = [
+  {
+    action: back,
+    class: "back",
+    text: "back",
+  },
+  {
+    action: reload,
+    class: "reload",
+    text: "reload",
+  },
+  {
+    action: add,
+    class: "add",
+    text: "add",
+  },
+  {
+    action: remove,
+    class: "delete",
+    text: "delete",
+  },
+];
 </script>

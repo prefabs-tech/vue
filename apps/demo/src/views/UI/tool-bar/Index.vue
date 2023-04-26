@@ -1,13 +1,7 @@
 <template>
   <Page title="Toolbar">
     <template #toolbar>
-      <ToolBar>
-        <router-link :to="{ name: 'ui' }" class="back">
-          {{ $t("common.back") }}
-        </router-link>
-
-        <button class="reload" @click="reload">reload</button>
-      </ToolBar>
+      <ToolBar @add="onAdd"> </ToolBar>
     </template>
   </Page>
 </template>
@@ -21,7 +15,7 @@ export default {
 <script setup lang="ts">
 import { Page, ToolBar } from "@dzangolab/vue3-ui";
 
-const reload = () => {
-  window.location.reload();
+const onAdd = () => {
+  alert("Add");
 };
 </script>
