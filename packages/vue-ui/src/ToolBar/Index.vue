@@ -16,9 +16,7 @@
         :key="button.text"
         :class="button.class"
         @click="button.action"
-      >
-        {{ button.text }}
-      </button>
+      ></button>
     </div>
     <button
       :class="{ rotate: showSpeedDial }"

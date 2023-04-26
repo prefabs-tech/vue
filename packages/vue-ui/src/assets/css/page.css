@@ -27,6 +27,36 @@
   padding-left: var(--page-toolbar-icon-width, 1.5rem);
 }
 
+.page .reload {
+  background-image: url("@/assets/svg/reload.svg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}
+
+.page .add {
+  background-image: url("@/assets/svg/add.svg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}
+
+.page .delete {
+  background-image: url("@/assets/svg/delete.svg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}
+
+.page > .speed-dial button {
+  border: none;
+  box-shadow: none;
+  height: var(--speed-dial-icon-height, 2rem);
+}
+
 .page > .toolbar {
   align-self: center;
   font-size: 1em;
@@ -42,11 +72,6 @@
   justify-self: right;
   position: fixed;
 }
-
-/* .speed-dial.quarter-circle {
-  bottom: calc(5% + 2rem);
-  right: calc(5% + 2rem);
-} */
 
 .speed-dial.vertical {
   flex-direction: column;
