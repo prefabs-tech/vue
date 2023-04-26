@@ -2,53 +2,61 @@
   <div v-if="!isMobile" class="toolbar">
     <button
       v-for="button in buttons"
-      :key="button.text"
+      :key="button.label"
       :class="button.class"
-      @click="button.action"
+      @click="button.command"
     >
-      {{ button.text }}
+      {{ button.label }}
     </button>
   </div>
-  <div v-else class="speed-dial quarter-circle" :class="speedDialDirection">
-    <div v-if="showSpeedDial" class="speed-dial-elements">
-      <button
-        v-for="button in buttons"
-        :key="button.text"
-        :class="button.class"
-        @click="button.action"
-      ></button>
-    </div>
-    <button
-      :class="{ rotate: showSpeedDial }"
-      class="toggle-speed-dial"
-      @click="toggleSpeedDial"
-    ></button>
+  <div v-else class="speed-dial quarter-circle">
+    <SpeedDial
+      :model="buttons"
+      :radius="120"
+      :type="props.speedDialType"
+      direction="up-left"
+      :style="{ right: 0, bottom: 0 }"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useWindowSize } from "@vueuse/core";
-import { computed, ref } from "vue";
+import SpeedDial from "primevue/speeddial";
+import { computed } from "vue";
 
 import type { PropType } from "vue";
 
 const props = defineProps({
-  speedDialDirection: {
-    default: "vertical",
-    required: false,
-    type: String as PropType<"vertical" | "horizontal">,
-  },
   speedDialBreakPoint: {
     default: 576,
     required: false,
     type: Number as PropType<number>,
+  },
+  speedDialDirection: {
+    default: "up-left",
+    required: false,
+    type: String as PropType<
+      | "left"
+      | "right"
+      | "up"
+      | "down"
+      | "up-left"
+      | "up-right"
+      | "down-left"
+      | "down-right"
+    >,
+  },
+  speedDialType: {
+    default: "linear",
+    required: false,
+    type: String as PropType<"linear" | "circle" | "quarter-circle">,
   },
 });
 
 const emit = defineEmits(["add", "delete"]);
 
 const { width } = useWindowSize();
-const showSpeedDial = ref(false);
 
 const isMobile = computed(() => {
   if (width.value <= props.speedDialBreakPoint) {
@@ -56,10 +64,6 @@ const isMobile = computed(() => {
   }
   return false;
 });
-
-const toggleSpeedDial = () => {
-  showSpeedDial.value = !showSpeedDial.value;
-};
 
 const add = () => {
   emit("add");
@@ -69,34 +73,38 @@ const back = () => {
   window.history.back();
 };
 
-const remove = () => {
-  emit("delete");
-};
-
 const reload = () => {
   window.location.reload();
 };
 
+const remove = () => {
+  emit("delete");
+};
+
 const buttons = [
   {
-    action: back,
     class: "back",
-    text: "back",
+    command: back,
+    icon: "pi pi-arrow-left",
+    label: "back",
   },
   {
-    action: reload,
     class: "reload",
-    text: "reload",
+    command: reload,
+    icon: "pi pi-refresh",
+    label: "reload",
   },
   {
-    action: add,
     class: "add",
-    text: "add",
+    command: add,
+    icon: "pi pi-plus",
+    label: "add",
   },
   {
-    action: remove,
     class: "delete",
-    text: "delete",
+    command: remove,
+    icon: "pi pi-trash",
+    label: "delete",
   },
 ];
 </script>

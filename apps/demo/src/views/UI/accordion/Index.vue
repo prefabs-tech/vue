@@ -1,9 +1,11 @@
 <template>
   <Page :title="$t('ui.accordion.title')">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ToolBar>
+        <router-link :to="{ name: 'ui' }" class="back">
+          {{ $t("common.back") }}
+        </router-link>
+      </ToolBar>
     </template>
 
     <section>

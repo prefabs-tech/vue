@@ -320,12 +320,17 @@ importers:
       eslint: 8.36.0
       eslint-config-custom: 0.7.9
       prettier: 2.8.7
+      primeicons: 6.0.1
+      primevue: 3.27.0
       tsconfig-custom: 0.7.9
       typescript: 4.9.5
       vite: 4.1.4
       vitest: 0.29.8
       vue: 3.2.47
       vue-tsc: 1.2.0
+    dependencies:
+      primeicons: 6.0.1
+      primevue: 3.27.0_vue@3.2.47
     devDependencies:
       '@types/node': 18.15.11
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
@@ -4999,6 +5004,18 @@ packages:
       ansi-styles: 5.2.0
       react-is: 17.0.2
     dev: true
+
+  /primeicons/6.0.1:
+    resolution: {integrity: sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==}
+    dev: false
+
+  /primevue/3.27.0_vue@3.2.47:
+    resolution: {integrity: sha512-oVJl8vLGNb6t5nXN41mnjR5V9Cc/eHVvmtRWiNgIC1db6OW3Qo7y2LaDEmXps/wdxX/FuJ7nuPHAZI4y8tvGyQ==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      vue: 3.2.47
+    dev: false
 
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
