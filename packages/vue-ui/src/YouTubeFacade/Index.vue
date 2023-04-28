@@ -1,32 +1,3 @@
-<template>
-  <div class="youTubeFacade">
-    <a
-      v-if="!show"
-      :href="href"
-      :data-yt-video-token="token"
-      :title="title"
-      target="_blank"
-      @click.prevent="onclick"
-    >
-      <img
-        :src="imageUrl"
-        :alt="title"
-        :style="'aspect-ratio:' + aspectRatio"
-      />
-    </a>
-    <a v-if="!show" :href="href" target="_blank">Watch On <b>YouTube</b></a>
-    <iframe
-      v-if="show"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      class="videoEmbed"
-      :style="'aspect-ratio:' + aspectRatio"
-      frameborder="0"
-      :src="embeddedUrl"
-      :title="title"
-    />
-  </div>
-</template>
-
 <script lang="ts">
 export default {
   name: "YouTubeFacade",
@@ -70,3 +41,31 @@ const onclick = () => {
   show.value = true;
 };
 </script>
+
+<template>
+  <div class="youTubeFacade" :style="'background-image: url(' + imageUrl + ')'">
+    <a
+      v-if="!show"
+      :href="href"
+      :title="title"
+      target="_blank"
+      @click.prevent="onclick"
+    >
+      <img
+        :src="imageUrl"
+        :alt="title"
+        :style="'aspect-ratio:' + aspectRatio"
+      />
+    </a>
+    <a v-if="!show" :href="href" target="_blank">Watch On <b>YouTube</b></a>
+    <iframe
+      v-if="show"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      class="videoEmbed"
+      :style="'aspect-ratio:' + aspectRatio"
+      frameborder="0"
+      :src="embeddedUrl"
+      :title="title"
+    />
+  </div>
+</template>

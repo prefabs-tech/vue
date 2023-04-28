@@ -52,5 +52,9 @@
   "title": "UI Library",
   "typography": {
     "title": "Typography"
+  },
+  "youtube": {
+    "facade": "With facade",
+    "title": "YouTube Facade"
   }
 }

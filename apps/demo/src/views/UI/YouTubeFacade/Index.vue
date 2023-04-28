@@ -7,7 +7,7 @@
     </template>
 
     <section>
-      <h2>{{ $t("ui.youtube.basic") }}</h2>
+      <h2>{{ $t("ui.youtube.facade") }}</h2>
 
       <YouTubeFacade
         token="G66KL-hxxKI"

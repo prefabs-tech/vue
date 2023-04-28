@@ -52,5 +52,9 @@
   "title": "Librairie de composants d'interface utilisateur",
   "typography": {
     "title": "Typography"
+  },
+  "youtube": {
+    "facade": "Avec facade",
+    "title": "YouTube Facade"
   }
 }
