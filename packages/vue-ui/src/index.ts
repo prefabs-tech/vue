@@ -8,6 +8,7 @@ import Errors from "./Errors/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
+import YouTubeFacade from "./YouTubeFacade/Index.vue";
 
 import type { App } from "vue";
 
@@ -30,6 +31,7 @@ export {
   ResponsiveMenu,
   SubPane,
   TabbedPanel,
+  YouTubeFacade,
 };
 
 export type { Error } from "./types";

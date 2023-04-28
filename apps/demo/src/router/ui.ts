@@ -4,6 +4,7 @@ const TabbedPanel = () => import("@/views/UI/tabbed-panel/Index.vue");
 const TanstackTable = () => import("@/views/UI/TanstackTable.vue");
 const Typography = () => import("@/views/UI/typography/Index.vue");
 const UI = () => import("@/views/UI/Index.vue");
+const YouTubeFacade = () => import("@/views/UI/YouTubeFacade/Index.vue");
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
         component: Typography,
         name: "typography",
         path: "typography",
+      },
+      {
+        component: YouTubeFacade,
+        name: "youtubefacade",
+        path: "youtubefacade",
       },
     ],
   },
