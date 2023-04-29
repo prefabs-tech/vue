@@ -28,7 +28,7 @@
       </li>
       <li>
         <router-link :to="{ name: 'youtubefacade' }">
-          {{ $t("ui.youtubefacade.title") }}
+          {{ $t("ui.youtube.title") }}
         </router-link>
       </li>
     </ul>
