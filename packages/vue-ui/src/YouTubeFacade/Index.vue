@@ -44,13 +44,7 @@ const onclick = () => {
 
 <template>
   <div class="youTubeFacade" :style="'background-image: url(' + imageUrl + ')'">
-    <a
-      v-if="!show"
-      :href="href"
-      :title="title"
-      target="_blank"
-      @click.prevent="onclick"
-    >
+    <a v-if="!show" :href="href" target="_blank" @click.prevent="onclick">
       <img
         :src="imageUrl"
         :alt="title"
