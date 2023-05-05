@@ -3,6 +3,7 @@ import { inject } from "vue";
 
 import messages from "./locales/messages.json";
 import updateRouter from "./router";
+import userStore from "./store";
 import initSupertokens from "./supertokens";
 
 import type { DzangolabVueUserPluginOptions } from "./types";
@@ -36,7 +37,7 @@ const useTranslations = () => {
 
 export default plugin;
 
-export { useTranslations };
+export { userStore, useTranslations };
 
 export * from "./components";
 

@@ -9,14 +9,14 @@ importers:
       eslint-config-custom: workspace:*
       husky: 8.0.3
       shipjs: 0.26.3
-      turbo: 1.9.1
+      turbo: 1.9.3
     devDependencies:
       '@commitlint/cli': 17.6.1
       '@commitlint/config-conventional': 17.6.1
       eslint-config-custom: link:tools/eslint-config-custom
       husky: 8.0.3
       shipjs: 0.26.3
-      turbo: 1.9.1
+      turbo: 1.9.3
 
   apps/demo:
     specifiers:
@@ -34,7 +34,7 @@ importers:
       '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4
-      '@vitejs/plugin-vue': 4.0.0
+      '@vitejs/plugin-vue': 4.2.1
       '@vitejs/plugin-vue-jsx': 3.0.1
       '@vitest/coverage-istanbul': 0.29.8
       '@vue/test-utils': 2.3.2
@@ -78,7 +78,7 @@ importers:
       '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4_522g255ggq6pz2xydelfqygu34
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+      '@vitejs/plugin-vue': 4.2.1_vite@4.1.4+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.1.4+vue@3.2.47
       '@vitest/coverage-istanbul': 0.29.8_vitest@0.29.8
       '@vue/test-utils': 2.3.2_vue@3.2.47
@@ -103,7 +103,7 @@ importers:
       '@sentry/types': 7.44.2
       '@sentry/vue': 7.44.2
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0
+      '@vitejs/plugin-vue': 4.2.1
       '@vitejs/plugin-vue-jsx': 3.0.1
       '@vitest/coverage-istanbul': 0.29.8
       eslint: 8.36.0
@@ -122,7 +122,7 @@ importers:
       '@sentry/vue': 7.44.2_vue@3.2.47
     devDependencies:
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+      '@vitejs/plugin-vue': 4.2.1_vite@4.1.4+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.1.4+vue@3.2.47
       '@vitest/coverage-istanbul': 0.29.8_vitest@0.29.8
       eslint: 8.36.0
@@ -143,7 +143,7 @@ importers:
       '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4
-      '@vitejs/plugin-vue': 4.0.0
+      '@vitejs/plugin-vue': 4.2.1
       '@vitejs/plugin-vue-jsx': 3.0.1
       '@vitest/coverage-istanbul': 0.29.8
       '@vue/test-utils': 2.3.2
@@ -168,7 +168,7 @@ importers:
       '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4_522g255ggq6pz2xydelfqygu34
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+      '@vitejs/plugin-vue': 4.2.1_vite@4.1.4+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.1.4+vue@3.2.47
       '@vitest/coverage-istanbul': 0.29.8_vitest@0.29.8
       '@vue/test-utils': 2.3.2_vue@3.2.47
@@ -189,7 +189,7 @@ importers:
     specifiers:
       '@dzangolab/vue3-config': 0.7.9
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0
+      '@vitejs/plugin-vue': 4.2.1
       '@vitejs/plugin-vue-jsx': 3.0.1
       '@vitest/coverage-istanbul': 0.29.8
       '@vueuse/core': 9.13.0
@@ -210,7 +210,7 @@ importers:
     devDependencies:
       '@dzangolab/vue3-config': link:../vue-config
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+      '@vitejs/plugin-vue': 4.2.1_vite@4.1.4+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.1.4+vue@3.2.47
       '@vitest/coverage-istanbul': 0.29.8_vitest@0.29.8
       '@vueuse/core': 9.13.0_vue@3.2.47
@@ -233,7 +233,7 @@ importers:
       '@dzangolab/vue3-ui': 0.7.9
       '@iconify/vue': 4.1.0
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0
+      '@vitejs/plugin-vue': 4.2.1
       '@vitejs/plugin-vue-jsx': 3.0.1
       '@vitest/coverage-istanbul': 0.29.8
       '@vue/test-utils': 2.3.2
@@ -254,7 +254,7 @@ importers:
       '@dzangolab/vue3-ui': link:../vue-ui
       '@iconify/vue': 4.1.0_vue@3.2.47
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+      '@vitejs/plugin-vue': 4.2.1_vite@4.1.4+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.1.4+vue@3.2.47
       '@vitest/coverage-istanbul': 0.29.8_vitest@0.29.8
       '@vue/test-utils': 2.3.2_vue@3.2.47
@@ -275,7 +275,7 @@ importers:
       '@iconify/vue': 4.1.0
       '@tanstack/vue-table': 8.7.9
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0
+      '@vitejs/plugin-vue': 4.2.1
       '@vitejs/plugin-vue-jsx': 3.0.1
       '@vitest/coverage-istanbul': 0.29.8
       '@vue/test-utils': 2.3.2
@@ -294,7 +294,7 @@ importers:
     devDependencies:
       '@iconify/vue': 4.1.0_vue@3.2.47
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+      '@vitejs/plugin-vue': 4.2.1_vite@4.1.4+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.1.4+vue@3.2.47
       '@vitest/coverage-istanbul': 0.29.8_vitest@0.29.8
       '@vue/test-utils': 2.3.2_vue@3.2.47
@@ -312,7 +312,7 @@ importers:
   packages/vue-ui:
     specifiers:
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0
+      '@vitejs/plugin-vue': 4.2.1
       '@vitejs/plugin-vue-jsx': 3.0.1
       '@vitest/coverage-istanbul': 0.29.8
       '@vue/test-utils': 2.3.2
@@ -328,7 +328,7 @@ importers:
       vue-tsc: 1.2.0
     devDependencies:
       '@types/node': 18.15.11
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+      '@vitejs/plugin-vue': 4.2.1_vite@4.1.4+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.1.4+vue@3.2.47
       '@vitest/coverage-istanbul': 0.29.8_vitest@0.29.8
       '@vue/test-utils': 2.3.2_vue@3.2.47
@@ -355,7 +355,7 @@ importers:
       '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4
-      '@vitejs/plugin-vue': 4.0.0
+      '@vitejs/plugin-vue': 4.2.1
       '@vitejs/plugin-vue-jsx': 3.0.1
       '@vitest/coverage-istanbul': 0.29.8
       '@vue/test-utils': 2.3.2
@@ -390,7 +390,7 @@ importers:
       '@vee-validate/i18n': 4.7.4
       '@vee-validate/rules': 4.7.4
       '@vee-validate/zod': 4.7.4_522g255ggq6pz2xydelfqygu34
-      '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+      '@vitejs/plugin-vue': 4.2.1_vite@4.1.4+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.1.4+vue@3.2.47
       '@vitest/coverage-istanbul': 0.29.8_vitest@0.29.8
       '@vue/test-utils': 2.3.2_vue@3.2.47
@@ -1812,8 +1812,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vitejs/plugin-vue/4.0.0_vite@4.1.4+vue@3.2.47:
-    resolution: {integrity: sha512-e0X4jErIxAB5oLtDqbHvHpJe/uWNkdpYV83AOG2xo2tEVSzCzewgJMtREZM30wXnM5ls90hxiOtAuVU6H5JgbA==}
+  /@vitejs/plugin-vue/4.2.1_vite@4.1.4+vue@3.2.47:
+    resolution: {integrity: sha512-ZTZjzo7bmxTRTkb8GSTwkPOYDIP7pwuyV+RV53c9PYUouwcbkIZIvWvNWlX2b1dYZqtOv7D6iUAnJLVNGcLrSw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.0.0
@@ -2318,7 +2318,7 @@ packages:
     resolution: {integrity: sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==}
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /camelcase-keys/6.2.2:
@@ -2348,7 +2348,7 @@ packages:
     resolution: {integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
       upper-case-first: 2.0.2
     dev: true
 
@@ -2518,7 +2518,7 @@ packages:
     resolution: {integrity: sha512-I2hSBi7Vvs7BEuJDr5dDHfzb/Ruj3FyvFyh7KLilAjNQw3Be+xgqUBA2W6scVEcL0hL1dwPRtIqEPVUCKkSsyQ==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
       upper-case: 2.0.2
     dev: true
 
@@ -2810,7 +2810,7 @@ packages:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.5.0
     dev: true
 
   /dot-prop/5.3.0:
@@ -5588,18 +5588,11 @@ packages:
     resolution: {integrity: sha512-qlpgWLnHBor98k5wY97vzG7ouVOb/eeWOCKgaid055MUVPQr2gTEDrlKJN9I+Z4Vj6Dmblg1vC/cUbR/cx1TGw==}
     dependencies:
       supertokens-js-override: 0.0.4
-      supertokens-website: 16.0.5
+      supertokens-website: 16.0.1
     dev: false
 
   /supertokens-website/16.0.1:
     resolution: {integrity: sha512-IOiMVABP9d95lGoCKuZPQxx6hJCaETFIpLsspULbqwDpgSj7K2UkBWTTZeAxdKkEpaOJW9i2GcF2AgNTuYOjWw==}
-    dependencies:
-      browser-tabs-lock: 1.2.15
-      supertokens-js-override: 0.0.4
-    dev: false
-
-  /supertokens-website/16.0.5:
-    resolution: {integrity: sha512-TDxEKyYGO8uPGtzAtTWmWDmm0ulPWXBE+KO+a0PHLs+XKZli2LGjAPUI6N1UNkXv/NjprIFaW2QBb5w8+J8Kzg==}
     dependencies:
       browser-tabs-lock: 1.2.15
       supertokens-js-override: 0.0.4
@@ -5812,10 +5805,6 @@ packages:
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
 
-  /tslib/2.4.1:
-    resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
-    dev: true
-
   /tslib/2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
 
@@ -5829,65 +5818,65 @@ packages:
       typescript: 4.9.5
     dev: false
 
-  /turbo-darwin-64/1.9.1:
-    resolution: {integrity: sha512-IX/Ph4CO80lFKd9pPx3BWpN2dynt6mcUFifyuHUNVkOP1Usza/G9YuZnKQFG6wUwKJbx40morFLjk1TTeLe04w==}
+  /turbo-darwin-64/1.9.3:
+    resolution: {integrity: sha512-0dFc2cWXl82kRE4Z+QqPHhbEFEpUZho1msHXHWbz5+PqLxn8FY0lEVOHkq5tgKNNEd5KnGyj33gC/bHhpZOk5g==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64/1.9.1:
-    resolution: {integrity: sha512-6tCbmIboy9dTbhIZ/x9KIpje73nvxbiyVnHbr9xKnsxLJavD0xqjHZzbL5U2tHp8chqmYf0E4WYOXd+XCNg+OQ==}
+  /turbo-darwin-arm64/1.9.3:
+    resolution: {integrity: sha512-1cYbjqLBA2zYE1nbf/qVnEkrHa4PkJJbLo7hnuMuGM0bPzh4+AnTNe98gELhqI1mkTWBu/XAEeF5u6dgz0jLNA==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64/1.9.1:
-    resolution: {integrity: sha512-ti8XofnJFO1XaadL92lYJXgxb0VBl03Yu9VfhxkOTywFe7USTLBkJcdvQ4EpFk/KZwLiTdCmT2NQVxsG4AxBiQ==}
+  /turbo-linux-64/1.9.3:
+    resolution: {integrity: sha512-UuBPFefawEwpuxh5pM9Jqq3q4C8M0vYxVYlB3qea/nHQ80pxYq7ZcaLGEpb10SGnr3oMUUs1zZvkXWDNKCJb8Q==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64/1.9.1:
-    resolution: {integrity: sha512-XYvIbeiCCCr+ENujd2Jtck/lJPTKWb8T2MSL/AEBx21Zy3Sa7HgrQX6LX0a0pNHjaleHz00XXt1D0W5hLeP+tA==}
+  /turbo-linux-arm64/1.9.3:
+    resolution: {integrity: sha512-vUrNGa3hyDtRh9W0MkO+l1dzP8Co2gKnOVmlJQW0hdpOlWlIh22nHNGGlICg+xFa2f9j4PbQlWTsc22c019s8Q==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64/1.9.1:
-    resolution: {integrity: sha512-x7lWAspe4/v3XQ0gaFRWDX/X9uyWdhwFBPEfb8BA0YKtnsrPOHkV0mRHCRrXzvzjA7pcDCl2agGzb7o863O+Jg==}
+  /turbo-windows-64/1.9.3:
+    resolution: {integrity: sha512-0BZ7YaHs6r+K4ksqWus1GKK3W45DuDqlmfjm/yuUbTEVc8szmMCs12vugU2Zi5GdrdJSYfoKfEJ/PeegSLIQGQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64/1.9.1:
-    resolution: {integrity: sha512-QSLNz8dRBLDqXOUv/KnoesBomSbIz2Huef/a3l2+Pat5wkQVgMfzFxDOnkK5VWujPYXz+/prYz+/7cdaC78/kw==}
+  /turbo-windows-arm64/1.9.3:
+    resolution: {integrity: sha512-QJUYLSsxdXOsR1TquiOmLdAgtYcQ/RuSRpScGvnZb1hY0oLc7JWU0llkYB81wVtWs469y8H9O0cxbKwCZGR4RQ==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo/1.9.1:
-    resolution: {integrity: sha512-Rqe8SP96e53y4Pk29kk2aZbA8EF11UtHJ3vzXJseadrc1T3V6UhzvAWwiKJL//x/jojyOoX1axnoxmX3UHbZ0g==}
+  /turbo/1.9.3:
+    resolution: {integrity: sha512-ID7mxmaLUPKG/hVkp+h0VuucB1U99RPCJD9cEuSEOdIPoSIuomcIClEJtKamUsdPLhLCud+BvapBNnhgh58Nzw==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.9.1
-      turbo-darwin-arm64: 1.9.1
-      turbo-linux-64: 1.9.1
-      turbo-linux-arm64: 1.9.1
-      turbo-windows-64: 1.9.1
-      turbo-windows-arm64: 1.9.1
+      turbo-darwin-64: 1.9.3
+      turbo-darwin-arm64: 1.9.3
+      turbo-linux-64: 1.9.3
+      turbo-linux-arm64: 1.9.3
+      turbo-windows-64: 1.9.3
+      turbo-windows-arm64: 1.9.3
     dev: true
 
   /type-check/0.3.2:
@@ -6268,7 +6257,7 @@ packages:
       '@intlify/core-base': 9.1.10
       '@intlify/shared': 9.1.10
       '@intlify/vue-devtools': 9.1.10
-      '@vue/devtools-api': 6.5.0
+      '@vue/devtools-api': 6.4.5
       vue: 3.2.47
     dev: false
 
