@@ -1,3 +1,15 @@
+## [0.7.10](https://github.com/dzangolab/vue/compare/v0.7.9...v0.7.10) (2023-05-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-import-resolver-typescript to v3.5.5 ([#249](https://github.com/dzangolab/vue/issues/249)) ([0208655](https://github.com/dzangolab/vue/commit/0208655b8f841145a942268de94cdedb0f77b052))
+* **deps:** update dependency vue-eslint-parser to v9.1.1 ([#252](https://github.com/dzangolab/vue/issues/252)) ([caaeb21](https://github.com/dzangolab/vue/commit/caaeb21264e0ebfcfa346e6b473f9242d432920e))
+* fix typogeraphy and layout style' ([#251](https://github.com/dzangolab/vue/issues/251)) ([2fbb6b9](https://github.com/dzangolab/vue/commit/2fbb6b930390470d5a24c05346f3eeac80eb6bcd))
+* only show public items in main menu ([#257](https://github.com/dzangolab/vue/issues/257)) ([fa5ea34](https://github.com/dzangolab/vue/commit/fa5ea34c90f6ea4974a55785577de0acf0b3bc20))
+
+
+
 ## [0.7.9](https://github.com/dzangolab/vue/compare/v0.7.8...v0.7.9) (2023-04-07)
 
 
