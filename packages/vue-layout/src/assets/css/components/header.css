@@ -1,32 +1,31 @@
 .layout > header {
-  --header-bg-color: transparent;
-  --header-border-color: var(--border-color);
-  --header-font-size: var(--font-size);
-  --header-gap: 0.5rem;
-  --header-logo-max-width: 150px;
-  --header-padding-v: 1em;
+  --_bg-color: transparent;
+  --_border-color: var(--border-color);
+  --_font-size: var(--font-size);
+  --_gap: 0.5rem;
+  --_padding-v: 1em;
 
   align-items: center;
-  border-bottom: 1px solid var(--header-border-color);
+  border-bottom: 1px solid var(--_border-color);
   display: grid;
-  font-size: var(--header-font-size);
-  gap: 0 var(--header-gap);
+  font-size: var(--_font-size);
+  gap: 0 var(--_gap);
   grid-template-areas:
     "logo toggle"
     "nav nav";
-  grid-template-columns: var(--header-logo-max-width) 1fr;
+  grid-template-columns: var(--logo-width, 150px) 1fr;
   grid-template-rows: auto auto;
   justify-items: center;
-  padding-bottom: var(--header-padding-v);
-  padding-top: var(--header-padding-v);
+  padding-bottom: var(--_padding-v);
+  padding-top: var(--_padding-v);
   position: relative;
 }
 
 .layout > header::before {
   content: "";
-  background-color: var(--header-bg-color);
-  box-shadow: 0 0 0 100vmax var(--header-bg-color);
-  clip-path: inset(calc(-1 * var(--header-padding-top)) -100vmax calc(-1 * var(--header-padding-bottom, 1em)) -100vmax);
+  background-color: var(--_bg-color);
+  box-shadow: 0 0 0 100vmax var(--_bg-color);
+  clip-path: inset(calc(-1 * var(--_padding-v)) -100vmax calc(-1 * var(--_padding-v, 1em)) -100vmax);
   grid-column: 1 / span 2;
   grid-row: 1 / 1;
   height: 100%;
@@ -37,8 +36,8 @@
 
 .layout > header > nav {
   align-items: stretch;
-  background-color: #fff;
-  border-bottom: 1px solid var(--menu-border-color, #000);
+  background-color: var(--_bg-color);
+  border-bottom: 1px solid var(--_border-color, #000);
   opacity: 1;
   display: flex;
   flex-direction: column;
@@ -48,13 +47,13 @@
   left: 0;
   margin-left: calc(-1 * var(--layout-basic-padding-left, 1em));
   margin-right: calc(-1 * var(--layout-basic-padding-right, 1em));
-  padding-bottom: var(--header-padding-bottom, 1em);
+  padding-bottom: var(--_padding-bottom, 1em);
   padding-left: var(--layout-basic-padding-left, 1em);
   padding-right: var(--layout-basic-padding-right, 1em);
-  padding-top: var(--header-padding-top, 1em);
+  padding-top: var(--_padding-top, 1em);
   position: absolute;
   right: 0;
-  top: var(--header-padding-top, 1em);
+  top: var(--padding-top, 1em);
   z-index: 1;
 }
 
@@ -64,7 +63,7 @@
 
 .layout > header .logo {
   grid-area: logo;
-  max-width: var(--header-logo-max-width, 150px);
+  max-width: var(--logo-width, 150px);
 }
 
 .layout > header .toggle {
@@ -85,7 +84,7 @@
 
   .layout > header > nav {
     align-items: center;
-    background-color: var(--header-bg-color);
+    background-color: var(--_bg-color);
     border: none;
     display: flex;
     flex-direction: row;

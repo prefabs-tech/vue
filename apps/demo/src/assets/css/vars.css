@@ -1,7 +1,13 @@
 :root {
-  --footer-bg-color: lightblue;
-  --footer-border-color: transparent;
   --form-input-border-color-highlight: red;
-  --header-bg-color: lightblue;
-  --header-border-color: transparent;
+}
+
+.layout > footer {
+  --_bg-color: lightblue;
+  --_border-color: transparent;
+}
+
+.layout > header {
+  --_bg-color: lightblue;
+  --_border-color: transparent;
 }

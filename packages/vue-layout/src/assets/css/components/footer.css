@@ -1,27 +1,27 @@
 .layout > footer {
-  --footer-bg-color: transparent;
-  --footer-border-color: var(--border-color);
-  --footer-font-size: calc(0.75 * var(--font-size));
-  --footer-gap: 0.5em;
-  --footer-padding-v: 1em;
+  --_bg-color: transparent;
+  --_border-color: var(--border-color);
+  --_font-size: calc(0.75 * var(--font-size));
+  --_gap: 0.5em;
+  --_padding-v: 1em;
 
   align-items: center;
-  background-color: var(--footer-bg-color);
-  border-top: 1px solid var(--footer-border-color);
-  box-shadow: 0 0 0 100vmax var(--footer-bg-color);
+  background-color: var(--_bg-color);
+  border-top: 1px solid var(--_border-color);
+  box-shadow: 0 0 0 100vmax var(--_bg-color);
   clip-path: inset(0 -100vmax);
   display: flex;
   flex-direction: column;
-  font-size: var(--footer-font-size);
-  gap: var(--footer-gap);
+  font-size: var(--_font-size);
+  gap: var(--_gap);
   justify-content: center;
-  padding-bottom: var(--footer-padding-v);
-  padding-top: var(--footer-padding-v);
+  padding-bottom: var(--_padding-v);
+  padding-top: var(--_padding-v);
   text-align: center;
 }
 
 .layout > footer .version {
-  font-size: calc(0.8 * var(--footer-font-size));
+  font-size: calc(0.8 * var(--_font-size));
 }
 
 @media screen and (min-width: 576px) {
