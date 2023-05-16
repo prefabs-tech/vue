@@ -2,6 +2,9 @@ import type { RouteComponent } from "vue-router";
 
 interface RouteOverride {
   component?: RouteComponent;
+  meta?: {
+    layout?: RouteComponent;
+  };
   path?: string;
 }
 
