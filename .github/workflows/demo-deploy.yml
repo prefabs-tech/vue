@@ -2,7 +2,7 @@ name: demo-cd
 
 on:
   push:
-    branches: [github-pages]
+    branches: [main]
     paths:
       - "apps/demo/**"
 
