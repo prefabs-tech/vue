@@ -9,13 +9,13 @@
       {{ button.label }}
     </button>
   </div>
-  <div v-else class="speed-dial quarter-circle">
+  <div v-else class="speed-dial">
     <SpeedDial
       :model="buttons"
       :radius="120"
       :type="props.speedDialType"
       :direction="props.speedDialDirection"
-      :style="{ right: 0, bottom: 0 }"
+      :style="{ bottom: 0, right: 0 }"
     />
   </div>
 </template>
