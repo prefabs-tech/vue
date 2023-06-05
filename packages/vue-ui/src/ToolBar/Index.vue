@@ -14,7 +14,7 @@
       :model="buttons"
       :radius="120"
       :type="props.speedDialType"
-      direction="up-left"
+      :direction="props.speedDialDirection"
       :style="{ right: 0, bottom: 0 }"
     />
   </div>
