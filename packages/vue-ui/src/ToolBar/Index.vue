@@ -62,6 +62,7 @@ const isMobile = computed(() => {
   if (width.value <= props.speedDialBreakPoint) {
     return true;
   }
+
   return false;
 });
 
