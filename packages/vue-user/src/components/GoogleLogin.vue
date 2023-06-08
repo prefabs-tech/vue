@@ -37,9 +37,3 @@ const onGoogleSignIn = async () => {
   loading.value = false;
 };
 </script>
-
-<style scoped>
-/* button {
-  margin: var(--google-login-button-margin, 0.5rem) 0;
-} */
-</style>
