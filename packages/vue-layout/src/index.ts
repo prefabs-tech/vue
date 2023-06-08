@@ -7,6 +7,7 @@ import AppFooter from "./components/AppFooter.vue";
 import AppHeader from "./components/AppHeader.vue";
 import Copyright from "./components/Copyright.vue";
 import Logo from "./components/Logo.vue";
+import MainMenu from "./components/MainMenu.vue";
 import Layout from "./Layout.vue";
 import BasicLayout from "./layouts/BasicLayout.vue";
 import NullLayout from "./layouts/NullLayout.vue";
@@ -60,6 +61,7 @@ export {
   Copyright,
   Layout,
   Logo,
+  MainMenu,
   NullLayout,
   useTranslations,
 };

@@ -1,0 +1,52 @@
+name: demo-cd
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/demo/**"
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+        name: Use node ${{ matrix.node-version }}
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          
+      - name: Get current package version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.2.3
+        with:
+          path: "apps/demo"
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build packages
+        run: pnpm build --filter=@dzangolab/vue3-demo
+        env:
+          VITE_API_BASE_URL: "https://api.monorepo.dzangolab.org"
+          VITE_APP_TITLE: 'Vuejs Demo'
+          VITE_APP_VERSION: ${{ steps.package-version.outputs.current-version}}
+          VITE_APP_BUILD: 'develop'
+          VITE_APP_COPYRIGHT_HOLDER: 'Dzango Technologies Limited'
+          VITE_APP_COPYRIGHT_HOLDER_URL: 'https://dzango.com'
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          clean: true
+          folder: apps/demo/dist
+          token: ${{ secrets.GITHUB_TOKEN }}
