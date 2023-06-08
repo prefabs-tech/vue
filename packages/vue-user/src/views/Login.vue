@@ -6,7 +6,7 @@
 
     <LoginForm :loading="loading" @submit="handleSubmit" />
 
-    <GoogleLogin />
+    <GoogleLogin v-if="config.socialLogins?.includes('google')" />
 
     <div class="links">
       <router-link
