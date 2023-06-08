@@ -6,9 +6,7 @@
 
     <LoginForm :loading="loading" @submit="handleSubmit" />
 
-    <div class="social-login">
-      <GoogleLogin />
-    </div>
+    <GoogleLogin />
 
     <div class="links">
       <router-link

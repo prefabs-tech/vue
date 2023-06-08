@@ -33,6 +33,9 @@
         "messages": {
           "success": "Logged in successfully."
         },
+        "social": {
+          "google": "Continue with Google"
+        },
         "title": "Login"
       },
       "menu": {
