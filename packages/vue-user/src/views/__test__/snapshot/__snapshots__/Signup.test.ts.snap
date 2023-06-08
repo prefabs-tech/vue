@@ -1,0 +1,235 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SignUp > matches snapshot in en 1`] = `
+<div
+  class="page auth signup"
+>
+  <h1>
+    Register 
+    <!---->
+  </h1>
+  <div
+    class="toolbar"
+  >
+    
+    
+  </div>
+  <main>
+    
+    <!--v-if-->
+    
+    
+    <form
+      novalidate=""
+    >
+      <div
+        class="field email"
+        placeholder="john.doe@example.com"
+      >
+        <label
+          for="email"
+        >
+          Your email
+        </label>
+        
+        <input
+          class=""
+          name="email"
+          tabindex="0"
+          type="email"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="field password"
+      >
+        <label
+          for="password"
+        >
+          Your password
+        </label>
+        
+        <input
+          class=""
+          name="password"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="field password"
+      >
+        <label
+          for="password"
+        >
+          Confirm your password
+        </label>
+        
+        <input
+          class=""
+          name="confirmation"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="actions"
+      >
+        <button
+          class="loading-button"
+          data-v-3fdbc7b3=""
+        >
+          <div
+            class="label"
+            data-v-3fdbc7b3=""
+          >
+            <span
+              data-v-3fdbc7b3=""
+            >
+              Create my account
+            </span>
+          </div>
+          <!---->
+        </button>
+      </div>
+    </form>
+    <div
+      class="links"
+    >
+      <a
+        class="login"
+      >
+        Login
+      </a>
+      <a
+        class="reset"
+      >
+        Forgot password
+      </a>
+    </div>
+    
+  </main>
+</div>
+`;
+
+exports[`SignUp > matches snapshot in fr 1`] = `
+<div
+  class="page auth signup"
+>
+  <h1>
+    Inscription 
+    <!---->
+  </h1>
+  <div
+    class="toolbar"
+  >
+    
+    
+  </div>
+  <main>
+    
+    <!--v-if-->
+    
+    
+    <form
+      novalidate=""
+    >
+      <div
+        class="field email"
+        placeholder="john.doe@example.com"
+      >
+        <label
+          for="email"
+        >
+          Votre adresse e-mail
+        </label>
+        
+        <input
+          class=""
+          name="email"
+          tabindex="0"
+          type="email"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="field password"
+      >
+        <label
+          for="password"
+        >
+          Votre mot de passe
+        </label>
+        
+        <input
+          class=""
+          name="password"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="field password"
+      >
+        <label
+          for="password"
+        >
+          Confirmez votre mot de passe
+        </label>
+        
+        <input
+          class=""
+          name="confirmation"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
+      <div
+        class="actions"
+      >
+        <button
+          class="loading-button"
+          data-v-3fdbc7b3=""
+        >
+          <div
+            class="label"
+            data-v-3fdbc7b3=""
+          >
+            <span
+              data-v-3fdbc7b3=""
+            >
+              M'inscrire
+            </span>
+          </div>
+          <!---->
+        </button>
+      </div>
+    </form>
+    <div
+      class="links"
+    >
+      <a
+        class="login"
+      >
+        Connexion
+      </a>
+      <a
+        class="reset"
+      >
+        Mot de passe oublié
+      </a>
+    </div>
+    
+  </main>
+</div>
+`;
