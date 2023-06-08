@@ -85,6 +85,7 @@ const useUserStore = defineStore("user", () => {
     logout,
     resetPassword,
     requestPasswordReset,
+    setUser,
     signup,
     user,
   };

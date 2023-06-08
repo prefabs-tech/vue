@@ -9,7 +9,6 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { storeToRefs } from "pinia";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -19,7 +18,7 @@ import useUserStore from "../store";
 const loading = ref(false);
 const router = useRouter();
 
-const { user } = storeToRefs(useUserStore());
+const { setUser } = useUserStore();
 
 onMounted(async () => {
   loading.value = true;
@@ -30,7 +29,7 @@ onMounted(async () => {
     return window.location.assign("/auth?error=signin");
   }
 
-  user.value = response.user;
+  setUser(response.user);
 
   router.push({ name: "home" });
 
