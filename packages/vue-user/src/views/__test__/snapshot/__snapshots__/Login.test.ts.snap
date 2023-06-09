@@ -81,7 +81,11 @@ exports[`Login > matches snapshot in en 1`] = `
         </button>
       </div>
     </form>
-    <!--v-if-->
+    <div
+      class="social-logins"
+    >
+      <!--v-if-->
+    </div>
     <div
       class="links"
     >
@@ -182,7 +186,11 @@ exports[`Login > matches snapshot in fr 1`] = `
         </button>
       </div>
     </form>
-    <!--v-if-->
+    <div
+      class="social-logins"
+    >
+      <!--v-if-->
+    </div>
     <div
       class="links"
     >
