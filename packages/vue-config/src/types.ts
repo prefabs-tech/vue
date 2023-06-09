@@ -12,7 +12,6 @@ interface AppConfig {
   sentry?: SentryOptions & {
     enabled?: boolean;
   };
-  socialLogins?: string[];
   slug: string;
   websiteDomain: string;
 }

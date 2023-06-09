@@ -63,7 +63,6 @@ const config: AppConfig = {
     environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
   },
   slug: import.meta.env.VITE_APP_SLUG as string,
-  socialLogins: ["google"],
   user: {
     options: {
       email: {
@@ -74,6 +73,7 @@ const config: AppConfig = {
         minSymbols: 1,
       },
     },
+    socialLogins: ["google"],
   },
   websiteDomain: (window.location.protocol +
     "//" +

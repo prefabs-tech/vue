@@ -34,7 +34,7 @@
           "success": "Logged in successfully."
         },
         "social": {
-          "google": "Continue with Google"
+          "google": "Sign in with Google"
         },
         "title": "Login"
       },
@@ -171,6 +171,9 @@
         },
         "messages": {
           "success": "Vous êtes maintenant connecté(e)"
+        },
+        "social": {
+          "google": "Connectez-vous avec Google"
         },
         "title": "Connexion"
       },

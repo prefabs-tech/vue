@@ -7,7 +7,7 @@
     <LoginForm :loading="loading" @submit="handleSubmit" />
 
     <div class="social-logins">
-      <GoogleLogin v-if="config.socialLogins?.includes('google')" />
+      <GoogleLogin v-if="config.user?.socialLogins?.includes('google')" />
     </div>
 
     <div class="links">

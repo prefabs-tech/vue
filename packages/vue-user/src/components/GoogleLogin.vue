@@ -1,5 +1,5 @@
 <template>
-  <LoadingButton
+  <GoogleSignInButton
     :label="t('user.login.social.google')"
     :loading="loading"
     @click="onGoogleSignIn"
@@ -15,7 +15,7 @@ export default {
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { LoadingButton } from "@dzangolab/vue3-ui";
+import { GoogleSignInButton } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 import { useTranslations } from "../index";
