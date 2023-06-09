@@ -6361,7 +6361,7 @@ packages:
       '@intlify/core-base': 9.1.10
       '@intlify/shared': 9.1.10
       '@intlify/vue-devtools': 9.1.10
-      '@vue/devtools-api': 6.5.0
+      '@vue/devtools-api': 6.4.5
       vue: 3.2.47
     dev: false
 
