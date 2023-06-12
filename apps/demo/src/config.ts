@@ -73,6 +73,7 @@ const config: AppConfig = {
         minSymbols: 1,
       },
     },
+    socialLogins: ["google"],
   },
   websiteDomain: (window.location.protocol +
     "//" +

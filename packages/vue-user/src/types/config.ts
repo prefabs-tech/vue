@@ -13,6 +13,7 @@ interface DzangolabVueUserConfig {
     password?: StrongPasswordOptions;
   };
   routes?: RouteOverrides;
+  socialLogins?: string[];
 }
 
 declare module "@dzangolab/vue3-config" {

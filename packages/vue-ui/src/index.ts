@@ -1,6 +1,7 @@
 import "./assets/css/index.css";
 
 import Accordion from "./Accordion/Index.vue";
+import GoogleSignInButton from "./components/GoogleSignInButton.vue";
 import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
 import SubPane from "./components/SubPane.vue";
@@ -24,6 +25,7 @@ export default plugin;
 export {
   Accordion,
   Errors,
+  GoogleSignInButton,
   LoadingButton,
   LoadingIcon,
   Page,
