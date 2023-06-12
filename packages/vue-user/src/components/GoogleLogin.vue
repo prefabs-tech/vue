@@ -29,11 +29,17 @@ const { t } = useI18n({ messages });
 
 const loading = ref(false);
 
+const emit = defineEmits(["error"]);
+
 const onGoogleSignIn = async () => {
   loading.value = true;
 
-  const response = await googleSignIn(config.websiteDomain);
-
-  loading.value = false;
+  try {
+    const response = await googleSignIn(config.websiteDomain);
+    loading.value = false;
+  } catch (error) {
+    emit("error", error);
+    loading.value = false;
+  }
 };
 </script>

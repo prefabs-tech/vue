@@ -7,7 +7,10 @@
     <LoginForm :loading="loading" @submit="handleSubmit" />
 
     <div class="social-logins">
-      <GoogleLogin v-if="config.user?.socialLogins?.includes('google')" />
+      <GoogleLogin
+        v-if="config.user?.socialLogins?.includes('google')"
+        @error="onError"
+      />
     </div>
 
     <div class="links">
@@ -82,5 +85,9 @@ const handleSubmit = async (credentials: LoginCredentials) => {
   }
 
   loading.value = false;
+};
+
+const onError = (error: ErrorType) => {
+  errors.value = [error];
 };
 </script>
