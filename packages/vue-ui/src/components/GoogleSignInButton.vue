@@ -1,13 +1,7 @@
 <template>
-  <button
-    class="google-button"
-    :disabled="disabled || loading"
-    @click="$emit('click')"
-  >
+  <button :disabled="disabled || loading" @click="$emit('click')">
     <img src="../assets/svg/google.svg" />
-    <div class="label">
-      <span>{{ label }}</span>
-    </div>
+    <span>{{ label }}</span>
   </button>
 </template>
 
@@ -17,7 +11,7 @@ export default {
 };
 </script>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 defineEmits(["click"]);
 
 defineProps({
@@ -37,7 +31,7 @@ defineProps({
 </script>
 
 <style scoped>
-.google-button {
+button {
   align-items: center;
   border-radius: 6px;
   border: 1px solid #dddddd;
