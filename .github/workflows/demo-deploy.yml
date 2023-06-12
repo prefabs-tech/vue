@@ -3,8 +3,6 @@ name: demo-cd
 on:
   push:
     branches: [gh-deploy]
-    paths:
-      - "apps/demo/**"
 
   workflow_dispatch:
 
@@ -43,6 +41,8 @@ jobs:
           VITE_APP_BUILD: 'develop'
           VITE_APP_COPYRIGHT_HOLDER: 'Dzango Technologies Limited'
           VITE_APP_COPYRIGHT_HOLDER_URL: 'https://dzango.com'
+          VITE_I18N_FALLBACK_LOCALE: 'en'
+          VITE_I18N_LOCALES: 'en,fr'
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
