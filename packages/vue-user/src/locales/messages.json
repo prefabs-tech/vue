@@ -175,7 +175,7 @@
           "success": "Vous êtes maintenant connecté(e)"
         },
         "social": {
-          "google": "Connectez-vous avec Google"
+          "google": "Sign in with Google[fr]"
         },
         "title": "Connexion"
       },
