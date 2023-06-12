@@ -38,8 +38,6 @@ jobs:
           VITE_API_BASE_URL: "https://api.monorepo.dzangolab.org"
           VITE_APP_VERSION: ${{ steps.package-version.outputs.current-version}}
           VITE_APP_BUILD: 'develop'
-          VITE_I18N_FALLBACK_LOCALE: 'en'
-          VITE_I18N_LOCALES: 'en,fr'
           VITE_APP_TITLE: 'Dzangolab Vue3 Demo App'
           VITE_APP_SLUG: 'dzangolab-vue3'
           VITE_COPYRIGHT_HOLDER: 'Dzango Technologies Limited'
