@@ -1,4 +1,4 @@
-import{o as M,b as F,a as h,f as l,d as L,j as R,t as y,u as d,g as a,w as m,U as x,r as $,l as ge,c as Ke}from"./index-88124202.js";import{_ as ae}from"./_plugin-vue_export-helper-c27b6911.js";const Ge={name:"Pane1"},We=h("p",null,`
+import{o as M,b as F,a as h,f as l,d as L,j as R,t as y,u as d,g as a,w as m,U as x,r as $,l as ge,c as Ke}from"./index-30a817be.js";import{_ as ae}from"./_plugin-vue_export-helper-c27b6911.js";const Ge={name:"Pane1"},We=h("p",null,`
       A vel nisl magna ut faucibus condimentum quis parturient ipsum eu nec
       fusce ullamcorper dis luctus id egestas vestibulum a. Imperdiet augue
       adipiscing eu est ullamcorper parturient donec potenti parturient
@@ -46,7 +46,7 @@ import{o as M,b as F,a as h,f as l,d as L,j as R,t as y,u as d,g as a,w as m,U a
         <script setup lang="ts">
         import { TabbedPanel } from "@dzangolab/vue3-ui";
         <\/script>
-      `)]),_:1}),l(),a(d(x),null,{default:m(()=>[a(I,{title:"Praeset",icon:"/src/assets/svg/number-1.svg"}),l(),a(P,{title:"A ullamcorper eros",icon:"/src/assets/svg/number-2.svg"})]),_:1})]),l(),h("section",null,[h("h3",null,y(d(t)("ui.tabbed-panel.position.bottom")),1),l(),a(o,{language:"html-vue"},{default:m(()=>[l(`
+      `)]),_:1}),l(),a(d(x),null,{default:m(()=>[a(I,{title:"Praesent",icon:"/src/assets/svg/number-1.svg"}),l(),a(P,{title:"A ullamcorper eros",icon:"/src/assets/svg/number-2.svg"})]),_:1})]),l(),h("section",null,[h("h3",null,y(d(t)("ui.tabbed-panel.position.bottom")),1),l(),a(o,{language:"html-vue"},{default:m(()=>[l(`
         <template>
           <TabbedPanel position="bottom">
             <div title="Praesent" icon="mdi-light:home">
