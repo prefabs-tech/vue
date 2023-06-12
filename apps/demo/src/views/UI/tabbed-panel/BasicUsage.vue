@@ -25,7 +25,7 @@
       <!-- eslint-enable -->
 
       <TabbedPanel>
-        <Pane1 title="Praeset" icon="/src/assets/svg/number-1.svg" />
+        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
         <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
       </TabbedPanel>
     </section>
