@@ -42,14 +42,8 @@ jobs:
           VITE_APP_SLUG: 'dzangolab-vue3'
           VITE_COPYRIGHT_HOLDER: 'Dzango Technologies Limited'
           VITE_COPYRIGHT_HOLDER_URL: 'https://dzango.com'
-          VITE_FEATURE_SHOW_VERSION: '1'
           VITE_I18N_FALLBACK_LOCALE: 'en'
           VITE_I18N_LOCALES: 'en,fr'
-          VITE_REDIRECT_IN: '10'
-          VITE_SENTRY_DSN: 'TBD'
-          VITE_SENTRY_ENABLED: 'false'
-          VITE_SENTRY_ENVIRONMENT: 'develop'
-          VITE_USER_PASSWORD_MIN_LENGTH: '10'
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
