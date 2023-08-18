@@ -34,6 +34,7 @@ const config: AppConfig = {
     supportedLocales: (import.meta.env.VITE_I18N_LOCALES as string).split(","),
   },
   layout: {
+    logo: "/vue/logo.png",
     mainMenu: [
       {
         name: "Home",
@@ -73,6 +74,7 @@ const config: AppConfig = {
         minSymbols: 1,
       },
     },
+    socialLogins: ["google"],
   },
   websiteDomain: (window.location.protocol +
     "//" +

@@ -1,6 +1,7 @@
 {
   "en": {
     "user": {
+      "loading": "Loading...",
       "login": {
         "errors": {
           "401": "The credentials you input are invalid."
@@ -32,6 +33,9 @@
         },
         "messages": {
           "success": "Logged in successfully."
+        },
+        "social": {
+          "google": "Sign in with Google"
         },
         "title": "Login"
       },
@@ -138,6 +142,7 @@
   },
   "fr": {
     "user": {
+      "loading": "Loading...[fr]",
       "login": {
         "errors": {
           "401": "Votre identifiant et/ou mot de passe sont invalides."
@@ -168,6 +173,9 @@
         },
         "messages": {
           "success": "Vous êtes maintenant connecté(e)"
+        },
+        "social": {
+          "google": "Sign in with Google[fr]"
         },
         "title": "Connexion"
       },

@@ -35,3 +35,8 @@
   font-style: normal;
   font-weight: bold;
 }
+
+.auth .social-logins > button {
+  margin: 0.5rem 0;
+  width: 100%;
+}

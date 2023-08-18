@@ -2,6 +2,7 @@ import SuperTokens from "supertokens-web-js";
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+import googleSignIn from "./google-signin";
 import login from "./login";
 import logout from "./logout";
 import requestPasswordReset from "./request-password-reset";
@@ -39,6 +40,7 @@ const getUser = async (): Promise<User | undefined> => {
 export default initSupertokens;
 
 export {
+  googleSignIn,
   isLoggedIn,
   login,
   logout,

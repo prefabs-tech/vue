@@ -82,6 +82,11 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
       </div>
     </form>
     <div
+      class="social-logins"
+    >
+      <!--v-if-->
+    </div>
+    <div
       class="links"
     >
       <!--v-if-->
@@ -177,6 +182,11 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
         </button>
       </div>
     </form>
+    <div
+      class="social-logins"
+    >
+      <!--v-if-->
+    </div>
     <div
       class="links"
     >

@@ -1,6 +1,7 @@
 import { storeToRefs } from "pinia";
 import { Router } from "vue-router";
 
+import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
 import useUserStore from "./store";
 import { getUser } from "./supertokens";
 import Login from "./views/Login.vue";
@@ -14,6 +15,11 @@ import type { RouteOverride, RouteOverrides } from "./types";
 import type { RouteMeta, RouteRecordRaw } from "vue-router";
 
 const _routes = {
+  google: {
+    component: AuthGoogleCallback,
+    name: "authcallback",
+    path: "/auth/callback/google",
+  },
   login: {
     component: Login,
     name: "login",
@@ -60,6 +66,8 @@ const getRoute = (
 };
 
 const addRoutes = (router: Router, routes?: RouteOverrides) => {
+  router.addRoute(getRoute(_routes.google, routes?.google));
+
   router.addRoute(getRoute(_routes.login, routes?.login));
 
   if (!routes?.signup?.disabled) {

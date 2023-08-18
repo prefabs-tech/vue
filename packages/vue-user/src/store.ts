@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 import {
+  googleSignIn as doGoogleSignIn,
   login as doLogin,
   logout as doLogout,
   requestPasswordReset as doRequestPasswordReset,
@@ -29,6 +30,10 @@ const useUserStore = defineStore("user", () => {
     const data = localStorage.getItem(USER_KEY);
 
     return data ? JSON.parse(data) : undefined;
+  };
+
+  const googleSignIn = async (redirectURL: string) => {
+    await doGoogleSignIn(redirectURL);
   };
 
   const login = async (credentials: LoginCredentials) => {
@@ -74,11 +79,13 @@ const useUserStore = defineStore("user", () => {
   };
 
   return {
+    googleSignIn,
     getUser,
     login,
     logout,
     resetPassword,
     requestPasswordReset,
+    setUser,
     signup,
     user,
   };

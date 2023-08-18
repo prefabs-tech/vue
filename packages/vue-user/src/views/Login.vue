@@ -6,6 +6,13 @@
 
     <LoginForm :loading="loading" @submit="handleSubmit" />
 
+    <div class="social-logins">
+      <GoogleLogin
+        v-if="config.user?.socialLogins?.includes('google')"
+        @error="onError"
+      />
+    </div>
+
     <div class="links">
       <router-link
         v-if="!config?.user?.routes?.signup.disabled"
@@ -35,6 +42,7 @@ import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
+import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
@@ -77,5 +85,9 @@ const handleSubmit = async (credentials: LoginCredentials) => {
   }
 
   loading.value = false;
+};
+
+const onError = (error: ErrorType) => {
+  errors.value = [error];
 };
 </script>
