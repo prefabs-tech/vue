@@ -1,3 +1,12 @@
+## [0.8.1](https://github.com/dzangolab/vue/compare/v0.8.0...v0.8.1) (2023-09-11)
+
+
+### Features
+
+* **user:** configurable api base path in supertokens init function through config. ([#280](https://github.com/dzangolab/vue/issues/280)) ([10b4305](https://github.com/dzangolab/vue/commit/10b43052fff7cc381203dfe63d4f6287fa2da29b))
+
+
+
 # [0.8.0](https://github.com/dzangolab/vue/compare/v0.7.10...v0.8.0) (2023-08-18)
 
 
