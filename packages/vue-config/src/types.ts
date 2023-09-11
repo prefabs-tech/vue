@@ -1,6 +1,7 @@
 import type { Options as SentryOptions } from "@sentry/types";
 
 interface AppConfig {
+  authBasePath?: string;
   apiBaseUrl: string;
   appTitle: string;
   appVersion: string;
