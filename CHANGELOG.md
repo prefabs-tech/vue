@@ -1,3 +1,12 @@
+## [0.8.2](https://github.com/dzangolab/vue/compare/v0.8.1...v0.8.2) (2023-10-31)
+
+
+### Bug Fixes
+
+* make google not required for RouteOverrides interface ([#285](https://github.com/dzangolab/vue/issues/285)) ([b04898f](https://github.com/dzangolab/vue/commit/b04898f121773591b6b127810c3d108f0479a075))
+
+
+
 ## [0.8.1](https://github.com/dzangolab/vue/compare/v0.8.0...v0.8.1) (2023-09-11)
 
 
