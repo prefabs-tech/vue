@@ -8,6 +8,7 @@ import logout from "./logout";
 import requestPasswordReset from "./request-password-reset";
 import resetPassword from "./reset-password";
 import signup from "./signup";
+import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "../constant";
 import useUserStore from "../store";
 
 import type { User } from "../types";
@@ -20,6 +21,7 @@ const initSupertokens = (config: AppConfig) => {
     appInfo: {
       apiDomain: config.apiBaseUrl,
       appName: config.appTitle,
+      apiBasePath: config.authBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
     },
     recipeList: [ThirdPartyEmailPassword.init(), Session.init()],
   });

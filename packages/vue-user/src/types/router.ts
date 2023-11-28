@@ -2,11 +2,14 @@ import type { RouteComponent } from "vue-router";
 
 interface RouteOverride {
   component?: RouteComponent;
+  meta?: {
+    layout?: RouteComponent;
+  };
   path?: string;
 }
 
 interface RouteOverrides {
-  google: RouteOverride;
+  google?: RouteOverride;
   home?: string;
   login: RouteOverride;
   signup: RouteOverride & { disabled?: boolean };

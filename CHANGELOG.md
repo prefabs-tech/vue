@@ -1,3 +1,37 @@
+## [0.8.2](https://github.com/dzangolab/vue/compare/v0.8.1...v0.8.2) (2023-10-31)
+
+
+### Bug Fixes
+
+* make google not required for RouteOverrides interface ([#285](https://github.com/dzangolab/vue/issues/285)) ([b04898f](https://github.com/dzangolab/vue/commit/b04898f121773591b6b127810c3d108f0479a075))
+
+
+
+## [0.8.1](https://github.com/dzangolab/vue/compare/v0.8.0...v0.8.1) (2023-09-11)
+
+
+### Features
+
+* **user:** configurable api base path in supertokens init function through config. ([#280](https://github.com/dzangolab/vue/issues/280)) ([10b4305](https://github.com/dzangolab/vue/commit/10b43052fff7cc381203dfe63d4f6287fa2da29b))
+
+
+
+# [0.8.0](https://github.com/dzangolab/vue/compare/v0.7.10...v0.8.0) (2023-08-18)
+
+
+### Bug Fixes
+
+* demo deployment ([#272](https://github.com/dzangolab/vue/issues/272)) ([78290ba](https://github.com/dzangolab/vue/commit/78290ba1cc6b3b549bfe52f8a49e4d9f53a87ba8))
+
+
+### Features
+
+* deploy demo to github ([#270](https://github.com/dzangolab/vue/issues/270)) ([e5fbe00](https://github.com/dzangolab/vue/commit/e5fbe00ce2353249feb4a5c1059645428bb46f72))
+* implement basic google authentication with supertokens ([#255](https://github.com/dzangolab/vue/issues/255)) ([0172155](https://github.com/dzangolab/vue/commit/01721555ee913babd9cfaabf2f71f321a73da1d1))
+* update to support custom layout ([#278](https://github.com/dzangolab/vue/issues/278)) ([6f1ed9c](https://github.com/dzangolab/vue/commit/6f1ed9c814489bf4c81843ffd2897f0ae88ecd96))
+
+
+
 ## [0.7.10](https://github.com/dzangolab/vue/compare/v0.7.9...v0.7.10) (2023-05-08)
 
 
