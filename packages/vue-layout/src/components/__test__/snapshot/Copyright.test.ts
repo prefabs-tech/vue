@@ -18,6 +18,9 @@ describe("Copyright", () => {
 
     const wrapper: VueWrapper = shallowMount(Copyright, {
       global: {
+        mocks: {
+          year: "2023",
+        },
         plugins: [
           [
             i18nPlugin,

@@ -7,26 +7,32 @@ const login = async (
 ): Promise<User | undefined> => {
   let user: User | undefined;
 
-  const response = await emailPasswordSignIn({
-    formFields: [
-      {
-        id: "email",
-        value: credentials.email as string,
-      },
-      {
-        id: "password",
-        value: credentials.password as string,
-      },
-    ],
-  });
+  try {
+    const response = await emailPasswordSignIn({
+      formFields: [
+        {
+          id: "email",
+          value: credentials.email as string,
+        },
+        {
+          id: "password",
+          value: credentials.password as string,
+        },
+      ],
+    });
 
-  if (response.status === "OK") {
-    user = response.user;
-  } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
-    throw new Error("401");
+    if (response.status === "OK") {
+      user = response.user;
+    } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
+      throw new Error("401");
+    } else {
+      throw new Error("SOMETHING_WRONG");
+    }
+
+    return user;
+  } catch (error) {
+    throw new Error("SOMETHING_WRONG");
   }
-
-  return user;
 };
 
 export default login;
