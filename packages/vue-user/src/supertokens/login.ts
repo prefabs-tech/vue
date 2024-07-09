@@ -24,6 +24,8 @@ const login = async (
     user = response.user;
   } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
     throw new Error("401");
+  } else {
+    throw new Error("500");
   }
 
   return user;

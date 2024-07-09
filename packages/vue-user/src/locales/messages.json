@@ -4,7 +4,8 @@
       "loading": "Loading...",
       "login": {
         "errors": {
-          "401": "The credentials you input are invalid."
+          "401": "The credentials you input are invalid.",
+          "500": "Something went wrong."
         },
         "form": {
           "actions": {
