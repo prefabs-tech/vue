@@ -26,12 +26,12 @@ const signup = async (
     } else if (response.status === "FIELD_ERROR") {
       throw new Error("409");
     } else {
-      throw new Error("500");
+      throw new Error("SOMETHING_WRONG");
     }
 
     return user;
   } catch (error) {
-    throw new Error("500");
+    throw new Error("SOMETHING_WRONG");
   }
 };
 

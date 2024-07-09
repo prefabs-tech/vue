@@ -26,12 +26,12 @@ const login = async (
     } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
       throw new Error("401");
     } else {
-      throw new Error("500");
+      throw new Error("SOMETHING_WRONG");
     }
 
     return user;
   } catch (error) {
-    throw new Error("500");
+    throw new Error("SOMETHING_WRONG");
   }
 };
 

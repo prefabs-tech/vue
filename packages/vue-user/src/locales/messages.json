@@ -5,7 +5,7 @@
       "login": {
         "errors": {
           "401": "The credentials you input are invalid.",
-          "500": "Something went wrong."
+          "SOMETHING_WRONG": "Something went wrong. Plese try again."
         },
         "form": {
           "actions": {
@@ -103,7 +103,7 @@
       "signup": {
         "errors": {
           "409": "Sorry! We could not register your account because of an unexpected error.",
-          "500": "Something went wrong."
+          "SOMETHING_WRONG": "Something went wrong. Plese try again."
         },
         "form": {
           "actions": {
