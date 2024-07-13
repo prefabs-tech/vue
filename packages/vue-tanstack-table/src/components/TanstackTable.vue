@@ -186,6 +186,8 @@ const props = defineProps({
   },
 });
 
+// FIXME [OP 2024-07-13]
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 const columnHelper = createColumnHelper<any>();
 
 const columns: ColumnDef<unknown, unknown>[] = [];

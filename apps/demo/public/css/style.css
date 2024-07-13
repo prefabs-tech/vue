@@ -1,4 +1,5 @@
 :root {
-  footer-bg-color: lightblue;
-  footer-border-color: transparent;
+  --footer-bg-color: darkblue;
+  --footer-border-color: transparent;
+  --header-bg-color: transparent!important;
 }

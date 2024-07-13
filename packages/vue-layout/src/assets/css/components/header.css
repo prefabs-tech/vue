@@ -1,13 +1,15 @@
 .layout > header {
-  --header-bg-color: transparent;
-  --header-border-color: var(--border-color);
+  --_header-bg-color: var(--header-bg-color, transparent);
+  --_header-border-color: var(--header-border-color);
+  --_header-border-width: var(--header-border-width, 5px);
   --header-font-size: var(--font-size);
   --header-gap: 0.5rem;
   --header-logo-max-width: 150px;
   --header-padding-v: 1em;
 
   align-items: center;
-  border-bottom: 1px solid var(--header-border-color);
+  border: none;
+  border-image: linear-gradient(0deg, var(--_header-border-color) var(--_header-border-width), var(--_header-bg-color) 0) fill 0/0/0 100vw;
   display: grid;
   font-size: var(--header-font-size);
   gap: 0 var(--header-gap);
@@ -20,19 +22,6 @@
   padding-bottom: var(--header-padding-v);
   padding-top: var(--header-padding-v);
   position: relative;
-}
-
-.layout > header::before {
-  content: "";
-  background-color: var(--header-bg-color);
-  box-shadow: 0 0 0 100vmax var(--header-bg-color);
-  clip-path: inset(calc(-1 * var(--header-padding-top)) -100vmax calc(-1 * var(--header-padding-bottom, 1em)) -100vmax);
-  grid-column: 1 / span 2;
-  grid-row: 1 / 1;
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  z-index: -1;
 }
 
 .layout > header > nav {
@@ -77,7 +66,7 @@
   flex: 1;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 600px) {
   .layout > header {
     grid-template-areas: "logo nav";
     justify-items: stretch;
@@ -85,7 +74,7 @@
 
   .layout > header > nav {
     align-items: center;
-    background-color: var(--header-bg-color);
+    background-color: var(--_header-bg-color);
     border: none;
     display: flex;
     flex-direction: row;

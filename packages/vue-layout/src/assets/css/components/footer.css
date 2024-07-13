@@ -1,27 +1,27 @@
 .layout > footer {
-  --footer-bg-color: transparent;
-  --footer-border-color: var(--border-color);
-  --footer-font-size: calc(0.75 * var(--font-size));
-  --footer-gap: 0.5em;
-  --footer-padding-v: 1em;
+  --_footer-bg-color: var(--footer-bg-color);
+  --_footer-border-color: var(--footer-border-color);
+  --_footer-border-width: var(--footer-border-width, 5px);
+  --_footer-font-size: var(--footer-font-size, 0.75em);
+  --_footer-gap: var(--footer-gap, 0.5em);
+  --_footer-padding-bottom: var(--footer-padding-bottom, 1em);
+  --_footer-padding-top: var(--footer-padding-top, 1em);
 
   align-items: center;
-  background-color: var(--footer-bg-color);
-  border-top: 1px solid var(--footer-border-color);
-  box-shadow: 0 0 0 100vmax var(--footer-bg-color);
-  clip-path: inset(0 -100vmax);
+  border: none;
+  border-image: linear-gradient(to bottom, var(--_footer-border-color) var(--_footer-border-width), var(--_footer-bg-color) 0) fill 0/0/0 100vw;
   display: flex;
   flex-direction: column;
-  font-size: var(--footer-font-size);
-  gap: var(--footer-gap);
+  font-size: var(--_footer-font-size);
+  gap: var(--_footer-gap);
   justify-content: center;
-  padding-bottom: var(--footer-padding-v);
-  padding-top: var(--footer-padding-v);
+  padding-bottom: var(--_footer-padding-bottom);
+  padding-top: var(--_footer-padding-top);
   text-align: center;
 }
 
 .layout > footer .version {
-  font-size: calc(0.8 * var(--footer-font-size));
+  font-size: 0.8em;
 }
 
 @media screen and (min-width: 576px) {

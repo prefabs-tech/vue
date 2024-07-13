@@ -1,7 +1,15 @@
 :root {
-  --footer-bg-color: lightblue;
-  --footer-border-color: transparent;
+  --footer-bg-color: transparent;
+  --footer-border-color: lightblue;
+  --footer-border-width: 1px;
+  --footer-font-size: .75rem;
+  --footer-gap: 3rem;
+  --footer-padding-bottom: 1rem;
+  --footer-padding-top: 1rem;
   --form-input-border-color-highlight: red;
-  --header-bg-color: lightblue;
-  --header-border-color: transparent;
+  --header-bg-color: transparent;
+  --header-border-color: lightblue;
+  --header-border-width: 1px;
+  --layout-gap: 1rem;
+  --layout-max-width: 1440px;
 }
