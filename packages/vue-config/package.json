@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-config",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "Vue config plugin",
   "license": "MIT",
   "type": "module",
@@ -13,9 +13,7 @@
   "main": "dist//DzangolabVue3Config.umd.js",
   "module": "dist//DzangolabVue3Config.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -38,9 +36,9 @@
     "@vitejs/plugin-vue-jsx": "3.0.1",
     "@vitest/coverage-istanbul": "0.29.8",
     "eslint": "8.36.0",
-    "eslint-config-custom": "0.8.3",
+    "eslint-config-custom": "0.8.4",
     "prettier": "2.8.7",
-    "tsconfig-custom": "0.8.3",
+    "tsconfig-custom": "0.8.4",
     "typescript": "4.9.5",
     "vite": "4.1.4",
     "vitest": "0.29.8",
