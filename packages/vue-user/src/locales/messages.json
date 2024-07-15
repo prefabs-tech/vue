@@ -102,7 +102,7 @@
       },
       "signup": {
         "errors": {
-          "409": "Sorry! We could not register your account because of an unexpected error.",
+          "401": "Sorry! We could not register your account because of an unexpected error.",
           "SOMETHING_WRONG": "Something went wrong. Plese try again."
         },
         "form": {

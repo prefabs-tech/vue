@@ -6,31 +6,34 @@ const signup = async (
   credentials: LoginCredentials
 ): Promise<User | undefined> => {
   let user: User | undefined;
+  let response;
+
+  const data = {
+    formFields: [
+      {
+        id: "email",
+        value: credentials.email as string,
+      },
+      {
+        id: "password",
+        value: credentials.password as string,
+      },
+    ],
+  };
 
   try {
-    const response = await emailPasswordSignUp({
-      formFields: [
-        {
-          id: "email",
-          value: credentials.email as string,
-        },
-        {
-          id: "password",
-          value: credentials.password as string,
-        },
-      ],
-    });
+    response = await emailPasswordSignUp(data);
+  } catch (error) {
+    throw new Error("SOMETHING_WRONG");
+  }
 
-    if (response.status === "OK") {
-      user = response.user;
-    } else if (response.status === "FIELD_ERROR") {
-      throw new Error("409");
-    } else {
-      throw new Error("SOMETHING_WRONG");
-    }
+  if (response.status === "OK") {
+    user = response.user;
 
     return user;
-  } catch (error) {
+  } else if (response.status === "FIELD_ERROR") {
+    throw new Error("401");
+  } else {
     throw new Error("SOMETHING_WRONG");
   }
 };
