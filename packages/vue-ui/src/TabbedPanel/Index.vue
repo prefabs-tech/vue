@@ -49,6 +49,11 @@ import { computed, onMounted, ref, useSlots } from "vue";
 
 import type { PropType } from "vue";
 
+interface StorageInterface {
+  save: (key: string, value: number) => void;
+  get: (key: string) => string | null;
+}
+
 const slots = useSlots();
 
 const props = defineProps({
@@ -83,12 +88,20 @@ onMounted(() => {
   }
 });
 
+const getLsItem: StorageInterface["get"] = (key: string) => {
+  return localStorage.getItem(key);
+};
+
+const setLsItem: StorageInterface["save"] = (key: string, value: number) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
 const handleClick = (index: number) => {
   active.value = index;
-  const storeData = localStorage.getItem(key);
+  const storeData = getLsItem(key);
   const dataToStore = storeData ? JSON.parse(storeData) : {};
   dataToStore[props.storageKey] = index;
-  localStorage.setItem(key, JSON.stringify(dataToStore));
+  setLsItem(key, dataToStore);
 };
 
 const filteredSlots = slots?.default
