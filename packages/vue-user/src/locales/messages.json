@@ -4,7 +4,8 @@
       "loading": "Loading...",
       "login": {
         "errors": {
-          "401": "The credentials you input are invalid."
+          "401": "The credentials you input are invalid.",
+          "SOMETHING_WRONG": "Something went wrong. Plese try again."
         },
         "form": {
           "actions": {
@@ -101,7 +102,8 @@
       },
       "signup": {
         "errors": {
-          "409": "Sorry! We could not register your account because of an unexpected error."
+          "401": "Sorry! We could not register your account because of an unexpected error.",
+          "SOMETHING_WRONG": "Something went wrong. Plese try again."
         },
         "form": {
           "actions": {
