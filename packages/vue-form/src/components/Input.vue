@@ -58,8 +58,11 @@ const props = defineProps({
     type: String,
   },
   schema: {
+    default: () => {
+      return {};
+    },
+    required: false,
     type: Object as PropType<z.ZodType<any>>,
-    required: true,
   },
   type: {
     default: "text",
