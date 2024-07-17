@@ -3,7 +3,12 @@
     <label v-if="label">
       {{ label }}
     </label>
-    <Field v-slot="{ field, meta }" v-bind="modelValue" :name="name">
+    <Field
+      v-slot="{ field, meta }"
+      v-bind="modelValue"
+      :name="name"
+      :rules="fieldSchema"
+    >
       <input
         v-bind="field"
         :id="`input-field-${name}`"
@@ -27,11 +32,13 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { z } from "zod";
 
 import type { PropType } from "vue";
 
-defineProps({
+const props = defineProps({
   label: {
     default: "",
     required: false,
@@ -50,12 +57,9 @@ defineProps({
     default: "",
     type: String,
   },
-  rules: {
-    default: () => {
-      return {};
-    },
-    required: false,
-    type: Object,
+  schema: {
+    type: Object as PropType<z.ZodType<any>>,
+    required: true,
   },
   type: {
     default: "text",
@@ -64,4 +68,6 @@ defineProps({
 });
 
 defineEmits(["update:modelValue"]);
+
+const fieldSchema = toFieldValidator(props.schema);
 </script>
