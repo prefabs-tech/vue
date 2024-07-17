@@ -5,9 +5,10 @@
     </label>
     <Field
       v-slot="{ field, meta }"
-      v-bind="modelValue"
+      v-bind="{ modelValue }"
       :name="name"
       :rules="fieldSchema"
+      @input="onInput"
     >
       <input
         v-bind="field"
@@ -70,7 +71,13 @@ const props = defineProps({
   },
 });
 
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = toFieldValidator(props.schema);
+
+const onInput = (event: Event) => {
+  const value = (event.target as HTMLInputElement).value;
+
+  emit("update:modelValue", value);
+};
 </script>
