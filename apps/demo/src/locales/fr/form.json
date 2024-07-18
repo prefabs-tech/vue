@@ -1,3 +1,13 @@
 {
+  "label": {
+    "age": "Age[fr]",
+    "employee_no": "Emloyee No.[fr]",
+    "full_name": "Full name[fr]"
+  },
+  "placeholder": {
+    "age": "Enter your age[fr]",
+    "employee_no": "Enter your employee number[fr]",
+    "full_name": "Enter your full name[fr]"
+  },
   "title": "Form Library[fr]"
 }

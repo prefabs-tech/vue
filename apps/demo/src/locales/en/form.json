@@ -1,3 +1,13 @@
 {
+  "label": {
+    "age": "Age",
+    "employee_no": "Emloyee No.",
+    "full_name": "Full name"
+  },
+  "placeholder": {
+    "age": "Enter your age",
+    "employee_no": "Enter your employee number",
+    "full_name": "Enter your full name"
+  },
   "title": "Form Library"
 }

@@ -2,31 +2,31 @@
   <Page :title="$t('form.title')">
     <form class="form" @submit.prevent>
       <Input
-        v-model="usernameInput"
-        :schema="usernameSchema"
+        v-model="nameInput"
+        :label="$t('form.label.full_name')"
+        :placeholder="$t('form.placeholder.full_name')"
+        :schema="nameSchema"
         class="form-field"
-        label="Full name"
         name="name"
-        placeholder="Enter your full name"
         type="text"
       />
 
       <NumberInput
         v-model="ageInput"
+        :label="$t('form.label.age')"
         :options="schemaOptions"
+        :placeholder="$t('form.placeholder.age')"
         class="form-field"
-        label="Age"
         name="age"
-        placeholder="Enter your age"
       />
 
       <NumberInput
         v-model="employeeNoInput"
+        :label="$t('form.label.employee_no')"
+        :placeholder="$t('form.placeholder.employee_no')"
         :schema="employeeNoSchema"
         class="form-field"
-        label="Emloyee No."
         name="employee_number"
-        placeholder="Enter your employee number"
       />
 
       <div class="form-actions">
@@ -51,12 +51,12 @@ import type { Ref } from "vue";
 
 const ageInput: Ref<number | undefined> = ref();
 const employeeNoInput: Ref<number | undefined> = ref();
-const usernameInput: Ref<string> = ref("");
+const nameInput: Ref<string> = ref("");
 
 const employeeNoSchema = z.string().refine((val) => Number(val) > 0, {
   message: "Must be a valid employee number",
 });
-const usernameSchema = z
+const nameSchema = z
   .string()
   .min(3, { message: "Username must be atleast 3 character(s)" });
 
