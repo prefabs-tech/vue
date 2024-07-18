@@ -18,7 +18,7 @@
           valid: meta.dirty && meta.valid,
         }"
         :placeholder="placeholder"
-        :type="type"
+        type="number"
         tabindex="0"
       />
       <ErrorMessage :name="name" />
@@ -28,7 +28,7 @@
 
 <script lang="ts">
 export default {
-  name: "FormInput",
+  name: "NumberInput",
 };
 </script>
 
@@ -37,22 +37,42 @@ import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
 
+import { numberSchema } from "../schemas";
+
+import type { NumberErrorMessages, IsIntOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  errorMessages: {
+    default: () => {
+      return {
+        invalid: "Please provide a valid integer field",
+        required: "The field is required",
+      };
+    },
+    required: false,
+    type: Object as PropType<NumberErrorMessages>,
+  },
   label: {
     default: "",
     required: false,
     type: String as PropType<string>,
   },
   modelValue: {
-    default: "",
-    type: String as PropType<string | null | undefined>,
+    default: 0,
+    type: Number as PropType<number | null | undefined>,
   },
   name: {
-    default: "name",
+    default: "number",
     required: false,
     type: String as PropType<string>,
+  },
+  options: {
+    default: () => {
+      return {};
+    },
+    required: false,
+    type: Object as PropType<IsIntOptions>,
   },
   placeholder: {
     default: "",
@@ -63,17 +83,17 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<z.ZodType<string | number | object>>,
-  },
-  type: {
-    default: "text",
-    type: String,
+    type: Object as PropType<z.ZodType<string | number>>,
   },
 });
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema = toFieldValidator(props.schema);
+const fieldSchema = toFieldValidator(
+  Object.keys(props.schema).length
+    ? props.schema
+    : numberSchema(props.errorMessages, props.options)
+);
 
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;
