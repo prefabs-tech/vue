@@ -49,6 +49,10 @@ const config: AppConfig = {
         route: "ui",
       },
       {
+        name: "Form",
+        route: "form",
+      },
+      {
         name: "Sentry",
         route: "sentry",
       },
