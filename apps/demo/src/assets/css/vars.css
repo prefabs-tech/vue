@@ -1,13 +1,13 @@
 :root {
-  --footer-bg-color: lightblue;
-  --footer-border-color: transparent;
-  --form-input-border-color-highlight: red;
-  --header-bg-color: lightblue;
-  --header-border-color: transparent;
   --dz-alternate-color: #0284c7;
   --dz-danger-color: #dc3545;
   --dz-primary-color: #007aff;
   --dz-secondary-color: #475569;
   --dz-success-color: #22c55e;
   --dz-warning-color: #ea580c;
+  --footer-bg-color: lightblue;
+  --footer-border-color: transparent;
+  --form-input-border-color-highlight: red;
+  --header-bg-color: lightblue;
+  --header-border-color: transparent;
 }
