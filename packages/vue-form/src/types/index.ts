@@ -13,7 +13,17 @@ interface PasswordErrorMessages {
   weak?: string;
 }
 
-export type { EmailErrorMessages, NumberErrorMessages, PasswordErrorMessages };
+interface TextErrorMessages {
+  invalid?: string;
+  required?: string;
+}
+
+export type {
+  EmailErrorMessages,
+  NumberErrorMessages,
+  PasswordErrorMessages,
+  TextErrorMessages,
+};
 
 export type {
   IsEmailOptions,
