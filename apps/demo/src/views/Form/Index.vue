@@ -3,8 +3,8 @@
     <Form class="form" @submit="onSubmit">
       <Input
         v-model="formData.name"
-        :label="$t('form.label.full_name')"
-        :placeholder="$t('form.placeholder.full_name')"
+        :label="$t('form.label.fullName')"
+        :placeholder="$t('form.placeholder.fullName')"
         :schema="nameSchema"
         class="form-field"
         name="name"
@@ -22,15 +22,17 @@
 
       <NumberInput
         v-model="formData.employeeNo"
-        :label="$t('form.label.employee_no')"
-        :placeholder="$t('form.placeholder.employee_no')"
+        :label="$t('form.label.employeeNo')"
+        :placeholder="$t('form.placeholder.employeeNo')"
         :schema="employeeNoSchema"
         class="form-field"
         name="employee_number"
       />
 
       <div class="form-actions">
-        <button class="submit-button" type="submit">Submit</button>
+        <button class="submit-button" type="submit">
+          {{ $t("form.actions.submit") }}
+        </button>
       </div>
     </Form>
 
@@ -50,6 +52,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { Input, NumberInput } from "@dzangolab/vue3-form";
 import { Form } from "vee-validate";
 import { computed, reactive, ref } from "vue";
@@ -67,13 +70,13 @@ let formData = reactive({
 
 const showSubmittedData: Ref<boolean> = ref(false);
 
+const { t } = useI18n();
+
 const employeeNoSchema = z.string().refine((val) => Number(val) > 0, {
-  message: "Must be a valid employee number",
+  message: t("form.errors.employeeNo.invalid"),
 });
 
-const nameSchema = z
-  .string()
-  .min(3, { message: "Username must be at least 3 character(s)" });
+const nameSchema = z.string().min(3, { message: t("form.errors.name.min") });
 
 const schemaOptions = {
   max: 100,

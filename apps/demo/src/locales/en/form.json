@@ -1,14 +1,25 @@
 {
+  "actions": {
+    "submit": "Submit"
+  },
+  "errors": {
+    "employeeNo": {
+      "invalid": "Must be a valid employee number"
+    },
+    "name": {
+      "min": "Username must be at least 3 character(s)"
+    }
+  },
   "label": {
     "age": "Age",
-    "employee_no": "Emloyee No.",
-    "full_name": "Full name"
+    "employeeNo": "Emloyee No.",
+    "fullName": "Full name"
   },
   "placeholder": {
     "age": "Enter your age",
-    "employee_no": "Enter your employee number",
-    "full_name": "Enter your full name"
+    "employeeNo": "Enter your employee number",
+    "fullName": "Enter your full name"
   },
   "submittedValue": "Submitted value",
-  "title": "Form Library"
+  "title": "Form library"
 }
