@@ -9,5 +9,6 @@
     "employee_no": "Enter your employee number",
     "full_name": "Enter your full name"
   },
+  "submittedValue": "Submitted value",
   "title": "Form Library"
 }

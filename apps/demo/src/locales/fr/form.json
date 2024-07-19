@@ -9,5 +9,6 @@
     "employee_no": "Enter your employee number[fr]",
     "full_name": "Enter your full name[fr]"
   },
+  "submittedValue": "Submitted value[fr]",
   "title": "Form Library[fr]"
 }

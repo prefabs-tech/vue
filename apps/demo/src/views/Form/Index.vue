@@ -1,10 +1,8 @@
-<!-- @format -->
-
 <template>
   <Page :title="$t('form.title')">
     <Form class="form" @submit="onSubmit">
       <Input
-        v-model="name"
+        v-model="formData.name"
         :label="$t('form.label.full_name')"
         :placeholder="$t('form.placeholder.full_name')"
         :schema="nameSchema"
@@ -14,7 +12,7 @@
       />
 
       <NumberInput
-        v-model="age"
+        v-model="formData.age"
         :label="$t('form.label.age')"
         :options="schemaOptions"
         :placeholder="$t('form.placeholder.age')"
@@ -23,7 +21,7 @@
       />
 
       <NumberInput
-        v-model="employeeNo"
+        v-model="formData.employeeNo"
         :label="$t('form.label.employee_no')"
         :placeholder="$t('form.placeholder.employee_no')"
         :schema="employeeNoSchema"
@@ -36,11 +34,11 @@
       </div>
     </Form>
 
-    <div class="form-info">
-      <div class="info">
-        <div class="label"></div>
-        <div class="value"></div>
-      </div>
+    <div v-if="showSubmittedData" class="submitted-data">
+      <CodeBlock
+        :code-content="formattedData"
+        :title="$t('form.submittedValue')"
+      />
     </div>
   </Page>
 </template>
@@ -54,14 +52,20 @@ export default {
 <script setup lang="ts">
 import { Input, NumberInput } from "@dzangolab/vue3-form";
 import { Form } from "vee-validate";
-import { ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { z } from "zod";
+
+import CodeBlock from "@/components/CodeBlock.vue";
 
 import type { Ref } from "vue";
 
-const age: Ref<number | undefined> = ref();
-const employeeNo: Ref<number | undefined> = ref();
-const name: Ref<string> = ref("");
+let formData = reactive({
+  age: ref(),
+  employeeNo: ref(),
+  name: ref(),
+});
+
+const showSubmittedData: Ref<boolean> = ref(false);
 
 const employeeNoSchema = z.string().refine((val) => Number(val) > 0, {
   message: "Must be a valid employee number",
@@ -76,8 +80,12 @@ const schemaOptions = {
   min: 18,
 };
 
+const formattedData = computed(() => {
+  return JSON.stringify(formData, null, 2);
+});
+
 const onSubmit = () => {
-  //handle submit
+  showSubmittedData.value = true;
 };
 </script>
 
