@@ -1,8 +1,10 @@
+<!-- @format -->
+
 <template>
   <Page :title="$t('form.title')">
-    <form class="form" @submit.prevent>
+    <Form class="form" @submit="onSubmit">
       <Input
-        v-model="nameInput"
+        v-model="name"
         :label="$t('form.label.full_name')"
         :placeholder="$t('form.placeholder.full_name')"
         :schema="nameSchema"
@@ -12,7 +14,7 @@
       />
 
       <NumberInput
-        v-model="ageInput"
+        v-model="age"
         :label="$t('form.label.age')"
         :options="schemaOptions"
         :placeholder="$t('form.placeholder.age')"
@@ -21,7 +23,7 @@
       />
 
       <NumberInput
-        v-model="employeeNoInput"
+        v-model="employeeNo"
         :label="$t('form.label.employee_no')"
         :placeholder="$t('form.placeholder.employee_no')"
         :schema="employeeNoSchema"
@@ -32,7 +34,14 @@
       <div class="form-actions">
         <button class="submit-button" type="submit">Submit</button>
       </div>
-    </form>
+    </Form>
+
+    <div class="form-info">
+      <div class="info">
+        <div class="label"></div>
+        <div class="value"></div>
+      </div>
+    </div>
   </Page>
 </template>
 
@@ -44,25 +53,31 @@ export default {
 
 <script setup lang="ts">
 import { Input, NumberInput } from "@dzangolab/vue3-form";
-import { z } from "zod";
+import { Form } from "vee-validate";
 import { ref } from "vue";
+import { z } from "zod";
 
 import type { Ref } from "vue";
 
-const ageInput: Ref<number | undefined> = ref();
-const employeeNoInput: Ref<number | undefined> = ref();
-const nameInput: Ref<string> = ref("");
+const age: Ref<number | undefined> = ref();
+const employeeNo: Ref<number | undefined> = ref();
+const name: Ref<string> = ref("");
 
 const employeeNoSchema = z.string().refine((val) => Number(val) > 0, {
   message: "Must be a valid employee number",
 });
+
 const nameSchema = z
   .string()
-  .min(3, { message: "Username must be atleast 3 character(s)" });
+  .min(3, { message: "Username must be at least 3 character(s)" });
 
 const schemaOptions = {
   max: 100,
   min: 18,
+};
+
+const onSubmit = () => {
+  //handle submit
 };
 </script>
 
