@@ -27,6 +27,7 @@ export type {
 
 export type {
   IsEmailOptions,
+  IsTextOptions,
   IsIntOptions,
   StrongPasswordOptions,
 } from "./validator";

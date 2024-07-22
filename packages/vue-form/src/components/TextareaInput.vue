@@ -10,15 +10,14 @@
       :rules="fieldSchema"
       @input="onInput"
     >
-      <input
-        v-bind="field"
+      <textarea
+        v-bind="{ field }"
         :id="`input-field-${name}`"
         :class="{
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
         :placeholder="placeholder"
-        type="text"
         tabindex="0"
       />
       <ErrorMessage :name="name" />
