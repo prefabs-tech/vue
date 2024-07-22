@@ -12,11 +12,13 @@
   },
   "label": {
     "age": "Age",
-    "employeeNo": "Emloyee No.",
+    "currentAddress": "Current address",
+    "employeeNo": "Emloyee no.",
     "fullName": "Full name"
   },
   "placeholder": {
     "age": "Enter your age",
+    "currentAddress": "Enter your current address",
     "employeeNo": "Enter your employee number",
     "fullName": "Enter your full name"
   },

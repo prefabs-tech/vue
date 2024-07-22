@@ -3,7 +3,7 @@
     <Form class="form" @submit="onSubmit">
       <Input
         v-model="formData.name"
-        :label="$t('form.label.fullName')"
+        :label="$t('form.label.fullName') + ' *'"
         :placeholder="$t('form.placeholder.fullName')"
         :schema="nameSchema"
         class="form-field"
@@ -13,7 +13,7 @@
 
       <NumberInput
         v-model="formData.age"
-        :label="$t('form.label.age')"
+        :label="$t('form.label.age') + ' *'"
         :options="schemaOptions"
         :placeholder="$t('form.placeholder.age')"
         class="form-field"
@@ -22,11 +22,19 @@
 
       <NumberInput
         v-model="formData.employeeNo"
-        :label="$t('form.label.employeeNo')"
+        :label="$t('form.label.employeeNo') + ' *'"
         :placeholder="$t('form.placeholder.employeeNo')"
         :schema="employeeNoSchema"
         class="form-field"
         name="employee_number"
+      />
+
+      <TextInput
+        v-model="formData.current_address"
+        :label="$t('form.label.currentAddress')"
+        :placeholder="$t('form.placeholder.currentAddress')"
+        class="form-field"
+        name="current_address"
       />
 
       <div class="form-actions">
@@ -53,7 +61,7 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Input, NumberInput } from "@dzangolab/vue3-form";
+import { Input, NumberInput, TextInput } from "@dzangolab/vue3-form";
 import { Form } from "vee-validate";
 import { computed, reactive, ref } from "vue";
 import { z } from "zod";
@@ -64,6 +72,7 @@ import type { Ref } from "vue";
 
 let formData = reactive({
   age: ref(),
+  current_address: ref(),
   employeeNo: ref(),
   name: ref(),
 });
