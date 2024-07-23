@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 import { feature } from "@/config";
+import form from "./form";
 import ui from "./ui";
 
 import type { AppFeatures } from "@dzangolab/vue3-config";
@@ -41,6 +42,7 @@ const router: Router = createRouter({
       name: "sentry",
       path: "/sentry",
     },
+    ...form,
     ...ui,
   ],
 } as RouterOptions);

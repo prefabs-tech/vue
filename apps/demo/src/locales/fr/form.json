@@ -1,0 +1,25 @@
+{
+  "actions": {
+    "submit": "Submit[fr]"
+  },
+  "errors": {
+    "employeeNo": {
+      "invalid": "Must be a valid employee number[fr]"
+    },
+    "name": {
+      "min": "Username must be at least 3 character(s)[fr]"
+    }
+  },
+  "label": {
+    "age": "Age[fr]",
+    "employeeNo": "Emloyee No.[fr]",
+    "fullName": "Full name[fr]"
+  },
+  "placeholder": {
+    "age": "Enter your age[fr]",
+    "employeeNo": "Enter your employee number[fr]",
+    "fullName": "Enter your full name[fr]"
+  },
+  "submittedValue": "Submitted value[fr]",
+  "title": "Form library[fr]"
+}
