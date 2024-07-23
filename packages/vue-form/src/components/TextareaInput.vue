@@ -5,13 +5,13 @@
     </label>
     <Field
       v-slot="{ field, meta }"
-      v-bind="{ modelValue }"
+      :model-value="modelValue"
       :name="name"
       :rules="fieldSchema"
       @input="onInput"
     >
       <textarea
-        v-bind="{ field }"
+        v-bind="field"
         :id="`input-field-${name}`"
         :class="{
           invalid: meta.touched && !meta.valid,
@@ -19,6 +19,7 @@
         }"
         :placeholder="placeholder"
         tabindex="0"
+        type="textarea"
       />
       <ErrorMessage :name="name" />
     </Field>
@@ -27,7 +28,7 @@
 
 <script lang="ts">
 export default {
-  name: "TextInput",
+  name: "TextareaInput",
 };
 </script>
 
@@ -59,7 +60,7 @@ const props = defineProps({
   },
   modelValue: {
     default: "",
-    type: String as PropType<string | null | undefined>,
+    type: String as PropType<string | number | string[] | undefined>,
   },
   name: {
     default: "text",
@@ -100,3 +101,11 @@ const onInput = (event: Event) => {
   emit("update:modelValue", value);
 };
 </script>
+
+<style scoped>
+.field textarea {
+  height: var(--textarea-height, 8rem);
+  resize: var(--textarea-resize, none);
+  width: var(--textarea-width, 100%);
+}
+</style>

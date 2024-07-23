@@ -37,6 +37,14 @@
         name="current_address"
       />
 
+      <TextareaInput
+        v-model="formData.bio"
+        :label="$t('form.label.bio')"
+        :placeholder="$t('form.placeholder.bio')"
+        class="form-field"
+        name="bio"
+      />
+
       <div class="form-actions">
         <button class="submit-button" type="submit">
           {{ $t("form.actions.submit") }}
@@ -61,7 +69,12 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Input, NumberInput, TextInput } from "@dzangolab/vue3-form";
+import {
+  Input,
+  NumberInput,
+  TextInput,
+  TextareaInput,
+} from "@dzangolab/vue3-form";
 import { Form } from "vee-validate";
 import { computed, reactive, ref } from "vue";
 import { z } from "zod";
@@ -72,6 +85,7 @@ import type { Ref } from "vue";
 
 let formData = reactive({
   age: ref(),
+  bio: ref(),
   current_address: ref(),
   employeeNo: ref(),
   name: ref(),
@@ -81,9 +95,11 @@ const showSubmittedData: Ref<boolean> = ref(false);
 
 const { t } = useI18n();
 
-const employeeNoSchema = z.string().refine((val) => Number(val) > 0, {
-  message: t("form.errors.employeeNo.invalid"),
-});
+const employeeNoSchema = z
+  .string({ invalid_type_error: t("form.errors.employeeNo.invalid") })
+  .refine((val) => Number(val) > 0, {
+    message: t("form.errors.employeeNo.invalid"),
+  });
 
 const nameSchema = z.string().min(3, { message: t("form.errors.name.min") });
 

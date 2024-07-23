@@ -10,4 +10,7 @@
   --form-input-border-color-highlight: red;
   --header-bg-color: lightblue;
   --header-border-color: transparent;
+  --textarea-resize: vertical;
+  --textarea-width: 100%;
+  --textarea-height: 10rem;
 }
