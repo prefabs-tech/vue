@@ -72,8 +72,8 @@ import { useI18n } from "@dzangolab/vue3-i18n";
 import {
   Input,
   NumberInput,
-  TextInput,
   TextareaInput,
+  TextInput,
 } from "@dzangolab/vue3-form";
 import { Form } from "vee-validate";
 import { computed, reactive, ref } from "vue";
