@@ -14,15 +14,19 @@
     "age": "Age",
     "bio": "Bio",
     "currentAddress": "Current address",
+    "email": "Email",
     "employeeNo": "Emloyee no.",
-    "fullName": "Full name"
+    "fullName": "Full name",
+    "password": "Password"
   },
   "placeholder": {
     "age": "Enter your age",
     "bio": "Enter your bio",
     "currentAddress": "Enter your current address",
+    "email": "Enter your email",
     "employeeNo": "Enter your employee number",
-    "fullName": "Enter your full name"
+    "fullName": "Enter your full name",
+    "password": "Enter your password"
   },
   "submittedValue": "Submitted value",
   "title": "Form library"

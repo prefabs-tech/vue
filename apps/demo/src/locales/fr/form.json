@@ -14,15 +14,19 @@
     "age": "Age[fr]",
     "bio": "Bio[fr]",
     "currentAddress": "Current address[fr]",
+    "email": "Email[fr]",
     "employeeNo": "Emloyee No.[fr]",
-    "fullName": "Full name[fr]"
+    "fullName": "Full name[fr]",
+    "password": "Password[fr]"
   },
   "placeholder": {
     "age": "Enter your age[fr]",
     "bio": "Enter your bio[fr]",
     "currentAddress": "Enter your current address[fr]",
+    "email": "Enter your email[fr]",
     "employeeNo": "Enter your employee number[fr]",
-    "fullName": "Enter your full name[fr]"
+    "fullName": "Enter your full name[fr]",
+    "password": "Enter your password[fr]"
   },
   "submittedValue": "Submitted value[fr]",
   "title": "Form library[fr]"

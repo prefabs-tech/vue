@@ -8,6 +8,7 @@
       v-bind="modelValue"
       :name="name"
       :rules="fieldSchema"
+      @input="onInput"
     >
       <input
         v-bind="field"
@@ -71,9 +72,13 @@ const props = defineProps({
     required: false,
     type: Object as PropType<StrongPasswordOptions>,
   },
+  placeholder: {
+    default: "",
+    type: String,
+  },
 });
 
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = toFieldValidator(
   passwordSchema(
@@ -81,4 +86,10 @@ const fieldSchema = toFieldValidator(
     props.options as StrongPasswordOptions & { returnScore: false | undefined }
   )
 );
+
+const onInput = (event: Event) => {
+  const value = (event.target as HTMLInputElement).value;
+
+  emit("update:modelValue", value);
+};
 </script>
