@@ -16,6 +16,7 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :placeholder="placeholder"
         tabindex="0"
         type="email"
       />
