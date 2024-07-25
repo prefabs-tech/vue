@@ -17,6 +17,7 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :disabled="disabled"
         :placeholder="placeholder"
         type="text"
         tabindex="0"
@@ -43,6 +44,10 @@ import type { TextErrorMessages, IsTextOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  disabled: {
+    default: false,
+    type: Boolean,
+  },
   errorMessages: {
     default: () => {
       return {
