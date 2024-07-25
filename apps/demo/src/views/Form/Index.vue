@@ -11,6 +11,18 @@
         type="text"
       />
 
+      <Email
+        v-model="formData.email"
+        :label="$t('form.label.email') + ' *'"
+        :placeholder="$t('form.placeholder.email')"
+      />
+
+      <Password
+        v-model="formData.password"
+        :label="$t('form.label.password') + ' *'"
+        :placeholder="$t('form.placeholder.password')"
+      />
+
       <NumberInput
         v-model="formData.age"
         :label="$t('form.label.age') + ' *'"
@@ -70,8 +82,10 @@ export default {
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
 import {
+  Email,
   Input,
   NumberInput,
+  Password,
   TextareaInput,
   TextInput,
 } from "@dzangolab/vue3-form";
@@ -87,7 +101,9 @@ let formData = reactive({
   age: ref(),
   bio: ref(),
   current_address: ref(),
+  email: ref(),
   employeeNo: ref(),
+  password: ref(),
   name: ref(),
 });
 

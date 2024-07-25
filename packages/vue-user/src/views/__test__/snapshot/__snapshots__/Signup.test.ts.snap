@@ -24,7 +24,6 @@ exports[`SignUp > matches snapshot in en 1`] = `
     >
       <div
         class="field email"
-        placeholder="john.doe@example.com"
       >
         <label
           for="email"
@@ -35,6 +34,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
         <input
           class=""
           name="email"
+          placeholder="john.doe@example.com"
           tabindex="0"
           type="email"
         />
@@ -53,6 +53,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
         <input
           class=""
           name="password"
+          placeholder=""
           tabindex="0"
           type="password"
         />
@@ -71,6 +72,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
         <input
           class=""
           name="confirmation"
+          placeholder=""
           tabindex="0"
           type="password"
         />
@@ -141,7 +143,6 @@ exports[`SignUp > matches snapshot in fr 1`] = `
     >
       <div
         class="field email"
-        placeholder="john.doe@example.com"
       >
         <label
           for="email"
@@ -152,6 +153,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
         <input
           class=""
           name="email"
+          placeholder="john.doe@example.com"
           tabindex="0"
           type="email"
         />
@@ -170,6 +172,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
         <input
           class=""
           name="password"
+          placeholder=""
           tabindex="0"
           type="password"
         />
@@ -188,6 +191,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
         <input
           class=""
           name="confirmation"
+          placeholder=""
           tabindex="0"
           type="password"
         />

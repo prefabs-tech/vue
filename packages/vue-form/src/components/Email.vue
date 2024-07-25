@@ -8,6 +8,7 @@
       v-bind="modelValue"
       :name="name"
       :rules="fieldSchema"
+      @input="onInput"
     >
       <input
         v-bind="field"
@@ -15,6 +16,7 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :placeholder="placeholder"
         tabindex="0"
         type="email"
       />
@@ -70,11 +72,21 @@ const props = defineProps({
     required: false,
     type: Object as PropType<IsEmailOptions>,
   },
+  placeholder: {
+    default: "",
+    type: String,
+  },
 });
 
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = toFieldValidator(
   emailSchema(props.errorMessages, props.options)
 );
+
+const onInput = (event: Event) => {
+  const value = (event.target as HTMLInputElement).value;
+
+  emit("update:modelValue", value);
+};
 </script>
