@@ -1,32 +1,54 @@
 <template>
   <Page :title="$t('form.title')">
     <Form class="form" @submit="onSubmit">
-      <Input
-        v-model="formData.name"
-        :label="$t('form.label.fullName')"
-        :placeholder="$t('form.placeholder.fullName')"
-        :schema="nameSchema"
+      <Email
+        v-model="formData.email"
+        :label="$t('form.label.email')"
+        :placeholder="$t('form.placeholder.email')"
         class="form-field"
-        name="name"
+      />
+
+      <TextInput
+        v-model="formData.text"
+        :label="$t('form.label.textInput')"
+        :placeholder="$t('form.placeholder.textInput')"
+        class="form-field"
+        name="text_input"
+      />
+
+      <Password
+        v-model="formData.password"
+        :label="$t('form.label.password')"
+        :placeholder="$t('form.placeholder.password')"
+        class="form-field"
+      />
+
+      <Input
+        v-model="formData.input"
+        :label="$t('form.label.input')"
+        :placeholder="$t('form.placeholder.input')"
+        :schema="inputSchema"
+        class="form-field"
+        name="input"
         type="text"
       />
 
       <NumberInput
-        v-model="formData.age"
-        :label="$t('form.label.age')"
+        v-model="formData.number"
+        :error-messages="numberErrorMessages"
+        :label="$t('form.label.number')"
         :options="schemaOptions"
-        :placeholder="$t('form.placeholder.age')"
+        :placeholder="$t('form.placeholder.number')"
         class="form-field"
-        name="age"
+        name="number"
       />
 
-      <NumberInput
-        v-model="formData.employeeNo"
-        :label="$t('form.label.employeeNo')"
-        :placeholder="$t('form.placeholder.employeeNo')"
-        :schema="employeeNoSchema"
+      <TextareaInput
+        v-model="formData.textarea"
+        :label="$t('form.label.textarea')"
+        :placeholder="$t('form.placeholder.textarea')"
         class="form-field"
-        name="employee_number"
+        name="textarea"
       />
 
       <div class="form-actions">
@@ -53,7 +75,14 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Input, NumberInput } from "@dzangolab/vue3-form";
+import {
+  Email,
+  Input,
+  NumberInput,
+  Password,
+  TextareaInput,
+  TextInput,
+} from "@dzangolab/vue3-form";
 import { Form } from "vee-validate";
 import { computed, reactive, ref } from "vue";
 import { z } from "zod";
@@ -62,26 +91,30 @@ import CodeBlock from "@/components/CodeBlock.vue";
 
 import type { Ref } from "vue";
 
-let formData = reactive({
-  age: ref(),
-  employeeNo: ref(),
-  name: ref(),
-});
-
-const showSubmittedData: Ref<boolean> = ref(false);
-
 const { t } = useI18n();
 
-const employeeNoSchema = z.string().refine((val) => Number(val) > 0, {
-  message: t("form.errors.employeeNo.invalid"),
-});
-
-const nameSchema = z.string().min(3, { message: t("form.errors.name.min") });
+const inputSchema = z.string().min(3, { message: t("form.errors.input.min") });
 
 const schemaOptions = {
   max: 100,
-  min: 18,
+  min: 1,
 };
+
+let formData = reactive({
+  email: ref(),
+  input: ref(),
+  number: ref(),
+  password: ref(),
+  text: ref(),
+  textarea: ref(),
+});
+
+const numberErrorMessages = reactive({
+  invalid: t("form.errors.number.invalid"),
+  required: t("form.errors.number.required"),
+});
+
+const showSubmittedData: Ref<boolean> = ref(false);
 
 const formattedData = computed(() => {
   return JSON.stringify(formData, null, 2);
@@ -97,6 +130,10 @@ const onSubmit = () => {
   align-items: center;
   display: flex;
   justify-content: flex-end;
+}
+
+.form > .form-field {
+  margin-bottom: 0.625rem;
 }
 
 .form-actions > .submit-button {

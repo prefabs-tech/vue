@@ -1,24 +1,25 @@
 <template>
-  <div class="field email">
-    <label v-if="label" for="email">
+  <div :class="`field ${name}`">
+    <label v-if="label">
       {{ label }}
     </label>
     <Field
       v-slot="{ field, meta }"
-      v-bind="modelValue"
+      v-bind="{ modelValue }"
       :name="name"
       :rules="fieldSchema"
       @input="onInput"
     >
       <input
         v-bind="field"
+        :id="`input-field-${name}`"
         :class="{
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
         :placeholder="placeholder"
+        type="text"
         tabindex="0"
-        type="email"
       />
       <ErrorMessage :name="name" />
     </Field>
@@ -27,29 +28,30 @@
 
 <script lang="ts">
 export default {
-  name: "Email",
+  name: "TextInput",
 };
 </script>
 
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { z } from "zod";
 
-import { emailSchema } from "../schemas";
+import { textSchema } from "../schemas";
 
-import type { EmailErrorMessages, IsEmailOptions } from "../types";
+import type { TextErrorMessages, IsTextOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
   errorMessages: {
     default: () => {
       return {
-        invalid: "Please provide a valid email address",
-        required: "Email address is required",
+        invalid: "Please provide a valid input data",
+        required: "The field is required",
       };
     },
     required: false,
-    type: Object as PropType<EmailErrorMessages>,
+    type: Object as PropType<TextErrorMessages>,
   },
   label: {
     default: "",
@@ -61,7 +63,7 @@ const props = defineProps({
     type: String as PropType<string | null | undefined>,
   },
   name: {
-    default: "email",
+    default: "text",
     required: false,
     type: String as PropType<string>,
   },
@@ -70,18 +72,27 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<IsEmailOptions>,
+    type: Object as PropType<IsTextOptions>,
   },
   placeholder: {
     default: "",
     type: String,
+  },
+  schema: {
+    default: () => {
+      return {};
+    },
+    required: false,
+    type: Object as PropType<z.ZodType<string | number>>,
   },
 });
 
 const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = toFieldValidator(
-  emailSchema(props.errorMessages, props.options)
+  Object.keys(props.schema).length
+    ? props.schema
+    : textSchema(props.errorMessages, props.options)
 );
 
 const onInput = (event: Event) => {

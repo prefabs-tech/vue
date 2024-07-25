@@ -3,22 +3,29 @@
     "submit": "Submit"
   },
   "errors": {
-    "employeeNo": {
-      "invalid": "Must be a valid employee number"
+    "input": {
+      "min": "Input must be at least 3 character(s)"
     },
-    "name": {
-      "min": "Username must be at least 3 character(s)"
+    "number": {
+      "invalid": "Please provide a number between 1 to 100",
+      "required": "The field is required"
     }
   },
   "label": {
-    "age": "Age",
-    "employeeNo": "Emloyee No.",
-    "fullName": "Full name"
+    "email": "Email",
+    "input": "Input",
+    "number": "Number",
+    "password": "Password",
+    "textarea": "Textarea",
+    "textInput": "Text input"
   },
   "placeholder": {
-    "age": "Enter your age",
-    "employeeNo": "Enter your employee number",
-    "fullName": "Enter your full name"
+    "email": "Enter email input",
+    "input": "Enter input",
+    "number": "Enter number",
+    "password": "Enter password input",
+    "textarea": "Enter textarea input",
+    "textInput": "Enter text input"
   },
   "submittedValue": "Submitted value",
   "title": "Form library"
