@@ -17,6 +17,7 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :disabled="disabled"
         :placeholder="placeholder"
         :type="type"
         tabindex="0"
@@ -40,6 +41,10 @@ import { z } from "zod";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  disabled: {
+    default: false,
+    type: Boolean,
+  },
   label: {
     default: "",
     required: false,

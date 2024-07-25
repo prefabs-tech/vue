@@ -16,6 +16,7 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :disabled="disabled"
         :placeholder="placeholder"
         tabindex="0"
         type="password"
@@ -41,6 +42,10 @@ import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  disabled: {
+    default: false,
+    type: Boolean,
+  },
   errorMessages: {
     default: () => {
       return {
