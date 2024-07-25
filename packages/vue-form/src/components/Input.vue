@@ -78,7 +78,9 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema = toFieldValidator(props.schema);
+const fieldSchema = Object.keys(props.schema).length
+  ? toFieldValidator(props.schema)
+  : null;
 
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;
