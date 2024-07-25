@@ -12,7 +12,7 @@
     }
   },
   "label": {
-    "disabled": "Disabled Input[fr]",
+    "disabled": "Disabled input[fr]",
     "email": "Email[fr]",
     "input": "Input[fr]",
     "number": "Number[fr]",
