@@ -14,10 +14,12 @@
   "label": {
     "email": "Email",
     "input": "Input",
+    "invalid": "Show invalid state",
     "number": "Number",
     "password": "Password",
     "textarea": "Textarea",
-    "textInput": "Text input"
+    "textInput": "Text input",
+    "valid": "Show valid state"
   },
   "placeholder": {
     "email": "Enter email input",

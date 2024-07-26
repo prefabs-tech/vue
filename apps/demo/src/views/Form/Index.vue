@@ -1,7 +1,23 @@
 <template>
   <Page :title="$t('form.title')">
-    <Form class="form" @submit="onSubmit">
-      <SwitchInput v-model="formData.switch" label="Switch" />
+    <Form
+      :class="{
+        'hide-valid-state': !formData.showValid,
+        'hide-invalid-state': !formData.showInvalid,
+      }"
+      class="form"
+      @submit="onSubmit"
+    >
+      <div class="form-modes">
+        <SwitchInput
+          v-model="formData.showValid"
+          :label="$t('form.label.valid')"
+        />
+        <SwitchInput
+          v-model="formData.showInvalid"
+          :label="$t('form.label.invalid')"
+        />
+      </div>
 
       <Email
         v-model="formData.email"
@@ -108,7 +124,8 @@ let formData = reactive({
   input: ref(),
   number: ref(),
   password: ref(),
-  switch: ref(true),
+  showInvalid: ref(true),
+  showValid: ref(true),
   text: ref(),
   textarea: ref(),
 });
@@ -129,7 +146,7 @@ const onSubmit = () => {
 };
 </script>
 
-<style scoped>
+<style lang="css">
 .form > .form-actions {
   align-items: center;
   display: flex;
@@ -137,6 +154,12 @@ const onSubmit = () => {
 }
 
 .form > .form-field {
+  margin-bottom: 0.625rem;
+}
+
+.form > .form-modes {
+  display: flex;
+  gap: 2rem;
   margin-bottom: 0.625rem;
 }
 
@@ -150,5 +173,16 @@ const onSubmit = () => {
   font-weight: 700;
   padding: 0.75rem 1.25rem;
   width: max-content;
+}
+
+.hide-invalid-state input.invalid,
+.hide-valid-state input.valid {
+  background-image: none;
+  border-color: var(--form-input-border-color);
+}
+
+.hide-invalid-state input.invalid:focus-visible,
+.hide-valid-state input.valid:focus-visible {
+  box-shadow: 0 0 0 0.25rem #32323240;
 }
 </style>
