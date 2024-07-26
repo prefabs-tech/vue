@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TextInput > matches snapshot 1`] = `
+<div
+  class="field text"
+>
+  <label>
+    Text input
+  </label>
+  
+  <input
+    class=""
+    id="input-field-text"
+    name="text"
+    placeholder="Placeholder"
+    tabindex="0"
+    type="text"
+  />
+  <!---->
+  
+</div>
+`;
