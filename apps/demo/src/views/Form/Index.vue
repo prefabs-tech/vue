@@ -1,6 +1,8 @@
 <template>
   <Page :title="$t('form.title')">
     <Form class="form" @submit="onSubmit">
+      <SwitchInput v-model="formData.switch" label="Switch" />
+
       <Email
         v-model="formData.email"
         :label="$t('form.label.email')"
@@ -80,6 +82,7 @@ import {
   Input,
   NumberInput,
   Password,
+  SwitchInput,
   TextareaInput,
   TextInput,
 } from "@dzangolab/vue3-form";
@@ -105,6 +108,7 @@ let formData = reactive({
   input: ref(),
   number: ref(),
   password: ref(),
+  switch: ref(true),
   text: ref(),
   textarea: ref(),
 });
