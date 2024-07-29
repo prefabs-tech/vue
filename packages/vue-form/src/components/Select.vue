@@ -1,5 +1,5 @@
 <template>
-  <div class="multiselect">
+  <div :class="{ 'multiple-mode': multiple }" class="multiselect">
     <div @click="toggleDropdown" class="multiselect-input">
       <span v-if="!selectedOptions.length">{{ placeholder }}</span>
       <span v-else>
@@ -82,7 +82,7 @@ const toggleDropdown = () => {
   width: 100%;
 }
 
-.multiselect .selected-option {
+.multiple-mode.multiselect .selected-option {
   background-color: rgb(215, 194, 253);
   border-radius: 2rem;
   margin-right: 0.25rem;
