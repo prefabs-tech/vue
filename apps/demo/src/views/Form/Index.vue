@@ -101,7 +101,6 @@ import {
   Input,
   NumberInput,
   Password,
-  SwitchInput,
   TextareaInput,
   TextInput,
 } from "@dzangolab/vue3-form";
