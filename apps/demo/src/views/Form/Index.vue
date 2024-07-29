@@ -63,6 +63,15 @@
         name="textarea"
       />
 
+      <Input
+        v-model="formData.disabled"
+        :disabled="true"
+        :label="$t('form.label.disabled')"
+        class="form-field"
+        name="disabled"
+        type="email"
+      />
+
       <div class="form-actions">
         <button class="submit-button" type="submit">
           {{ $t("form.actions.submit") }}
@@ -115,6 +124,7 @@ const schemaOptions = {
 };
 
 let formData = reactive({
+  disabled: ref("monorepo@gmail.com"),
   email: ref(),
   input: ref(),
   number: ref(),
