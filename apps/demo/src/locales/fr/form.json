@@ -15,10 +15,12 @@
     "disabled": "Disabled input[fr]",
     "email": "Email[fr]",
     "input": "Input[fr]",
+    "invalid": "Show invalid state[fr]",
     "number": "Number[fr]",
     "password": "Password[fr]",
     "textarea": "Textarea[fr]",
-    "textInput": "Text input[fr]"
+    "textInput": "Text input[fr]",
+    "valid": "Show valid state[fr]"
   },
   "placeholder": {
     "email": "Enter email input[fr]",

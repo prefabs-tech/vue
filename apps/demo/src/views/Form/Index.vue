@@ -1,6 +1,18 @@
 <template>
   <Page :title="$t('form.title')">
-    <Form class="form" @submit="onSubmit">
+    <Form
+      :class="{
+        'hide-valid-state': !formData.showValid,
+        'hide-invalid-state': !formData.showInvalid,
+      }"
+      class="form"
+      @submit="onSubmit"
+    >
+      <FormInputModes
+        v-model:show-invalid="formData.showInvalid"
+        v-model:show-valid="formData.showValid"
+      />
+
       <Email
         v-model="formData.email"
         :label="$t('form.label.email')"
@@ -97,6 +109,7 @@ import { computed, reactive, ref } from "vue";
 import { z } from "zod";
 
 import CodeBlock from "@/components/CodeBlock.vue";
+import FormInputModes from "./components/FormInputModes.vue";
 
 import type { Ref } from "vue";
 
@@ -115,6 +128,8 @@ let formData = reactive({
   input: ref(),
   number: ref(),
   password: ref(),
+  showInvalid: ref(true),
+  showValid: ref(true),
   text: ref(),
   textarea: ref(),
 });
@@ -135,7 +150,7 @@ const onSubmit = () => {
 };
 </script>
 
-<style scoped>
+<style lang="css">
 .form > .form-actions {
   align-items: center;
   display: flex;
@@ -156,5 +171,16 @@ const onSubmit = () => {
   font-weight: 700;
   padding: 0.75rem 1.25rem;
   width: max-content;
+}
+
+.hide-invalid-state input.invalid,
+.hide-valid-state input.valid {
+  background-image: none;
+  border-color: var(--form-input-border-color);
+}
+
+.hide-invalid-state input.invalid:focus-visible,
+.hide-valid-state input.valid:focus-visible {
+  box-shadow: 0 0 0 0.25rem #32323240;
 }
 </style>
