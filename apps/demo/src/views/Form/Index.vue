@@ -8,16 +8,10 @@
       class="form"
       @submit="onSubmit"
     >
-      <div class="form-modes">
-        <SwitchInput
-          v-model="formData.showValid"
-          :label="$t('form.label.valid')"
-        />
-        <SwitchInput
-          v-model="formData.showInvalid"
-          :label="$t('form.label.invalid')"
-        />
-      </div>
+      <FormInputModes
+        v-model:show-invalid="formData.showInvalid"
+        v-model:show-valid="formData.showValid"
+      />
 
       <Email
         v-model="formData.email"
@@ -107,6 +101,7 @@ import { computed, reactive, ref } from "vue";
 import { z } from "zod";
 
 import CodeBlock from "@/components/CodeBlock.vue";
+import FormInputModes from "./components/FormInputModes.vue";
 
 import type { Ref } from "vue";
 
@@ -154,12 +149,6 @@ const onSubmit = () => {
 }
 
 .form > .form-field {
-  margin-bottom: 0.625rem;
-}
-
-.form > .form-modes {
-  display: flex;
-  gap: 2rem;
   margin-bottom: 0.625rem;
 }
 
