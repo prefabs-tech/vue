@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs } from "vue";
+import { onMounted, ref, toRefs } from "vue";
 
 import type { SelectOption } from "../types";
 import type { PropType, Ref } from "vue";
@@ -35,6 +35,12 @@ const props = defineProps({
   multiple: {
     type: Boolean,
     default: false,
+  },
+  modelValue: {
+    type: [Number, String, Array] as PropType<
+      number | string | (number | string)[]
+    >,
+    required: false,
   },
   options: {
     type: Array as PropType<SelectOption[]>,
@@ -50,8 +56,13 @@ const { options, multiple, placeholder } = toRefs(props);
 const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
 
-const isSelected = (option: SelectOption) =>
-  selectedOptions.value.includes(option);
+const getSelectedOption = (value: number | string) =>
+  options.value?.find((option) => option.value === value);
+
+const isSelected = (option: SelectOption): boolean =>
+  selectedOptions.value.some(
+    (selectedOption) => selectedOption.value === option.value
+  );
 
 const selectOption = (option: SelectOption) => {
   const index = selectedOptions.value.findIndex(
@@ -73,6 +84,18 @@ const selectOption = (option: SelectOption) => {
 const toggleDropdown = () => {
   showDropdownMenu.value = !showDropdownMenu.value;
 };
+
+onMounted(() => {
+  if (multiple.value && Array.isArray(props.modelValue)) {
+    selectedOptions.value = props.modelValue.map((value) => {
+      return getSelectedOption(value as string | number);
+    }) as SelectOption[];
+  } else if (props.modelValue && !Array.isArray(props.modelValue)) {
+    selectedOptions.value = [
+      getSelectedOption(props.modelValue),
+    ] as SelectOption[];
+  }
+});
 </script>
 
 <style lang="css" scoped>
@@ -83,7 +106,7 @@ const toggleDropdown = () => {
 }
 
 .multiple-mode.multiselect .selected-option {
-  background-color: rgb(215, 194, 253);
+  background-color: var(--multiselect-tag-color, rgb(215, 194, 253));
   border-radius: 2rem;
   margin-right: 0.25rem;
   padding: 0.25rem 0.6rem;
