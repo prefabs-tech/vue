@@ -1,10 +1,10 @@
 <template>
   <div
+    ref="dzangolabVueFormSelect"
     :class="{ 'multiple-mode': multiple }"
     class="multiselect"
-    ref="dzangolabVueFormSelect"
   >
-    <div @click="toggleDropdown" class="multiselect-input">
+    <div class="multiselect-input" @click="toggleDropdown">
       <span v-if="!selectedOptions.length">{{ placeholder }}</span>
       <span v-else>
         <span
@@ -29,6 +29,12 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: "MultiSelect",
+};
+</script>
+
 <script setup lang="ts">
 import { onClickOutside } from "@vueuse/core";
 import { onMounted, ref, toRefs } from "vue";
@@ -38,18 +44,19 @@ import type { PropType, Ref } from "vue";
 
 const props = defineProps({
   modelValue: {
+    default: () => [],
+    required: false,
     type: [Number, String, Array] as PropType<
       number | string | (number | string)[]
     >,
-    required: false,
   },
   multiple: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
   options: {
-    type: Array as PropType<SelectOption[]>,
     required: true,
+    type: Array as PropType<SelectOption[]>,
   },
   placeholder: {
     default: "Select value",
