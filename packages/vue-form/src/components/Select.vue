@@ -1,5 +1,9 @@
 <template>
-  <div :class="{ 'multiple-mode': multiple }" class="multiselect">
+  <div
+    :class="{ 'multiple-mode': multiple }"
+    class="multiselect"
+    ref="dzangolabVueFormSelect"
+  >
     <div @click="toggleDropdown" class="multiselect-input">
       <span v-if="!selectedOptions.length">{{ placeholder }}</span>
       <span v-else>
@@ -26,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+import { onClickOutside } from "@vueuse/core";
 import { onMounted, ref, toRefs } from "vue";
 
 import type { SelectOption } from "../types";
@@ -55,8 +60,13 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const { options, multiple, placeholder } = toRefs(props);
+const dzangolabVueFormSelect = ref(null);
 const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
+
+onClickOutside(dzangolabVueFormSelect, (event) => {
+  showDropdownMenu.value = false;
+});
 
 const getSelectedOption = (value: number | string) =>
   options.value?.find((option) => option.value === value);
