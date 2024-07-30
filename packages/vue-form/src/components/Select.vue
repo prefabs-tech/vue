@@ -15,9 +15,9 @@
       <li
         v-for="option in options"
         :key="option.label"
-        @click="selectOption(option)"
         class="multiselect-option"
         :class="{ selected: isSelected(option) }"
+        @click="onSelect(option)"
       >
         {{ option.label }}
       </li>
@@ -52,6 +52,8 @@ const props = defineProps({
   },
 });
 
+const emit = defineEmits(["update:modelValue"]);
+
 const { options, multiple, placeholder } = toRefs(props);
 const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
@@ -64,7 +66,7 @@ const isSelected = (option: SelectOption): boolean =>
     (selectedOption) => selectedOption.value === option.value
   );
 
-const selectOption = (option: SelectOption) => {
+const onSelect = (option: SelectOption) => {
   const index = selectedOptions.value.findIndex(
     (i) => i.value === option.value
   );
@@ -75,9 +77,17 @@ const selectOption = (option: SelectOption) => {
     } else {
       selectedOptions.value.push(option);
     }
+
+    const selectedValues = selectedOptions.value?.map(
+      (selectedOption) => selectedOption.value
+    );
+
+    emit("update:modelValue", selectedValues);
   } else {
     selectedOptions.value = [option];
     showDropdownMenu.value = false;
+
+    emit("update:modelValue", option.value);
   }
 };
 
