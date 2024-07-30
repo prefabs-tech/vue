@@ -11,8 +11,8 @@
           v-for="selectedOption in selectedOptions"
           :key="selectedOption.label"
           class="selected-option"
-          >{{ selectedOption.label }}</span
-        >
+          >{{ selectedOption.label }}
+        </span>
       </span>
     </div>
     <ul v-if="showDropdownMenu" class="multiselect-dropdown">
@@ -37,15 +37,15 @@ import type { SelectOption } from "../types";
 import type { PropType, Ref } from "vue";
 
 const props = defineProps({
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
   modelValue: {
     type: [Number, String, Array] as PropType<
       number | string | (number | string)[]
     >,
     required: false,
+  },
+  multiple: {
+    type: Boolean,
+    default: false,
   },
   options: {
     type: Array as PropType<SelectOption[]>,
