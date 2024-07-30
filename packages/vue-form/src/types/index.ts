@@ -13,6 +13,11 @@ interface PasswordErrorMessages {
   weak?: string;
 }
 
+interface SelectOption {
+  label: string;
+  value: string | number;
+}
+
 interface TextErrorMessages {
   invalid?: string;
   required?: string;
@@ -22,6 +27,7 @@ export type {
   EmailErrorMessages,
   NumberErrorMessages,
   PasswordErrorMessages,
+  SelectOption,
   TextErrorMessages,
 };
 
