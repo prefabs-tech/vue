@@ -216,7 +216,9 @@ const onSubmit = () => {
 }
 
 .hide-invalid-state input.invalid,
-.hide-valid-state input.valid {
+.hide-invalid-state .multiselect.invalid .multiselect-input,
+.hide-valid-state input.valid,
+.hide-valid-state .multiselect.valid .multiselect-input {
   background-image: none;
   border-color: var(--form-input-border-color);
 }

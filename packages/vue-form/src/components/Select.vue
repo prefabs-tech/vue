@@ -136,17 +136,31 @@ onMounted(() => {
 </script>
 
 <style lang="css" scoped>
+.multiple-mode.multiselect .selected-option {
+  background-color: var(--multiselect-tag-color, rgb(215, 194, 253));
+  border-radius: 2rem;
+  margin-right: 0.25rem;
+  padding: 0.25rem 0.6rem;
+}
+
 .multiselect {
   position: relative;
   display: inline-block;
   width: 100%;
 }
 
-.multiple-mode.multiselect .selected-option {
-  background-color: var(--multiselect-tag-color, rgb(215, 194, 253));
-  border-radius: 2rem;
-  margin-right: 0.25rem;
-  padding: 0.25rem 0.6rem;
+.multiselect-dropdown {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style-type: none;
+  margin: 0;
+  max-height: 10rem;
+  overflow-y: scroll;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
 }
 
 .multiselect-input {
@@ -166,18 +180,8 @@ onMounted(() => {
   box-shadow: 0 0 0 0.25rem #32323240;
 }
 
-.multiselect-dropdown {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-top: none;
-  list-style-type: none;
-  margin: 0;
-  max-height: 10rem;
-  overflow-y: scroll;
-  padding: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 1000;
+.multiselect.invalid .multiselect-input {
+  border-color: var(--color-alert-danger, #dc3545);
 }
 
 .multiselect-option {
@@ -192,5 +196,9 @@ onMounted(() => {
 
 .multiselect-placeholder {
   color: #555;
+}
+
+.multiselect.valid .multiselect-input {
+  border-color: var(--color-alert-success, #198754);
 }
 </style>
