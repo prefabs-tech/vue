@@ -9,6 +9,10 @@
     "number": {
       "invalid": "Please provide a number between 1 to 100[fr]",
       "required": "The field is required[fr]"
+    },
+    "select": {
+      "invalid": "Please select a valid option[fr]",
+      "required": "The select field is required[fr]"
     }
   },
   "label": {

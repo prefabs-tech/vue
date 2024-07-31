@@ -68,7 +68,9 @@
         :label="$t('form.label.multiSelect')"
         :options="options"
         :placeholder="$t('form.placeholder.multiSelect')"
+        :schema="multiSelectSchema"
         multiple
+        name="multi-select"
       />
 
       <SelectInput
@@ -76,6 +78,8 @@
         :label="$t('form.label.select')"
         :options="options"
         :placeholder="$t('form.placeholder.select')"
+        :schema="selectSchema"
+        name="single-select"
       />
 
       <Input
@@ -133,10 +137,22 @@ const { t } = useI18n();
 
 const inputSchema = z.string().min(3, { message: t("form.errors.input.min") });
 
+const multiSelectSchema = z
+  .string({
+    required_error: t("form.errors.select.required"),
+    invalid_type_error: t("form.errors.select.invalid"),
+  })
+  .array();
+
 const schemaOptions = {
   max: 100,
   min: 1,
 };
+
+const selectSchema = z.string({
+  required_error: t("form.errors.select.required"),
+  invalid_type_error: t("form.errors.select.invalid"),
+});
 
 let formData = reactive({
   disabled: ref("monorepo@gmail.com"),

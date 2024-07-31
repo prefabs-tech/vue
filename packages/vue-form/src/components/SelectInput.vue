@@ -56,8 +56,7 @@ const props = defineProps({
     type: String as PropType<string>,
   },
   modelValue: {
-    default: "",
-    required: false,
+    required: true,
     type: [Number, String, Array] as PropType<
       number | string | (number | string)[]
     >,
@@ -84,7 +83,7 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<z.ZodType<string | number>>,
+    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
   },
 });
 

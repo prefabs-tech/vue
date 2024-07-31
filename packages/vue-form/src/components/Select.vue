@@ -9,7 +9,7 @@
       class="multiselect-input"
       @click="toggleDropdown"
     >
-      <span class="multiselect-placeholder" v-if="!selectedOptions.length">{{
+      <span v-if="!selectedOptions.length" class="multiselect-placeholder">{{
         placeholder
       }}</span>
       <span v-else>
