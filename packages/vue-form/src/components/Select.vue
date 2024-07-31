@@ -167,15 +167,17 @@ onMounted(() => {
 }
 
 .multiselect-dropdown {
-  position: absolute;
-  width: 100%;
+  background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
-  background-color: #fff;
-  z-index: 1000;
   list-style-type: none;
   margin: 0;
+  max-height: 10rem;
+  overflow-y: scroll;
   padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
 }
 
 .multiselect-option {
