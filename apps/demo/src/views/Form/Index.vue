@@ -63,6 +63,21 @@
         name="textarea"
       />
 
+      <SelectInput
+        v-model="formData.multiselect"
+        :label="$t('form.label.multiSelect')"
+        :options="options"
+        :placeholder="$t('form.placeholder.multiSelect')"
+        multiple
+      />
+
+      <SelectInput
+        v-model="formData.select"
+        :label="$t('form.label.select')"
+        :options="options"
+        :placeholder="$t('form.placeholder.select')"
+      />
+
       <Input
         v-model="formData.disabled"
         :disabled="true"
@@ -101,6 +116,7 @@ import {
   Input,
   NumberInput,
   Password,
+  SelectInput,
   TextareaInput,
   TextInput,
 } from "@dzangolab/vue3-form";
@@ -126,10 +142,12 @@ let formData = reactive({
   disabled: ref("monorepo@gmail.com"),
   email: ref(),
   input: ref(),
+  multiselect: ref([]),
   number: ref(),
   password: ref(),
   showInvalid: ref(true),
   showValid: ref(true),
+  select: ref(),
   text: ref(),
   textarea: ref(),
 });
@@ -138,6 +156,14 @@ const numberErrorMessages = reactive({
   invalid: t("form.errors.number.invalid"),
   required: t("form.errors.number.required"),
 });
+
+const options = ref([
+  { value: "FR", label: "FR" },
+  { value: "DE", label: "DE" },
+  { value: "BE", label: "BE" },
+  { value: "FE", label: "FE" },
+  { value: "RE", label: "RE" },
+]);
 
 const showSubmittedData: Ref<boolean> = ref(false);
 

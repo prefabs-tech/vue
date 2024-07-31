@@ -4,8 +4,14 @@
     :class="{ 'multiple-mode': multiple }"
     class="multiselect"
   >
-    <div class="multiselect-input" @click="toggleDropdown">
-      <span v-if="!selectedOptions.length">{{ placeholder }}</span>
+    <div
+      :class="{ disabled: disabled }"
+      class="multiselect-input"
+      @click="toggleDropdown"
+    >
+      <span class="multiselect-placeholder" v-if="!selectedOptions.length">{{
+        placeholder
+      }}</span>
       <span v-else>
         <span
           v-for="selectedOption in selectedOptions"
@@ -15,7 +21,7 @@
         </span>
       </span>
     </div>
-    <ul v-if="showDropdownMenu" class="multiselect-dropdown">
+    <ul v-if="showDropdownMenu && !disabled" class="multiselect-dropdown">
       <li
         v-for="option in options"
         :key="option.label"
@@ -43,6 +49,10 @@ import type { SelectOption } from "../types";
 import type { PropType, Ref } from "vue";
 
 const props = defineProps({
+  disabled: {
+    default: false,
+    type: Boolean,
+  },
   modelValue: {
     default: () => [],
     required: false,
@@ -141,10 +151,21 @@ onMounted(() => {
 
 .multiselect-input {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--form-input-border-color);
   cursor: pointer;
   user-select: none;
 }
+
+.multiselect-input.disabled {
+  background: var(--form-input-bg-color-disabled);
+  border-color: var(--form-input-border-color-disabled);
+  cursor: default;
+}
+
+.multiselect-input:focus {
+  box-shadow: 0 0 0 0.25rem #32323240;
+}
+
 .multiselect-dropdown {
   position: absolute;
   width: 100%;
@@ -156,12 +177,18 @@ onMounted(() => {
   margin: 0;
   padding: 0;
 }
+
 .multiselect-option {
   padding: 10px;
   cursor: pointer;
 }
+
 .multiselect-option.selected {
   background-color: #007bff;
   color: white;
+}
+
+.multiselect-placeholder {
+  color: #555;
 }
 </style>
