@@ -10,15 +10,14 @@
       type="checkbox"
       @change="onChange"
     >
-      <input
+      <Switch
         v-bind="field"
         :id="`input-field-${name}`"
         :class="{
           invalid: meta.touched && !meta.valid,
         }"
-        :checked="modelValue"
+        :model-value="modelValue"
         :disabled="disabled"
-        type="checkbox"
         tabindex="0"
       />
       <ErrorMessage :name="name" />
@@ -36,6 +35,8 @@ export default {
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
+
+import Switch from "./Switch.vue";
 
 import type { PropType } from "vue";
 

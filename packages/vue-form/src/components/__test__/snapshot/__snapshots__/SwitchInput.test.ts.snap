@@ -11,14 +11,21 @@ exports[`SwitchInput > matches snapshot 1`] = `
     Switch input
   </label>
   
-  <input
-    class=""
+  <div
+    checked="true"
+    class="switch"
+    data-v-54a6d679=""
     data-v-6ac808d6=""
     id="input-field-switch"
     name="switch"
     tabindex="0"
-    type="checkbox"
-  />
+  >
+    <input
+      class="switch-input"
+      data-v-54a6d679=""
+      type="checkbox"
+    />
+  </div>
   <!---->
   
 </div>

@@ -5,7 +5,6 @@
       :disabled="disabled"
       class="switch-input"
       type="checkbox"
-      tabindex="0"
       @change="onChange"
     />
   </div>
@@ -13,7 +12,7 @@
 
 <script lang="ts">
 export default {
-  name: "Switch",
+  name: "ToggleSwitch",
 };
 </script>
 
@@ -67,5 +66,9 @@ const onChange = (event: Event) => {
 
 .switch input:checked {
   background-color: #007aff;
+}
+
+.switch input:disabled {
+  opacity: 40%;
 }
 </style>
