@@ -63,6 +63,25 @@
         name="textarea"
       />
 
+      <SelectInput
+        v-model="formData.multiselect"
+        :label="$t('form.label.multiSelect')"
+        :options="options"
+        :placeholder="$t('form.placeholder.multiSelect')"
+        :schema="multiSelectSchema"
+        multiple
+        name="multi-select"
+      />
+
+      <SelectInput
+        v-model="formData.select"
+        :label="$t('form.label.select')"
+        :options="options"
+        :placeholder="$t('form.placeholder.select')"
+        :schema="selectSchema"
+        name="single-select"
+      />
+
       <Input
         v-model="formData.disabled"
         :disabled="true"
@@ -101,6 +120,7 @@ import {
   Input,
   NumberInput,
   Password,
+  SelectInput,
   TextareaInput,
   TextInput,
 } from "@dzangolab/vue3-form";
@@ -117,19 +137,33 @@ const { t } = useI18n();
 
 const inputSchema = z.string().min(3, { message: t("form.errors.input.min") });
 
+const multiSelectSchema = z
+  .string({
+    required_error: t("form.errors.select.required"),
+    invalid_type_error: t("form.errors.select.invalid"),
+  })
+  .array();
+
 const schemaOptions = {
   max: 100,
   min: 1,
 };
 
+const selectSchema = z.string({
+  required_error: t("form.errors.select.required"),
+  invalid_type_error: t("form.errors.select.invalid"),
+});
+
 let formData = reactive({
   disabled: ref("monorepo@gmail.com"),
   email: ref(),
   input: ref(),
+  multiselect: ref([]),
   number: ref(),
   password: ref(),
   showInvalid: ref(true),
   showValid: ref(true),
+  select: ref(),
   text: ref(),
   textarea: ref(),
 });
@@ -138,6 +172,14 @@ const numberErrorMessages = reactive({
   invalid: t("form.errors.number.invalid"),
   required: t("form.errors.number.required"),
 });
+
+const options = ref([
+  { value: "FR", label: "FR" },
+  { value: "DE", label: "DE" },
+  { value: "BE", label: "BE" },
+  { value: "FE", label: "FE" },
+  { value: "RE", label: "RE" },
+]);
 
 const showSubmittedData: Ref<boolean> = ref(false);
 
@@ -174,7 +216,9 @@ const onSubmit = () => {
 }
 
 .hide-invalid-state input.invalid,
-.hide-valid-state input.valid {
+.hide-invalid-state .multiselect.invalid .multiselect-input,
+.hide-valid-state input.valid,
+.hide-valid-state .multiselect.valid .multiselect-input {
   background-image: none;
   border-color: var(--form-input-border-color);
 }

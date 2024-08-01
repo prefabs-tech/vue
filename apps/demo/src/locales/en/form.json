@@ -9,6 +9,10 @@
     "number": {
       "invalid": "Please provide a number between 1 to 100",
       "required": "The field is required"
+    },
+    "select": {
+      "invalid": "Please select a valid option",
+      "required": "The select field is required"
     }
   },
   "label": {
@@ -16,8 +20,10 @@
     "email": "Email",
     "input": "Input",
     "invalid": "Show invalid state",
+    "multiSelect": "Multiselect",
     "number": "Number",
     "password": "Password",
+    "select": "Select",
     "textarea": "Textarea",
     "textInput": "Text input",
     "valid": "Show valid state"
@@ -25,8 +31,10 @@
   "placeholder": {
     "email": "Enter email input",
     "input": "Enter input",
+    "multiSelect": "Select multiple value",
     "number": "Enter number",
     "password": "Enter password input",
+    "select": "Select a value",
     "textarea": "Enter textarea input",
     "textInput": "Enter text input"
   },

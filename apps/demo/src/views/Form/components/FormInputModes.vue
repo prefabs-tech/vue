@@ -3,11 +3,13 @@
     <SwitchInput
       :model-value="props.showValid"
       :label="$t('form.label.valid')"
+      name="show_valid_switch"
       @update:model-value="onUpdateShowValid"
     />
     <SwitchInput
       :model-value="props.showInvalid"
       :label="$t('form.label.invalid')"
+      name="show_invalid_switch"
       @update:model-value="onUpdateShowInvalid"
     />
   </div>

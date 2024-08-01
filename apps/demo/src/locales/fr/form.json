@@ -9,6 +9,10 @@
     "number": {
       "invalid": "Please provide a number between 1 to 100[fr]",
       "required": "The field is required[fr]"
+    },
+    "select": {
+      "invalid": "Please select a valid option[fr]",
+      "required": "The select field is required[fr]"
     }
   },
   "label": {
@@ -16,8 +20,10 @@
     "email": "Email[fr]",
     "input": "Input[fr]",
     "invalid": "Show invalid state[fr]",
+    "multiSelect": "Multiselect[fr]",
     "number": "Number[fr]",
     "password": "Password[fr]",
+    "select": "Select[fr]",
     "textarea": "Textarea[fr]",
     "textInput": "Text input[fr]",
     "valid": "Show valid state[fr]"
@@ -25,8 +31,10 @@
   "placeholder": {
     "email": "Enter email input[fr]",
     "input": "Enter input[fr]",
+    "multiSelect": "Select multiple value[fr]",
     "number": "Enter number[fr]",
     "password": "Enter password input[fr]",
+    "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
     "textInput": "Enter text input[fr]"
   },
