@@ -91,11 +91,7 @@
         type="email"
       />
 
-      <div class="form-actions">
-        <button class="submit-button" type="submit">
-          {{ $t("form.actions.submit") }}
-        </button>
-      </div>
+      <FormActions alignment="left" flow-direction="horizontal" />
     </Form>
 
     <div v-if="showSubmittedData" class="submitted-data">
@@ -117,6 +113,7 @@ export default {
 import { useI18n } from "@dzangolab/vue3-i18n";
 import {
   Email,
+  FormActions,
   Input,
   NumberInput,
   Password,
@@ -201,18 +198,6 @@ const onSubmit = () => {
 
 .form > .form-field {
   margin-bottom: 0.625rem;
-}
-
-.form-actions > .submit-button {
-  background: var(--dz-primary-color);
-  border: none;
-  border-radius: 0.5rem;
-  color: #fff;
-  cursor: pointer;
-  float: right;
-  font-weight: 700;
-  padding: 0.75rem 1.25rem;
-  width: max-content;
 }
 
 .hide-invalid-state input.invalid,
