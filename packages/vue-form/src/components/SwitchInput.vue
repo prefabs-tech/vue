@@ -89,34 +89,4 @@ const onChange = (event: Event) => {
   gap: var(--form-field-gap, 0.75rem);
   width: max-content;
 }
-
-.switch-toggle input[type="checkbox"] {
-  appearance: none;
-  background-color: #ccc;
-  border-radius: 1.25rem;
-  cursor: pointer;
-  height: 2.18rem;
-  position: relative;
-  width: 3.75rem;
-}
-
-.switch-toggle input:before {
-  background-color: #fff;
-  border-radius: 50%;
-  bottom: 0.25rem;
-  content: "";
-  height: 1.6rem;
-  left: 0.25rem;
-  position: absolute;
-  transition: transform 0.3s, background-color 0.3s;
-  width: 1.6rem;
-}
-
-.switch-toggle input:checked:before {
-  transform: translate(24px);
-}
-
-.switch-toggle input:checked {
-  background-color: #007aff;
-}
 </style>
