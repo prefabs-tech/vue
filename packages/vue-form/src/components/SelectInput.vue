@@ -11,12 +11,12 @@
     >
       <MultiSelect
         v-bind="field"
-        :model-value="modelValue"
         :id="`input-field-${name}`"
         :class="{
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :model-value="modelValue"
         :disabled="disabled"
         :multiple="multiple"
         :options="options"

@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Switch > matches snapshot 1`] = `
+<div
+  class="switch"
+  data-v-54a6d679=""
+>
+  <input
+    class="switch-input"
+    data-v-54a6d679=""
+    type="checkbox"
+  />
+</div>
+`;
