@@ -91,7 +91,11 @@
         type="email"
       />
 
-      <FormActions alignment="left" flow-direction="horizontal" />
+      <FormActions
+        alignment="left"
+        flow-direction="horizontal"
+        @cancel="onCancel"
+      />
     </Form>
 
     <div v-if="showSubmittedData" class="submitted-data">
@@ -123,6 +127,7 @@ import {
 } from "@dzangolab/vue3-form";
 import { Form } from "vee-validate";
 import { computed, reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 import { z } from "zod";
 
 import CodeBlock from "@/components/CodeBlock.vue";
@@ -131,6 +136,8 @@ import FormInputModes from "./components/FormInputModes.vue";
 import type { Ref } from "vue";
 
 const { t } = useI18n();
+
+const router = useRouter();
 
 const inputSchema = z.string().min(3, { message: t("form.errors.input.min") });
 
@@ -183,6 +190,10 @@ const showSubmittedData: Ref<boolean> = ref(false);
 const formattedData = computed(() => {
   return JSON.stringify(formData, null, 2);
 });
+
+const onCancel = () => {
+  router.push({ name: "home" });
+};
 
 const onSubmit = () => {
   showSubmittedData.value = true;

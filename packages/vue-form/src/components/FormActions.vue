@@ -4,22 +4,21 @@
     class="form-actions"
   >
     <slot>
-      <button
-        :disabled="loading"
-        class="cancel-button"
-        type="reset"
-        @click="onCancel"
-      >
-        {{ cancelLabel }}
-      </button>
-      <button
-        :disabled="loading"
-        class="submit-button"
-        type="submit"
-        @click="onSubmit"
-      >
-        {{ submitLabel }}
-      </button>
+      <slot name="cancelButton">
+        <button :disabled="loading" class="cancel-button" @click="onCancel">
+          {{ cancelLabel }}
+        </button>
+      </slot>
+      <slot name="submitButton">
+        <button
+          :disabled="loading"
+          class="submit-button"
+          type="submit"
+          @click="onSubmit"
+        >
+          {{ submitLabel }}
+        </button>
+      </slot>
     </slot>
   </div>
 </template>
