@@ -1,3 +1,7 @@
+## [0.8.5](https://github.com/dzangolab/vue/compare/v0.8.4...v0.8.5) (2024-08-05)
+
+
+
 ## [0.8.4](https://github.com/dzangolab/vue/compare/v0.8.3...v0.8.4) (2024-07-15)
 
 

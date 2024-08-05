@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-form",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "Vue Form plugin",
   "license": "MIT",
   "type": "module",
@@ -14,7 +14,9 @@
   "main": "dist//DzangolabVue3Form.umd.js",
   "module": "dist//DzangolabVue3Form.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -41,9 +43,9 @@
     "@vue/test-utils": "2.3.2",
     "@vueuse/core": "9.13.0",
     "eslint": "8.36.0",
-    "eslint-config-custom": "0.8.4",
+    "eslint-config-custom": "0.8.5",
     "prettier": "2.8.7",
-    "tsconfig-custom": "0.8.4",
+    "tsconfig-custom": "0.8.5",
     "typescript": "4.9.5",
     "vee-validate": "4.7.4",
     "vite": "4.1.4",
