@@ -91,11 +91,11 @@
         type="email"
       />
 
-      <div class="form-actions">
-        <button class="submit-button" type="submit">
-          {{ $t("form.actions.submit") }}
-        </button>
-      </div>
+      <FormActions
+        alignment="left"
+        flow-direction="horizontal"
+        @cancel="onCancel"
+      />
     </Form>
 
     <div v-if="showSubmittedData" class="submitted-data">
@@ -117,6 +117,7 @@ export default {
 import { useI18n } from "@dzangolab/vue3-i18n";
 import {
   Email,
+  FormActions,
   Input,
   NumberInput,
   Password,
@@ -126,6 +127,7 @@ import {
 } from "@dzangolab/vue3-form";
 import { Form } from "vee-validate";
 import { computed, reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 import { z } from "zod";
 
 import CodeBlock from "@/components/CodeBlock.vue";
@@ -134,6 +136,8 @@ import FormInputModes from "./components/FormInputModes.vue";
 import type { Ref } from "vue";
 
 const { t } = useI18n();
+
+const router = useRouter();
 
 const inputSchema = z.string().min(3, { message: t("form.errors.input.min") });
 
@@ -187,6 +191,10 @@ const formattedData = computed(() => {
   return JSON.stringify(formData, null, 2);
 });
 
+const onCancel = () => {
+  router.push({ name: "home" });
+};
+
 const onSubmit = () => {
   showSubmittedData.value = true;
 };
@@ -201,18 +209,6 @@ const onSubmit = () => {
 
 .form > .form-field {
   margin-bottom: 0.625rem;
-}
-
-.form-actions > .submit-button {
-  background: var(--dz-primary-color);
-  border: none;
-  border-radius: 0.5rem;
-  color: #fff;
-  cursor: pointer;
-  float: right;
-  font-weight: 700;
-  padding: 0.75rem 1.25rem;
-  width: max-content;
 }
 
 .hide-invalid-state input.invalid,
