@@ -10,8 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { toRefs } from "vue";
-
 import { useDebouncedValue } from "../../utils";
 
 import type { PropType } from "vue";
