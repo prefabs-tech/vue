@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FormActions > matches snapshot 1`] = `
+<div
+  class="align-right direction-horizontal form-actions"
+  data-v-ed243437=""
+>
+  
+  
+  <button
+    class="cancel-button"
+    data-v-ed243437=""
+  >
+    Cancel
+  </button>
+  
+  
+  <button
+    class="submit-button"
+    data-v-ed243437=""
+    type="submit"
+  >
+    Submit
+  </button>
+  
+  
+</div>
+`;
