@@ -1,9 +1,9 @@
 <template>
   <div class="debounce-input">
     <input
-      v-model="modelValue"
       :placeholder="placeholder"
       :type="type"
+      :value="modelValue"
       @input="onInput"
     />
   </div>
@@ -40,8 +40,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["update:modelValue"]);
-
-const { modelValue } = toRefs(props);
 
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;
