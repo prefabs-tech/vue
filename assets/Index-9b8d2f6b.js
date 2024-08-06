@@ -1,4 +1,4 @@
-import{o as c,b as v,C as h,D as f,a as i,d as m,c as d,w as o,x as e,f as n,G as q,u as p,H as _,t,I as b,r as $}from"./index-38093c05.js";import{_ as A}from"./_plugin-vue_export-helper-c27b6911.js";const C={name:"TestComponent"};const S=u=>(h("data-v-aeb7ff3f"),u=u(),f(),u),k={class:"test"},w=S(()=>i("p",null,"This is a test component",-1)),D=[w];function I(u,s,l,g,j,F){return c(),v("div",k,D)}const z=A(C,[["render",I],["__scopeId","data-v-aeb7ff3f"]]),N=i("div",{title:"Sagittis a curabitur"},[i("p",null,`
+import{o as c,b as v,G as h,H as f,a as i,d as m,c as d,w as o,y as e,f as n,i as q,u as p,I as _,t,J as b,r as $}from"./index-5109e171.js";import{_ as A}from"./_plugin-vue_export-helper-c27b6911.js";const S={name:"TestComponent"};const k=u=>(h("data-v-aeb7ff3f"),u=u(),f(),u),w={class:"test"},C=k(()=>i("p",null,"This is a test component",-1)),I=[C];function D(u,s,l,g,J,j){return c(),v("div",w,I)}const z=A(S,[["render",D],["__scopeId","data-v-aeb7ff3f"]]),N=i("div",{title:"Sagittis a curabitur"},[i("p",null,`
         A viverra adipiscing consequat vel non potenti ac vel consectetur
         tristique a integer suspendisse condimentum. Id donec cum aliquet a orci
         nec arcu ullamcorper fusce sodales pulvinar id tristique risus curae
@@ -26,7 +26,7 @@ import{o as c,b as v,C as h,D as f,a as i,d as m,c as d,w as o,x as e,f as n,G a
         Potenti lacus suscipit in ac adipiscing consectetur suspendisse dui
         aliquam egestas scelerisque porttitor nullam ad a elementum dignissim
         pulvinar.
-      `),e(),i("ul",{role:"list"},[i("li",null,"Vestibulum parturient"),e(),i("li",null,"Ullamcorper orci condimentum"),e(),i("li",null,"Sodales scelerisque ultrices")])],-1),V={title:"component"},B={name:"DemoAccordion"},a=m({...B,setup(u){return(s,l)=>(c(),d(p(_),null,{default:o(()=>[N,e(),P,e(),T,e(),i("div",V,[n(z)]),e(),q(s.$slots,"extra-pane")]),_:3}))}}),y=i("div",{icon:"/src/assets/svg/number-1.svg",title:"Sagittis a curabitur"},[i("p",null,`
+      `),e(),i("ul",{role:"list"},[i("li",null,"Vestibulum parturient"),e(),i("li",null,"Ullamcorper orci condimentum"),e(),i("li",null,"Sodales scelerisque ultrices")])],-1),V={title:"component"},y={name:"DemoAccordion"},a=m({...y,setup(u){return(s,l)=>(c(),d(p(_),null,{default:o(()=>[N,e(),P,e(),T,e(),i("div",V,[n(z)]),e(),q(s.$slots,"extra-pane")]),_:3}))}}),B=i("div",{icon:"/src/assets/svg/number-1.svg",title:"Sagittis a curabitur"},[i("p",null,`
         A viverra adipiscing consequat vel non potenti ac vel consectetur
         tristique a integer suspendisse condimentum. Id donec cum aliquet a orci
         nec arcu ullamcorper fusce sodales pulvinar id tristique risus curae
@@ -54,7 +54,7 @@ import{o as c,b as v,C as h,D as f,a as i,d as m,c as d,w as o,x as e,f as n,G a
         Potenti lacus suscipit in ac adipiscing consectetur suspendisse dui
         aliquam egestas scelerisque porttitor nullam ad a elementum dignissim
         pulvinar.
-      `),e(),i("ul",{role:"list"},[i("li",null,"Vestibulum parturient"),e(),i("li",null,"Ullamcorper orci condimentum"),e(),i("li",null,"Sodales scelerisque ultrices")])],-1),E={name:"DemoAccordion"},r=m({...E,setup(u){return(s,l)=>(c(),d(p(_),null,{default:o(()=>[y,e(),L,e(),U]),_:1}))}});const G=i("div",null,[i("p",null,`
+      `),e(),i("ul",{role:"list"},[i("li",null,"Vestibulum parturient"),e(),i("li",null,"Ullamcorper orci condimentum"),e(),i("li",null,"Sodales scelerisque ultrices")])],-1),E={name:"DemoAccordion"},r=m({...E,setup(u){return(s,l)=>(c(),d(p(_),null,{default:o(()=>[B,e(),L,e(),U]),_:1}))}});const G=i("div",null,[i("p",null,`
               Adipiscing condimentum elit a cum ullamcorper nisi rutrum aptent
               lacinia vestibulum adipiscing a a vestibulum quis malesuada
               ullamcorper praesent netus netus mus.
