@@ -24,6 +24,7 @@ describe("MultiSelect", () => {
         },
       },
       props: {
+        label: "Select",
         modelValue: ["FR", "FE"],
         multiple: true,
         options: options,
@@ -46,6 +47,7 @@ describe("MultiSelect", () => {
         },
       },
       props: {
+        label: "Select",
         modelValue: "FR",
         options: options,
         placeholder: "Select a value",

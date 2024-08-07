@@ -4,7 +4,9 @@ exports[`NumberInput > matches snapshot 1`] = `
 <div
   class="field number"
 >
-  <label>
+  <label
+    for="number"
+  >
     Number input
   </label>
   

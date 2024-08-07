@@ -4,7 +4,9 @@ exports[`Input > matches snapshot 1`] = `
 <div
   class="field name"
 >
-  <label>
+  <label
+    for="name"
+  >
     Input
   </label>
   

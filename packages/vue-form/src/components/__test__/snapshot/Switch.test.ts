@@ -5,7 +5,11 @@ import Switch from "../../Switch.vue";
 
 describe("Switch", () => {
   it("matches snapshot", async () => {
-    const wrapper = mount(Switch);
+    const wrapper = mount(Switch, {
+      props: {
+        label: "Switch",
+      },
+    });
 
     const switchInput = wrapper.find(".switch-input");
 
