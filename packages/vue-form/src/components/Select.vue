@@ -4,6 +4,9 @@
     :class="{ 'multiple-mode': multiple }"
     class="multiselect"
   >
+    <label v-if="label" for="multiselect">
+      {{ label }}
+    </label>
     <div
       :class="{ disabled: disabled }"
       class="multiselect-input"
@@ -52,6 +55,11 @@ const props = defineProps({
   disabled: {
     default: false,
     type: Boolean,
+  },
+  label: {
+    default: "",
+    required: false,
+    type: String as PropType<string>,
   },
   modelValue: {
     default: () => [],

@@ -4,7 +4,9 @@ exports[`SelectInput > matches snapshot 1`] = `
 <div
   class="field multiselect"
 >
-  <label>
+  <label
+    for="multiselect"
+  >
     Multiselect
   </label>
   
@@ -16,6 +18,7 @@ exports[`SelectInput > matches snapshot 1`] = `
     tabindex="0"
     value="FR,FE"
   >
+    <!--v-if-->
     <div
       class="multiselect-input"
       data-v-96b70cc4=""
