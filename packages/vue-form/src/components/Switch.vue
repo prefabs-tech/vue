@@ -1,5 +1,8 @@
 <template>
   <div class="switch">
+    <label v-if="label" for="switch">
+      {{ label }}
+    </label>
     <input
       :checked="modelValue"
       :disabled="disabled"
@@ -17,10 +20,17 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 defineProps({
   disabled: {
     default: false,
     type: Boolean,
+  },
+  label: {
+    default: "",
+    required: false,
+    type: String as PropType<string>,
   },
   modelValue: {
     default: false,

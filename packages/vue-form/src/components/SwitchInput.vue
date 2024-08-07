@@ -1,6 +1,6 @@
 <template>
   <div :class="`field switch-toggle ${name}`">
-    <label v-if="label">
+    <label v-if="label" :for="name">
       {{ label }}
     </label>
     <Field
