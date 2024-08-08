@@ -1,4 +1,5 @@
 const Form = () => import("@/views/Form/Index.vue");
+const Input = () => import("@/views/Form/input/Index.vue");
 
 const routes = [
   {
@@ -8,6 +9,11 @@ const routes = [
         component: Form,
         name: "form",
         path: "",
+      },
+      {
+        component: Input,
+        name: "input",
+        path: "input",
       },
     ],
   },

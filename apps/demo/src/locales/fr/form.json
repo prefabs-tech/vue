@@ -16,11 +16,15 @@
     }
   },
   "label": {
+    "basicInput": "Basic Input[fr]",
     "disabled": "Disabled input[fr]",
     "email": "Email[fr]",
     "input": "Input[fr]",
+    "inputWithType": "Input with type props[fr]",
+    "inputWithValidation": "Input with validation[fr]",
     "invalid": "Show invalid state[fr]",
     "multiSelect": "Multiselect[fr]",
+    "noLabelInput": "Input without label[fr]",
     "number": "Number[fr]",
     "password": "Password[fr]",
     "select": "Select[fr]",
@@ -32,8 +36,8 @@
     "email": "Enter email input[fr]",
     "input": "Enter input[fr]",
     "multiSelect": "Select multiple value[fr]",
-    "number": "Enter number[fr]",
-    "password": "Enter password input[fr]",
+    "number": "Enter a number[fr]",
+    "password": "Enter password[fr]",
     "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
     "textInput": "Enter text input[fr]"

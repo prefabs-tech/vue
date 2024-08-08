@@ -16,11 +16,15 @@
     }
   },
   "label": {
+    "basicInput": "Basic Input",
     "disabled": "Disabled input",
     "email": "Email",
     "input": "Input",
+    "inputWithType": "Input with type props",
+    "inputWithValidation": "Input with validation",
     "invalid": "Show invalid state",
     "multiSelect": "Multiselect",
+    "noLabelInput": "Input without label",
     "number": "Number",
     "password": "Password",
     "select": "Select",
@@ -32,8 +36,8 @@
     "email": "Enter email input",
     "input": "Enter input",
     "multiSelect": "Select multiple value",
-    "number": "Enter number",
-    "password": "Enter password input",
+    "number": "Enter a number",
+    "password": "Enter password",
     "select": "Select a value",
     "textarea": "Enter textarea input",
     "textInput": "Enter text input"

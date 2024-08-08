@@ -15,7 +15,7 @@
         :id="`input-field-${name}`"
         :class="{
           invalid: meta.touched && !meta.valid,
-          valid: meta.dirty && meta.valid,
+          valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
         }"
         :disabled="disabled"
         :placeholder="placeholder"
@@ -88,3 +88,21 @@ const onInput = (event: Event) => {
   emit("update:modelValue", value);
 };
 </script>
+
+<style lang="css">
+.field {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-field-gap, 0.25em);
+  justify-content: flex-start;
+}
+
+.field input {
+  border-radius: var(---form-input-border-radius, 0.25em);
+  border: 1px solid var(--form-input-border-color, #000);
+  font-size: 1rem;
+  padding: var(--form-input-padding-v, 0.5em) var(--form-input-padding-h, 0.5em);
+  width: 100%;
+}
+</style>
