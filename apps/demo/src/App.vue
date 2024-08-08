@@ -1,6 +1,5 @@
 <template>
   <Layout :default-layout="defaultLayout" :show-user-menu="false">
-    <template #userMenu>test</template>
     <router-view />
   </Layout>
   <notifications />
