@@ -2,7 +2,7 @@ import configPlugin from "@dzangolab/vue3-config";
 import i18nPlugin from "@dzangolab/vue3-i18n";
 import uiPlugin from "@dzangolab/vue3-ui";
 import layoutPlugin from "@dzangolab/vue3-layout";
-import userPlugin from "@dzangolab/vue3-user";
+// import userPlugin from "@dzangolab/vue3-user";
 import Notifications from "@kyvg/vue3-notification";
 import { createPinia } from "pinia";
 import SshPre from "simple-syntax-highlighter";
