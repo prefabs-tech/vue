@@ -9,7 +9,7 @@
           <MainMenu class="main-menu" :routes="routes" />
         </template>
         <template #userMenu>
-          <UserMenu />
+          <UserMenu v-if="showUserMenu" />
         </template>
       </AppHeader>
     </template>
@@ -40,6 +40,14 @@ import UserMenu from "../components/UserMenu.vue";
 import useUserStore from "../store";
 
 import type { MenuItem } from "@dzangolab/vue3-layout";
+
+defineProps({
+  showUserMenu: {
+    default: true,
+    required: false,
+    type: Boolean,
+  },
+});
 
 const userStore = useUserStore();
 
