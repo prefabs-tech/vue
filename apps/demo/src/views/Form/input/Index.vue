@@ -133,7 +133,7 @@
         import { Form, Input } from "@dzangolab/vue3-form";
         import { z } from "zod";
 
-        const inputSchema = z.string().min(3, { message: t("form.errors.input.min") });        
+        const inputSchema = z.string().min(3, { message: "Input must be at least 3 character(s)" });        
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
