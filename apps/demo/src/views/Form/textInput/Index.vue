@@ -225,12 +225,12 @@
         }
 
         .custom-style-input input {
-          --_input-field-border-color: var(--dz-primary-color);
+          --_input-field-border-color: #007aff;
           --_input-field-border-radius: 0.5em;
           --_input-field-padding-h: 0.5em;
           --_input-field-padding-v: 0.5em;
 
-          color: var(--dz-primary-color);
+          color: #007aff;
         }
 
         .custom-style-input input:focus {
