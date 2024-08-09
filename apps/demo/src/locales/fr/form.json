@@ -16,10 +16,15 @@
     }
   },
   "label": {
-    "disabled": "Disabled input[fr]",
+    "basicInput": "Basic[fr]",
+    "customStyleInput": "Custom style[fr]",
+    "disabled": "Disabled[fr]",
     "email": "Email[fr]",
     "input": "Input[fr]",
+    "inputWithType": "With type prop[fr]",
+    "inputWithValidation": "With validation[fr]",
     "invalid": "Show invalid state[fr]",
+    "labelInput": "With label[fr]",
     "multiSelect": "Multiselect[fr]",
     "number": "Number[fr]",
     "password": "Password[fr]",
@@ -32,8 +37,8 @@
     "email": "Enter email input[fr]",
     "input": "Enter input[fr]",
     "multiSelect": "Select multiple value[fr]",
-    "number": "Enter number[fr]",
-    "password": "Enter password input[fr]",
+    "number": "Enter a number[fr]",
+    "password": "Enter password[fr]",
     "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
     "textInput": "Enter text input[fr]"
