@@ -1,7 +1,34 @@
 <template>
   <Page :title="$t('form.label.input')">
-    <section>
+    <section class="demo-section">
       <h3>{{ $t("form.label.basicInput") }}</h3>
+
+      <!-- eslint-disable -->
+       <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;Input 
+            v-model="input"
+            placeholder="Enter Input"
+            type="text"
+          /&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { Input } from "@dzangolab/vue3-form";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <Input
+        v-model="formData.noLabelInput"
+        :placeholder="$t('form.placeholder.input')"
+        class="form-field"
+        type="text"
+      />
+    </section>
+
+    <section class="demo-section">
+      <h3>{{ $t("form.label.labelInput") }}</h3>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
@@ -27,34 +54,7 @@
       />
     </section>
 
-    <section>
-      <h3>{{ $t("form.label.noLabelInput") }}</h3>
-
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;template&gt;
-          &lt;Input 
-            v-model="input"
-            placeholder="Enter Input"
-            type="text"
-          /&gt;
-        &lt;/template&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Input } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Input
-        v-model="formData.noLabelInput"
-        :placeholder="$t('form.placeholder.input')"
-        class="form-field"
-        type="text"
-      />
-    </section>
-
-    <section>
+    <section class="demo-section">
       <h3>{{ $t("form.label.inputWithType") }}</h3>
 
       <!-- eslint-disable -->
@@ -83,8 +83,8 @@
       />
     </section>
 
-    <section>
-      <h3>{{ $t("form.label.disabledInput") }}</h3>
+    <section class="demo-section">
+      <h3>{{ $t("form.label.disabled") }}</h3>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
@@ -112,7 +112,7 @@
       />
     </section>
 
-    <section>
+    <section class="demo-section">
       <h3>{{ $t("form.label.inputWithValidation") }}</h3>
 
       <!-- eslint-disable -->
@@ -133,7 +133,8 @@
         import { Form, Input } from "@dzangolab/vue3-form";
         import { z } from "zod";
 
-        const inputSchema = z.string().min(3, { message: "Input must be at least 3 character(s)" });        
+        const inputSchema = z.string()
+          .min(3, { message: "Input must be at least 3 character(s)" });        
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
@@ -151,7 +152,7 @@
       </Form>
     </section>
 
-    <section>
+    <section class="demo-section">
       <h3>{{ $t("form.label.customStyleInput") }}</h3>
 
       <!-- eslint-disable -->
