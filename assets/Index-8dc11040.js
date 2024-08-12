@@ -1,1 +1,0 @@
-import{_ as o}from"./_plugin-vue_export-helper-c27b6911.js";import{o as n,c as a,r}from"./index-902006a8.js";const s={name:"Layout"};function c(t,p,l,_,i,m){const e=r("Page");return n(),a(e,{title:t.$t("layout.title")},null,8,["title"])}const d=o(s,[["render",c]]);export{d as default};
