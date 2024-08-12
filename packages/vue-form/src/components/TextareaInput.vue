@@ -107,10 +107,14 @@ const onInput = (event: Event) => {
 };
 </script>
 
-<style scoped>
+<style lang="css">
 .field textarea {
-  height: var(--textarea-height, 8rem);
-  resize: var(--textarea-resize, none);
-  width: var(--textarea-width, 100%);
+  --_input-field-textarea-height: var(--textarea-height, 8rem);
+  --_input-field-textarea-resize: var(--textarea-resize, none);
+  --_input-field-textarea-width: var(--textarea-width, 100%);
+
+  height: var(--_input-field-textarea-height);
+  resize: var(--_input-field-textarea-resize);
+  width: var(--_input-field-textarea-width);
 }
 </style>

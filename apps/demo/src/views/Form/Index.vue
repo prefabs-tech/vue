@@ -7,6 +7,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{ name: 'textareaInput' }">
+          {{ $t("form.label.textarea") }}
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'textInput' }">
           {{ $t("form.label.textInput") }}
         </router-link>

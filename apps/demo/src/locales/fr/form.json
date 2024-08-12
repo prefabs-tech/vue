@@ -4,8 +4,8 @@
   },
   "errors": {
     "input": {
-      "length": "Input must be exactly 5 characters long[fr]",
-      "min": "Input must be at least 3 character(s)[fr]",
+      "length": "Input must be exactly {length} characters long[fr]",
+      "min": "Input must be at least {length} character(s)[fr]",
       "required": "The field should not be empty[fr]"
     },
     "number": {
