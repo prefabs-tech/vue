@@ -19,6 +19,7 @@
   },
   "label": {
     "basicInput": "Basic[fr]",
+    "customColsRowsInput": "With cols and rows props[fr]",
     "customErrorMessageInput": "With custom error message[fr]",
     "customValidationInput": "With custom validation[fr]",
     "customStyleInput": "Custom style[fr]",

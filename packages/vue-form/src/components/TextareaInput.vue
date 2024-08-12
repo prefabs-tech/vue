@@ -17,8 +17,10 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :cols="cols"
         :disabled="disabled"
         :placeholder="placeholder"
+        :rows="rows"
         tabindex="0"
         type="textarea"
       />
@@ -44,6 +46,11 @@ import type { TextErrorMessages, IsTextOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  cols: {
+    default: undefined,
+    required: false,
+    type: Number as PropType<number | undefined>,
+  },
   disabled: {
     default: false,
     type: Boolean,
@@ -83,6 +90,11 @@ const props = defineProps({
     default: "",
     type: String,
   },
+  rows: {
+    default: undefined,
+    required: false,
+    type: Number as PropType<number | undefined>,
+  },
   schema: {
     default: () => {
       return {};
@@ -109,11 +121,12 @@ const onInput = (event: Event) => {
 
 <style lang="css">
 .field textarea {
-  --_input-field-textarea-height: var(--textarea-height, 8rem);
+  --_input-field-textarea-height: var(--textarea-height, unset);
   --_input-field-textarea-resize: var(--textarea-resize, none);
   --_input-field-textarea-width: var(--textarea-width, 100%);
 
   height: var(--_input-field-textarea-height);
+  max-width: 100%;
   resize: var(--_input-field-textarea-resize);
   width: var(--_input-field-textarea-width);
 }

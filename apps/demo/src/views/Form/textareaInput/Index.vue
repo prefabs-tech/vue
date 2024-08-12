@@ -201,6 +201,45 @@
     </section>
 
     <section class="demo-section">
+      <h3>{{ $t("form.label.customColsRowsInput") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;TextareaInput 
+            v-model="input"
+            class="textarea-field"
+            cols="100",
+            label="Textarea"
+            placeholder="Enter input"
+            rows="10"
+          /&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { Input } from "@dzangolab/vue3-form";
+        &lt;/script&gt;
+
+        &lt;style&gt;
+        .textarea-field textarea {
+          --_input-field-textarea-height: unset;
+          --_input-field-textarea-width: unset;
+        }
+        &lt;/style&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <TextareaInput
+        v-model="formData.customRowsColsInput"
+        :cols="100"
+        :label="$t('form.label.textarea')"
+        :placeholder="$t('form.placeholder.input')"
+        :rows="10"
+        class="form-field textarea-field"
+      />
+    </section>
+
+    <section class="demo-section">
       <h3>{{ $t("form.label.customStyleInput") }}</h3>
 
       <!-- eslint-disable -->
@@ -281,6 +320,7 @@ const validationOptions = {
 };
 
 let formData = reactive({
+  customRowsColsInput: ref(),
   customStyleInput: ref(),
   customValidationInput: ref(),
   disabled: ref("Disabled textarea input"),
@@ -311,5 +351,10 @@ let formData = reactive({
 
 .custom-style-input textarea:focus {
   box-shadow: 0 0 0 0.25rem #03449e9a;
+}
+
+.textarea-field textarea {
+  --_input-field-textarea-height: unset;
+  --_input-field-textarea-width: unset;
 }
 </style>
