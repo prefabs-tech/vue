@@ -1,4 +1,4 @@
-import{d as V,u as _,f as $,g as r,o as y,c as T,w as p,a as u,t as m,e,b as l,h as n,r as b}from"./index-996ccde4.js";import{m as z,q as d,h as c}from"./DzangolabVue3Form.es-cfbf0652.js";const F={class:"demo-section"},S={class:"demo-section"},q={class:"demo-section"},w={class:"demo-section"},E={class:"demo-section"},U={class:"demo-section"},x={class:"demo-section"},O={name:"InputField"},B=V({...O,setup(M){const{t:f}=_(),g=z.string().length(5,{message:f("form.errors.input.length",{length:5})}),I={required:f("form.errors.input.required")},h={ignore_whitespace:!0,required:!0};let o=$({customStyleInput:r(),customValidationInput:r(),disabled:r("dzangolab"),input:r(),inputWithValidation:r(),noLabelInput:r(),textInput:r()});return(t,a)=>{const i=b("SshPre"),v=b("Page");return y(),T(v,{title:t.$t("form.label.textInput")},{default:p(()=>[u("section",F,[u("h3",null,m(t.$t("form.label.basicInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
+import{d as V,u as _,f as $,g as r,o as y,c as T,w as p,a as u,t as m,e,b as l,h as n,r as h}from"./index-c63e278a.js";import{m as z,_ as d,b as c}from"./DzangolabVue3Form.es-c25be186.js";const F={class:"demo-section"},S={class:"demo-section"},w={class:"demo-section"},E={class:"demo-section"},U={class:"demo-section"},q={class:"demo-section"},x={class:"demo-section"},O={name:"InputField"},B=V({...O,setup(M){const{t:f}=_(),g=z.string().length(5,{message:f("form.errors.input.length",{length:5})}),I={required:f("form.errors.input.required")},b={ignore_whitespace:!0,required:!0};let o=$({customStyleInput:r(),customValidationInput:r(),disabled:r("dzangolab"),input:r(),inputWithValidation:r(),noLabelInput:r(),textInput:r()});return(t,a)=>{const i=h("SshPre"),v=h("Page");return y(),T(v,{title:t.$t("form.label.textInput")},{default:p(()=>[u("section",F,[u("h3",null,m(t.$t("form.label.basicInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
         <template>
           <TextInput 
             v-model="input"
@@ -21,7 +21,7 @@ import{d as V,u as _,f as $,g as r,o as y,c as T,w as p,a as u,t as m,e,b as l,h
         <script setup lang="ts">
         import { TextInput } from "@dzangolab/vue3-form";
         <\/script>
-      `)]),_:1}),e(),l(n(d),{modelValue:n(o).input,"onUpdate:modelValue":a[1]||(a[1]=s=>n(o).input=s),label:t.$t("form.label.textInput"),placeholder:t.$t("form.placeholder.textInput"),class:"form-field"},null,8,["modelValue","label","placeholder"])]),e(),u("section",q,[u("h3",null,m(t.$t("form.label.disabled")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
+      `)]),_:1}),e(),l(n(d),{modelValue:n(o).input,"onUpdate:modelValue":a[1]||(a[1]=s=>n(o).input=s),label:t.$t("form.label.textInput"),placeholder:t.$t("form.placeholder.textInput"),class:"form-field"},null,8,["modelValue","label","placeholder"])]),e(),u("section",w,[u("h3",null,m(t.$t("form.label.disabled")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
         <template>
           <TextInput 
             v-model="input"
@@ -33,7 +33,7 @@ import{d as V,u as _,f as $,g as r,o as y,c as T,w as p,a as u,t as m,e,b as l,h
         <script setup lang="ts">
         import { Input } from "@dzangolab/vue3-form";
         <\/script>
-      `)]),_:1}),e(),l(n(d),{modelValue:n(o).disabled,"onUpdate:modelValue":a[2]||(a[2]=s=>n(o).disabled=s),label:t.$t("form.label.disabled"),class:"form-field",disabled:""},null,8,["modelValue","label"])]),e(),u("section",w,[u("h3",null,m(t.$t("form.label.inputWithValidation")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
+      `)]),_:1}),e(),l(n(d),{modelValue:n(o).disabled,"onUpdate:modelValue":a[2]||(a[2]=s=>n(o).disabled=s),label:t.$t("form.label.disabled"),class:"form-field",disabled:""},null,8,["modelValue","label"])]),e(),u("section",E,[u("h3",null,m(t.$t("form.label.inputWithValidation")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
         <template>
           <Form>
             <TextInput 
@@ -53,7 +53,7 @@ import{d as V,u as _,f as $,g as r,o as y,c as T,w as p,a as u,t as m,e,b as l,h
           required: true
         };
         <\/script>
-      `)]),_:1}),e(),l(n(c),null,{default:p(()=>[l(n(d),{modelValue:n(o).inputWithValidation,"onUpdate:modelValue":a[3]||(a[3]=s=>n(o).inputWithValidation=s),label:t.$t("form.label.input"),options:h,placeholder:t.$t("form.placeholder.input"),class:"form-field"},null,8,["modelValue","label","placeholder"])]),_:1})]),e(),u("section",E,[u("h3",null,m(t.$t("form.label.customErrorMessageInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
+      `)]),_:1}),e(),l(n(c),null,{default:p(()=>[l(n(d),{modelValue:n(o).inputWithValidation,"onUpdate:modelValue":a[3]||(a[3]=s=>n(o).inputWithValidation=s),label:t.$t("form.label.input"),options:b,placeholder:t.$t("form.placeholder.input"),class:"form-field"},null,8,["modelValue","label","placeholder"])]),_:1})]),e(),u("section",U,[u("h3",null,m(t.$t("form.label.customErrorMessageInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
         <template>
           <Form>
             <TextInput 
@@ -78,7 +78,7 @@ import{d as V,u as _,f as $,g as r,o as y,c as T,w as p,a as u,t as m,e,b as l,h
           required: true
         };
         <\/script>
-      `)]),_:1}),e(),l(n(c),null,{default:p(()=>[l(n(d),{modelValue:n(o).textInput,"onUpdate:modelValue":a[4]||(a[4]=s=>n(o).textInput=s),label:t.$t("form.label.input"),"error-messages":I,options:h,placeholder:t.$t("form.placeholder.input"),class:"form-field"},null,8,["modelValue","label","placeholder"])]),_:1})]),e(),u("section",U,[u("h3",null,m(t.$t("form.label.customValidationInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
+      `)]),_:1}),e(),l(n(c),null,{default:p(()=>[l(n(d),{modelValue:n(o).textInput,"onUpdate:modelValue":a[4]||(a[4]=s=>n(o).textInput=s),label:t.$t("form.label.input"),"error-messages":I,options:b,placeholder:t.$t("form.placeholder.input"),class:"form-field"},null,8,["modelValue","label","placeholder"])]),_:1})]),e(),u("section",q,[u("h3",null,m(t.$t("form.label.customValidationInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
         <template>
           <Form>
             <TextInput 
