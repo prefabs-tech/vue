@@ -9,7 +9,7 @@
   margin-bottom: var(--_input-field-margin-bottom);
 }
 
-.field input {
+.field input, .field textarea {
   --_input-field-border-color: var(--form-input-border-color, #000);
   --_input-field-border-radius: var(--form-input-border-radius, 0.25em);
   --_input-field-padding-h: var(--form-input-padding-h, 0.5em);
@@ -22,7 +22,11 @@
   width: 100%;
 }
 
-.field input:disabled {
+.field input:disabled, .field textarea:disabled {
   background-color: var(--form-input-bg-color-disabled);
   border-color: var(--form-input-border-color-disabled);
+}
+
+.field textarea:disabled {
+  resize: none;
 }

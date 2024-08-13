@@ -216,7 +216,9 @@ import { z } from "zod";
 
 const { t } = useI18n();
 
-const inputSchema = z.string().min(3, { message: t("form.errors.input.min") });
+const inputSchema = z
+  .string()
+  .min(3, { message: t("form.errors.input.min", { length: 3 }) });
 
 let formData = reactive({
   disabled: ref("monorepo@gmail.com"),

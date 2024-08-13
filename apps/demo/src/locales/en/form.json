@@ -5,7 +5,7 @@
   "errors": {
     "input": {
       "length": "Input must be exactly {length} characters long",
-      "min": "Input must be at least 3 character(s)",
+      "min": "Input must be at least {length} character(s)",
       "required": "The field should not be empty"
     },
     "number": {
@@ -19,6 +19,7 @@
   },
   "label": {
     "basicInput": "Basic",
+    "customColsRowsInput": "With cols and rows props",
     "customErrorMessageInput": "With custom error message",
     "customValidationInput": "With custom validation",
     "customStyleInput": "Custom style",
