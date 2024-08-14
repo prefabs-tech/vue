@@ -1,3 +1,4 @@
+const Email = () => import("@/views/Form/emailInput/Index.vue");
 const Form = () => import("@/views/Form/Index.vue");
 const Input = () => import("@/views/Form/input/Index.vue");
 const NumberInput = () => import("@/views/Form/numberInput/Index.vue");
@@ -8,6 +9,11 @@ const routes = [
   {
     path: "/form",
     children: [
+      {
+        component: Email,
+        name: "emailInput",
+        path: "email-input",
+      },
       {
         component: Form,
         name: "form",

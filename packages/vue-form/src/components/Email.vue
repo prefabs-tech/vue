@@ -5,7 +5,7 @@
     </label>
     <Field
       v-slot="{ field, meta }"
-      v-bind="modelValue"
+      :model-value="modelValue"
       :name="name"
       :rules="fieldSchema"
       @input="onInput"
