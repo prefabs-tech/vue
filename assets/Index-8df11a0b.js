@@ -1,4 +1,4 @@
-import{d as E,u as V,b as I,e as d,o as z,c as y,w as s,a as i,t as p,f as e,g as n,h as l,r as g}from"./index-6336e16e.js";import{m as $,p as u,b as c}from"./DzangolabVue3Form.es-b56ef05e.js";const w={class:"demo-section"},F={class:"demo-section"},S={class:"demo-section"},O={class:"demo-section"},q={class:"demo-section"},U={class:"demo-section"},M={class:"demo-section"},P={name:"InputField"},D=E({...P,setup(W){const{t:f}=V(),h=$.string().email({message:f("form.errors.email.invalid")}),v={required:f("form.errors.input.required"),invalid:f("form.errors.email.invalid",{list:"(dzangolab.com, dzango.com, gmail.com)"})},b={allow_display_name:!1,allow_utf8_local_part:!0,host_whitelist:["dzangolab.com","dzango.com","gmail.com"],require_display_name:!1};let o=I({customStyleInput:d(),customValidationInput:d(),disabled:d("monorepo@dzangolab.com"),input:d(),inputWithValidation:d(),noLabelInput:d(),textInput:d()});return(a,t)=>{const r=g("SshPre"),_=g("Page");return z(),y(_,{title:a.$t("form.label.textInput")},{default:s(()=>[i("section",w,[i("h3",null,p(a.$t("form.label.basicInput")),1),e(),n(r,{language:"html-vue"},{default:s(()=>[e(`
+import{d as E,u as V,b as I,e as d,o as z,c as y,w as s,a as i,t as p,f as e,g as n,h as l,r as g}from"./index-9516cbce.js";import{m as $,p as u,b as c}from"./DzangolabVue3Form.es-644e12ce.js";const w={class:"demo-section"},F={class:"demo-section"},S={class:"demo-section"},O={class:"demo-section"},U={class:"demo-section"},q={class:"demo-section"},M={class:"demo-section"},P={name:"InputField"},D=E({...P,setup(W){const{t:f}=V(),h=$.string().email({message:f("form.errors.email.invalid")}),v={required:f("form.errors.input.required"),invalid:f("form.errors.email.invalid",{list:"(dzangolab.com, dzango.com, gmail.com)"})},b={allow_display_name:!1,allow_utf8_local_part:!0,host_whitelist:["dzangolab.com","dzango.com","gmail.com"],require_display_name:!1};let o=I({customStyleInput:d(),customValidationInput:d(),disabled:d("monorepo@dzangolab.com"),input:d(),inputWithValidation:d(),noLabelInput:d(),textInput:d()});return(a,t)=>{const r=g("SshPre"),_=g("Page");return z(),y(_,{title:a.$t("form.label.textInput")},{default:s(()=>[i("section",w,[i("h3",null,p(a.$t("form.label.basicInput")),1),e(),n(r,{language:"html-vue"},{default:s(()=>[e(`
         <template>
           <Email 
             v-model="input"
@@ -60,7 +60,7 @@ import{d as E,u as V,b as I,e as d,o as z,c as y,w as s,a as i,t as p,f as e,g a
           require_display_name: false,
         } as IsEmailOptions;
         <\/script>
-      `)]),_:1}),e(),n(l(c),null,{default:s(()=>[n(l(u),{modelValue:l(o).inputWithValidation,"onUpdate:modelValue":t[3]||(t[3]=m=>l(o).inputWithValidation=m),label:a.$t("form.label.email"),options:l(b),placeholder:a.$t("form.placeholder.email"),class:"form-field"},null,8,["modelValue","label","options","placeholder"])]),_:1})]),e(),i("section",q,[i("h3",null,p(a.$t("form.label.customErrorMessageInput")),1),e(),n(r,{language:"html-vue"},{default:s(()=>[e(`
+      `)]),_:1}),e(),n(l(c),null,{default:s(()=>[n(l(u),{modelValue:l(o).inputWithValidation,"onUpdate:modelValue":t[3]||(t[3]=m=>l(o).inputWithValidation=m),label:a.$t("form.label.email"),options:l(b),placeholder:a.$t("form.placeholder.email"),class:"form-field"},null,8,["modelValue","label","options","placeholder"])]),_:1})]),e(),i("section",U,[i("h3",null,p(a.$t("form.label.customErrorMessageInput")),1),e(),n(r,{language:"html-vue"},{default:s(()=>[e(`
         <template>
           <Form>
             <Email 
@@ -79,9 +79,8 @@ import{d as E,u as V,b as I,e as d,o as z,c as y,w as s,a as i,t as p,f as e,g a
         import type { EmailErrorMessages, IsEmailOptions } from "@dzangolab/vue3-form";
 
         const validationMessages = {
-          required: t("form.errors.input.required"),
-          invalid: t("form.errors.email.invalid",
-            { list: "(dzangolab.com, dzango.com, gmail.com)" })
+          required: "The field should not be empty",
+          invalid: "Please provide a valid email (dzangolab.com, dzango.com, gmail.com)"
         } as EmailErrorMessages;
 
         const validationOptions = {
@@ -91,7 +90,7 @@ import{d as E,u as V,b as I,e as d,o as z,c as y,w as s,a as i,t as p,f as e,g a
           require_display_name: false,
         } as IsEmailOptions;
         <\/script>
-      `)]),_:1}),e(),n(l(c),null,{default:s(()=>[n(l(u),{modelValue:l(o).textInput,"onUpdate:modelValue":t[4]||(t[4]=m=>l(o).textInput=m),label:a.$t("form.label.email"),"error-messages":l(v),options:l(b),placeholder:a.$t("form.placeholder.email"),class:"form-field"},null,8,["modelValue","label","error-messages","options","placeholder"])]),_:1})]),e(),i("section",U,[i("h3",null,p(a.$t("form.label.customValidationInput")),1),e(),n(r,{language:"html-vue"},{default:s(()=>[e(`
+      `)]),_:1}),e(),n(l(c),null,{default:s(()=>[n(l(u),{modelValue:l(o).textInput,"onUpdate:modelValue":t[4]||(t[4]=m=>l(o).textInput=m),label:a.$t("form.label.email"),"error-messages":l(v),options:l(b),placeholder:a.$t("form.placeholder.email"),class:"form-field"},null,8,["modelValue","label","error-messages","options","placeholder"])]),_:1})]),e(),i("section",q,[i("h3",null,p(a.$t("form.label.customValidationInput")),1),e(),n(r,{language:"html-vue"},{default:s(()=>[e(`
         <template>
           <Form>
             <Email 
