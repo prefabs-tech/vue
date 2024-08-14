@@ -67,6 +67,9 @@
 
         &lt;script setup lang="ts"&gt;
         import { Email } from "@dzangolab/vue3-form";
+        import { ref } from vue;
+
+        const input = ref("monorepo@dzangolab.com");
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
@@ -113,9 +116,9 @@
       <Form>
         <Email
           v-model="formData.inputWithValidation"
-          :label="$t('form.label.input')"
+          :label="$t('form.label.email')"
           :options="validationOptions"
-          :placeholder="$t('form.placeholder.input')"
+          :placeholder="$t('form.placeholder.email')"
           class="form-field"
         />
       </Form>
@@ -162,10 +165,10 @@
       <Form>
         <Email
           v-model="formData.textInput"
-          :label="$t('form.label.input')"
+          :label="$t('form.label.email')"
           :error-messages="validationMessages"
           :options="validationOptions"
-          :placeholder="$t('form.placeholder.input')"
+          :placeholder="$t('form.placeholder.email')"
           class="form-field"
         />
       </Form>
@@ -189,7 +192,7 @@
         &lt;/template&gt;
 
         &lt;script setup lang="ts"&gt;
-        import { Form, Input } from "@dzangolab/vue3-form";
+        import { Form, Email } from "@dzangolab/vue3-form";
         import { z } from "zod";
 
         const inputSchema = z.string()
@@ -248,8 +251,8 @@
 
       <Email
         v-model="formData.customStyleInput"
-        :label="$t('form.label.input')"
-        :placeholder="$t('form.placeholder.input')"
+        :label="$t('form.label.email')"
+        :placeholder="$t('form.placeholder.email')"
         class="form-field custom-style-input"
       />
     </section>
@@ -302,11 +305,6 @@ let formData = reactive({
 </script>
 
 <style lang="css">
-.custom-style-input {
-  flex-direction: column;
-  align-items: left;
-}
-
 .custom-style-input input {
   --_input-field-border-color: var(--dz-primary-color);
   --_input-field-border-radius: 0.5em;
