@@ -3,6 +3,9 @@
     "submit": "Submit"
   },
   "errors": {
+    "email": {
+      "invalid": "Please provide a valid email {list}"
+    },
     "input": {
       "length": "Input must be exactly {length} characters long",
       "min": "Input must be at least {length} character(s)",
@@ -39,7 +42,7 @@
     "valid": "Show valid state"
   },
   "placeholder": {
-    "email": "Enter email input",
+    "email": "Enter a email",
     "input": "Enter input",
     "multiSelect": "Select multiple value",
     "number": "Enter a number",

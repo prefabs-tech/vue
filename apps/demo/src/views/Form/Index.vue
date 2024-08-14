@@ -2,6 +2,11 @@
   <Page :title="$t('form.title')">
     <ul role="list">
       <li>
+        <router-link :to="{ name: 'emailInput' }">
+          {{ $t("form.label.email") }}
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'input' }">
           {{ $t("form.label.input") }}
         </router-link>

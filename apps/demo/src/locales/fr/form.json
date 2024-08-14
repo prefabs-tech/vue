@@ -3,6 +3,9 @@
     "submit": "Submit[fr]"
   },
   "errors": {
+    "email": {
+      "invalid": "Please provide a valid email {list}[fr]"
+    },
     "input": {
       "length": "Input must be exactly {length} characters long[fr]",
       "min": "Input must be at least {length} character(s)[fr]",
@@ -39,7 +42,7 @@
     "valid": "Show valid state[fr]"
   },
   "placeholder": {
-    "email": "Enter email input[fr]",
+    "email": "Enter a email[fr]",
     "input": "Enter input[fr]",
     "multiSelect": "Select multiple value[fr]",
     "number": "Enter a number[fr]",

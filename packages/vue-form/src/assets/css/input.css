@@ -27,6 +27,12 @@
   border-color: var(--form-input-border-color-disabled);
 }
 
+.field label {
+  --_input-field-label-color: var(--form-input-label-color, #000);
+  
+  color: var(--_input-field-label-color);
+}
+
 .field textarea:disabled {
   resize: none;
 }
