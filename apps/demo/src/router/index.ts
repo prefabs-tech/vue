@@ -5,7 +5,7 @@ import form from "./form";
 import ui from "./ui";
 
 // import About from "@/views/About.vue";
-// import Home from "@/views/Home.vue";
+import Home from "@/views/Home.vue";
 // import Layout from "@/views/Layout/Index.vue";
 // import Sentry from "@/views/Sentry.vue";
 
@@ -20,7 +20,7 @@ interface AppRouteMeta extends RouteMeta {
 }
 
 const About = () => import("@/views/About.vue");
-const Home = () => import("@/views/Home.vue");
+// const Home = () => import("@/views/Home.vue");
 const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
 
