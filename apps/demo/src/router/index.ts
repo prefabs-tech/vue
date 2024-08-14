@@ -4,6 +4,11 @@ import { feature } from "@/config";
 import form from "./form";
 import ui from "./ui";
 
+// import About from "@/views/About.vue";
+// import Home from "@/views/Home.vue";
+// import Layout from "@/views/Layout/Index.vue";
+// import Sentry from "@/views/Sentry.vue";
+
 import type { AppFeatures } from "@dzangolab/vue3-config";
 import type { LayoutType } from "@dzangolab/vue3-layout";
 import type { RouteMeta, Router, RouterOptions } from "vue-router";
