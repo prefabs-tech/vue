@@ -66,7 +66,7 @@
         &lt;/template&gt;
 
         &lt;script setup lang="ts"&gt;
-        import { Input } from "@dzangolab/vue3-form";
+        import { NumberInput } from "@dzangolab/vue3-form";
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
@@ -186,7 +186,7 @@
         &lt;/template&gt;
 
         &lt;script setup lang="ts"&gt;
-        import { Form, Input } from "@dzangolab/vue3-form";
+        import { Form, NumberInput } from "@dzangolab/vue3-form";
         import { z } from "zod";
 
         const invalidNumberError = "Please provide a number between 1 to 100";
@@ -226,7 +226,7 @@
         &lt;/template&gt;
 
         &lt;script setup lang="ts"&gt;
-        import { Input } from "@dzangolab/vue3-form";
+        import { NumberInput } from "@dzangolab/vue3-form";
         &lt;/script&gt;
 
         &lt;style&gt;
