@@ -64,7 +64,7 @@ const props = defineProps({
     type: String as PropType<string>,
   },
   modelValue: {
-    default: 0,
+    default: undefined,
     type: Number as PropType<number | null | undefined>,
   },
   name: {
