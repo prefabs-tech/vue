@@ -11,7 +11,7 @@
       "min": "Input must be at least {length} character(s)[fr]",
       "required": "The field should not be empty[fr]"
     },
-    "multiselect":  {
+    "multiSelect":  {
       "invalid": "Please select atleast one valid option[fr]"
     },
     "number": {
