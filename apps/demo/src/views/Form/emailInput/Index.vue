@@ -147,9 +147,8 @@
         import type { EmailErrorMessages, IsEmailOptions } from "@dzangolab/vue3-form";
 
         const validationMessages = {
-          required: t("form.errors.input.required"),
-          invalid: t("form.errors.email.invalid",
-            { list: "(dzangolab.com, dzango.com, gmail.com)" })
+          required: "The field should not be empty",
+          invalid: "Please provide a valid email (dzangolab.com, dzango.com, gmail.com)"
         } as EmailErrorMessages;
 
         const validationOptions = {
