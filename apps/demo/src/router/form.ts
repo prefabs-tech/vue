@@ -2,6 +2,7 @@ const Email = () => import("@/views/Form/emailInput/Index.vue");
 const Form = () => import("@/views/Form/Index.vue");
 const Input = () => import("@/views/Form/input/Index.vue");
 const NumberInput = () => import("@/views/Form/numberInput/Index.vue");
+const SelectInput = () => import("@/views/Form/selectInput/Index.vue");
 const TextareaInput = () => import("@/views/Form/textareaInput/Index.vue");
 const TextInput = () => import("@/views/Form/textInput/Index.vue");
 
@@ -28,6 +29,11 @@ const routes = [
         component: NumberInput,
         name: "numberInput",
         path: "number-input",
+      },
+      {
+        component: SelectInput,
+        name: "selectInput",
+        path: "select-input",
       },
       {
         component: TextareaInput,

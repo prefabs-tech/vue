@@ -143,10 +143,13 @@ onMounted(() => {
 });
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .multiple-mode.multiselect .selected-option {
-  background-color: var(--multiselect-tag-color, rgb(215, 194, 253));
-  border-radius: 2rem;
+  --_multiselect-tag-border-radius: var(--multiselect-tag-border-radius, 2rem);
+  --_multiselect-tag-color: var(--multiselect-tag-color, rgb(215, 194, 253));
+
+  background-color: var(--_multiselect-tag-color);
+  border-radius: var(--_multiselect-tag-border-radius);
   margin-right: 0.25rem;
   padding: 0.25rem 0.6rem;
 }
@@ -172,8 +175,10 @@ onMounted(() => {
 }
 
 .multiselect-input {
+  --_multiselect-border-color: var(--form-input-border-color, #555);
+
   padding: 10px;
-  border: 1px solid var(--form-input-border-color);
+  border: 1px solid var(--_multiselect-border-color);
   cursor: pointer;
   user-select: none;
 }
@@ -181,6 +186,7 @@ onMounted(() => {
 .multiselect-input.disabled {
   background: var(--form-input-bg-color-disabled);
   border-color: var(--form-input-border-color-disabled);
+  color: var(--form-input-color-disabled);
   cursor: default;
 }
 
@@ -198,12 +204,20 @@ onMounted(() => {
 }
 
 .multiselect-option.selected {
-  background-color: #007bff;
-  color: white;
+  --_multiselect-selected-bg-color: var(
+    --multiselect-selected-bg-color,
+    #007bff
+  );
+  --_multiselect-selected-color: var(--multiselect-selected-color, #fff);
+
+  background-color: var(--_multiselect-selected-bg-color);
+  color: var(--_multiselect-selected-color);
 }
 
 .multiselect-placeholder {
-  color: #555;
+  --_multiselect-placeholder-color: var(--form-input-placeholder-color, #555);
+
+  color: var(--_multiselect-placeholder-color);
 }
 
 .multiselect.valid .multiselect-input {
