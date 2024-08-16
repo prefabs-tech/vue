@@ -15,6 +15,10 @@
       "invalid": "Please provide a number between 1 to 100[fr]",
       "required": "The field is required[fr]"
     },
+    "password": {
+      "invalid": "Please provide a strong password[fr]",
+      "min": "Input must be at least {length} character(s)[fr]"
+    },
     "select": {
       "invalid": "Please select a valid option[fr]",
       "required": "The select field is required[fr]"
@@ -46,7 +50,7 @@
     "input": "Enter input[fr]",
     "multiSelect": "Select multiple value[fr]",
     "number": "Enter a number[fr]",
-    "password": "Enter password[fr]",
+    "password": "Enter a password[fr]",
     "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
     "textInput": "Enter text input[fr]"

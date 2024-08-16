@@ -5,7 +5,7 @@
     </label>
     <Field
       v-slot="{ field, meta }"
-      v-bind="modelValue"
+      :model-value="modelValue"
       :name="name"
       :rules="fieldSchema"
       @input="onInput"
@@ -35,6 +35,7 @@ export default {
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { z } from "zod";
 
 import { passwordSchema } from "../schemas";
 
@@ -82,15 +83,26 @@ const props = defineProps({
     default: "",
     type: String,
   },
+  schema: {
+    default: () => {
+      return {};
+    },
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | object>>,
+  },
 });
 
 const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = toFieldValidator(
-  passwordSchema(
-    props.errorMessages,
-    props.options as StrongPasswordOptions & { returnScore: false | undefined }
-  )
+  Object.keys(props.schema).length
+    ? props.schema
+    : passwordSchema(
+        props.errorMessages,
+        props.options as StrongPasswordOptions & {
+          returnScore: false | undefined;
+        }
+      )
 );
 
 const onInput = (event: Event) => {

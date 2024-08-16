@@ -17,6 +17,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{ name: 'passwordInput' }">
+          {{ $t("form.label.password") }}
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'textareaInput' }">
           {{ $t("form.label.textarea") }}
         </router-link>
