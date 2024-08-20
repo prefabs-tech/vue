@@ -260,7 +260,7 @@
 
 <script lang="ts">
 export default {
-  name: "InputField",
+  name: "EmailInputField",
 };
 </script>
 

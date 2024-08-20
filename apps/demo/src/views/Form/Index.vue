@@ -22,6 +22,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{ name: 'selectInput' }">
+          {{ $t("form.label.select") }}
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'textareaInput' }">
           {{ $t("form.label.textarea") }}
         </router-link>

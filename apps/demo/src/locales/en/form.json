@@ -11,6 +11,9 @@
       "min": "Input must be at least {length} character(s)",
       "required": "The field should not be empty"
     },
+    "multiSelect":  {
+      "invalid": "Please select atleast one valid option"
+    },
     "number": {
       "invalid": "Please provide a number between 1 to 100",
       "required": "The field is required"
@@ -31,6 +34,7 @@
     "customValidationInput": "With custom validation",
     "customStyleInput": "Custom style",
     "disabled": "Disabled",
+    "disabledMultiSelect": "Disabled multiselect",
     "email": "Email",
     "input": "Input",
     "inputWithType": "With type prop",

@@ -11,6 +11,9 @@
       "min": "Input must be at least {length} character(s)[fr]",
       "required": "The field should not be empty[fr]"
     },
+    "multiSelect":  {
+      "invalid": "Please select atleast one valid option[fr]"
+    },
     "number": {
       "invalid": "Please provide a number between 1 to 100[fr]",
       "required": "The field is required[fr]"
@@ -30,6 +33,7 @@
     "customErrorMessageInput": "With custom error message[fr]",
     "customValidationInput": "With custom validation[fr]",
     "customStyleInput": "Custom style[fr]",
+    "disabledMultiSelect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
     "email": "Email[fr]",
     "input": "Input[fr]",

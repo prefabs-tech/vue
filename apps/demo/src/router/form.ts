@@ -3,6 +3,7 @@ const Form = () => import("@/views/Form/Index.vue");
 const Input = () => import("@/views/Form/input/Index.vue");
 const NumberInput = () => import("@/views/Form/numberInput/Index.vue");
 const Password = () => import("@/views/Form/passwordInput/Index.vue");
+const SelectInput = () => import("@/views/Form/selectInput/Index.vue");
 const TextareaInput = () => import("@/views/Form/textareaInput/Index.vue");
 const TextInput = () => import("@/views/Form/textInput/Index.vue");
 
@@ -34,6 +35,11 @@ const routes = [
         component: Password,
         name: "passwordInput",
         path: "password-input",
+      },
+      {
+        component: SelectInput,
+        name: "selectInput",
+        path: "select-input",
       },
       {
         component: TextareaInput,

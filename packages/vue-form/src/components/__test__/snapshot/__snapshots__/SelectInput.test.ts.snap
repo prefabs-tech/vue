@@ -12,7 +12,6 @@ exports[`SelectInput > matches snapshot 1`] = `
   
   <div
     class="multiple-mode multiselect"
-    data-v-96b70cc4=""
     id="input-field-multiselect"
     name="multiselect"
     tabindex="0"
@@ -21,21 +20,16 @@ exports[`SelectInput > matches snapshot 1`] = `
     <!--v-if-->
     <div
       class="multiselect-input"
-      data-v-96b70cc4=""
     >
-      <span
-        data-v-96b70cc4=""
-      >
+      <span>
         
         <span
           class="selected-option"
-          data-v-96b70cc4=""
         >
           FR
         </span>
         <span
           class="selected-option"
-          data-v-96b70cc4=""
         >
           FE
         </span>
