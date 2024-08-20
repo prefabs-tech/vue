@@ -47,10 +47,12 @@ const onChange = (event: Event) => {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .switch input[type="checkbox"] {
+  --_switch-unchecked-bg-color: var(--switch-unchecked-bg-color, #ccc);
+
   appearance: none;
-  background-color: #ccc;
+  background-color: var(--_switch-unchecked-bg-color);
   border-radius: 1.25rem;
   cursor: pointer;
   height: 2.18rem;
@@ -75,7 +77,9 @@ const onChange = (event: Event) => {
 }
 
 .switch input:checked {
-  background-color: #007aff;
+  --_switch-checked-bg-color: var(--switch-checked-bg-color, #007aff);
+
+  background-color: var(--_switch-checked-bg-color);
 }
 
 .switch input:disabled {
