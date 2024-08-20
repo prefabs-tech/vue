@@ -17,6 +17,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{ name: 'passwordInput' }">
+          {{ $t("form.label.password") }}
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'selectInput' }">
           {{ $t("form.label.select") }}
         </router-link>
