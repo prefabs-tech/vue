@@ -82,7 +82,7 @@ const onChange = (event: Event) => {
 </script>
 
 <style lang="css">
-.field {
+.switch-toggle {
   --_switch-field-direction: var(--switch-field-direction, row);
   --_switch-field-gap: var(--form-field-gap, 0.75rem);
 
