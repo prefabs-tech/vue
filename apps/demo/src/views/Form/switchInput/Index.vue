@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('form.label.select')">
+  <Page :title="$t('form.label.switch')">
     <section class="demo-section">
       <h3>{{ $t("form.label.basicInput") }}</h3>
 
@@ -93,10 +93,10 @@
         &lt;script setup lang="ts"&gt;
         import { Form, SwitchInput } from "@dzangolab/vue3-form";
 
-        const inputSchema = z
+        const inputSchema = z.coerce
           .boolean()
           .refine((value) => value === true, {
-            message: "The switch value must be true"
+            message: t("form.errors.switch.invalid"),
           });
         &lt;/script&gt;
       </SshPre>
