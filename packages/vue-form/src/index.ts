@@ -7,6 +7,11 @@ export * from "./schemas";
 export type {
   EmailErrorMessages,
   IsEmailOptions,
-  StrongPasswordOptions,
+  IsIntOptions,
+  IsTextOptions,
+  NumberErrorMessages,
   PasswordErrorMessages,
+  SelectOption,
+  StrongPasswordOptions,
+  TextErrorMessages,
 } from "./types";

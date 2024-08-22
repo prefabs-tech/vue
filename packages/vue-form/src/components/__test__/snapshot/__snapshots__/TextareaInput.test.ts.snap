@@ -3,17 +3,15 @@
 exports[`TextareaInput > matches snapshot 1`] = `
 <div
   class="field text"
-  data-v-f3edb0b1=""
 >
   <label
-    data-v-f3edb0b1=""
+    for="text"
   >
     Textarea input
   </label>
   
   <textarea
     class=""
-    data-v-f3edb0b1=""
     id="input-field-text"
     name="text"
     placeholder="Placeholder"

@@ -1,6 +1,6 @@
 <template>
   <div :class="`field ${name}`">
-    <label v-if="label">
+    <label v-if="label" :for="name">
       {{ label }}
     </label>
     <Field
@@ -64,7 +64,7 @@ const props = defineProps({
     type: String as PropType<string>,
   },
   modelValue: {
-    default: 0,
+    default: undefined,
     type: Number as PropType<number | null | undefined>,
   },
   name: {

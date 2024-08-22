@@ -7,6 +7,7 @@ exports[`SwitchInput > matches snapshot 1`] = `
 >
   <label
     data-v-6ac808d6=""
+    for="switch"
   >
     Switch input
   </label>
@@ -20,6 +21,7 @@ exports[`SwitchInput > matches snapshot 1`] = `
     name="switch"
     tabindex="0"
   >
+    <!--v-if-->
     <input
       class="switch-input"
       data-v-54a6d679=""

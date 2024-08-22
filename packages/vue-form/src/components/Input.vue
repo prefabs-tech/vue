@@ -1,6 +1,6 @@
 <template>
   <div :class="`field ${name}`">
-    <label v-if="label">
+    <label v-if="label" :for="name">
       {{ label }}
     </label>
     <Field
@@ -15,7 +15,7 @@
         :id="`input-field-${name}`"
         :class="{
           invalid: meta.touched && !meta.valid,
-          valid: meta.dirty && meta.valid,
+          valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
         }"
         :disabled="disabled"
         :placeholder="placeholder"

@@ -3,19 +3,19 @@
 exports[`MultiSelect > matches snapshot for multiple select 1`] = `
 <div
   class="multiple-mode multiselect"
-  data-v-96b70cc4=""
 >
+  <label
+    for="multiselect"
+  >
+    Select
+  </label>
   <div
     class="multiselect-input"
-    data-v-96b70cc4=""
   >
-    <span
-      data-v-96b70cc4=""
-    >
+    <span>
       
       <span
         class="selected-option"
-        data-v-96b70cc4=""
       >
         FE
       </span>
@@ -24,36 +24,30 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
   </div>
   <ul
     class="multiselect-dropdown"
-    data-v-96b70cc4=""
   >
     
     <li
       class="multiselect-option"
-      data-v-96b70cc4=""
     >
       FR
     </li>
     <li
       class="multiselect-option"
-      data-v-96b70cc4=""
     >
       DE
     </li>
     <li
       class="multiselect-option"
-      data-v-96b70cc4=""
     >
       BE
     </li>
     <li
       class="multiselect-option selected"
-      data-v-96b70cc4=""
     >
       FE
     </li>
     <li
       class="multiselect-option"
-      data-v-96b70cc4=""
     >
       RE
     </li>
@@ -65,19 +59,19 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
 exports[`MultiSelect > matches snapshot for single select 1`] = `
 <div
   class="multiselect"
-  data-v-96b70cc4=""
 >
+  <label
+    for="multiselect"
+  >
+    Select
+  </label>
   <div
     class="multiselect-input"
-    data-v-96b70cc4=""
   >
-    <span
-      data-v-96b70cc4=""
-    >
+    <span>
       
       <span
         class="selected-option"
-        data-v-96b70cc4=""
       >
         FR
       </span>
@@ -86,36 +80,30 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
   </div>
   <ul
     class="multiselect-dropdown"
-    data-v-96b70cc4=""
   >
     
     <li
       class="multiselect-option selected"
-      data-v-96b70cc4=""
     >
       FR
     </li>
     <li
       class="multiselect-option"
-      data-v-96b70cc4=""
     >
       DE
     </li>
     <li
       class="multiselect-option"
-      data-v-96b70cc4=""
     >
       BE
     </li>
     <li
       class="multiselect-option"
-      data-v-96b70cc4=""
     >
       FE
     </li>
     <li
       class="multiselect-option"
-      data-v-96b70cc4=""
     >
       RE
     </li>

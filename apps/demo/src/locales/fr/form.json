@@ -3,12 +3,24 @@
     "submit": "Submit[fr]"
   },
   "errors": {
+    "email": {
+      "invalid": "Please provide a valid email {list}[fr]"
+    },
     "input": {
-      "min": "Input must be at least 3 character(s)[fr]"
+      "length": "Input must be exactly {length} characters long[fr]",
+      "min": "Input must be at least {length} character(s)[fr]",
+      "required": "The field should not be empty[fr]"
+    },
+    "multiSelect":  {
+      "invalid": "Please select atleast one valid option[fr]"
     },
     "number": {
       "invalid": "Please provide a number between 1 to 100[fr]",
       "required": "The field is required[fr]"
+    },
+    "password": {
+      "invalid": "Please provide a strong password[fr]",
+      "min": "Input must be at least {length} character(s)[fr]"
     },
     "select": {
       "invalid": "Please select a valid option[fr]",
@@ -16,10 +28,19 @@
     }
   },
   "label": {
-    "disabled": "Disabled input[fr]",
+    "basicInput": "Basic[fr]",
+    "customColsRowsInput": "With cols and rows props[fr]",
+    "customErrorMessageInput": "With custom error message[fr]",
+    "customValidationInput": "With custom validation[fr]",
+    "customStyleInput": "Custom style[fr]",
+    "disabledMultiSelect": "Disabled multiselect[fr]",
+    "disabled": "Disabled[fr]",
     "email": "Email[fr]",
     "input": "Input[fr]",
+    "inputWithType": "With type prop[fr]",
+    "inputWithValidation": "With validation[fr]",
     "invalid": "Show invalid state[fr]",
+    "labelInput": "With label[fr]",
     "multiSelect": "Multiselect[fr]",
     "number": "Number[fr]",
     "password": "Password[fr]",
@@ -29,11 +50,11 @@
     "valid": "Show valid state[fr]"
   },
   "placeholder": {
-    "email": "Enter email input[fr]",
+    "email": "Enter a email[fr]",
     "input": "Enter input[fr]",
     "multiSelect": "Select multiple value[fr]",
-    "number": "Enter number[fr]",
-    "password": "Enter password input[fr]",
+    "number": "Enter a number[fr]",
+    "password": "Enter a password[fr]",
     "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
     "textInput": "Enter text input[fr]"
