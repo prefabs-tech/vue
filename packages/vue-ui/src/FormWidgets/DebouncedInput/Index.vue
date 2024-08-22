@@ -9,6 +9,12 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: "DebouncedInput",
+};
+</script>
+
 <script setup lang="ts">
 import { useDebouncedValue } from "../../utils";
 
