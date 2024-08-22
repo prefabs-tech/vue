@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DebouncedInput > matches snapshot 1`] = `
+<div
+  class="debounce-input"
+>
+  <input
+    placeholder="Search..."
+    type="text"
+  />
+</div>
+`;
