@@ -25,6 +25,9 @@
     "select": {
       "invalid": "Please select a valid option[fr]",
       "required": "The select field is required[fr]"
+    },
+    "switch": {
+      "invalid": "The switch value must be true.[fr]"
     }
   },
   "label": {
@@ -45,6 +48,7 @@
     "number": "Number[fr]",
     "password": "Password[fr]",
     "select": "Select[fr]",
+    "switch": "Switch[fr]",
     "textarea": "Textarea[fr]",
     "textInput": "Text input[fr]",
     "valid": "Show valid state[fr]"

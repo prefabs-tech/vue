@@ -25,6 +25,9 @@
     "select": {
       "invalid": "Please select a valid option",
       "required": "The select field is required"
+    },
+    "switch": {
+      "invalid": "The switch value must be true"
     }
   },
   "label": {
@@ -45,6 +48,7 @@
     "number": "Number",
     "password": "Password",
     "select": "Select",
+    "switch": "Switch",
     "textarea": "Textarea",
     "textInput": "Text input",
     "valid": "Show valid state"

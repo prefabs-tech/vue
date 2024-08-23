@@ -3,17 +3,14 @@
 exports[`Switch > matches snapshot 1`] = `
 <div
   class="switch"
-  data-v-54a6d679=""
 >
   <label
-    data-v-54a6d679=""
     for="switch"
   >
     Switch
   </label>
   <input
     class="switch-input"
-    data-v-54a6d679=""
     type="checkbox"
   />
 </div>

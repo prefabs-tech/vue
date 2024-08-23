@@ -81,12 +81,14 @@ const onChange = (event: Event) => {
 };
 </script>
 
-<style scoped>
-.field {
-  align-items: center;
+<style lang="css">
+.switch-toggle {
+  --_switch-field-direction: var(--switch-field-direction, row);
+  --_switch-field-gap: var(--form-field-gap, 0.75rem);
+
   display: flex;
-  flex-direction: var(--switch-field-direction, row);
-  gap: var(--form-field-gap, 0.75rem);
+  flex-direction: var(--_switch-field-direction);
+  gap: var(--_switch-field-gap);
   width: max-content;
 }
 </style>
