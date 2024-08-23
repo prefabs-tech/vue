@@ -1,4 +1,4 @@
-import{d as S,u as g,b as h,e as p,o as F,c as R,w as i,a as s,t as d,f as e,g as t,h as l,r as f}from"./index-def4dfd6.js";import{m as V,g as c,p as D}from"./DzangolabVue3Form.es-9aea5955.js";const I={class:"demo-section"},B={class:"demo-section"},_={class:"demo-section"},$={class:"demo-section"},y={class:"demo-section"},z={class:"demo-section"},U={class:"demo-section"},P={name:"SelectInputField"},L=S({...P,setup(M){const{t:b}=g(),v=V.string({invalid_type_error:b("form.errors.multiSelect.invalid")}).array().min(1,{message:b("form.errors.multiSelect.invalid")});let a=h({customStyleInput:p(),disabled:p("DE"),disabledMultiSelect:p(["BE","DE"]),input:p(),inputWithValidation:p(),multiSelect:p(),noLabelInput:p()});const m=p([{value:"FR",label:"FR"},{value:"DE",label:"DE"},{value:"BE",label:"BE"},{value:"FE",label:"FE"},{value:"RE",label:"RE"}]);return(n,o)=>{const r=f("SshPre"),E=f("Page");return F(),R(E,{title:n.$t("form.label.select")},{default:i(()=>[s("section",I,[s("h3",null,d(n.$t("form.label.basicInput")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
+import{d as S,u as h,b as g,e as m,o as F,c as R,w as i,a as s,t as d,f as e,g as t,h as l,r as f}from"./index-cd13e62b.js";import{m as V,y as c,a as D}from"./DzangolabVue3Form.es-eff9732e.js";const I={class:"demo-section"},B={class:"demo-section"},_={class:"demo-section"},$={class:"demo-section"},y={class:"demo-section"},z={class:"demo-section"},U={class:"demo-section"},P={name:"SelectInputField"},L=S({...P,setup(M){const{t:b}=h(),v=V.string({invalid_type_error:b("form.errors.multiSelect.invalid")}).array().min(1,{message:b("form.errors.multiSelect.invalid")});let a=g({customStyleInput:m(),disabled:m("DE"),disabledMultiSelect:m(["BE","DE"]),input:m(),inputWithValidation:m(),multiSelect:m(),noLabelInput:m()});const p=m([{value:"FR",label:"FR"},{value:"DE",label:"DE"},{value:"BE",label:"BE"},{value:"FE",label:"FE"},{value:"RE",label:"RE"}]);return(n,o)=>{const r=f("SshPre"),E=f("Page");return F(),R(E,{title:n.$t("form.label.select")},{default:i(()=>[s("section",I,[s("h3",null,d(n.$t("form.label.basicInput")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
         <template>
           <SelectInput
             v-model="input"
@@ -19,7 +19,7 @@ import{d as S,u as g,b as h,e as p,o as F,c as R,w as i,a as s,t as d,f as e,g a
           { value: "RE", label: "RE" },
         ]);
         <\/script>
-      `)]),_:1}),e(),t(l(c),{modelValue:l(a).noLabelInput,"onUpdate:modelValue":o[0]||(o[0]=u=>l(a).noLabelInput=u),options:m.value,placeholder:n.$t("form.placeholder.select"),class:"form-field"},null,8,["modelValue","options","placeholder"])]),e(),s("section",B,[s("h3",null,d(n.$t("form.label.labelInput")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
+      `)]),_:1}),e(),t(l(c),{modelValue:l(a).noLabelInput,"onUpdate:modelValue":o[0]||(o[0]=u=>l(a).noLabelInput=u),options:p.value,placeholder:n.$t("form.placeholder.select"),class:"form-field"},null,8,["modelValue","options","placeholder"])]),e(),s("section",B,[s("h3",null,d(n.$t("form.label.labelInput")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
         <template>
           <SelectInput 
             v-model="input"
@@ -41,7 +41,7 @@ import{d as S,u as g,b as h,e as p,o as F,c as R,w as i,a as s,t as d,f as e,g a
           { value: "RE", label: "RE" },
         ]);
         <\/script>
-      `)]),_:1}),e(),t(l(c),{modelValue:l(a).input,"onUpdate:modelValue":o[1]||(o[1]=u=>l(a).input=u),label:n.$t("form.label.select"),options:m.value,placeholder:n.$t("form.placeholder.select"),class:"form-field"},null,8,["modelValue","label","options","placeholder"])]),e(),s("section",_,[s("h3",null,d(n.$t("form.label.disabled")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
+      `)]),_:1}),e(),t(l(c),{modelValue:l(a).input,"onUpdate:modelValue":o[1]||(o[1]=u=>l(a).input=u),label:n.$t("form.label.select"),options:p.value,placeholder:n.$t("form.placeholder.select"),class:"form-field"},null,8,["modelValue","label","options","placeholder"])]),e(),s("section",_,[s("h3",null,d(n.$t("form.label.disabled")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
         <template>
           <SelectInput 
             v-model="disabled"
@@ -65,7 +65,7 @@ import{d as S,u as g,b as h,e as p,o as F,c as R,w as i,a as s,t as d,f as e,g a
           { value: "RE", label: "RE" },
         ]);
         <\/script>
-      `)]),_:1}),e(),t(l(c),{modelValue:l(a).disabled,"onUpdate:modelValue":o[2]||(o[2]=u=>l(a).disabled=u),label:n.$t("form.label.disabled"),options:m.value,class:"form-field",disabled:""},null,8,["modelValue","label","options"])]),e(),s("section",$,[s("h3",null,d(n.$t("form.label.multiSelect")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
+      `)]),_:1}),e(),t(l(c),{modelValue:l(a).disabled,"onUpdate:modelValue":o[2]||(o[2]=u=>l(a).disabled=u),label:n.$t("form.label.disabled"),options:p.value,class:"form-field",disabled:""},null,8,["modelValue","label","options"])]),e(),s("section",$,[s("h3",null,d(n.$t("form.label.multiSelect")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
         <template>
           <SelectInput 
             v-model="input"
@@ -88,7 +88,7 @@ import{d as S,u as g,b as h,e as p,o as F,c as R,w as i,a as s,t as d,f as e,g a
           { value: "RE", label: "RE" },
         ]);
         <\/script>
-      `)]),_:1}),e(),t(l(c),{modelValue:l(a).multiSelect,"onUpdate:modelValue":o[3]||(o[3]=u=>l(a).multiSelect=u),label:n.$t("form.label.select"),options:m.value,placeholder:n.$t("form.placeholder.multiSelect"),class:"form-field",multiple:""},null,8,["modelValue","label","options","placeholder"])]),e(),s("section",y,[s("h3",null,d(n.$t("form.label.disabledMultiSelect")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
+      `)]),_:1}),e(),t(l(c),{modelValue:l(a).multiSelect,"onUpdate:modelValue":o[3]||(o[3]=u=>l(a).multiSelect=u),label:n.$t("form.label.select"),options:p.value,placeholder:n.$t("form.placeholder.multiSelect"),class:"form-field",multiple:""},null,8,["modelValue","label","options","placeholder"])]),e(),s("section",y,[s("h3",null,d(n.$t("form.label.disabledMultiSelect")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
         <template>
           <SelectInput 
             v-model="disabled"
@@ -113,7 +113,7 @@ import{d as S,u as g,b as h,e as p,o as F,c as R,w as i,a as s,t as d,f as e,g a
           { value: "RE", label: "RE" },
         ]);
         <\/script>
-      `)]),_:1}),e(),t(l(c),{modelValue:l(a).disabledMultiSelect,"onUpdate:modelValue":o[4]||(o[4]=u=>l(a).disabledMultiSelect=u),label:n.$t("form.label.disabled"),options:m.value,class:"form-field",disabled:"",multiple:""},null,8,["modelValue","label","options"])]),e(),s("section",z,[s("h3",null,d(n.$t("form.label.inputWithValidation")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
+      `)]),_:1}),e(),t(l(c),{modelValue:l(a).disabledMultiSelect,"onUpdate:modelValue":o[4]||(o[4]=u=>l(a).disabledMultiSelect=u),label:n.$t("form.label.disabled"),options:p.value,class:"form-field",disabled:"",multiple:""},null,8,["modelValue","label","options"])]),e(),s("section",z,[s("h3",null,d(n.$t("form.label.inputWithValidation")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
         <template>
           <SelectInput 
             v-model="input"
@@ -142,7 +142,7 @@ import{d as S,u as g,b as h,e as p,o as F,c as R,w as i,a as s,t as d,f as e,g a
           { value: "RE", label: "RE" },
         ]);
         <\/script>
-      `)]),_:1}),e(),t(l(D),null,{default:i(()=>[t(l(c),{modelValue:l(a).inputWithValidation,"onUpdate:modelValue":o[5]||(o[5]=u=>l(a).inputWithValidation=u),label:n.$t("form.label.select"),options:m.value,placeholder:n.$t("form.placeholder.multiSelect"),schema:l(v),class:"form-field",multiple:""},null,8,["modelValue","label","options","placeholder","schema"])]),_:1})]),e(),s("section",U,[s("h3",null,d(n.$t("form.label.customStyleInput")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
+      `)]),_:1}),e(),t(l(D),null,{default:i(()=>[t(l(c),{modelValue:l(a).inputWithValidation,"onUpdate:modelValue":o[5]||(o[5]=u=>l(a).inputWithValidation=u),label:n.$t("form.label.select"),options:p.value,placeholder:n.$t("form.placeholder.multiSelect"),schema:l(v),class:"form-field",multiple:""},null,8,["modelValue","label","options","placeholder","schema"])]),_:1})]),e(),s("section",U,[s("h3",null,d(n.$t("form.label.customStyleInput")),1),e(),t(r,{language:"html-vue"},{default:i(()=>[e(`
         <template>
           <SelectInput 
             v-model="input"
@@ -184,4 +184,4 @@ import{d as S,u as g,b as h,e as p,o as F,c as R,w as i,a as s,t as d,f as e,g a
           --_multiselect-selected-color: #fff;
         }
       </style>
-      `)]),_:1}),e(),t(l(c),{modelValue:l(a).multiSelect,"onUpdate:modelValue":o[6]||(o[6]=u=>l(a).multiSelect=u),label:n.$t("form.label.select"),options:m.value,placeholder:n.$t("form.placeholder.multiSelect"),class:"form-field custom-style-select",multiple:""},null,8,["modelValue","label","options","placeholder"])])]),_:1},8,["title"])}}});export{L as default};
+      `)]),_:1}),e(),t(l(c),{modelValue:l(a).multiSelect,"onUpdate:modelValue":o[6]||(o[6]=u=>l(a).multiSelect=u),label:n.$t("form.label.select"),options:p.value,placeholder:n.$t("form.placeholder.multiSelect"),class:"form-field custom-style-select",multiple:""},null,8,["modelValue","label","options","placeholder"])])]),_:1},8,["title"])}}});export{L as default};

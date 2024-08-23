@@ -1,0 +1,1 @@
+.custom-style-input{--_switch-field-direction: row;--_switch-field-gap: 1rem;align-items:center}.custom-style-input .switch input[type=checkbox]{--_switch-unchecked-bg-color: var(--dz-danger-color)}.custom-style-input .switch input:checked{--_switch-checked-bg-color: var(--dz-success-color)}
