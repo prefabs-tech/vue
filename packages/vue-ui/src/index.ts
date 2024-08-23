@@ -6,6 +6,7 @@ import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
 import SubPane from "./components/SubPane.vue";
 import Errors from "./Errors/Index.vue";
+import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
@@ -24,6 +25,7 @@ export default plugin;
 
 export {
   Accordion,
+  DebouncedInput,
   Errors,
   GoogleSignInButton,
   LoadingButton,
