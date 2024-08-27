@@ -1,5 +1,5 @@
 <template>
-  <div :class="`field typeahead ${name}`">
+  <div ref="dzangolabVueFormTypeahead" :class="`field typeahead ${name}`">
     <label v-if="label" :for="name">
       {{ label }}
     </label>
@@ -47,6 +47,7 @@ export default {
 <script setup lang="ts">
 import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { toFieldValidator } from "@vee-validate/zod";
+import { onClickOutside } from "@vueuse/core";
 import { ErrorMessage, Field } from "vee-validate";
 import { computed, ref } from "vue";
 import { z } from "zod";
@@ -100,11 +101,17 @@ const props = defineProps({
   },
 });
 
+const dzangolabVueFormTypeahead = ref(null);
+
 const inputValue = ref(props.modelValue);
 
 const showSuggestions = ref<boolean>(false);
 
 const emit = defineEmits(["update:modelValue"]);
+
+onClickOutside(dzangolabVueFormTypeahead, (event) => {
+  showSuggestions.value = false;
+});
 
 const fieldSchema = Object.keys(props.schema).length
   ? toFieldValidator(props.schema)
