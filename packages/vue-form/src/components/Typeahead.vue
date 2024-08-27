@@ -23,7 +23,7 @@
         tabindex="0"
         @update:model-value="onInput"
       />
-      <ErrorMessage :name="name" />
+      <ErrorMessage v-if="!filteredSuggestions.length" :name="name" />
     </Field>
     <ul v-if="showSuggestions" class="suggestion-list">
       <li
@@ -134,9 +134,9 @@ const onInput = (value: string | number) => {
 
 const onSelect = (option: SelectOption) => {
   inputValue.value = option.value;
+  showSuggestions.value = false;
 
   emit("update:modelValue", option.value);
-  showSuggestions.value = false;
 };
 </script>
 
