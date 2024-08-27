@@ -1,0 +1,92 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Typeahead > matches snapshot 1`] = `
+<div
+  class="field typeahead"
+>
+  <label
+    for=""
+  >
+    Input
+  </label>
+  
+  <div
+    class="debounce-input"
+    id="input-field-"
+    tabindex="0"
+  >
+    <input
+      placeholder="Placeholder"
+      type="text"
+    />
+  </div>
+  <!--v-if-->
+  
+  <ul
+    class="suggestion-list"
+  >
+    
+    <li
+      class="suggestion"
+    >
+      Roslabel - A fragrant flower often associated with romance
+    </li>
+    <li
+      class="suggestion"
+    >
+      Tulip - A bright, cup-shaped flower popular in spring
+    </li>
+    <li
+      class="suggestion"
+    >
+      Daisy - A simple, white flower with a yellow center
+    </li>
+    <li
+      class="suggestion"
+    >
+      Sunflower - A tall plant with a large, yellow flower head
+    </li>
+    <li
+      class="suggestion"
+    >
+      Lily - An elegant flower often used in bouquets
+    </li>
+    <li
+      class="suggestion"
+    >
+      Orchid - An exotic flower with a unique shape
+    </li>
+    <li
+      class="suggestion"
+    >
+      Marigold - A vibrant, orange or yellow flower
+    </li>
+    <li
+      class="suggestion"
+    >
+      Lavender - A fragrant flower known for its calming scent
+    </li>
+    <li
+      class="suggestion"
+    >
+      Peony - A lush, full flower often used in weddings
+    </li>
+    <li
+      class="suggestion"
+    >
+      Chrysanthemum - A hardy flower with a variety of colors
+    </li>
+    <li
+      class="suggestion"
+    >
+      Daffodil - A bright, yellow flower that blooms in spring
+    </li>
+    <li
+      class="suggestion"
+    >
+      Hydrangea - A large, cluster-like flower that changes color
+    </li>
+    
+  </ul>
+</div>
+`;

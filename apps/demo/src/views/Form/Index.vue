@@ -41,6 +41,11 @@
           {{ $t("form.label.textInput") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'typeahead' }">
+          {{ $t("form.label.typeahead") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <div class="debounce-input">
     <input
+      :disabled="disabled"
       :placeholder="placeholder"
       :type="type"
       :value="modelValue"
@@ -25,6 +26,10 @@ const props = defineProps({
     default: 500,
     required: false,
     type: Number,
+  },
+  disabled: {
+    default: false,
+    type: Boolean,
   },
   modelValue: {
     default: "",

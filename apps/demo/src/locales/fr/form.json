@@ -36,6 +36,7 @@
     "customErrorMessageInput": "With custom error message[fr]",
     "customValidationInput": "With custom validation[fr]",
     "customStyleInput": "Custom style[fr]",
+    "debouncedTypeahead": "With debounce time prop",
     "disabledMultiSelect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
     "email": "Email[fr]",
@@ -51,6 +52,7 @@
     "switch": "Switch[fr]",
     "textarea": "Textarea[fr]",
     "textInput": "Text input[fr]",
+    "typeahead": "Typeahead",
     "valid": "Show valid state[fr]"
   },
   "placeholder": {
