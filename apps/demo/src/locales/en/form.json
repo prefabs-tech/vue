@@ -36,6 +36,7 @@
     "customErrorMessageInput": "With custom error message",
     "customValidationInput": "With custom validation",
     "customStyleInput": "Custom style",
+    "debouncedTypeahead": "With debounce time prop",
     "disabled": "Disabled",
     "disabledMultiSelect": "Disabled multiselect",
     "email": "Email",
@@ -51,6 +52,7 @@
     "switch": "Switch",
     "textarea": "Textarea",
     "textInput": "Text input",
+    "typeahead": "Typeahead",
     "valid": "Show valid state"
   },
   "placeholder": {

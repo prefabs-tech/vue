@@ -162,13 +162,21 @@ li.suggestion {
 }
 
 li.suggestion:hover {
-  background-color: var(--field-option-hover-color, #e5e5e5);
+  --_typeahead-suggestion-hover-color: var(--field-option-hover-color, #e5e5e5);
+
+  background-color: var(--_typeahead-suggestion-hover-color);
   cursor: pointer;
 }
 
 ul.suggestion-list {
+  --_typeahead-suggestions-border-radius: var(
+    --input-field-border-radius,
+    0.5rem
+  );
+
   background-color: #fff;
   border: 1px solid #ccc;
+  border-radius: var(--_typeahead-suggestions-border-radius);
   border-top: none;
   list-style-type: none;
   margin: 0;

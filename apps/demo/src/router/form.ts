@@ -7,6 +7,7 @@ const SelectInput = () => import("@/views/Form/selectInput/Index.vue");
 const SwitchInput = () => import("@/views/Form/switchInput/Index.vue");
 const TextareaInput = () => import("@/views/Form/textareaInput/Index.vue");
 const TextInput = () => import("@/views/Form/textInput/Index.vue");
+const Typeahead = () => import("@/views/Form/typeahead/Index.vue");
 
 const routes = [
   {
@@ -56,6 +57,11 @@ const routes = [
         component: TextInput,
         name: "textInput",
         path: "text-input",
+      },
+      {
+        component: Typeahead,
+        name: "typeahead",
+        path: "typeahead",
       },
     ],
   },
