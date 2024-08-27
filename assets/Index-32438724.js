@@ -1,4 +1,4 @@
-import{d as V,u as _,b as $,e as r,o as y,c as T,w as p,a as u,t as m,f as e,g as l,h as n,r as h}from"./index-cd13e62b.js";import{m as S,S as d,a as c}from"./DzangolabVue3Form.es-eff9732e.js";const z={class:"demo-section"},F={class:"demo-section"},w={class:"demo-section"},x={class:"demo-section"},E={class:"demo-section"},U={class:"demo-section"},q={class:"demo-section"},O={name:"TextInputField"},B=V({...O,setup(M){const{t:f}=_(),g=S.string().length(5,{message:f("form.errors.input.length",{length:5})}),I={required:f("form.errors.input.required")},b={ignore_whitespace:!0,required:!0};let o=$({customStyleInput:r(),customValidationInput:r(),disabled:r("dzangolab"),input:r(),inputWithValidation:r(),noLabelInput:r(),textInput:r()});return(t,a)=>{const i=h("SshPre"),v=h("Page");return y(),T(v,{title:t.$t("form.label.textInput")},{default:p(()=>[u("section",z,[u("h3",null,m(t.$t("form.label.basicInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
+import{d as V,u as $,b as _,e as r,o as y,c as T,w as p,a as u,t as m,f as e,g as l,h as n,r as h}from"./index-2888608e.js";import{m as z,C as d,$ as c}from"./DzangolabVue3Form.es-2f02f091.js";const F={class:"demo-section"},S={class:"demo-section"},w={class:"demo-section"},x={class:"demo-section"},E={class:"demo-section"},U={class:"demo-section"},q={class:"demo-section"},C={name:"TextInputField"},W=V({...C,setup(O){const{t:f}=$(),g=z.string().length(5,{message:f("form.errors.input.length",{length:5})}),I={required:f("form.errors.input.required")},b={ignore_whitespace:!0,required:!0};let o=_({customStyleInput:r(),customValidationInput:r(),disabled:r("dzangolab"),input:r(),inputWithValidation:r(),noLabelInput:r(),textInput:r()});return(t,a)=>{const i=h("SshPre"),v=h("Page");return y(),T(v,{title:t.$t("form.label.textInput")},{default:p(()=>[u("section",F,[u("h3",null,m(t.$t("form.label.basicInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
         <template>
           <TextInput 
             v-model="input"
@@ -9,7 +9,7 @@ import{d as V,u as _,b as $,e as r,o as y,c as T,w as p,a as u,t as m,f as e,g a
         <script setup lang="ts">
         import { TextInput } from "@dzangolab/vue3-form";
         <\/script>
-      `)]),_:1}),e(),l(n(d),{modelValue:n(o).noLabelInput,"onUpdate:modelValue":a[0]||(a[0]=s=>n(o).noLabelInput=s),placeholder:t.$t("form.placeholder.input"),class:"form-field"},null,8,["modelValue","placeholder"])]),e(),u("section",F,[u("h3",null,m(t.$t("form.label.labelInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
+      `)]),_:1}),e(),l(n(d),{modelValue:n(o).noLabelInput,"onUpdate:modelValue":a[0]||(a[0]=s=>n(o).noLabelInput=s),placeholder:t.$t("form.placeholder.input"),class:"form-field"},null,8,["modelValue","placeholder"])]),e(),u("section",S,[u("h3",null,m(t.$t("form.label.labelInput")),1),e(),l(i,{language:"html-vue"},{default:p(()=>[e(`
         <template>
           <TextInput 
             v-model="input"
@@ -131,4 +131,4 @@ import{d as V,u as _,b as $,e as r,o as y,c as T,w as p,a as u,t as m,f as e,g a
           box-shadow: 0 0 0 0.25rem #03449e9a;
         }
         </style>
-      `)]),_:1}),e(),l(n(d),{modelValue:n(o).customStyleInput,"onUpdate:modelValue":a[6]||(a[6]=s=>n(o).customStyleInput=s),label:t.$t("form.label.input"),placeholder:t.$t("form.placeholder.input"),class:"form-field custom-style-input"},null,8,["modelValue","label","placeholder"])])]),_:1},8,["title"])}}});export{B as default};
+      `)]),_:1}),e(),l(n(d),{modelValue:n(o).customStyleInput,"onUpdate:modelValue":a[6]||(a[6]=s=>n(o).customStyleInput=s),label:t.$t("form.label.input"),placeholder:t.$t("form.placeholder.input"),class:"form-field custom-style-input"},null,8,["modelValue","label","placeholder"])])]),_:1},8,["title"])}}});export{W as default};

@@ -1,4 +1,4 @@
-import{d as V,u as N,b as _,e as i,o as $,c as y,w as s,a as r,t as d,f as n,g as t,h as e,r as g}from"./index-cd13e62b.js";import{m as z,h as p,a as f}from"./DzangolabVue3Form.es-eff9732e.js";const E={class:"demo-section"},F={class:"demo-section"},S={class:"demo-section"},O={class:"demo-section"},w={class:"demo-section"},U={class:"demo-section"},M={class:"demo-section"},P={name:"NumberInputField"},C=V({...P,setup(q){const{t:b}=N(),h=z.coerce.number({invalid_type_error:b("form.errors.number.invalid")}).gte(1,b("form.errors.number.invalid")).lte(100,b("form.errors.number.invalid")),v={invalid:b("form.errors.number.invalid"),required:b("form.errors.number.required")},c={min:1,max:100,allow_leading_zeroes:!1};let o=_({customStyleInput:i(),customValidationInput:i(),disabled:i(100),input:i(),inputWithValidation:i(),noLabelInput:i(),textInput:i()});return(l,a)=>{const u=g("SshPre"),I=g("Page");return $(),y(I,{title:l.$t("form.label.number")},{default:s(()=>[r("section",E,[r("h3",null,d(l.$t("form.label.basicInput")),1),n(),t(u,{language:"html-vue"},{default:s(()=>[n(`
+import{d as V,u as N,b as _,e as i,o as $,c as y,w as s,a as r,t as d,f as n,g as t,h as e,r as g}from"./index-2888608e.js";import{m as z,k as p,$ as f}from"./DzangolabVue3Form.es-2f02f091.js";const E={class:"demo-section"},F={class:"demo-section"},S={class:"demo-section"},O={class:"demo-section"},w={class:"demo-section"},U={class:"demo-section"},M={class:"demo-section"},P={name:"NumberInputField"},B=V({...P,setup(k){const{t:b}=N(),v=z.coerce.number({invalid_type_error:b("form.errors.number.invalid")}).gte(1,b("form.errors.number.invalid")).lte(100,b("form.errors.number.invalid")),h={invalid:b("form.errors.number.invalid"),required:b("form.errors.number.required")},c={min:1,max:100,allow_leading_zeroes:!1};let o=_({customStyleInput:i(),customValidationInput:i(),disabled:i(100),input:i(),inputWithValidation:i(),noLabelInput:i(),textInput:i()});return(l,a)=>{const u=g("SshPre"),I=g("Page");return $(),y(I,{title:l.$t("form.label.number")},{default:s(()=>[r("section",E,[r("h3",null,d(l.$t("form.label.basicInput")),1),n(),t(u,{language:"html-vue"},{default:s(()=>[n(`
         <template>
           <NumberInput 
             v-model="input"
@@ -85,7 +85,7 @@ import{d as V,u as N,b as _,e as i,o as $,c as y,w as s,a as r,t as d,f as n,g a
           allow_leading_zeroes: false,
         } as IsIntOptions;
         <\/script>
-      `)]),_:1}),n(),t(e(f),null,{default:s(()=>[t(e(p),{modelValue:e(o).textInput,"onUpdate:modelValue":a[4]||(a[4]=m=>e(o).textInput=m),label:l.$t("form.label.number"),"error-messages":e(v),options:e(c),placeholder:l.$t("form.placeholder.number"),class:"form-field"},null,8,["modelValue","label","error-messages","options","placeholder"])]),_:1})]),n(),r("section",U,[r("h3",null,d(l.$t("form.label.customValidationInput")),1),n(),t(u,{language:"html-vue"},{default:s(()=>[n(`
+      `)]),_:1}),n(),t(e(f),null,{default:s(()=>[t(e(p),{modelValue:e(o).textInput,"onUpdate:modelValue":a[4]||(a[4]=m=>e(o).textInput=m),label:l.$t("form.label.number"),"error-messages":e(h),options:e(c),placeholder:l.$t("form.placeholder.number"),class:"form-field"},null,8,["modelValue","label","error-messages","options","placeholder"])]),_:1})]),n(),r("section",U,[r("h3",null,d(l.$t("form.label.customValidationInput")),1),n(),t(u,{language:"html-vue"},{default:s(()=>[n(`
         <template>
           <Form>
             <NumberInput 
@@ -109,7 +109,7 @@ import{d as V,u as N,b as _,e as i,o as $,c as y,w as s,a as r,t as d,f as n,g a
           .gte(1, invalidNumberError)
           .lte(100, invalidNumberError);
         <\/script>
-      `)]),_:1}),n(),t(e(f),null,{default:s(()=>[t(e(p),{modelValue:e(o).customValidationInput,"onUpdate:modelValue":a[5]||(a[5]=m=>e(o).customValidationInput=m),label:l.$t("form.label.number"),placeholder:l.$t("form.placeholder.number"),schema:e(h),class:"form-field",name:"number"},null,8,["modelValue","label","placeholder","schema"])]),_:1})]),n(),r("section",M,[r("h3",null,d(l.$t("form.label.customStyleInput")),1),n(),t(u,{language:"html-vue"},{default:s(()=>[n(`
+      `)]),_:1}),n(),t(e(f),null,{default:s(()=>[t(e(p),{modelValue:e(o).customValidationInput,"onUpdate:modelValue":a[5]||(a[5]=m=>e(o).customValidationInput=m),label:l.$t("form.label.number"),placeholder:l.$t("form.placeholder.number"),schema:e(v),class:"form-field",name:"number"},null,8,["modelValue","label","placeholder","schema"])]),_:1})]),n(),r("section",M,[r("h3",null,d(l.$t("form.label.customStyleInput")),1),n(),t(u,{language:"html-vue"},{default:s(()=>[n(`
         <template>
           <NumberInput 
             v-model="input"
@@ -137,4 +137,4 @@ import{d as V,u as N,b as _,e as i,o as $,c as y,w as s,a as r,t as d,f as n,g a
           box-shadow: 0 0 0 0.25rem #03449e9a;
         }
         </style>
-      `)]),_:1}),n(),t(e(p),{modelValue:e(o).customStyleInput,"onUpdate:modelValue":a[6]||(a[6]=m=>e(o).customStyleInput=m),label:l.$t("form.label.number"),placeholder:l.$t("form.placeholder.number"),class:"form-field custom-style-input"},null,8,["modelValue","label","placeholder"])])]),_:1},8,["title"])}}});export{C as default};
+      `)]),_:1}),n(),t(e(p),{modelValue:e(o).customStyleInput,"onUpdate:modelValue":a[6]||(a[6]=m=>e(o).customStyleInput=m),label:l.$t("form.label.number"),placeholder:l.$t("form.placeholder.number"),class:"form-field custom-style-input"},null,8,["modelValue","label","placeholder"])])]),_:1},8,["title"])}}});export{B as default};
