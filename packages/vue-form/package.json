@@ -29,7 +29,6 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "@vuepic/vue-datepicker": "^9.0.2",
     "validator": "13.9.0"
   },
   "devDependencies": {
@@ -43,6 +42,7 @@
     "@vitejs/plugin-vue-jsx": "3.0.1",
     "@vitest/coverage-istanbul": "0.29.8",
     "@vue/test-utils": "2.3.2",
+    "@vuepic/vue-datepicker": "9.0.2",
     "@vueuse/core": "9.13.0",
     "eslint": "8.36.0",
     "eslint-config-custom": "0.8.5",
