@@ -29,6 +29,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^9.0.2",
     "validator": "13.9.0"
   },
   "devDependencies": {

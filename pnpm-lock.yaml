@@ -195,6 +195,9 @@ importers:
 
   packages/vue-form:
     dependencies:
+      '@vuepic/vue-datepicker':
+        specifier: ^9.0.2
+        version: 9.0.2(vue@3.2.47)
       validator:
         specifier: 13.9.0
         version: 13.9.0
@@ -2222,6 +2225,16 @@ packages:
       '@types/node': 18.15.11
     dev: true
 
+  /@vuepic/vue-datepicker@9.0.2(vue@3.2.47):
+    resolution: {integrity: sha512-VDAexzBJSvpErld1cZdGsBc+W/iU+Z+I98YNtEEboSSHUKHRi1s/h8s5D+wciZHLxgQ6P/tj6loNi4W7DgkYSQ==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      vue: '>=3.2.0'
+    dependencies:
+      date-fns: 3.6.0
+      vue: 3.2.47
+    dev: false
+
   /@vueuse/core@9.13.0(vue@3.2.47):
     resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
     dependencies:
@@ -2875,6 +2888,10 @@ packages:
       whatwg-mimetype: 3.0.0
       whatwg-url: 12.0.1
     dev: true
+
+  /date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
+    dev: false
 
   /dateformat@3.0.3:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
