@@ -3,6 +3,11 @@ interface EmailErrorMessages {
   required?: string;
 }
 
+interface MonthPickerValue {
+  month: number | string;
+  year: number | string;
+}
+
 interface NumberErrorMessages {
   invalid?: string;
   required?: string;
@@ -25,6 +30,7 @@ interface TextErrorMessages {
 
 export type {
   EmailErrorMessages,
+  MonthPickerValue,
   NumberErrorMessages,
   PasswordErrorMessages,
   SelectOption,

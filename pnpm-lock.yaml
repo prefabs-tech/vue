@@ -229,6 +229,9 @@ importers:
       '@vue/test-utils':
         specifier: 2.3.2
         version: 2.3.2(vue@3.2.47)
+      '@vuepic/vue-datepicker':
+        specifier: 9.0.2
+        version: 9.0.2(vue@3.2.47)
       '@vueuse/core':
         specifier: 9.13.0
         version: 9.13.0(vue@3.2.47)
@@ -2222,6 +2225,16 @@ packages:
       '@types/node': 18.15.11
     dev: true
 
+  /@vuepic/vue-datepicker@9.0.2(vue@3.2.47):
+    resolution: {integrity: sha512-VDAexzBJSvpErld1cZdGsBc+W/iU+Z+I98YNtEEboSSHUKHRi1s/h8s5D+wciZHLxgQ6P/tj6loNi4W7DgkYSQ==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      vue: '>=3.2.0'
+    dependencies:
+      date-fns: 3.6.0
+      vue: 3.2.47
+    dev: true
+
   /@vueuse/core@9.13.0(vue@3.2.47):
     resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
     dependencies:
@@ -2874,6 +2887,10 @@ packages:
       abab: 2.0.6
       whatwg-mimetype: 3.0.0
       whatwg-url: 12.0.1
+    dev: true
+
+  /date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
     dev: true
 
   /dateformat@3.0.3:
