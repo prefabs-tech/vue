@@ -13,7 +13,7 @@
         v-bind="{ ...filteredAttributes, ...field }"
         :class="{
           invalid: meta.touched && !meta.valid,
-          valid: meta.dirty && meta.valid,
+          valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
         }"
         :disabled="disabled"
         :model-value="modelValue"
