@@ -1,4 +1,4 @@
-import{d as P,u as V,b as _,e as p,o as $,c as I,w as d,a as t,t as m,f as n,g as l,h as e,r as g}from"./index-2888608e.js";import{m as y,_ as u,$ as c}from"./DzangolabVue3Form.es-2f02f091.js";const S={class:"demo-section"},z={class:"demo-section"},F={class:"demo-section"},U={class:"demo-section"},E={class:"demo-section"},L={class:"demo-section"},O={class:"demo-section"},q={name:"PasswordInputField"},B=P({...q,setup(M){const{t:f}=V(),w=y.string({invalid_type_error:f("form.errors.password.invalid"),required_error:f("form.errors.input.required")}).min(8,{message:f("form.errors.password.min",{length:8})}).regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,f("form.errors.password.invalid")),h={required:f("form.errors.input.required"),weak:f("form.errors.password.invalid")},b={minLength:10,minLowercase:1,minUppercase:1,minSymbols:1};let s=_({customStyleInput:p(),customValidationInput:p(),disabled:p("P@ssw0rd"),input:p(),inputWithValidation:p(),noLabelInput:p(),passwordInput:p()});return(o,a)=>{const i=g("SshPre"),v=g("Page");return $(),I(v,{title:o.$t("form.label.textInput")},{default:d(()=>[t("section",S,[t("h3",null,m(o.$t("form.label.basicInput")),1),n(),l(i,{language:"html-vue"},{default:d(()=>[n(`
+import{d as P,u as V,b as _,e as p,o as I,c as $,w as d,a as t,t as m,f as n,g as l,h as e,r as g}from"./index-378880eb.js";import{m as y,U as u,z as c}from"./DzangolabVue3Form.es-9bf5e5df.js";const S={class:"demo-section"},z={class:"demo-section"},U={class:"demo-section"},F={class:"demo-section"},E={class:"demo-section"},L={class:"demo-section"},O={class:"demo-section"},q={name:"PasswordInputField"},B=P({...q,setup(M){const{t:f}=V(),w=y.string({invalid_type_error:f("form.errors.password.invalid"),required_error:f("form.errors.input.required")}).min(8,{message:f("form.errors.password.min",{length:8})}).regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,f("form.errors.password.invalid")),h={required:f("form.errors.input.required"),weak:f("form.errors.password.invalid")},b={minLength:10,minLowercase:1,minUppercase:1,minSymbols:1};let s=_({customStyleInput:p(),customValidationInput:p(),disabled:p("P@ssw0rd"),input:p(),inputWithValidation:p(),noLabelInput:p(),passwordInput:p()});return(o,a)=>{const i=g("SshPre"),v=g("Page");return I(),$(v,{title:o.$t("form.label.textInput")},{default:d(()=>[t("section",S,[t("h3",null,m(o.$t("form.label.basicInput")),1),n(),l(i,{language:"html-vue"},{default:d(()=>[n(`
         <template>
           <Password 
             v-model="input"
@@ -21,7 +21,7 @@ import{d as P,u as V,b as _,e as p,o as $,c as I,w as d,a as t,t as m,f as n,g a
         <script setup lang="ts">
         import { Password } from "@dzangolab/vue3-form";
         <\/script>
-      `)]),_:1}),n(),l(e(u),{modelValue:e(s).input,"onUpdate:modelValue":a[1]||(a[1]=r=>e(s).input=r),label:o.$t("form.label.password"),placeholder:o.$t("form.placeholder.password"),class:"form-field"},null,8,["modelValue","label","placeholder"])]),n(),t("section",F,[t("h3",null,m(o.$t("form.label.disabled")),1),n(),l(i,{language:"html-vue"},{default:d(()=>[n(`
+      `)]),_:1}),n(),l(e(u),{modelValue:e(s).input,"onUpdate:modelValue":a[1]||(a[1]=r=>e(s).input=r),label:o.$t("form.label.password"),placeholder:o.$t("form.placeholder.password"),class:"form-field"},null,8,["modelValue","label","placeholder"])]),n(),t("section",U,[t("h3",null,m(o.$t("form.label.disabled")),1),n(),l(i,{language:"html-vue"},{default:d(()=>[n(`
         <template>
           <Password 
             v-model="input"
@@ -36,7 +36,7 @@ import{d as P,u as V,b as _,e as p,o as $,c as I,w as d,a as t,t as m,f as n,g a
 
         const input = ref("P@ssw0rd");
         <\/script>
-      `)]),_:1}),n(),l(e(u),{modelValue:e(s).disabled,"onUpdate:modelValue":a[2]||(a[2]=r=>e(s).disabled=r),label:o.$t("form.label.disabled"),class:"form-field",disabled:""},null,8,["modelValue","label"])]),n(),t("section",U,[t("h3",null,m(o.$t("form.label.inputWithValidation")),1),n(),l(i,{language:"html-vue"},{default:d(()=>[n(`
+      `)]),_:1}),n(),l(e(u),{modelValue:e(s).disabled,"onUpdate:modelValue":a[2]||(a[2]=r=>e(s).disabled=r),label:o.$t("form.label.disabled"),class:"form-field",disabled:""},null,8,["modelValue","label"])]),n(),t("section",F,[t("h3",null,m(o.$t("form.label.inputWithValidation")),1),n(),l(i,{language:"html-vue"},{default:d(()=>[n(`
         <template>
           <Form>
             <Password 

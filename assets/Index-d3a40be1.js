@@ -1,4 +1,4 @@
-import{d as g,u as w,b as v,e as d,o as S,c as V,w as u,a as s,t as r,f as e,g as l,h as t,r as c}from"./index-2888608e.js";import{m as _,x as p,$ as I}from"./DzangolabVue3Form.es-2f02f091.js";const y={class:"demo-section"},$={class:"demo-section"},z={class:"demo-section"},k={class:"demo-section"},U={class:"demo-section"},P={name:"SwitchInput"},D=g({...P,setup(W){const{t:f}=w(),h=_.coerce.boolean().refine(n=>n===!0,{message:f("form.errors.switch.invalid")});let a=v({customStyleInput:d(),disabled:d(!0),input:d(),inputWithValidation:d(!1),noLabelInput:d()});return(n,o)=>{const m=c("SshPre"),b=c("Page");return S(),V(b,{title:n.$t("form.label.switch")},{default:u(()=>[s("section",y,[s("h3",null,r(n.$t("form.label.basicInput")),1),e(),l(m,{language:"html-vue"},{default:u(()=>[e(`
+import{d as g,u as w,b as v,e as d,o as S,c as V,w as u,a as s,t as r,f as e,g as l,h as t,r as c}from"./index-378880eb.js";import{m as _,K as p,z as I}from"./DzangolabVue3Form.es-9bf5e5df.js";const y={class:"demo-section"},z={class:"demo-section"},$={class:"demo-section"},k={class:"demo-section"},U={class:"demo-section"},P={name:"SwitchInput"},D=g({...P,setup(W){const{t:f}=w(),h=_.coerce.boolean().refine(n=>n===!0,{message:f("form.errors.switch.invalid")});let a=v({customStyleInput:d(),disabled:d(!0),input:d(),inputWithValidation:d(!1),noLabelInput:d()});return(n,o)=>{const m=c("SshPre"),b=c("Page");return S(),V(b,{title:n.$t("form.label.switch")},{default:u(()=>[s("section",y,[s("h3",null,r(n.$t("form.label.basicInput")),1),e(),l(m,{language:"html-vue"},{default:u(()=>[e(`
         <template>
           <SwitchInput
             v-model="input"
@@ -8,7 +8,7 @@ import{d as g,u as w,b as v,e as d,o as S,c as V,w as u,a as s,t as r,f as e,g a
         <script setup lang="ts">
         import { SwitchInput } from "@dzangolab/vue3-form";
         <\/script>
-      `)]),_:1}),e(),l(t(p),{modelValue:t(a).noLabelInput,"onUpdate:modelValue":o[0]||(o[0]=i=>t(a).noLabelInput=i),class:"form-field"},null,8,["modelValue"])]),e(),s("section",$,[s("h3",null,r(n.$t("form.label.labelInput")),1),e(),l(m,{language:"html-vue"},{default:u(()=>[e(`
+      `)]),_:1}),e(),l(t(p),{modelValue:t(a).noLabelInput,"onUpdate:modelValue":o[0]||(o[0]=i=>t(a).noLabelInput=i),class:"form-field"},null,8,["modelValue"])]),e(),s("section",z,[s("h3",null,r(n.$t("form.label.labelInput")),1),e(),l(m,{language:"html-vue"},{default:u(()=>[e(`
         <template>
           <SwitchInput 
             v-model="input"
@@ -19,7 +19,7 @@ import{d as g,u as w,b as v,e as d,o as S,c as V,w as u,a as s,t as r,f as e,g a
         <script setup lang="ts">
         import { SwitchInput } from "@dzangolab/vue3-form";
         <\/script>
-      `)]),_:1}),e(),l(t(p),{modelValue:t(a).input,"onUpdate:modelValue":o[1]||(o[1]=i=>t(a).input=i),label:n.$t("form.label.switch"),class:"form-field"},null,8,["modelValue","label"])]),e(),s("section",z,[s("h3",null,r(n.$t("form.label.disabled")),1),e(),l(m,{language:"html-vue"},{default:u(()=>[e(`
+      `)]),_:1}),e(),l(t(p),{modelValue:t(a).input,"onUpdate:modelValue":o[1]||(o[1]=i=>t(a).input=i),label:n.$t("form.label.switch"),class:"form-field"},null,8,["modelValue","label"])]),e(),s("section",$,[s("h3",null,r(n.$t("form.label.disabled")),1),e(),l(m,{language:"html-vue"},{default:u(()=>[e(`
         <template>
           <SwitchInput 
             v-model="disabled"
