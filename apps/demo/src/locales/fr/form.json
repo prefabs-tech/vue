@@ -3,6 +3,9 @@
     "submit": "Submit[fr]"
   },
   "errors": {
+    "datePicker": {
+      "invalid": "Please provide a present or future date[fr]"
+    },
     "email": {
       "invalid": "Please provide a valid email {list}[fr]"
     },
@@ -36,6 +39,8 @@
     "customErrorMessageInput": "With custom error message[fr]",
     "customValidationInput": "With custom validation[fr]",
     "customStyleInput": "Custom style[fr]",
+    "datePicker": "Date picker[fr]",
+    "dateRange": "With date range prop[fr]",
     "debouncedTypeahead": "With debounce time prop",
     "disabledMultiSelect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
@@ -45,6 +50,8 @@
     "inputWithValidation": "With validation[fr]",
     "invalid": "Show invalid state[fr]",
     "labelInput": "With label[fr]",
+    "monthPicker": "With month-picker props[fr]",
+    "multiCalendars": "With multi-calendars prop[fr]",
     "multiSelect": "Multiselect[fr]",
     "number": "Number[fr]",
     "password": "Password[fr]",
@@ -52,8 +59,10 @@
     "switch": "Switch[fr]",
     "textarea": "Textarea[fr]",
     "textInput": "Text input[fr]",
+    "timePicker": "Time picker[fr]",
     "typeahead": "Typeahead",
-    "valid": "Show valid state[fr]"
+    "valid": "Show valid state[fr]",
+    "yearPicker": "Year picker"
   },
   "placeholder": {
     "email": "Enter a email[fr]",

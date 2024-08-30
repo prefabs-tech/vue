@@ -2,6 +2,11 @@
   <Page :title="$t('form.title')">
     <ul role="list">
       <li>
+        <router-link :to="{ name: 'datePicker' }">
+          {{ $t("form.label.datePicker") }}
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'emailInput' }">
           {{ $t("form.label.email") }}
         </router-link>

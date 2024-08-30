@@ -13,6 +13,7 @@ describe("DatePicker", () => {
       },
       props: {
         label: "Input",
+        modelValue: "Thu Aug 29 2024",
         placeholder: "Placeholder",
       },
     });
