@@ -1,3 +1,4 @@
+const DatePicker = () => import("@/views/Form/datePicker/Index.vue");
 const Email = () => import("@/views/Form/emailInput/Index.vue");
 const Form = () => import("@/views/Form/Index.vue");
 const Input = () => import("@/views/Form/input/Index.vue");
@@ -13,6 +14,11 @@ const routes = [
   {
     path: "/form",
     children: [
+      {
+        component: DatePicker,
+        name: "datePicker",
+        path: "date-picker",
+      },
       {
         component: Email,
         name: "emailInput",

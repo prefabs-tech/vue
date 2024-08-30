@@ -54,8 +54,16 @@ const props = defineProps({
   },
   modelValue: {
     default: () => new Date().toDateString(),
-    type: [String, Array, Object] as PropType<
-      string | string[] | MonthPickerValue | null | undefined
+    type: [String, Date, Array, Object] as PropType<
+      | string
+      | string[]
+      | number
+      | number[]
+      | Date
+      | Date[]
+      | MonthPickerValue
+      | null
+      | undefined
     >,
   },
   name: {
@@ -68,7 +76,7 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<z.ZodType<string | number | object>>,
+    type: Object as PropType<z.ZodType<string | number | Date | object>>,
   },
 });
 
@@ -82,10 +90,72 @@ const fieldSchema = Object.keys(props.schema).length
 
 const filteredAttributes = computed(() => {
   const { class: _, ...rest } = attributes;
+
   return rest;
 });
 
-const onUpdate = (date: string | string[] | object) => {
+const onUpdate = (
+  date: string | string[] | number | number[] | Date | Date[] | MonthPickerValue
+) => {
   emit("update:modelValue", date);
 };
 </script>
+
+<style lang="css">
+.date-picker {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-field-gap, 0.25em);
+  justify-content: flex-start;
+}
+
+.date-picker label {
+  --_date-picker-label-color: var(--form-input-label-color, #000);
+
+  color: var(--_date-picker-label-color);
+}
+
+.dp--clear-btn {
+  --dp-icon-color: var(--_date-picker-clear-icon-color, #555);
+}
+
+.dp__input {
+  --dp-background-color: var(--_date-picker-bg-color, #fff);
+  --dp-border-radius: var(--_date-picker-border-radius, 0.2rem);
+  --dp-border-color: var(--_date-picker-border-color, #555);
+  --dp-font-size: var(--_date-picker-font-size, 1rem);
+  --dp-text-color: var(--_date-picker-text-color, #000);
+}
+
+.dp__input_icon {
+  --dp-icon-color: var(--_date-picker-input-icon-color, #555);
+}
+
+.invalid .dp__input {
+  --dp-border-color: var(--_date-picker-danger-color, #dc3545);
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right calc(3.5 * var(----form-input-padding-h, 0.5em))
+    center;
+  background-size: 1em;
+}
+
+.invalid .dp__input:focus-visible {
+  box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
+}
+
+.valid .dp__input {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>") !important;
+  background-repeat: no-repeat;
+  background-position: right calc(3.5 * var(----form-input-padding-h, 0.5em))
+    center;
+  background-size: 1em;
+  border-color: var(--date-picker-success-color, #198754);
+}
+
+.valid .dp__input:focus-visible {
+  box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 25%);
+}
+</style>
