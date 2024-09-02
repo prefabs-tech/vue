@@ -18,6 +18,9 @@
     "slot-without-title": "Slots without 'title' prop are ignored",
     "title": "Accordion"
   },
+  "button": {
+    "title": "Button"
+  },
   "subPane": {
     "title": "SubPane",
     "content": "This is a subpane"
