@@ -127,7 +127,10 @@ const filteredSuggestions = computed(() => {
 
 const onInput = (value: string | number) => {
   inputValue.value = value;
-  showSuggestions.value = true;
+
+  if (filteredSuggestions.value?.length) {
+    showSuggestions.value = true;
+  }
 
   emit("update:modelValue", value);
 };
