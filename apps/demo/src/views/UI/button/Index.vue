@@ -1,7 +1,7 @@
 <template>
   <Page :title="$t('ui.button.title')" class="demo-button">
     <section class="demo-section">
-      <h3>Basic</h3>
+      <h3>{{ $t("ui.button.usage.basic") }}</h3>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
@@ -15,11 +15,11 @@
       </SshPre>
       <!-- eslint-enable -->
 
-      <BasicButton :label="'Click me'" />
+      <BasicButton :label="$t('ui.button.label.clickMe')" />
     </section>
 
     <section class="demo-section">
-      <h3>Severity</h3>
+      <h3>{{ $t("ui.button.usage.severity") }}</h3>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
@@ -39,17 +39,37 @@
       <!-- eslint-enable -->
 
       <div class="container">
-        <BasicButton severity="primary" :label="'Primary'" />
-        <BasicButton severity="secondary" :label="'Secondary'" />
-        <BasicButton severity="alternate" :label="'Alternate'" />
-        <BasicButton severity="success" :label="'Success'" />
-        <BasicButton severity="danger" :label="'Danger'" />
-        <BasicButton severity="warning" :label="'Warning'" />
+        <BasicButton
+          severity="primary"
+          :label="$t('ui.button.label.primary')"
+        />
+
+        <BasicButton
+          severity="secondary"
+          :label="$t('ui.button.label.secondary')"
+        />
+
+        <BasicButton
+          severity="alternate"
+          :label="$t('ui.button.label.alternate')"
+        />
+
+        <BasicButton
+          severity="success"
+          :label="$t('ui.button.label.success')"
+        />
+
+        <BasicButton severity="danger" :label="$t('ui.button.label.danger')" />
+
+        <BasicButton
+          severity="warning"
+          :label="$t('ui.button.label.warning')"
+        />
       </div>
     </section>
 
     <section>
-      <h3>Size</h3>
+      <h3>{{ $t("ui.button.usage.size") }}</h3>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
@@ -66,9 +86,43 @@
       <!-- eslint-enable -->
 
       <div class="container">
-        <BasicButton size="small" :label="'Small'" />
-        <BasicButton size="medium" :label="'Medium'" />
-        <BasicButton size="large" :label="'Large'" />
+        <BasicButton size="small" :label="$t('ui.button.label.small')" />
+        <BasicButton size="medium" :label="$t('ui.button.label.medium')" />
+        <BasicButton size="large" :label="$t('ui.button.label.large')" />
+      </div>
+    </section>
+
+    <section>
+      <h3>{{ $t("ui.button.usage.variant") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt; 
+          &lt;BasicButton label="Default" size="medium" /&gt;
+          &lt;BasicButton label="Outlined" size="medium" variant="outlined" /&gt;
+          &lt;BasicButton label="Text only" size="medium" variant="textOnly" /&gt;
+        &lt;/template&gt; 
+        
+        &lt;script setup lang="ts"&gt; 
+          import { BasicButton } from "@dzangolab/vue3-ui"; 
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <div class="container">
+        <BasicButton size="medium" :label="$t('ui.button.label.default')" />
+
+        <BasicButton
+          size="medium"
+          :label="$t('ui.button.label.outlined')"
+          variant="outlined"
+        />
+
+        <BasicButton
+          size="medium"
+          :label="$t('ui.button.label.textOnly')"
+          variant="textOnly"
+        />
       </div>
     </section>
   </Page>

@@ -1,58 +1,85 @@
 {
   "accordion": {
-    "basic": "Utilisation basique",
-    "can-self-collapse": "Avec 'canSelfCollapse = true'",
-    "custom-toggle-icons": "Icones de basculement sur mesure",
-    "defaultIndex": "Avec 'defaultIndex = 1'",
+    "basic": "Basic usage",
+    "can-self-collapse": " With canSelfCollapse = true",
+    "custom-toggle-icons": "Custom toggle icons",
+    "defaultIndex": "With defaultIndex = 1",
     "horizontal": {
-      "basic": "Orientation horizontale",
-      "separate": "Orientation horizontale avec sections séparées"
+      "basic": "Horizontal orientation",
+      "separate": "Horizontal orientation with separate sections"
     },
     "icons": {
-      "css": "Avec icônes CSS",
-      "custom": "Boutons de toggle personnalisés",
-      "slot": "Avec icônes par slot",
-      "toggle": "Afficher les boutons de toggle"
+      "css": "With CSS icons",
+      "custom": "Custom toggle icons",
+      "slot": "With icon slot",
+      "toggle": "Show toggle icons"
     },
-    "separate": "Sections séparées",
-    "slot-without-title": "Slots sans prop 'title' sont ignorés",
-    "title": "Accordéon"
+    "separate": "Separate sections",
+    "slot-without-title": "Slots without 'title' prop are ignored",
+    "title": "Accordion"
   },
   "button": {
-    "title": "Button"
+    "label": {
+      "alternate": "Alternate",
+      "clickMe": "Click me",
+      "danger": "Danger",
+      "default": "Default",
+      "large": "Large",
+      "medium": "Medium",
+      "outlined": "Outlined",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "small": "Small",
+      "success": "Success",
+      "textOnly": "Text only",
+      "warning": "Warning"
+    },
+    "title": "Button",
+    "usage": {
+      "basic": "Basic",
+      "variant": "Variant",
+      "severity": "Severity",
+      "size": "Size",
+      "outlined": "Outlined",
+      "icons": "Icons",
+      "disabled": "Disabled",
+      "text": "Text",
+      "link": "Link",
+      "tooltip": "Button with tooltip"
+    }
   },
   "subPane": {
-    "title": "SubPane[fr]",
-    "content": "This is a subpane[fr]"
+    "title": "SubPane",
+    "content": "This is a subpane"
   },
   "tabbed-panel": {
-    "basic-usage": "Usage de base",
+    "basic-usage": "Basic usage",
     "contents": {
       "first": {
-        "content": "This is the first tab[fr]",
-        "title": "Tab 1[fr]"
+        "content": "This is the first tab ",
+        "title": "Tab 1"
       },
       "second": {
-        "content": "This is the second tab[fr]",
-        "title": "Tab 2[fr]"
+        "content": "This is the second tab",
+        "title": "Tab 2"
       }
     },
-    "no-title": "Les descendants sans prop `title` seront ignorés",
+    "no-title": "Child elements with no `title` prop will be ignored",
     "position": {
-      "bottom": "Au-dessous",
-      "left": "A gauche",
-      "right": "A droite",
-      "top": "Au-dessus (défault)"
+      "bottom": "Bottom",
+      "left": "Left",
+      "right": "Right",
+      "top": "Top (default)"
     },
     "title": "Tabbed Panel",
-    "with-color": "Avec couleur",
-    "with-color-and-shadow": "Avec couleur et ombrage",
-    "with-custom-icons": "Avec icônes individualisés"
+    "with-color": "With color",
+    "with-color-and-shadow": "With color and shadow",
+    "with-custom-icons": "With custom icons"
   },
   "tanstack-table": {
-    "title": "Tanstack Table[fr]"
+    "title": "Tanstack Table"
   },
-  "title": "Librairie de composants d'interface utilisateur",
+  "title": "UI Library",
   "typography": {
     "title": "Typography"
   }

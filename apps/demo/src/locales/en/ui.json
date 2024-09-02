@@ -19,7 +19,34 @@
     "title": "Accordion"
   },
   "button": {
-    "title": "Button"
+    "label": {
+      "alternate": "Alternate",
+      "clickMe": "Click me",
+      "danger": "Danger",
+      "default": "Default",
+      "large": "Large",
+      "medium": "Medium",
+      "outlined": "Outlined",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "small": "Small",
+      "success": "Success",
+      "textOnly": "Text only",
+      "warning": "Warning"
+    },
+    "title": "Button",
+    "usage": {
+      "basic": "Basic",
+      "variant": "Variant",
+      "severity": "Severity",
+      "size": "Size",
+      "outlined": "Outlined",
+      "icons": "Icons",
+      "disabled": "Disabled",
+      "text": "Text",
+      "link": "Link",
+      "tooltip": "Button with tooltip"
+    }
   },
   "subPane": {
     "title": "SubPane",
