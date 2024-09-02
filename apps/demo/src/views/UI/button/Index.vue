@@ -49,6 +49,8 @@
     </section>
 
     <section>
+      <h3>Size</h3>
+
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt; 
