@@ -1,8 +1,16 @@
 <template>
-  <button :class="className" :disabled="disabled">
+  <button
+    class="dz-button"
+    :class="(className, severity, size, rounded, variant)"
+    :disabled="disabled || loading"
+    :role="buttonRole"
+    @click="$emit('click')"
+  >
     <div class="label">
       <span>{{ label }}</span>
     </div>
+
+    <LoadingIcon v-if="loading" />
   </button>
 </template>
 
@@ -13,9 +21,13 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { computed } from "vue";
+
+import LoadingIcon from "../components/LoadingIcon.vue";
+
 defineEmits(["click"]);
 
-defineProps({
+const props = defineProps({
   children: {
     default: "",
     type: String,
@@ -29,11 +41,11 @@ defineProps({
     type: Boolean,
   },
   iconLeft: {
-    default: "",
+    default: null,
     type: String,
   },
   iconRight: {
-    default: "",
+    default: null,
     type: String,
   },
   label: {
@@ -68,11 +80,11 @@ defineProps({
     validator: (value: string) => ["small", "medium", "large"].includes(value),
   },
   to: {
-    default: "",
+    default: null,
     type: String,
   },
   title: {
-    default: "",
+    default: null,
     type: String,
   },
   variant: {
@@ -82,4 +94,24 @@ defineProps({
       ["outlined", "filled", "textOnly"].includes(value),
   },
 });
+
+const buttonRole = computed(() => (props.to ? "link" : "button"));
 </script>
+
+<style lang="css">
+.dz-button.filled {
+  color: var(--button-text-color);
+  border: 1px solid var(--_button-color);
+}
+
+.dz-button.medium {
+  --button-icon-size: var(--button-medium-icon-size);
+  --button-font-size: var(--button-medium-font-size);
+  --button-padding: var(--button-medium-padding);
+  --button-width: var(--button-medium-width);
+}
+
+.dz-button.primary {
+  background-color: var(--loading-button-bg-color, #1c4786);
+}
+</style>
