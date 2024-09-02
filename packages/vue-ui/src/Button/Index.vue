@@ -5,9 +5,17 @@
     :role="buttonRole"
     @click="$emit('click')"
   >
+    <span v-if="iconLeft" class="icon-left">
+      <i :class="iconLeft" />
+    </span>
+
     <div class="label">
       <span>{{ label }}</span>
     </div>
+
+    <span v-if="iconRight" class="icon-right">
+      <i :class="iconRight" />
+    </span>
 
     <LoadingIcon v-if="loading" />
   </button>

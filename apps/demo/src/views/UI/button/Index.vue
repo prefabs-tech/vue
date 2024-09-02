@@ -125,6 +125,27 @@
         />
       </div>
     </section>
+
+    <section class="demo-section">
+      <h3>{{ $t("ui.button.usage.icons") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt; 
+          &lt;BasicButton label="Default" iconLeft="pi pi-user" /&gt;
+        &lt;/template&gt; 
+        
+        &lt;script setup lang="ts"&gt; 
+          import { BasicButton } from "@dzangolab/vue3-ui"; 
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <BasicButton
+        :label="$t('ui.button.label.default')"
+        icon-left="pi pi-user"
+      />
+    </section>
   </Page>
 </template>
 

@@ -37,15 +37,15 @@
     "title": "Button",
     "usage": {
       "basic": "Basic",
-      "variant": "Variant",
+      "disabled": "Disabled",
+      "icons": "Icons",
+      "link": "Link",
+      "outlined": "Outlined",
       "severity": "Severity",
       "size": "Size",
-      "outlined": "Outlined",
-      "icons": "Icons",
-      "disabled": "Disabled",
       "text": "Text",
-      "link": "Link",
-      "tooltip": "Button with tooltip"
+      "tooltip": "Button with tooltip",
+      "variant": "Variant"
     }
   },
   "subPane": {
