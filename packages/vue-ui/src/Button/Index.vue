@@ -1,7 +1,6 @@
 <template>
   <button
-    class="dz-button"
-    :class="(className, severity, size, rounded, variant)"
+    :class="buttonClassName"
     :disabled="disabled || loading"
     :role="buttonRole"
     @click="$emit('click')"
@@ -16,7 +15,7 @@
 
 <script lang="ts">
 export default {
-  name: "ButtonBasic",
+  name: "BasicButton",
 };
 </script>
 
@@ -29,7 +28,7 @@ defineEmits(["click"]);
 
 const props = defineProps({
   children: {
-    default: "",
+    default: null,
     type: String,
   },
   className: {
@@ -49,9 +48,8 @@ const props = defineProps({
     type: String,
   },
   label: {
-    default: "",
+    default: null,
     type: String,
-    required: true,
   },
   loading: {
     default: false,
@@ -95,23 +93,19 @@ const props = defineProps({
   },
 });
 
+const buttonClassName = computed(() => {
+  return [
+    "dz-button",
+    props.className,
+    props.severity,
+    props.size,
+    props.variant,
+    !(props.label || props.children) && "dz-icon-only",
+    props.rounded && "dz-rounded",
+  ]
+    .filter(Boolean)
+    .join(" ");
+});
+
 const buttonRole = computed(() => (props.to ? "link" : "button"));
 </script>
-
-<style lang="css">
-.dz-button.filled {
-  color: var(--button-text-color);
-  border: 1px solid var(--_button-color);
-}
-
-.dz-button.medium {
-  --button-icon-size: var(--button-medium-icon-size);
-  --button-font-size: var(--button-medium-font-size);
-  --button-padding: var(--button-medium-padding);
-  --button-width: var(--button-medium-width);
-}
-
-.dz-button.primary {
-  background-color: var(--loading-button-bg-color, #1c4786);
-}
-</style>
