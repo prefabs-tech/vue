@@ -9,14 +9,6 @@
           &lt;template&gt; 
             &lt;BasicButton label="Click me" @click="onClick" /&gt;
           &lt;/template&gt;
-
-          &lt;template&gt; 
-            &lt;BasicButton children&gt;
-              &lt;template #buttonContent&gt;
-                &lt;span&gt;Click me&lt;/span&gt;
-              &lt;/template&gt;
-            &lt;/BasicButton&gt;
-          &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
             import { BasicButton } from "@dzangolab/vue3-ui"; 
@@ -32,6 +24,28 @@
 
           <span>{{ currentTime }}</span>
         </div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h3>{{ $t("ui.button.usage.buttonWithChild") }}</h3>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt; 
+            &lt;BasicButton children&gt;
+              &lt;template #buttonContent&gt;
+                &lt;span&gt;Click me&lt;/span&gt;
+              &lt;/template&gt;
+            &lt;/BasicButton&gt;
+          &lt;/template&gt; 
+          
+          &lt;script setup lang="ts"&gt; 
+            import { BasicButton } from "@dzangolab/vue3-ui"; 
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
         <div class="container">
           <BasicButton children>
@@ -161,23 +175,11 @@
     </section>
 
     <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.icons") }}</h3>
+      <h3>{{ $t("ui.button.usage.icons.title") }}</h3>
 
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;template&gt; 
-            &lt;BasicButton label="Text only" icon-left="pi pi-user" variant="textOnly" /&gt;
-            &lt;BasicButton label="Outlined" icon-left="pi pi-user" variant="outlined" /&gt;
-            &lt;BasicButton label="Default" icon-left="pi pi-user" variant="filled" /&gt;
-          &lt;/template&gt; 
-
-          &lt;template&gt; 
-            &lt;BasicButton label="Text only" icon-right="pi pi-user" rounded variant="textOnly" /&gt;
-            &lt;BasicButton label="Outlined" icon-right="pi pi-user" rounded variant="outlined" /&gt;
-            &lt;BasicButton label="Default" icon-right="pi pi-user" rounded variant="filled" /&gt;
-          &lt;/template&gt;
-
           &lt;template&gt; 
             &lt;BasicButton icon-right="pi pi-user" severity="secondary" size="small" 
                 variant="textOnly" 
@@ -187,7 +189,39 @@
                 variant="filled" 
             /&gt;
           &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt; 
+            import { BasicButton } from "@dzangolab/vue3-ui"; 
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
+        <div className="container">
+          <BasicButton
+            size="small"
+            variant="textOnly"
+            severity="secondary"
+            icon-left="pi pi-user"
+          />
+
+          <BasicButton size="medium" variant="filled" icon-left="pi pi-user" />
+
+          <BasicButton
+            size="large"
+            variant="outlined"
+            severity="secondary"
+            icon-left="pi pi-user"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h3>{{ $t("ui.button.usage.icons.title") }}</h3>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
           &lt;template&gt; 
             &lt;BasicButton icon-left="true" rounded severity="secondary" size="small" 
               variant="textOnly"&gt;
@@ -210,6 +244,64 @@
             &lt;/BasicButton&gt;
           &lt;/template&gt;
           
+          &lt;script setup lang="ts"&gt; 
+            import { BasicButton } from "@dzangolab/vue3-ui"; 
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div className="container">
+          <BasicButton
+            size="small"
+            variant="textOnly"
+            severity="secondary"
+            icon-left="true"
+            rounded
+          >
+            <template #iconLeft>
+              <i class="pi pi-user" />
+            </template>
+          </BasicButton>
+
+          <BasicButton size="medium" variant="filled" icon-right="true" rounded>
+            <template #iconRight>
+              <i class="pi pi-user" />
+            </template>
+          </BasicButton>
+
+          <BasicButton
+            icon-right="true"
+            size="large"
+            variant="outlined"
+            severity="secondary"
+            rounded
+          >
+            <template #iconRight>
+              <i class="pi pi-user" />
+            </template>
+          </BasicButton>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h3>{{ $t("ui.button.usage.icons.iconWithText") }}</h3>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt; 
+            &lt;BasicButton label="Text only" icon-left="pi pi-user" variant="textOnly" /&gt;
+            &lt;BasicButton label="Outlined" icon-left="pi pi-user" variant="outlined" /&gt;
+            &lt;BasicButton label="Default" icon-left="pi pi-user" variant="filled" /&gt;
+          &lt;/template&gt; 
+
+          &lt;template&gt; 
+            &lt;BasicButton label="Text only" icon-right="pi pi-user" rounded variant="textOnly" /&gt;
+            &lt;BasicButton label="Outlined" icon-right="pi pi-user" rounded variant="outlined" /&gt;
+            &lt;BasicButton label="Default" icon-right="pi pi-user" rounded variant="filled" /&gt;
+          &lt;/template&gt;
+
           &lt;script setup lang="ts"&gt; 
             import { BasicButton } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
@@ -257,54 +349,6 @@
             rounded
             variant="filled"
           />
-        </div>
-
-        <div className="container">
-          <BasicButton
-            size="small"
-            variant="textOnly"
-            severity="secondary"
-            icon-left="pi pi-user"
-          />
-          <BasicButton size="medium" variant="filled" icon-left="pi pi-user" />
-          <BasicButton
-            size="large"
-            variant="outlined"
-            severity="secondary"
-            icon-left="pi pi-user"
-          />
-        </div>
-
-        <div className="container">
-          <BasicButton
-            size="small"
-            variant="textOnly"
-            severity="secondary"
-            icon-left="true"
-            rounded
-          >
-            <template #iconLeft>
-              <i class="pi pi-user" />
-            </template>
-          </BasicButton>
-
-          <BasicButton size="medium" variant="filled" icon-right="true" rounded>
-            <template #iconRight>
-              <i class="pi pi-user" />
-            </template>
-          </BasicButton>
-
-          <BasicButton
-            icon-right="true"
-            size="large"
-            variant="outlined"
-            severity="secondary"
-            rounded
-          >
-            <template #iconRight>
-              <i class="pi pi-user" />
-            </template>
-          </BasicButton>
         </div>
       </div>
     </section>

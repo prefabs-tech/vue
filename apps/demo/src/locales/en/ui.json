@@ -39,8 +39,12 @@
     "title": "Button",
     "usage": {
       "basic": "Basic",
+      "buttonWithChild": "Button with child element",
       "disabled": "Disabled",
-      "icons": "Icons",
+      "icons": {
+        "iconWithText": "Icons with text",
+        "title": "Icons"
+      },
       "link": "Link",
       "outlined": "Outlined",
       "severity": "Severity",

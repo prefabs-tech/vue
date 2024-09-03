@@ -1,22 +1,22 @@
 {
   "accordion": {
-    "basic": "Basic usage",
-    "can-self-collapse": " With canSelfCollapse = true",
-    "custom-toggle-icons": "Custom toggle icons",
-    "defaultIndex": "With defaultIndex = 1",
+    "basic": "Utilisation basique",
+    "can-self-collapse": "Avec 'canSelfCollapse = true'",
+    "custom-toggle-icons": "Icones de basculement sur mesure",
+    "defaultIndex": "Avec 'defaultIndex = 1'",
     "horizontal": {
-      "basic": "Horizontal orientation",
-      "separate": "Horizontal orientation with separate sections"
+      "basic": "Orientation horizontale",
+      "separate": "Orientation horizontale avec sections séparées"
     },
     "icons": {
-      "css": "With CSS icons",
-      "custom": "Custom toggle icons",
-      "slot": "With icon slot",
-      "toggle": "Show toggle icons"
+      "css": "Avec icônes CSS",
+      "custom": "Boutons de toggle personnalisés",
+      "slot": "Avec icônes par slot",
+      "toggle": "Afficher les boutons de toggle"
     },
-    "separate": "Separate sections",
-    "slot-without-title": "Slots without 'title' prop are ignored",
-    "title": "Accordion"
+    "separate": "Sections séparées",
+    "slot-without-title": "Slots sans prop 'title' sont ignorés",
+    "title": "Accordéon"
   },
   "button": {
     "label": {
@@ -39,8 +39,12 @@
     "title": "Button",
     "usage": {
       "basic": "Basic",
+      "buttonWithChild": "Button with child element",
       "disabled": "Disabled",
-      "icons": "Icons",
+      "icons": {
+        "iconWithText": "Icons with text",
+        "title": "Icons"
+      },
       "link": "Link",
       "outlined": "Outlined",
       "severity": "Severity",
@@ -51,37 +55,37 @@
     }
   },
   "subPane": {
-    "title": "SubPane",
-    "content": "This is a subpane"
+    "title": "SubPane[fr]",
+    "content": "This is a subpane[fr]"
   },
   "tabbed-panel": {
-    "basic-usage": "Basic usage",
+    "basic-usage": "Usage de base",
     "contents": {
       "first": {
-        "content": "This is the first tab ",
-        "title": "Tab 1"
+        "content": "This is the first tab[fr]",
+        "title": "Tab 1[fr]"
       },
       "second": {
-        "content": "This is the second tab",
-        "title": "Tab 2"
+        "content": "This is the second tab[fr]",
+        "title": "Tab 2[fr]"
       }
     },
-    "no-title": "Child elements with no `title` prop will be ignored",
+    "no-title": "Les descendants sans prop `title` seront ignorés",
     "position": {
-      "bottom": "Bottom",
-      "left": "Left",
-      "right": "Right",
-      "top": "Top (default)"
+      "bottom": "Au-dessous",
+      "left": "A gauche",
+      "right": "A droite",
+      "top": "Au-dessus (défault)"
     },
     "title": "Tabbed Panel",
-    "with-color": "With color",
-    "with-color-and-shadow": "With color and shadow",
-    "with-custom-icons": "With custom icons"
+    "with-color": "Avec couleur",
+    "with-color-and-shadow": "Avec couleur et ombrage",
+    "with-custom-icons": "Avec icônes individualisés"
   },
   "tanstack-table": {
-    "title": "Tanstack Table"
+    "title": "Tanstack Table[fr]"
   },
-  "title": "UI Library",
+  "title": "Librairie de composants d'interface utilisateur",
   "typography": {
     "title": "Typography"
   }
