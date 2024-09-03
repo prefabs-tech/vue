@@ -21,9 +21,11 @@
   "button": {
     "label": {
       "alternate": "Alternate",
+      "back": "Back",
       "clickMe": "Click me",
       "danger": "Danger",
       "default": "Default",
+      "home": "Home",
       "large": "Large",
       "medium": "Medium",
       "outlined": "Outlined",

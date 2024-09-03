@@ -9,7 +9,7 @@
       <i :class="iconLeft" />
     </span>
 
-    <div class="label">
+    <div v-if="children || label" class="label">
       <span>{{ label }}</span>
     </div>
 

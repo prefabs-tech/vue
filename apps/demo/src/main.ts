@@ -20,6 +20,7 @@ import "@dzangolab/vue3-tanstack-table/dist/DzangolabVue3TanstackTable.css";
 import "@dzangolab/vue3-user/dist/DzangolabVue3User.css";
 import "simple-syntax-highlighter/dist/sshpre.css";
 import "./assets/css/index.css";
+import "primeicons/primeicons.css";
 
 const pinia = createPinia();
 const app = createApp(App);
