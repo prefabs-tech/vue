@@ -1,7 +1,7 @@
 <template>
   <Page :title="$t('ui.button.title')" class="demo-button">
-    <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.basic") }}</h3>
+    <section>
+      <h2>{{ $t("ui.button.usage.basic") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -27,8 +27,8 @@
       </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.buttonWithChild") }}</h3>
+    <section>
+      <h2>{{ $t("ui.button.usage.buttonWithChild") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -57,8 +57,8 @@
       </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.severity") }}</h3>
+    <section>
+      <h2>{{ $t("ui.button.usage.severity") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -112,8 +112,8 @@
       </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.size") }}</h3>
+    <section>
+      <h2>{{ $t("ui.button.usage.size") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -138,16 +138,16 @@
       </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.variant") }}</h3>
+    <section>
+      <h2>{{ $t("ui.button.usage.variant") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton label="Default" size="medium" /&gt;
-            &lt;BasicButton label="Outlined" size="medium" variant="outlined" /&gt;
             &lt;BasicButton label="Text only" size="medium" variant="textOnly" /&gt;
+            &lt;BasicButton label="Outlined" size="medium" variant="outlined" /&gt;
+            &lt;BasicButton label="Default" size="medium" /&gt;
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
@@ -157,7 +157,11 @@
         <!-- eslint-enable -->
 
         <div class="container">
-          <BasicButton size="medium" :label="$t('ui.button.label.default')" />
+          <BasicButton
+            size="medium"
+            :label="$t('ui.button.label.textOnly')"
+            variant="textOnly"
+          />
 
           <BasicButton
             size="medium"
@@ -165,29 +169,21 @@
             variant="outlined"
           />
 
-          <BasicButton
-            size="medium"
-            :label="$t('ui.button.label.textOnly')"
-            variant="textOnly"
-          />
+          <BasicButton size="medium" :label="$t('ui.button.label.default')" />
         </div>
       </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.icons.iconName") }}</h3>
+    <section>
+      <h2>{{ $t("ui.button.usage.icons.iconName") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton icon-right="pi pi-user" severity="secondary" size="small" 
-                variant="textOnly" 
-            /&gt;
-            &lt;BasicButton icon-right="pi pi-user" size="medium" variant="outlined" /&gt;
-            &lt;BasicButton icon-right="pi pi-user" severity="secondary" size="large" 
-                variant="filled" 
-            /&gt;
+            &lt;BasicButton icon-right="pi pi-user" severity="secondary" variant="textOnly" /&gt;
+            &lt;BasicButton icon-right="pi pi-user" variant="outlined" /&gt;
+            &lt;BasicButton icon-right="pi pi-user" severity="secondary" variant="filled" /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
@@ -198,46 +194,42 @@
 
         <div className="container">
           <BasicButton
-            size="small"
             variant="textOnly"
             severity="secondary"
             icon-left="pi pi-user"
           />
 
-          <BasicButton size="medium" variant="filled" icon-left="pi pi-user" />
-
           <BasicButton
-            size="large"
             variant="outlined"
             severity="secondary"
             icon-left="pi pi-user"
           />
+
+          <BasicButton variant="filled" icon-left="pi pi-user" />
         </div>
       </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.icons.iconElement") }}</h3>
+    <section>
+      <h2>{{ $t("ui.button.usage.icons.iconElement") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton icon-left="true" rounded severity="secondary" size="small" 
-              variant="textOnly"&gt;
+            &lt;BasicButton icon-left="true" rounded severity="secondary" variant="textOnly"&gt;
                 &lt;template #iconLeft&gt;
                   &lt;i class="pi pi-user" &gt;
                 &lt;/template&gt;
             &lt;/BasicButton&gt;
 
-            &lt;BasicButton icon-right="true" rounded size="medium" variant="filled"&gt;
+            &lt;BasicButton icon-right="true" rounded variant="outlined"&gt;
               &lt;template #iconRight&gt;
                 &lt;i class="pi pi-user" &gt;
               &lt;/template&gt;
             &lt;/BasicButton&gt;
 
-            &lt;BasicButton icon-right="true" rounded severity="secondary" size="large" 
-              variant="outlined" /&gt;
+            &lt;BasicButton icon-right="true" rounded severity="secondary" variant="filled"&gt;
                 &lt;template #iconRight&gt;
                   &lt;i class="pi pi-user" &gt;
                 &lt;/template&gt;
@@ -252,7 +244,6 @@
 
         <div className="container">
           <BasicButton
-            size="small"
             variant="textOnly"
             severity="secondary"
             icon-left="true"
@@ -263,19 +254,18 @@
             </template>
           </BasicButton>
 
-          <BasicButton size="medium" variant="filled" icon-right="true" rounded>
+          <BasicButton
+            severity="secondary"
+            variant="outlined"
+            icon-right="true"
+            rounded
+          >
             <template #iconRight>
               <i class="pi pi-user" />
             </template>
           </BasicButton>
 
-          <BasicButton
-            icon-right="true"
-            size="large"
-            variant="outlined"
-            severity="secondary"
-            rounded
-          >
+          <BasicButton icon-right="true" variant="filled" rounded>
             <template #iconRight>
               <i class="pi pi-user" />
             </template>
@@ -284,8 +274,8 @@
       </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.icons.iconWithText") }}</h3>
+    <section>
+      <h2>{{ $t("ui.button.usage.icons.iconWithText") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -353,8 +343,8 @@
       </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.link") }}</h3>
+    <section>
+      <h2>{{ $t("ui.button.usage.link") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -400,6 +390,10 @@ function onClick() {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.demo-button section {
+  margin-bottom: 2.5em;
 }
 
 .demo-button .section-content {

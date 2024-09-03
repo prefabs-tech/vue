@@ -27,7 +27,7 @@
   --button-warning-outlined-hover-color: #fef7f5;
 }
 
-.dz-button {
+button {
   --_button-color: var(--button-color);
   --_button-font-size: var(--button-font-size);
   --_button-icon-size: var(--button-icon-size);
@@ -51,145 +51,137 @@
   vertical-align: bottom;
 }
 
-.dz-button:focus {
-  outline: 2px solid var(--_button-color);
-  outline-offset: 2px;
-}
-
-.dz-button:disabled {
+button:disabled {
   cursor: default;
   opacity: 0.5;
 }
 
-.dz-button-link {
+button-link {
   text-decoration: none;
 }
 
-.dz-button.alternate {
+button.alternate {
   --button-color: var(--button-alternate-color);
   --button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
 }
 
-.dz-button.danger {
+button.danger {
   --button-color: var(--button-danger-color);
   --button-outlined-hover-color: var(--button-danger-outlined-hover-color);
 }
 
-.dz-button.dz-icon-only {
+button.icon-only {
   height: var(--_button-width);
   width: var(--_button-width);
 }
 
-.dz-button.dz-icon-only.rounded {
+button.icon-only.rounded {
   border-radius: 50%;
   padding: 1.25rem;
 }
 
-.dz-button.dz-rounded {
+button.rounded {
   border-radius: 2rem;
 }
 
-.dz-button.filled {
+button.filled {
   border: 1px solid var(--_button-color);
   color: var(--button-text-color);
 }
 
-.dz-button.filled:hover {
+button.filled:hover {
   filter: brightness(0.8);
 }
 
-.dz-button.filled:active {
+button.filled:active {
   filter: brightness(1);
 }
 
-.dz-button.filled:disabled:hover {
+button.filled:disabled:hover {
   filter: none;
 }
 
-.dz-button.large {
+button.large {
   --button-font-size: var(--button-large-font-size);
   --button-icon-size: var(--button-large-icon-size);
   --button-padding: var(--button-large-padding);
   --button-width: var(--button-large-width);
 }
 
-.dz-button.medium {
+button.medium {
   --button-font-size: var(--button-medium-font-size);
   --button-icon-size: var(--button-medium-icon-size);
   --button-padding: var(--button-medium-padding);
   --button-width: var(--button-medium-width);
 }
 
-.dz-button.outlined {
+button.outlined {
   background: transparent;
   border: 1px solid var(--_button-color);
 }
 
-.dz-button.outlined:hover {
+button.outlined:hover {
   background: var(--_button-outlined-hover-color);
 }
 
-.dz-button.outlined:active {
+button.outlined:active {
   filter: brightness(1.05);
 }
 
-.dz-button.outlined:disabled:hover {
+button.outlined:disabled:hover {
   background: none;
   filter: none;
 }
 
-.dz-button.primary {
+button.primary {
   --button-color: var(--button-primary-color);
   --button-outlined-hover-color: var(--button-primary-outlined-hover-color);
 }
 
-.dz-button.secondary {
+button.secondary {
   --button-color: var(--button-secondary-color);
   --button-outlined-hover-color: var(--button-secondary-outlined-hover-color);
 }
 
-.dz-button.small {
+button.small {
   --button-font-size: var(--button-small-font-size);
   --button-icon-size: var(--button-small-icon-size);
   --button-padding: var(--button-small-padding);
   --button-width: var(--button-small-width);
 }
 
-.dz-button.success {
+button.success {
   --button-color: var(--button-success-color);
   --button-outlined-hover-color: var(--button-success-outlined-hover-color);
 }
 
-.dz-button.textOnly {
+button.textOnly {
   background: transparent;
+  border: 1px solid transparent;
 }
 
-.dz-button.textOnly:hover {
+button.textOnly:hover {
   background: var(--_button-outlined-hover-color);
 }
 
-.dz-button.textOnly:active {
+button.textOnly:active {
   filter: brightness(1.05);
 }
 
-.dz-button.textOnly:focus {
-  background: var(--_button-outlined-hover-color);
-}
-
-.dz-button.textOnly:disabled:hover {
+button.textOnly:disabled:hover {
   background: none;
   filter: none;
 }
 
-.dz-button.warning {
+button.warning {
   --button-color: var(--button-warning-color);
   --button-outlined-hover-color: var(--button-warning-outlined-hover-color);
 }
 
-.dz-button > span > i {
+button > span > i {
   font-size: var(--_button-icon-size);
 }
 
-.dz-button > span.label {
+button > span.label {
   font-size: var(--_button-font-size);
 }

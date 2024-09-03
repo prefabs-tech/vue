@@ -109,13 +109,12 @@ const props = defineProps({
 
 const buttonClassName = computed(() => {
   return [
-    "dz-button",
     props.className,
     props.severity,
     props.size,
     props.variant,
-    !(props.label || props.children) && "dz-icon-only",
-    props.rounded && "dz-rounded",
+    !(props.label || props.children) && "icon-only",
+    props.rounded && "rounded",
   ]
     .filter(Boolean)
     .join(" ");
