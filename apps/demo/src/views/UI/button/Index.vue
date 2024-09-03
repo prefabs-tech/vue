@@ -175,7 +175,7 @@
     </section>
 
     <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.icons.title") }}</h3>
+      <h3>{{ $t("ui.button.usage.icons.iconName") }}</h3>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -217,7 +217,7 @@
     </section>
 
     <section class="demo-section">
-      <h3>{{ $t("ui.button.usage.icons.title") }}</h3>
+      <h3>{{ $t("ui.button.usage.icons.iconElement") }}</h3>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -237,10 +237,10 @@
             &lt;/BasicButton&gt;
 
             &lt;BasicButton icon-right="true" rounded severity="secondary" size="large" 
-                variant="outlined" /&gt;
-                  &lt;template #iconRight&gt;
-                    &lt;i class="pi pi-user" &gt;
-                  &lt;/template&gt;
+              variant="outlined" /&gt;
+                &lt;template #iconRight&gt;
+                  &lt;i class="pi pi-user" &gt;
+                &lt;/template&gt;
             &lt;/BasicButton&gt;
           &lt;/template&gt;
           
