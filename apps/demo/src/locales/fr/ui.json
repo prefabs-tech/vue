@@ -42,8 +42,8 @@
       "buttonWithChild": "Button with child element",
       "disabled": "Disabled",
       "icons": {
-        "iconName": "Icons name",
         "iconElement": "Icons element",
+        "iconName": "Icons name",
         "iconWithText": "Icons with text"
       },
       "link": "Link",
