@@ -42,8 +42,8 @@ const emits = defineEmits(["click"]);
 
 const props = defineProps({
   children: {
-    default: null,
-    type: String,
+    default: false,
+    type: Boolean,
   },
   className: {
     default: "",

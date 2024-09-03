@@ -8,6 +8,14 @@
         <SshPre language="html-vue">
           &lt;template&gt; 
             &lt;BasicButton label="Click me" @click="onClick" /&gt;
+          &lt;/template&gt;
+
+          &lt;template&gt; 
+            &lt;BasicButton children&gt;
+              &lt;template #buttonContent&gt;
+                &lt;span&gt;Click me&lt;/span&gt;
+              &lt;/template&gt;
+            &lt;/BasicButton&gt;
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
@@ -23,6 +31,14 @@
           />
 
           <span>{{ currentTime }}</span>
+        </div>
+
+        <div class="container">
+          <BasicButton children>
+            <template #buttonContent>
+              <span>{{ $t("ui.button.label.clickMe") }}</span>
+            </template>
+          </BasicButton>
         </div>
       </div>
     </section>
