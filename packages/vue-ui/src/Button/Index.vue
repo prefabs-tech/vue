@@ -3,18 +3,24 @@
     :class="buttonClassName"
     :disabled="disabled || loading"
     :role="buttonRole"
-    @click="$emit('click')"
+    @click="handleClick()"
   >
     <span v-if="iconLeft" class="icon-left">
-      <i :class="iconLeft" />
+      <slot name="iconLeft">
+        <i :class="iconLeft" />
+      </slot>
     </span>
 
     <div v-if="children || label" class="label">
-      <span>{{ label }}</span>
+      <slot name="buttonContent">
+        <span>{{ label }}</span>
+      </slot>
     </div>
 
     <span v-if="iconRight" class="icon-right">
-      <i :class="iconRight" />
+      <slot name="iconRight">
+        <i :class="iconRight" />
+      </slot>
     </span>
 
     <LoadingIcon v-if="loading" />
@@ -32,7 +38,7 @@ import { computed } from "vue";
 
 import LoadingIcon from "../components/LoadingIcon.vue";
 
-defineEmits(["click"]);
+const emits = defineEmits(["click"]);
 
 const props = defineProps({
   children: {
@@ -49,11 +55,11 @@ const props = defineProps({
   },
   iconLeft: {
     default: null,
-    type: String,
+    type: [String, Boolean],
   },
   iconRight: {
     default: null,
-    type: String,
+    type: [String, Boolean],
   },
   label: {
     default: null,
@@ -116,4 +122,12 @@ const buttonClassName = computed(() => {
 });
 
 const buttonRole = computed(() => (props.to ? "link" : "button"));
+
+function handleClick() {
+  if (props.to) {
+    window.location.href = props.to;
+  }
+
+  emits("click");
+}
 </script>

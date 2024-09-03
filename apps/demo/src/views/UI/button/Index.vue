@@ -3,19 +3,28 @@
     <section class="demo-section">
       <h3>{{ $t("ui.button.usage.basic") }}</h3>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;template&gt; 
-          &lt;BasicButton label="Click me" /&gt;
-        &lt;/template&gt; 
-        
-        &lt;script setup lang="ts"&gt; 
-          import { BasicButton } from "@dzangolab/vue3-ui"; 
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt; 
+            &lt;BasicButton label="Click me" @click="onClick" /&gt;
+          &lt;/template&gt; 
+          
+          &lt;script setup lang="ts"&gt; 
+            import { BasicButton } from "@dzangolab/vue3-ui"; 
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
-      <BasicButton :label="$t('ui.button.label.clickMe')" />
+        <div class="container">
+          <BasicButton
+            :label="$t('ui.button.label.clickMe')"
+            @click="onClick()"
+          />
+
+          <span>{{ currentTime }}</span>
+        </div>
+      </div>
     </section>
 
     <section class="demo-section">
@@ -164,13 +173,25 @@
           &lt;/template&gt;
 
           &lt;template&gt; 
-            &lt;BasicButton icon-right="pi pi-user" rounded severity="secondary" size="small"
-                variant="textOnly" 
-            /&gt;
-            &lt;BasicButton icon-right="pi pi-user" rounded size="medium" variant="outlined" /&gt;
-            &lt;BasicButton icon-right="pi pi-user" rounded severity="secondary" size="large" 
-                variant="filled" 
-            /&gt;
+            &lt;BasicButton icon-left="true" rounded severity="secondary" size="small" 
+              variant="textOnly"&gt;
+                &lt;template #iconLeft&gt;
+                  &lt;i class="pi pi-user" &gt;
+                &lt;/template&gt;
+            &lt;/BasicButton&gt;
+
+            &lt;BasicButton icon-right="true" rounded size="medium" variant="filled"&gt;
+              &lt;template #iconRight&gt;
+                &lt;i class="pi pi-user" &gt;
+              &lt;/template&gt;
+            &lt;/BasicButton&gt;
+
+            &lt;BasicButton icon-right="true" rounded severity="secondary" size="large" 
+                variant="outlined" /&gt;
+                  &lt;template #iconRight&gt;
+                    &lt;i class="pi pi-user" &gt;
+                  &lt;/template&gt;
+            &lt;/BasicButton&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
@@ -243,22 +264,31 @@
             size="small"
             variant="textOnly"
             severity="secondary"
-            icon-left="pi pi-user"
+            icon-left="true"
             rounded
-          />
+          >
+            <template #iconLeft>
+              <i class="pi pi-user" />
+            </template>
+          </BasicButton>
+
+          <BasicButton size="medium" variant="filled" icon-right="true" rounded>
+            <template #iconRight>
+              <i class="pi pi-user" />
+            </template>
+          </BasicButton>
+
           <BasicButton
-            size="medium"
-            variant="filled"
-            icon-left="pi pi-user"
-            rounded
-          />
-          <BasicButton
+            icon-right="true"
             size="large"
             variant="outlined"
             severity="secondary"
-            icon-left="pi pi-user"
             rounded
-          />
+          >
+            <template #iconRight>
+              <i class="pi pi-user" />
+            </template>
+          </BasicButton>
         </div>
       </div>
     </section>
@@ -285,7 +315,7 @@
           <BasicButton
             :label="$t('ui.button.label.back')"
             severity="secondary"
-            to="/ui"
+            to="/vue/#/ui"
           />
         </div>
       </div>
@@ -295,6 +325,13 @@
 
 <script setup lang="ts">
 import { BasicButton } from "@dzangolab/vue3-ui";
+import { ref } from "vue";
+
+const currentTime = ref(undefined as unknown as Date);
+
+function onClick() {
+  currentTime.value = new Date();
+}
 </script>
 
 <style lang="css" scoped>
