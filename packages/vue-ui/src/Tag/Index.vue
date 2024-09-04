@@ -1,6 +1,12 @@
 <template>
-  <span>
-    {{ label }}
+  <span :class="tagClassName" :style="style">
+    <template v-if="icon">
+      <slot name="icon">
+        <i :class="icon" />
+      </slot>
+    </template>
+
+    <div v-if="label" class="label"></div>
   </span>
 </template>
 
@@ -11,7 +17,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-defineProps({
+import { computed } from "vue";
+
+const props = defineProps({
   className: {
     default: "",
     type: String,
@@ -21,12 +29,24 @@ defineProps({
     type: String,
   },
   fullWidth: Boolean,
-  icon: String,
-  label: String,
+  icon: {
+    default: null,
+    type: [String, Boolean],
+  },
+  label: {
+    default: null,
+    type: [String, Boolean],
+  },
   rounded: Boolean,
   style: {
     default: () => ({}),
     type: Object,
   },
+});
+
+const tagClassName = computed(() => {
+  return ["tag", props.className, props.fullWidth, props.rounded && "rounded"]
+    .filter(Boolean)
+    .join(" ");
 });
 </script>
