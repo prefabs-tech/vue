@@ -2,6 +2,7 @@ const Accordion = () => import("@/views/UI/accordion/Index.vue");
 const Button = () => import("@/views/UI/button/Index.vue");
 const SubPane = () => import("@/views/UI/SubPanePage.vue");
 const TabbedPanel = () => import("@/views/UI/tabbed-panel/Index.vue");
+const Tag = () => import("@/views/UI/tag/Index.vue");
 const TanstackTable = () => import("@/views/UI/TanstackTable.vue");
 const Typography = () => import("@/views/UI/typography/Index.vue");
 const UI = () => import("@/views/UI/Index.vue");
@@ -44,6 +45,11 @@ const routes = [
         component: Button,
         name: "button",
         path: "button",
+      },
+      {
+        component: Tag,
+        name: "tag",
+        path: "tag",
       },
     ],
   },

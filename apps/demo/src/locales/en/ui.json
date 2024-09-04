@@ -83,6 +83,9 @@
     "with-color-and-shadow": "With color and shadow",
     "with-custom-icons": "With custom icons"
   },
+  "tag": {
+    "title": "Tag"
+  },
   "tanstack-table": {
     "title": "Tanstack Table"
   },

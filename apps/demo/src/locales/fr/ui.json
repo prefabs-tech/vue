@@ -83,6 +83,9 @@
     "with-color-and-shadow": "Avec couleur et ombrage",
     "with-custom-icons": "Avec icônes individualisés"
   },
+  "tag": {
+    "title": "Tag"
+  },
   "tanstack-table": {
     "title": "Tanstack Table[fr]"
   },

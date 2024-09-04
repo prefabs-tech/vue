@@ -31,6 +31,11 @@
           {{ $t("ui.button.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'tag' }">
+          {{ $t("ui.tag.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>
