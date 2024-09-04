@@ -50,3 +50,27 @@ const tagClassName = computed(() => {
     .join(" ");
 });
 </script>
+
+<style lang="css" scoped>
+.tag {
+  align-items: center;
+  border-radius: 5px;
+  color: #4a4747;
+  display: inline-flex;
+  font-size: 0.875rem;
+  font-weight: normal;
+  gap: 0.25rem;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  width: max-content;
+}
+
+.tag.rounded {
+  border-radius: 25px;
+  padding: 0.25rem 0.6rem;
+}
+
+.tag.full-width {
+  width: 100%;
+}
+</style>
