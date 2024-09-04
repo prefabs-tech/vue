@@ -18,6 +18,43 @@
     "slot-without-title": "Slots sans prop 'title' sont ignorés",
     "title": "Accordéon"
   },
+  "button": {
+    "label": {
+      "alternate": "Alternate",
+      "back": "Back",
+      "clickMe": "Click me",
+      "danger": "Danger",
+      "default": "Default",
+      "home": "Home",
+      "large": "Large",
+      "medium": "Medium",
+      "outlined": "Outlined",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "small": "Small",
+      "success": "Success",
+      "textOnly": "Text only",
+      "warning": "Warning"
+    },
+    "title": "Button",
+    "usage": {
+      "basic": "Basic",
+      "buttonWithChild": "Button with child element",
+      "disabled": "Disabled",
+      "icons": {
+        "iconElement": "Icon element",
+        "iconName": "Icon name",
+        "iconWithText": "Icon with text"
+      },
+      "outlined": "Outlined",
+      "redirect": "Redirect",
+      "severity": "Severity",
+      "size": "Size",
+      "text": "Text",
+      "tooltip": "Button with tooltip",
+      "variant": "Variant"
+    }
+  },
   "subPane": {
     "title": "SubPane[fr]",
     "content": "This is a subpane[fr]"
