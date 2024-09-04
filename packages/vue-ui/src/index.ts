@@ -1,7 +1,7 @@
 import "./assets/css/index.css";
 
 import Accordion from "./Accordion/Index.vue";
-import BasicButton from "./Button/Index.vue";
+import ButtonElement from "./Button/Index.vue";
 import GoogleSignInButton from "./components/GoogleSignInButton.vue";
 import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
@@ -26,7 +26,7 @@ export default plugin;
 
 export {
   Accordion,
-  BasicButton,
+  ButtonElement,
   DebouncedInput,
   Errors,
   GoogleSignInButton,

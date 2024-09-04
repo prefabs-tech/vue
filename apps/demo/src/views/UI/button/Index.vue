@@ -7,17 +7,17 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton label="Click me" @click="onClick" /&gt;
+            &lt;ButtonElement label="Click me" @click="onClick" /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { BasicButton } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <div class="container">
-          <BasicButton
+          <ButtonElement
             :label="$t('ui.button.label.clickMe')"
             @click="onClick()"
           />
@@ -34,25 +34,25 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton children&gt;
+            &lt;ButtonElement children&gt;
               &lt;template #buttonContent&gt;
                 &lt;span&gt;Click me&lt;/span&gt;
               &lt;/template&gt;
-            &lt;/BasicButton&gt;
+            &lt;/ButtonElement&gt;
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { BasicButton } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <div class="container">
-          <BasicButton children>
+          <ButtonElement children>
             <template #buttonContent>
               <span>{{ $t("ui.button.label.clickMe") }}</span>
             </template>
-          </BasicButton>
+          </ButtonElement>
         </div>
       </div>
     </section>
@@ -64,47 +64,47 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton label="Primary" severity="primary" /&gt;
-            &lt;BasicButton label="Secondary" severity="secondary" /&gt;
-            &lt;BasicButton label="Alternate" severity="alternate" /&gt;
-            &lt;BasicButton label="Success" severity="success" label="Success" /&gt;
-            &lt;BasicButton label="Danger" severity="danger" label="Danger" /&gt;
-            &lt;BasicButton label="Warning" severity="warning" label="Warning" /&gt;
+            &lt;ButtonElement label="Primary" severity="primary" /&gt;
+            &lt;ButtonElement label="Secondary" severity="secondary" /&gt;
+            &lt;ButtonElement label="Alternate" severity="alternate" /&gt;
+            &lt;ButtonElement label="Success" severity="success" label="Success" /&gt;
+            &lt;ButtonElement label="Danger" severity="danger" label="Danger" /&gt;
+            &lt;ButtonElement label="Warning" severity="warning" label="Warning" /&gt;
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { BasicButton } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <div class="container">
-          <BasicButton
+          <ButtonElement
             severity="primary"
             :label="$t('ui.button.label.primary')"
           />
 
-          <BasicButton
+          <ButtonElement
             severity="secondary"
             :label="$t('ui.button.label.secondary')"
           />
 
-          <BasicButton
+          <ButtonElement
             severity="alternate"
             :label="$t('ui.button.label.alternate')"
           />
 
-          <BasicButton
+          <ButtonElement
             severity="success"
             :label="$t('ui.button.label.success')"
           />
 
-          <BasicButton
+          <ButtonElement
             severity="danger"
             :label="$t('ui.button.label.danger')"
           />
 
-          <BasicButton
+          <ButtonElement
             severity="warning"
             :label="$t('ui.button.label.warning')"
           />
@@ -119,21 +119,21 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton label="Small" size="small" /&gt;
-            &lt;BasicButton label="Medium" size="medium" /&gt;
-            &lt;BasicButton label="Large" size="large" /&gt;
+            &lt;ButtonElement label="Small" size="small" /&gt;
+            &lt;ButtonElement label="Medium" size="medium" /&gt;
+            &lt;ButtonElement label="Large" size="large" /&gt;
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { BasicButton } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <div class="container">
-          <BasicButton size="small" :label="$t('ui.button.label.small')" />
-          <BasicButton size="medium" :label="$t('ui.button.label.medium')" />
-          <BasicButton size="large" :label="$t('ui.button.label.large')" />
+          <ButtonElement size="small" :label="$t('ui.button.label.small')" />
+          <ButtonElement size="medium" :label="$t('ui.button.label.medium')" />
+          <ButtonElement size="large" :label="$t('ui.button.label.large')" />
         </div>
       </div>
     </section>
@@ -145,31 +145,31 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton label="Text only" size="medium" variant="textOnly" /&gt;
-            &lt;BasicButton label="Outlined" size="medium" variant="outlined" /&gt;
-            &lt;BasicButton label="Default" size="medium" /&gt;
+            &lt;ButtonElement label="Text only" size="medium" variant="textOnly" /&gt;
+            &lt;ButtonElement label="Outlined" size="medium" variant="outlined" /&gt;
+            &lt;ButtonElement label="Default" size="medium" /&gt;
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { BasicButton } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <div class="container">
-          <BasicButton
+          <ButtonElement
             size="medium"
             :label="$t('ui.button.label.textOnly')"
             variant="textOnly"
           />
 
-          <BasicButton
+          <ButtonElement
             size="medium"
             :label="$t('ui.button.label.outlined')"
             variant="outlined"
           />
 
-          <BasicButton size="medium" :label="$t('ui.button.label.default')" />
+          <ButtonElement size="medium" :label="$t('ui.button.label.default')" />
         </div>
       </div>
     </section>
@@ -181,31 +181,31 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton icon-right="pi pi-user" severity="secondary" variant="textOnly" /&gt;
-            &lt;BasicButton icon-right="pi pi-user" variant="outlined" /&gt;
-            &lt;BasicButton icon-right="pi pi-user" severity="secondary" variant="filled" /&gt;
+            &lt;ButtonElement icon-right="pi pi-user" severity="secondary" variant="textOnly" /&gt;
+            &lt;ButtonElement icon-right="pi pi-user" variant="outlined" /&gt;
+            &lt;ButtonElement icon-right="pi pi-user" severity="secondary" variant="filled" /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { BasicButton } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <div className="container">
-          <BasicButton
+          <ButtonElement
             variant="textOnly"
             severity="secondary"
             icon-left="pi pi-user"
           />
 
-          <BasicButton
+          <ButtonElement
             variant="outlined"
             severity="secondary"
             icon-left="pi pi-user"
           />
 
-          <BasicButton variant="filled" icon-left="pi pi-user" />
+          <ButtonElement variant="filled" icon-left="pi pi-user" />
         </div>
       </div>
     </section>
@@ -217,33 +217,33 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton icon-left="true" rounded severity="secondary" variant="textOnly"&gt;
+            &lt;ButtonElement icon-left="true" rounded severity="secondary" variant="textOnly"&gt;
                 &lt;template #iconLeft&gt;
                   &lt;i class="pi pi-user" &gt;
                 &lt;/template&gt;
-            &lt;/BasicButton&gt;
+            &lt;/ButtonElement&gt;
 
-            &lt;BasicButton icon-right="true" rounded variant="outlined"&gt;
+            &lt;ButtonElement icon-right="true" rounded variant="outlined"&gt;
               &lt;template #iconRight&gt;
                 &lt;i class="pi pi-user" &gt;
               &lt;/template&gt;
-            &lt;/BasicButton&gt;
+            &lt;/ButtonElement&gt;
 
-            &lt;BasicButton icon-right="true" rounded severity="secondary" variant="filled"&gt;
+            &lt;ButtonElement icon-right="true" rounded severity="secondary" variant="filled"&gt;
                 &lt;template #iconRight&gt;
                   &lt;i class="pi pi-user" &gt;
                 &lt;/template&gt;
-            &lt;/BasicButton&gt;
+            &lt;/ButtonElement&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { BasicButton } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <div className="container">
-          <BasicButton
+          <ButtonElement
             variant="textOnly"
             severity="secondary"
             icon-left="true"
@@ -252,9 +252,9 @@
             <template #iconLeft>
               <i class="pi pi-user" />
             </template>
-          </BasicButton>
+          </ButtonElement>
 
-          <BasicButton
+          <ButtonElement
             severity="secondary"
             variant="outlined"
             icon-right="true"
@@ -263,13 +263,13 @@
             <template #iconRight>
               <i class="pi pi-user" />
             </template>
-          </BasicButton>
+          </ButtonElement>
 
-          <BasicButton icon-right="true" variant="filled" rounded>
+          <ButtonElement icon-right="true" variant="filled" rounded>
             <template #iconRight>
               <i class="pi pi-user" />
             </template>
-          </BasicButton>
+          </ButtonElement>
         </div>
       </div>
     </section>
@@ -281,37 +281,39 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton label="Text only" icon-left="pi pi-user" variant="textOnly" /&gt;
-            &lt;BasicButton label="Outlined" icon-left="pi pi-user" variant="outlined" /&gt;
-            &lt;BasicButton label="Default" icon-left="pi pi-user" variant="filled" /&gt;
+            &lt;ButtonElement label="Text only" icon-left="pi pi-user" variant="textOnly" /&gt;
+            &lt;ButtonElement label="Outlined" icon-left="pi pi-user" variant="outlined" /&gt;
+            &lt;ButtonElement label="Default" icon-left="pi pi-user" variant="filled" /&gt;
           &lt;/template&gt; 
 
           &lt;template&gt; 
-            &lt;BasicButton label="Text only" icon-right="pi pi-user" rounded variant="textOnly" /&gt;
-            &lt;BasicButton label="Outlined" icon-right="pi pi-user" rounded variant="outlined" /&gt;
-            &lt;BasicButton label="Default" icon-right="pi pi-user" rounded variant="filled" /&gt;
+            &lt;ButtonElement label="Text only" icon-right="pi pi-user" rounded 
+              variant="textOnly" 
+            /&gt;
+            &lt;ButtonElement label="Outlined" icon-right="pi pi-user" rounded variant="outlined" /&gt;
+            &lt;ButtonElement label="Default" icon-right="pi pi-user" rounded variant="filled" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
-            import { BasicButton } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <div class="container">
-          <BasicButton
+          <ButtonElement
             :label="$t('ui.button.label.textOnly')"
             icon-left="pi pi-user"
             variant="textOnly"
           />
 
-          <BasicButton
+          <ButtonElement
             :label="$t('ui.button.label.outlined')"
             icon-left="pi pi-user"
             variant="outlined"
           />
 
-          <BasicButton
+          <ButtonElement
             :label="$t('ui.button.label.default')"
             icon-left="pi pi-user"
             variant="filled"
@@ -319,21 +321,21 @@
         </div>
 
         <div class="container">
-          <BasicButton
+          <ButtonElement
             :label="$t('ui.button.label.textOnly')"
             icon-right="pi pi-user"
             rounded
             variant="textOnly"
           />
 
-          <BasicButton
+          <ButtonElement
             :label="$t('ui.button.label.outlined')"
             icon-right="pi pi-user"
             rounded
             variant="outlined"
           />
 
-          <BasicButton
+          <ButtonElement
             :label="$t('ui.button.label.default')"
             icon-right="pi pi-user"
             rounded
@@ -350,19 +352,19 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;BasicButton label="home" to="/" /&gt;
-            &lt;BasicButton label="back" severity="secondary" to="/ui" /&gt;
+            &lt;ButtonElement label="home" to="/" /&gt;
+            &lt;ButtonElement label="back" severity="secondary" to="/ui" /&gt;
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { BasicButton } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <div class="container">
-          <BasicButton :label="$t('ui.button.label.home')" to="/" />
-          <BasicButton
+          <ButtonElement :label="$t('ui.button.label.home')" to="/" />
+          <ButtonElement
             :label="$t('ui.button.label.back')"
             severity="secondary"
             to="/vue/#/ui"
@@ -374,7 +376,7 @@
 </template>
 
 <script setup lang="ts">
-import { BasicButton } from "@dzangolab/vue3-ui";
+import { ButtonElement } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 const currentTime = ref(undefined as unknown as Date);

@@ -29,7 +29,7 @@
 
 <script lang="ts">
 export default {
-  name: "BasicButton",
+  name: "ButtonElement",
 };
 </script>
 
