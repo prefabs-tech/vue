@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('form.label.textInput')">
+  <Page :title="$t('form.label.email')">
     <section class="demo-section">
       <h3>{{ $t("form.label.basicInput") }}</h3>
 
