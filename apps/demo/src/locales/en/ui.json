@@ -46,7 +46,7 @@
         "iconName": "Icon name",
         "iconWithText": "Icon with text"
       },
-      "link": "Link",
+      "redirect": "Redirect",
       "outlined": "Outlined",
       "severity": "Severity",
       "size": "Size",

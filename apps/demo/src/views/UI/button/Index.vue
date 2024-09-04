@@ -36,7 +36,7 @@
           &lt;template&gt; 
             &lt;ButtonElement children&gt;
               &lt;template #buttonContent&gt;
-                &lt;span&gt;Click me&lt;/span&gt;
+                &lt;u&gt;Click me&lt;/u&gt;
               &lt;/template&gt;
             &lt;/ButtonElement&gt;
           &lt;/template&gt; 
@@ -50,7 +50,7 @@
         <div class="container">
           <ButtonElement children>
             <template #buttonContent>
-              <span>{{ $t("ui.button.label.clickMe") }}</span>
+              <u>{{ $t("ui.button.label.clickMe") }}</u>
             </template>
           </ButtonElement>
         </div>
@@ -346,7 +346,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.button.usage.link") }}</h2>
+      <h2>{{ $t("ui.button.usage.redirect") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
