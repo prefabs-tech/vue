@@ -6,7 +6,9 @@
       </slot>
     </template>
 
-    <div v-if="label" class="label"></div>
+    <div v-if="label" class="label">
+      {{ label }}
+    </div>
   </span>
 </template>
 
