@@ -4,7 +4,7 @@
   },
   "errors": {
     "datePicker": {
-      "invalid": "Please provide a present or future date"
+      "invalid": "Please provide a present or past date"
     },
     "email": {
       "invalid": "Please provide a valid email {list}"
@@ -34,13 +34,18 @@
     }
   },
   "label": {
+    "appointmentDate": "Appointment date",
+    "appointmentTime": "Appointment time",
+    "arrivalDate": "Arrival date",
+    "availableDatetime": "Available datetime",
     "basicInput": "Basic",
     "customColsRowsInput": "With cols and rows props",
     "customErrorMessageInput": "With custom error message",
     "customValidationInput": "With custom validation",
     "customStyleInput": "Custom style",
     "datePicker": "Date picker",
-    "dateRange": "With date range prop",
+    "dateRange": "Date range",
+    "dateTimePicker": "Datetime picker",
     "debouncedTypeahead": "With debounce time prop",
     "disabled": "Disabled",
     "disabledMultiSelect": "Disabled multiselect",
@@ -49,12 +54,16 @@
     "inputWithType": "With type prop",
     "inputWithValidation": "With validation",
     "invalid": "Show invalid state",
+    "joinedDate": "Joined date",
     "labelInput": "With label",
+    "month": "Month",
     "monthPicker": "Month picker",
-    "multiCalendars": "With multi-calendars prop",
+    "multiCalendars": "Multicalendar",
     "multiSelect": "Multiselect",
     "number": "Number",
     "password": "Password",
+    "pickupDate": "Pickup date",
+    "reportDate": "Report date",
     "select": "Select",
     "switch": "Switch",
     "textarea": "Textarea",
@@ -63,6 +72,7 @@
     "typeahead": "Typeahead",
     "valid": "Show valid state",
     "withI18n": "With I18n",
+    "year": "Year",
     "yearPicker": "Year picker"
   },
   "placeholder": {
