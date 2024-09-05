@@ -18,6 +18,22 @@
 
         <Badge label="Basic" />
       </div>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt; 
+            &lt;Badge label="Basic" /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt; 
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Badge label="Basic" />
+      </div>
     </section>
   </Page>
 </template>

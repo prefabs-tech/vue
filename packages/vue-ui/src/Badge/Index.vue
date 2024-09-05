@@ -40,6 +40,19 @@ const props = defineProps({
     type: [String, Boolean],
   },
   rounded: Boolean,
+  severity: {
+    default: "primary",
+    type: String,
+    validator: (value: string) =>
+      [
+        "primary",
+        "secondary",
+        "alternate",
+        "success",
+        "danger",
+        "warning",
+      ].includes(value),
+  },
   style: {
     default: () => ({}),
     type: Object,
@@ -47,33 +60,14 @@ const props = defineProps({
 });
 
 const badgeClassName = computed(() => {
-  return ["badge", props.className, props.fullWidth, props.rounded && "rounded"]
+  return [
+    "badge",
+    props.className,
+    props.fullWidth,
+    props.rounded && "rounded",
+    props.severity,
+  ]
     .filter(Boolean)
     .join(" ");
 });
 </script>
-
-<style lang="css" scoped>
-.badge {
-  align-items: center;
-  background-color: var(--dz-primary-color);
-  border-radius: 5px;
-  color: white;
-  display: inline-flex;
-  font-size: 0.875rem;
-  font-weight: 700;
-  gap: 0.25rem;
-  justify-content: center;
-  padding: 0.25rem 0.5rem;
-  width: max-content;
-}
-
-.badge.rounded {
-  border-radius: 25px;
-  padding: 0.25rem 0.6rem;
-}
-
-.badge.full-width {
-  width: 100%;
-}
-</style>

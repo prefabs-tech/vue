@@ -27,7 +27,7 @@
   --button-warning-outlined-hover-color: #fef7f5;
 }
 
-button {
+.button {
   --_button-color: var(--button-color);
   --_button-font-size: var(--button-font-size);
   --_button-icon-size: var(--button-icon-size);
@@ -51,137 +51,133 @@ button {
   vertical-align: bottom;
 }
 
-button:disabled {
+.button:disabled {
   cursor: default;
   opacity: 0.5;
 }
 
-button-link {
-  text-decoration: none;
-}
-
-button.alternate {
+.button.alternate {
   --button-color: var(--button-alternate-color);
   --button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
 }
 
-button.danger {
+.button.danger {
   --button-color: var(--button-danger-color);
   --button-outlined-hover-color: var(--button-danger-outlined-hover-color);
 }
 
-button.icon-only {
+.button.icon-only {
   height: var(--_button-width);
   width: var(--_button-width);
 }
 
-button.icon-only.rounded {
+.button.icon-only.rounded {
   border-radius: 50%;
   padding: 1.25rem;
 }
 
-button.rounded {
+.button.rounded {
   border-radius: 2rem;
 }
 
-button.filled {
+.button.filled {
   border: 1px solid var(--_button-color);
   color: var(--button-text-color);
 }
 
-button.filled:hover {
+.button.filled:hover {
   filter: brightness(0.8);
 }
 
-button.filled:active {
+.button.filled:active {
   filter: brightness(1);
 }
 
-button.filled:disabled:hover {
+.button.filled:disabled:hover {
   filter: none;
 }
 
-button.large {
+.button.large {
   --button-font-size: var(--button-large-font-size);
   --button-icon-size: var(--button-large-icon-size);
   --button-padding: var(--button-large-padding);
   --button-width: var(--button-large-width);
 }
 
-button.medium {
+.button.medium {
   --button-font-size: var(--button-medium-font-size);
   --button-icon-size: var(--button-medium-icon-size);
   --button-padding: var(--button-medium-padding);
   --button-width: var(--button-medium-width);
 }
 
-button.outlined {
+.button.outlined {
   background: transparent;
   border: 1px solid var(--_button-color);
 }
 
-button.outlined:hover {
+.button.outlined:hover {
   background: var(--_button-outlined-hover-color);
 }
 
-button.outlined:active {
+.button.outlined:active {
   filter: brightness(1.05);
 }
 
-button.outlined:disabled:hover {
+.button.outlined:disabled:hover {
   background: none;
   filter: none;
 }
 
-button.primary {
+.button.primary {
   --button-color: var(--button-primary-color);
   --button-outlined-hover-color: var(--button-primary-outlined-hover-color);
 }
 
-button.secondary {
+.button.secondary {
   --button-color: var(--button-secondary-color);
   --button-outlined-hover-color: var(--button-secondary-outlined-hover-color);
 }
 
-button.small {
+.button.small {
   --button-font-size: var(--button-small-font-size);
   --button-icon-size: var(--button-small-icon-size);
   --button-padding: var(--button-small-padding);
   --button-width: var(--button-small-width);
 }
 
-button.success {
+.button.success {
   --button-color: var(--button-success-color);
   --button-outlined-hover-color: var(--button-success-outlined-hover-color);
 }
 
-button.textOnly {
+.button.textOnly {
   background: transparent;
   border: 1px solid transparent;
 }
 
-button.textOnly:hover {
+.button.textOnly:hover {
   background: var(--_button-outlined-hover-color);
 }
 
-button.textOnly:active {
+.button.textOnly:active {
   filter: brightness(1.05);
 }
 
-button.textOnly:disabled:hover {
+.button.textOnly:disabled:hover {
   background: none;
   filter: none;
 }
 
-button.warning {
+.button.warning {
   --button-color: var(--button-warning-color);
   --button-outlined-hover-color: var(--button-warning-outlined-hover-color);
 }
 
-button > span > i {
+.button > span > i {
   font-size: var(--_button-icon-size);
 }
 
-button > span.label {
+.button > span.label {
   font-size: var(--_button-font-size);
 }
