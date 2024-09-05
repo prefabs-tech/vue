@@ -32,8 +32,8 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'tag' }">
-          {{ $t("ui.tag.title") }}
+        <router-link :to="{ name: 'badge' }">
+          {{ $t("ui.badge.title") }}
         </router-link>
       </li>
     </ul>

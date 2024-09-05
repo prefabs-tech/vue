@@ -1,5 +1,5 @@
 <template>
-  <span :class="tagClassName" :style="style">
+  <span :class="badgeClassName" :style="style">
     <template v-if="icon">
       <slot name="icon">
         <i :class="icon" />
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 export default {
-  name: "Tag",
+  name: "Badge",
 };
 </script>
 
@@ -46,15 +46,15 @@ const props = defineProps({
   },
 });
 
-const tagClassName = computed(() => {
-  return ["tag", props.className, props.fullWidth, props.rounded && "rounded"]
+const badgeClassName = computed(() => {
+  return ["badge", props.className, props.fullWidth, props.rounded && "rounded"]
     .filter(Boolean)
     .join(" ");
 });
 </script>
 
 <style lang="css" scoped>
-.tag {
+.badge {
   align-items: center;
   background-color: var(--dz-primary-color);
   border-radius: 5px;
@@ -68,12 +68,12 @@ const tagClassName = computed(() => {
   width: max-content;
 }
 
-.tag.rounded {
+.badge.rounded {
   border-radius: 25px;
   padding: 0.25rem 0.6rem;
 }
 
-.tag.full-width {
+.badge.full-width {
   width: 100%;
 }
 </style>

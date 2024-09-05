@@ -1,6 +1,7 @@
 import "./assets/css/index.css";
 
 import Accordion from "./Accordion/Index.vue";
+import Badge from "./Badge/Index.vue";
 import ButtonElement from "./Button/Index.vue";
 import GoogleSignInButton from "./components/GoogleSignInButton.vue";
 import LoadingButton from "./components/LoadingButton.vue";
@@ -11,7 +12,6 @@ import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
-import Tag from "./Tag/Index.vue";
 
 import type { App } from "vue";
 
@@ -37,7 +37,7 @@ export {
   ResponsiveMenu,
   SubPane,
   TabbedPanel,
-  Tag,
+  Badge,
 };
 
 export type { Error } from "./types";

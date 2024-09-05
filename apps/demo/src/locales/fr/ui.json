@@ -18,6 +18,9 @@
     "slot-without-title": "Slots sans prop 'title' sont ignorés",
     "title": "Accordéon"
   },
+  "badge": {
+    "title": "Badge"
+  },
   "button": {
     "label": {
       "alternate": "Alternate",
@@ -82,9 +85,6 @@
     "with-color": "Avec couleur",
     "with-color-and-shadow": "Avec couleur et ombrage",
     "with-custom-icons": "Avec icônes individualisés"
-  },
-  "tag": {
-    "title": "Tag"
   },
   "tanstack-table": {
     "title": "Tanstack Table[fr]"
