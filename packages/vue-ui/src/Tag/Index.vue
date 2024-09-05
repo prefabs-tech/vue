@@ -56,11 +56,12 @@ const tagClassName = computed(() => {
 <style lang="css" scoped>
 .tag {
   align-items: center;
+  background-color: var(--dz-primary-color);
   border-radius: 5px;
-  color: #4a4747;
+  color: white;
   display: inline-flex;
   font-size: 0.875rem;
-  font-weight: normal;
+  font-weight: 700;
   gap: 0.25rem;
   justify-content: center;
   padding: 0.25rem 0.5rem;
