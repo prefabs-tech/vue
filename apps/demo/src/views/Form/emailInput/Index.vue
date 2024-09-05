@@ -80,6 +80,35 @@
     </section>
 
     <section class="demo-section">
+      <h3>{{ $t("form.label.withI18n") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;Email 
+            v-model="input"
+            :label="t('form.label.email')"
+            :placeholder="t('form.placeholder.email')"
+          /&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { Email } from "@dzangolab/vue3-form";
+        import { useI18n } from "@dzangolab/vue3-i18n";
+
+        const { t } = useI18n();
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <Email
+        v-model="formData.input"
+        :label="t('form.label.email')"
+        :placeholder="t('form.placeholder.email')"
+      />
+    </section>
+
+    <section class="demo-section">
       <h3>{{ $t("form.label.inputWithValidation") }}</h3>
 
       <!-- eslint-disable -->

@@ -62,6 +62,7 @@
     "timePicker": "Time picker",
     "typeahead": "Typeahead",
     "valid": "Show valid state",
+    "withI18n": "With I18n",
     "yearPicker": "Year picker"
   },
   "placeholder": {
