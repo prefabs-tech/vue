@@ -71,11 +71,12 @@
     "timePicker": "Time picker",
     "typeahead": "Typeahead",
     "valid": "Show valid state",
+    "withI18n": "With I18n",
     "year": "Year",
     "yearPicker": "Year picker"
   },
   "placeholder": {
-    "email": "Enter a email",
+    "email": "Enter your email",
     "input": "Enter input",
     "multiSelect": "Select multiple value",
     "number": "Enter a number",

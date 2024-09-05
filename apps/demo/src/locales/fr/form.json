@@ -70,11 +70,12 @@
     "timePicker": "Time picker[fr]",
     "typeahead": "Typeahead[fr]",
     "valid": "Show valid state[fr]",
+    "withI18n": "With I18n[fr]",
     "year": "Year[fr]",
-    "yearPicker": "Year picke[fr]r"
+    "yearPicker": "Year picke[fr]"
   },
   "placeholder": {
-    "email": "Enter a email[fr]",
+    "email": "Enter your email[fr]",
     "input": "Enter input[fr]",
     "multiSelect": "Select multiple value[fr]",
     "number": "Enter a number[fr]",
