@@ -1,7 +1,7 @@
 <template>
-  <Page :title="$t('form.label.datePicker')">
-    <section class="demo-section">
-      <h3>{{ $t("form.label.basicInput") }}</h3>
+  <Page :title="$t('form.label.datePicker')" class="demo">
+    <section>
+      <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <!-- eslint-disable -->
        <SshPre language="html-vue">
@@ -17,18 +17,18 @@
       </SshPre>
       <!-- eslint-enable -->
 
-      <DatePicker v-model="formData.noLabelInput" class="form-field" />
+      <DatePicker v-model="formData.noLabelInput" />
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.labelInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.labelInput") }}</h2>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
           &lt;DatePicker 
-            v-model="input"
-            label="Date picker"
+            v-model="arrivalDate"
+            label="Arrival date"
           /&gt;
         &lt;/template&gt;
 
@@ -39,21 +39,20 @@
       <!-- eslint-enable -->
 
       <DatePicker
-        v-model="formData.input"
-        :label="$t('form.label.datePicker')"
-        class="form-field"
+        v-model="formData.arrivalDate"
+        :label="$t('form.label.arrivalDate')"
       />
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.disabled") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.disabled") }}</h2>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
           &lt;DatePicker 
-            v-model="input"
-            label="Disabled"
+            v-model="appointDate"
+            label="Appointment date"
             disabled
           /&gt;
         &lt;/template&gt;
@@ -62,28 +61,27 @@
         import { DatePicker } from "@dzangolab/vue3-form";
         import { ref } from vue;
 
-        const input = ref(new Date());
+        const appointmentDate = ref(new Date());
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
 
       <DatePicker
-        v-model="formData.disabled"
-        :label="$t('form.label.disabled')"
-        class="form-field"
+        v-model="formData.appointmentDate"
+        :label="$t('form.label.appointmentDate')"
         disabled
       />
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.dateRange") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.dateRange") }}</h2>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
           &lt;DatePicker 
             v-model="dateRange"
-            label="Date picker"
+            label="Date range"
             range
           /&gt;
         &lt;/template&gt;
@@ -94,7 +92,7 @@
         const startDate = new Date();
         const endDate = startDate;
 
-        const dateRange: ref([
+        const dateRange = ref([
           startDate,
           new Date(endDate.setDate(endDate.getDate() + 7)),
         ]),
@@ -104,23 +102,22 @@
 
       <DatePicker
         v-model="formData.dateRange"
-        :label="$t('form.label.datePicker')"
-        class="form-field"
+        :label="$t('form.label.dateRange')"
         range
       />
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.multiCalendars") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.multiCalendars") }}</h2>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
           &lt;DatePicker 
-            v-model="dateRange"
-            label="Date picker"
-            range
+            v-model="reportDate"
+            label="Report date"
             multi-calendars
+            range
           /&gt;
         &lt;/template&gt;
 
@@ -130,7 +127,7 @@
         const startDate = new Date();
         const endDate = startDate;
 
-        const dateRange: ref([
+        const reportDate = ref([
           startDate,
           new Date(endDate.setDate(endDate.getDate() + 7)),
         ]),
@@ -139,23 +136,60 @@
       <!-- eslint-enable -->
 
       <DatePicker
-        v-model="formData.multiCalendarsInput"
-        :label="$t('form.label.datePicker')"
-        class="form-field"
-        range
+        v-model="formData.reportDate"
+        :label="$t('form.label.reportDate')"
         multi-calendars
+        range
       />
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.monthPicker") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.dateTimePicker") }}</h2>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
           &lt;DatePicker 
-            v-model="input"
-            label="Month picker"
+            v-model="availableDatetime"
+            label="Available datetime"
+            enable-time-picker
+            multi-calendars
+            range
+          /&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { DatePicker } from "@dzangolab/vue3-form";
+
+        const startDate = new Date();
+        const endDate = startDate;
+
+        const availableDatetime = ref([
+          startDate,
+          new Date(endDate.setDate(endDate.getDate() + 7)),
+        ]),
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <DatePicker
+        v-model="formData.availableDatetime"
+        :label="$t('form.label.availableDatetime')"
+        enable-time-picker
+        multi-calendars
+        range
+      />
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.monthPicker") }}</h2>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;DatePicker 
+            v-model="month"
+            label="Month"
             month-picker
           /&gt;
         &lt;/template&gt;
@@ -168,21 +202,20 @@
 
       <DatePicker
         v-model="formData.month"
-        :label="$t('form.label.monthPicker')"
-        class="form-field"
+        :label="$t('form.label.month')"
         month-picker
       />
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.yearPicker") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.yearPicker") }}</h2>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
           &lt;DatePicker 
             v-model="year"
-            label="Year picker"
+            label="Year"
             year-picker
           /&gt;
         &lt;/template&gt;
@@ -198,21 +231,20 @@
 
       <DatePicker
         v-model="formData.year"
-        :label="$t('form.label.yearPicker')"
-        class="form-field"
+        :label="$t('form.label.year')"
         year-picker
       />
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.timePicker") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.timePicker") }}</h2>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
           &lt;DatePicker 
-            v-model="input"
-            label="Time picker"
+            v-model="appointmentTime"
+            label="Appointment time"
             time-picker
           /&gt;
         &lt;/template&gt;
@@ -225,23 +257,22 @@
 
       <DatePicker
         v-model="formData.time"
-        :label="$t('form.label.timePicker')"
-        class="form-field"
+        :label="$t('form.label.appointmentTime')"
         time-picker
       />
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.inputWithValidation") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.inputWithValidation") }}</h2>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
           &lt;Form&gt;
             &lt;DatePicker 
-              v-model="input"
+              v-model="joinedDate"
               :schema="inputSchema"
-              label="Date picker"
+              label="Joined date"
             /&gt;
           &lt;/Form&gt;
         &lt;/template&gt;
@@ -252,31 +283,30 @@
 
         const inputSchema = z.coerce
           .date()
-          .min(new Date(), { message: "Please provide a present or future date" });
+          .max(new Date(), { message: "Please provide a present or past date" });
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
 
       <Form>
         <DatePicker
-          v-model="formData.inputWithValidation"
-          :label="$t('form.label.datePicker')"
+          v-model="formData.joinedDate"
+          :label="$t('form.label.joinedDate')"
           :schema="inputSchema"
-          class="form-field"
         />
       </Form>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.customStyleInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.customStyleInput") }}</h2>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
           &lt;DatePicker 
-            v-model="input"
+            v-model="pickupDate"
             class="custom-style-input"
-            label="DatePicker"
+            label="Pickup date"
           /&gt;
         &lt;/template&gt;
 
@@ -286,32 +316,32 @@
 
         &lt;style lang="css"&gt;
         .custom-style-input input {
-          --_date-picker-bg-color: #f3f3f3;
-          --_date-picker-border-color: var(--dz-primary-color);
-          --_date-picker-border-radius: 0.5em;
-          --_date-picker-font-size: 1rem;
-          --_date-picker-text-color: var(--dz-primary-color);
+          --dp-background-color: #f3f3f3;
+          --dp-border-color: var(--dz-primary-color);
+          --dp-border-radius: 0.5em;
+          --dp-font-size: 1rem;
+          --dp-text-color: var(--dz-primary-color);
         }
 
         .custom-style-input .dp--clear-btn {
-          --_date-picker-clear-icon-color: var(--dz-primary-color);
+          --dp-icon-color: var(--dz-primary-color);
         }
 
         .custom-style-input .dp__input_icon {
-          --_date-picker-input-icon-color: var(--dz-primary-color);
+          --dp-icon-color: var(--dz-primary-color);
         }
 
         .custom-style-input label {
-          --_date-picker-label-color: var(--dz-primary-color);
+          --_label-color: var(--dz-primary-color);
         }
         &lt;/style&gt;
       </SshPre>
       <!-- eslint-enable -->
 
       <DatePicker
-        v-model="formData.customStyleInput"
-        :label="$t('form.label.datePicker')"
-        class="form-field custom-style-input"
+        v-model="formData.pickupDate"
+        :label="$t('form.label.pickupDate')"
+        class="custom-style-input"
       />
     </section>
   </Page>
@@ -333,23 +363,27 @@ const { t } = useI18n();
 
 const inputSchema = z.coerce
   .date()
-  .min(new Date(), { message: t("form.errors.datePicker.invalid") });
+  .max(new Date(), { message: t("form.errors.datePicker.invalid") });
 
 const startDate = new Date();
 const endDate = startDate;
 
 let formData = reactive({
-  customStyleInput: ref(),
-  dateRange: ref([startDate, new Date(endDate.setDate(endDate.getDate() + 7))]),
-  disabled: ref(startDate),
-  input: ref(),
-  inputWithValidation: ref(),
-  month: ref(),
-  multiCalendarsInput: ref([
+  appointmentDate: ref(startDate),
+  arrivalDate: ref(),
+  availableDatetime: ref([
     startDate,
     new Date(endDate.setDate(endDate.getDate() + 7)),
   ]),
+  pickupDate: ref(),
+  dateRange: ref([startDate, new Date(endDate.setDate(endDate.getDate() + 7))]),
+  joinedDate: ref(),
+  month: ref(),
   noLabelInput: ref(),
+  reportDate: ref([
+    startDate,
+    new Date(endDate.setDate(endDate.getDate() + 7)),
+  ]),
   time: ref(),
   year: ref(startDate.getFullYear()),
 });
@@ -357,22 +391,22 @@ let formData = reactive({
 
 <style lang="css">
 .custom-style-input input {
-  --_date-picker-bg-color: #f3f3f3;
-  --_date-picker-border-color: var(--dz-primary-color);
-  --_date-picker-border-radius: 0.5em;
-  --_date-picker-font-size: 1rem;
-  --_date-picker-text-color: var(--dz-primary-color);
+  --dp-background-color: #f3f3f3;
+  --dp-border-color: var(--dz-primary-color);
+  --dp-border-radius: 0.5em;
+  --dp-font-size: 1rem;
+  --dp-text-color: var(--dz-primary-color);
 }
 
 .custom-style-input .dp--clear-btn {
-  --_date-picker-clear-icon-color: var(--dz-primary-color);
+  --dp-icon-color: var(--dz-primary-color);
 }
 
 .custom-style-input .dp__input_icon {
-  --_date-picker-input-icon-color: var(--dz-primary-color);
+  --dp-icon-color: var(--dz-primary-color);
 }
 
 .custom-style-input label {
-  --_date-picker-label-color: var(--dz-primary-color);
+  --_label-color: var(--dz-primary-color);
 }
 </style>

@@ -4,7 +4,7 @@
   },
   "errors": {
     "datePicker": {
-      "invalid": "Please provide a present or future date[fr]"
+      "invalid": "Please provide a present or past date[fr]"
     },
     "email": {
       "invalid": "Please provide a valid email {list}[fr]"
@@ -34,13 +34,18 @@
     }
   },
   "label": {
+    "appointmentDate": "Appointment date[fr]",
+    "appointmentTime": "Appointment time[fr]",
+    "arrivalDate": "Arrival date[fr]",
+    "availableDatetime": "Available Datetime[fr]",
     "basicInput": "Basic[fr]",
     "customColsRowsInput": "With cols and rows props[fr]",
     "customErrorMessageInput": "With custom error message[fr]",
     "customValidationInput": "With custom validation[fr]",
     "customStyleInput": "Custom style[fr]",
     "datePicker": "Date picker[fr]",
-    "dateRange": "With date range prop[fr]",
+    "dateRange": "Date range[fr]",
+    "dateTimePicker": "Datetime picker[fr]",
     "debouncedTypeahead": "With debounce time prop",
     "disabledMultiSelect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
@@ -49,20 +54,24 @@
     "inputWithType": "With type prop[fr]",
     "inputWithValidation": "With validation[fr]",
     "invalid": "Show invalid state[fr]",
+    "joinedDate": "Joined date[fr]",
     "labelInput": "With label[fr]",
-    "monthPicker": "With month-picker props[fr]",
-    "multiCalendars": "With multi-calendars prop[fr]",
+    "month": "Month[fr]",
+    "monthPicker": "Month picker[fr]",
+    "multiCalendars": "Multicalendar[fr]",
     "multiSelect": "Multiselect[fr]",
     "number": "Number[fr]",
     "password": "Password[fr]",
+    "reportDate": "Report date[fr]",
     "select": "Select[fr]",
     "switch": "Switch[fr]",
     "textarea": "Textarea[fr]",
     "textInput": "Text input[fr]",
     "timePicker": "Time picker[fr]",
-    "typeahead": "Typeahead",
+    "typeahead": "Typeahead[fr]",
     "valid": "Show valid state[fr]",
-    "yearPicker": "Year picker"
+    "year": "Year[fr]",
+    "yearPicker": "Year picke[fr]r"
   },
   "placeholder": {
     "email": "Enter a email[fr]",
