@@ -37,7 +37,7 @@
     "appointmentDate": "Appointment date",
     "appointmentTime": "Appointment time",
     "arrivalDate": "Arrival date",
-    "availableDatetime": "Available Datetime",
+    "availableDatetime": "Available datetime",
     "basicInput": "Basic",
     "customColsRowsInput": "With cols and rows props",
     "customErrorMessageInput": "With custom error message",
