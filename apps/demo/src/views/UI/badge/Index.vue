@@ -79,7 +79,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Badge :label="$t('ui.badge.label.fullWidth')" fullWidth />
+        <Badge :label="$t('ui.badge.label.fullWidth')" full-width />
       </div>
     </section>
 

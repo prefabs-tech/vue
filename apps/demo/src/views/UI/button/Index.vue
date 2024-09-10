@@ -48,8 +48,6 @@
 
         <div class="container">
           <ButtonElement :label="$t('ui.button.label.next')" />
-
-          <span>{{ currentTime }}</span>
         </div>
       </div>
     </section>
@@ -399,6 +397,44 @@
         </div>
       </div>
     </section>
+
+    <section>
+      <h2>Custom style</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt; 
+            &lt;ButtonElement label="Custom" icon-right="pi pi-user" class="custom-button" /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt; 
+            import { ButtonElement } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+
+          &lt;style lang="css" scoped&gt;
+            .custom-button {
+              --_button-color: black;
+              --_button-font-size: 1rem;
+              --_button-font-width: 400;
+              --_button-icon-size: 1rem;
+              --_button-outlined-hover-color: #e3e7e7;
+              --_button-padding: 0.5rem 0.5rem;
+              --_button-text-color: red;
+            }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            label="Custom"
+            icon-right="pi pi-user"
+            class="custom-button"
+          />
+        </div>
+      </div>
+    </section>
   </Page>
 </template>
 
@@ -414,6 +450,16 @@ function onClick() {
 </script>
 
 <style lang="css" scoped>
+.custom-button {
+  --_button-color: black;
+  --_button-font-size: 1rem;
+  --_button-font-width: 400;
+  --_button-icon-size: 1rem;
+  --_button-outlined-hover-color: #e3e7e7;
+  --_button-padding: 0.5rem 0.5rem;
+  --_button-text-color: red;
+}
+
 .demo-button .container {
   display: flex;
   align-items: center;
