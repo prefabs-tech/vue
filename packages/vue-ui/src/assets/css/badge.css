@@ -5,22 +5,31 @@
   --badge-primary-color: var(--dz-primary-color);
   --badge-secondary-color: var(--dz-secondary-color);
   --badge-success-color: var(--dz-success-color);
+  --badge-text-color: white;
   --badge-warning-color: var(--dz-warning-color);
+
+  --badge-font-size: 0.875rem;
+  --badge-font-weight: 700;
+  --badge-padding: 0.25rem 0.5rem;
 }
   
 .badge {
   --_badge-color: var(--badge-color);
+  --_badge-font-size: var(--badge-font-size);
+  --_badge-font-weight: var(--badge-font-weight);
+  --_badge-padding: var(--badge-padding);
+  --_badge-text-color: var(--badge-text-color);
 
   align-items: center;
   background-color: var(--_badge-color);
   border-radius: 5px;
-  color: white;
+  color: var(--_badge-text-color);
   display: inline-flex;
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: var(--_badge-font-size);
+  font-weight: var(--_badge-font-weight);
   gap: 0.25rem;
   justify-content: center;
-  padding: 0.25rem 0.5rem;
+  padding: var(--_badge-padding);
   width: max-content;
 }
 

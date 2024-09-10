@@ -161,6 +161,32 @@
         </div>
       </div>
     </section>
+
+    <section>
+      <h2>Custom style</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Badge label="Custom" class="custom-badge" /&gt; 
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+
+          &lt;style lang="css" scoped&gt;
+            .custom-badge {
+              --_badge-color: black;
+            }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Badge label="Custom" class="custom-badge" />
+      </div>
+    </section>
   </Page>
 </template>
 
@@ -169,6 +195,10 @@ import { Badge } from "@dzangolab/vue3-ui";
 </script>
 
 <style lang="css" scoped>
+.custom-badge {
+  --_badge-color: rgb(192, 248, 255);
+}
+
 .demo-badge .container {
   display: flex;
   align-items: center;
