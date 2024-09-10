@@ -20,6 +20,7 @@
   },
   "badge": {
     "label": {
+      "addedIn": "Added in v0.6.5",
       "alternate": "Alternate",
       "basic": "Basic",
       "correct": "Correct",

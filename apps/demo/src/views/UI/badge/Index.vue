@@ -27,7 +27,7 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge :label=t("ui.badge.label.basic") /&gt; 
+            &lt;Badge :label=t("ui.badge.label.addedIn") /&gt; 
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
@@ -39,7 +39,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Badge :label="$t('ui.badge.label.basic')" />
+        <Badge :label="$t('ui.badge.label.addedIn')" />
       </div>
     </section>
 
