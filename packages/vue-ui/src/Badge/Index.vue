@@ -1,14 +1,20 @@
 <template>
-  <span :class="badgeClassName" :style="style">
-    <template v-if="icon">
-      <slot name="icon">
-        <i :class="icon" />
+  <span :class="badgeClassName">
+    <span v-if="iconLeft" class="icon-left">
+      <slot name="iconLeft">
+        <i :class="iconLeft" />
       </slot>
-    </template>
+    </span>
 
     <div v-if="label" class="label">
       {{ label }}
     </div>
+
+    <span v-if="iconRight" class="icon-right">
+      <slot name="iconRight">
+        <i :class="iconRight" />
+      </slot>
+    </span>
   </span>
 </template>
 
@@ -31,7 +37,11 @@ const props = defineProps({
     type: String,
   },
   fullWidth: Boolean,
-  icon: {
+  iconLeft: {
+    default: null,
+    type: [String, Boolean],
+  },
+  iconRight: {
     default: null,
     type: [String, Boolean],
   },
@@ -52,10 +62,6 @@ const props = defineProps({
         "danger",
         "warning",
       ].includes(value),
-  },
-  style: {
-    default: () => ({}),
-    type: Object,
   },
 });
 

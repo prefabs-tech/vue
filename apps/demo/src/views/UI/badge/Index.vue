@@ -71,6 +71,96 @@
         <Badge label="Rounded" rounded />
       </div>
     </section>
+
+    <section>
+      <h2>Icon name</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Badge icon-left="pi pi-thumbs-up" /&gt;
+            &lt;Badge icon-right="pi pi-thumbs-down" /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <Badge icon-left="pi pi-thumbs-up" />
+          <Badge icon-right="pi pi-thumbs-down" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Icon with text</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Badge label="Locked" icon-left="pi pi-lock" /&gt;
+            &lt;Badge label="Unlocked" icon-right="pi pi-lock-open" /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <Badge label="Locked" icon-left="pi pi-lock" />
+          <Badge label="Unlocked" icon-right="pi pi-lock-open" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Icon element</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Badge label="Correct" icon-left="true"&gt;
+              &lt;template #iconLeft&gt;
+                &lt;i class="pi pi-check" &gt;
+              &lt;/template&gt;
+            &lt;/Badge&gt;
+
+            &lt;Badge label="Wrong" icon-right="true"&gt;
+              &lt;template #iconRight&gt;
+                &lt;i class="pi pi-times" &gt;
+              &lt;/template&gt;
+            &lt;/Badge&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <Badge label="Correct" icon-left="true">
+            <template #iconLeft>
+              <i class="pi pi-check" />
+            </template>
+          </Badge>
+
+          <Badge label="Wrong" icon-right="true">
+            <template #iconRight>
+              <i class="pi pi-times" />
+            </template>
+          </Badge>
+        </div>
+      </div>
+    </section>
   </Page>
 </template>
 
