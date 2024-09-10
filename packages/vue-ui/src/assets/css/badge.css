@@ -1,6 +1,6 @@
 :root {
 	--badge-color: var(--dz-primary-color);
-	--badge-alternate-color: var(--dz--alternate-color);
+	--badge-alternate-color: var(--dz-alternate-color);
 	--badge-danger-color: var(--dz-danger-color);
 	--badge-primary-color: var(--dz-primary-color);
 	--badge-secondary-color: var(--dz-secondary-color);
