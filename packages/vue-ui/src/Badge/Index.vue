@@ -69,7 +69,7 @@ const badgeClassName = computed(() => {
   return [
     "badge",
     props.className,
-    props.fullWidth,
+    props.fullWidth && "full-width",
     props.rounded && "rounded",
     props.severity,
   ]

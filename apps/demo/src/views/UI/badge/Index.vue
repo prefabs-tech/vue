@@ -44,6 +44,46 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.badge.usage.rounded") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Badge label="Rounded" rounded /&gt; 
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Badge :label="$t('ui.badge.label.rounded')" rounded />
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.badge.usage.fullWidth") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Badge label="fullWidth" fullWidth /&gt; 
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Badge :label="$t('ui.badge.label.fullWidth')" fullWidth />
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.badge.usage.severity") }}</h2>
 
       <div class="section-content">
@@ -72,26 +112,6 @@
           <Badge :label="$t('ui.badge.label.danger')" severity="danger" />
           <Badge :label="$t('ui.badge.label.warning')" severity="warning" />
         </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.badge.usage.rounded") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Badge label="Rounded" rounded /&gt; 
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Badge :label="$t('ui.badge.label.rounded')" rounded />
       </div>
     </section>
 

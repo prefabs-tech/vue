@@ -25,6 +25,7 @@
       "correct": "Correct",
       "custom": "Custom",
       "danger": "Danger",
+      "fullWidth": "Full width",
       "locked": "Locked",
       "primary": "Primary",
       "rounded": "Rounded",
@@ -38,6 +39,7 @@
     "usage": {
       "basic": "Basic",
       "customStyle": "Custom style",
+      "fullWidth": "Full width",
       "iconElement": "Icon element",
       "iconName": "Icon name",
       "iconWithText": "Icon with text",
