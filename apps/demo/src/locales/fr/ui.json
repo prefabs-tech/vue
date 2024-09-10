@@ -19,7 +19,31 @@
     "title": "Accordéon"
   },
   "badge": {
-    "title": "Badge"
+    "label":{
+      "alternate": "Alternate",
+      "basic": "Basic",
+      "correct": "Correct",
+      "custom": "Custom",
+      "danger": "Danger",
+      "locked": "Locked",
+      "primary": "Primary",
+      "rounded": "Rounded",
+      "secondary": "Secondary",
+      "success": "Success",
+      "unLocked": "Unlocked",
+      "warning": "Warning",
+      "wrong": "Wrong"
+    },
+    "title": "Badge",
+    "usage": {
+      "basic": "Basic",
+      "customStyle": "Custom style",
+      "iconElement": "Icon element",
+      "iconName": "Icon name",
+      "iconWithText":"Icon with text",
+      "rounded": "Rounded",
+      "severity": "Severity"
+    }
   },
   "button": {
     "label": {
