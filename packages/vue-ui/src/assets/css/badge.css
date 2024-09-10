@@ -1,0 +1,67 @@
+:root {
+  --badge-color: var(--dz-primary-color);
+  --badge-alternate-color: var(--dz-alternate-color);
+  --badge-danger-color: var(--dz-danger-color);
+  --badge-primary-color: var(--dz-primary-color);
+  --badge-secondary-color: var(--dz-secondary-color);
+  --badge-success-color: var(--dz-success-color);
+  --badge-text-color: white;
+  --badge-warning-color: var(--dz-warning-color);
+
+  --badge-font-size: 0.875rem;
+  --badge-font-weight: 700;
+  --badge-padding: 0.25rem 0.5rem;
+}
+  
+.badge {
+  --_badge-color: var(--badge-color);
+  --_badge-font-size: var(--badge-font-size);
+  --_badge-font-weight: var(--badge-font-weight);
+  --_badge-padding: var(--badge-padding);
+  --_badge-text-color: var(--badge-text-color);
+
+  align-items: center;
+  background-color: var(--_badge-color);
+  border-radius: 5px;
+  color: var(--_badge-text-color);
+  display: inline-flex;
+  font-size: var(--_badge-font-size);
+  font-weight: var(--_badge-font-weight);
+  gap: 0.25rem;
+  justify-content: center;
+  padding: var(--_badge-padding);
+  width: max-content;
+}
+
+.badge.alternate {
+  --badge-color: var(--badge-alternate-color);
+}
+
+.badge.danger {
+  --badge-color: var(--badge-danger-color);
+}
+
+.badge.full-width {
+  width: 100%;
+}
+
+.badge.primary {
+  --badge-color: var(--badge-primary-color);
+}
+
+.badge.rounded {
+  border-radius: 25px;
+  padding: 0.25rem 0.6rem;
+}
+
+.badge.secondary {
+  --badge-color: var(--badge-secondary-color);
+}
+
+.badge.success {
+  --badge-color: var(--badge-success-color);
+}
+
+.badge.warning {
+  --badge-color: var(--badge-warning-color);
+}

@@ -5,6 +5,7 @@
 @import "./page.css";
 @import "./tabbed-panel.css";
 @import "./button.css";
+@import "./badge.css";
 
 p {
   padding-bottom: 0.5rem;

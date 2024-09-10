@@ -1,4 +1,5 @@
 const Accordion = () => import("@/views/UI/accordion/Index.vue");
+const Badge = () => import("@/views/UI/badge/Index.vue");
 const Button = () => import("@/views/UI/button/Index.vue");
 const SubPane = () => import("@/views/UI/SubPanePage.vue");
 const TabbedPanel = () => import("@/views/UI/tabbed-panel/Index.vue");
@@ -44,6 +45,11 @@ const routes = [
         component: Button,
         name: "button",
         path: "button",
+      },
+      {
+        component: Badge,
+        name: "badge",
+        path: "badge",
       },
     ],
   },

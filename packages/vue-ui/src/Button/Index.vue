@@ -109,6 +109,7 @@ const props = defineProps({
 
 const buttonClassName = computed(() => {
   return [
+    "button",
     props.className,
     props.severity,
     props.size,

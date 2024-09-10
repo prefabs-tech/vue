@@ -1,6 +1,7 @@
 import "./assets/css/index.css";
 
 import Accordion from "./Accordion/Index.vue";
+import Badge from "./Badge/Index.vue";
 import ButtonElement from "./Button/Index.vue";
 import GoogleSignInButton from "./components/GoogleSignInButton.vue";
 import LoadingButton from "./components/LoadingButton.vue";
@@ -36,6 +37,7 @@ export {
   ResponsiveMenu,
   SubPane,
   TabbedPanel,
+  Badge,
 };
 
 export type { Error } from "./types";
