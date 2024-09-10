@@ -3,6 +3,7 @@
   --button-alternate-outlined-hover-color: #f1f9fc;
   --button-danger-color: var(--dz-danger-color);
   --button-danger-outlined-hover-color: #fef1f1;
+  --button-font-width: 700;
   --button-large-font-size: 1.125rem;
   --button-large-icon-size: 1.125rem;
   --button-large-padding: 0.9375rem 1.5625rem;
@@ -30,18 +31,21 @@
 .button {
   --_button-color: var(--button-color);
   --_button-font-size: var(--button-font-size);
+  --_button-font-width: var(--button-font-width);
   --_button-icon-size: var(--button-icon-size);
   --_button-outlined-hover-color: var(--button-outlined-hover-color);
   --_button-padding: var(--button-padding);
+  --_button-text-color: var(--button-color);
   --_button-width: var(--button-width);
+
   align-items: center;
   background-color: var(--_button-color);
   border-radius: 0.5rem;
   border: none;
-  color: var(--_button-color);
+  color: var(--_button-text-color);
   cursor: pointer;
   display: flex;
-  font-weight: 700;
+  font-weight: var(--_button-font-width);
   gap: 0.5rem;
   justify-content: center;
   padding: var(--_button-padding);
