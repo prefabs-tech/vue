@@ -28,6 +28,33 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.button.usage.withI18n") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt; 
+            &lt;ButtonElement :label="t('ui.button.label.next')" /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt; 
+            import { ButtonElement } from "@dzangolab/vue3-ui";
+            import { useI18n } from "@dzangolab/vue3-i18n";
+
+            const { t } = useI18n();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement :label="$t('ui.button.label.next')" />
+
+          <span>{{ currentTime }}</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.button.usage.buttonWithChild") }}</h2>
 
       <div class="section-content">
