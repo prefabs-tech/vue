@@ -21,7 +21,6 @@
       <Email
         v-model="formData.noLabelInput"
         :placeholder="$t('form.placeholder.email')"
-        class="form-field"
       />
     </section>
 
@@ -48,7 +47,6 @@
         v-model="formData.input"
         :label="$t('form.label.email')"
         :placeholder="$t('form.placeholder.email')"
-        class="form-field"
       />
     </section>
 
@@ -60,7 +58,7 @@
         &lt;template&gt;
           &lt;Email 
             v-model="input"
-            label="Disabled"
+            label="Email"
             disabled
           /&gt;
         &lt;/template&gt;
@@ -76,9 +74,37 @@
 
       <Email
         v-model="formData.disabled"
-        :label="$t('form.label.disabled')"
-        class="form-field"
+        :label="$t('form.label.email')"
         disabled
+      />
+    </section>
+
+    <section class="demo-section">
+      <h3>{{ $t("form.label.withI18n") }}</h3>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;Email 
+            v-model="input"
+            :label="t('form.label.email')"
+            :placeholder="t('form.placeholder.email')"
+          /&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { Email } from "@dzangolab/vue3-form";
+        import { useI18n } from "@dzangolab/vue3-i18n";
+
+        const { t } = useI18n();
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <Email
+        v-model="formData.input"
+        :label="t('form.label.email')"
+        :placeholder="t('form.placeholder.email')"
       />
     </section>
 
@@ -119,7 +145,6 @@
           :label="$t('form.label.email')"
           :options="validationOptions"
           :placeholder="$t('form.placeholder.email')"
-          class="form-field"
         />
       </Form>
     </section>
@@ -168,7 +193,6 @@
           :error-messages="validationMessages"
           :options="validationOptions"
           :placeholder="$t('form.placeholder.email')"
-          class="form-field"
         />
       </Form>
     </section>
@@ -206,7 +230,6 @@
           :label="$t('form.label.email')"
           :placeholder="$t('form.placeholder.email')"
           :schema="inputSchema"
-          class="form-field"
           name="custom_input"
         />
       </Form>
@@ -252,7 +275,7 @@
         v-model="formData.customStyleInput"
         :label="$t('form.label.email')"
         :placeholder="$t('form.placeholder.email')"
-        class="form-field custom-style-input"
+        class="custom-style-input"
       />
     </section>
   </Page>
