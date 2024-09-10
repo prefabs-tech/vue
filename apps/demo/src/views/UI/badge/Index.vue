@@ -178,7 +178,11 @@
 
           &lt;style lang="css" scoped&gt;
             .custom-badge {
-              --_badge-color: black;
+              --_badge-color: #0dcaf0;
+              --_badge-font-size: 1rem;
+              --_badge-font-weight: 800;
+              --_badge-padding: 0.3rem 0.75rem;
+              --_badge-text-color: black;
             }
           &lt;/style&gt;
         </SshPre>
@@ -196,7 +200,11 @@ import { Badge } from "@dzangolab/vue3-ui";
 
 <style lang="css" scoped>
 .custom-badge {
-  --_badge-color: rgb(192, 248, 255);
+  --_badge-color: #0dcaf0;
+  --_badge-font-size: 1rem;
+  --_badge-font-weight: 800;
+  --_badge-padding: 0.5rem 1rem;
+  --_badge-text-color: black;
 }
 
 .demo-badge .container {
