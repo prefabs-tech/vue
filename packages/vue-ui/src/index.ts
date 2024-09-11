@@ -27,6 +27,7 @@ export default plugin;
 
 export {
   Accordion,
+  BadgeComponent,
   ButtonElement,
   DebouncedInput,
   Errors,
@@ -37,7 +38,6 @@ export {
   ResponsiveMenu,
   SubPane,
   TabbedPanel,
-  BadgeComponent,
 };
 
 export type { Error } from "./types";
