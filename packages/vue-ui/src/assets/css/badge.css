@@ -9,10 +9,10 @@
   --badge-warning-color: var(--dz-warning-color);
 
   --badge-font-size: 0.875rem;
-  --badge-font-weight: 700;
+  --badge-font-weight: 400;
   --badge-padding: 0.25rem 0.5rem;
 }
-  
+
 .badge {
   --_badge-color: var(--badge-color);
   --_badge-font-size: var(--badge-font-size);
