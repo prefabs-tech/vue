@@ -3,6 +3,8 @@
   --button-alternate-outlined-hover-color: #f1f9fc;
   --button-danger-color: var(--dz-danger-color);
   --button-danger-outlined-hover-color: #fef1f1;
+  --button-font-size: 1rem;
+  --button-font-width: 700;
   --button-large-font-size: 1.125rem;
   --button-large-icon-size: 1.125rem;
   --button-large-padding: 0.9375rem 1.5625rem;
@@ -30,18 +32,21 @@
 .button {
   --_button-color: var(--button-color);
   --_button-font-size: var(--button-font-size);
+  --_button-font-width: var(--button-font-width);
   --_button-icon-size: var(--button-icon-size);
   --_button-outlined-hover-color: var(--button-outlined-hover-color);
   --_button-padding: var(--button-padding);
-  --_button-width: var(--button-width);
+  --_button-text-color: var(--button-text-color);
+
   align-items: center;
   background-color: var(--_button-color);
   border-radius: 0.5rem;
   border: none;
-  color: var(--_button-color);
+  color: var(--_button-text-color);
   cursor: pointer;
   display: flex;
-  font-weight: 700;
+  font-size: var(--_button-font-size);
+  font-weight: var(--_button-font-width);
   gap: 0.5rem;
   justify-content: center;
   padding: var(--_button-padding);
@@ -81,8 +86,8 @@
 }
 
 .button.filled {
+  --_button-text-color: var(--button-text-color);
   border: 1px solid var(--_button-color);
-  color: var(--button-text-color);
 }
 
 .button.filled:hover {
@@ -98,20 +103,21 @@
 }
 
 .button.large {
-  --button-font-size: var(--button-large-font-size);
+  --_button-width: var(--button-large-width);
+  --_button-font-size: var(--button-large-font-size);
   --button-icon-size: var(--button-large-icon-size);
   --button-padding: var(--button-large-padding);
-  --button-width: var(--button-large-width);
 }
 
 .button.medium {
-  --button-font-size: var(--button-medium-font-size);
+  --_button-width: var(--button-medium-width);
+  --_button-font-size: var(--button-medium-font-size);
   --button-icon-size: var(--button-medium-icon-size);
   --button-padding: var(--button-medium-padding);
-  --button-width: var(--button-medium-width);
 }
 
 .button.outlined {
+  --_button-text-color: var(--_button-color);
   background: transparent;
   border: 1px solid var(--_button-color);
 }
@@ -140,10 +146,10 @@
 }
 
 .button.small {
-  --button-font-size: var(--button-small-font-size);
+  --_button-width: var(--button-small-width);
+  --_button-font-size: var(--button-small-font-size);
   --button-icon-size: var(--button-small-icon-size);
   --button-padding: var(--button-small-padding);
-  --button-width: var(--button-small-width);
 }
 
 .button.success {
@@ -152,6 +158,7 @@
 }
 
 .button.textOnly {
+  --_button-text-color: var(--_button-color);
   background: transparent;
   border: 1px solid transparent;
 }

@@ -16,7 +16,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Badge :label="$t('ui.badge.label.basic')" />
+        <BadgeComponent :label="$t('ui.badge.label.basic')" />
       </div>
     </section>
 
@@ -39,7 +39,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Badge :label="$t('ui.badge.label.addedIn')" />
+        <BadgeComponent :label="$t('ui.badge.label.addedIn')" />
       </div>
     </section>
 
@@ -59,7 +59,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Badge :label="$t('ui.badge.label.rounded')" rounded />
+        <BadgeComponent :label="$t('ui.badge.label.rounded')" rounded />
       </div>
     </section>
 
@@ -79,7 +79,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Badge :label="$t('ui.badge.label.fullWidth')" fullWidth />
+        <BadgeComponent :label="$t('ui.badge.label.fullWidth')" full-width />
       </div>
     </section>
 
@@ -105,12 +105,30 @@
         <!-- eslint-enable -->
 
         <div class="container">
-          <Badge :label="$t('ui.badge.label.primary')" severity="primary" />
-          <Badge :label="$t('ui.badge.label.secondary')" severity="secondary" />
-          <Badge :label="$t('ui.badge.label.alternate')" severity="alternate" />
-          <Badge :label="$t('ui.badge.label.success')" severity="success" />
-          <Badge :label="$t('ui.badge.label.danger')" severity="danger" />
-          <Badge :label="$t('ui.badge.label.warning')" severity="warning" />
+          <BadgeComponent
+            :label="$t('ui.badge.label.primary')"
+            severity="primary"
+          />
+          <BadgeComponent
+            :label="$t('ui.badge.label.secondary')"
+            severity="secondary"
+          />
+          <BadgeComponent
+            :label="$t('ui.badge.label.alternate')"
+            severity="alternate"
+          />
+          <BadgeComponent
+            :label="$t('ui.badge.label.success')"
+            severity="success"
+          />
+          <BadgeComponent
+            :label="$t('ui.badge.label.danger')"
+            severity="danger"
+          />
+          <BadgeComponent
+            :label="$t('ui.badge.label.warning')"
+            severity="warning"
+          />
         </div>
       </div>
     </section>
@@ -133,8 +151,8 @@
         <!-- eslint-enable -->
 
         <div class="container">
-          <Badge icon-left="pi pi-thumbs-up" />
-          <Badge icon-right="pi pi-thumbs-down" />
+          <BadgeComponent icon-left="pi pi-thumbs-up" />
+          <BadgeComponent icon-right="pi pi-thumbs-down" />
         </div>
       </div>
     </section>
@@ -147,7 +165,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Badge label="Locked" icon-left="pi pi-lock" /&gt;
-            &lt;Badge label="Unlocked" icon-right="pi pi-lock-open" /&gt;
+            &lt;Badge label="Unlocked" icon-right="pi pi-lock-open" severity="success /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
@@ -157,10 +175,15 @@
         <!-- eslint-enable -->
 
         <div class="container">
-          <Badge :label="$t('ui.badge.label.locked')" icon-left="pi pi-lock" />
-          <Badge
+          <BadgeComponent
+            :label="$t('ui.badge.label.locked')"
+            icon-left="pi pi-lock"
+          />
+
+          <BadgeComponent
             :label="$t('ui.badge.label.unLocked')"
             icon-right="pi pi-lock-open"
+            severity="success"
           />
         </div>
       </div>
@@ -179,7 +202,7 @@
               &lt;/template&gt;
             &lt;/Badge&gt;
 
-            &lt;Badge label="Wrong" icon-right="true"&gt;
+            &lt;Badge label="Wrong" severity="danger" icon-right="true"&gt;
               &lt;template #iconRight&gt;
                 &lt;i class="pi pi-times" &gt;
               &lt;/template&gt;
@@ -193,17 +216,24 @@
         <!-- eslint-enable -->
 
         <div class="container">
-          <Badge :label="$t('ui.badge.label.correct')" icon-left="true">
+          <BadgeComponent
+            :label="$t('ui.badge.label.correct')"
+            icon-left="true"
+          >
             <template #iconLeft>
               <i class="pi pi-check" />
             </template>
-          </Badge>
+          </BadgeComponent>
 
-          <Badge :label="$t('ui.badge.label.wrong')" icon-right="true">
+          <BadgeComponent
+            :label="$t('ui.badge.label.wrong')"
+            severity="danger"
+            icon-right="true"
+          >
             <template #iconRight>
               <i class="pi pi-times" />
             </template>
-          </Badge>
+          </BadgeComponent>
         </div>
       </div>
     </section>
@@ -234,14 +264,17 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Badge :label="$t('ui.badge.label.custom')" class="custom-badge" />
+        <BadgeComponent
+          :label="$t('ui.badge.label.custom')"
+          class="custom-badge"
+        />
       </div>
     </section>
   </Page>
 </template>
 
 <script setup lang="ts">
-import { Badge } from "@dzangolab/vue3-ui";
+import { BadgeComponent } from "@dzangolab/vue3-ui";
 </script>
 
 <style lang="css" scoped>
