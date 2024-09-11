@@ -41,8 +41,8 @@
       "basic": "Basic",
       "customStyle": "Custom style",
       "fullWidth": "Full width",
-      "iconElement": "Icon element",
-      "iconName": "Icon name",
+      "iconElement": "Icon using element",
+      "iconName": "Icon using name",
       "iconWithText": "Icon with text",
       "rounded": "Rounded",
       "severity": "Severity",
@@ -74,8 +74,8 @@
       "buttonWithChild": "Button with child element",
       "disabled": "Disabled",
       "icons": {
-        "iconElement": "Icon element",
-        "iconName": "Icon name",
+        "iconElement": "Icon using element",
+        "iconName": "Icon using name",
         "iconWithText": "Icon with text"
       },
       "outlined": "Outlined",
