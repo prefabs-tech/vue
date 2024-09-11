@@ -414,7 +414,7 @@
 
           &lt;style lang="css" scoped&gt;
             .custom-button {
-              --_button-color: #E9527E;
+              --_button-color: #e9527e;
               --_button-font-size: 1.5rem;
               --_button-font-width: 800;
               --_button-icon-size: 1.5rem;
