@@ -74,6 +74,35 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.disableWeekDays") }}</h2>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;DatePicker 
+            v-model="presentationDate"
+            :disabled-week-days="[6, 0]"
+            label="Presentation date"
+          /&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { DatePicker } from "@dzangolab/vue3-form";
+        import { ref } from vue;
+
+        const presentationDate = ref(new Date());
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <DatePicker
+        v-model="formData.presentationDate"
+        :disabled-week-days="[6, 0]"
+        :label="$t('form.label.presentationDate')"
+      />
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.customFormat") }}</h2>
 
       <!-- eslint-disable -->
@@ -404,12 +433,13 @@ let formData = reactive({
     startDate,
     new Date(endDate.setDate(endDate.getDate() + 7)),
   ]),
-  pickupDate: ref(),
   dateOfBirth: ref(startDate),
   dateRange: ref([startDate, new Date(endDate.setDate(endDate.getDate() + 7))]),
   joinedDate: ref(),
   month: ref(),
   noLabelInput: ref(),
+  pickupDate: ref(),
+  presentationDate: ref(startDate),
   reportDate: ref([
     startDate,
     new Date(endDate.setDate(endDate.getDate() + 7)),
