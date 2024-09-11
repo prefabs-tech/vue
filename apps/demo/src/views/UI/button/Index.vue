@@ -28,6 +28,31 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.button.usage.withI18n") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt; 
+            &lt;ButtonElement :label="t('ui.button.label.next')" /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt; 
+            import { ButtonElement } from "@dzangolab/vue3-ui";
+            import { useI18n } from "@dzangolab/vue3-i18n";
+
+            const { t } = useI18n();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement :label="$t('ui.button.label.next')" />
+        </div>
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.button.usage.buttonWithChild") }}</h2>
 
       <div class="section-content">
@@ -372,6 +397,44 @@
         </div>
       </div>
     </section>
+
+    <section>
+      <h2>Custom style</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt; 
+            &lt;ButtonElement label="Custom" icon-right="pi pi-user" class="custom-button" /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt; 
+            import { ButtonElement } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+
+          &lt;style lang="css" scoped&gt;
+            .custom-button {
+              --_button-color: #e9527e;
+              --_button-font-size: 1.5rem;
+              --_button-font-width: 800;
+              --_button-icon-size: 1.5rem;
+              --_button-outlined-hover-color: #f5bcdb;
+              --_button-padding: 1rem 2rem;
+              --_button-text-color: #ffffff;
+            }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            label="Custom"
+            icon-right="pi pi-user"
+            class="custom-button"
+          />
+        </div>
+      </div>
+    </section>
   </Page>
 </template>
 
@@ -387,6 +450,16 @@ function onClick() {
 </script>
 
 <style lang="css" scoped>
+.custom-button {
+  --_button-color: #e9527e;
+  --_button-font-size: 1.5rem;
+  --_button-font-width: 800;
+  --_button-icon-size: 1.5rem;
+  --_button-outlined-hover-color: #f5bcdb;
+  --_button-padding: 1rem 2rem;
+  --_button-text-color: #ffffff;
+}
+
 .demo-button .container {
   display: flex;
   align-items: center;
