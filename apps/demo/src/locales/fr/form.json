@@ -60,6 +60,8 @@
     "joinedDate": "Joined date[fr]",
     "labelInput": "With label[fr]",
     "month": "Month[fr]",
+    "monthAndYear": "Month and year[fr]",
+    "monthAndYearPicker": "Month and year picker[fr]",
     "monthPicker": "Month picker[fr]",
     "multiCalendars": "Multicalendar[fr]",
     "multiSelect": "Multiselect[fr]",

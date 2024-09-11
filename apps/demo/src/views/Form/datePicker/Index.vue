@@ -110,8 +110,8 @@
         &lt;template&gt;
           &lt;DatePicker 
             v-model="dateOfBirth"
-            label="Date of birth"
             format="yyyy/MM/dd"
+            label="Date of birth"
           /&gt;
         &lt;/template&gt;
 
@@ -126,8 +126,8 @@
 
       <DatePicker
         v-model="formData.dateOfBirth"
-        :label="$t('form.label.dateOfBirth')"
         format="yyyy/MM/dd"
+        :label="$t('form.label.dateOfBirth')"
       />
     </section>
 
@@ -247,6 +247,7 @@
         &lt;template&gt;
           &lt;DatePicker 
             v-model="month"
+            format="MMM"
             label="Month"
             month-picker
           /&gt;
@@ -254,13 +255,46 @@
 
         &lt;script setup lang="ts"&gt;
         import { DatePicker } from "@dzangolab/vue3-form";
+        import { ref } from vue;
+
+        const month = ref();
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
 
       <DatePicker
         v-model="formData.month"
+        format="MMM"
         :label="$t('form.label.month')"
+        month-picker
+      />
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.monthAndYearPicker") }}</h2>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;DatePicker 
+            v-model="monthAndYear"
+            label="Month and year"
+            month-picker
+          /&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { DatePicker } from "@dzangolab/vue3-form";
+        import { ref } from vue;
+
+        const monthAndYear = ref();
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <DatePicker
+        v-model="formData.month"
+        :label="$t('form.label.monthAndYear')"
         month-picker
       />
     </section>
@@ -437,6 +471,7 @@ let formData = reactive({
   dateRange: ref([startDate, new Date(endDate.setDate(endDate.getDate() + 7))]),
   joinedDate: ref(),
   month: ref(),
+  monthAndYear: ref(),
   noLabelInput: ref(),
   pickupDate: ref(),
   presentationDate: ref(startDate),

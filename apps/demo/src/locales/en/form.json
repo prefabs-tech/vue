@@ -60,6 +60,8 @@
     "joinedDate": "Joined date",
     "labelInput": "With label",
     "month": "Month",
+    "monthAndYear": "Month and year",
+    "monthAndYearPicker": "Month and year picker",
     "monthPicker": "Month picker",
     "multiCalendars": "Multicalendar",
     "multiSelect": "Multiselect",
