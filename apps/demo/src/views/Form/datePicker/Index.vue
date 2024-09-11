@@ -74,6 +74,35 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.customFormat") }}</h2>
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;DatePicker 
+            v-model="dateOfBirth"
+            label="Date of birth"
+            format="yyyy/MM/dd"
+          /&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { DatePicker } from "@dzangolab/vue3-form";
+        import { ref } from vue;
+
+        const dateOfBirth = ref(new Date());
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
+
+      <DatePicker
+        v-model="formData.dateOfBirth"
+        :label="$t('form.label.dateOfBirth')"
+        format="yyyy/MM/dd"
+      />
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.dateRange") }}</h2>
 
       <!-- eslint-disable -->
@@ -376,6 +405,7 @@ let formData = reactive({
     new Date(endDate.setDate(endDate.getDate() + 7)),
   ]),
   pickupDate: ref(),
+  dateOfBirth: ref(startDate),
   dateRange: ref([startDate, new Date(endDate.setDate(endDate.getDate() + 7))]),
   joinedDate: ref(),
   month: ref(),
