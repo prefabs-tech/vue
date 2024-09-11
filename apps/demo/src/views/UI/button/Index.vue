@@ -414,13 +414,13 @@
 
           &lt;style lang="css" scoped&gt;
             .custom-button {
-              --_button-color: black;
-              --_button-font-size: 1rem;
-              --_button-font-width: 400;
-              --_button-icon-size: 1rem;
-              --_button-outlined-hover-color: #e3e7e7;
-              --_button-padding: 0.5rem 0.5rem;
-              --_button-text-color: red;
+              --_button-color: #E9527E;
+              --_button-font-size: 1.5rem;
+              --_button-font-width: 800;
+              --_button-icon-size: 1.5rem;
+              --_button-outlined-hover-color: #f5bcdb;
+              --_button-padding: 1rem 2rem;
+              --_button-text-color: #ffffff;
             }
           &lt;/style&gt;
         </SshPre>
@@ -451,13 +451,13 @@ function onClick() {
 
 <style lang="css" scoped>
 .custom-button {
-  --_button-color: black;
-  --_button-font-size: 1rem;
-  --_button-font-width: 400;
-  --_button-icon-size: 1rem;
-  --_button-outlined-hover-color: #e3e7e7;
-  --_button-padding: 0.5rem 0.5rem;
-  --_button-text-color: red;
+  --_button-color: #e9527e;
+  --_button-font-size: 1.5rem;
+  --_button-font-width: 800;
+  --_button-icon-size: 1.5rem;
+  --_button-outlined-hover-color: #f5bcdb;
+  --_button-padding: 1rem 2rem;
+  --_button-text-color: #ffffff;
 }
 
 .demo-button .container {

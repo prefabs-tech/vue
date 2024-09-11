@@ -27,7 +27,6 @@
   --button-transition-duration: var(--transition-duration);
   --button-warning-color: var(--dz-warning-color);
   --button-warning-outlined-hover-color: #fef7f5;
-  --button-width: 2.75rem;
 }
 
 .button {
@@ -38,7 +37,6 @@
   --_button-outlined-hover-color: var(--button-outlined-hover-color);
   --_button-padding: var(--button-padding);
   --_button-text-color: var(--button-text-color);
-  --_button-width: var(--button-width);
 
   align-items: center;
   background-color: var(--_button-color);
