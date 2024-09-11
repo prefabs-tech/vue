@@ -17,6 +17,7 @@
         }"
         :disabled="disabled"
         :enable-time-picker="enableTimePicker"
+        :format="format"
         :model-value="modelValue"
         tabindex="0"
         @update:model-value="onUpdate"
@@ -51,6 +52,11 @@ const props = defineProps({
   enableTimePicker: {
     default: false,
     type: Boolean,
+  },
+  format: {
+    default: null,
+    required: false,
+    type: String,
   },
   label: {
     default: "",
