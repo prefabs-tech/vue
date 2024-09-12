@@ -608,7 +608,7 @@
             .custom-style-typeahead ul.suggestion-list  {
               --_typeahead-suggestions-border-radius: 0.75rem;
             }
-          &lt;style lang="css"&gt;
+          &lt;/style&gt;
         </SshPre>
         <!-- eslint-enable -->
 
