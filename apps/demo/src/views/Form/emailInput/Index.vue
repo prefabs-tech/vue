@@ -308,9 +308,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
 import { Form, Email } from "@dzangolab/vue3-form";
 import { reactive, ref } from "vue";
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { z } from "zod";
 
 import type { EmailErrorMessages, IsEmailOptions } from "@dzangolab/vue3-form";
