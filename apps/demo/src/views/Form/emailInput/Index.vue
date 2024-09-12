@@ -5,12 +5,12 @@
 
       <!-- eslint-disable -->
        <SshPre language="html-vue">
-        &lt;template&gt;
+        &lt;Form&gt;
           &lt;Email 
             v-model="input"
             placeholder="Enter a email"
           /&gt;
-        &lt;/template&gt;
+        &lt;/Form&gt;
 
         &lt;script setup lang="ts"&gt;
         import { Email } from "@dzangolab/vue3-form";
@@ -18,10 +18,12 @@
       </SshPre>
       <!-- eslint-enable -->
 
-      <Email
-        v-model="formData.noLabelInput"
-        :placeholder="$t('form.placeholder.email')"
-      />
+      <Form>
+        <Email
+          v-model="formData.noLabelInput"
+          :placeholder="$t('form.placeholder.email')"
+        />
+      </Form>
     </section>
 
     <section class="demo-section">
@@ -29,13 +31,13 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;template&gt;
+        &lt;Form&gt;
           &lt;Email 
             v-model="input"
             label="Email"
             placeholder="Enter a email"
           /&gt;
-        &lt;/template&gt;
+        &lt;/Form&gt;
 
         &lt;script setup lang="ts"&gt;
         import { Email } from "@dzangolab/vue3-form";
@@ -43,11 +45,13 @@
       </SshPre>
       <!-- eslint-enable -->
 
-      <Email
-        v-model="formData.input"
-        :label="$t('form.label.email')"
-        :placeholder="$t('form.placeholder.email')"
-      />
+      <Form>
+        <Email
+          v-model="formData.input"
+          :label="$t('form.label.email')"
+          :placeholder="$t('form.placeholder.email')"
+        />
+      </Form>
     </section>
 
     <section class="demo-section">
@@ -55,13 +59,13 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;template&gt;
+        &lt;Form&gt;
           &lt;Email 
             v-model="input"
             label="Email"
             disabled
           /&gt;
-        &lt;/template&gt;
+        &lt;/Form&gt;
 
         &lt;script setup lang="ts"&gt;
         import { Email } from "@dzangolab/vue3-form";
@@ -72,11 +76,13 @@
       </SshPre>
       <!-- eslint-enable -->
 
-      <Email
-        v-model="formData.disabled"
-        :label="$t('form.label.email')"
-        disabled
-      />
+      <Form>
+        <Email
+          v-model="formData.disabled"
+          :label="$t('form.label.email')"
+          disabled
+        />
+      </Form>
     </section>
 
     <section class="demo-section">
@@ -84,13 +90,13 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;template&gt;
+        &lt;Form&gt;
           &lt;Email 
             v-model="input"
             :label="t('form.label.email')"
             :placeholder="t('form.placeholder.email')"
           /&gt;
-        &lt;/template&gt;
+        &lt;/Form&gt;
 
         &lt;script setup lang="ts"&gt;
         import { Email } from "@dzangolab/vue3-form";
@@ -101,11 +107,13 @@
       </SshPre>
       <!-- eslint-enable -->
 
-      <Email
-        v-model="formData.input"
-        :label="t('form.label.email')"
-        :placeholder="t('form.placeholder.email')"
-      />
+      <Form>
+        <Email
+          v-model="formData.input"
+          :label="t('form.label.email')"
+          :placeholder="t('form.placeholder.email')"
+        />
+      </Form>
     </section>
 
     <section class="demo-section">
@@ -113,16 +121,14 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;template&gt;
-          &lt;Form&gt;
-            &lt;Email 
-              v-model="input"
-              :options="validationOptions"
-              label="Email"
-              placeholder="Enter a email"
-            /&gt;
-          &lt;/Form&gt;
-        &lt;/template&gt;
+        &lt;Form&gt;
+          &lt;Email 
+            v-model="input"
+            :options="validationOptions"
+            label="Email"
+            placeholder="Enter a email"
+          /&gt;
+        &lt;/Form&gt;
 
         &lt;script setup lang="ts"&gt;
         import { Form, Email } from "@dzangolab/vue3-form";
@@ -154,17 +160,15 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;template&gt;
-          &lt;Form&gt;
-            &lt;Email 
-              v-model="input"
-              :error-messages="validationMessages"
-              :options="validationOptions"
-              label="Email"
-              placeholder="Enter a email"
-            /&gt;
-          &lt;/Form&gt;
-        &lt;/template&gt;
+        &lt;Form&gt;
+          &lt;Email 
+            v-model="input"
+            :error-messages="validationMessages"
+            :options="validationOptions"
+            label="Email"
+            placeholder="Enter a email"
+          /&gt;
+        &lt;/Form&gt;
 
         &lt;script setup lang="ts"&gt;
         import { Form, Email } from "@dzangolab/vue3-form";
@@ -202,17 +206,15 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;template&gt;
-          &lt;Form&gt;
-            &lt;Email 
-              v-model="input"
-              :schema="inputSchema"
-              label="Email"
-              placeholder="Enter a email"
-              name="input"
-            /&gt;
-          &lt;/Form&gt;
-        &lt;/template&gt;
+        &lt;Form&gt;
+          &lt;Email 
+            v-model="input"
+            :schema="inputSchema"
+            label="Email"
+            placeholder="Enter a email"
+            name="input"
+          /&gt;
+        &lt;/Form&gt;
 
         &lt;script setup lang="ts"&gt;
         import { Form, Email } from "@dzangolab/vue3-form";
@@ -240,14 +242,14 @@
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
-        &lt;template&gt;
+        &lt;Form&gt;
           &lt;Email 
             v-model="input"
             class="custom-style-input"
             label="Email"
             placeholder="Enter a email"
           /&gt;
-        &lt;/template&gt;
+        &lt;/Form&gt;
 
         &lt;script setup lang="ts"&gt;
         import { Email } from "@dzangolab/vue3-form";
@@ -271,12 +273,14 @@
       </SshPre>
       <!-- eslint-enable -->
 
-      <Email
-        v-model="formData.customStyleInput"
-        :label="$t('form.label.email')"
-        :placeholder="$t('form.placeholder.email')"
-        class="custom-style-input"
-      />
+      <Form>
+        <Email
+          v-model="formData.customStyleInput"
+          :label="$t('form.label.email')"
+          :placeholder="$t('form.placeholder.email')"
+          class="custom-style-input"
+        />
+      </Form>
     </section>
   </Page>
 </template>
