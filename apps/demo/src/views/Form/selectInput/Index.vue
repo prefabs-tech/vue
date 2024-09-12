@@ -124,6 +124,50 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.withI18n") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              :label="t('form.label.select')"
+              :placeholder="t('form.placeholder.select')"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+
+          const { t } = useI18n();
+
+          const options = ref([
+            { value: "FR", label: "French" },
+            { value: "DE", label: "German" },
+            { value: "BE", label: "Dutch" },
+            { value: "NP", label: "Nepali" },
+            { value: "HI", label: "Hindi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <SelectInput
+            v-model="formData.input"
+            :label="$t('form.label.select')"
+            :options="options"
+            :placeholder="$t('form.placeholder.select')"
+          />
+        </Form>
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.multiSelect") }}</h2>
 
       <div class="section-content">
@@ -332,9 +376,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
 import { Form, SelectInput } from "@dzangolab/vue3-form";
 import { reactive, ref } from "vue";
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { z } from "zod";
 
 const { t } = useI18n();
