@@ -67,7 +67,7 @@
           &lt;Form&gt;
             &lt;Password 
               v-model="input"
-              label="Disabled"
+              label="Password"
               disabled
             /&gt;
           &lt;/Form&gt;
@@ -84,8 +84,41 @@
         <Form>
           <Password
             v-model="formData.disabled"
-            :label="$t('form.label.disabled')"
+            :label="$t('form.label.password')"
             disabled
+          />
+        </Form>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.withI18n") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Password 
+              v-model="input"
+              :label="t('form.label.password')"
+              :placeholder="t('form.placeholder.password')"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Password } from "@dzangolab/vue3-form";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+
+          const { t } = useI18n();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Password
+            v-model="formData.input"
+            :label="$t('form.label.password')"
+            :placeholder="$t('form.placeholder.password')"
           />
         </Form>
       </div>
