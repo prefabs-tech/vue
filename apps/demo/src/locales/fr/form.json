@@ -11,7 +11,7 @@
     },
     "input": {
       "length": "Input must be exactly {length} characters long[fr]",
-      "min": "Input must be at least {length} character(s)[fr]",
+      "min": "Title must be at least {length} character(s)[fr]",
       "required": "The field should not be empty[fr]"
     },
     "multiSelect":  {
@@ -75,7 +75,9 @@
     "textarea": "Textarea[fr]",
     "textInput": "Text input[fr]",
     "timePicker": "Time picker[fr]",
+    "title": "Title[fr]",
     "typeahead": "Typeahead[fr]",
+    "username": "Username[fr]",
     "valid": "Show valid state[fr]",
     "withI18n": "With I18n[fr]",
     "year": "Year[fr]",
@@ -89,7 +91,9 @@
     "password": "Enter a password[fr]",
     "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
-    "textInput": "Enter text input[fr]"
+    "textInput": "Enter text input[fr]",
+    "title": "Enter course title[fr]",
+    "username": "Enter username[fr]"
   },
   "submittedValue": "Submitted value[fr]",
   "title": "Form library[fr]"

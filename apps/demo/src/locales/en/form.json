@@ -11,7 +11,7 @@
     },
     "input": {
       "length": "Input must be exactly {length} characters long",
-      "min": "Input must be at least {length} character(s)",
+      "min": "Title must be at least {length} character(s)",
       "required": "The field should not be empty"
     },
     "multiSelect":  {
@@ -75,7 +75,9 @@
     "textarea": "Textarea",
     "textInput": "Text input",
     "timePicker": "Time picker",
+    "title": "Title",
     "typeahead": "Typeahead",
+    "username": "Username",
     "valid": "Show valid state",
     "withI18n": "With I18n",
     "year": "Year",
@@ -89,7 +91,9 @@
     "password": "Enter a password",
     "select": "Select a value",
     "textarea": "Enter textarea input",
-    "textInput": "Enter text input"
+    "textInput": "Enter text input",
+    "title": "Enter course title",
+    "username": "Enter username"
   },
   "submittedValue": "Submitted value",
   "title": "Form library"
