@@ -1,286 +1,302 @@
 <template>
-  <Page :title="$t('form.label.email')">
-    <section class="demo-section">
-      <h3>{{ $t("form.label.basicInput") }}</h3>
+  <Page :title="$t('form.label.email')" class="demo">
+    <section>
+      <h2>{{ $t("form.label.basicInput") }}</h2>
 
-      <!-- eslint-disable -->
-       <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Email 
-            v-model="input"
-            placeholder="Enter a email"
-          /&gt;
-        &lt;/Form&gt;
+      <div class="section-content">
+        <!-- eslint-disable -->
+         <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Email 
+              v-model="input"
+              placeholder="Enter a email"
+            /&gt;
+          &lt;/Form&gt;
+  
+          &lt;script setup lang="ts"&gt;
+          import { Email } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
-        &lt;script setup lang="ts"&gt;
-        import { Email } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Email
-          v-model="formData.noLabelInput"
-          :placeholder="$t('form.placeholder.email')"
-        />
-      </Form>
+        <Form>
+          <Email
+            v-model="formData.noLabelInput"
+            :placeholder="$t('form.placeholder.email')"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.labelInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.labelInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Email 
-            v-model="input"
-            label="Email"
-            placeholder="Enter a email"
-          /&gt;
-        &lt;/Form&gt;
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Email 
+              v-model="input"
+              label="Email"
+              placeholder="Enter a email"
+            /&gt;
+          &lt;/Form&gt;
 
-        &lt;script setup lang="ts"&gt;
-        import { Email } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
+          &lt;script setup lang="ts"&gt;
+          import { Email } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
-      <Form>
-        <Email
-          v-model="formData.input"
-          :label="$t('form.label.email')"
-          :placeholder="$t('form.placeholder.email')"
-        />
-      </Form>
+        <Form>
+          <Email
+            v-model="formData.input"
+            :label="$t('form.label.email')"
+            :placeholder="$t('form.placeholder.email')"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.disabled") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.disabled") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Email 
-            v-model="input"
-            label="Email"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Email 
+              v-model="input"
+              label="Email"
+              disabled
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Email } from "@dzangolab/vue3-form";
+          import { ref } from vue;
+  
+          const input = ref("monorepo@dzangolab.com");
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Email
+            v-model="formData.disabled"
+            :label="$t('form.label.email')"
             disabled
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Email } from "@dzangolab/vue3-form";
-        import { ref } from vue;
-
-        const input = ref("monorepo@dzangolab.com");
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Email
-          v-model="formData.disabled"
-          :label="$t('form.label.email')"
-          disabled
-        />
-      </Form>
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.withI18n") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.withI18n") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Email 
-            v-model="input"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Email 
+              v-model="input"
+              :label="t('form.label.email')"
+              :placeholder="t('form.placeholder.email')"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Email } from "@dzangolab/vue3-form";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+
+          const { t } = useI18n();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Email
+            v-model="formData.input"
             :label="t('form.label.email')"
             :placeholder="t('form.placeholder.email')"
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Email } from "@dzangolab/vue3-form";
-        import { useI18n } from "@dzangolab/vue3-i18n";
-
-        const { t } = useI18n();
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Email
-          v-model="formData.input"
-          :label="t('form.label.email')"
-          :placeholder="t('form.placeholder.email')"
-        />
-      </Form>
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.inputWithValidation") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.inputWithValidation") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Email 
-            v-model="input"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Email 
+              v-model="input"
+              :options="validationOptions"
+              label="Email"
+              placeholder="Enter a email"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Form, Email } from "@dzangolab/vue3-form";
+          
+          import type { IsEmailOptions } from "@dzangolab/vue3-form";
+
+          const validationOptions = {
+            allow_display_name: false,
+            allow_utf8_local_part: true,
+            host_whitelist: ["dzangolab.com", "dzango.com", "gmail.com"],
+            require_display_name: false,
+          } as IsEmailOptions;
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Email
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.email')"
             :options="validationOptions"
-            label="Email"
-            placeholder="Enter a email"
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Form, Email } from "@dzangolab/vue3-form";
-        
-        import type { IsEmailOptions } from "@dzangolab/vue3-form";
-
-        const validationOptions = {
-          allow_display_name: false,
-          allow_utf8_local_part: true,
-          host_whitelist: ["dzangolab.com", "dzango.com", "gmail.com"],
-          require_display_name: false,
-        } as IsEmailOptions;
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Email
-          v-model="formData.inputWithValidation"
-          :label="$t('form.label.email')"
-          :options="validationOptions"
-          :placeholder="$t('form.placeholder.email')"
-        />
-      </Form>
+            :placeholder="$t('form.placeholder.email')"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.customErrorMessageInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.customErrorMessageInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Email 
-            v-model="input"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Email 
+              v-model="input"
+              :error-messages="validationMessages"
+              :options="validationOptions"
+              label="Email"
+              placeholder="Enter a email"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Form, Email } from "@dzangolab/vue3-form";
+          
+          import type { EmailErrorMessages, IsEmailOptions } from "@dzangolab/vue3-form";
+
+          const validationMessages = {
+            required: "The field should not be empty",
+            invalid: "Please provide a valid email (dzangolab.com, dzango.com, gmail.com)"
+          } as EmailErrorMessages;
+
+          const validationOptions = {
+            allow_display_name: false,
+            allow_utf8_local_part: true,
+            host_whitelist: ["dzangolab.com", "dzango.com", "gmail.com"],
+            require_display_name: false,
+          } as IsEmailOptions;
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Email
+            v-model="formData.textInput"
+            :label="$t('form.label.email')"
             :error-messages="validationMessages"
             :options="validationOptions"
-            label="Email"
-            placeholder="Enter a email"
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Form, Email } from "@dzangolab/vue3-form";
-        
-        import type { EmailErrorMessages, IsEmailOptions } from "@dzangolab/vue3-form";
-
-        const validationMessages = {
-          required: "The field should not be empty",
-          invalid: "Please provide a valid email (dzangolab.com, dzango.com, gmail.com)"
-        } as EmailErrorMessages;
-
-        const validationOptions = {
-          allow_display_name: false,
-          allow_utf8_local_part: true,
-          host_whitelist: ["dzangolab.com", "dzango.com", "gmail.com"],
-          require_display_name: false,
-        } as IsEmailOptions;
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Email
-          v-model="formData.textInput"
-          :label="$t('form.label.email')"
-          :error-messages="validationMessages"
-          :options="validationOptions"
-          :placeholder="$t('form.placeholder.email')"
-        />
-      </Form>
+            :placeholder="$t('form.placeholder.email')"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.customValidationInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Email 
-            v-model="input"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Email 
+              v-model="input"
+              :schema="inputSchema"
+              label="Email"
+              placeholder="Enter a email"
+              name="input"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Form, Email } from "@dzangolab/vue3-form";
+          import { z } from "zod";
+
+          const inputSchema = z.string()
+            .email({ message: "Please provide a valid email" });
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Email
+            v-model="formData.customValidationInput"
+            :label="$t('form.label.email')"
+            :placeholder="$t('form.placeholder.email')"
             :schema="inputSchema"
-            label="Email"
-            placeholder="Enter a email"
-            name="input"
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Form, Email } from "@dzangolab/vue3-form";
-        import { z } from "zod";
-
-        const inputSchema = z.string()
-          .email({ message: "Please provide a valid email" });
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Email
-          v-model="formData.customValidationInput"
-          :label="$t('form.label.email')"
-          :placeholder="$t('form.placeholder.email')"
-          :schema="inputSchema"
-          name="custom_input"
-        />
-      </Form>
+            name="custom_input"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.customStyleInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.customStyleInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Email 
-            v-model="input"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Email 
+              v-model="input"
+              class="custom-style-input"
+              label="Email"
+              placeholder="Enter a email"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Email } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+
+          &lt;style&gt;
+          .custom-style-input input {
+            --_input-field-border-color: #007aff;
+            --_input-field-border-radius: 0.5em;
+            --_input-field-label-color: #007aff;
+            --_input-field-padding-h: 0.5em;
+            --_input-field-padding-v: 0.5em;
+
+            color: #007aff;
+          }
+
+          .custom-style-input input:focus {
+            box-shadow: 0 0 0 0.25rem #03449e9a;
+          }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Email
+            v-model="formData.customStyleInput"
+            :label="$t('form.label.email')"
+            :placeholder="$t('form.placeholder.email')"
             class="custom-style-input"
-            label="Email"
-            placeholder="Enter a email"
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Email } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-
-        &lt;style&gt;
-        .custom-style-input input {
-          --_input-field-border-color: #007aff;
-          --_input-field-border-radius: 0.5em;
-          --_input-field-label-color: #007aff;
-          --_input-field-padding-h: 0.5em;
-          --_input-field-padding-v: 0.5em;
-
-          color: #007aff;
-        }
-
-        .custom-style-input input:focus {
-          box-shadow: 0 0 0 0.25rem #03449e9a;
-        }
-        &lt;/style&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Email
-          v-model="formData.customStyleInput"
-          :label="$t('form.label.email')"
-          :placeholder="$t('form.placeholder.email')"
-          class="custom-style-input"
-        />
-      </Form>
+          />
+        </Form>
+      </div>
     </section>
   </Page>
 </template>

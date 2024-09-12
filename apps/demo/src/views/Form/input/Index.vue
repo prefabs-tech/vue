@@ -1,209 +1,254 @@
 <template>
-  <Page :title="$t('form.label.input')">
-    <section class="demo-section">
-      <h3>{{ $t("form.label.basicInput") }}</h3>
+  <Page :title="$t('form.label.input')" class="demo">
+    <section>
+      <h2>{{ $t("form.label.basicInput") }}</h2>
 
-      <!-- eslint-disable -->
-       <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Input 
-            v-model="username"
-            placeholder="Enter username"
+      <div class="section-content">
+        <!-- eslint-disable -->
+         <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Input 
+              v-model="username"
+              placeholder="Enter username"
+              type="text"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Input } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Input
+            v-model="formData.noLabelInput"
+            :placeholder="$t('form.placeholder.username')"
             type="text"
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Input } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Input
-          v-model="formData.noLabelInput"
-          :placeholder="$t('form.placeholder.username')"
-          type="text"
-        />
-      </Form>
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.labelInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.labelInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Input 
-            v-model="username"
-            label="Username"
-            placeholder="Enter username"
-          /&gt;
-        &lt;/Form&gt;
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Input 
+              v-model="username"
+              label="Username"
+              placeholder="Enter username"
+            /&gt;
+          &lt;/Form&gt;
 
-        &lt;script setup lang="ts"&gt;
-        import { Input } from "@dzangolab/vue3-form";
-        import { ref } from "vue";
+          &lt;script setup lang="ts"&gt;
+          import { Input } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+  
+          const username = ref(null as string);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
-        const username = ref(null as string);
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Input
-          v-model="formData.input"
-          :label="$t('form.label.username')"
-          :placeholder="$t('form.placeholder.username')"
-        />
-      </Form>
+        <Form>
+          <Input
+            v-model="formData.input"
+            :label="$t('form.label.username')"
+            :placeholder="$t('form.placeholder.username')"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.inputWithType") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.inputWithType") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Input 
-            v-model="password"
-            label="Password"
-            placeholder="Enter password"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Input 
+              v-model="password"
+              label="Password"
+              placeholder="Enter password"
+              type="password"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Input } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Input
+            v-model="formData.passwordInput"
+            :label="$t('form.label.password')"
+            :placeholder="$t('form.placeholder.password')"
             type="password"
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Input } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Input
-          v-model="formData.passwordInput"
-          :label="$t('form.label.password')"
-          :placeholder="$t('form.placeholder.password')"
-          type="password"
-        />
-      </Form>
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.disabled") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.disabled") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Input 
-            v-model="email"
-            label="Email"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Input 
+              v-model="email"
+              label="Email"
+              type="email"
+              disabled
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Input } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Input
+            v-model="formData.disabled"
+            :label="$t('form.label.email')"
             type="email"
             disabled
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Input } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Input
-          v-model="formData.disabled"
-          :label="$t('form.label.email')"
-          type="email"
-          disabled
-        />
-      </Form>
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.inputWithValidation") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.withI18n") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Input 
-            v-model="courseTitle"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Input 
+              v-model="username"
+              :label="t('form.label.username')"
+              :placeholder="t('form.placeholder.username')"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Input } from "@dzangolab/vue3-form";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+
+          const { t } = useI18n();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Input
+            v-model="formData.input"
+            :label="$t('form.label.username')"
+            :placeholder="$t('form.placeholder.username')"
+          />
+        </Form>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.inputWithValidation") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Input 
+              v-model="courseTitle"
+              :schema="inputSchema"
+              label="Title"
+              placeholder="Enter course title"
+              type="text"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Form, Input } from "@dzangolab/vue3-form";
+          import { z } from "zod";
+
+          const inputSchema = z.string()
+            .min(3, { message: "Title must be at least 3 character(s)" });        
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Input
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.title')"
+            :placeholder="$t('form.placeholder.title')"
             :schema="inputSchema"
-            label="Title"
-            placeholder="Enter course title"
+            name="title"
             type="text"
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Form, Input } from "@dzangolab/vue3-form";
-        import { z } from "zod";
-
-        const inputSchema = z.string()
-          .min(3, { message: "Title must be at least 3 character(s)" });        
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Input
-          v-model="formData.inputWithValidation"
-          :label="$t('form.label.title')"
-          :placeholder="$t('form.placeholder.title')"
-          :schema="inputSchema"
-          name="title"
-          type="text"
-        />
-      </Form>
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.customStyleInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.customStyleInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;Form&gt;
-          &lt;Input 
-            v-model="number"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;Input 
+              v-model="number"
+              class="custom-style-input"
+              label="Number"
+              placeholder="Enter a number"
+              type="number"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Input } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+
+          &lt;style&gt;
+          .custom-style-input {
+            flex-direction: row;
+            align-items: center;
+          }
+
+          .custom-style-input input {
+            --_input-field-border-color: #007aff;
+            --_input-field-border-radius: 1em;
+            --_input-field-padding-h: 0.5em;
+            --_input-field-padding-v: 0.5em;
+          }
+
+          .custom-style-input input:focus {
+            box-shadow: 0 0 0 .25rem #004da08e;
+          }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <Input
+            v-model="formData.numberInput"
+            :label="$t('form.label.number')"
+            :placeholder="$t('form.placeholder.number')"
             class="custom-style-input"
-            label="Number"
-            placeholder="Enter a number"
             type="number"
-          /&gt;
-        &lt;/Form&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { Input } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-
-        &lt;style&gt;
-        .custom-style-input {
-          flex-direction: row;
-          align-items: center;
-        }
-
-        .custom-style-input input {
-          --_input-field-border-color: #007aff;
-          --_input-field-border-radius: 1em;
-          --_input-field-padding-h: 0.5em;
-          --_input-field-padding-v: 0.5em;
-        }
-
-        .custom-style-input input:focus {
-          box-shadow: 0 0 0 .25rem #004da08e;
-        }
-        &lt;/style&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <Input
-          v-model="formData.numberInput"
-          :label="$t('form.label.number')"
-          :placeholder="$t('form.placeholder.number')"
-          class="custom-style-input"
-          type="number"
-        />
-      </Form>
+          />
+        </Form>
+      </div>
     </section>
   </Page>
 </template>
