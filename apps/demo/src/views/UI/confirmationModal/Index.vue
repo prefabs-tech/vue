@@ -1,7 +1,7 @@
 <template>
   <Page :title="$t('ui.confirmationModal.title')" class="demo">
     <section>
-      <h2>{{ $t("ui.confirmationModal.usage.simple") }}</h2>
+      <h2>{{ $t("ui.confirmationModal.usage.basic") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -40,7 +40,7 @@
 
         <div class="container">
           <ButtonElement
-            :label="$t('ui.confirmationModal.label.confirm')"
+            :label="$t('ui.confirmationModal.buttonLabel.confirm')"
             severity="success"
             @click="showModal = true"
           />

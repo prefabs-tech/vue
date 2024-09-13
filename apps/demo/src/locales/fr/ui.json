@@ -89,12 +89,12 @@
     }
   },
   "confirmationModal": {
-    "label": {
+    "buttonLabel": {
       "confirm": "Confirm"
     },
     "title": "Confirmation modal",
     "usage": {
-      "simple": "Simple confirmation modal"
+      "basic": "Basic"
     }
   },
   "subPane": {
