@@ -1,6 +1,6 @@
 <template>
   <div class="modal">
-    <div class="modal-wrapper">
+    <div class="modal-wrapper" @click="handleClose()">
       <div class="modal-container">
         <div class="modal-header">
           <slot name="header" class="title">
@@ -38,7 +38,7 @@
 
             <ButtonElement
               size="small"
-              label="Ok"
+              label="Confirm"
               severity="primary"
               @click="handleConfirm()"
             />

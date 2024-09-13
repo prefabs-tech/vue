@@ -88,6 +88,15 @@
       "withI18n": "With I18n"
     }
   },
+  "confirmationModal": {
+    "label": {
+      "confirm": "Confirm"
+    },
+    "title": "Confirmation modal",
+    "usage": {
+      "simple": "Simple confirmation modal"
+    }
+  },
   "subPane": {
     "title": "SubPane[fr]",
     "content": "This is a subpane[fr]"

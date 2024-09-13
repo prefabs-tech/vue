@@ -1,17 +1,17 @@
 <template>
   <Page :title="$t('ui.confirmationModal.title')" class="demo">
     <section>
-      <h2>Simple confirmation modal</h2>
+      <h2>{{ $t("ui.confirmationModal.usage.simple") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;div class="container"&gt;
+            &lt;div&gt;
               &lt;ButtonElement
                 label="Confirm"
                 severity="success"
-                @click="showModal = true"
+                @click="showModal = false"
               /&gt;
               &lt;span&gt;{{ currentTime }}&lt;/span&gt;
             &lt;/div&gt;
@@ -40,7 +40,7 @@
 
         <div class="container">
           <ButtonElement
-            label="Confirm"
+            :label="$t('ui.confirmationModal.label.confirm')"
             severity="success"
             @click="showModal = true"
           />
@@ -72,9 +72,8 @@ function onConfirm() {
 
 <style lang="css" scoped>
 .demo .container {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 </style>
