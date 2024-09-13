@@ -1,0 +1,70 @@
+<template>
+  <div class="modal">
+    <div class="modal-wrapper" @click="handleClose()">
+      <div class="modal-container">
+        <div class="modal-header">
+          <slot name="header" class="title">
+            <span>Confirmation required</span>
+          </slot>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1.5em"
+            height="1.5em"
+            viewBox="0 0 16 16"
+            @click="handleClose()"
+          >
+            <path
+              fill="currentColor"
+              d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94z"
+            />
+          </svg>
+        </div>
+
+        <div class="modal-body">
+          <slot name="body">
+            <p>Are you sure you want to proceed?</p>
+          </slot>
+        </div>
+
+        <div class="modal-footer">
+          <slot name="footer">
+            <ButtonElement
+              size="small"
+              label="Cancel"
+              severity="secondary"
+              @click="handleClose()"
+            />
+
+            <ButtonElement
+              size="small"
+              label="Confirm"
+              severity="primary"
+              @click="handleConfirm()"
+            />
+          </slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+export default {
+  name: "ConfirmationModal",
+};
+</script>
+
+<script setup lang="ts">
+import ButtonElement from "../Button/Index.vue";
+
+const emits = defineEmits(["on:confirm", "on:close"]);
+
+function handleConfirm() {
+  emits("on:confirm");
+}
+
+function handleClose() {
+  emits("on:close");
+}
+</script>

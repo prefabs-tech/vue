@@ -7,6 +7,7 @@ import GoogleSignInButton from "./components/GoogleSignInButton.vue";
 import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
 import SubPane from "./components/SubPane.vue";
+import ConfirmationModal from "./ConfirmationModal/Index.vue";
 import Errors from "./Errors/Index.vue";
 import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
 import Page from "./Page/Index.vue";
@@ -27,7 +28,9 @@ export default plugin;
 
 export {
   Accordion,
+  BadgeComponent,
   ButtonElement,
+  ConfirmationModal,
   DebouncedInput,
   Errors,
   GoogleSignInButton,
@@ -37,7 +40,6 @@ export {
   ResponsiveMenu,
   SubPane,
   TabbedPanel,
-  BadgeComponent,
 };
 
 export type { Error } from "./types";

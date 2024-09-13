@@ -36,6 +36,11 @@
           {{ $t("ui.badge.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'confirmationModal' }">
+          {{ $t("ui.confirmationModal.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>
