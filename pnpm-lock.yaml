@@ -872,6 +872,7 @@ packages:
     resolution: {integrity: sha512-r27t/cy/m9uKLXQNWWebeCUHgnAZq0CpG1OwKRxzJMP1vpSU4bSIK2hq+/cp0bQxetkXx38n09rNu8jVkcK/zA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    requiresBuild: true
     dependencies:
       '@babel/types': 7.21.3
 

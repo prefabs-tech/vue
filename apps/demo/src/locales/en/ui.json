@@ -88,6 +88,9 @@
       "withI18n": "With I18n"
     }
   },
+  "confirmationModal": {
+    "title": "Confirmation modal"
+  },
   "subPane": {
     "title": "SubPane",
     "content": "This is a subpane"
