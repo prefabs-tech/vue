@@ -89,12 +89,22 @@
     }
   },
   "confirmationModal": {
+    "bodyContent": {
+      "confirmDelete": "Are you sure to delete user?"
+    },
     "buttonLabel": {
-      "confirm": "Confirm"
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "delete": "Delete"
+    },
+    "headerContent": {
+      "deleteUser": "Delete user"
     },
     "title": "Confirmation modal",
     "usage": {
-      "basic": "Basic"
+      "basic": "Basic",
+      "manualContent": "Manual content",
+      "withBorder": "With border"
     }
   },
   "subPane": {

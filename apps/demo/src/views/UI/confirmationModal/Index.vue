@@ -56,7 +56,7 @@
     </section>
 
     <section>
-      <h2>With border</h2>
+      <h2>{{ $t("ui.confirmationModal.usage.withBorder") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -75,7 +75,7 @@
               v-show="showModal"
               border
               @on:close="showModal = false"
-              @on:confirm="onConfirm()"
+              @on:confirm="showModal = false"
             /&gt;
           &lt;/template&gt; 
 
@@ -85,10 +85,6 @@
 
             const currentTime = ref(undefined as unknown as Date);
             const showModal = ref(false);
-
-            function onConfirm() {
-              showModal.value = false;
-            }
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -109,6 +105,93 @@
         />
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("ui.confirmationModal.usage.manualContent") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;div&gt;
+              &lt;ButtonElement
+                label="Confirm"
+                severity="success"
+                @click="showModal = true"
+              /&gt;
+              &lt;span&gt;{{ currentTime }}&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;ConfirmationModal
+              v-show="showModal"
+              @on:close="showModal = false"
+              @on:confirm="showCustomContentModal = false"
+            &gt;
+              &lt;template #header&gt;
+                &lt;span&gt;Delete user&lt;/span&gt;
+              &lt;/template&gt;
+
+              &lt;template #body&gt;
+                &lt;p&gt;Are you sure to delete user?&lt;/p&gt;
+              &lt;/template&gt;
+
+              &lt;template #footer&gt;
+                &lt;ButtonElement :label="Cancel" severity="secondary" /&gt;
+                &lt;ButtonElement :label="Confirm" severity="danger" /&gt;
+              &lt;/template&gt;
+            &lt;/ConfirmationModal&gt;
+          &lt;/template&gt; 
+
+          &lt;script setup lang="ts"&gt;
+            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ref } from "vue";
+
+            const currentTime = ref(undefined as unknown as Date);
+            const showModal = ref(false);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.confirmationModal.buttonLabel.confirm')"
+            severity="success"
+            @click="showCustomContentModal = true"
+          />
+          <span>{{ currentTime }}</span>
+        </div>
+
+        <ConfirmationModal
+          v-show="showCustomContentModal"
+          @on:close="showCustomContentModal = false"
+          @on:confirm="showCustomContentModal = false"
+        >
+          <template #header>
+            <span>
+              {{ $t("ui.confirmationModal.headerContent.deleteUser") }}
+            </span>
+          </template>
+
+          <template #body>
+            <p>{{ $t("ui.confirmationModal.bodyContent.confirmDelete") }}</p>
+          </template>
+
+          <template #footer>
+            <ButtonElement
+              size="small"
+              :label="$t('ui.confirmationModal.buttonLabel.cancel')"
+              severity="secondary"
+            />
+
+            <ButtonElement
+              size="small"
+              :label="$t('ui.confirmationModal.buttonLabel.delete')"
+              severity="danger"
+            />
+          </template>
+        </ConfirmationModal>
+      </div>
+    </section>
   </Page>
 </template>
 
@@ -117,8 +200,9 @@ import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 const currentTime = ref(undefined as unknown as Date);
-const showModal = ref(false);
 const showBorderedModal = ref(false);
+const showCustomContentModal = ref(false);
+const showModal = ref(false);
 
 function onConfirm() {
   currentTime.value = new Date();

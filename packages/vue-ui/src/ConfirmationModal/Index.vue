@@ -3,7 +3,7 @@
     <div class="modal-wrapper" @click="handleClose()">
       <div class="modal-container">
         <div class="modal-header">
-          <slot name="header" class="title">
+          <slot name="header">
             <span>Confirmation required</span>
           </slot>
 
