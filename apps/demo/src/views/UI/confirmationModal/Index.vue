@@ -11,7 +11,7 @@
               &lt;ButtonElement
                 label="Confirm"
                 severity="success"
-                @click="showModal = false"
+                @click="showModal = true"
               /&gt;
               &lt;span&gt;{{ currentTime }}&lt;/span&gt;
             &lt;/div&gt;
@@ -54,6 +54,61 @@
         />
       </div>
     </section>
+
+    <section>
+      <h2>With border</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;div&gt;
+              &lt;ButtonElement
+                label="Confirm"
+                severity="success"
+                @click="showModal = true"
+              /&gt;
+              &lt;span&gt;{{ currentTime }}&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;ConfirmationModal
+              v-show="showModal"
+              border
+              @on:close="showModal = false"
+              @on:confirm="onConfirm()"
+            /&gt;
+          &lt;/template&gt; 
+
+          &lt;script setup lang="ts"&gt;
+            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ref } from "vue";
+
+            const currentTime = ref(undefined as unknown as Date);
+            const showModal = ref(false);
+
+            function onConfirm() {
+              showModal.value = false;
+            }
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.confirmationModal.buttonLabel.confirm')"
+            severity="success"
+            @click="showBorderedModal = true"
+          />
+        </div>
+
+        <ConfirmationModal
+          v-show="showBorderedModal"
+          border
+          @on:close="showBorderedModal = false"
+          @on:confirm="showBorderedModal = false"
+        />
+      </div>
+    </section>
   </Page>
 </template>
 
@@ -63,6 +118,7 @@ import { ref } from "vue";
 
 const currentTime = ref(undefined as unknown as Date);
 const showModal = ref(false);
+const showBorderedModal = ref(false);
 
 function onConfirm() {
   currentTime.value = new Date();

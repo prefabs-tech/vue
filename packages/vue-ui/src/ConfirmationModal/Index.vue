@@ -1,5 +1,5 @@
 <template>
-  <div class="modal">
+  <div :class="modalClassName">
     <div class="modal-wrapper" @click="handleClose()">
       <div class="modal-container">
         <div class="modal-header">
@@ -56,9 +56,22 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { computed } from "vue";
+
 import ButtonElement from "../Button/Index.vue";
 
 const emits = defineEmits(["on:confirm", "on:close"]);
+
+const props = defineProps({
+  border: {
+    default: false,
+    type: Boolean,
+  },
+});
+
+const modalClassName = computed(() => {
+  return ["modal", props.border && "bordered-modal"].filter(Boolean).join(" ");
+});
 
 function handleConfirm() {
   emits("on:confirm");
