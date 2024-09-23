@@ -13,6 +13,7 @@ import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
+import Tooltip from "./Tooltip/Index.vue";
 
 import type { App } from "vue";
 
@@ -40,6 +41,7 @@ export {
   ResponsiveMenu,
   SubPane,
   TabbedPanel,
+  Tooltip,
 };
 
 export type { Error } from "./types";

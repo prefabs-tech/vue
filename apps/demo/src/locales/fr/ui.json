@@ -126,9 +126,19 @@
     "with-custom-icons": "Avec icônes individualisés"
   },
   "tanstack-table": {
-    "title": "Tanstack Table[fr]"
+    "title": "Tanstack table[fr]"
   },
   "title": "Librairie de composants d'interface utilisateur",
+  "tooltip": {
+    "content":"This is a tooltip",
+    "label": {
+      "button": "Tooltip"
+    },
+    "title": "Tooltip",
+    "usage": {
+      "basic":"Basic"
+    }
+  },
   "typography": {
     "title": "Typography"
   }

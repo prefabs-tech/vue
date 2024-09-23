@@ -41,6 +41,11 @@
           {{ $t("ui.confirmationModal.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'tooltip' }">
+          {{ $t("ui.tooltip.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>
