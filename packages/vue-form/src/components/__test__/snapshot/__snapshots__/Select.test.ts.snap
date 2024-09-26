@@ -1,107 +1,187 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SelectInput > matches snapshot 1`] = `
+exports[`MultiSelect > matches snapshot for multiple select 1`] = `
 <div
-  class="field multiselect"
+  class="multiple-mode multiselect"
 >
   <label
     for="multiselect"
   >
-    Multiselect
+    Select
   </label>
-  
   <div
-    class="multiple-mode multiselect"
-    id="input-field-multiselect"
-    name="multiselect"
-    tabindex="0"
-    value="FR,FE"
+    class="multiselect-input"
+  >
+    <span
+      class="selected-options"
+    >
+      
+      <span
+        class="selected-option"
+      >
+        FR 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
+      </span>
+      <span
+        class="selected-option"
+      >
+        DE 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
+      </span>
+      <span
+        class="selected-option"
+      >
+        BE 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
+      </span>
+      <span
+        class="selected-option"
+      >
+        FE 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
+      </span>
+      <span
+        class="selected-option"
+      >
+        RE 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
+      </span>
+      
+    </span>
+  </div>
+  <ul
+    class="multiselect-dropdown"
+  >
+    <li
+      class="multiselect-option"
+    >
+      <input
+        type="checkbox"
+      />
+       Select all 
+    </li>
+    
+    <li
+      class="multiselect-option"
+    >
+      <input
+        type="checkbox"
+      />
+       FR
+    </li>
+    <li
+      class="multiselect-option"
+    >
+      <input
+        type="checkbox"
+      />
+       DE
+    </li>
+    <li
+      class="multiselect-option"
+    >
+      <input
+        type="checkbox"
+      />
+       BE
+    </li>
+    <li
+      class="multiselect-option"
+    >
+      <input
+        type="checkbox"
+      />
+       FE
+    </li>
+    <li
+      class="multiselect-option"
+    >
+      <input
+        type="checkbox"
+      />
+       RE
+    </li>
+    
+  </ul>
+</div>
+`;
+
+exports[`MultiSelect > matches snapshot for single select 1`] = `
+<div
+  class="multiselect"
+>
+  <label
+    for="multiselect"
+  >
+    Select
+  </label>
+  <div
+    class="multiselect-input"
+  >
+    <span
+      class="selected-options"
+    >
+      
+      <span
+        class="selected-option"
+      >
+        FR 
+        <!--v-if-->
+      </span>
+      
+    </span>
+  </div>
+  <ul
+    class="multiselect-dropdown"
   >
     <!--v-if-->
-    <div
-      class="multiselect-input"
+    
+    <li
+      class="multiselect-option selected"
     >
-      <span
-        class="selected-options"
-      >
-        
-        <span
-          class="selected-option"
-        >
-          FR 
-          <img
-            class="remove-option"
-            src="/src/assets/svg/x-mark.svg"
-          />
-        </span>
-        <span
-          class="selected-option"
-        >
-          FE 
-          <img
-            class="remove-option"
-            src="/src/assets/svg/x-mark.svg"
-          />
-        </span>
-        
-      </span>
-    </div>
-    <ul
-      class="multiselect-dropdown"
+      <!--v-if-->
+       FR
+    </li>
+    <li
+      class="multiselect-option"
     >
-      <li
-        class="multiselect-option"
-      >
-        <input
-          type="checkbox"
-        />
-         Select all 
-      </li>
-      
-      <li
-        class="multiselect-option"
-      >
-        <input
-          type="checkbox"
-        />
-         FR
-      </li>
-      <li
-        class="multiselect-option"
-      >
-        <input
-          type="checkbox"
-        />
-         DE
-      </li>
-      <li
-        class="multiselect-option"
-      >
-        <input
-          type="checkbox"
-        />
-         BE
-      </li>
-      <li
-        class="multiselect-option"
-      >
-        <input
-          type="checkbox"
-        />
-         FE
-      </li>
-      <li
-        class="multiselect-option"
-      >
-        <input
-          type="checkbox"
-        />
-         RE
-      </li>
-      
-    </ul>
-  </div>
-  <!---->
-  
+      <!--v-if-->
+       DE
+    </li>
+    <li
+      class="multiselect-option"
+    >
+      <!--v-if-->
+       BE
+    </li>
+    <li
+      class="multiselect-option"
+    >
+      <!--v-if-->
+       FE
+    </li>
+    <li
+      class="multiselect-option"
+    >
+      <!--v-if-->
+       RE
+    </li>
+    
+  </ul>
 </div>
 `;
