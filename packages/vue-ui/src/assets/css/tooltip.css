@@ -79,4 +79,9 @@
 
 .tooltip-trigger {
   position: relative;
+  cursor: default;
+}
+
+.tooltip-trigger.clickable {
+  cursor: pointer;
 }
