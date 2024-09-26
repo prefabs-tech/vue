@@ -104,7 +104,8 @@
     "usage": {
       "basic": "Basic",
       "manualContent": "Manual content",
-      "withBorder": "With border"
+      "withBorder": "With border",
+      "withI18n": "With I18n"
     }
   },
   "subPane": {
