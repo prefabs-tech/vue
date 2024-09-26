@@ -6,6 +6,7 @@ const ConfirmationModal = () =>
 const SubPane = () => import("@/views/UI/SubPanePage.vue");
 const TabbedPanel = () => import("@/views/UI/tabbed-panel/Index.vue");
 const TanstackTable = () => import("@/views/UI/TanstackTable.vue");
+const Tooltip = () => import("@/views/UI/tooltip/Index.vue");
 const Typography = () => import("@/views/UI/typography/Index.vue");
 const UI = () => import("@/views/UI/Index.vue");
 
@@ -57,6 +58,11 @@ const routes = [
         component: ConfirmationModal,
         name: "confirmationModal",
         path: "confirmation-modal",
+      },
+      {
+        component: Tooltip,
+        name: "tooltip",
+        path: "tooltip",
       },
     ],
   },
