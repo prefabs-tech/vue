@@ -88,6 +88,12 @@
       "withI18n": "With I18n"
     }
   },
+  "card": {
+    "title": "Card",
+    "usage": {
+      "basic": "Basic"
+    }
+  },
   "confirmationModal": {
     "buttonLabel": {
       "confirm": "Confirm"

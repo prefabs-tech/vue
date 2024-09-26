@@ -3,6 +3,7 @@ import "./assets/css/index.css";
 import Accordion from "./Accordion/Index.vue";
 import BadgeComponent from "./Badge/Index.vue";
 import ButtonElement from "./Button/Index.vue";
+import Card from "./Card/Index.vue";
 import GoogleSignInButton from "./components/GoogleSignInButton.vue";
 import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
@@ -31,6 +32,7 @@ export {
   Accordion,
   BadgeComponent,
   ButtonElement,
+  Card,
   ConfirmationModal,
   DebouncedInput,
   Errors,

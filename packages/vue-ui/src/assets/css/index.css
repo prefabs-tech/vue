@@ -1,13 +1,15 @@
-@import "./reset.css";
 @import "./vars.css";
-@import "./typography.css";
+
 @import "./accordion.css";
-@import "./page.css";
-@import "./tabbed-panel.css";
 @import "./button.css";
 @import "./badge.css";
 @import "./confirmation-modal.css";
+@import "./card.css";
+@import "./page.css";
+@import "./reset.css";
+@import "./tabbed-panel.css";
 @import "./tooltip.css";
+@import "./typography.css";
 
 p {
   padding-bottom: 0.5rem;

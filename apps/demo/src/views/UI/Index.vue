@@ -46,6 +46,11 @@
           {{ $t("ui.tooltip.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'card' }">
+          {{ $t("ui.card.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>
