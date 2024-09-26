@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import MultiSelect from "../../Select.vue";
+import SelectInput from "../../SelectInput.vue";
 
-describe("MultiSelect", () => {
+describe("SelectInput", () => {
   const options = [
     { value: "FR", label: "FR" },
     { value: "DE", label: "DE" },
@@ -12,51 +12,26 @@ describe("MultiSelect", () => {
     { value: "RE", label: "RE" },
   ];
 
-  it("matches snapshot for multiple select", async () => {
-    const wrapper = mount(MultiSelect, {
+  it("matches snapshot", async () => {
+    const wrapper = mount(SelectInput, {
       global: {
         mocks: {
-          selectedOptions: [
-            { value: "FR", label: "FR" },
-            { value: "FE", label: "FE" },
-          ],
           showDropdownMenu: true,
         },
       },
       props: {
-        label: "Select",
+        label: "Multiselect",
         modelValue: ["FR", "FE"],
         multiple: true,
+        name: "multiselect",
         options: options,
         placeholder: "Select multiple value",
       },
     });
 
-    const multiselectOption = wrapper.find(".multiselect-option");
+    const multiselect = wrapper.find("#input-field-multiselect");
 
-    await multiselectOption.trigger("click");
-
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it("matches snapshot for single select", async () => {
-    const wrapper = mount(MultiSelect, {
-      global: {
-        mocks: {
-          selectedOptions: [{ value: "FR", label: "FR" }],
-        },
-      },
-      props: {
-        label: "Select",
-        modelValue: "FR",
-        options: options,
-        placeholder: "Select a value",
-      },
-    });
-
-    const multiselectInput = wrapper.find(".multiselect-input");
-
-    await multiselectInput.trigger("click");
+    await multiselect.trigger("update:modelValue", ["FR", "FE"]);
 
     expect(wrapper.element).toMatchSnapshot();
   });
