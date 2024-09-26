@@ -5,7 +5,7 @@
     @mouseleave="hideTooltip"
     @click="toggleTooltip"
   >
-    <div class="tooltip-trigger">
+    <div :class="{ clickable: clickable }" class="tooltip-trigger">
       <slot />
     </div>
     <div v-if="isVisible || showContent" :class="['tooltip-box', position]">
@@ -26,6 +26,14 @@ import { computed, ref, useSlots } from "vue";
 const slots = useSlots();
 
 const props = defineProps({
+  clickable: {
+    type: Boolean,
+    default: false,
+  },
+  delay: {
+    type: Number,
+    default: 100,
+  },
   position: {
     type: String,
     default: "top",
@@ -33,20 +41,23 @@ const props = defineProps({
       return ["top", "bottom", "left", "right"].includes(value);
     },
   },
-  clickable: {
-    type: Boolean,
-    default: false,
-  },
 });
 
 const isVisible = ref<boolean>(false);
 const showContent = ref<boolean>(false);
+const timerId = ref<ReturnType<typeof setTimeout> | null>(null);
 
 const hasContentSlot = computed(() => !!slots.content);
 
 const showTooltip = () => {
   if (hasContentSlot.value) {
-    isVisible.value = true;
+    if (timerId.value) {
+      clearTimeout(timerId.value);
+    }
+
+    timerId.value = setTimeout(() => {
+      isVisible.value = true;
+    }, props.delay);
   }
 };
 
@@ -57,6 +68,10 @@ const toggleTooltip = () => {
 };
 
 const hideTooltip = () => {
+  if (timerId.value) {
+    clearTimeout(timerId.value);
+  }
+
   isVisible.value = false;
 };
 </script>

@@ -55,7 +55,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
 
           &lt;style lang="css"&gt;
@@ -98,7 +98,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -132,7 +132,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -166,7 +166,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -200,7 +200,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -208,6 +208,40 @@
         <Tooltip clickable>
           <div class="trigger">
             {{ $t("ui.tooltip.usage.clickable") }}
+          </div>
+          <template #content>
+            {{ $t("ui.tooltip.content") }}
+          </template>
+        </Tooltip>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.tooltip.usage.delay") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Tooltip :delay="1000"&gt;
+              &lt;div class="trigger"&gt;
+                Delay
+              &lt;/div&gt;
+              &lt;template #tooltip&gt;
+                This is a tooltip
+              &lt;/template&gt;
+            &lt;/Tooltip&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Tooltip } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Tooltip :delay="1000">
+          <div class="trigger">
+            {{ $t("ui.tooltip.label.delay") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -234,7 +268,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
 
           &lt;style lang="css"&gt;

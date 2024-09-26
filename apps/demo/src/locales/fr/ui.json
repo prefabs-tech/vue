@@ -133,14 +133,16 @@
     "content":"This is a tooltip",
     "label": {
       "button": "Tooltip",
-      "custom": "Custom"
+      "custom": "Custom",
+      "delay": "Delay"
     },
     "title": "Tooltip",
     "usage": {
       "basic":"Basic",
       "bottom": "Bottom",
-      "customStyle":"Custom style",
       "clickable": "Clickable",
+      "customStyle":"Custom style",
+      "delay": "With delay",
       "left": "Left",
       "right": "Right",
       "top": "Top"
