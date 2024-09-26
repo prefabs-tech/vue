@@ -140,6 +140,7 @@
       "basic":"Basic",
       "bottom": "Bottom",
       "customStyle":"Custom style",
+      "clickable": "Clickable",
       "left": "Left",
       "right": "Right",
       "top": "Top"

@@ -139,6 +139,7 @@
     "usage": {
       "basic":"Basic",
       "bottom": "Bottom",
+      "clickable": "Clickable",
       "customStyle":"Custom style",
       "left": "Left",
       "right": "Right",

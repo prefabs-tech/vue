@@ -14,8 +14,9 @@
               /&gt;
               &lt;template #tooltip&gt;
                 This is a tooltip
-                &lt;/template&gt;
+              &lt;/template&gt;
             &lt;/Tooltip&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { ButtonElement, Tooltip } from "@dzangolab/vue3-ui";
@@ -49,8 +50,9 @@
               /&gt;
               &lt;template #tooltip&gt;
                 This is a tooltip
-                &lt;/template&gt;
+              &lt;/template&gt;
             &lt;/Tooltip&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { Tooltip } from "@dzangolab/vue3-ui";
@@ -91,8 +93,9 @@
               &lt;/div&gt;
               &lt;template #tooltip&gt;
                 This is a tooltip
-                &lt;/template&gt;
+              &lt;/template&gt;
             &lt;/Tooltip&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { Tooltip } from "@dzangolab/vue3-ui";
@@ -124,8 +127,9 @@
               &lt;/div&gt;
               &lt;template #tooltip&gt;
                 This is a tooltip
-                &lt;/template&gt;
+              &lt;/template&gt;
             &lt;/Tooltip&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { Tooltip } from "@dzangolab/vue3-ui";
@@ -157,8 +161,9 @@
               &lt;/div&gt;
               &lt;template #tooltip&gt;
                 This is a tooltip
-                &lt;/template&gt;
+              &lt;/template&gt;
             &lt;/Tooltip&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { Tooltip } from "@dzangolab/vue3-ui";
@@ -169,6 +174,40 @@
         <Tooltip position="right">
           <div class="trigger">
             {{ $t("ui.tooltip.usage.right") }}
+          </div>
+          <template #content>
+            {{ $t("ui.tooltip.content") }}
+          </template>
+        </Tooltip>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.tooltip.usage.clickable") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Tooltip clickable&gt;
+              &lt;div class="trigger"&gt;
+                Clickable
+              &lt;/div&gt;
+              &lt;template #tooltip&gt;
+                This is a tooltip
+              &lt;/template&gt;
+            &lt;/Tooltip&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+            import { Tooltip } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Tooltip clickable>
+          <div class="trigger">
+            {{ $t("ui.tooltip.usage.clickable") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -190,8 +229,9 @@
               &lt;/div&gt;
               &lt;template #tooltip&gt;
                 This is a tooltip
-                &lt;/template&gt;
+              &lt;/template&gt;
             &lt;/Tooltip&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { Tooltip } from "@dzangolab/vue3-ui";
