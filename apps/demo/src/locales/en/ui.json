@@ -136,9 +136,28 @@
     "with-custom-icons": "With custom icons"
   },
   "tanstack-table": {
-    "title": "Tanstack Table"
+    "title": "Tanstack table"
   },
-  "title": "UI Library",
+  "title": "UI library",
+  "tooltip": {
+    "content":"This is a tooltip",
+    "label": {
+      "button": "Tooltip",
+      "custom": "Custom",
+      "delay": "Delay"
+    },
+    "title": "Tooltip",
+    "usage": {
+      "basic":"Basic",
+      "bottom": "Bottom",
+      "clickable": "Clickable",
+      "customStyle":"Custom style",
+      "delay": "With delay",
+      "left": "Left",
+      "right": "Right",
+      "top": "Top"
+    }
+  },
   "typography": {
     "title": "Typography"
   }
