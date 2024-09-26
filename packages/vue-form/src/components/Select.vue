@@ -193,10 +193,6 @@ onMounted(() => {
   width: max-content;
 }
 
-.multiple-mode.multiselect .multiselect-option {
-  padding: 8px;
-}
-
 .multiselect {
   display: inline-block;
   position: relative;
@@ -205,8 +201,8 @@ onMounted(() => {
 
 .multiselect-dropdown {
   background-color: #fff;
-  border: 1px solid #ccc;
   border-top: none;
+  border: 1px solid #ccc;
   list-style-type: none;
   margin: 0;
   max-height: 10rem;
