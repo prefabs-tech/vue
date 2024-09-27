@@ -1,7 +1,11 @@
 <template>
   <div class="card">
-    <header v-if="$slots.header" class="card-header">
-      <slot name="header"></slot>
+    <header v-if="$slots.header || title" class="card-header">
+      <slot name="header">
+        <h3 class="card-title">
+          {{ title }}
+        </h3>
+      </slot>
     </header>
 
     <div class="card-body">
@@ -20,4 +24,11 @@ export default {
 };
 </script>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps({
+  title: {
+    type: String,
+    default: undefined,
+  },
+});
+</script>
