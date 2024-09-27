@@ -1,4 +1,4 @@
-import{m as V,X as d,z as p}from"./DzangolabVue3Form.es-785049a4.js";import{d as x,u as _,b as $,e as c,o as T,c as F,w as o,a as t,t as m,f as n,g as l,h as e,r as h}from"./index-ca83194b.js";const y={class:"section-content"},w={class:"section-content"},z={class:"section-content"},S={class:"section-content"},U={class:"section-content"},E={class:"section-content"},C={class:"section-content"},q={class:"section-content"},O={class:"section-content"},D={name:"TextareaInputField"},W=x({...D,setup(M){const{t:f}=_(),g=V.string().min(15,{message:f("form.errors.input.min",{length:15})}),v={required:f("form.errors.input.required")},b={ignore_whitespace:!0,required:!0};let u=$({customRowsColsInput:c(),customStyleInput:c(),customValidationInput:c(),disabled:c("Disabled textarea input"),input:c(),inputWithValidation:c(),noLabelInput:c(),textInput:c()});return(a,r)=>{const i=h("SshPre"),I=h("Page");return T(),F(I,{title:a.$t("form.label.textarea"),class:"demo"},{default:o(()=>[t("section",null,[t("h2",null,m(a.$t("form.label.basicInput")),1),n(),t("div",y,[l(i,{language:"html-vue"},{default:o(()=>[n(`
+import{m as V,a as d,U as p}from"./DzangolabVue3Form.es-b2a75528.js";import{d as x,u as _,b as $,e as c,o as T,c as F,w as o,a as t,t as m,f as n,g as l,h as e,r as h}from"./index-4f12a9e4.js";const y={class:"section-content"},w={class:"section-content"},z={class:"section-content"},U={class:"section-content"},S={class:"section-content"},E={class:"section-content"},C={class:"section-content"},q={class:"section-content"},O={class:"section-content"},D={name:"TextareaInputField"},W=x({...D,setup(M){const{t:f}=_(),g=V.string().min(15,{message:f("form.errors.input.min",{length:15})}),v={required:f("form.errors.input.required")},b={ignore_whitespace:!0,required:!0};let u=$({customRowsColsInput:c(),customStyleInput:c(),customValidationInput:c(),disabled:c("Disabled textarea input"),input:c(),inputWithValidation:c(),noLabelInput:c(),textInput:c()});return(a,r)=>{const i=h("SshPre"),I=h("Page");return T(),F(I,{title:a.$t("form.label.textarea"),class:"demo"},{default:o(()=>[t("section",null,[t("h2",null,m(a.$t("form.label.basicInput")),1),n(),t("div",y,[l(i,{language:"html-vue"},{default:o(()=>[n(`
           <Form>
             <TextareaInput 
               v-model="input"
@@ -33,7 +33,7 @@ import{m as V,X as d,z as p}from"./DzangolabVue3Form.es-785049a4.js";import{d as
           <script setup lang="ts">
           import { Input } from "@dzangolab/vue3-form";
           <\/script>
-        `)]),_:1}),n(),l(e(p),null,{default:o(()=>[l(e(d),{modelValue:e(u).disabled,"onUpdate:modelValue":r[2]||(r[2]=s=>e(u).disabled=s),label:a.$t("form.label.disabled"),disabled:""},null,8,["modelValue","label"])]),_:1})])]),n(),t("section",null,[t("h2",null,m(a.$t("form.label.withI18n")),1),n(),t("div",S,[l(i,{language:"html-vue"},{default:o(()=>[n(`
+        `)]),_:1}),n(),l(e(p),null,{default:o(()=>[l(e(d),{modelValue:e(u).disabled,"onUpdate:modelValue":r[2]||(r[2]=s=>e(u).disabled=s),label:a.$t("form.label.disabled"),disabled:""},null,8,["modelValue","label"])]),_:1})])]),n(),t("section",null,[t("h2",null,m(a.$t("form.label.withI18n")),1),n(),t("div",U,[l(i,{language:"html-vue"},{default:o(()=>[n(`
           <Form>
             <TextareaInput 
               v-model="input"
@@ -48,7 +48,7 @@ import{m as V,X as d,z as p}from"./DzangolabVue3Form.es-785049a4.js";import{d as
 
           const { t } = useI18n();
           <\/script>
-        `)]),_:1}),n(),l(e(p),null,{default:o(()=>[l(e(d),{modelValue:e(u).input,"onUpdate:modelValue":r[3]||(r[3]=s=>e(u).input=s),label:a.$t("form.label.textarea"),placeholder:a.$t("form.placeholder.textarea")},null,8,["modelValue","label","placeholder"])]),_:1})])]),n(),t("section",null,[t("h2",null,m(a.$t("form.label.inputWithValidation")),1),n(),t("div",U,[l(i,{language:"html-vue"},{default:o(()=>[n(`
+        `)]),_:1}),n(),l(e(p),null,{default:o(()=>[l(e(d),{modelValue:e(u).input,"onUpdate:modelValue":r[3]||(r[3]=s=>e(u).input=s),label:a.$t("form.label.textarea"),placeholder:a.$t("form.placeholder.textarea")},null,8,["modelValue","label","placeholder"])]),_:1})])]),n(),t("section",null,[t("h2",null,m(a.$t("form.label.inputWithValidation")),1),n(),t("div",S,[l(i,{language:"html-vue"},{default:o(()=>[n(`
           <Form>
             <TextareaInput 
               v-model="input"

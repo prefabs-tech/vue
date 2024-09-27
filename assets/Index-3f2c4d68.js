@@ -1,4 +1,4 @@
-import{m as g,G as m,z as d}from"./DzangolabVue3Form.es-785049a4.js";import{d as I,u as F,b as V,e as c,o as D,c as _,w as o,a as n,t as b,f as e,g as t,h as l,r as f}from"./index-ca83194b.js";const E={class:"section-content"},$={class:"section-content"},N={class:"section-content"},H={class:"section-content"},y={class:"section-content"},P={class:"section-content"},B={class:"section-content"},z={class:"section-content"},G={name:"SelectInputField"},W=I({...G,setup(R){const{t:v}=F(),h=g.string({invalid_type_error:v("form.errors.multiSelect.invalid")}).array().min(1,{message:v("form.errors.multiSelect.invalid")});let u=V({customStyleInput:c(),disabled:c("DE"),disabledMultiSelect:c(["BE","DE"]),input:c(),inputWithValidation:c(),multiSelect:c(),noLabelInput:c()});const r=c([{value:"FR",label:"French"},{value:"DE",label:"German"},{value:"BE",label:"Dutch"},{value:"NP",label:"Nepali"},{value:"HI",label:"Hindi"}]);return(a,s)=>{const p=f("SshPre"),S=f("Page");return D(),_(S,{title:a.$t("form.label.select"),class:"demo"},{default:o(()=>[n("section",null,[n("h2",null,b(a.$t("form.label.basicInput")),1),e(),n("div",E,[t(p,{language:"html-vue"},{default:o(()=>[e(`
+import{m as g,e as m,U as d}from"./DzangolabVue3Form.es-b2a75528.js";import{d as I,u as F,b as V,e as c,o as D,c as _,w as o,a as n,t as b,f as l,g as t,h as e,r as f}from"./index-4f12a9e4.js";const E={class:"section-content"},$={class:"section-content"},N={class:"section-content"},H={class:"section-content"},y={class:"section-content"},P={class:"section-content"},B={class:"section-content"},z={class:"section-content"},U={name:"SelectInputField"},W=I({...U,setup(G){const{t:v}=F(),h=g.string({invalid_type_error:v("form.errors.multiSelect.invalid")}).array().min(1,{message:v("form.errors.multiSelect.invalid")});let u=V({customStyleInput:c(),disabled:c("DE"),disabledMultiSelect:c(["BE","DE"]),input:c(),inputWithValidation:c(),multiSelect:c(),noLabelInput:c()});const r=c([{value:"FR",label:"French"},{value:"DE",label:"German"},{value:"BE",label:"Dutch"},{value:"NP",label:"Nepali"},{value:"HI",label:"Hindi"}]);return(a,s)=>{const p=f("SshPre"),S=f("Page");return D(),_(S,{title:a.$t("form.label.select"),class:"demo"},{default:o(()=>[n("section",null,[n("h2",null,b(a.$t("form.label.basicInput")),1),l(),n("div",E,[t(p,{language:"html-vue"},{default:o(()=>[l(`
           <Form>
             <SelectInput
               v-model="input"
@@ -19,7 +19,7 @@ import{m as g,G as m,z as d}from"./DzangolabVue3Form.es-785049a4.js";import{d as
             { value: "HI", label: "Hindi" },
           ]);
           <\/script>
-        `)]),_:1}),e(),t(l(d),null,{default:o(()=>[t(l(m),{modelValue:l(u).noLabelInput,"onUpdate:modelValue":s[0]||(s[0]=i=>l(u).noLabelInput=i),options:r.value,placeholder:a.$t("form.placeholder.select")},null,8,["modelValue","options","placeholder"])]),_:1})])]),e(),n("section",null,[n("h2",null,b(a.$t("form.label.labelInput")),1),e(),n("div",$,[t(p,{language:"html-vue"},{default:o(()=>[e(`
+        `)]),_:1}),l(),t(e(d),null,{default:o(()=>[t(e(m),{modelValue:e(u).noLabelInput,"onUpdate:modelValue":s[0]||(s[0]=i=>e(u).noLabelInput=i),options:r.value,placeholder:a.$t("form.placeholder.select")},null,8,["modelValue","options","placeholder"])]),_:1})])]),l(),n("section",null,[n("h2",null,b(a.$t("form.label.labelInput")),1),l(),n("div",$,[t(p,{language:"html-vue"},{default:o(()=>[l(`
           <Form>
             <SelectInput 
               v-model="input"
@@ -41,7 +41,7 @@ import{m as g,G as m,z as d}from"./DzangolabVue3Form.es-785049a4.js";import{d as
             { value: "HI", label: "Hindi" },
           ]);
           <\/script>
-        `)]),_:1}),e(),t(l(d),null,{default:o(()=>[t(l(m),{modelValue:l(u).input,"onUpdate:modelValue":s[1]||(s[1]=i=>l(u).input=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.select")},null,8,["modelValue","label","options","placeholder"])]),_:1})])]),e(),n("section",null,[n("h2",null,b(a.$t("form.label.disabled")),1),e(),n("div",N,[t(p,{language:"html-vue"},{default:o(()=>[e(`
+        `)]),_:1}),l(),t(e(d),null,{default:o(()=>[t(e(m),{modelValue:e(u).input,"onUpdate:modelValue":s[1]||(s[1]=i=>e(u).input=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.select")},null,8,["modelValue","label","options","placeholder"])]),_:1})])]),l(),n("section",null,[n("h2",null,b(a.$t("form.label.disabled")),1),l(),n("div",N,[t(p,{language:"html-vue"},{default:o(()=>[l(`
           <Form>
             <SelectInput 
               v-model="disabled"
@@ -65,7 +65,7 @@ import{m as g,G as m,z as d}from"./DzangolabVue3Form.es-785049a4.js";import{d as
             { value: "HI", label: "Hindi" },
           ]);
           <\/script>
-        `)]),_:1}),e(),t(l(d),null,{default:o(()=>[t(l(m),{modelValue:l(u).disabled,"onUpdate:modelValue":s[2]||(s[2]=i=>l(u).disabled=i),label:a.$t("form.label.disabled"),options:r.value,disabled:""},null,8,["modelValue","label","options"])]),_:1})])]),e(),n("section",null,[n("h2",null,b(a.$t("form.label.withI18n")),1),e(),n("div",H,[t(p,{language:"html-vue"},{default:o(()=>[e(`
+        `)]),_:1}),l(),t(e(d),null,{default:o(()=>[t(e(m),{modelValue:e(u).disabled,"onUpdate:modelValue":s[2]||(s[2]=i=>e(u).disabled=i),label:a.$t("form.label.disabled"),options:r.value,disabled:""},null,8,["modelValue","label","options"])]),_:1})])]),l(),n("section",null,[n("h2",null,b(a.$t("form.label.withI18n")),1),l(),n("div",H,[t(p,{language:"html-vue"},{default:o(()=>[l(`
           <Form>
             <SelectInput 
               v-model="input"
@@ -90,7 +90,7 @@ import{m as g,G as m,z as d}from"./DzangolabVue3Form.es-785049a4.js";import{d as
             { value: "HI", label: "Hindi" },
           ]);
           <\/script>
-        `)]),_:1}),e(),t(l(d),null,{default:o(()=>[t(l(m),{modelValue:l(u).input,"onUpdate:modelValue":s[3]||(s[3]=i=>l(u).input=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.select")},null,8,["modelValue","label","options","placeholder"])]),_:1})])]),e(),n("section",null,[n("h2",null,b(a.$t("form.label.multiSelect")),1),e(),n("div",y,[t(p,{language:"html-vue"},{default:o(()=>[e(`
+        `)]),_:1}),l(),t(e(d),null,{default:o(()=>[t(e(m),{modelValue:e(u).input,"onUpdate:modelValue":s[3]||(s[3]=i=>e(u).input=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.select")},null,8,["modelValue","label","options","placeholder"])]),_:1})])]),l(),n("section",null,[n("h2",null,b(a.$t("form.label.multiSelect")),1),l(),n("div",y,[t(p,{language:"html-vue"},{default:o(()=>[l(`
           <Form>
             <SelectInput 
               v-model="input"
@@ -113,7 +113,7 @@ import{m as g,G as m,z as d}from"./DzangolabVue3Form.es-785049a4.js";import{d as
             { value: "HI", label: "Hindi" },
           ]);
           <\/script>
-        `)]),_:1}),e(),t(l(d),null,{default:o(()=>[t(l(m),{modelValue:l(u).multiSelect,"onUpdate:modelValue":s[4]||(s[4]=i=>l(u).multiSelect=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.multiSelect"),multiple:""},null,8,["modelValue","label","options","placeholder"])]),_:1})])]),e(),n("section",null,[n("h2",null,b(a.$t("form.label.disabledMultiSelect")),1),e(),n("div",P,[t(p,{language:"html-vue"},{default:o(()=>[e(`
+        `)]),_:1}),l(),t(e(d),null,{default:o(()=>[t(e(m),{modelValue:e(u).multiSelect,"onUpdate:modelValue":s[4]||(s[4]=i=>e(u).multiSelect=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.multiSelect"),multiple:""},null,8,["modelValue","label","options","placeholder"])]),_:1})])]),l(),n("section",null,[n("h2",null,b(a.$t("form.label.disabledMultiSelect")),1),l(),n("div",P,[t(p,{language:"html-vue"},{default:o(()=>[l(`
           <Form>
             <SelectInput 
               v-model="disabled"
@@ -138,7 +138,7 @@ import{m as g,G as m,z as d}from"./DzangolabVue3Form.es-785049a4.js";import{d as
             { value: "HI", label: "Hindi" },
           ]);
           <\/script>
-        `)]),_:1}),e(),t(l(d),null,{default:o(()=>[t(l(m),{modelValue:l(u).disabledMultiSelect,"onUpdate:modelValue":s[5]||(s[5]=i=>l(u).disabledMultiSelect=i),label:a.$t("form.label.disabled"),options:r.value,disabled:"",multiple:""},null,8,["modelValue","label","options"])]),_:1})])]),e(),n("section",null,[n("h2",null,b(a.$t("form.label.inputWithValidation")),1),e(),n("div",B,[t(p,{language:"html-vue"},{default:o(()=>[e(`
+        `)]),_:1}),l(),t(e(d),null,{default:o(()=>[t(e(m),{modelValue:e(u).disabledMultiSelect,"onUpdate:modelValue":s[5]||(s[5]=i=>e(u).disabledMultiSelect=i),label:a.$t("form.label.disabled"),options:r.value,disabled:"",multiple:""},null,8,["modelValue","label","options"])]),_:1})])]),l(),n("section",null,[n("h2",null,b(a.$t("form.label.inputWithValidation")),1),l(),n("div",B,[t(p,{language:"html-vue"},{default:o(()=>[l(`
           <Form>
             <SelectInput 
               v-model="input"
@@ -167,7 +167,7 @@ import{m as g,G as m,z as d}from"./DzangolabVue3Form.es-785049a4.js";import{d as
             { value: "HI", label: "Hindi" },
           ]);
           <\/script>
-        `)]),_:1}),e(),t(l(d),null,{default:o(()=>[t(l(m),{modelValue:l(u).inputWithValidation,"onUpdate:modelValue":s[6]||(s[6]=i=>l(u).inputWithValidation=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.multiSelect"),schema:l(h),multiple:""},null,8,["modelValue","label","options","placeholder","schema"])]),_:1})])]),e(),n("section",null,[n("h2",null,b(a.$t("form.label.customStyleInput")),1),e(),n("div",z,[t(p,{language:"html-vue"},{default:o(()=>[e(`
+        `)]),_:1}),l(),t(e(d),null,{default:o(()=>[t(e(m),{modelValue:e(u).inputWithValidation,"onUpdate:modelValue":s[6]||(s[6]=i=>e(u).inputWithValidation=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.multiSelect"),schema:e(h),multiple:""},null,8,["modelValue","label","options","placeholder","schema"])]),_:1})])]),l(),n("section",null,[n("h2",null,b(a.$t("form.label.customStyleInput")),1),l(),n("div",z,[t(p,{language:"html-vue"},{default:o(()=>[l(`
           <Form>
             <SelectInput 
               v-model="input"
@@ -208,4 +208,4 @@ import{m as g,G as m,z as d}from"./DzangolabVue3Form.es-785049a4.js";import{d as
             --_multiselect-selected-color: #fff;
           }
         </style>
-        `)]),_:1}),e(),t(l(d),null,{default:o(()=>[t(l(m),{modelValue:l(u).multiSelect,"onUpdate:modelValue":s[7]||(s[7]=i=>l(u).multiSelect=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.multiSelect"),class:"custom-style-select",multiple:""},null,8,["modelValue","label","options","placeholder"])]),_:1})])])]),_:1},8,["title"])}}});export{W as default};
+        `)]),_:1}),l(),t(e(d),null,{default:o(()=>[t(e(m),{modelValue:e(u).multiSelect,"onUpdate:modelValue":s[7]||(s[7]=i=>e(u).multiSelect=i),label:a.$t("form.label.select"),options:r.value,placeholder:a.$t("form.placeholder.multiSelect"),class:"custom-style-select",multiple:""},null,8,["modelValue","label","options","placeholder"])]),_:1})])])]),_:1},8,["title"])}}});export{W as default};
