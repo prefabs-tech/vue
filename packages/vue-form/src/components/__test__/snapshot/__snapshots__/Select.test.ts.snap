@@ -12,12 +12,54 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
   <div
     class="multiselect-input"
   >
-    <span>
+    <span
+      class="selected-options"
+    >
       
       <span
         class="selected-option"
       >
-        FE
+        FR 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
+      </span>
+      <span
+        class="selected-option"
+      >
+        DE 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
+      </span>
+      <span
+        class="selected-option"
+      >
+        BE 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
+      </span>
+      <span
+        class="selected-option"
+      >
+        FE 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
+      </span>
+      <span
+        class="selected-option"
+      >
+        RE 
+        <img
+          class="remove-option"
+          src="/src/assets/svg/x-mark.svg"
+        />
       </span>
       
     </span>
@@ -25,31 +67,54 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
   <ul
     class="multiselect-dropdown"
   >
+    <li
+      class="multiselect-option"
+    >
+      <input
+        type="checkbox"
+      />
+       Select all 
+    </li>
     
     <li
       class="multiselect-option"
     >
-      FR
+      <input
+        type="checkbox"
+      />
+       FR
     </li>
     <li
       class="multiselect-option"
     >
-      DE
+      <input
+        type="checkbox"
+      />
+       DE
     </li>
     <li
       class="multiselect-option"
     >
-      BE
-    </li>
-    <li
-      class="multiselect-option selected"
-    >
-      FE
+      <input
+        type="checkbox"
+      />
+       BE
     </li>
     <li
       class="multiselect-option"
     >
-      RE
+      <input
+        type="checkbox"
+      />
+       FE
+    </li>
+    <li
+      class="multiselect-option"
+    >
+      <input
+        type="checkbox"
+      />
+       RE
     </li>
     
   </ul>
@@ -68,12 +133,15 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
   <div
     class="multiselect-input"
   >
-    <span>
+    <span
+      class="selected-options"
+    >
       
       <span
         class="selected-option"
       >
-        FR
+        FR 
+        <!--v-if-->
       </span>
       
     </span>
@@ -81,31 +149,37 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
   <ul
     class="multiselect-dropdown"
   >
+    <!--v-if-->
     
     <li
       class="multiselect-option selected"
     >
-      FR
+      <!--v-if-->
+       FR
     </li>
     <li
       class="multiselect-option"
     >
-      DE
+      <!--v-if-->
+       DE
     </li>
     <li
       class="multiselect-option"
     >
-      BE
+      <!--v-if-->
+       BE
     </li>
     <li
       class="multiselect-option"
     >
-      FE
+      <!--v-if-->
+       FE
     </li>
     <li
       class="multiselect-option"
     >
-      RE
+      <!--v-if-->
+       RE
     </li>
     
   </ul>
