@@ -12,26 +12,39 @@
       class="multiselect-input"
       @click="toggleDropdown"
     >
-      <span v-if="!selectedOptions.length" class="multiselect-placeholder">{{
-        placeholder
-      }}</span>
-      <span v-else>
+      <span v-if="!selectedOptions.length" class="multiselect-placeholder">
+        {{ placeholder }}
+      </span>
+      <span v-else class="selected-options">
         <span
           v-for="selectedOption in selectedOptions"
           :key="selectedOption.label"
           class="selected-option"
-          >{{ selectedOption.label }}
+          @click="disabled ? '' : onSelect($event, selectedOption)"
+        >
+          {{ selectedOption.label }}
+
+          <img
+            v-if="multiple"
+            src="./../assets/svg/x-mark.svg"
+            class="remove-option"
+          />
         </span>
       </span>
     </div>
     <ul v-if="showDropdownMenu && !disabled" class="multiselect-dropdown">
+      <li v-if="multiple" class="multiselect-option" @click="onSelectAll()">
+        <input type="checkbox" :checked="isAllSelected(options)" />
+        Select all
+      </li>
       <li
         v-for="option in options"
         :key="option.label"
         class="multiselect-option"
-        :class="{ selected: isSelected(option) }"
-        @click="onSelect(option)"
+        :class="{ selected: isSelected(option) && !multiple }"
+        @click="onSelect($event, option)"
       >
+        <input v-if="multiple" type="checkbox" :checked="isSelected(option)" />
         {{ option.label }}
       </li>
     </ul>
@@ -96,12 +109,24 @@ onClickOutside(dzangolabVueFormSelect, (event) => {
 const getSelectedOption = (value: number | string) =>
   options.value?.find((option) => option.value === value);
 
+const isAllSelected = (options: SelectOption[]): boolean => {
+  if (selectedOptions.value.length != options.length) {
+    return false;
+  }
+
+  return selectedOptions.value.every((selectedOption) =>
+    options.includes(selectedOption)
+  );
+};
+
 const isSelected = (option: SelectOption): boolean =>
   selectedOptions.value.some(
     (selectedOption) => selectedOption.value === option.value
   );
 
-const onSelect = (option: SelectOption) => {
+const onSelect = (event: Event, option: SelectOption) => {
+  event.stopPropagation();
+
   const index = selectedOptions.value.findIndex(
     (i) => i.value === option.value
   );
@@ -123,6 +148,16 @@ const onSelect = (option: SelectOption) => {
     showDropdownMenu.value = false;
 
     emit("update:modelValue", option.value);
+  }
+};
+
+const onSelectAll = () => {
+  const allSelected = isAllSelected(props.options);
+
+  if (allSelected) {
+    selectedOptions.value = [];
+  } else {
+    selectedOptions.value = [...props.options];
   }
 };
 
@@ -148,22 +183,26 @@ onMounted(() => {
   --_multiselect-tag-border-radius: var(--multiselect-tag-border-radius, 2rem);
   --_multiselect-tag-color: var(--multiselect-tag-color, rgb(215, 194, 253));
 
+  align-items: center;
   background-color: var(--_multiselect-tag-color);
   border-radius: var(--_multiselect-tag-border-radius);
+  display: flex;
+  gap: 0.5em;
   margin-right: 0.25rem;
   padding: 0.25rem 0.6rem;
+  width: max-content;
 }
 
 .multiselect {
-  position: relative;
   display: inline-block;
+  position: relative;
   width: 100%;
 }
 
 .multiselect-dropdown {
   background-color: #fff;
-  border: 1px solid #ccc;
   border-top: none;
+  border: 1px solid #ccc;
   list-style-type: none;
   margin: 0;
   max-height: 10rem;
@@ -177,9 +216,11 @@ onMounted(() => {
 .multiselect-input {
   --_multiselect-border-color: var(--form-input-border-color, #555);
 
-  padding: 10px;
+  align-content: center;
   border: 1px solid var(--_multiselect-border-color);
   cursor: pointer;
+  min-height: 3rem;
+  padding: 10px;
   user-select: none;
 }
 
@@ -199,8 +240,14 @@ onMounted(() => {
 }
 
 .multiselect-option {
-  padding: 10px;
   cursor: pointer;
+  display: flex;
+  gap: 0.5em;
+  padding: 10px;
+}
+
+.multiselect-option input {
+  width: auto;
 }
 
 .multiselect-option.selected {
@@ -222,5 +269,13 @@ onMounted(() => {
 
 .multiselect.valid .multiselect-input {
   border-color: var(--color-alert-success, #198754);
+}
+
+.selected-option .remove-option {
+  height: 1rem;
+}
+
+.selected-options {
+  display: flex;
 }
 </style>
