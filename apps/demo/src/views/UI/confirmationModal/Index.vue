@@ -68,7 +68,6 @@
                 severity="success"
                 @click="showModal = true"
               /&gt;
-              &lt;span&gt;{{ currentTime }}&lt;/span&gt;
             &lt;/div&gt;
 
             &lt;ConfirmationModal
@@ -83,7 +82,6 @@
             import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
             import { ref } from "vue";
 
-            const currentTime = ref(undefined as unknown as Date);
             const showModal = ref(false);
           &lt;/script&gt;
         </SshPre>
@@ -107,7 +105,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.confirmationModal.usage.manualContent") }}</h2>
+      <h2>{{ $t("ui.confirmationModal.usage.disableHeader") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -119,13 +117,159 @@
                 severity="success"
                 @click="showModal = true"
               /&gt;
-              &lt;span&gt;{{ currentTime }}&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;ConfirmationModal
+              v-show="showModal"
+              disable-header
+              @on:close="showModal = false"
+              @on:confirm="showModal = false"
+            /&gt;
+          &lt;/template&gt; 
+
+          &lt;script setup lang="ts"&gt;
+            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ref } from "vue";
+
+            const showModal = ref(false);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.confirmationModal.buttonLabel.confirm')"
+            severity="success"
+            @click="showDisabledHeaderModal = true"
+          />
+        </div>
+
+        <ConfirmationModal
+          v-show="showDisabledHeaderModal"
+          disable-header
+          @on:close="showDisabledHeaderModal = false"
+          @on:confirm="showDisabledHeaderModal = false"
+        />
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.confirmationModal.usage.disableBody") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;div&gt;
+              &lt;ButtonElement
+                label="Confirm"
+                severity="success"
+                @click="showModal = true"
+              /&gt;
+            &lt;/div&gt;
+
+            &lt;ConfirmationModal
+              v-show="showModal"
+              disable-body
+              @on:close="showModal = false"
+              @on:confirm="showModal = false"
+            /&gt;
+          &lt;/template&gt; 
+
+          &lt;script setup lang="ts"&gt;
+            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ref } from "vue";
+
+            const showModal = ref(false);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.confirmationModal.buttonLabel.confirm')"
+            severity="success"
+            @click="showDisabledBodyModal = true"
+          />
+        </div>
+
+        <ConfirmationModal
+          v-show="showDisabledBodyModal"
+          disable-body
+          @on:close="showDisabledBodyModal = false"
+          @on:confirm="showDisabledBodyModal = false"
+        />
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.confirmationModal.usage.disableFooter") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;div&gt;
+              &lt;ButtonElement
+                label="Confirm"
+                severity="success"
+                @click="showModal = true"
+              /&gt;
+            &lt;/div&gt;
+
+            &lt;ConfirmationModal
+              v-show="showModal"
+              disable-footer
+              @on:close="showModal = false"
+              @on:confirm="showModal = false"
+            /&gt;
+          &lt;/template&gt; 
+
+          &lt;script setup lang="ts"&gt;
+            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ref } from "vue";
+
+            const showModal = ref(false);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.confirmationModal.buttonLabel.confirm')"
+            severity="success"
+            @click="showDisabledFooterModal = true"
+          />
+        </div>
+
+        <ConfirmationModal
+          v-show="showDisabledFooterModal"
+          disable-footer
+          @on:close="showDisabledFooterModal = false"
+          @on:confirm="showDisabledFooterModal = false"
+        />
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.confirmationModal.usage.customContent") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;div&gt;
+              &lt;ButtonElement
+                label="Confirm"
+                severity="success"
+                @click="showModal = true"
+              /&gt;
             &lt;/div&gt;
 
             &lt;ConfirmationModal
               v-show="showModal"
               @on:close="showModal = false"
-              @on:confirm="showCustomContentModal = false"
+              @on:confirm="showModal = false"
             &gt;
               &lt;template #header&gt;
                 &lt;span&gt;Delete user&lt;/span&gt;
@@ -146,7 +290,6 @@
             import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
             import { ref } from "vue";
 
-            const currentTime = ref(undefined as unknown as Date);
             const showModal = ref(false);
           &lt;/script&gt;
         </SshPre>
@@ -206,13 +349,12 @@
                 severity="success"
                 @click="showModal = true"
               /&gt;
-              &lt;span&gt;{{ currentTime }}&lt;/span&gt;
             &lt;/div&gt;
 
             &lt;ConfirmationModal
               v-show="showModal"
               @on:close="showModal = false"
-              @on:confirm="showCustomContentModal = false"
+              @on:confirm="showModal = false"
             &gt;
               &lt;template #header&gt;
                 &lt;span&gt;
@@ -242,7 +384,6 @@
             import { ref } from "vue";
             import { useI18n } from "@dzangolab/vue3-i18n";
 
-            const currentTime = ref(undefined as unknown as Date);
             const showModal = ref(false);
             const { t } = useI18n();
           &lt;/script&gt;
@@ -253,15 +394,15 @@
           <ButtonElement
             :label="$t('ui.confirmationModal.buttonLabel.confirm')"
             severity="success"
-            @click="showCustomContentModal = true"
+            @click="showI18nModal = true"
           />
           <span>{{ currentTime }}</span>
         </div>
 
         <ConfirmationModal
-          v-show="showCustomContentModal"
-          @on:close="showCustomContentModal = false"
-          @on:confirm="showCustomContentModal = false"
+          v-show="showI18nModal"
+          @on:close="showI18nModal = false"
+          @on:confirm="showI18nModal = false"
         >
           <template #header>
             <span>
@@ -299,6 +440,10 @@ import { ref } from "vue";
 const currentTime = ref(undefined as unknown as Date);
 const showBorderedModal = ref(false);
 const showCustomContentModal = ref(false);
+const showDisabledBodyModal = ref(false);
+const showDisabledFooterModal = ref(false);
+const showDisabledHeaderModal = ref(false);
+const showI18nModal = ref(false);
 const showModal = ref(false);
 
 function onConfirm() {

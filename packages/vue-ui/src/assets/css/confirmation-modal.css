@@ -51,6 +51,7 @@
 
 .modal .modal-header svg {
   cursor: pointer;
+  margin-left: auto;
 }
 
 .modal .modal-wrapper {
