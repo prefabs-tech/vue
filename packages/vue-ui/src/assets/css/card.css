@@ -4,7 +4,8 @@
   --card-box-shadow-color: rgba(0, 0, 0, 0.1);
   --card-footer-bg-color: #fff;
   --card-header-bg-color: #fff;
-  --card-footer-text-color: #555;
+  --card-footer-font-size: 1rem;
+  --card-footer-text-color: #000;
   --card-padding: 1rem;
 }
 
@@ -21,12 +22,13 @@
 
 .card-footer {
   --_bg-color: var(--card-footer-bg-color, #fff);
+  --_font-size: var(--card-footer-font-size, 1rem);
   --_padding: var(--card-padding, 1rem);
-  --_text-color: var(--card-text-color, #555);
+  --_text-color: var(--card-text-color, #000);
 
   background-color: var(--_bg-color);
   color: var(--_text-color);
-  font-size: 0.9rem;
+  font-size: var(--_font-size);
   padding: var(--_padding);
 }
 

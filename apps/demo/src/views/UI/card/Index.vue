@@ -9,13 +9,7 @@
           &lt;template&gt;
             &lt;Card title="Lorem ipsum"&gt;
               &lt;p&gt;
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                ...
               &lt;/p&gt;
             &lt;/Card&gt;
           &lt;/template&gt;
@@ -78,17 +72,11 @@
                 &lt;h3&gt;Lorem ipsum&lt;/h3&gt;
               &lt;/template&gt;
               &lt;p&gt;
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                ...
               &lt;/p&gt;
               &lt;template #footer&gt;
                 &lt;div class="footer"&gt;
-                  The standard Lorem Ipsum passage, used since the 1500s
+                  ...
                 &lt;/div&gt;
               &lt;/template&gt;
             &lt;/Card&gt;
@@ -130,17 +118,11 @@
                 &lt;h3&gt;Lorem ipsum&lt;/h3&gt;
               &lt;/template&gt;
               &lt;p&gt;
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                ...
               &lt;/p&gt;
               &lt;template #footer&gt;
                 &lt;div class="footer"&gt;
-                  The standard Lorem Ipsum passage, used since the 1500s
+                  ...
                 &lt;/div&gt;
               &lt;/template&gt;
             &lt;/Card&gt;
@@ -189,5 +171,7 @@ import { Card } from "@dzangolab/vue3-ui";
 
 .custom-style-card .card-footer {
   --_bg-color: #f5f5f5;
+  --_font-size: 0.9rem;
+  --_text-color: #555;
 }
 </style>
