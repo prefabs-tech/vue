@@ -97,7 +97,8 @@
       "basic": "Basic",
       "customStyle":"Custom style",
       "slots": "With slots",
-      "withI18n": "With i18n"
+      "withI18n": "With i18n",
+      "withTitle": "With title"
     }
   },
   "confirmationModal": {

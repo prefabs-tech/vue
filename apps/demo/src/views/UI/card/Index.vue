@@ -7,6 +7,34 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
+            &lt;Card&gt;
+              &lt;p&gt;
+                ...
+              &lt;/p&gt;
+            &lt;/Card&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Card } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Card>
+          <p class="content">
+            {{ $t("ui.card.content") }}
+          </p>
+        </Card>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.card.usage.withTitle") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
             &lt;Card title="Lorem ipsum"&gt;
               &lt;p&gt;
                 ...
