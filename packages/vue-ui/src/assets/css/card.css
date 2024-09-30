@@ -6,7 +6,8 @@
   --card-header-bg-color: #fff;
   --card-footer-font-size: 1rem;
   --card-footer-text-color: #000;
-  --card-padding: 1rem;
+  --card-header-margin-top: 0.25rem;
+  --card-padding: 0.625rem;
 }
 
 .card {
@@ -23,7 +24,7 @@
 .card-footer {
   --_bg-color: var(--card-footer-bg-color, #fff);
   --_font-size: var(--card-footer-font-size, 1rem);
-  --_padding: var(--card-padding, 1rem);
+  --_padding: var(--card-padding, 0.625rem);
   --_text-color: var(--card-text-color, #000);
 
   background-color: var(--_bg-color);
@@ -34,15 +35,17 @@
 
 .card-header {
   --_bg-color: var(--card-header-bg-color, #fff);
-  --_padding: var(--card-padding, 1rem);
+  --_margin-top: var(--card-header-margin-top, 0.25rem);
+  --_padding: var(--card-padding, 0.625rem);
 
   background-color: var(--_bg-color);
   font-weight: 600;
+  margin-top: var(--_margin-top);
   padding: var(--_padding);
 }
 
 .card-body {
-  --_padding: var(--card-padding, 1rem);
+  --_padding: var(--card-padding, 0.625rem);
 
   padding: var(--_padding);
 }
