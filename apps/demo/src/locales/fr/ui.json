@@ -117,6 +117,7 @@
     "usage": {
       "basic": "Basic",
       "customContent": "Custom content",
+      "customStyle":"Custom style",
       "disableBody": "Disable body",
       "disableFooter": "Disable footer",
       "disableHeader": "Disable header",
