@@ -35,6 +35,38 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.card.usage.withI18n") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Card :title="t('ui.card.headerContent')"&gt;
+              &lt;p&gt;
+                &lbrace;&lbrace; t('ui.card.content') &rbrace;&rbrace;
+              &lt;/p&gt;
+            &lt;/Card&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Card } from "@dzangolab/vue3-ui";
+
+          import { useI18n } from "@dzangolab/vue3-i18n";
+
+          const { t } = useI18n();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Card :title="$t('ui.card.headerContent')">
+          <p class="content">
+            {{ $t("ui.card.content") }}
+          </p>
+        </Card>
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.card.usage.slots") }}</h2>
 
       <div class="section-content">
