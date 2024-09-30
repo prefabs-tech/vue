@@ -46,7 +46,7 @@
       "iconWithText": "Icon with text",
       "rounded": "Rounded",
       "severity": "Severity",
-      "withI18n": "With I18n"
+      "withI18n": "With i18n"
     }
   },
   "button": {
@@ -85,7 +85,7 @@
       "text": "Text",
       "tooltip": "Button with tooltip",
       "variant": "Variant",
-      "withI18n": "With I18n"
+      "withI18n": "With i18n"
     }
   },
   "card": {
@@ -102,12 +102,26 @@
     }
   },
   "confirmationModal": {
+    "bodyContent": {
+      "confirmDelete": "Are you sure to delete user?"
+    },
     "buttonLabel": {
-      "confirm": "Confirm"
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "delete": "Delete"
+    },
+    "headerContent": {
+      "deleteUser": "Delete user"
     },
     "title": "Confirmation modal",
     "usage": {
-      "basic": "Basic"
+      "basic": "Basic",
+      "customContent": "Custom content",
+      "disableBody": "Disable body",
+      "disableFooter": "Disable footer",
+      "disableHeader": "Disable header",
+      "withBorder": "With border",
+      "withI18n": "With i18n"
     }
   },
   "subPane": {

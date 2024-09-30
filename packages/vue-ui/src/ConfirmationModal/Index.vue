@@ -1,16 +1,16 @@
 <template>
-  <div class="modal">
+  <div :class="modalClassName">
     <div class="modal-wrapper" @click="handleClose()">
       <div class="modal-container">
         <div class="modal-header">
-          <slot name="header" class="title">
+          <slot v-if="!disableHeader" name="header">
             <span>Confirmation required</span>
           </slot>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1.5em"
-            height="1.5em"
+            width="1em"
+            height="1em"
             viewBox="0 0 16 16"
             @click="handleClose()"
           >
@@ -21,13 +21,13 @@
           </svg>
         </div>
 
-        <div class="modal-body">
+        <div v-if="!disableBody" class="modal-body">
           <slot name="body">
             <p>Are you sure you want to proceed?</p>
           </slot>
         </div>
 
-        <div class="modal-footer">
+        <div v-if="!disableFooter" class="modal-footer">
           <slot name="footer">
             <ButtonElement
               size="small"
@@ -56,9 +56,34 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { computed } from "vue";
+
 import ButtonElement from "../Button/Index.vue";
 
 const emits = defineEmits(["on:confirm", "on:close"]);
+
+const props = defineProps({
+  border: {
+    default: false,
+    type: Boolean,
+  },
+  disableBody: {
+    default: false,
+    type: Boolean,
+  },
+  disableHeader: {
+    default: false,
+    type: Boolean,
+  },
+  disableFooter: {
+    default: false,
+    type: Boolean,
+  },
+});
+
+const modalClassName = computed(() => {
+  return ["modal", props.border && "bordered-modal"].filter(Boolean).join(" ");
+});
 
 function handleConfirm() {
   emits("on:confirm");
