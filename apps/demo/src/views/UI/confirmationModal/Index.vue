@@ -21,7 +21,7 @@
               @on:close="showModal = false"
               @on:confirm="onConfirm()"
             /&gt;
-          &lt;/template&gt; 
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
@@ -76,7 +76,7 @@
               @on:close="showModal = false"
               @on:confirm="showModal = false"
             /&gt;
-          &lt;/template&gt; 
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
@@ -125,7 +125,7 @@
               @on:close="showModal = false"
               @on:confirm="showModal = false"
             /&gt;
-          &lt;/template&gt; 
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
@@ -174,7 +174,7 @@
               @on:close="showModal = false"
               @on:confirm="showModal = false"
             /&gt;
-          &lt;/template&gt; 
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
@@ -223,7 +223,7 @@
               @on:close="showModal = false"
               @on:confirm="showModal = false"
             /&gt;
-          &lt;/template&gt; 
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
@@ -284,7 +284,7 @@
                 &lt;ButtonElement label="Confirm" severity="danger" /&gt;
               &lt;/template&gt;
             &lt;/ConfirmationModal&gt;
-          &lt;/template&gt; 
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
             import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
@@ -430,6 +430,66 @@
         </ConfirmationModal>
       </div>
     </section>
+
+    <section>
+      <h2>Custom style</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;div&gt;
+              &lt;ButtonElement
+                label="Confirm"
+                severity="success"
+                @click="showModal = true"
+              /&gt;
+            &lt;/div&gt;
+
+            &lt;ConfirmationModal
+              v-show="showModal"
+              class="custom-modal"
+              @on:close="showModal = false"
+              @on:confirm="showModal = false"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ref } from "vue";
+
+            const showModal = ref(false);
+          &lt;/script&gt;
+
+          &lt;style lang="css"&gt;
+            .custom-modal .modal-header {
+              --_background-color: #007aff;
+              --_text-color: #ffffff;
+            }
+
+            .custom-modal .modal-header svg {
+              --_icon-color: #dee2e6;
+            }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.confirmationModal.buttonLabel.confirm')"
+            severity="success"
+            @click="showCustomStyleModal = true"
+          />
+        </div>
+
+        <ConfirmationModal
+          v-show="showCustomStyleModal"
+          class="custom-modal"
+          @on:close="showCustomStyleModal = false"
+          @on:confirm="showCustomStyleModal = false"
+        />
+      </div>
+    </section>
   </Page>
 </template>
 
@@ -440,6 +500,7 @@ import { ref } from "vue";
 const currentTime = ref(undefined as unknown as Date);
 const showBorderedModal = ref(false);
 const showCustomContentModal = ref(false);
+const showCustomStyleModal = ref(false);
 const showDisabledBodyModal = ref(false);
 const showDisabledFooterModal = ref(false);
 const showDisabledHeaderModal = ref(false);
@@ -452,7 +513,16 @@ function onConfirm() {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
+.custom-modal .modal-header {
+  --_background-color: #007aff;
+  --_text-color: #ffffff;
+}
+
+.custom-modal .modal-header svg {
+  --_icon-color: #dee2e6;
+}
+
 .demo .container {
   align-items: center;
   display: flex;
