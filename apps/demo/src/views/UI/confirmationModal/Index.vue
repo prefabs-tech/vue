@@ -432,7 +432,7 @@
     </section>
 
     <section>
-      <h2>Custom style</h2>
+      <h2>{{ $t("ui.confirmationModal.usage.customStyle") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
