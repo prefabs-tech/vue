@@ -40,8 +40,8 @@
 }
 
 .modal .modal-header {
-  --_background-color: #ffffff;
-  --_text-color: #000000;
+  --_background-color: var(--bg-color, #ffffff);
+  --_text-color: var(--modal-text-color, #000000);
 
   align-items: center;
   background-color: var(--_background-color);
@@ -55,7 +55,7 @@
 }
 
 .modal .modal-header svg {
-  --_icon-color: #000000;
+  --_icon-color: var(--icon-color, #000000);
 
   color: var(--_icon-color);
   cursor: pointer;
