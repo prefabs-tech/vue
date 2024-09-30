@@ -1,6 +1,7 @@
 const Accordion = () => import("@/views/UI/accordion/Index.vue");
 const Badge = () => import("@/views/UI/badge/Index.vue");
 const Button = () => import("@/views/UI/button/Index.vue");
+const Card = () => import("@/views/UI/card/Index.vue");
 const ConfirmationModal = () =>
   import("@/views/UI/confirmationModal/Index.vue");
 const SubPane = () => import("@/views/UI/SubPanePage.vue");
@@ -63,6 +64,11 @@ const routes = [
         component: Tooltip,
         name: "tooltip",
         path: "tooltip",
+      },
+      {
+        component: Card,
+        name: "card",
+        path: "card",
       },
     ],
   },
