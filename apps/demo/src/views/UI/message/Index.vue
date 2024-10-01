@@ -16,7 +16,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Message :message="$t('ui.message.messages.message1')" />
+        <Message :message="$t('ui.message.contents.content1')" />
       </div>
     </section>
 
@@ -40,7 +40,7 @@
         <!-- eslint-enable -->
 
         <Message
-          :message="$t('ui.message.messages.message2')"
+          :message="$t('ui.message.contents.content2')"
           icon="pi pi-android"
         />
       </div>
@@ -69,7 +69,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Message :message="$t('ui.message.messages.message3')" icon="true">
+        <Message :message="$t('ui.message.contents.content3')" icon="true">
           <template #icon>
             <i class="pi pi-bell" />
           </template>
@@ -108,7 +108,7 @@
 
         <Message
           v-if="displayMessage"
-          :message="$t('ui.message.messages.message4')"
+          :message="$t('ui.message.contents.content4')"
           icon="pi pi-comments"
           enableClose
           @close="displayMessage = false"
@@ -135,7 +135,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Message :message="$t('ui.message.messages.message1')" />
+        <Message :message="$t('ui.message.contents.content1')" />
       </div>
     </section>
 
@@ -169,7 +169,7 @@
 
         <Message
           class="custom-message"
-          :message="$t('ui.message.messages.message5')"
+          :message="$t('ui.message.contents.content5')"
           icon="pi pi-exclamation-triangle"
         />
       </div>

@@ -126,12 +126,12 @@
     }
   },
   "message": {
-    "messages": {
-      "message1": "Season sale: Up to 50% off selected items!",
-      "message2": "New features just launched! Check them out!",
-      "message3": "New Year, New You: Start fresh with our services!",
-      "message4": "We value your feedback: take our quick survey!",
-      "message5": "Warning: Limited time only! Sale ends soon!"
+    "contents": {
+      "content1": "Season sale: Up to 50% off selected items!",
+      "content2": "New features just launched! Check them out!",
+      "content3": "New Year, New You: Start fresh with our services!",
+      "content4": "We value your feedback: take our quick survey!",
+      "content5": "Warning: Limited time only! Sale ends soon!"
     },
     "title": "Message",
     "usage": {
