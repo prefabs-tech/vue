@@ -1,4 +1,4 @@
-import{d as u,o as p,c as m,w as a,a as t,t as s,f as e,g as o,h as i,a6 as r,r as d}from"./index-0cbaa980.js";const h={class:"section-content"},_={class:"content"},f={class:"section-content"},g={class:"content"},C={class:"section-content"},v={class:"content"},$={class:"section-content"},b={class:"title"},y={class:"content"},z={class:"footer"},I={class:"section-content"},w={class:"title"},P={class:"content"},S={class:"footer"},V=u({__name:"Index",setup(B){return(n,L)=>{const l=d("SshPre"),c=d("Page");return p(),m(c,{title:n.$t("ui.card.title"),class:"demo"},{default:a(()=>[t("section",null,[t("h2",null,s(n.$t("ui.card.usage.basic")),1),e(),t("div",h,[o(l,{language:"html-vue"},{default:a(()=>[e(`
+import{d as u,o as p,c as m,w as a,a as t,t as s,f as e,g as o,h as i,a6 as r,r as d}from"./index-60629793.js";const h={class:"section-content"},_={class:"content"},f={class:"section-content"},g={class:"content"},v={class:"section-content"},C={class:"content"},$={class:"section-content"},b={class:"title"},y={class:"content"},z={class:"footer"},I={class:"section-content"},w={class:"title"},P={class:"content"},S={class:"footer"},V=u({__name:"Index",setup(B){return(n,L)=>{const l=d("SshPre"),c=d("Page");return p(),m(c,{title:n.$t("ui.card.title"),class:"demo"},{default:a(()=>[t("section",null,[t("h2",null,s(n.$t("ui.card.usage.basic")),1),e(),t("div",h,[o(l,{language:"html-vue"},{default:a(()=>[e(`
           <template>
             <Card>
               <p>
@@ -22,7 +22,7 @@ import{d as u,o as p,c as m,w as a,a as t,t as s,f as e,g as o,h as i,a6 as r,r 
           <script setup lang="ts">
           import { Card } from "@dzangolab/vue3-ui";
           <\/script>
-        `)]),_:1}),e(),o(i(r),{title:n.$t("ui.card.headerContent")},{default:a(()=>[t("p",g,s(n.$t("ui.card.content")),1)]),_:1},8,["title"])])]),e(),t("section",null,[t("h2",null,s(n.$t("ui.card.usage.withI18n")),1),e(),t("div",C,[o(l,{language:"html-vue"},{default:a(()=>[e(`
+        `)]),_:1}),e(),o(i(r),{title:n.$t("ui.card.headerContent")},{default:a(()=>[t("p",g,s(n.$t("ui.card.content")),1)]),_:1},8,["title"])])]),e(),t("section",null,[t("h2",null,s(n.$t("ui.card.usage.withI18n")),1),e(),t("div",v,[o(l,{language:"html-vue"},{default:a(()=>[e(`
           <template>
             <Card :title="t('ui.card.headerContent')">
               <p>
@@ -38,7 +38,7 @@ import{d as u,o as p,c as m,w as a,a as t,t as s,f as e,g as o,h as i,a6 as r,r 
 
           const { t } = useI18n();
           <\/script>
-        `)]),_:1}),e(),o(i(r),{title:n.$t("ui.card.headerContent")},{default:a(()=>[t("p",v,s(n.$t("ui.card.content")),1)]),_:1},8,["title"])])]),e(),t("section",null,[t("h2",null,s(n.$t("ui.card.usage.slots")),1),e(),t("div",$,[o(l,{language:"html-vue"},{default:a(()=>[e(`
+        `)]),_:1}),e(),o(i(r),{title:n.$t("ui.card.headerContent")},{default:a(()=>[t("p",C,s(n.$t("ui.card.content")),1)]),_:1},8,["title"])])]),e(),t("section",null,[t("h2",null,s(n.$t("ui.card.usage.slots")),1),e(),t("div",$,[o(l,{language:"html-vue"},{default:a(()=>[e(`
           <template>
             <Card>
               <template #header>
