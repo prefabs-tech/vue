@@ -11,6 +11,7 @@ import SubPane from "./components/SubPane.vue";
 import ConfirmationModal from "./ConfirmationModal/Index.vue";
 import Errors from "./Errors/Index.vue";
 import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
+import Message from "./Message/Index.vue";
 import Page from "./Page/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
@@ -39,6 +40,7 @@ export {
   GoogleSignInButton,
   LoadingButton,
   LoadingIcon,
+  Message,
   Page,
   ResponsiveMenu,
   SubPane,

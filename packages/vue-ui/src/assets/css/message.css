@@ -1,0 +1,21 @@
+.message {
+  --_background-color: var(--message-bg-color, #d0e1fd);
+  --_border-color: var(--message-border-color, #204887);
+  --_message-color: var(--message-color, #204887);
+
+  background-color: var(--_background-color);
+  border-radius: 0.5rem;
+  border: 1px solid var(--_border-color);
+  color: solid var(--_message-color);
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.message .close-message {
+  cursor: pointer;
+  height: 1.25rem;
+  margin: auto 0 auto auto;
+  width: 1.25rem;
+}
+

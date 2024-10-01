@@ -125,6 +125,26 @@
       "withI18n": "With i18n"
     }
   },
+  "message": {
+    "contents": {
+      "content1": "Season sale: Up to 50% off selected items!",
+      "content2": "New features just launched! Check them out!",
+      "content3": "New Year, New You: Start fresh with our services!",
+      "content4": "We value your feedback: take our quick survey!",
+      "content5": "Warning: Limited time only! Sale ends soon!"
+    },
+    "title": "Message",
+    "usage": {
+      "basic": "Basic",
+      "customStyle":"Custom style",
+      "enableClose": "Enable close",
+      "icons": {
+        "iconElement": "With icon using element",
+        "iconName": "With icon using name"
+      },
+      "withI18n": "With i18n"
+    }
+  },
   "subPane": {
     "title": "SubPane",
     "content": "This is a subpane"

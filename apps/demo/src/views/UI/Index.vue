@@ -51,6 +51,11 @@
           {{ $t("ui.card.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'message' }">
+          {{ $t("ui.message.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>
