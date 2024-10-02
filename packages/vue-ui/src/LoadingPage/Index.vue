@@ -26,7 +26,7 @@ import LoadingIcon from "../components/LoadingIcon.vue";
 }
 
 .loading-page .loading-icon {
-  color: black;
+  color: var(--loading-icon-color, #000000);
   font-size: 0.5rem;
 }
 </style>
