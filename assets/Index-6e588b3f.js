@@ -1,4 +1,4 @@
-import{d as f,e as v,o as g,c as r,w as a,a as s,t as l,f as e,g as t,h as i,a8 as u,E as h,r as p}from"./index-60629793.js";const _={class:"section-content"},M={class:"section-content"},b={class:"section-content"},y=s("i",{class:"pi pi-bell"},null,-1),$={class:"section-content"},C={class:"section-content"},k={class:"section-content"},S=f({__name:"Index",setup(N){const c=v(!0);return(n,m)=>{const o=p("SshPre"),d=p("Page");return g(),r(d,{title:n.$t("ui.message.title"),class:"demo-message"},{default:a(()=>[s("section",null,[s("h2",null,l(n.$t("ui.message.usage.basic")),1),e(),s("div",_,[t(o,{language:"html-vue"},{default:a(()=>[e(`
+import{d as f,e as v,o as g,c as r,w as a,a as s,t as l,f as e,g as t,h as i,a9 as u,E as _,r as p}from"./index-c6366582.js";const h={class:"section-content"},M={class:"section-content"},b={class:"section-content"},y=s("i",{class:"pi pi-bell"},null,-1),$={class:"section-content"},C={class:"section-content"},k={class:"section-content"},S=f({__name:"Index",setup(N){const c=v(!0);return(n,m)=>{const o=p("SshPre"),d=p("Page");return g(),r(d,{title:n.$t("ui.message.title"),class:"demo-message"},{default:a(()=>[s("section",null,[s("h2",null,l(n.$t("ui.message.usage.basic")),1),e(),s("div",h,[t(o,{language:"html-vue"},{default:a(()=>[e(`
           <template>
             <Message message="Season sale: Up to 50% off selected items!" />
           </template>
@@ -53,7 +53,7 @@ import{d as f,e as v,o as g,c as r,w as a,a as s,t as l,f as e,g as t,h as i,a8 
               displayMessage.value = false;
             }
           <\/script>
-        `)]),_:1}),e(),c.value?(g(),r(i(u),{key:0,message:n.$t("ui.message.contents.content4"),icon:"pi pi-comments",enableClose:"",onClose:m[0]||(m[0]=w=>c.value=!1)},null,8,["message"])):h("",!0)])]),e(),s("section",null,[s("h2",null,l(n.$t("ui.message.usage.withI18n")),1),e(),s("div",C,[t(o,{language:"html-vue"},{default:a(()=>[e(`
+        `)]),_:1}),e(),c.value?(g(),r(i(u),{key:0,message:n.$t("ui.message.contents.content4"),icon:"pi pi-comments",enableClose:"",onClose:m[0]||(m[0]=w=>c.value=!1)},null,8,["message"])):_("",!0)])]),e(),s("section",null,[s("h2",null,l(n.$t("ui.message.usage.withI18n")),1),e(),s("div",C,[t(o,{language:"html-vue"},{default:a(()=>[e(`
           <template>
             <Message :message="t('ui.message.description')" />
           </template>

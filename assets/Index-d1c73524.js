@@ -1,4 +1,4 @@
-import{d as O,e as d,o as L,c as z,w as r,a as o,t as i,f as e,g as l,h as s,a5 as u,Y as f,Z as v,a7 as c,r as B}from"./index-60629793.js";const D={class:"section-content"},I={class:"container"},S={class:"section-content"},N={class:"container"},P={class:"section-content"},T={class:"container"},U={class:"section-content"},V={class:"container"},F={class:"section-content"},H={class:"container"},A={class:"section-content"},G={class:"container"},Y={class:"section-content"},Z={class:"container"},j={class:"section-content"},q={class:"container"},Q=O({__name:"Index",setup(J){const b=d(void 0),p=d(!1),M=d(!1),w=d(!1),h=d(!1),g=d(!1),C=d(!1),$=d(!1),y=d(!1);function k(){b.value=new Date,y.value=!1}return(t,n)=>{const m=B("SshPre"),E=B("Page");return L(),z(E,{title:t.$t("ui.confirmationModal.title"),class:"demo"},{default:r(()=>[o("section",null,[o("h2",null,i(t.$t("ui.confirmationModal.usage.basic")),1),e(),o("div",D,[l(m,{language:"html-vue"},{default:r(()=>[e(`
+import{d as O,e as d,o as L,c as z,w as r,a as o,t as i,f as e,g as l,h as s,a5 as u,Y as f,Z as v,a7 as c,r as B}from"./index-c6366582.js";const D={class:"section-content"},I={class:"container"},S={class:"section-content"},P={class:"container"},T={class:"section-content"},N={class:"container"},U={class:"section-content"},V={class:"container"},F={class:"section-content"},H={class:"container"},A={class:"section-content"},G={class:"container"},Y={class:"section-content"},Z={class:"container"},j={class:"section-content"},q={class:"container"},Q=O({__name:"Index",setup(J){const b=d(void 0),p=d(!1),M=d(!1),w=d(!1),h=d(!1),g=d(!1),C=d(!1),$=d(!1),y=d(!1);function k(){b.value=new Date,y.value=!1}return(t,n)=>{const m=B("SshPre"),E=B("Page");return L(),z(E,{title:t.$t("ui.confirmationModal.title"),class:"demo"},{default:r(()=>[o("section",null,[o("h2",null,i(t.$t("ui.confirmationModal.usage.basic")),1),e(),o("div",D,[l(m,{language:"html-vue"},{default:r(()=>[e(`
           <template>
             <div>
               <ButtonElement
@@ -52,7 +52,7 @@ import{d as O,e as d,o as L,c as z,w as r,a as o,t as i,f as e,g as l,h as s,a5 
 
             const showModal = ref(false);
           <\/script>
-        `)]),_:1}),e(),o("div",N,[l(s(u),{label:t.$t("ui.confirmationModal.buttonLabel.confirm"),severity:"success",onClick:n[3]||(n[3]=a=>p.value=!0)},null,8,["label"])]),e(),f(l(s(c),{border:"","onOn:close":n[4]||(n[4]=a=>p.value=!1),"onOn:confirm":n[5]||(n[5]=a=>p.value=!1)},null,512),[[v,p.value]])])]),e(),o("section",null,[o("h2",null,i(t.$t("ui.confirmationModal.usage.disableHeader")),1),e(),o("div",P,[l(m,{language:"html-vue"},{default:r(()=>[e(`
+        `)]),_:1}),e(),o("div",P,[l(s(u),{label:t.$t("ui.confirmationModal.buttonLabel.confirm"),severity:"success",onClick:n[3]||(n[3]=a=>p.value=!0)},null,8,["label"])]),e(),f(l(s(c),{border:"","onOn:close":n[4]||(n[4]=a=>p.value=!1),"onOn:confirm":n[5]||(n[5]=a=>p.value=!1)},null,512),[[v,p.value]])])]),e(),o("section",null,[o("h2",null,i(t.$t("ui.confirmationModal.usage.disableHeader")),1),e(),o("div",T,[l(m,{language:"html-vue"},{default:r(()=>[e(`
           <template>
             <div>
               <ButtonElement
@@ -76,7 +76,7 @@ import{d as O,e as d,o as L,c as z,w as r,a as o,t as i,f as e,g as l,h as s,a5 
 
             const showModal = ref(false);
           <\/script>
-        `)]),_:1}),e(),o("div",T,[l(s(u),{label:t.$t("ui.confirmationModal.buttonLabel.confirm"),severity:"success",onClick:n[6]||(n[6]=a=>C.value=!0)},null,8,["label"])]),e(),f(l(s(c),{"disable-header":"","onOn:close":n[7]||(n[7]=a=>C.value=!1),"onOn:confirm":n[8]||(n[8]=a=>C.value=!1)},null,512),[[v,C.value]])])]),e(),o("section",null,[o("h2",null,i(t.$t("ui.confirmationModal.usage.disableBody")),1),e(),o("div",U,[l(m,{language:"html-vue"},{default:r(()=>[e(`
+        `)]),_:1}),e(),o("div",N,[l(s(u),{label:t.$t("ui.confirmationModal.buttonLabel.confirm"),severity:"success",onClick:n[6]||(n[6]=a=>C.value=!0)},null,8,["label"])]),e(),f(l(s(c),{"disable-header":"","onOn:close":n[7]||(n[7]=a=>C.value=!1),"onOn:confirm":n[8]||(n[8]=a=>C.value=!1)},null,512),[[v,C.value]])])]),e(),o("section",null,[o("h2",null,i(t.$t("ui.confirmationModal.usage.disableBody")),1),e(),o("div",U,[l(m,{language:"html-vue"},{default:r(()=>[e(`
           <template>
             <div>
               <ButtonElement
