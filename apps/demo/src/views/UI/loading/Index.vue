@@ -6,15 +6,21 @@
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;template&gt; 
-            &lt;LoadingPage v-if="loading"/&gt;
+          &lt;template&gt;
+            &lt;ButtonElement label="Click me" @click="startLoading()" /&gt;
+
+            &lt;LoadingPage v-if="loading" /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { LoadingPage } from "@dzangolab/vue3-ui";
+            import { ButtonElement, LoadingPage } from "@dzangolab/vue3-ui";
             import { ref } from "vue";
 
             const loading = ref(false);
+
+            const startLoading = () => {
+              loading.value = true;
+            };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
