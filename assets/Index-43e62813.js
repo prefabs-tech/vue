@@ -1,4 +1,4 @@
-import{m as k,Q as d,U as u}from"./DzangolabVue3Form.es-4c3f89ee.js";import{d as V,u as P,b as y,e as c,o as F,c as $,w as l,a as t,t as p,f as n,g as a,h as e,r as b}from"./index-c6366582.js";const _={class:"section-content"},z={class:"section-content"},w={class:"section-content"},U={class:"section-content"},B={class:"section-content"},I={class:"section-content"},M={class:"section-content"},O={class:"section-content"},A={class:"section-content"},R={class:"section-content"},Y={class:"section-content"},S={class:"section-content"},j={class:"section-content"},C={class:"section-content"},T={class:"section-content"},L={name:"DatePickerInput"},J=V({...L,setup(N){const{t:g}=P(),v=k.coerce.date().max(new Date,{message:g("form.errors.datePicker.invalid")}),f=new Date,D=f;let o=y({appointmentDate:c(f),arrivalDate:c(),availableDatetime:c([f,new Date(D.setDate(D.getDate()+7))]),dateOfBirth:c(f),dateRange:c([f,new Date(D.setDate(D.getDate()+7))]),joinedDate:c(),month:c(),monthAndYear:c(),noLabelInput:c(),pickupDate:c(),presentationDate:c(f),reportDate:c([f,new Date(D.setDate(D.getDate()+7))]),time:c(),year:c(f.getFullYear())});return(r,m)=>{const s=b("SshPre"),h=b("Page");return F(),$(h,{title:r.$t("form.label.datePicker"),class:"demo"},{default:l(()=>[t("section",null,[t("h2",null,p(r.$t("form.label.basicInput")),1),n(),t("div",_,[a(s,{language:"html-vue"},{default:l(()=>[n(`
+import{m as k,o as d,s as u}from"./DzangolabVue3Form.es-c6ac91ad.js";import{d as V,u as P,b as y,e as c,o as F,c as $,w as l,a as t,t as p,f as n,g as a,h as e,r as b}from"./index-9530089c.js";const _={class:"section-content"},z={class:"section-content"},w={class:"section-content"},B={class:"section-content"},U={class:"section-content"},I={class:"section-content"},M={class:"section-content"},O={class:"section-content"},A={class:"section-content"},R={class:"section-content"},Y={class:"section-content"},S={class:"section-content"},j={class:"section-content"},C={class:"section-content"},T={class:"section-content"},L={name:"DatePickerInput"},q=V({...L,setup(N){const{t:g}=P(),v=k.coerce.date().max(new Date,{message:g("form.errors.datePicker.invalid")}),f=new Date,D=f;let o=y({appointmentDate:c(f),arrivalDate:c(),availableDatetime:c([f,new Date(D.setDate(D.getDate()+7))]),dateOfBirth:c(f),dateRange:c([f,new Date(D.setDate(D.getDate()+7))]),joinedDate:c(),month:c(),monthAndYear:c(),noLabelInput:c(),pickupDate:c(),presentationDate:c(f),reportDate:c([f,new Date(D.setDate(D.getDate()+7))]),time:c(),year:c(f.getFullYear())});return(r,m)=>{const s=b("SshPre"),h=b("Page");return F(),$(h,{title:r.$t("form.label.datePicker"),class:"demo"},{default:l(()=>[t("section",null,[t("h2",null,p(r.$t("form.label.basicInput")),1),n(),t("div",_,[a(s,{language:"html-vue"},{default:l(()=>[n(`
           <Form>
             <DatePicker 
               v-model="input"
@@ -35,7 +35,7 @@ import{m as k,Q as d,U as u}from"./DzangolabVue3Form.es-4c3f89ee.js";import{d as
           const dateOfBirth = ref(new Date());
           const { t } = useI18n();
           <\/script>
-        `)]),_:1}),n(),a(e(u),null,{default:l(()=>[a(e(d),{modelValue:e(o).dateOfBirth,"onUpdate:modelValue":m[2]||(m[2]=i=>e(o).dateOfBirth=i),label:r.$t("form.label.dateOfBirth")},null,8,["modelValue","label"])]),_:1})])]),n(),t("section",null,[t("h2",null,p(r.$t("form.label.disabled")),1),n(),t("div",U,[a(s,{language:"html-vue"},{default:l(()=>[n(`
+        `)]),_:1}),n(),a(e(u),null,{default:l(()=>[a(e(d),{modelValue:e(o).dateOfBirth,"onUpdate:modelValue":m[2]||(m[2]=i=>e(o).dateOfBirth=i),label:r.$t("form.label.dateOfBirth")},null,8,["modelValue","label"])]),_:1})])]),n(),t("section",null,[t("h2",null,p(r.$t("form.label.disabled")),1),n(),t("div",B,[a(s,{language:"html-vue"},{default:l(()=>[n(`
           <Form>
             <DatePicker 
               v-model="appointDate"
@@ -50,7 +50,7 @@ import{m as k,Q as d,U as u}from"./DzangolabVue3Form.es-4c3f89ee.js";import{d as
   
           const appointmentDate = ref(new Date());
           <\/script>
-        `)]),_:1}),n(),a(e(u),null,{default:l(()=>[a(e(d),{modelValue:e(o).appointmentDate,"onUpdate:modelValue":m[3]||(m[3]=i=>e(o).appointmentDate=i),label:r.$t("form.label.appointmentDate"),disabled:""},null,8,["modelValue","label"])]),_:1})])]),n(),t("section",null,[t("h2",null,p(r.$t("form.label.disableWeekDays")),1),n(),t("div",B,[a(s,{language:"html-vue"},{default:l(()=>[n(`
+        `)]),_:1}),n(),a(e(u),null,{default:l(()=>[a(e(d),{modelValue:e(o).appointmentDate,"onUpdate:modelValue":m[3]||(m[3]=i=>e(o).appointmentDate=i),label:r.$t("form.label.appointmentDate"),disabled:""},null,8,["modelValue","label"])]),_:1})])]),n(),t("section",null,[t("h2",null,p(r.$t("form.label.disableWeekDays")),1),n(),t("div",U,[a(s,{language:"html-vue"},{default:l(()=>[n(`
           <Form>
             <DatePicker 
               v-model="presentationDate"
@@ -252,4 +252,4 @@ import{m as k,Q as d,U as u}from"./DzangolabVue3Form.es-4c3f89ee.js";import{d as
             --_label-color: var(--dz-primary-color);
           }
           </style>
-        `)]),_:1}),n(),a(e(u),null,{default:l(()=>[a(e(d),{modelValue:e(o).pickupDate,"onUpdate:modelValue":m[14]||(m[14]=i=>e(o).pickupDate=i),label:r.$t("form.label.pickupDate"),class:"custom-style-input"},null,8,["modelValue","label"])]),_:1})])])]),_:1},8,["title"])}}});export{J as default};
+        `)]),_:1}),n(),a(e(u),null,{default:l(()=>[a(e(d),{modelValue:e(o).pickupDate,"onUpdate:modelValue":m[14]||(m[14]=i=>e(o).pickupDate=i),label:r.$t("form.label.pickupDate"),class:"custom-style-input"},null,8,["modelValue","label"])]),_:1})])])]),_:1},8,["title"])}}});export{q as default};

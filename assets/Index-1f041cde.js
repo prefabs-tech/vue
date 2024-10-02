@@ -1,4 +1,4 @@
-import{m as E,G as u,U as d}from"./DzangolabVue3Form.es-4c3f89ee.js";import{d as V,u as I,b as z,e as c,o as y,c as $,w as t,a as n,t as p,f as e,g as a,h as l,r as g}from"./index-c6366582.js";const F={class:"section-content"},w={class:"section-content"},S={class:"section-content"},U={class:"section-content"},O={class:"section-content"},q={class:"section-content"},M={class:"section-content"},P={class:"section-content"},W={name:"EmailInputField"},N=V({...W,setup(B){const{t:f}=I(),h=E.string().email({message:f("form.errors.email.invalid")}),v={required:f("form.errors.input.required"),invalid:f("form.errors.email.invalid",{list:"(dzangolab.com, dzango.com, gmail.com)"})},b={allow_display_name:!1,allow_utf8_local_part:!0,host_whitelist:["dzangolab.com","dzango.com","gmail.com"],require_display_name:!1};let i=z({customStyleInput:c(),customValidationInput:c(),disabled:c("monorepo@dzangolab.com"),input:c(),inputWithValidation:c(),noLabelInput:c(),textInput:c()});return(o,m)=>{const r=g("SshPre"),_=g("Page");return y(),$(_,{title:o.$t("form.label.email"),class:"demo"},{default:t(()=>[n("section",null,[n("h2",null,p(o.$t("form.label.basicInput")),1),e(),n("div",F,[a(r,{language:"html-vue"},{default:t(()=>[e(`
+import{m as E,i as u,s as d}from"./DzangolabVue3Form.es-c6ac91ad.js";import{d as V,u as I,b as z,e as c,o as y,c as $,w as t,a as n,t as p,f as e,g as a,h as l,r as g}from"./index-9530089c.js";const F={class:"section-content"},w={class:"section-content"},S={class:"section-content"},O={class:"section-content"},U={class:"section-content"},q={class:"section-content"},M={class:"section-content"},P={class:"section-content"},W={name:"EmailInputField"},N=V({...W,setup(B){const{t:f}=I(),h=E.string().email({message:f("form.errors.email.invalid")}),v={required:f("form.errors.input.required"),invalid:f("form.errors.email.invalid",{list:"(dzangolab.com, dzango.com, gmail.com)"})},b={allow_display_name:!1,allow_utf8_local_part:!0,host_whitelist:["dzangolab.com","dzango.com","gmail.com"],require_display_name:!1};let i=z({customStyleInput:c(),customValidationInput:c(),disabled:c("monorepo@dzangolab.com"),input:c(),inputWithValidation:c(),noLabelInput:c(),textInput:c()});return(o,m)=>{const r=g("SshPre"),_=g("Page");return y(),$(_,{title:o.$t("form.label.email"),class:"demo"},{default:t(()=>[n("section",null,[n("h2",null,p(o.$t("form.label.basicInput")),1),e(),n("div",F,[a(r,{language:"html-vue"},{default:t(()=>[e(`
           <Form>
             <Email 
               v-model="input"
@@ -36,7 +36,7 @@ import{m as E,G as u,U as d}from"./DzangolabVue3Form.es-4c3f89ee.js";import{d as
   
           const input = ref("monorepo@dzangolab.com");
           <\/script>
-        `)]),_:1}),e(),a(l(d),null,{default:t(()=>[a(l(u),{modelValue:l(i).disabled,"onUpdate:modelValue":m[2]||(m[2]=s=>l(i).disabled=s),label:o.$t("form.label.email"),disabled:""},null,8,["modelValue","label"])]),_:1})])]),e(),n("section",null,[n("h2",null,p(o.$t("form.label.withI18n")),1),e(),n("div",U,[a(r,{language:"html-vue"},{default:t(()=>[e(`
+        `)]),_:1}),e(),a(l(d),null,{default:t(()=>[a(l(u),{modelValue:l(i).disabled,"onUpdate:modelValue":m[2]||(m[2]=s=>l(i).disabled=s),label:o.$t("form.label.email"),disabled:""},null,8,["modelValue","label"])]),_:1})])]),e(),n("section",null,[n("h2",null,p(o.$t("form.label.withI18n")),1),e(),n("div",O,[a(r,{language:"html-vue"},{default:t(()=>[e(`
           <Form>
             <Email 
               v-model="input"
@@ -51,7 +51,7 @@ import{m as E,G as u,U as d}from"./DzangolabVue3Form.es-4c3f89ee.js";import{d as
 
           const { t } = useI18n();
           <\/script>
-        `)]),_:1}),e(),a(l(d),null,{default:t(()=>[a(l(u),{modelValue:l(i).input,"onUpdate:modelValue":m[3]||(m[3]=s=>l(i).input=s),label:l(f)("form.label.email"),placeholder:l(f)("form.placeholder.email")},null,8,["modelValue","label","placeholder"])]),_:1})])]),e(),n("section",null,[n("h2",null,p(o.$t("form.label.inputWithValidation")),1),e(),n("div",O,[a(r,{language:"html-vue"},{default:t(()=>[e(`
+        `)]),_:1}),e(),a(l(d),null,{default:t(()=>[a(l(u),{modelValue:l(i).input,"onUpdate:modelValue":m[3]||(m[3]=s=>l(i).input=s),label:l(f)("form.label.email"),placeholder:l(f)("form.placeholder.email")},null,8,["modelValue","label","placeholder"])]),_:1})])]),e(),n("section",null,[n("h2",null,p(o.$t("form.label.inputWithValidation")),1),e(),n("div",U,[a(r,{language:"html-vue"},{default:t(()=>[e(`
           <Form>
             <Email 
               v-model="input"

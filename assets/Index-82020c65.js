@@ -1,4 +1,4 @@
-import{d as b,o as p,c as m,w as i,a as l,t as d,f as e,g as n,h as t,a4 as s,r as c,a0 as h,a1 as v,_}from"./index-c6366582.js";const g=u=>(h("data-v-17a427e8"),u=u(),v(),u),f={class:"section-content"},B={class:"section-content"},y={class:"section-content"},$={class:"section-content"},k={class:"section-content"},w={class:"container"},I={class:"section-content"},z={class:"container"},S={class:"section-content"},W={class:"container"},C={class:"section-content"},P={class:"container"},L=g(()=>l("i",{class:"pi pi-check"},null,-1)),N=g(()=>l("i",{class:"pi pi-times"},null,-1)),D={class:"section-content"},R=b({__name:"Index",setup(u){return(a,V)=>{const o=c("SshPre"),r=c("Page");return p(),m(r,{title:a.$t("ui.badge.title"),class:"demo-badge"},{default:i(()=>[l("section",null,[l("h2",null,d(a.$t("ui.badge.usage.basic")),1),e(),l("div",f,[n(o,{language:"html-vue"},{default:i(()=>[e(`
+import{d as b,o as p,c as m,w as i,a as l,t as d,f as e,g as n,h as t,a4 as s,r as c,a0 as h,a1 as v,_}from"./index-9530089c.js";const g=u=>(h("data-v-17a427e8"),u=u(),v(),u),f={class:"section-content"},B={class:"section-content"},y={class:"section-content"},$={class:"section-content"},k={class:"section-content"},w={class:"container"},I={class:"section-content"},z={class:"container"},S={class:"section-content"},W={class:"container"},C={class:"section-content"},P={class:"container"},L=g(()=>l("i",{class:"pi pi-check"},null,-1)),N=g(()=>l("i",{class:"pi pi-times"},null,-1)),R={class:"section-content"},V=b({__name:"Index",setup(u){return(a,D)=>{const o=c("SshPre"),r=c("Page");return p(),m(r,{title:a.$t("ui.badge.title"),class:"demo-badge"},{default:i(()=>[l("section",null,[l("h2",null,d(a.$t("ui.badge.usage.basic")),1),e(),l("div",f,[n(o,{language:"html-vue"},{default:i(()=>[e(`
           <template>
             <Badge label="Basic" /> 
           </template>
@@ -82,7 +82,7 @@ import{d as b,o as p,c as m,w as i,a as l,t as d,f as e,g as n,h as t,a4 as s,r 
           <script setup lang="ts">
             import { Badge } from "@dzangolab/vue3-ui";
           <\/script>
-        `)]),_:1}),e(),l("div",P,[n(t(s),{label:a.$t("ui.badge.label.correct"),"icon-left":"true"},{iconLeft:i(()=>[L]),_:1},8,["label"]),e(),n(t(s),{label:a.$t("ui.badge.label.wrong"),severity:"danger","icon-right":"true"},{iconRight:i(()=>[N]),_:1},8,["label"])])])]),e(),l("section",null,[l("h2",null,d(a.$t("ui.badge.usage.customStyle")),1),e(),l("div",D,[n(o,{language:"html-vue"},{default:i(()=>[e(`
+        `)]),_:1}),e(),l("div",P,[n(t(s),{label:a.$t("ui.badge.label.correct"),"icon-left":"true"},{iconLeft:i(()=>[L]),_:1},8,["label"]),e(),n(t(s),{label:a.$t("ui.badge.label.wrong"),severity:"danger","icon-right":"true"},{iconRight:i(()=>[N]),_:1},8,["label"])])])]),e(),l("section",null,[l("h2",null,d(a.$t("ui.badge.usage.customStyle")),1),e(),l("div",R,[n(o,{language:"html-vue"},{default:i(()=>[e(`
           <template>
             <Badge label="Custom" class="custom-badge" /> 
           </template>
@@ -100,4 +100,4 @@ import{d as b,o as p,c as m,w as i,a as l,t as d,f as e,g as n,h as t,a4 as s,r 
               --_badge-text-color: black;
             }
           </style>
-        `)]),_:1}),e(),n(t(s),{label:a.$t("ui.badge.label.custom"),class:"custom-badge"},null,8,["label"])])])]),_:1},8,["title"])}}});const A=_(R,[["__scopeId","data-v-17a427e8"]]);export{A as default};
+        `)]),_:1}),e(),n(t(s),{label:a.$t("ui.badge.label.custom"),class:"custom-badge"},null,8,["label"])])])]),_:1},8,["title"])}}});const A=_(V,[["__scopeId","data-v-17a427e8"]]);export{A as default};
