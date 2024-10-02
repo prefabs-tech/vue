@@ -13,6 +13,7 @@ import Errors from "./Errors/Index.vue";
 import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
 import Message from "./Message/Index.vue";
 import Page from "./Page/Index.vue";
+import Popup from "./Popup/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
 import Tooltip from "./Tooltip/Index.vue";
@@ -42,6 +43,7 @@ export {
   LoadingIcon,
   Message,
   Page,
+  Popup,
   ResponsiveMenu,
   SubPane,
   TabbedPanel,

@@ -5,6 +5,7 @@ const Card = () => import("@/views/UI/card/Index.vue");
 const ConfirmationModal = () =>
   import("@/views/UI/confirmationModal/Index.vue");
 const Message = () => import("@/views/UI/message/Index.vue");
+const Popup = () => import("@/views/UI/popup/Index.vue");
 const SubPane = () => import("@/views/UI/SubPanePage.vue");
 const TabbedPanel = () => import("@/views/UI/tabbed-panel/Index.vue");
 const TanstackTable = () => import("@/views/UI/TanstackTable.vue");
@@ -75,6 +76,11 @@ const routes = [
         component: Message,
         name: "message",
         path: "message",
+      },
+      {
+        component: Popup,
+        name: "popup",
+        path: "popup",
       },
     ],
   },
