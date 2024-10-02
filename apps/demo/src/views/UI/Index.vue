@@ -56,6 +56,11 @@
           {{ $t("ui.message.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'loadingPage' }">
+          {{ $t("ui.loading.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>
