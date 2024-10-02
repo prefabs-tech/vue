@@ -125,6 +125,15 @@
       "withI18n": "With i18n"
     }
   },
+  "loading": {
+    "buttonLabel": {
+      "clickMe": "Click me"
+    },
+    "title": "Loading page",
+    "usage": {
+      "basic": "Basic"
+    }
+  },
   "message": {
     "contents": {
       "content1": "Season sale: Up to 50% off selected items!",
