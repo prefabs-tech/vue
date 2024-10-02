@@ -61,6 +61,11 @@
           {{ $t("ui.loading.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'popup' }">
+          {{ $t("ui.popup.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>

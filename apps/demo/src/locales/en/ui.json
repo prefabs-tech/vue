@@ -154,6 +154,13 @@
       "withI18n": "With i18n"
     }
   },
+  "popup": {
+    "content": "This is a popup",
+    "label": {
+      "button": "Toggle"
+    },
+    "title": "Popup"
+  },
   "subPane": {
     "title": "SubPane",
     "content": "This is a subpane"
