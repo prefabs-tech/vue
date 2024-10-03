@@ -23,7 +23,7 @@
       </slot>
     </span>
 
-    <LoadingIcon v-if="loading" class="button-loading" />
+    <LoadingIcon v-if="loading" class="loading-button" />
   </button>
 </template>
 
@@ -134,7 +134,7 @@ function handleClick() {
 </script>
 
 <style lang="css">
-.button .button-loading {
+.button .loading-button {
   font-size: 4px;
   position: absolute;
   z-index: 999;
