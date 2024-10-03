@@ -245,6 +245,7 @@
             :label="$t('ui.popup.label.button')"
             severity="success"
           />
+
           <template #content>
             {{ $t("ui.popup.content") }}
           </template>
