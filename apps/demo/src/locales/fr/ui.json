@@ -64,6 +64,7 @@
       "primary": "Primary",
       "secondary": "Secondary",
       "small": "Small",
+      "submit": "Submit",
       "success": "Success",
       "textOnly": "Text only",
       "warning": "Warning"
@@ -78,6 +79,7 @@
         "iconName": "Icon using name",
         "iconWithText": "Icon with text"
       },
+      "loading": "Loading",
       "outlined": "Outlined",
       "redirect": "Redirect",
       "severity": "Severity",
