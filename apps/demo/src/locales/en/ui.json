@@ -157,9 +157,17 @@
   "popup": {
     "content": "This is a popup",
     "label": {
-      "button": "Toggle"
+      "button": "Click me"
     },
-    "title": "Popup"
+    "title": "Popup",
+    "usage": {
+      "basic":"Basic",
+      "bottom": "Bottom",
+      "customStyle":"Custom style",
+      "left": "Left",
+      "right": "Right",
+      "top": "Top"
+    }
   },
   "subPane": {
     "title": "SubPane",
