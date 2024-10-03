@@ -66,6 +66,8 @@
             import { ButtonElement } from "@dzangolab/vue3-ui";
             import { ref } from "vue";
 
+            const loading = ref(false);
+
             const startLoading = () => {
               loading.value = true;
             }
