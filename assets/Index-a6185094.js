@@ -1,4 +1,4 @@
-import{d as _,e as p,o as s,c as l,w as i,a as e,t as f,f as n,g as r,h as c,a5 as v,a8 as b,E as h,r as u}from"./index-80461679.js";const k={class:"section-content"},B={class:"container"},x=_({__name:"Index",setup(C){const t=p(!1),d=()=>{t.value=!0,setTimeout(()=>{t.value=!1},5e3)};return(a,o)=>{const g=u("SshPre"),m=u("Page");return s(),l(m,{title:a.$t("ui.loading.title"),class:"demo-loading"},{default:i(()=>[e("section",null,[e("h2",null,f(a.$t("ui.loading.usage.basic")),1),n(),e("div",k,[r(g,{language:"html-vue"},{default:i(()=>[n(`
+import{d as _,e as p,o as s,c as l,w as i,a as e,t as f,f as n,g as r,h as c,a5 as v,a8 as b,E as h,r as u}from"./index-9392f0ee.js";const k={class:"section-content"},B={class:"container"},x=_({__name:"Index",setup(C){const t=p(!1),d=()=>{t.value=!0,setTimeout(()=>{t.value=!1},5e3)};return(a,o)=>{const g=u("SshPre"),m=u("Page");return s(),l(m,{title:a.$t("ui.loading.title"),class:"demo-loading"},{default:i(()=>[e("section",null,[e("h2",null,f(a.$t("ui.loading.usage.basic")),1),n(),e("div",k,[r(g,{language:"html-vue"},{default:i(()=>[n(`
           <template>
             <ButtonElement label="Click me" @click="startLoading()" />
 
