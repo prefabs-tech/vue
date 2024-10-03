@@ -37,6 +37,45 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.popup.usage.withI18n") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Popup&gt;
+              &lt;ButtonElement
+                :label="t('ui.popup.label.button')"
+                severity="success"
+              /&gt;
+              &lt;template #content&gt;
+              &lbrace;&lbrace; t("ui.popup.content") &rbrace;&rbrace;
+              &lt;/template&gt;
+            &lt;/Popup&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+
+          const { t } = useI18n();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Popup>
+          <ButtonElement
+            :label="$t('ui.popup.label.button')"
+            severity="success"
+          />
+          <template #content>
+            {{ $t("ui.popup.content") }}
+          </template>
+        </Popup>
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.tooltip.usage.top") }}</h2>
 
       <div class="section-content">

@@ -166,7 +166,8 @@
       "customStyle":"Custom style",
       "left": "Left",
       "right": "Right",
-      "top": "Top"
+      "top": "Top",
+      "withI18n": "With i18n"
     }
   },
   "subPane": {
