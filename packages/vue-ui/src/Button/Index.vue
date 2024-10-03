@@ -23,7 +23,7 @@
       </slot>
     </span>
 
-    <LoadingIcon v-if="loading" />
+    <LoadingIcon v-if="loading" class="button-loading" />
   </button>
 </template>
 
@@ -115,6 +115,7 @@ const buttonClassName = computed(() => {
     props.size,
     props.variant,
     !(props.label || props.children) && "icon-only",
+    props.loading && "loading",
     props.rounded && "rounded",
   ]
     .filter(Boolean)
@@ -131,3 +132,11 @@ function handleClick() {
   emits("click");
 }
 </script>
+
+<style lang="css">
+.button .button-loading {
+  font-size: 4px;
+  position: absolute;
+  z-index: 999;
+}
+</style>
