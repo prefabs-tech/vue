@@ -3,7 +3,7 @@
     <div class="popup-trigger" @click="togglePopup">
       <slot />
     </div>
-    <div v-if="isVisible && hasContent" class="popup-content">
+    <div v-if="isVisible && hasContent" :class="['popup-content', position]">
       <slot name="content" />
     </div>
   </div>
@@ -18,6 +18,16 @@ export default {
 <script setup lang="ts">
 import { onClickOutside } from "@vueuse/core";
 import { computed, ref, useSlots } from "vue";
+
+defineProps({
+  position: {
+    type: String,
+    default: "top",
+    validator(value: string) {
+      return ["top", "bottom", "left", "right"].includes(value);
+    },
+  },
+});
 
 const emit = defineEmits(["onClickOutside"]);
 
