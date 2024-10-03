@@ -12,7 +12,7 @@
 
 .popup-content {
   --_bg-color: var(--popup-bg-color, #fff);
-  --_border-radius: var(--popup-border-radius. 0.25rem)
+  --_border-radius: var(--popup-border-radius. 0.25rem);
   --_text-color: var(--popup-text-color, #000);
 
   background-color: var(--_bg-color);
