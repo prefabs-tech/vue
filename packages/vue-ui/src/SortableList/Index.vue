@@ -4,7 +4,7 @@
       <draggable
         class="dragArea list-group w-full"
         :list="list"
-        @change="onDrag()"
+        @change="onDrag(list)"
       >
         <li
           v-for="element in list"
@@ -60,8 +60,8 @@ defineProps({
   },
 });
 
-const onDrag = () => {
-  emits("on:drag");
+const onDrag = (list: List[]) => {
+  emits("on:drag", list);
 };
 </script>
 

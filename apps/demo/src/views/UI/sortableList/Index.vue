@@ -3,7 +3,7 @@
     <section>
       <h2>Basic</h2>
 
-      <SortableList :list="list" />
+      <SortableList :list="list" @on:drag="onDrag" />
     </section>
   </Page>
 </template>
@@ -38,4 +38,8 @@ const list = ref([
     data: "Item 6",
   },
 ]);
+
+const onDrag = (listData: []) => {
+  list.value = listData;
+};
 </script>
