@@ -53,6 +53,39 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.button.usage.loading") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;ButtonElement label="Submit" :loading="loading" /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+            import { ButtonElement } from "@dzangolab/vue3-ui";
+            import { ref } from "vue";
+
+            const loading = ref(false);
+
+            const startLoading = () => {
+              loading.value = true;
+            }
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.button.label.submit')"
+            :loading="loading"
+            @click="startLoading()"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.button.usage.buttonWithChild") }}</h2>
 
       <div class="section-content">
@@ -443,10 +476,19 @@ import { ButtonElement } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 const currentTime = ref(undefined as unknown as Date);
+const loading = ref(false);
 
-function onClick() {
+const onClick = () => {
   currentTime.value = new Date();
-}
+};
+
+const startLoading = () => {
+  loading.value = true;
+
+  setTimeout(() => {
+    loading.value = false;
+  }, 5000);
+};
 </script>
 
 <style lang="css" scoped>
