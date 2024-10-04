@@ -3,7 +3,10 @@
     <div class="popup-trigger" @click="togglePopup">
       <slot />
     </div>
-    <div v-if="isVisible && hasContent" :class="['popup-content', position]">
+    <div
+      v-if="isVisible && hasContent"
+      :class="['popup-content', popupPosition]"
+    >
       <slot name="content" />
     </div>
   </div>
@@ -19,13 +22,10 @@ export default {
 import { onClickOutside } from "@vueuse/core";
 import { computed, ref, useSlots } from "vue";
 
-defineProps({
+const props = defineProps({
   position: {
     type: String,
-    default: "top",
-    validator(value: string) {
-      return ["top", "bottom", "left", "right"].includes(value);
-    },
+    default: null,
   },
 });
 
@@ -35,6 +35,7 @@ const slots = useSlots();
 
 const dzangolabVueUIPopup = ref(null);
 const isVisible = ref(false);
+const popupPosition = ref<string>();
 
 const hasContent = computed(() => !!slots.default);
 
@@ -43,7 +44,42 @@ onClickOutside(dzangolabVueUIPopup, (event) => {
   emit("onClickOutside");
 });
 
-const togglePopup = () => (isVisible.value = !isVisible.value);
+const getBestPosition = (): string => {
+  const triggerElement = document.querySelector(".popup-trigger");
+
+  if (props.position) {
+    return props.position;
+  } else if (triggerElement) {
+    const triggerRect = triggerElement.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+
+    const spaceTop = triggerRect.top;
+    const spaceBottom = viewportHeight - triggerRect.bottom;
+    const spaceLeft = triggerRect.left;
+    const spaceRight = viewportWidth - triggerRect.right;
+
+    const maxSpace = Math.max(spaceTop, spaceBottom, spaceLeft, spaceRight);
+
+    if (maxSpace === spaceTop) {
+      return "top";
+    } else if (maxSpace === spaceBottom) {
+      return "bottom";
+    } else if (maxSpace === spaceLeft) {
+      return "left";
+    } else {
+      return "right";
+    }
+  }
+
+  return "bottom";
+};
+
+const togglePopup = () => {
+  isVisible.value = !isVisible.value;
+
+  popupPosition.value = getBestPosition();
+};
 
 defineExpose({
   isVisible,
