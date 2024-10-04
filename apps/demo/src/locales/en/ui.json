@@ -172,6 +172,19 @@
       "withI18n": "With i18n"
     }
   },
+  "sortableList": {
+    "games": {
+      "basketball": "Basketball",
+      "cricket": "Cricket",
+      "football": "Football",
+      "hokey": "Hokey",
+      "volleyball": "Volleyball"
+    },
+    "title": "Sortable list",
+    "usage": {
+      "basic": "Basic"
+    }
+  },
   "subPane": {
     "title": "SubPane",
     "content": "This is a subpane"

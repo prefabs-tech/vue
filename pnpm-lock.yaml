@@ -496,6 +496,9 @@ importers:
       vue:
         specifier: 3.2.47
         version: 3.2.47
+      vue-draggable-next:
+        specifier: 2.1.1
+        version: 2.1.1(sortablejs@1.15.3)(vue@3.2.47)
       vue-tsc:
         specifier: 1.2.0
         version: 1.2.0(typescript@4.9.5)
@@ -5622,6 +5625,10 @@ packages:
       tslib: 2.5.0
     dev: true
 
+  /sortablejs@1.15.3:
+    resolution: {integrity: sha512-zdK3/kwwAK1cJgy1rwl1YtNTbRmc8qW/+vgXf75A7NHag5of4pyI6uK86ktmQETyWRH7IGaE73uZOOBcGxgqZg==}
+    dev: true
+
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
@@ -6364,6 +6371,16 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.47
+
+  /vue-draggable-next@2.1.1(sortablejs@1.15.3)(vue@3.2.47):
+    resolution: {integrity: sha512-f5lmA7t6LMaL4viR7dU30zzvqJzaKQs0ymL0Jy9UDT9uiZ2tXF3MzPzEvpTH2UODXZJkT+SnjeV1fXHMsgXLYA==}
+    peerDependencies:
+      sortablejs: ^1.14.0
+      vue: ^3.2.2
+    dependencies:
+      sortablejs: 1.15.3
+      vue: 3.2.47
+    dev: true
 
   /vue-eslint-parser@9.1.1(eslint@8.36.0):
     resolution: {integrity: sha512-C2aI/r85Q6tYcz4dpgvrs4wH/MqVrRAVIdpYedrxnATDHHkb+TroeRcDpKWGZCx/OcECMWfz7tVwQ8e+Opy6rA==}

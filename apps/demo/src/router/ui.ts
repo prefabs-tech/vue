@@ -7,6 +7,7 @@ const ConfirmationModal = () =>
 const LoadingPage = () => import("@/views/UI/loading/Index.vue");
 const Message = () => import("@/views/UI/message/Index.vue");
 const Popup = () => import("@/views/UI/popup/Index.vue");
+const SortableList = () => import("@/views/UI/sortableList/Index.vue");
 const SubPane = () => import("@/views/UI/SubPanePage.vue");
 const TabbedPanel = () => import("@/views/UI/tabbed-panel/Index.vue");
 const TanstackTable = () => import("@/views/UI/TanstackTable.vue");
@@ -87,6 +88,11 @@ const routes = [
         component: Popup,
         name: "popup",
         path: "popup",
+      },
+      {
+        component: SortableList,
+        name: "sortableList",
+        path: "sortable-list",
       },
     ],
   },
