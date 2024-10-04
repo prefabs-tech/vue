@@ -109,6 +109,12 @@
   --button-padding: var(--button-large-padding);
 }
 
+.button.loading .label,
+.button.loading .icon-left,
+.button.loading .icon-right {
+  visibility: hidden;
+}
+
 .button.medium {
   --_button-width: var(--button-medium-width);
   --_button-font-size: var(--button-medium-font-size);

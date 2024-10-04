@@ -64,6 +64,7 @@
       "primary": "Primary",
       "secondary": "Secondary",
       "small": "Small",
+      "submit": "Submit",
       "success": "Success",
       "textOnly": "Text only",
       "warning": "Warning"
@@ -78,6 +79,7 @@
         "iconName": "Icon using name",
         "iconWithText": "Icon with text"
       },
+      "loading": "Loading",
       "outlined": "Outlined",
       "redirect": "Redirect",
       "severity": "Severity",
@@ -157,9 +159,18 @@
   "popup": {
     "content": "This is a popup",
     "label": {
-      "button": "Toggle"
+      "button": "Click me"
     },
-    "title": "Popup"
+    "title": "Popup",
+    "usage": {
+      "basic":"Basic",
+      "bottom": "Bottom",
+      "customStyle":"Custom style",
+      "left": "Left",
+      "right": "Right",
+      "top": "Top",
+      "withI18n": "With i18n"
+    }
   },
   "sortableList": {
     "games": {
