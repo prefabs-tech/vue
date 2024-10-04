@@ -1,6 +1,6 @@
 .dropdown .popup-content {
-  padding: 0.5rem 0;
   left: 0;
+  padding: 0.5rem 0;
 }
 
 .dropdown ul {
@@ -8,7 +8,12 @@
 }
 
 .dropdown-trigger {
-  cursor: pointer;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+.dropdown-trigger:hover, .dropdown-trigger.triggered {
+  background: #b5b5b5;
 }
 
 .dropdown-trigger .caret {
@@ -20,6 +25,7 @@
 }
 
 .dropdown-trigger > label {
+  cursor: pointer;
   display: flex;
   gap: 0.5rem;
 }
@@ -29,6 +35,11 @@ ul > li.menu-item {
   padding: 1rem;
 }
 
-ul > li.menu-item:hover {
+ul > li.menu-item.disabled {
+  color: #858585;
+  cursor: default;
+}
+
+ul > li.menu-item:hover:not(.disabled) {
   background-color: #b5b5b5;
 }

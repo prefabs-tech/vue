@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown">
     <Popup ref="popup" position="bottom">
-      <div class="dropdown-trigger">
+      <div :class="{ triggered: popup?.isVisible }" class="dropdown-trigger">
         <slot>
           <label v-if="label" for="dropdown">
             {{ label }}
@@ -52,8 +52,9 @@
             <li
               v-for="menuItem in menu"
               :key="menuItem.label"
+              :class="{ disabled: menuItem.disabled }"
               class="menu-item"
-              @click="onSelect"
+              @click="onSelect(menuItem)"
             >
               {{ menuItem.label }}
             </li>
@@ -101,12 +102,12 @@ const caretClass = computed(() => {
   }
 });
 
-const onSelect = (event: Event) => {
-  const value = (event.target as HTMLInputElement).value;
+const onSelect = (item: DropdownMenu) => {
+  if (!item.disabled) {
+    emit("select", item.value);
 
-  emit("select", value);
-
-  popup.value.togglePopup();
+    popup.value.togglePopup();
+  }
 };
 </script>
 

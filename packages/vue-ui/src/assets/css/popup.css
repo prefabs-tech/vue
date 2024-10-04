@@ -5,6 +5,7 @@
 }
 
 .popup-container {
+  cursor: pointer;
   display: inline-block;
   position: relative;
   width: fit-content;
@@ -51,5 +52,4 @@
 
 .popup-trigger {
   position: relative;
-  cursor: default;
 }
