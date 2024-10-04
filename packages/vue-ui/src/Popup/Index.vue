@@ -44,4 +44,9 @@ onClickOutside(dzangolabVueUIPopup, (event) => {
 });
 
 const togglePopup = () => (isVisible.value = !isVisible.value);
+
+defineExpose({
+  isVisible,
+  togglePopup,
+});
 </script>

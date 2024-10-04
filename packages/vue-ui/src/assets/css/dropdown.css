@@ -1,0 +1,34 @@
+.dropdown .popup-content {
+  padding: 0.5rem 0;
+  left: 0;
+}
+
+.dropdown ul {
+  min-width: 10rem;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+}
+
+.dropdown-trigger .caret {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-trigger .caret-up {
+  transform: rotate(180deg);
+}
+
+.dropdown-trigger > label {
+  display: flex;
+  gap: 0.5rem;
+}
+
+ul > li.menu-item {
+  cursor: pointer;
+  padding: 1rem;
+}
+
+ul > li.menu-item:hover {
+  background-color: #b5b5b5;
+}

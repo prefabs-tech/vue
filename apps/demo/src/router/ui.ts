@@ -4,6 +4,7 @@ const Button = () => import("@/views/UI/button/Index.vue");
 const Card = () => import("@/views/UI/card/Index.vue");
 const ConfirmationModal = () =>
   import("@/views/UI/confirmationModal/Index.vue");
+const Dropdown = () => import("@/views/UI/dropdown/Index.vue");
 const LoadingPage = () => import("@/views/UI/loading/Index.vue");
 const Message = () => import("@/views/UI/message/Index.vue");
 const Popup = () => import("@/views/UI/popup/Index.vue");
@@ -87,6 +88,11 @@ const routes = [
         component: Popup,
         name: "popup",
         path: "popup",
+      },
+      {
+        component: Dropdown,
+        name: "dropdown",
+        path: "dropdown",
       },
     ],
   },

@@ -66,6 +66,11 @@
           {{ $t("ui.popup.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'dropdown' }">
+          {{ $t("ui.dropdown.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>
