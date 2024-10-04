@@ -64,28 +64,3 @@ const onDrag = (list: List[]) => {
   emits("onDrag", list);
 };
 </script>
-
-<style lang="css">
-.sortable-list li {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.sortable-list li div {
-  padding: 0.5rem;
-  border-left: 1px solid #ececec;
-  margin: 2px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.sortable-list li .grab-icon {
-  cursor: grab;
-  color: #e6e6e6;
-  font-size: 1.25rem;
-}
-</style>
