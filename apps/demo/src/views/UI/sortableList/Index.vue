@@ -1,13 +1,13 @@
 <template>
-  <Page :title="'Sortable list'" class="demo-sortable-list">
+  <Page :title="$t('ui.sortableList.title')" class="demo-sortable-list">
     <section>
-      <h2>Basic</h2>
+      <h2>{{ $t("ui.sortableList.usage.basic") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;SortableList :list="list" @on:drag="onDrag" /&gt;
+            &lt;SortableList :list="list" @onDrag="onDrag" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
@@ -17,7 +17,7 @@
             const list = ref([
               {
                 id: 1,
-                data: "Item 1",
+                data: "Basketball",
               },
               ...
             ]);
@@ -29,7 +29,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <SortableList :list="list" @on:drag="onDrag" />
+        <SortableList :list="list" @onDrag="onDrag" />
       </div>
     </section>
   </Page>
@@ -38,31 +38,30 @@
 <script setup lang="ts">
 import { SortableList } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
+import { useI18n } from "@dzangolab/vue3-i18n";
+
+const { t } = useI18n();
 
 const list = ref([
   {
     id: 1,
-    data: "Item 1",
+    data: t("ui.sortableList.games.basketball"),
   },
   {
     id: 2,
-    data: "Item 2",
+    data: t("ui.sortableList.games.cricket"),
   },
   {
     id: 3,
-    data: "Item 3",
+    data: t("ui.sortableList.games.football"),
   },
   {
     id: 4,
-    data: "Item 4",
+    data: t("ui.sortableList.games.hokey"),
   },
   {
     id: 5,
-    data: "Item 5",
-  },
-  {
-    id: 6,
-    data: "Item 6",
+    data: t("ui.sortableList.games.volleyball"),
   },
 ]);
 

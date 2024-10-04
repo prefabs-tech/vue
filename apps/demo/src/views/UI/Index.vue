@@ -68,7 +68,7 @@
       </li>
       <li>
         <router-link :to="{ name: 'sortableList' }">
-          Sortable list
+          {{ $t("ui.sortableList.title") }}
         </router-link>
       </li>
     </ul>

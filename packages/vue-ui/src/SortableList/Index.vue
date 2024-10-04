@@ -46,7 +46,7 @@ import { VueDraggableNext as draggable } from "vue-draggable-next";
 
 import type { PropType } from "vue";
 
-const emits = defineEmits(["on:drag"]);
+const emits = defineEmits(["onDrag"]);
 
 type List = {
   id: number | string;
@@ -61,7 +61,7 @@ defineProps({
 });
 
 const onDrag = (list: List[]) => {
-  emits("on:drag", list);
+  emits("onDrag", list);
 };
 </script>
 
