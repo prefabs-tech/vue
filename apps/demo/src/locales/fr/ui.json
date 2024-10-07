@@ -238,5 +238,11 @@
   },
   "typography": {
     "title": "Typography"
+  },
+  "youtubeFacade": {
+    "title": "Youtube facade",
+    "usage": {
+      "basic": "Basic"
+    }
   }
 }

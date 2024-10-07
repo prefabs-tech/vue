@@ -14,6 +14,7 @@ const TanstackTable = () => import("@/views/UI/TanstackTable.vue");
 const Tooltip = () => import("@/views/UI/tooltip/Index.vue");
 const Typography = () => import("@/views/UI/typography/Index.vue");
 const UI = () => import("@/views/UI/Index.vue");
+const YoutubeFacade = () => import("@/views/UI/youtubeFacade/Index.vue");
 
 const routes = [
   {
@@ -93,6 +94,11 @@ const routes = [
         component: SortableList,
         name: "sortableList",
         path: "sortable-list",
+      },
+      {
+        component: YoutubeFacade,
+        name: "youtubeFacade",
+        path: "youtube-facade",
       },
     ],
   },
