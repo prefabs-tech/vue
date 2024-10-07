@@ -71,6 +71,11 @@
           {{ $t("ui.sortableList.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'stepper' }">
+          {{ $t("ui.stepper.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>
