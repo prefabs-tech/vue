@@ -33,8 +33,13 @@
     </ul>
 
     <div class="actions">
-      <ButtonElement label="Previous" variant="outlined" @click="onPrevious" />
-      <ButtonElement label="Next" @click="onNext" />
+      <ButtonElement
+        :disabled="disablePrevious"
+        label="Previous"
+        variant="outlined"
+        @click="onPrevious"
+      />
+      <ButtonElement :disabled="disableNext" label="Next" @click="onNext" />
     </div>
   </div>
 </template>
@@ -61,16 +66,28 @@ const props = defineProps({
 });
 
 const activeIndex = ref<number>(0);
+const disablePrevious = ref<boolean>(true);
+const disableNext = ref<boolean>(false);
 
 const onNext = () => {
   if (activeIndex.value < props.steps.length - 1) {
     activeIndex.value++;
+    disablePrevious.value = false;
+  }
+
+  if (activeIndex.value === props.steps.length - 1) {
+    disableNext.value = true;
   }
 };
 
 const onPrevious = () => {
   if (activeIndex.value > 0) {
     activeIndex.value--;
+    disableNext.value = false;
+  }
+
+  if (!activeIndex.value) {
+    disablePrevious.value = true;
   }
 };
 </script>
