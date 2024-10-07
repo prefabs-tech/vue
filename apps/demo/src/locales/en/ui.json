@@ -242,7 +242,9 @@
   "youtubeFacade": {
     "title": "Youtube facade",
     "usage": {
-      "basic": "Basic"
+      "aspectRatio": "Aspect ratio",
+      "basic": "Basic",
+      "width": "Width"
     }
   }
 }

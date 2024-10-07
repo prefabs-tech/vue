@@ -1,7 +1,7 @@
 <template>
   <div
     class="youtube-facade"
-    :style="`background-image: url(${videoImageLink})`"
+    :style="`background-image: url(${videoImageLink}); width: ${width}`"
   >
     <div :style="`aspect-ratio: ${aspectRatio}`">
       <a
@@ -61,6 +61,11 @@ const props = defineProps({
 
   videoToken: {
     required: true,
+    type: String,
+  },
+
+  width: {
+    default: "100%",
     type: String,
   },
 });
