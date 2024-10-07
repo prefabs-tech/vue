@@ -27,8 +27,8 @@
           <svg
             v-else
             fill="#0f0f0f"
-            height="2.5rem"
-            width="2.5rem"
+            height="1.5rem"
+            width="1.5rem"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 1792 1792"
@@ -47,19 +47,17 @@
       </div>
 
       <template #content>
-        <slot name="content">
-          <ul>
-            <li
-              v-for="menuItem in menu"
-              :key="menuItem.label"
-              :class="{ disabled: menuItem.disabled }"
-              class="menu-item"
-              @click="onSelect(menuItem)"
-            >
-              {{ menuItem.label }}
-            </li>
-          </ul>
-        </slot>
+        <ul>
+          <li
+            v-for="menuItem in menu"
+            :key="menuItem.label"
+            :class="{ disabled: menuItem.disabled }"
+            class="menu-item"
+            @click="onSelect(menuItem)"
+          >
+            {{ menuItem.label }}
+          </li>
+        </ul>
       </template>
     </Popup>
   </div>

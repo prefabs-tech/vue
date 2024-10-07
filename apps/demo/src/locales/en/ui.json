@@ -133,7 +133,9 @@
     },
     "title": "Dropdown",
     "usage": {
-      "basic": "Basic"
+      "basic": "Basic",
+      "customStyle":"Custom style",
+      "withSlot": "With slot"
     }
   },
   "loading": {
