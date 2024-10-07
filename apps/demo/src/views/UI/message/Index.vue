@@ -88,7 +88,7 @@
               v-if="displayMessage"
               message="We value your feedback: take our quick survey!"
               icon="pi pi-comments"
-              enableClose
+              enable-close
               @close="onClose()"
             /&gt;
           &lt;/template&gt;
@@ -110,7 +110,7 @@
           v-if="displayMessage"
           :message="$t('ui.message.contents.content4')"
           icon="pi pi-comments"
-          enableClose
+          enable-close
           @close="displayMessage = false"
         />
       </div>
