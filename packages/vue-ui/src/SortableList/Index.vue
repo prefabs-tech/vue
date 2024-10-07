@@ -1,16 +1,8 @@
 <template>
   <div class="flex m-10">
     <ul class="sortable-list">
-      <draggable
-        class="dragArea list-group w-full"
-        :list="list"
-        @change="onDrag(list)"
-      >
-        <li
-          v-for="element in list"
-          :key="element.id"
-          class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center"
-        >
+      <draggable :list="list" @change="onDrag(list)">
+        <li v-for="element in list" :key="element.id">
           <span class="grab-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
