@@ -7,7 +7,7 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;SortableList :list="list" @onDrag="onDrag" /&gt;
+            &lt;SortableList :list="list" @on-drag="onDrag" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
@@ -29,7 +29,7 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <SortableList :list="list" @onDrag="onDrag" />
+        <SortableList :list="list" @on-drag="onDrag" />
       </div>
     </section>
   </Page>

@@ -37,7 +37,7 @@ const dzangolabVueUIPopup = ref(null);
 const isVisible = ref(false);
 const popupPosition = ref<string>();
 
-const hasContent = computed(() => !!slots.default);
+const hasContent = computed(() => !!slots.content);
 
 onClickOutside(dzangolabVueUIPopup, (event) => {
   isVisible.value = false;
