@@ -59,6 +59,38 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.youtubeFacade.usage.defaultThumbnail") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;YoutubeFacade
+              alt="Video alt"
+              aspect-ratio="16/9"
+              image-source="logo.png"
+              video-link="https://www.youtube.com/watch?v=YrxBCBibVo0"
+              video-token="YrxBCBibVo0"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+            import { YoutubeFacade } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <YoutubeFacade
+          alt="Video alt"
+          aspect-ratio="16/9"
+          image-source="logo.png"
+          video-link="https://www.youtube.com/watch?v=YrxBCBibVo0"
+          video-token="YrxBCBibVo0"
+        />
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.youtubeFacade.usage.width") }}</h2>
 
       <div class="section-content">
