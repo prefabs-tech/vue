@@ -19,6 +19,7 @@ import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import SortableList from "./SortableList/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
 import Tooltip from "./Tooltip/Index.vue";
+import YoutubeFacade from "./YoutubeFacade/Index.vue";
 
 import type { App } from "vue";
 
@@ -52,6 +53,7 @@ export {
   SubPane,
   TabbedPanel,
   Tooltip,
+  YoutubeFacade,
 };
 
 export type { Error } from "./types";
