@@ -1,4 +1,5 @@
 interface StepProperties {
+  content?: string;
   label?: string;
   step?: number | string;
 }

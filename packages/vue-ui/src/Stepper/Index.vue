@@ -32,6 +32,14 @@
       </li>
     </ul>
 
+    <template v-for="(stepItem, index) in steps" :key="index">
+      <slot :name="stepItem.label">
+        <span v-if="index === activeIndex && stepItem.content">
+          {{ stepItem.content }}
+        </span>
+      </slot>
+    </template>
+
     <div class="actions">
       <ButtonElement
         :disabled="disablePrevious"
@@ -39,7 +47,12 @@
         variant="outlined"
         @click="onPrevious"
       />
-      <ButtonElement :disabled="disableNext" label="Next" @click="onNext" />
+      <ButtonElement
+        :disabled="disableNext"
+        :label="activeIndex === steps.length - 1 ? 'Finish' : 'Next'"
+        :severity="activeIndex === steps.length - 1 ? 'success' : 'primary'"
+        @click="onNext"
+      />
     </div>
   </div>
 </template>
@@ -65,6 +78,8 @@ const props = defineProps({
   },
 });
 
+const emit = defineEmits(["complete"]);
+
 const activeIndex = ref<number>(0);
 const disablePrevious = ref<boolean>(true);
 const disableNext = ref<boolean>(false);
@@ -73,10 +88,8 @@ const onNext = () => {
   if (activeIndex.value < props.steps.length - 1) {
     activeIndex.value++;
     disablePrevious.value = false;
-  }
-
-  if (activeIndex.value === props.steps.length - 1) {
-    disableNext.value = true;
+  } else {
+    emit("complete");
   }
 };
 
@@ -92,66 +105,6 @@ const onPrevious = () => {
 };
 </script>
 
-<style lang="css">
-.stepper {
-  position: relative;
-}
-
-.stepper .actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.steps {
-  display: flex;
-  justify-content: space-between;
-}
-
-.steps::after {
-  border-top: 1px solid #b5b5b5;
-  content: " ";
-  display: block;
-  left: 5%;
-  position: absolute;
-  top: 20%;
-  width: 90%;
-  z-index: 0;
-}
-
-.step {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px;
-}
-
-.step-number {
-  display: inline-block;
-  background-color: #fff;
-  border: 1px solid #b5b5b5;
-  border-radius: 2rem;
-  margin: 0.25rem;
-  margin-bottom: 0.8rem;
-  padding: 0.9rem 1.2rem;
-  z-index: 1;
-}
-
-.step-number.active {
-  background-color: blue;
-  color: #fff;
-}
-
-.step-label.active {
-  font-weight: bold;
-}
-.step-number.completed {
-  border-color: #007aff;
-  padding: 0.9rem;
-}
-
-.step.active .step-number {
-  font-weight: bold;
-}
+<style lang="css" scoped>
+@import "@/assets/css/stepper.css";
 </style>

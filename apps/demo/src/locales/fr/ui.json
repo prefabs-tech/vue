@@ -185,6 +185,12 @@
       "basic": "Basic"
     }
   },
+  "stepper": {
+    "title": "Stepper",
+    "usage": {
+      "basic": "Basic"
+    }
+  },
   "subPane": {
     "title": "SubPane[fr]",
     "content": "This is a subpane[fr]"
