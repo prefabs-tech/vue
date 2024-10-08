@@ -240,12 +240,13 @@
     "title": "Typography"
   },
   "youtubeFacade": {
+    "alternativeMessage": "Vue basic",
     "title": "Youtube facade",
     "usage": {
       "aspectRatio": "Aspect ratio",
       "basic": "Basic",
-      "customThumbnail": "Custom thumbnail",
-      "width": "Custom width"
+      "customStyle": "Custom style",
+      "customThumbnail": "Custom thumbnail"
     }
   }
 }
