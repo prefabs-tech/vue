@@ -4,4 +4,15 @@ interface StepProperties {
   step?: number | string;
 }
 
-export type { StepProperties };
+interface ActionButtonProperties {
+  disabled?: boolean;
+  iconLeft?: string;
+  iconRight?: string;
+  label?: string;
+  rounded?: boolean;
+  severity?: string;
+  size?: string;
+  variant?: string;
+}
+
+export type { ActionButtonProperties, StepProperties };

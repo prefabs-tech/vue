@@ -42,15 +42,33 @@
 
     <div class="actions">
       <ButtonElement
-        :disabled="disablePrevious"
-        label="Previous"
-        variant="outlined"
+        :icon-left="previousButtonProperties?.iconLeft"
+        :icon-right="previousButtonProperties?.iconRight"
+        :disabled="disablePrevious || previousButtonProperties?.disabled"
+        :label="previousButtonProperties?.label ?? 'Previous'"
+        :rounded="previousButtonProperties?.rounded"
+        :severity="previousButtonProperties?.severity"
+        :size="previousButtonProperties?.size"
+        :variant="previousButtonProperties?.variant ?? 'outlined'"
         @click="onPrevious"
       />
       <ButtonElement
-        :disabled="disableNext"
-        :label="activeIndex === steps.length - 1 ? 'Finish' : 'Next'"
-        :severity="activeIndex === steps.length - 1 ? 'success' : 'primary'"
+        :icon-left="nextButtonProperties?.iconLeft"
+        :icon-right="nextButtonProperties?.iconRight"
+        :disabled="disableNext || nextButtonProperties?.disabled"
+        :rounded="nextButtonProperties?.rounded"
+        :label="
+          nextButtonProperties?.label ?? activeIndex === steps.length - 1
+            ? 'Finish'
+            : 'Next'
+        "
+        :severity="
+          nextButtonProperties?.severity ?? activeIndex === steps.length - 1
+            ? 'success'
+            : 'primary'
+        "
+        :size="nextButtonProperties?.size"
+        :variant="nextButtonProperties?.variant"
         @click="onNext"
       />
     </div>
@@ -68,10 +86,18 @@ import { ref } from "vue";
 
 import { ButtonElement } from "../index";
 
-import type { StepProperties } from "../types/stepper";
+import type { ActionButtonProperties, StepProperties } from "../types/stepper";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  nextButtonProperties: {
+    default: null,
+    type: Object as PropType<ActionButtonProperties>,
+  },
+  previousButtonProperties: {
+    default: null,
+    type: Object as PropType<ActionButtonProperties>,
+  },
   steps: {
     type: Array as PropType<StepProperties[]>,
     required: true,
