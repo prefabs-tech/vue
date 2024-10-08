@@ -67,6 +67,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{ name: 'dropdown' }">
+          {{ $t("ui.dropdown.title") }}
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{ name: 'sortableList' }">
           {{ $t("ui.sortableList.title") }}
         </router-link>

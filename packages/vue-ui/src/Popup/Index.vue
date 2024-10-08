@@ -80,4 +80,9 @@ const togglePopup = () => {
 
   popupPosition.value = getBestPosition();
 };
+
+defineExpose({
+  isVisible,
+  togglePopup,
+});
 </script>

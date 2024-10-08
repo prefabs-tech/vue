@@ -1,0 +1,65 @@
+:root {
+  --dropdown-bg-color: #b5b5b5;
+  --dropdown-disabled-color: #858585;
+  --dropdown-horizontal-padding: 0;
+  --dropdown-menu-min-width: 10rem;
+  --dropdown-vertical-padding: 0.5rem;
+}
+
+.dropdown .popup-content {
+  --_horizontal-padding: var(--dropdown-horizontal-padding, 0.5rem);
+  --_vertical-padding: var(--dropdown-vertical-padding, 0.5rem);
+
+  left: 0;
+  padding: var(--_vertical-padding) var(--_horizontal-padding);
+}
+
+.dropdown ul {
+  --_min-width: var(--dropdown-menu-min-width, 10rem);
+
+  min-width: var(--_min-width);
+}
+
+.dropdown-trigger {
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger.triggered {
+  --_bg-color: var(--dropdown-bg-color, #b5b5b5);
+
+  background: var(--_bg-color);
+}
+
+.dropdown-trigger .caret {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-trigger .caret-up {
+  transform: rotate(180deg);
+}
+
+.dropdown-trigger > label {
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+}
+
+ul > li.menu-item {
+  cursor: pointer;
+  padding: 1rem;
+}
+
+ul > li.menu-item.disabled {
+  --_disbled-color: var(--dropdown-disabled-color, #858585);
+
+  color: var(--_disbled-color);
+  cursor: default;
+}
+
+ul > li.menu-item:hover:not(.disabled) {
+  --_bg-color: var(--dropdown-bg-color, #b5b5b5);
+
+  background-color: var(--_bg-color);
+}

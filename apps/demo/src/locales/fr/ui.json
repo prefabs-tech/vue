@@ -127,6 +127,17 @@
       "withI18n": "With i18n"
     }
   },
+  "dropdown": {
+    "label": {
+      "user": "User"
+    },
+    "title": "Dropdown",
+    "usage": {
+      "basic": "Basic",
+      "customStyle":"Custom style",
+      "withSlot": "With slot"
+    }
+  },
   "loading": {
     "buttonLabel": {
       "clickMe": "Click me"
