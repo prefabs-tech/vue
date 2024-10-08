@@ -238,5 +238,15 @@
   },
   "typography": {
     "title": "Typography"
+  },
+  "youtubeFacade": {
+    "alternativeMessage": "Vue basic",
+    "title": "Youtube facade",
+    "usage": {
+      "aspectRatio": "Aspect ratio",
+      "basic": "Basic",
+      "customStyle": "Custom style",
+      "customThumbnail": "Custom thumbnail"
+    }
   }
 }
