@@ -58,14 +58,14 @@
         :disabled="disableNext || nextButtonProperties?.disabled"
         :rounded="nextButtonProperties?.rounded"
         :label="
-          nextButtonProperties?.label ?? activeIndex === steps.length - 1
+          activeIndex === steps.length - 1
             ? 'Finish'
-            : 'Next'
+            : nextButtonProperties?.label ?? 'Next'
         "
         :severity="
-          nextButtonProperties?.severity ?? activeIndex === steps.length - 1
+          activeIndex === steps.length - 1
             ? 'success'
-            : 'primary'
+            : nextButtonProperties?.severity ?? 'primary'
         "
         :size="nextButtonProperties?.size"
         :variant="nextButtonProperties?.variant"
@@ -129,6 +129,8 @@ const onPrevious = () => {
     disablePrevious.value = true;
   }
 };
+
+console.log(props.nextButtonProperties);
 </script>
 
 <style lang="css" scoped>
