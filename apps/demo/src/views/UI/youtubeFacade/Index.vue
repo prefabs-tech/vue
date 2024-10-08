@@ -59,7 +59,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.youtubeFacade.usage.defaultThumbnail") }}</h2>
+      <h2>{{ $t("ui.youtubeFacade.usage.customThumbnail") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
