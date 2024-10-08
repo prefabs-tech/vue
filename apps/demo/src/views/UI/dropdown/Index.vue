@@ -19,7 +19,7 @@
             import { ref } from "vue";
 
             const menu = ref([
-              { label: "Change password", value: "password", disabled: true },
+              { disabled: true, label: "Change password", value: "password"  },
               { label: "Profile", value: "profile" },
             ]);
 
@@ -54,7 +54,7 @@
             import { ref } from "vue";
 
             const menu = ref([
-              { label: "Change password", value: "password", disabled: true },
+              { disabled: true, label: "Change password", value: "password"  },
               { label: "Profile", value: "profile" },
             ]);
 
@@ -90,7 +90,7 @@
             import { ref } from "vue";
 
             const menu = ref([
-              { label: "Change password", value: "password", disabled: true },
+              { disabled: true, label: "Change password", value: "password"  },
               { label: "Profile", value: "profile" },
             ]);
           &lt;/script&gt;
@@ -131,7 +131,7 @@ import { Dropdown } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 const menu = ref([
-  { label: "Change password", value: "password", disabled: true },
+  { disabled: true, label: "Change password", value: "password" },
   { label: "Profile", value: "profile" },
 ]);
 </script>

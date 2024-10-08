@@ -94,9 +94,9 @@ const popup = ref();
 
 const caretClass = computed(() => {
   if (popup.value?.isVisible) {
-    return "caret-down";
-  } else {
     return "caret-up";
+  } else {
+    return "caret-down";
   }
 });
 
