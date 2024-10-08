@@ -244,8 +244,8 @@
     "usage": {
       "aspectRatio": "Aspect ratio",
       "basic": "Basic",
-      "customThumbnail": "Custom Thumbnail",
-      "width": "Width"
+      "customThumbnail": "Custom thumbnail",
+      "width": "Custom width"
     }
   }
 }
