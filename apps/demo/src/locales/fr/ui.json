@@ -127,6 +127,17 @@
       "withI18n": "With i18n"
     }
   },
+  "dropdown": {
+    "label": {
+      "user": "User"
+    },
+    "title": "Dropdown",
+    "usage": {
+      "basic": "Basic",
+      "customStyle":"Custom style",
+      "withSlot": "With slot"
+    }
+  },
   "loading": {
     "buttonLabel": {
       "clickMe": "Click me"
@@ -244,5 +255,15 @@
   },
   "typography": {
     "title": "Typography"
+  },
+  "youtubeFacade": {
+    "alternativeMessage": "Vue basic",
+    "title": "Youtube facade",
+    "usage": {
+      "aspectRatio": "Aspect ratio",
+      "basic": "Basic",
+      "customStyle": "Custom style",
+      "customThumbnail": "Custom thumbnail"
+    }
   }
 }

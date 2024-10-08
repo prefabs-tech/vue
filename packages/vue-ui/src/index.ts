@@ -9,6 +9,7 @@ import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
 import SubPane from "./components/SubPane.vue";
 import ConfirmationModal from "./ConfirmationModal/Index.vue";
+import Dropdown from "./Dropdown/Index.vue";
 import Errors from "./Errors/Index.vue";
 import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
 import LoadingPage from "./LoadingPage/Index.vue";
@@ -20,6 +21,7 @@ import SortableList from "./SortableList/Index.vue";
 import Stepper from "./Stepper/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
 import Tooltip from "./Tooltip/Index.vue";
+import YoutubeFacade from "./YoutubeFacade/Index.vue";
 
 import type { App } from "vue";
 
@@ -38,6 +40,7 @@ export {
   BadgeComponent,
   ButtonElement,
   Card,
+  Dropdown,
   ConfirmationModal,
   DebouncedInput,
   Errors,
@@ -54,6 +57,7 @@ export {
   SubPane,
   TabbedPanel,
   Tooltip,
+  YoutubeFacade,
 };
 
 export type { Error } from "./types";

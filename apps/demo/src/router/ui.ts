@@ -4,6 +4,7 @@ const Button = () => import("@/views/UI/button/Index.vue");
 const Card = () => import("@/views/UI/card/Index.vue");
 const ConfirmationModal = () =>
   import("@/views/UI/confirmationModal/Index.vue");
+const Dropdown = () => import("@/views/UI/dropdown/Index.vue");
 const LoadingPage = () => import("@/views/UI/loading/Index.vue");
 const Message = () => import("@/views/UI/message/Index.vue");
 const Popup = () => import("@/views/UI/popup/Index.vue");
@@ -15,6 +16,7 @@ const TanstackTable = () => import("@/views/UI/TanstackTable.vue");
 const Tooltip = () => import("@/views/UI/tooltip/Index.vue");
 const Typography = () => import("@/views/UI/typography/Index.vue");
 const UI = () => import("@/views/UI/Index.vue");
+const YoutubeFacade = () => import("@/views/UI/youtubeFacade/Index.vue");
 
 const routes = [
   {
@@ -91,6 +93,11 @@ const routes = [
         path: "popup",
       },
       {
+        component: Dropdown,
+        name: "dropdown",
+        path: "dropdown",
+      },
+      {
         component: SortableList,
         name: "sortableList",
         path: "sortable-list",
@@ -99,6 +106,11 @@ const routes = [
         component: Stepper,
         name: "stepper",
         path: "stepper",
+      },
+      {
+        component: YoutubeFacade,
+        name: "youtubeFacade",
+        path: "youtube-facade",
       },
     ],
   },
