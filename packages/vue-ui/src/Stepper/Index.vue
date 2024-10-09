@@ -33,11 +33,11 @@
     </ul>
 
     <template v-for="(stepItem, index) in steps" :key="index">
-      <slot :name="stepItem.label">
-        <span v-if="index === activeIndex && stepItem.content">
+      <div v-if="index === activeIndex && stepItem.content" class="content">
+        <slot :name="stepItem?.step">
           {{ stepItem.content }}
-        </span>
-      </slot>
+        </slot>
+      </div>
     </template>
 
     <div class="actions">
@@ -129,8 +129,6 @@ const onPrevious = () => {
     disablePrevious.value = true;
   }
 };
-
-console.log(props.nextButtonProperties);
 </script>
 
 <style lang="css" scoped>
