@@ -3,9 +3,11 @@
 }
 
 .stepper .actions {
+  --_margin-top: var(--stepper-margin-top, 2rem);
+
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: var(--_margin-top);
 }
 
 .step {
@@ -17,25 +19,32 @@
 }
 
 .steps {
+  --_margin-top: var(--stepper-margin-top, 2rem);
+
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: var(--_margin-top);
 }
 
 .steps::after {
-  border-top: 1px solid #b5b5b5;
+  --_border-color: var(--stepper-border-color, #b5b5b5);
+
+  border-top: 1px solid var(--_border-color);
   content: " ";
   display: block;
   left: 5%;
   position: absolute;
-  top: 15%;
+  top: 12%;
   width: 90%;
   z-index: 0;
 }
 
 .step-number {
-  background-color: #fff;
-  border: 1px solid #b5b5b5;
+  --_bg-color: var(--stepper-bg-color, #fff);
+  --_border-color: var(--stepper-border-color, #b5b5b5);
+
+  background-color: var(--_bg-color);
+  border: 1px solid var(--_border-color);
   border-radius: 2rem;
   display: inline-block;
   margin: 0.25rem;
@@ -45,7 +54,9 @@
 }
 
 .step-number.active {
-  background-color: blue;
+  --_bg-color: var(--stepper-active-bg-color, #007aff);
+
+  background-color: var(--_bg-color);
   color: #fff;
 }
 
@@ -53,7 +64,9 @@
   font-weight: bold;
 }
 .step-number.completed {
-  border-color: #007aff;
+  --_border-color: var(--stepper-completed-border-color, #007aff);
+
+  border-color: var(--_border-color);
   padding: 0.9rem;
 }
 
