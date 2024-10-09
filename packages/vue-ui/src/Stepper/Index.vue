@@ -3,11 +3,11 @@
     <ul class="steps">
       <li
         v-for="(stepItem, index) in steps"
-        :key="index"
         :class="[
           'step',
           { active: index === activeIndex, completed: index < activeIndex },
         ]"
+        :key="index"
       >
         <span
           :class="[
@@ -24,8 +24,8 @@
         </span>
         <span
           v-if="stepItem.label"
-          class="step-label"
           :class="{ active: index === activeIndex }"
+          class="step-label"
         >
           {{ stepItem.label }}
         </span>
@@ -42,9 +42,9 @@
 
     <div class="actions">
       <ButtonElement
+        :disabled="disablePrevious || previousButtonProperties?.disabled"
         :icon-left="previousButtonProperties?.iconLeft"
         :icon-right="previousButtonProperties?.iconRight"
-        :disabled="disablePrevious || previousButtonProperties?.disabled"
         :label="previousButtonProperties?.label ?? 'Previous'"
         :rounded="previousButtonProperties?.rounded"
         :severity="previousButtonProperties?.severity"
@@ -53,15 +53,15 @@
         @click="onPrevious"
       />
       <ButtonElement
+        :disabled="disableNext || nextButtonProperties?.disabled"
         :icon-left="nextButtonProperties?.iconLeft"
         :icon-right="nextButtonProperties?.iconRight"
-        :disabled="disableNext || nextButtonProperties?.disabled"
-        :rounded="nextButtonProperties?.rounded"
         :label="
           activeIndex === steps.length - 1
             ? 'Finish'
             : nextButtonProperties?.label ?? 'Next'
         "
+        :rounded="nextButtonProperties?.rounded"
         :severity="
           activeIndex === steps.length - 1
             ? 'success'
@@ -107,8 +107,8 @@ const props = defineProps({
 const emit = defineEmits(["complete"]);
 
 const activeIndex = ref<number>(0);
-const disablePrevious = ref<boolean>(true);
 const disableNext = ref<boolean>(false);
+const disablePrevious = ref<boolean>(true);
 
 const onNext = () => {
   if (activeIndex.value < props.steps.length - 1) {

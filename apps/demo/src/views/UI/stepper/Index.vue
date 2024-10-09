@@ -193,8 +193,8 @@
           <template #3>
             <TextInput
               v-model="formData.price"
-              disabled
               :label="$t('ui.stepper.label.price')"
+              disabled
               name="price"
             />
           </template>
@@ -212,6 +212,26 @@ import { Stepper } from "@dzangolab/vue3-ui";
 import { TextInput, NumberInput } from "@dzangolab/vue3-form";
 
 import { reactive, ref } from "vue";
+
+const formData = reactive({
+  name: null,
+  phone: null,
+  price: "$50",
+});
+
+const nextButtonProperties = ref({
+  iconRight: "pi pi-chevron-right",
+  label: "Next",
+  severity: "primary",
+  variant: "filled",
+});
+
+const previousButtonProperties = ref({
+  iconLeft: "pi pi-chevron-left",
+  label: "Back",
+  severity: "secondary",
+  variant: "filled",
+});
 
 const steps = ref([
   {
@@ -235,24 +255,4 @@ const steps = ref([
     step: 4,
   },
 ]);
-
-const nextButtonProperties = ref({
-  iconRight: "pi pi-chevron-right",
-  label: "Next",
-  severity: "primary",
-  variant: "filled",
-});
-
-const previousButtonProperties = ref({
-  iconLeft: "pi pi-chevron-left",
-  label: "Back",
-  severity: "secondary",
-  variant: "filled",
-});
-
-const formData = reactive({
-  name: null,
-  phone: null,
-  price: "$50",
-});
 </script>
