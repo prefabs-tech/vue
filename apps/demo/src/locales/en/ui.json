@@ -72,12 +72,13 @@
     "title": "Button",
     "usage": {
       "basic": "Basic",
-      "buttonWithChild": "Button with child element",
+      "contentSlot": "Button content slot",
       "disabled": "Disabled",
       "icons": {
-        "iconElement": "Icon using element",
-        "iconName": "Icon using name",
-        "iconWithText": "Icon with text"
+        "icon": "Icon",
+        "iconAndLabel": "Icon and label",
+        "iconElement": "Icon slot",
+        "iconPackage": "Different packages icon"
       },
       "loading": "Loading",
       "outlined": "Outlined",
