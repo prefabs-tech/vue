@@ -283,19 +283,19 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;ButtonElement icon-left="true" rounded severity="secondary" variant="textOnly"&gt;
+            &lt;ButtonElement rounded severity="secondary" variant="textOnly"&gt;
                 &lt;template #iconLeft&gt;
                   &lt;i class="pi pi-user" &gt;
                 &lt;/template&gt;
             &lt;/ButtonElement&gt;
 
-            &lt;ButtonElement icon-right="true" rounded variant="outlined"&gt;
+            &lt;ButtonElement rounded variant="outlined"&gt;
               &lt;template #iconRight&gt;
                 &lt;i class="pi pi-user" &gt;
               &lt;/template&gt;
             &lt;/ButtonElement&gt;
 
-            &lt;ButtonElement icon-right="true" rounded severity="secondary" variant="filled"&gt;
+            &lt;ButtonElement rounded variant="filled"&gt;
                 &lt;template #iconRight&gt;
                   &lt;i class="pi pi-user" &gt;
                 &lt;/template&gt;
@@ -309,29 +309,19 @@
         <!-- eslint-enable -->
 
         <div className="container">
-          <ButtonElement
-            variant="textOnly"
-            severity="secondary"
-            icon-left="true"
-            rounded
-          >
+          <ButtonElement rounded variant="textOnly" severity="secondary">
             <template #iconLeft>
               <i class="pi pi-user" />
             </template>
           </ButtonElement>
 
-          <ButtonElement
-            severity="secondary"
-            variant="outlined"
-            icon-right="true"
-            rounded
-          >
+          <ButtonElement rounded severity="secondary" variant="outlined">
             <template #iconRight>
               <i class="pi pi-user" />
             </template>
           </ButtonElement>
 
-          <ButtonElement icon-right="true" variant="filled" rounded>
+          <ButtonElement rounded variant="filled">
             <template #iconRight>
               <i class="pi pi-user" />
             </template>

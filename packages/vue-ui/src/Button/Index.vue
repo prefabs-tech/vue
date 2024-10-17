@@ -7,7 +7,7 @@
     :role="buttonRole"
     @click="!to && handleClick()"
   >
-    <span v-if="iconLeft" class="icon-left">
+    <span v-if="iconLeft || !!slots.iconLeft" class="icon-left">
       <slot name="iconLeft">
         <i :class="iconLeft" />
       </slot>
@@ -19,7 +19,7 @@
       </slot>
     </div>
 
-    <span v-if="iconRight" class="icon-right">
+    <span v-if="iconRight || !!slots.iconRight" class="icon-right">
       <slot name="iconRight">
         <i :class="iconRight" />
       </slot>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, useSlots } from "vue";
 
 import LoadingIcon from "../components/LoadingIcon.vue";
 
@@ -108,6 +108,8 @@ const props = defineProps({
       ["outlined", "filled", "textOnly"].includes(value),
   },
 });
+
+const slots = useSlots();
 
 const buttonClassName = computed(() => {
   return [
