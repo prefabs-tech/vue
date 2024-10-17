@@ -208,13 +208,13 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge label="Correct" icon-left="true"&gt;
+            &lt;Badge label="Correct"&gt;
               &lt;template #iconLeft&gt;
                 &lt;i class="pi pi-check" &gt;
               &lt;/template&gt;
             &lt;/Badge&gt;
 
-            &lt;Badge label="Wrong" severity="danger" icon-right="true"&gt;
+            &lt;Badge label="Wrong" severity="danger"&gt;
               &lt;template #iconRight&gt;
                 &lt;i class="pi pi-times" &gt;
               &lt;/template&gt;
@@ -228,20 +228,13 @@
         <!-- eslint-enable -->
 
         <div class="container">
-          <BadgeComponent
-            :label="$t('ui.badge.label.correct')"
-            icon-left="true"
-          >
+          <BadgeComponent :label="$t('ui.badge.label.correct')">
             <template #iconLeft>
               <i class="pi pi-check" />
             </template>
           </BadgeComponent>
 
-          <BadgeComponent
-            :label="$t('ui.badge.label.wrong')"
-            severity="danger"
-            icon-right="true"
-          >
+          <BadgeComponent :label="$t('ui.badge.label.wrong')" severity="danger">
             <template #iconRight>
               <i class="pi pi-times" />
             </template>
