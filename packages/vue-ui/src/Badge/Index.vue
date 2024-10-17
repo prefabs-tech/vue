@@ -36,7 +36,6 @@ const props = defineProps({
     default: "default",
     type: String,
   },
-  fullWidth: Boolean,
   iconLeft: {
     default: null,
     type: [String, Boolean],
@@ -66,13 +65,7 @@ const props = defineProps({
 });
 
 const badgeClassName = computed(() => {
-  return [
-    "badge",
-    props.className,
-    props.fullWidth && "full-width",
-    props.rounded && "rounded",
-    props.severity,
-  ]
+  return ["badge", props.className, props.rounded && "rounded", props.severity]
     .filter(Boolean)
     .join(" ");
 });
