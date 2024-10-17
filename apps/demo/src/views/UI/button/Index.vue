@@ -94,7 +94,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.button.usage.buttonWithChild") }}</h2>
+      <h2>{{ $t("ui.button.usage.contentSlot") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -241,7 +241,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.button.usage.icons.iconName") }}</h2>
+      <h2>{{ $t("ui.button.usage.icons.icon") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -383,7 +383,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.button.usage.icons.iconWithText") }}</h2>
+      <h2>{{ $t("ui.button.usage.icons.iconAndLabel") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
