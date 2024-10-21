@@ -30,10 +30,10 @@
             const currentTime = ref(undefined as unknown as Date);
             const showModal = ref(false);
 
-            function onConfirm() {
+            const onConfirm = () => {
               currentTime.value = new Date();
               showModal.value = false;
-            }
+            };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -56,7 +56,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.confirmationModal.usage.withBorder") }}</h2>
+      <h2>{{ $t("ui.confirmationModal.usage.withDivider") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -72,7 +72,7 @@
 
             &lt;ConfirmationModal
               v-show="showModal"
-              border
+              divider
               @on:close="showModal = false"
               @on:confirm="showModal = false"
             /&gt;
@@ -97,7 +97,7 @@
 
         <ConfirmationModal
           v-show="showBorderedModal"
-          border
+          divider
           @on:close="showBorderedModal = false"
           @on:confirm="showBorderedModal = false"
         />
@@ -446,10 +446,10 @@ const showDisabledHeaderModal = ref(false);
 const showI18nModal = ref(false);
 const showModal = ref(false);
 
-function onConfirm() {
+const onConfirm = () => {
   currentTime.value = new Date();
   showModal.value = false;
-}
+};
 </script>
 
 <style lang="css">
