@@ -46,7 +46,7 @@ const props = defineProps({
   },
   label: {
     default: null,
-    type: [String, Boolean],
+    type: String,
   },
   rounded: Boolean,
   severity: {
