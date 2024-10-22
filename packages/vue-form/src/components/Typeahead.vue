@@ -12,7 +12,7 @@
       <DebouncedInput
         :id="`input-field-${name}`"
         :class="{
-          invalid: meta.touched && !meta.valid,
+          invalid: meta.dirty && !meta.valid,
           valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
         }"
         :model-value="inputValue"
@@ -101,13 +101,13 @@ const props = defineProps({
   },
 });
 
+const emit = defineEmits(["update:modelValue"]);
+
 const dzangolabVueFormTypeahead = ref(null);
 
 const inputValue = ref(props.modelValue);
 
 const showSuggestions = ref<boolean>(false);
-
-const emit = defineEmits(["update:modelValue"]);
 
 onClickOutside(dzangolabVueFormTypeahead, (event) => {
   showSuggestions.value = false;
@@ -127,7 +127,10 @@ const filteredSuggestions = computed(() => {
 
 const onInput = (value: string | number) => {
   inputValue.value = value;
-  showSuggestions.value = true;
+
+  if (filteredSuggestions.value?.length) {
+    showSuggestions.value = true;
+  }
 
   emit("update:modelValue", value);
 };

@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -46,6 +50,9 @@ importers:
       '@dzangolab/vue3-user':
         specifier: 0.8.5
         version: link:../../packages/vue-user
+      '@fortawesome/fontawesome-free':
+        specifier: ^6.6.0
+        version: 6.6.0
       '@iconify/vue':
         specifier: 4.1.0
         version: 4.1.0(vue@3.2.47)
@@ -55,6 +62,9 @@ importers:
       pinia:
         specifier: 2.0.32
         version: 2.0.32(typescript@4.9.5)(vue@3.2.47)
+      primeicons:
+        specifier: 7.0.0
+        version: 7.0.0
       simple-syntax-highlighter:
         specifier: 2.2.5
         version: 2.2.5(vue@3.2.47)
@@ -489,6 +499,9 @@ importers:
       vue:
         specifier: 3.2.47
         version: 3.2.47
+      vue-draggable-next:
+        specifier: 2.1.1
+        version: 2.1.1(sortablejs@1.15.3)(vue@3.2.47)
       vue-tsc:
         specifier: 1.2.0
         version: 1.2.0(typescript@4.9.5)
@@ -1357,6 +1370,11 @@ packages:
   /@eslint/js@8.36.0:
     resolution: {integrity: sha512-lxJ9R5ygVm8ZWgYdUweoq5ownDlJ4upvoWmO4eLxBYHdMo+vZ/Rx0EN6MbKWDJOSUGrqJy2Gt+Dyv/VKml0fjg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  /@fortawesome/fontawesome-free@6.6.0:
+    resolution: {integrity: sha512-60G28ke/sXdtS9KZCpZSHHkCbdsOGEhIUGlwq6yhY74UpTiToIh8np7A8yphhM4BWsvNFtIvLpi4co+h9Mr9Ow==}
+    engines: {node: '>=6'}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -5177,6 +5195,10 @@ packages:
       react-is: 17.0.2
     dev: true
 
+  /primeicons@7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
+    dev: false
+
   /process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
     dev: true
@@ -5609,6 +5631,10 @@ packages:
     dependencies:
       dot-case: 3.0.4
       tslib: 2.5.0
+    dev: true
+
+  /sortablejs@1.15.3:
+    resolution: {integrity: sha512-zdK3/kwwAK1cJgy1rwl1YtNTbRmc8qW/+vgXf75A7NHag5of4pyI6uK86ktmQETyWRH7IGaE73uZOOBcGxgqZg==}
     dev: true
 
   /source-map-js@1.0.2:
@@ -6354,6 +6380,16 @@ packages:
     dependencies:
       vue: 3.2.47
 
+  /vue-draggable-next@2.1.1(sortablejs@1.15.3)(vue@3.2.47):
+    resolution: {integrity: sha512-f5lmA7t6LMaL4viR7dU30zzvqJzaKQs0ymL0Jy9UDT9uiZ2tXF3MzPzEvpTH2UODXZJkT+SnjeV1fXHMsgXLYA==}
+    peerDependencies:
+      sortablejs: ^1.14.0
+      vue: ^3.2.2
+    dependencies:
+      sortablejs: 1.15.3
+      vue: 3.2.47
+    dev: true
+
   /vue-eslint-parser@9.1.1(eslint@8.36.0):
     resolution: {integrity: sha512-C2aI/r85Q6tYcz4dpgvrs4wH/MqVrRAVIdpYedrxnATDHHkb+TroeRcDpKWGZCx/OcECMWfz7tVwQ8e+Opy6rA==}
     engines: {node: ^14.17.0 || >=16.0.0}
@@ -6617,7 +6653,3 @@ packages:
   /zod@3.20.6:
     resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
     dev: true
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false

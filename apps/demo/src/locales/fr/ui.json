@@ -18,6 +18,185 @@
     "slot-without-title": "Slots sans prop 'title' sont ignorés",
     "title": "Accordéon"
   },
+  "badge": {
+    "label": {
+      "addedIn": "Added in v0.6.5",
+      "alternate": "Alternate",
+      "basic": "Basic",
+      "correct": "Correct",
+      "custom": "Custom",
+      "danger": "Danger",
+      "fullWidth": "Full width",
+      "locked": "Locked",
+      "primary": "Primary",
+      "rounded": "Rounded",
+      "secondary": "Secondary",
+      "success": "Success",
+      "unLocked": "Unlocked",
+      "warning": "Warning",
+      "wrong": "Wrong"
+    },
+    "title": "Badge",
+    "usage": {
+      "basic": "Basic",
+      "customStyle": "Custom style",
+      "icon": "Icon",
+      "iconAndLabel": "Icon and label",
+      "iconElement": "Icon slot",
+      "iconPackage": "Different packages icon",
+      "rounded": "Rounded",
+      "severity": "Severity",
+      "withI18n": "With i18n"
+    }
+  },
+  "button": {
+    "label": {
+      "alternate": "Alternate",
+      "back": "Back",
+      "clickMe": "Click me",
+      "danger": "Danger",
+      "default": "Default",
+      "home": "Home",
+      "large": "Large",
+      "medium": "Medium",
+      "next": "Next",
+      "outlined": "Outlined",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "small": "Small",
+      "submit": "Submit",
+      "success": "Success",
+      "textOnly": "Text only",
+      "warning": "Warning"
+    },
+    "title": "Button",
+    "usage": {
+      "basic": "Basic",
+      "contentSlot": "Button content slot",
+      "disabled": "Disabled",
+      "icons": {
+        "icon": "Icon",
+        "iconAndLabel": "Icon and label",
+        "iconElement": "Icon slot",
+        "iconPackage": "Different packages icon"
+      },
+      "loading": "Loading",
+      "outlined": "Outlined",
+      "redirect": "Redirect",
+      "severity": "Severity",
+      "size": "Size",
+      "text": "Text",
+      "tooltip": "Button with tooltip",
+      "variant": "Variant",
+      "withI18n": "With i18n"
+    }
+  },
+  "card": {
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "headerContent": "Lorem ipsum",
+    "footerContent": "The standard Lorem Ipsum passage, used since the 1500s",
+    "title": "Card",
+    "usage": {
+      "basic": "Basic",
+      "customStyle":"Custom style",
+      "slots": "With slots",
+      "withI18n": "With i18n",
+      "withTitle": "With title"
+    }
+  },
+  "confirmationModal": {
+    "bodyContent": {
+      "confirmDelete": "Are you sure to delete user?"
+    },
+    "buttonLabel": {
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "delete": "Delete"
+    },
+    "headerContent": {
+      "deleteUser": "Delete user"
+    },
+    "title": "Confirmation modal",
+    "usage": {
+      "basic": "Basic",
+      "customContent": "Custom content",
+      "customStyle":"Custom style",
+      "disableBody": "Disable body",
+      "disableFooter": "Disable footer",
+      "disableHeader": "Disable header",
+      "withBorder": "With border",
+      "withI18n": "With i18n"
+    }
+  },
+  "dropdown": {
+    "label": {
+      "user": "User"
+    },
+    "title": "Dropdown",
+    "usage": {
+      "basic": "Basic",
+      "customStyle":"Custom style",
+      "withSlot": "With slot"
+    }
+  },
+  "loading": {
+    "buttonLabel": {
+      "clickMe": "Click me"
+    },
+    "title": "Loading page",
+    "usage": {
+      "basic": "Basic"
+    }
+  },
+  "message": {
+    "contents": {
+      "content1": "Season sale: Up to 50% off selected items!",
+      "content2": "New features just launched! Check them out!",
+      "content3": "New Year, New You: Start fresh with our services!",
+      "content4": "We value your feedback: take our quick survey!",
+      "content5": "Warning: Limited time only! Sale ends soon!"
+    },
+    "title": "Message",
+    "usage": {
+      "basic": "Basic",
+      "customStyle":"Custom style",
+      "enableClose": "Enable close",
+      "icons": {
+        "iconElement": "With icon using element",
+        "iconName": "With icon using name"
+      },
+      "withI18n": "With i18n"
+    }
+  },
+  "popup": {
+    "content": "This is a popup",
+    "label": {
+      "button": "Click me"
+    },
+    "title": "Popup",
+    "usage": {
+      "basic":"Basic",
+      "bottom": "Bottom",
+      "customStyle":"Custom style",
+      "left": "Left",
+      "right": "Right",
+      "top": "Top",
+      "withI18n": "With i18n"
+    }
+  },
+  "sortableList": {
+    "games": {
+      "basketball": "Basketball",
+      "cricket": "Cricket",
+      "football": "Football",
+      "hokey": "Hokey",
+      "volleyball": "Volleyball"
+    },
+    "title": "Sortable list",
+    "usage": {
+      "basic": "Basic"
+    }
+  },
   "subPane": {
     "title": "SubPane[fr]",
     "content": "This is a subpane[fr]"
@@ -47,10 +226,39 @@
     "with-custom-icons": "Avec icônes individualisés"
   },
   "tanstack-table": {
-    "title": "Tanstack Table[fr]"
+    "title": "Tanstack table[fr]"
   },
   "title": "Librairie de composants d'interface utilisateur",
+  "tooltip": {
+    "content":"This is a tooltip",
+    "label": {
+      "button": "Tooltip",
+      "custom": "Custom",
+      "delay": "Delay"
+    },
+    "title": "Tooltip",
+    "usage": {
+      "basic":"Basic",
+      "bottom": "Bottom",
+      "clickable": "Clickable",
+      "customStyle":"Custom style",
+      "delay": "With delay",
+      "left": "Left",
+      "right": "Right",
+      "top": "Top"
+    }
+  },
   "typography": {
     "title": "Typography"
+  },
+  "youtubeFacade": {
+    "alternativeMessage": "Vue basic",
+    "title": "Youtube facade",
+    "usage": {
+      "aspectRatio": "Aspect ratio",
+      "basic": "Basic",
+      "customStyle": "Custom style",
+      "customThumbnail": "Custom thumbnail"
+    }
   }
 }

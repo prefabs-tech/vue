@@ -26,6 +26,61 @@
           {{ $t("ui.tanstack-table.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'button' }">
+          {{ $t("ui.button.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'badge' }">
+          {{ $t("ui.badge.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'confirmationModal' }">
+          {{ $t("ui.confirmationModal.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'tooltip' }">
+          {{ $t("ui.tooltip.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'card' }">
+          {{ $t("ui.card.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'message' }">
+          {{ $t("ui.message.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'loadingPage' }">
+          {{ $t("ui.loading.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'popup' }">
+          {{ $t("ui.popup.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'dropdown' }">
+          {{ $t("ui.dropdown.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'sortableList' }">
+          {{ $t("ui.sortableList.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'youtubeFacade' }">
+          {{ $t("ui.youtubeFacade.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>

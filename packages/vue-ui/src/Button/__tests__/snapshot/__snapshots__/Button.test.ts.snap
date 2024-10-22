@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > matches snapshot 1`] = `
+<button
+  class="button rounded primary small filled"
+  role="button"
+>
+  <span
+    class="icon-left"
+  >
+    
+    <i
+      class=""
+    />
+    
+  </span>
+  <div
+    class="label"
+  >
+    
+    <span>
+      Submit
+    </span>
+    
+  </div>
+  <span
+    class="icon-right"
+  >
+    
+    <i
+      class=""
+    />
+    
+  </span>
+  <!--v-if-->
+</button>
+`;

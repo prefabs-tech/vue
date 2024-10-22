@@ -4,14 +4,14 @@
   },
   "errors": {
     "datePicker": {
-      "invalid": "Please provide a present or future date[fr]"
+      "invalid": "Please provide a present or past date[fr]"
     },
     "email": {
       "invalid": "Please provide a valid email {list}[fr]"
     },
     "input": {
       "length": "Input must be exactly {length} characters long[fr]",
-      "min": "Input must be at least {length} character(s)[fr]",
+      "min": "Title must be at least {length} character(s)[fr]",
       "required": "The field should not be empty[fr]"
     },
     "multiSelect":  {
@@ -34,45 +34,66 @@
     }
   },
   "label": {
+    "appointmentDate": "Appointment date[fr]",
+    "appointmentTime": "Appointment time[fr]",
+    "arrivalDate": "Arrival date[fr]",
+    "availableDatetime": "Available datetime[fr]",
     "basicInput": "Basic[fr]",
     "customColsRowsInput": "With cols and rows props[fr]",
     "customErrorMessageInput": "With custom error message[fr]",
+    "customFormat": "Custom format[fr]",
     "customValidationInput": "With custom validation[fr]",
     "customStyleInput": "Custom style[fr]",
+    "dateOfBirth": "Date of birth[fr]",
     "datePicker": "Date picker[fr]",
-    "dateRange": "With date range prop[fr]",
+    "dateRange": "Date range[fr]",
+    "dateTimePicker": "Datetime picker[fr]",
     "debouncedTypeahead": "With debounce time prop",
     "disabledMultiSelect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
+    "disableWeekDays": "Disable week days[fr]",
     "email": "Email[fr]",
     "input": "Input[fr]",
     "inputWithType": "With type prop[fr]",
     "inputWithValidation": "With validation[fr]",
     "invalid": "Show invalid state[fr]",
+    "joinedDate": "Joined date[fr]",
     "labelInput": "With label[fr]",
-    "monthPicker": "With month-picker props[fr]",
-    "multiCalendars": "With multi-calendars prop[fr]",
+    "month": "Month[fr]",
+    "monthAndYear": "Month and year[fr]",
+    "monthAndYearPicker": "Month and year picker[fr]",
+    "monthPicker": "Month picker[fr]",
+    "multiCalendars": "Multicalendar[fr]",
     "multiSelect": "Multiselect[fr]",
     "number": "Number[fr]",
     "password": "Password[fr]",
+    "pickupDate": "Pickup date[fr]",
+    "presentationDate": "Presentation date[fr]",
+    "reportDate": "Report date[fr]",
     "select": "Select[fr]",
     "switch": "Switch[fr]",
     "textarea": "Textarea[fr]",
     "textInput": "Text input[fr]",
     "timePicker": "Time picker[fr]",
-    "typeahead": "Typeahead",
+    "title": "Title[fr]",
+    "typeahead": "Typeahead[fr]",
+    "username": "Username[fr]",
     "valid": "Show valid state[fr]",
-    "yearPicker": "Year picker"
+    "withI18n": "With i18n[fr]",
+    "year": "Year[fr]",
+    "yearPicker": "Year picke[fr]"
   },
   "placeholder": {
-    "email": "Enter a email[fr]",
+    "email": "Enter your email[fr]",
     "input": "Enter input[fr]",
     "multiSelect": "Select multiple value[fr]",
     "number": "Enter a number[fr]",
     "password": "Enter a password[fr]",
     "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
-    "textInput": "Enter text input[fr]"
+    "textInput": "Enter text input[fr]",
+    "title": "Enter course title[fr]",
+    "username": "Enter username[fr]"
   },
   "submittedValue": "Submitted value[fr]",
   "title": "Form library[fr]"

@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Badge > matches snapshot 1`] = `
+<span
+  class="badge rounded primary"
+>
+  <span
+    class="icon-left"
+  >
+    
+    <i
+      class="pi pi-home"
+    />
+    
+  </span>
+  <div
+    class="label"
+  >
+    Basic
+  </div>
+  <span
+    class="icon-right"
+  >
+    
+    <i
+      class="pi pi-home"
+    />
+    
+  </span>
+</span>
+`;

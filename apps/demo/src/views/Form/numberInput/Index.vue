@@ -1,90 +1,132 @@
 <template>
-  <Page :title="$t('form.label.number')">
-    <section class="demo-section">
-      <h3>{{ $t("form.label.basicInput") }}</h3>
+  <Page :title="$t('form.label.number')" class="demo">
+    <section>
+      <h2>{{ $t("form.label.basicInput") }}</h2>
 
-      <!-- eslint-disable -->
-       <SshPre language="html-vue">
-        &lt;template&gt;
-          &lt;NumberInput 
-            v-model="input"
-            placeholder="Enter a number"
-          /&gt;
-        &lt;/template&gt;
+      <div class="section-content">
+        <!-- eslint-disable -->
+         <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;NumberInput 
+              v-model="input"
+              placeholder="Enter a number"
+            /&gt;
+          &lt;/Form&gt;
 
-        &lt;script setup lang="ts"&gt;
-        import { NumberInput } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
+          &lt;script setup lang="ts"&gt;
+          import { NumberInput } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
-      <NumberInput
-        v-model="formData.noLabelInput"
-        :placeholder="$t('form.placeholder.number')"
-        class="form-field"
-      />
+        <Form>
+          <NumberInput
+            v-model="formData.noLabelInput"
+            :placeholder="$t('form.placeholder.number')"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.labelInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.labelInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;template&gt;
-          &lt;NumberInput 
-            v-model="input"
-            label="Number"
-            placeholder="Enter a number"
-          /&gt;
-        &lt;/template&gt;
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;NumberInput 
+              v-model="input"
+              label="Number"
+              placeholder="Enter a number"
+            /&gt;
+          &lt;/Form&gt;
 
-        &lt;script setup lang="ts"&gt;
-        import { NumberInput } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
+          &lt;script setup lang="ts"&gt;
+          import { NumberInput } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
-      <NumberInput
-        v-model="formData.input"
-        :label="$t('form.label.number')"
-        :placeholder="$t('form.placeholder.number')"
-        class="form-field"
-      />
+        <Form>
+          <NumberInput
+            v-model="formData.input"
+            :label="$t('form.label.number')"
+            :placeholder="$t('form.placeholder.number')"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.disabled") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.disabled") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;template&gt;
-          &lt;NumberInput 
-            v-model="input"
-            label="Disabled"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;NumberInput 
+              v-model="input"
+              label="Number"
+              disabled
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { NumberInput } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <NumberInput
+            v-model="formData.disabled"
+            :label="$t('form.label.number')"
             disabled
-          /&gt;
-        &lt;/template&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { NumberInput } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <NumberInput
-        v-model="formData.disabled"
-        :label="$t('form.label.disabled')"
-        class="form-field"
-        disabled
-      />
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.inputWithValidation") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.withI18n") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;template&gt;
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;NumberInput 
+              v-model="input"
+              :label="t('form.label.number')"
+              :placeholder="t('form.placeholder.number')"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { NumberInput } from "@dzangolab/vue3-form";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+
+          const { t } = useI18n();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <NumberInput
+            v-model="formData.input"
+            :label="$t('form.label.number')"
+            :placeholder="$t('form.placeholder.number')"
+          />
+        </Form>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.inputWithValidation") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
           &lt;Form&gt;
             &lt;NumberInput 
               v-model="input"
@@ -93,39 +135,38 @@
               placeholder="Enter a number"
             /&gt;
           &lt;/Form&gt;
-        &lt;/template&gt;
 
-        &lt;script setup lang="ts"&gt;
-        import { Form, NumberInput } from "@dzangolab/vue3-form";
-        
-        import type { IsIntOptions } from "@dzangolab/vue3-form";
+          &lt;script setup lang="ts"&gt;
+          import { Form, NumberInput } from "@dzangolab/vue3-form";
+          
+          import type { IsIntOptions } from "@dzangolab/vue3-form";
+  
+          const validationOptions = {
+            min: 1,
+            max: 100,
+            allow_leading_zeroes: false,
+          } as IsIntOptions;
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
-        const validationOptions = {
-          min: 1,
-          max: 100,
-          allow_leading_zeroes: false,
-        } as IsIntOptions;
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <Form>
-        <NumberInput
-          v-model="formData.inputWithValidation"
-          :label="$t('form.label.number')"
-          :options="validationOptions"
-          :placeholder="$t('form.placeholder.number')"
-          class="form-field"
-        />
-      </Form>
+        <Form>
+          <NumberInput
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.number')"
+            :options="validationOptions"
+            :placeholder="$t('form.placeholder.number')"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.customErrorMessageInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.customErrorMessageInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;template&gt;
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
           &lt;Form&gt;
             &lt;NumberInput 
               v-model="input"
@@ -135,45 +176,44 @@
               placeholder="Enter a number"
             /&gt;
           &lt;/Form&gt;
-        &lt;/template&gt;
 
-        &lt;script setup lang="ts"&gt;
-        import { Form, NumberInput } from "@dzangolab/vue3-form";
+          &lt;script setup lang="ts"&gt;
+          import { Form, NumberInput } from "@dzangolab/vue3-form";
 
-        import type { NumberErrorMessages, IsIntOptions } from "@dzangolab/vue3-form";
+          import type { NumberErrorMessages, IsIntOptions } from "@dzangolab/vue3-form";
 
-        const validationMessages = {
-          invalid: "Please provide a number between 1 to 100",
-          required: "The field is required",
-        } as NumberErrorMessages;
+          const validationMessages = {
+            invalid: "Please provide a number between 1 to 100",
+            required: "The field is required",
+          } as NumberErrorMessages;
 
-        const validationOptions = {
-          min: 1,
-          max: 100,
-          allow_leading_zeroes: false,
-        } as IsIntOptions;
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
+          const validationOptions = {
+            min: 1,
+            max: 100,
+            allow_leading_zeroes: false,
+          } as IsIntOptions;
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
-      <Form>
-        <NumberInput
-          v-model="formData.textInput"
-          :label="$t('form.label.number')"
-          :error-messages="validationMessages"
-          :options="validationOptions"
-          :placeholder="$t('form.placeholder.number')"
-          class="form-field"
-        />
-      </Form>
+        <Form>
+          <NumberInput
+            v-model="formData.textInput"
+            :label="$t('form.label.number')"
+            :error-messages="validationMessages"
+            :options="validationOptions"
+            :placeholder="$t('form.placeholder.number')"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.customValidationInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;template&gt;
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
           &lt;Form&gt;
             &lt;NumberInput 
               v-model="input"
@@ -183,75 +223,78 @@
               name="number"
             /&gt;
           &lt;/Form&gt;
-        &lt;/template&gt;
 
-        &lt;script setup lang="ts"&gt;
-        import { Form, NumberInput } from "@dzangolab/vue3-form";
-        import { z } from "zod";
+          &lt;script setup lang="ts"&gt;
+          import { Form, NumberInput } from "@dzangolab/vue3-form";
+          import { z } from "zod";
 
-        const invalidNumberError = "Please provide a number between 1 to 100";
+          const invalidNumberError = "Please provide a number between 1 to 100";
 
-        const inputSchema =  z.coerce
-          .number({invalid_type_error: invalidNumberError})
-          .gte(1, invalidNumberError)
-          .lte(100, invalidNumberError);
-        &lt;/script&gt;
-      </SshPre>
-      <!-- eslint-enable -->
+          const inputSchema =  z.coerce
+            .number({invalid_type_error: invalidNumberError})
+            .gte(1, invalidNumberError)
+            .lte(100, invalidNumberError);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
 
-      <Form>
-        <NumberInput
-          v-model="formData.customValidationInput"
-          :label="$t('form.label.number')"
-          :placeholder="$t('form.placeholder.number')"
-          :schema="inputSchema"
-          class="form-field"
-          name="number"
-        />
-      </Form>
+        <Form>
+          <NumberInput
+            v-model="formData.customValidationInput"
+            :label="$t('form.label.number')"
+            :placeholder="$t('form.placeholder.number')"
+            :schema="inputSchema"
+            name="number"
+          />
+        </Form>
+      </div>
     </section>
 
-    <section class="demo-section">
-      <h3>{{ $t("form.label.customStyleInput") }}</h3>
+    <section>
+      <h2>{{ $t("form.label.customStyleInput") }}</h2>
 
-      <!-- eslint-disable -->
-      <SshPre language="html-vue">
-        &lt;template&gt;
-          &lt;NumberInput 
-            v-model="input"
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;NumberInput 
+              v-model="input"
+              class="custom-style-input"
+              label="Number"
+              placeholder="Enter a number"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { NumberInput } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+
+          &lt;style&gt;
+          .custom-style-input input {
+            --_input-field-border-color: #007aff;
+            --_input-field-border-radius: 0.5em;
+            --_input-field-padding-h: 0.5em;
+            --_input-field-padding-v: 0.5em;
+
+            color: #007aff;
+          }
+
+          .custom-style-input input:focus {
+            box-shadow: 0 0 0 0.25rem #03449e9a;
+          }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <NumberInput
+            v-model="formData.customStyleInput"
+            :label="$t('form.label.number')"
+            :placeholder="$t('form.placeholder.number')"
             class="custom-style-input"
-            label="Number"
-            placeholder="Enter a number"
-          /&gt;
-        &lt;/template&gt;
-
-        &lt;script setup lang="ts"&gt;
-        import { NumberInput } from "@dzangolab/vue3-form";
-        &lt;/script&gt;
-
-        &lt;style&gt;
-        .custom-style-input input {
-          --_input-field-border-color: #007aff;
-          --_input-field-border-radius: 0.5em;
-          --_input-field-padding-h: 0.5em;
-          --_input-field-padding-v: 0.5em;
-
-          color: #007aff;
-        }
-
-        .custom-style-input input:focus {
-          box-shadow: 0 0 0 0.25rem #03449e9a;
-        }
-        &lt;/style&gt;
-      </SshPre>
-      <!-- eslint-enable -->
-
-      <NumberInput
-        v-model="formData.customStyleInput"
-        :label="$t('form.label.number')"
-        :placeholder="$t('form.placeholder.number')"
-        class="form-field custom-style-input"
-      />
+          />
+        </Form>
+      </div>
     </section>
   </Page>
 </template>
@@ -263,9 +306,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
 import { Form, NumberInput } from "@dzangolab/vue3-form";
 import { reactive, ref } from "vue";
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { z } from "zod";
 
 import type { NumberErrorMessages, IsIntOptions } from "@dzangolab/vue3-form";
