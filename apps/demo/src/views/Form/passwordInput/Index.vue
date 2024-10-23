@@ -335,7 +335,7 @@ const inputSchema = z
   .min(8, { message: t("form.errors.password.min", { length: 8 }) })
   .regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
-    t("form.errors.password.invalid")
+    t("form.errors.password.invalid"),
   );
 
 const validationMessages = {
