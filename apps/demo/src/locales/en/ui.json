@@ -119,12 +119,12 @@
     "title": "Confirmation modal",
     "usage": {
       "basic": "Basic",
-      "customContent": "Custom content",
       "customStyle":"Custom style",
       "disableBody": "Disable body",
       "disableFooter": "Disable footer",
       "disableHeader": "Disable header",
-      "withBorder": "With border",
+      "slots": "With slots",
+      "withDivider": "With divider",
       "withI18n": "With i18n"
     }
   },
