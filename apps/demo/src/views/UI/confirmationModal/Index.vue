@@ -203,7 +203,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.confirmationModal.usage.customContent") }}</h2>
+      <h2>{{ $t("ui.confirmationModal.usage.slots") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
