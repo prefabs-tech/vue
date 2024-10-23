@@ -9,7 +9,7 @@
           <MainMenu class="main-menu" :routes="routes" />
         </template>
         <template #userMenu>
-          <UserMenu />
+          <UserMenu v-if="showUserMenu" />
         </template>
       </AppHeader>
     </template>
@@ -41,6 +41,14 @@ import useUserStore from "../store";
 
 import type { MenuItem } from "@dzangolab/vue3-layout";
 
+defineProps({
+  showUserMenu: {
+    default: true,
+    required: false,
+    type: Boolean,
+  },
+});
+
 const userStore = useUserStore();
 
 const { user } = storeToRefs(userStore);
@@ -53,8 +61,8 @@ const home = computed(() => {
       ? userConfig.routes.home
       : "profile"
     : layoutConfig && layoutConfig?.homeRoute
-    ? layoutConfig.homeRoute
-    : undefined;
+      ? layoutConfig.homeRoute
+      : undefined;
 });
 
 const router = useRouter();

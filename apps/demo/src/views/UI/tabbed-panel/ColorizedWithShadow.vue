@@ -25,32 +25,44 @@
       <!-- eslint-enable -->
 
       <TabbedPanel class="colorized shadow">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
     </section>
 
     <section>
       <h3>{{ t("ui.tabbed-panel.position.bottom") }}</h3>
       <TabbedPanel class="colorized shadow" position="bottom">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
     </section>
 
     <section>
       <h3>{{ t("ui.tabbed-panel.position.left") }}</h3>
       <TabbedPanel class="colorized shadow" position="left">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
     </section>
 
     <section>
       <h3>{{ $t("ui.tabbed-panel.position.right") }}</h3>
       <TabbedPanel class="colorized shadow" position="right">
-        <Pane1 title="Praesent" icon="/src/assets/svg/number-1.svg" />
-        <Pane2 title="A ullamcorper eros" icon="/src/assets/svg/number-2.svg" />
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
     </section>
   </section>
@@ -65,6 +77,7 @@ export default {
 <script setup lang="ts">
 import { TabbedPanel } from "@dzangolab/vue3-ui";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { Icon } from "@iconify/vue";
 
 import Pane1 from "./Pane1.vue";
 import Pane2 from "./Pane2.vue";

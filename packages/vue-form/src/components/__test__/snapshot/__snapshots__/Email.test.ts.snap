@@ -13,6 +13,7 @@ exports[`Email > matches snapshot 1`] = `
   <input
     class=""
     name="email"
+    placeholder=""
     tabindex="0"
     type="email"
   />

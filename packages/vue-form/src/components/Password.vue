@@ -5,9 +5,10 @@
     </label>
     <Field
       v-slot="{ field, meta }"
-      v-bind="modelValue"
+      :model-value="modelValue"
       :name="name"
       :rules="fieldSchema"
+      @input="onInput"
     >
       <input
         v-bind="field"
@@ -15,6 +16,8 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :disabled="disabled"
+        :placeholder="placeholder"
         tabindex="0"
         type="password"
       />
@@ -32,6 +35,7 @@ export default {
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { z } from "zod";
 
 import { passwordSchema } from "../schemas";
 
@@ -39,6 +43,10 @@ import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  disabled: {
+    default: false,
+    type: Boolean,
+  },
   errorMessages: {
     default: () => {
       return {
@@ -71,14 +79,35 @@ const props = defineProps({
     required: false,
     type: Object as PropType<StrongPasswordOptions>,
   },
+  placeholder: {
+    default: "",
+    type: String,
+  },
+  schema: {
+    default: () => {
+      return {};
+    },
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | object>>,
+  },
 });
 
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = toFieldValidator(
-  passwordSchema(
-    props.errorMessages,
-    props.options as StrongPasswordOptions & { returnScore: false | undefined }
-  )
+  Object.keys(props.schema).length
+    ? props.schema
+    : passwordSchema(
+        props.errorMessages,
+        props.options as StrongPasswordOptions & {
+          returnScore: false | undefined;
+        },
+      ),
 );
+
+const onInput = (event: Event) => {
+  const value = (event.target as HTMLInputElement).value;
+
+  emit("update:modelValue", value);
+};
 </script>

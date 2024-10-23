@@ -1,0 +1,22 @@
+.sortable-list li {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.sortable-list li div {
+  align-items: center;
+  border-left: 1px solid #ececec;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 2px 0;
+  padding: 0.5rem;
+}
+
+.sortable-list li .grab-icon {
+  color: #e6e6e6;
+  cursor: grab;
+  font-size: 1.25rem;
+}

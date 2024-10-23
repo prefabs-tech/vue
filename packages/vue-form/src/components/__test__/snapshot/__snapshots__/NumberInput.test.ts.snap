@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NumberInput > matches snapshot 1`] = `
+<div
+  class="field number"
+>
+  <label
+    for="number"
+  >
+    Number input
+  </label>
+  
+  <input
+    class=""
+    id="input-field-number"
+    name="number"
+    placeholder="Placeholder"
+    tabindex="0"
+    type="number"
+  />
+  <!---->
+  
+</div>
+`;

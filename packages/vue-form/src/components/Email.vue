@@ -5,9 +5,10 @@
     </label>
     <Field
       v-slot="{ field, meta }"
-      v-bind="modelValue"
+      :model-value="modelValue"
       :name="name"
       :rules="fieldSchema"
+      @input="onInput"
     >
       <input
         v-bind="field"
@@ -15,6 +16,8 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :disabled="disabled"
+        :placeholder="placeholder"
         tabindex="0"
         type="email"
       />
@@ -32,6 +35,7 @@ export default {
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { z } from "zod";
 
 import { emailSchema } from "../schemas";
 
@@ -39,6 +43,10 @@ import type { EmailErrorMessages, IsEmailOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  disabled: {
+    default: false,
+    type: Boolean,
+  },
   errorMessages: {
     default: () => {
       return {
@@ -70,11 +78,30 @@ const props = defineProps({
     required: false,
     type: Object as PropType<IsEmailOptions>,
   },
+  placeholder: {
+    default: "",
+    type: String,
+  },
+  schema: {
+    default: () => {
+      return {};
+    },
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | object>>,
+  },
 });
 
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = toFieldValidator(
-  emailSchema(props.errorMessages, props.options)
+  Object.keys(props.schema).length
+    ? props.schema
+    : emailSchema(props.errorMessages, props.options),
 );
+
+const onInput = (event: Event) => {
+  const value = (event.target as HTMLInputElement).value;
+
+  emit("update:modelValue", value);
+};
 </script>

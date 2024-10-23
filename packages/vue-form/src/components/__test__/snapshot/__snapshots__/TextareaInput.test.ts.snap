@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TextareaInput > matches snapshot 1`] = `
+<div
+  class="field text"
+>
+  <label
+    for="text"
+  >
+    Textarea input
+  </label>
+  
+  <textarea
+    class=""
+    id="input-field-text"
+    name="text"
+    placeholder="Placeholder"
+    tabindex="0"
+    type="textarea"
+  />
+  <!---->
+  
+</div>
+`;

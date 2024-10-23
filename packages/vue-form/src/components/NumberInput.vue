@@ -1,6 +1,6 @@
 <template>
   <div :class="`field ${name}`">
-    <label v-if="label">
+    <label v-if="label" :for="name">
       {{ label }}
     </label>
     <Field
@@ -17,6 +17,7 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
+        :disabled="disabled"
         :placeholder="placeholder"
         type="number"
         tabindex="0"
@@ -43,6 +44,10 @@ import type { NumberErrorMessages, IsIntOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  disabled: {
+    default: false,
+    type: Boolean,
+  },
   errorMessages: {
     default: () => {
       return {
@@ -59,7 +64,7 @@ const props = defineProps({
     type: String as PropType<string>,
   },
   modelValue: {
-    default: 0,
+    default: undefined,
     type: Number as PropType<number | null | undefined>,
   },
   name: {
@@ -92,12 +97,12 @@ const emit = defineEmits(["update:modelValue"]);
 const fieldSchema = toFieldValidator(
   Object.keys(props.schema).length
     ? props.schema
-    : numberSchema(props.errorMessages, props.options)
+    : numberSchema(props.errorMessages, props.options),
 );
 
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;
 
-  emit("update:modelValue", value);
+  emit("update:modelValue", Number(value));
 };
 </script>

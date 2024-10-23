@@ -1,14 +1,26 @@
 import "./assets/css/index.css";
 
 import Accordion from "./Accordion/Index.vue";
+import BadgeComponent from "./Badge/Index.vue";
+import ButtonElement from "./Button/Index.vue";
+import Card from "./Card/Index.vue";
 import GoogleSignInButton from "./components/GoogleSignInButton.vue";
 import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
 import SubPane from "./components/SubPane.vue";
+import ConfirmationModal from "./ConfirmationModal/Index.vue";
+import Dropdown from "./Dropdown/Index.vue";
 import Errors from "./Errors/Index.vue";
+import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
+import LoadingPage from "./LoadingPage/Index.vue";
+import Message from "./Message/Index.vue";
 import Page from "./Page/Index.vue";
+import Popup from "./Popup/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
+import SortableList from "./SortableList/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
+import Tooltip from "./Tooltip/Index.vue";
+import YoutubeFacade from "./YoutubeFacade/Index.vue";
 
 import type { App } from "vue";
 
@@ -24,14 +36,26 @@ export default plugin;
 
 export {
   Accordion,
+  BadgeComponent,
+  ButtonElement,
+  Card,
+  Dropdown,
+  ConfirmationModal,
+  DebouncedInput,
   Errors,
   GoogleSignInButton,
   LoadingButton,
   LoadingIcon,
+  LoadingPage,
+  Message,
   Page,
+  Popup,
   ResponsiveMenu,
+  SortableList,
   SubPane,
   TabbedPanel,
+  Tooltip,
+  YoutubeFacade,
 };
 
 export type { Error } from "./types";

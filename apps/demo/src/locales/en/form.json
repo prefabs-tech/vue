@@ -3,22 +3,97 @@
     "submit": "Submit"
   },
   "errors": {
-    "employeeNo": {
-      "invalid": "Must be a valid employee number"
+    "datePicker": {
+      "invalid": "Please provide a present or past date"
     },
-    "name": {
-      "min": "Username must be at least 3 character(s)"
+    "email": {
+      "invalid": "Please provide a valid email {list}"
+    },
+    "input": {
+      "length": "Input must be exactly {length} characters long",
+      "min": "Title must be at least {length} character(s)",
+      "required": "The field should not be empty"
+    },
+    "multiSelect":  {
+      "invalid": "Please select atleast one valid option"
+    },
+    "number": {
+      "invalid": "Please provide a number between 1 to 100",
+      "required": "The field is required"
+    },
+    "password": {
+      "invalid": "Please provide a strong password",
+      "min": "Password must be at least {length} character(s)"
+    },
+    "select": {
+      "invalid": "Please select a valid option",
+      "required": "The select field is required"
+    },
+    "switch": {
+      "invalid": "The switch value must be true"
     }
   },
   "label": {
-    "age": "Age",
-    "employeeNo": "Emloyee No.",
-    "fullName": "Full name"
+    "appointmentDate": "Appointment date",
+    "appointmentTime": "Appointment time",
+    "arrivalDate": "Arrival date",
+    "availableDatetime": "Available datetime",
+    "basicInput": "Basic",
+    "customColsRowsInput": "With cols and rows props",
+    "customErrorMessageInput": "With custom error message",
+    "customFormat": "Custom format",
+    "customValidationInput": "With custom validation",
+    "customStyleInput": "Custom style",
+    "dateOfBirth": "Date of birth",
+    "datePicker": "Date picker",
+    "dateRange": "Date range",
+    "dateTimePicker": "Datetime picker",
+    "debouncedTypeahead": "With debounce time prop",
+    "disabled": "Disabled",
+    "disableWeekDays": "Disable week days",
+    "disabledMultiSelect": "Disabled multiselect",
+    "email": "Email",
+    "input": "Input",
+    "inputWithType": "With type prop",
+    "inputWithValidation": "With validation",
+    "invalid": "Show invalid state",
+    "joinedDate": "Joined date",
+    "labelInput": "With label",
+    "month": "Month",
+    "monthAndYear": "Month and year",
+    "monthAndYearPicker": "Month and year picker",
+    "monthPicker": "Month picker",
+    "multiCalendars": "Multicalendar",
+    "multiSelect": "Multiselect",
+    "number": "Number",
+    "password": "Password",
+    "pickupDate": "Pickup date",
+    "presentationDate": "Presentation date",
+    "reportDate": "Report date",
+    "select": "Select",
+    "switch": "Switch",
+    "textarea": "Textarea",
+    "textInput": "Text input",
+    "timePicker": "Time picker",
+    "title": "Title",
+    "typeahead": "Typeahead",
+    "username": "Username",
+    "valid": "Show valid state",
+    "withI18n": "With i18n",
+    "year": "Year",
+    "yearPicker": "Year picker"
   },
   "placeholder": {
-    "age": "Enter your age",
-    "employeeNo": "Enter your employee number",
-    "fullName": "Enter your full name"
+    "email": "Enter your email",
+    "input": "Enter input",
+    "multiSelect": "Select multiple value",
+    "number": "Enter a number",
+    "password": "Enter a password",
+    "select": "Select a value",
+    "textarea": "Enter textarea input",
+    "textInput": "Enter text input",
+    "title": "Enter course title",
+    "username": "Enter username"
   },
   "submittedValue": "Submitted value",
   "title": "Form library"

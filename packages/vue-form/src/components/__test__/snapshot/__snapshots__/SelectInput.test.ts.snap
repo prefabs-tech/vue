@@ -1,0 +1,54 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SelectInput > matches snapshot 1`] = `
+<div
+  class="field multiselect"
+>
+  <label
+    for="multiselect"
+  >
+    Multiselect
+  </label>
+  
+  <div
+    class="multiple-mode multiselect"
+    id="input-field-multiselect"
+    name="multiselect"
+    tabindex="0"
+    value="FR,FE"
+  >
+    <!--v-if-->
+    <div
+      class="multiselect-input"
+    >
+      <span
+        class="selected-options"
+      >
+        
+        <span
+          class="selected-option"
+        >
+          FR 
+          <img
+            class="remove-option"
+            src="/src/assets/svg/x-mark.svg"
+          />
+        </span>
+        <span
+          class="selected-option"
+        >
+          FE 
+          <img
+            class="remove-option"
+            src="/src/assets/svg/x-mark.svg"
+          />
+        </span>
+        
+      </span>
+    </div>
+    <!--v-if-->
+  </div>
+  <!---->
+  
+</div>
+`;

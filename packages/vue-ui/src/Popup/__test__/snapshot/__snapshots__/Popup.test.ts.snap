@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Popup > matches snapshot 1`] = `
+<div
+  class="popup-container"
+>
+  <div
+    class="popup-trigger"
+  >
+    
+    
+  </div>
+  <div
+    class="popup-content"
+  >
+    
+    <p>
+      This is a popup.
+    </p>
+    
+  </div>
+</div>
+`;
