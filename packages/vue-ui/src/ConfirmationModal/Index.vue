@@ -27,7 +27,7 @@
           </slot>
         </div>
 
-        <div v-if="!disableFooter" class="modal-footer">
+        <div class="modal-footer">
           <slot name="footer">
             <ButtonElement
               size="small"
@@ -72,10 +72,6 @@ const props = defineProps({
     type: Boolean,
   },
   disableHeader: {
-    default: false,
-    type: Boolean,
-  },
-  disableFooter: {
     default: false,
     type: Boolean,
   },

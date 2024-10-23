@@ -203,55 +203,6 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.confirmationModal.usage.disableFooter") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;div&gt;
-              &lt;ButtonElement
-                label="Confirm"
-                severity="success"
-                @click="showModal = true"
-              /&gt;
-            &lt;/div&gt;
-
-            &lt;ConfirmationModal
-              v-show="showModal"
-              disable-footer
-              @on:close="showModal = false"
-              @on:confirm="showModal = false"
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
-            import { ref } from "vue";
-
-            const showModal = ref(false);
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <div class="container">
-          <ButtonElement
-            :label="$t('ui.confirmationModal.buttonLabel.confirm')"
-            severity="success"
-            @click="showDisabledFooterModal = true"
-          />
-        </div>
-
-        <ConfirmationModal
-          v-show="showDisabledFooterModal"
-          disable-footer
-          @on:close="showDisabledFooterModal = false"
-          @on:confirm="showDisabledFooterModal = false"
-        />
-      </div>
-    </section>
-
-    <section>
       <h2>{{ $t("ui.confirmationModal.usage.customContent") }}</h2>
 
       <div class="section-content">
