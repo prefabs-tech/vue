@@ -232,7 +232,7 @@
   "tooltip": {
     "content":"This is a tooltip",
     "label": {
-      "button": "Tooltip",
+      "button": "Click me",
       "custom": "Custom",
       "delay": "Delay"
     },
