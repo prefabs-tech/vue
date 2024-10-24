@@ -392,7 +392,6 @@ const currentTime = ref(undefined as unknown as Date);
 const showBorderedModal = ref(false);
 const showCustomContentModal = ref(false);
 const showDisabledBodyModal = ref(false);
-const showDisabledFooterModal = ref(false);
 const showDisabledHeaderModal = ref(false);
 const showI18nModal = ref(false);
 const showModal = ref(false);
