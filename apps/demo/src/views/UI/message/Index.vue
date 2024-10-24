@@ -57,7 +57,7 @@
               message="New Year, New You: Start fresh with our services!"
             &gt;
               &lt;template #icon&gt;
-                &lt;i class="pi pi-bell" /&gt;
+                &lt;i class="fa-regular fa-bell" /&gt;
               &lt;/template&gt;
             &lt;/Message&gt;
           &lt;/template&gt;
@@ -70,7 +70,7 @@
 
         <Message :message="$t('ui.message.contents.content3')">
           <template #icon>
-            <i class="pi pi-bell" />
+            <i class="fa-regular fa-bell" />
           </template>
         </Message>
       </div>
