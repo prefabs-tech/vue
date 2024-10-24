@@ -159,11 +159,10 @@
     "title": "Message",
     "usage": {
       "basic": "Basic",
-      "customStyle":"Custom style",
       "enableClose": "Enable close",
       "icons": {
-        "iconElement": "With icon using element",
-        "iconName": "With icon using name"
+        "icon": "Icon",
+        "iconSlot": "Icon slot"
       },
       "withI18n": "With i18n"
     }
