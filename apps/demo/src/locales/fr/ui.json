@@ -187,13 +187,15 @@
     "games": {
       "basketball": "Basketball",
       "cricket": "Cricket",
+      "favourite": "{sport} is your most favorite sport.",
       "football": "Football",
-      "hokey": "Hokey",
+      "hockey": "Hockey",
       "volleyball": "Volleyball"
     },
     "title": "Sortable list",
     "usage": {
-      "basic": "Basic"
+      "basic": "Basic",
+      "sortSport": "Sort sports from most to least favorite"
     }
   },
   "subPane": {
