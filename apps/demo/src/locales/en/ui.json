@@ -130,12 +130,16 @@
   },
   "dropdown": {
     "label": {
+      "email": "Email",
+      "name": "Name",
       "user": "User"
     },
     "title": "Dropdown",
     "usage": {
       "basic": "Basic",
       "customStyle":"Custom style",
+      "email": "monorepo@dzangolab.com",
+      "name": "Monorepo",
       "withSlot": "With slot"
     }
   },
