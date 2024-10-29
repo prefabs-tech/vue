@@ -14,10 +14,6 @@ Please find out [demo app](https://dzangolab.github.io/vue/) for examples.
   - @dzangolab/vue3-ui (https://www.npmjs.com/package/@dzangolab/vue3-ui)
   - @dzangolab/vue3-user (https://www.npmjs.com/package/@dzangolab/vue3-user)
 
-## Tools
-  - `eslint-config-custom` This is a utility package containing the common eslint configuration to be shared across all the libraries within the monorepo.
-  - `tsconfig` This is a utility package containing all the `tsconfig.json` configuration to be shared across all the libraries within the monorepo.
-
 # Installation & Usage
 ## Install dependencies
 Install dependencies recursively with this command
