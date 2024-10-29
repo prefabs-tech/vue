@@ -7,11 +7,15 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Stepper :steps="steps" /&gt;
+            &lt;Stepper :steps="steps" @complete="onFinish" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Stepper } from "@dzangolab/vue3-ui";
+
+          import { useRouter } from "vue-router";
+
+          const router = useRouter();
 
           const steps = ref([
             {
@@ -35,11 +39,15 @@
               step: 4,
             },
           ]);
+
+          const onFinish = () => {
+            router.push("/ui");
+          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
-        <Stepper :steps="steps" />
+        <Stepper :steps="steps" @complete="onFinish" />
       </div>
     </section>
 
@@ -116,6 +124,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Stepper :steps="steps"&gt;
+            &lt;!-- Slot for rendering custom content with step in the `steps` prop --&gt;
             &lt;template #1&gt;
               &lt;TextInput
                 v-model="formData.name"
@@ -208,10 +217,12 @@
 </template>
 
 <script setup lang="ts">
-import { Stepper } from "@dzangolab/vue3-ui";
 import { TextInput, NumberInput } from "@dzangolab/vue3-form";
-
+import { Stepper } from "@dzangolab/vue3-ui";
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const formData = reactive({
   name: null,
@@ -255,4 +266,8 @@ const steps = ref([
     step: 4,
   },
 ]);
+
+const onFinish = () => {
+  router.push("/ui");
+};
 </script>

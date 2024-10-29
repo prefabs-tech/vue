@@ -3,11 +3,11 @@
     <ul class="steps">
       <li
         v-for="(stepItem, index) in steps"
+        :key="index"
         :class="[
           'step',
           { active: index === activeIndex, completed: index < activeIndex },
         ]"
-        :key="index"
       >
         <span
           :class="[
@@ -59,13 +59,13 @@
         :label="
           activeIndex === steps.length - 1
             ? 'Finish'
-            : nextButtonProperties?.label ?? 'Next'
+            : (nextButtonProperties?.label ?? 'Next')
         "
         :rounded="nextButtonProperties?.rounded"
         :severity="
           activeIndex === steps.length - 1
             ? 'success'
-            : nextButtonProperties?.severity ?? 'primary'
+            : (nextButtonProperties?.severity ?? 'primary')
         "
         :size="nextButtonProperties?.size"
         :variant="nextButtonProperties?.variant"
