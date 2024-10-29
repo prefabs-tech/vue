@@ -208,9 +208,8 @@
 </template>
 
 <script setup lang="ts">
-import { Stepper } from "@dzangolab/vue3-ui";
 import { TextInput, NumberInput } from "@dzangolab/vue3-form";
-
+import { Stepper } from "@dzangolab/vue3-ui";
 import { reactive, ref } from "vue";
 
 const formData = reactive({

@@ -31,7 +31,8 @@
     "supertokens-website": "16.0.1"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.5",
+    "@12deg/eslint-config": "0.1.6",
+    "@12deg/tsconfig": "0.1.6",
     "@dzangolab/vue3-config": "0.8.5",
     "@dzangolab/vue3-form": "0.8.5",
     "@dzangolab/vue3-i18n": "0.8.5",
@@ -51,7 +52,6 @@
     "eslint": "8.57.1",
     "pinia": "2.0.32",
     "prettier": "3.3.3",
-    "tsconfig-custom": "0.8.5",
     "typescript": "5.5.4",
     "vee-validate": "4.7.4",
     "vite": "4.1.4",
