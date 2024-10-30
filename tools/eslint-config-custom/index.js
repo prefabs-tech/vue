@@ -11,12 +11,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:vue/vue3-recommended",
     "prettier",
-  ],
-  overrides: [
-    {
-      extends: ["plugin:cypress/recommended"],
-      files: ["cypress/integration/**.spec.{js,ts,jsx,tsx}"],
-    },
+    "turbo",
   ],
   parser: "vue-eslint-parser",
   parserOptions: {
@@ -25,6 +20,27 @@ module.exports = {
   plugins: ["@typescript-eslint", "import", "prettier", "unicorn"],
   root: true,
   rules: {
+    curly: ["error", "all"],
+    "brace-style": ["error", "1tbs"],
+    "import/order": [
+      "error",
+      {
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling"],
+          "index",
+          "object",
+          "type",
+        ],
+        "newlines-between": "always",
+      },
+    ],
     "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "warn",
     "prettier/prettier": "error",
@@ -62,7 +78,6 @@ module.exports = {
         },
       },
     ],
-    "vue/no-reserved-component-names": "off",
     "vue/multi-word-component-names": "off",
     "vue/order-in-components": "off",
   },
