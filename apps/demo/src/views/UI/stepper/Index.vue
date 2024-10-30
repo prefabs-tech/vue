@@ -217,8 +217,9 @@
 </template>
 
 <script setup lang="ts">
-import { TextInput, NumberInput } from "@dzangolab/vue3-form";
 import { Stepper } from "@dzangolab/vue3-ui";
+import { TextInput, NumberInput } from "@dzangolab/vue3-form";
+
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 

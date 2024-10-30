@@ -1,5 +1,5 @@
 {
-  "extends": "@12deg/tsconfig/vue",
+  "extends": "tsconfig-custom/base",
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/src",

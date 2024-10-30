@@ -1,5 +1,5 @@
 {
-  "extends": "@12deg/tsconfig/vue",
+  "extends": "tsconfig-custom/base",
   "exclude": [
     "src/**/__test__/**/*",
   ],

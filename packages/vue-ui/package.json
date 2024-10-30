@@ -27,8 +27,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.6",
-    "@12deg/tsconfig": "0.1.6",
+    "@12deg/eslint-config": "0.1.5",
     "@types/node": "18.15.11",
     "@vitejs/plugin-vue": "4.2.1",
     "@vitejs/plugin-vue-jsx": "3.0.1",
@@ -37,6 +36,7 @@
     "@vueuse/core": "9.13.0",
     "eslint": "8.57.1",
     "prettier": "3.3.3",
+    "tsconfig-custom": "0.8.5",
     "typescript": "5.5.4",
     "vite": "4.1.4",
     "vitest": "0.29.8",
