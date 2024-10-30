@@ -17,8 +17,8 @@
   ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
-    "lint": "eslint . --ext .vue",
-    "lint:fix": "eslint . --ext .vue --fix",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
+    "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "sort-package": "npx sort-package-json",
     "test": "pnpm build && vitest --environment jsdom run --coverage",
     "test:component": "vitest --environment jsdom run component/",
@@ -31,7 +31,6 @@
     "supertokens-website": "16.0.1"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.6",
     "@12deg/tsconfig": "0.1.6",
     "@dzangolab/vue3-config": "0.8.5",
     "@dzangolab/vue3-form": "0.8.5",
@@ -50,6 +49,7 @@
     "@vueuse/core": "9.13.0",
     "axios": "1.3.4",
     "eslint": "8.57.1",
+    "eslint-config-custom": "0.8.5",
     "pinia": "2.0.32",
     "prettier": "3.3.3",
     "typescript": "5.5.4",
