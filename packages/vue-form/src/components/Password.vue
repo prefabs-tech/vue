@@ -19,8 +19,8 @@
           }"
           :disabled="disabled"
           :placeholder="placeholder"
-          tabindex="0"
           :type="showPassword ? 'text' : 'password'"
+          tabindex="0"
         />
         <span class="eye-icon" @click="onClick">
           <slot name="icon" :show-password="showPassword">
