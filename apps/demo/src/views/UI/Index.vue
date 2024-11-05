@@ -22,11 +22,6 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'table' }">
-          {{ $t("ui.tanstack-table.title") }}
-        </router-link>
-      </li>
-      <li>
         <router-link :to="{ name: 'button' }">
           {{ $t("ui.button.title") }}
         </router-link>

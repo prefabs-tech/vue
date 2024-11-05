@@ -9,7 +9,6 @@ describe("Message", () => {
       props: {
         enableClose: true,
         message: "This is a very important message.",
-        icon: true,
       },
       slots: {
         icon: "<i class='pi pi-bell' />",

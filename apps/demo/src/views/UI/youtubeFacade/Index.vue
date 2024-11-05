@@ -1,5 +1,11 @@
 <template>
   <Page :title="$t('ui.youtubeFacade.title')" class="demo-youtube-facade">
+    <template #toolbar>
+      <router-link :to="{ name: 'ui' }" class="back">
+        {{ $t("common.back") }}
+      </router-link>
+    </template>
+
     <section>
       <h2>{{ $t("ui.youtubeFacade.usage.basic") }}</h2>
 

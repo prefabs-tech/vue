@@ -1,5 +1,11 @@
 <template>
   <Page :title="$t('ui.sortableList.title')" class="demo-sortable-list">
+    <template #toolbar>
+      <router-link :to="{ name: 'ui' }" class="back">
+        {{ $t("common.back") }}
+      </router-link>
+    </template>
+
     <section>
       <h2>{{ $t("ui.sortableList.usage.basic") }}</h2>
 
