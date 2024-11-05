@@ -10,17 +10,27 @@
       :rules="fieldSchema"
       @input="onInput"
     >
-      <input
-        v-bind="field"
-        :class="{
-          invalid: meta.touched && !meta.valid,
-          valid: meta.dirty && meta.valid,
-        }"
-        :disabled="disabled"
-        :placeholder="placeholder"
-        tabindex="0"
-        type="password"
-      />
+      <div class="password-input">
+        <input
+          v-bind="field"
+          :class="{
+            invalid: meta.touched && !meta.valid,
+            valid: meta.dirty && meta.valid,
+          }"
+          :disabled="disabled"
+          :placeholder="placeholder"
+          :type="showPassword ? 'text' : 'password'"
+          tabindex="0"
+        />
+        <span class="eye-icon" @click="onClick">
+          <slot name="icon" :show-password="showPassword">
+            <img
+              :src="showPassword ? eyeOpenIcon : eyeSlashIcon"
+              alt="eye-icon"
+            />
+          </slot>
+        </span>
+      </div>
       <ErrorMessage :name="name" />
     </Field>
   </div>
@@ -35,9 +45,12 @@ export default {
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { ref } from "vue";
 import { z } from "zod";
 
 import { passwordSchema } from "../schemas";
+import eyeOpenIcon from "./../assets/svg/eye-open.svg";
+import eyeSlashIcon from "./../assets/svg/eye-slash.svg";
 
 import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
 import type { PropType } from "vue";
@@ -105,9 +118,41 @@ const fieldSchema = toFieldValidator(
       ),
 );
 
+const showPassword = ref<boolean>(false);
+
+const onClick = () => {
+  showPassword.value = !showPassword.value;
+};
+
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;
 
   emit("update:modelValue", value);
 };
 </script>
+
+<style lang="css">
+.field > .password-input {
+  align-items: center;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.password-input .eye-icon {
+  cursor: pointer;
+  display: flex;
+  margin-right: 0.6rem;
+  position: absolute;
+  right: 0;
+}
+
+.password-input .eye-icon > * {
+  width: 1.1rem;
+}
+
+.password-input .invalid + .eye-icon > *,
+.password-input .valid + .eye-icon > * {
+  margin-right: 1rem;
+}
+</style>
