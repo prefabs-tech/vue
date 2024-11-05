@@ -105,7 +105,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:modelValue", "icon:click"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = toFieldValidator(
   Object.keys(props.schema).length
