@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-form",
-  "version": "0.8.5",
+  "version": "0.9.0",
   "description": "Vue Form plugin",
   "license": "MIT",
   "type": "module",
@@ -14,9 +14,7 @@
   "main": "dist//DzangolabVue3Form.umd.js",
   "module": "dist//DzangolabVue3Form.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -33,7 +31,7 @@
   },
   "devDependencies": {
     "@12deg/tsconfig": "0.1.6",
-    "@dzangolab/vue3-ui": "0.8.5",
+    "@dzangolab/vue3-ui": "0.9.0",
     "@types/node": "18.15.11",
     "@types/validator": "13.7.13",
     "@vee-validate/i18n": "4.7.4",
@@ -46,7 +44,7 @@
     "@vuepic/vue-datepicker": "9.0.2",
     "@vueuse/core": "9.13.0",
     "eslint": "8.57.1",
-    "eslint-config-custom": "0.8.5",
+    "eslint-config-custom": "0.9.0",
     "prettier": "3.3.3",
     "typescript": "5.5.4",
     "vee-validate": "4.7.4",
