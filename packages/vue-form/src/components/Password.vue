@@ -23,10 +23,12 @@
           :type="showPassword ? 'text' : 'password'"
         />
         <span class="eye-icon" @click="onClick">
-          <img
-            :src="showPassword ? eyeOpenIcon : eyeSlashIcon"
-            alt="eye-icon"
-          />
+          <slot name="icon" :show-password="showPassword">
+            <img
+              :src="showPassword ? eyeOpenIcon : eyeSlashIcon"
+              alt="eye-icon"
+            />
+          </slot>
         </span>
       </div>
       <ErrorMessage :name="name" />
@@ -103,7 +105,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "icon:click"]);
 
 const fieldSchema = toFieldValidator(
   Object.keys(props.schema).length
@@ -139,17 +141,18 @@ const onInput = (event: Event) => {
 
 .password-input .eye-icon {
   cursor: pointer;
+  display: flex;
   margin-right: 0.6rem;
   position: absolute;
   right: 0;
 }
 
-.password-input .eye-icon img {
+.password-input .eye-icon > * {
   width: 1.1rem;
 }
 
-.password-input .invalid + .eye-icon img,
-.password-input .valid + .eye-icon img {
+.password-input .invalid + .eye-icon > *,
+.password-input .valid + .eye-icon > * {
   margin-right: 1rem;
 }
 </style>

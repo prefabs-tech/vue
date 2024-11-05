@@ -53,6 +53,7 @@
     "disableWeekDays": "Disable week days",
     "disabledMultiSelect": "Disabled multiselect",
     "email": "Email",
+    "iconSlot": "Icon slot",
     "input": "Input",
     "inputWithType": "With type prop",
     "inputWithValidation": "With validation",
