@@ -1,1 +1,0 @@
-import{_ as o,r as n,o as a,c as s}from"./index-146b4921.js";const c={name:"About"};function r(t,p,_,l,u,i){const e=n("Page");return a(),s(e,{title:t.$t("about.title")},null,8,["title"])}const m=o(c,[["render",r]]);export{m as default};
