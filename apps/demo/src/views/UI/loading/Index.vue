@@ -1,5 +1,11 @@
 <template>
   <Page :title="$t('ui.loading.title')" class="demo-loading">
+    <template #toolbar>
+      <router-link :to="{ name: 'ui' }" class="back">
+        {{ $t("common.back") }}
+      </router-link>
+    </template>
+
     <section>
       <h2>{{ $t("ui.loading.usage.basic") }}</h2>
 
