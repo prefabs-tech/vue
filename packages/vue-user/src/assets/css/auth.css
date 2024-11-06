@@ -40,3 +40,7 @@
   margin: 0.5rem 0;
   width: 100%;
 }
+
+.auth.verify-email-reminder {
+  max-width: var(--user-auth-max-width, 30rem);
+}

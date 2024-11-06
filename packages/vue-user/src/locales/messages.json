@@ -1,6 +1,15 @@
 {
   "en": {
     "user": {
+      "emailVerification": {
+        "button": {
+          "label": "Resend email"
+        },
+        "messages": {
+          "verifyEmail": "Please check your email for verification"
+        },
+        "title": "Email Verification"
+      },
       "loading": "Loading...",
       "login": {
         "errors": {
@@ -144,6 +153,15 @@
   },
   "fr": {
     "user": {
+      "emailVerification": {
+        "button": {
+          "label": "Resend email"
+        },
+        "messages": {
+          "verifyEmail": "Please check your email for verification"
+        },
+        "title": "Email Verification"
+      },
       "loading": "Loading...[fr]",
       "login": {
         "errors": {
