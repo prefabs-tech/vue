@@ -79,6 +79,15 @@ form .valid input:focus-visible {
   box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 25%);
 }
 
+form input[type="number"]:is(.invalid, .valid) {
+  appearance: textfield;
+}
+
+form input[type="number"]:is(.invalid, .valid)::-webkit-inner-spin-button,
+form input[type="number"]:is(.invalid, .valid)::-webkit-outer-spin-button {
+  transform: translateX(-1rem);
+}
+
 form label {
   font-size: var(--form-label-font-size, 1em);
 }
