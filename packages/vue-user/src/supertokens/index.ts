@@ -1,4 +1,5 @@
 import SuperTokens from "supertokens-web-js";
+import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
@@ -17,13 +18,23 @@ import type { AppConfig } from "@dzangolab/vue3-config";
 const initSupertokens = (config: AppConfig) => {
   useUserStore();
 
+  // eslint-disable-next-line
+  const recipeList: Array<any> = [
+    ThirdPartyEmailPassword.init(),
+    Session.init(),
+  ];
+
+  if (config.user?.features?.signUp?.emailVerification) {
+    recipeList.push(EmailVerification.init());
+  }
+
   SuperTokens.init({
     appInfo: {
       apiDomain: config.apiBaseUrl,
       appName: config.appTitle,
       apiBasePath: config.authBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
     },
-    recipeList: [ThirdPartyEmailPassword.init(), Session.init()],
+    recipeList: recipeList,
   });
 };
 
