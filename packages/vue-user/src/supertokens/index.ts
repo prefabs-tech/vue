@@ -12,7 +12,7 @@ import resetPassword from "./reset-password";
 import signup from "./signup";
 import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "../constant";
 import useUserStore from "../store";
-import verifyEmail from "./verify-email";
+import verifyEmail, { getVerificationStatus } from "./verify-email";
 
 import type { User } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
@@ -55,11 +55,12 @@ const getUser = async (): Promise<User | undefined> => {
 export default initSupertokens;
 
 export {
+  getUser,
+  getVerificationStatus,
   googleSignIn,
   isLoggedIn,
   login,
   logout,
-  getUser,
   requestPasswordReset,
   resendVerificationEmail,
   resetPassword,

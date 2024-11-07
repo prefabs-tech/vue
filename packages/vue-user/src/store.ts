@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 import {
+  getVerificationStatus,
   googleSignIn as doGoogleSignIn,
   login as doLogin,
   logout as doLogout,
@@ -20,6 +21,7 @@ import type {
 const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
+  const isEmailVerified = ref<boolean>(false);
   const user = ref<User | undefined>(undefined);
 
   const getUser = (): User => {
@@ -39,6 +41,7 @@ const useUserStore = defineStore("user", () => {
   const login = async (credentials: LoginCredentials) => {
     const response = await doLogin(credentials);
 
+    setEmailVerificationStatus();
     setUser(response);
   };
 
@@ -66,6 +69,10 @@ const useUserStore = defineStore("user", () => {
     return doResetPassword(payload);
   };
 
+  const setEmailVerificationStatus = async () => {
+    isEmailVerified.value = await getVerificationStatus();
+  };
+
   const setUser = (userData: User | undefined) => {
     user.value = userData;
 
@@ -75,12 +82,14 @@ const useUserStore = defineStore("user", () => {
   const signup = async (credentials: LoginCredentials): Promise<void> => {
     const response = await doSignup(credentials);
 
+    setEmailVerificationStatus();
     setUser(response);
   };
 
   return {
     googleSignIn,
     getUser,
+    isEmailVerified,
     login,
     logout,
     resetPassword,

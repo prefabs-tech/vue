@@ -13,7 +13,7 @@
           },
           "verifyEmail": "Please check your email for verification"
         },
-        "title": "Email Verification"
+        "title": "Email verification"
       },
       "loading": "Loading...",
       "login": {
@@ -170,7 +170,7 @@
           },
           "verifyEmail": "Please check your email for verification"
         },
-        "title": "Email Verification"
+        "title": "Email verification"
       },
       "loading": "Loading...[fr]",
       "login": {

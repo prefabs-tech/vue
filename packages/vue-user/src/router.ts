@@ -127,6 +127,9 @@ const addAuthenticationGuard = (router: Router) => {
 
     const userStore = useUserStore();
 
+    const { isEmailVerified } = storeToRefs(userStore);
+    const name = to.name as string;
+    const routesToRedirect = ["verifyEmailReminder"];
     const { user } = storeToRefs(userStore);
 
     if (!user.value) {
@@ -134,6 +137,14 @@ const addAuthenticationGuard = (router: Router) => {
     }
     if (meta.authenticated && !user.value) {
       router.push({ name: "login" }); // using next inside async function is not allowed
+    } else if (meta.authenticated && user.value && !isEmailVerified.value) {
+      router.push({ name: "verifyEmailReminder" });
+    } else if (
+      user.value &&
+      isEmailVerified.value &&
+      routesToRedirect.includes(name)
+    ) {
+      router.push({ name: "home" });
     }
   });
 };
