@@ -28,7 +28,7 @@ import { ButtonElement, Card } from "@dzangolab/vue3-ui";
 
 import { EMAIL_VERIFICATION } from "../constant";
 import { useTranslations, emitter } from "../index";
-import { resendVerificationEmail } from "../supertokens/resend-email-verification";
+import { resendVerificationEmail } from "../supertokens";
 
 const messages = useTranslations();
 
