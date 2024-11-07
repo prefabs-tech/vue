@@ -55,7 +55,5 @@ const handleResend = () => {
         type: "error",
       });
     });
-
-  return false;
 };
 </script>
