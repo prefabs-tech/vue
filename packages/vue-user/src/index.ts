@@ -28,6 +28,12 @@ const plugin: Plugin = {
       : messages;
 
     app.provide(__dzangolabVueUserTranslations, translations);
+
+    if (options && options.notification) {
+      emitter.on("notify", (message: object | string | unknown) => {
+        options.notification?.(message);
+      });
+    }
   },
 };
 
