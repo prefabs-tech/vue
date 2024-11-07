@@ -1,4 +1,5 @@
 import { prependMessages } from "@dzangolab/vue3-i18n";
+import mitt from "mitt";
 import { inject } from "vue";
 
 import messages from "./locales/messages.json";
@@ -13,6 +14,8 @@ import type { App, Plugin } from "vue";
 const __dzangolabVueUserTranslations = Symbol.for(
   "dzangolab.vue-user.translations",
 );
+
+const emitter = mitt();
 
 const plugin: Plugin = {
   install: (app: App, options: DzangolabVueUserPluginOptions): void => {
@@ -37,7 +40,7 @@ const useTranslations = () => {
 
 export default plugin;
 
-export { userStore, useTranslations };
+export { userStore, useTranslations, emitter };
 
 export * from "./components";
 

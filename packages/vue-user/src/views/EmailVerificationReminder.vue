@@ -27,7 +27,7 @@ import { useI18n } from "@dzangolab/vue3-i18n";
 import { ButtonElement, Card } from "@dzangolab/vue3-ui";
 
 import { EMAIL_VERIFICATION } from "../constant";
-import { useTranslations } from "../index";
+import { useTranslations, emitter } from "../index";
 import { resendVerificationEmail } from "../supertokens/resend-email-verification";
 
 const messages = useTranslations();
@@ -35,11 +35,26 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 const handleResend = () => {
-  resendVerificationEmail().then((status) => {
-    if (status === EMAIL_VERIFICATION.OK) {
-      return true;
-    }
-  });
+  resendVerificationEmail()
+    .then((status) => {
+      if (status === EMAIL_VERIFICATION.OK) {
+        emitter.emit("notify", {
+          text: t("user.emailVerification.messages.resend.success"),
+          type: "success",
+        });
+      } else if (status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR) {
+        emitter.emit("notify", {
+          text: t("user.emailVerification.messages.resend.alreadyVerified"),
+          type: "info",
+        });
+      }
+    })
+    .catch(() => {
+      emitter.emit("notify", {
+        text: t("user.emailVerification.messages.resend.error"),
+        type: "error",
+      });
+    });
 
   return false;
 };

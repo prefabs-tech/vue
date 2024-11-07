@@ -12,7 +12,9 @@
   "main": "dist//DzangolabVue3User.umd.js",
   "module": "dist//DzangolabVue3User.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -25,6 +27,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
+    "mitt": "^3.0.1",
     "supertokens-web-js": "0.5.0",
     "supertokens-website": "16.0.1"
   },
