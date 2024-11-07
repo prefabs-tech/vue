@@ -1,4 +1,5 @@
 import { prependMessages } from "@dzangolab/vue3-i18n";
+import mitt from "mitt";
 import { inject } from "vue";
 
 import messages from "./locales/messages.json";
@@ -14,6 +15,8 @@ const __dzangolabVueUserTranslations = Symbol.for(
   "dzangolab.vue-user.translations",
 );
 
+const emitter = mitt();
+
 const plugin: Plugin = {
   install: (app: App, options: DzangolabVueUserPluginOptions): void => {
     updateRouter(options.router, options.config?.user?.routes);
@@ -25,6 +28,12 @@ const plugin: Plugin = {
       : messages;
 
     app.provide(__dzangolabVueUserTranslations, translations);
+
+    if (options && options.notification) {
+      emitter.on("notify", (message: object | string | unknown) => {
+        options.notification?.(message);
+      });
+    }
   },
 };
 
@@ -37,7 +46,7 @@ const useTranslations = () => {
 
 export default plugin;
 
-export { userStore, useTranslations };
+export { userStore, useTranslations, emitter };
 
 export * from "./components";
 

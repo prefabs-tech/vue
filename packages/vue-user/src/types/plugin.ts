@@ -8,6 +8,7 @@ interface DzangolabVueUserPluginOptions {
   pinia: Pinia;
   router: Router;
   translations?: LocaleMessages<VueMessageType>;
+  notification?: (message: object | string | unknown) => void;
 }
 
 export type { DzangolabVueUserPluginOptions };

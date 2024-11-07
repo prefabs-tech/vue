@@ -4,6 +4,7 @@ import { Router } from "vue-router";
 import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
 import useUserStore from "./store";
 import { getUser } from "./supertokens";
+import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
 import Login from "./views/Login.vue";
 import PasswordReset from "./views/PasswordReset.vue";
 import PasswordResetRequest from "./views/PasswordResetRequest.vue";
@@ -53,6 +54,11 @@ const _routes = {
     name: "resetPasswordRequestAcknowledge",
     path: "/reset-password-request-acknowledge",
   },
+  verifyEmailReminder: {
+    component: VerifyEmailReminder,
+    name: "verifyEmailReminder",
+    path: "/verify-email-reminder",
+  },
 };
 
 const getRoute = (
@@ -87,6 +93,10 @@ const addRoutes = (router: Router, routes?: RouteOverrides) => {
       _routes.passwordResetRequestAcknowledge,
       routes?.passwordResetRequestAcknowledge,
     ),
+  );
+
+  router.addRoute(
+    getRoute(_routes.verifyEmailReminder, routes?.verifyEmailReminder),
   );
 };
 

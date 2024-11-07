@@ -5,6 +5,11 @@ import type {
 } from "@dzangolab/vue3-form";
 
 interface DzangolabVueUserConfig {
+  features?: {
+    signUp?: {
+      emailVerification?: boolean;
+    };
+  };
   password?: {
     minLength: number;
   };

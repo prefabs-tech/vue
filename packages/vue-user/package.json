@@ -12,7 +12,9 @@
   "main": "dist//DzangolabVue3User.umd.js",
   "module": "dist//DzangolabVue3User.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -48,6 +50,7 @@
     "axios": "1.3.4",
     "eslint": "8.57.1",
     "eslint-config-custom": "0.9.0",
+    "mitt": "3.0.1",
     "pinia": "2.0.32",
     "prettier": "3.3.3",
     "typescript": "5.5.4",
