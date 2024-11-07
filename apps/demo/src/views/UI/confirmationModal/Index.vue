@@ -1,5 +1,11 @@
 <template>
   <Page :title="$t('ui.confirmationModal.title')" class="demo">
+    <template #toolbar>
+      <router-link :to="{ name: 'ui' }" class="back">
+        {{ $t("common.back") }}
+      </router-link>
+    </template>
+
     <section>
       <h2>{{ $t("ui.confirmationModal.usage.basic") }}</h2>
 

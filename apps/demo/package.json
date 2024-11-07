@@ -1,8 +1,8 @@
 {
   "name": "@dzangolab/vue3-demo",
-  "version": "0.8.5",
-  "private": true,
   "homepage": "https://dzangolab.github.io/vue",
+  "version": "0.9.0",
+  "private": true,
   "scripts": {
     "build": "run-p typecheck build-only",
     "build-only": "vite build",
@@ -15,13 +15,13 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@dzangolab/vue3-config": "0.8.5",
-    "@dzangolab/vue3-form": "0.8.5",
-    "@dzangolab/vue3-i18n": "0.8.5",
-    "@dzangolab/vue3-layout": "0.8.5",
-    "@dzangolab/vue3-tanstack-table": "0.8.5",
-    "@dzangolab/vue3-ui": "0.8.5",
-    "@dzangolab/vue3-user": "0.8.5",
+    "@dzangolab/vue3-config": "0.9.0",
+    "@dzangolab/vue3-form": "0.9.0",
+    "@dzangolab/vue3-i18n": "0.9.0",
+    "@dzangolab/vue3-layout": "0.9.0",
+    "@dzangolab/vue3-tanstack-table": "0.9.0",
+    "@dzangolab/vue3-ui": "0.9.0",
+    "@dzangolab/vue3-user": "0.9.0",
     "@fortawesome/fontawesome-free": "^6.6.0",
     "@iconify/vue": "4.1.0",
     "@kyvg/vue3-notification": "2.9.0",
@@ -33,7 +33,8 @@
     "vue-router": "4.1.6"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.5",
+    "@12deg/eslint-config": "0.1.7",
+    "@12deg/tsconfig": "0.1.7",
     "@types/jsdom": "21.1.1",
     "@types/node": "18.15.11",
     "@vee-validate/i18n": "4.7.4",
@@ -49,7 +50,6 @@
     "jsdom": "21.1.1",
     "npm-run-all": "4.1.5",
     "prettier": "3.3.3",
-    "tsconfig-custom": "0.8.5",
     "typescript": "5.5.4",
     "vee-validate": "4.7.4",
     "vite": "4.1.4",

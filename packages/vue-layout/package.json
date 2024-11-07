@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-layout",
-  "version": "0.8.5",
+  "version": "0.9.0",
   "description": "Vue3 Layout Plugin",
   "exports": {
     ".": {
@@ -12,9 +12,7 @@
   "main": "dist//DzangolabVue3Layout.umd.js",
   "module": "dist//DzangolabVue3Layout.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue",
@@ -27,10 +25,11 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.5",
-    "@dzangolab/vue3-config": "0.8.5",
-    "@dzangolab/vue3-i18n": "0.8.5",
-    "@dzangolab/vue3-ui": "0.8.5",
+    "@12deg/eslint-config": "0.1.7",
+    "@12deg/tsconfig": "0.1.7",
+    "@dzangolab/vue3-config": "0.9.0",
+    "@dzangolab/vue3-i18n": "0.9.0",
+    "@dzangolab/vue3-ui": "0.9.0",
     "@iconify/vue": "4.1.0",
     "@types/node": "18.15.11",
     "@vitejs/plugin-vue": "4.2.1",
@@ -40,7 +39,6 @@
     "@vueuse/core": "9.13.0",
     "eslint": "8.57.1",
     "prettier": "3.3.3",
-    "tsconfig-custom": "0.8.5",
     "typescript": "5.5.4",
     "vite": "4.1.4",
     "vitest": "0.29.8",
@@ -49,9 +47,9 @@
     "vue-tsc": "1.2.0"
   },
   "peerDependencies": {
-    "@dzangolab/vue3-config": "0.8.5",
-    "@dzangolab/vue3-i18n": "0.8.5",
-    "@dzangolab/vue3-ui": "0.8.5",
+    "@dzangolab/vue3-config": "0.9.0",
+    "@dzangolab/vue3-i18n": "0.9.0",
+    "@dzangolab/vue3-ui": "0.9.0",
     "@vueuse/core": ">=9.4.0",
     "vue": ">=3.2",
     "vue-router": ">=4.0"

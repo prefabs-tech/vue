@@ -53,6 +53,7 @@
     "disabled": "Disabled[fr]",
     "disableWeekDays": "Disable week days[fr]",
     "email": "Email[fr]",
+    "iconSlot": "Icon slot",
     "input": "Input[fr]",
     "inputWithType": "With type prop[fr]",
     "inputWithValidation": "With validation[fr]",

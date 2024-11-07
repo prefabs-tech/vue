@@ -1,3 +1,25 @@
+# [0.9.0](https://github.com/dzangolab/vue/compare/v0.8.5...v0.9.0) (2024-11-05)
+
+
+### Bug Fixes
+
+* update icons in tabbed panel page ([#305](https://github.com/dzangolab/vue/issues/305)) ([58b722a](https://github.com/dzangolab/vue/commit/58b722a4ae4f8b4b7c505302b9bca02ead92db10))
+
+
+### Features
+
+* add datepicker to demo with source code ([#322](https://github.com/dzangolab/vue/issues/322)) ([016b9a2](https://github.com/dzangolab/vue/commit/016b9a2a3af93fecbecb8a50e6e310c4cdb13679))
+* add number input to demo app with source code ([#314](https://github.com/dzangolab/vue/issues/314)) ([0e294f0](https://github.com/dzangolab/vue/commit/0e294f0a5a1d139d0f92bcaca38781603e409373))
+* add Password component to demo with source code ([#316](https://github.com/dzangolab/vue/issues/316)) ([4f6a95e](https://github.com/dzangolab/vue/commit/4f6a95e2f150efaf55ffd9658e7664226bad3943))
+* add popup component to ui package with demo ([#344](https://github.com/dzangolab/vue/issues/344)) ([b89a3d4](https://github.com/dzangolab/vue/commit/b89a3d468391d939dec2d8827ab1e0bc928ce30a))
+
+
+### Reverts
+
+* Revert "refactor(eslint): use eslint config from @12deg/eslint-config package (#368)" (#373) ([00f57d4](https://github.com/dzangolab/vue/commit/00f57d4385c8120daea9466e07680c9ae8f10328)), closes [#368](https://github.com/dzangolab/vue/issues/368) [#373](https://github.com/dzangolab/vue/issues/373)
+
+
+
 ## [0.8.5](https://github.com/dzangolab/vue/compare/v0.8.4...v0.8.5) (2024-08-05)
 
 

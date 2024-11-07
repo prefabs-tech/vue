@@ -22,11 +22,6 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'table' }">
-          {{ $t("ui.tanstack-table.title") }}
-        </router-link>
-      </li>
-      <li>
         <router-link :to="{ name: 'button' }">
           {{ $t("ui.button.title") }}
         </router-link>
@@ -74,6 +69,11 @@
       <li>
         <router-link :to="{ name: 'sortableList' }">
           {{ $t("ui.sortableList.title") }}
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'stepper' }">
+          {{ $t("ui.stepper.title") }}
         </router-link>
       </li>
       <li>

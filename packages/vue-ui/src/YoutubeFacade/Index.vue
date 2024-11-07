@@ -43,7 +43,7 @@ const props = defineProps({
   },
 
   aspectRatio: {
-    default: null,
+    default: "16/9",
     required: false,
     type: String,
   },
