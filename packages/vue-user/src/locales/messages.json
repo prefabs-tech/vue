@@ -9,7 +9,6 @@
           "resend": {
             "alreadyVerified": "Email is already verified. Please try refreshing the page.",
             "error": "Something went wrong. Please try again",
-            "invalidToken": "The token is invalid",
             "success": "Email resent successfully."
           },
           "verify": {
@@ -173,7 +172,6 @@
           "resend": {
             "alreadyVerified": "Email is already verified. Please try refreshing the page.",
             "error": "Something went wrong. Please try again",
-            "invalidToken": "The token is invalid",
             "success": "Email resent successfully"
           },
           "verify": {
