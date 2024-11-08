@@ -15,8 +15,8 @@
   "files": ["dist"],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
-    "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "lint": "eslint . --ext .vue",
+    "lint:fix": "eslint . --ext .vue --fix",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage",
     "test:component": "vitest --environment jsdom run component/",
@@ -29,7 +29,8 @@
     "vue-i18n": "9.1.10"
   },
   "devDependencies": {
-    "@12deg/tsconfig": "0.1.6",
+    "@12deg/eslint-config": "0.1.8",
+    "@12deg/tsconfig": "0.1.8",
     "@dzangolab/vue3-config": "0.9.0",
     "@types/node": "18.15.11",
     "@vitejs/plugin-vue": "4.2.1",
@@ -37,7 +38,6 @@
     "@vitest/coverage-istanbul": "0.29.8",
     "@vueuse/core": "9.13.0",
     "eslint": "8.57.1",
-    "eslint-config-custom": "0.9.0",
     "jsdom": "21.1.1",
     "pinia": "2.0.32",
     "prettier": "3.3.3",

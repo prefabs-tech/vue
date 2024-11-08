@@ -54,9 +54,9 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { SortableList } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
-import { useI18n } from "@dzangolab/vue3-i18n";
 
 const { t } = useI18n();
 

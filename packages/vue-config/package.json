@@ -16,8 +16,8 @@
   "files": ["dist"],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
-    "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage --passWithNoTests",
     "test:component": "vitest --environment jsdom run component/ --passWithNoTests",
@@ -31,13 +31,13 @@
     "@sentry/vue": "7.44.2"
   },
   "devDependencies": {
-    "@12deg/tsconfig": "0.1.6",
+    "@12deg/eslint-config": "0.1.8",
+    "@12deg/tsconfig": "0.1.8",
     "@types/node": "18.15.11",
     "@vitejs/plugin-vue": "4.2.1",
     "@vitejs/plugin-vue-jsx": "3.0.1",
     "@vitest/coverage-istanbul": "0.29.8",
     "eslint": "8.57.1",
-    "eslint-config-custom": "0.9.0",
     "prettier": "3.3.3",
     "typescript": "5.5.4",
     "vite": "4.1.4",
