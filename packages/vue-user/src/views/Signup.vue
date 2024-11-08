@@ -61,7 +61,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
   });
 
   if (user.value) {
-    router.push({ name: "verifyEmailReminder" });
+    router.push({ name: "home" });
   }
 };
 </script>
