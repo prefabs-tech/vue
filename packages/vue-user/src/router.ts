@@ -55,6 +55,9 @@ const _routes = {
     path: "/reset-password-request-acknowledge",
   },
   verifyEmailReminder: {
+    meta: {
+      authenticated: true,
+    } as RouteMeta,
     component: VerifyEmailReminder,
     name: "verifyEmailReminder",
     path: "/verify-email-reminder",
