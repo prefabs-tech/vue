@@ -9,9 +9,16 @@
           "resend": {
             "alreadyVerified": "Email is already verified. Please try refreshing the page.",
             "error": "Something went wrong. Please try again",
+            "invalidToken": "The token is invalid",
             "success": "Email resent successfully."
           },
-          "verifyEmail": "Please check your email for verification"
+          "verify": {
+            "success": "Email verified successfully",
+            "alreadyVerified": "Email is already verified",
+            "invalidToken": "The token is invalid"
+          }, 
+          "verifyEmail": "Please check your email for verification",
+          "verifyingEmail": "Verifying your email"
         },
         "title": "Email verification"
       },
@@ -166,9 +173,16 @@
           "resend": {
             "alreadyVerified": "Email is already verified. Please try refreshing the page.",
             "error": "Something went wrong. Please try again",
+            "invalidToken": "The token is invalid",
             "success": "Email resent successfully"
           },
-          "verifyEmail": "Please check your email for verification"
+          "verify": {
+            "success": "Email verified successfully",
+            "alreadyVerified": "Email is already verified",
+            "invalidToken": "The token is invalid"
+          }, 
+          "verifyEmail": "Please check your email for verification",
+          "verifyingEmail": "Verifying your email"
         },
         "title": "Email verification"
       },
