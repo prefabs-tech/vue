@@ -12,9 +12,9 @@
             "success": "Email resent successfully."
           },
           "verify": {
-            "success": "Email verified successfully",
             "alreadyVerified": "Email is already verified",
-            "invalidToken": "The token is invalid"
+            "invalidToken": "The token is invalid",
+            "success": "Email verified successfully"
           }, 
           "verifyEmail": "Please check your email for verification",
           "verifyingEmail": "Verifying your email"
@@ -175,9 +175,9 @@
             "success": "Email resent successfully"
           },
           "verify": {
-            "success": "Email verified successfully",
             "alreadyVerified": "Email is already verified",
-            "invalidToken": "The token is invalid"
+            "invalidToken": "The token is invalid",
+            "success": "Email verified successfully"
           }, 
           "verifyEmail": "Please check your email for verification",
           "verifyingEmail": "Verifying your email"
