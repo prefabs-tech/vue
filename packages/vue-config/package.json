@@ -31,7 +31,8 @@
     "@sentry/vue": "7.44.2"
   },
   "devDependencies": {
-    "@12deg/tsconfig": "0.1.7",
+    "@12deg/eslint-config": "0.1.8",
+    "@12deg/tsconfig": "0.1.8",
     "@types/node": "18.15.11",
     "@vitejs/plugin-vue": "4.2.1",
     "@vitejs/plugin-vue-jsx": "3.0.1",
