@@ -41,6 +41,6 @@
   width: 100%;
 }
 
-.auth.verify-email-reminder {
+.auth.verify-email, .auth.verify-email-reminder {
   max-width: var(--user-auth-max-width, 30rem);
 }

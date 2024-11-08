@@ -11,7 +11,13 @@
             "error": "Something went wrong. Please try again",
             "success": "Email resent successfully."
           },
-          "verifyEmail": "Please check your email for verification"
+          "verify": {
+            "alreadyVerified": "Email is already verified",
+            "invalidToken": "The token is invalid",
+            "success": "Email verified successfully"
+          }, 
+          "verifyEmail": "Please check your email for verification",
+          "verifyingEmail": "Verifying your email"
         },
         "title": "Email verification"
       },
@@ -168,7 +174,13 @@
             "error": "Something went wrong. Please try again",
             "success": "Email resent successfully"
           },
-          "verifyEmail": "Please check your email for verification"
+          "verify": {
+            "alreadyVerified": "Email is already verified",
+            "invalidToken": "The token is invalid",
+            "success": "Email verified successfully"
+          }, 
+          "verifyEmail": "Please check your email for verification",
+          "verifyingEmail": "Verifying your email"
         },
         "title": "Email verification"
       },

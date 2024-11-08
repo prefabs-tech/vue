@@ -11,6 +11,7 @@ import PasswordResetRequest from "./views/PasswordResetRequest.vue";
 import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowledge.vue";
 import Profile from "./views/Profile.vue";
 import Signup from "./views/Signup.vue";
+import VerifyEmail from "./views/VerifyEmail.vue";
 
 import type {
   DzangolabVueUserConfig,
@@ -57,6 +58,14 @@ const _routes = {
     component: PasswordResetRequestAcknowledge,
     name: "resetPasswordRequestAcknowledge",
     path: "/reset-password-request-acknowledge",
+  },
+  verifyEmail: {
+    meta: {
+      authenticated: true,
+    } as RouteMeta,
+    component: VerifyEmail,
+    name: "verifyEmail",
+    path: "/verify-email",
   },
   verifyEmailReminder: {
     meta: {
@@ -105,6 +114,8 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   );
 
   if (userConfig?.features?.signUp?.emailVerification) {
+    router.addRoute(getRoute(_routes.verifyEmail, routes?.verifyEmail));
+
     router.addRoute(
       getRoute(_routes.verifyEmailReminder, routes?.verifyEmailReminder),
     );
@@ -145,7 +156,7 @@ const addAuthenticationGuard = (
       !!userConfig?.features?.signUp?.emailVerification;
 
     const name = to.name as string;
-    const routesToRedirect = ["verifyEmailReminder"];
+    const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
     const { user } = storeToRefs(userStore);
 
     if (!user.value) {
