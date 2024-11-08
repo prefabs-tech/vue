@@ -19,7 +19,7 @@ const emitter = mitt();
 
 const plugin: Plugin = {
   install: (app: App, options: DzangolabVueUserPluginOptions): void => {
-    updateRouter(options.router, options.config?.user?.routes);
+    updateRouter(options.router, options.config?.user);
 
     initSupertokens(options.config);
 
