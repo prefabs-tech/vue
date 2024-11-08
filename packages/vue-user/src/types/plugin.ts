@@ -5,6 +5,7 @@ import type { Router } from "vue-router";
 
 interface DzangolabVueUserPluginOptions {
   config: AppConfig;
+  notification?: (message: object | string | unknown) => void;
   pinia: Pinia;
   router: Router;
   translations?: LocaleMessages<VueMessageType>;

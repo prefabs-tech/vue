@@ -3,7 +3,8 @@ import { Router } from "vue-router";
 
 import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
 import useUserStore from "./store";
-import { getUser } from "./supertokens";
+import { getUser, getVerificationStatus } from "./supertokens";
+import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
 import Login from "./views/Login.vue";
 import PasswordReset from "./views/PasswordReset.vue";
 import PasswordResetRequest from "./views/PasswordResetRequest.vue";
@@ -11,7 +12,11 @@ import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowl
 import Profile from "./views/Profile.vue";
 import Signup from "./views/Signup.vue";
 
-import type { RouteOverride, RouteOverrides } from "./types";
+import type {
+  DzangolabVueUserConfig,
+  RouteOverride,
+  RouteOverrides,
+} from "./types";
 import type { RouteMeta, RouteRecordRaw } from "vue-router";
 
 const _routes = {
@@ -53,6 +58,14 @@ const _routes = {
     name: "resetPasswordRequestAcknowledge",
     path: "/reset-password-request-acknowledge",
   },
+  verifyEmailReminder: {
+    meta: {
+      authenticated: true,
+    } as RouteMeta,
+    component: VerifyEmailReminder,
+    name: "verifyEmailReminder",
+    path: "/verify-email-reminder",
+  },
 };
 
 const getRoute = (
@@ -65,7 +78,9 @@ const getRoute = (
   } as RouteRecordRaw;
 };
 
-const addRoutes = (router: Router, routes?: RouteOverrides) => {
+const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
+  const routes: RouteOverrides | undefined = userConfig?.routes;
+
   router.addRoute(getRoute(_routes.google, routes?.google));
 
   router.addRoute(getRoute(_routes.login, routes?.login));
@@ -88,6 +103,12 @@ const addRoutes = (router: Router, routes?: RouteOverrides) => {
       routes?.passwordResetRequestAcknowledge,
     ),
   );
+
+  if (userConfig?.features?.signUp?.emailVerification) {
+    router.addRoute(
+      getRoute(_routes.verifyEmailReminder, routes?.verifyEmailReminder),
+    );
+  }
 };
 
 const redirectRoutes = (router: Router) => {
@@ -111,27 +132,50 @@ const redirectRoutes = (router: Router) => {
   });
 };
 
-const addAuthenticationGuard = (router: Router) => {
+const addAuthenticationGuard = (
+  router: Router,
+  userConfig?: DzangolabVueUserConfig,
+) => {
   router.beforeEach(async (to) => {
     const meta = to.meta as RouteMeta;
 
     const userStore = useUserStore();
 
+    const EmailVerificationEnabled =
+      !!userConfig?.features?.signUp?.emailVerification;
+
+    const name = to.name as string;
+    const routesToRedirect = ["verifyEmailReminder"];
     const { user } = storeToRefs(userStore);
 
     if (!user.value) {
       user.value = await getUser();
     }
+
     if (meta.authenticated && !user.value) {
       router.push({ name: "login" }); // using next inside async function is not allowed
+    }
+
+    if (EmailVerificationEnabled && user.value) {
+      const isEmailVerified = await getVerificationStatus();
+
+      if (
+        meta.authenticated &&
+        !isEmailVerified &&
+        !routesToRedirect.includes(name)
+      ) {
+        router.push({ name: "verifyEmailReminder" });
+      } else if (isEmailVerified && routesToRedirect.includes(name)) {
+        router.push({ name: "home" });
+      }
     }
   });
 };
 
-const updateRouter = (router: Router, routes?: RouteOverrides) => {
-  addRoutes(router, routes);
+const updateRouter = (router: Router, userConfig?: DzangolabVueUserConfig) => {
+  addRoutes(router, userConfig);
 
-  addAuthenticationGuard(router);
+  addAuthenticationGuard(router, userConfig);
 
   redirectRoutes(router);
 };

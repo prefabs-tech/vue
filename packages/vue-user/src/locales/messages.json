@@ -1,6 +1,20 @@
 {
   "en": {
     "user": {
+      "emailVerification": {
+        "button": {
+          "label": "Resend email"
+        },
+        "messages": {
+          "resend": {
+            "alreadyVerified": "Email is already verified. Please try refreshing the page.",
+            "error": "Something went wrong. Please try again",
+            "success": "Email resent successfully."
+          },
+          "verifyEmail": "Please check your email for verification"
+        },
+        "title": "Email verification"
+      },
       "loading": "Loading...",
       "login": {
         "errors": {
@@ -144,6 +158,20 @@
   },
   "fr": {
     "user": {
+      "emailVerification": {
+        "button": {
+          "label": "Resend email"
+        },
+        "messages": {
+          "resend": {
+            "alreadyVerified": "Email is already verified. Please try refreshing the page.",
+            "error": "Something went wrong. Please try again",
+            "success": "Email resent successfully"
+          },
+          "verifyEmail": "Please check your email for verification"
+        },
+        "title": "Email verification"
+      },
       "loading": "Loading...[fr]",
       "login": {
         "errors": {
