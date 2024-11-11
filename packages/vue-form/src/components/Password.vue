@@ -130,29 +130,3 @@ const onInput = (event: Event) => {
   emit("update:modelValue", value);
 };
 </script>
-
-<style lang="css">
-.field > .password-input {
-  align-items: center;
-  display: flex;
-  position: relative;
-  width: 100%;
-}
-
-.password-input .eye-icon {
-  cursor: pointer;
-  display: flex;
-  margin-right: 0.6rem;
-  position: absolute;
-  right: 0;
-}
-
-.password-input .eye-icon > * {
-  width: 1.1rem;
-}
-
-.password-input .invalid + .eye-icon > *,
-.password-input .valid + .eye-icon > * {
-  margin-right: 1rem;
-}
-</style>

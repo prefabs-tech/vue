@@ -1,7 +1,7 @@
 .tabbed-panel {
-  --_border-color: var(--border-color);
-  --_border-color_selected: var(--color-primary);
-  --_border-radius: var(--border-radius);
+  --_border-color: var(--border-color, #dee2e6);
+  --_border-color_selected: var(--color-primary, #007aff);
+  --_border-radius: var(--border-radius, 0.25rem);
   --_border-width: 3px;
   --_border-width-colorized: 3px;
   --_button-gap: 0.5em;

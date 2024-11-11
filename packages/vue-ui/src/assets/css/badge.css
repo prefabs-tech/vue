@@ -1,12 +1,12 @@
 :root {
-  --badge-color: var(--dz-primary-color);
-  --badge-alternate-color: var(--dz-alternate-color);
-  --badge-danger-color: var(--dz-danger-color);
-  --badge-primary-color: var(--dz-primary-color);
-  --badge-secondary-color: var(--dz-secondary-color);
-  --badge-success-color: var(--dz-success-color);
+  --badge-color: var(--dz-primary-color, #007aff);
+  --badge-alternate-color: var(--dz-alternate-color, #0284c7);
+  --badge-danger-color: var(--dz-danger-color, #dc3545);
+  --badge-primary-color: var(--dz-primary-color, #007aff);
+  --badge-secondary-color: var(--dz-secondary-color, #475569);
+  --badge-success-color: var(--dz-success-color, #22c55e);
   --badge-text-color: white;
-  --badge-warning-color: var(--dz-warning-color);
+  --badge-warning-color: var(--dz-warning-color, #ea580c);
 
   --badge-font-size: 0.875rem;
   --badge-font-weight: 400;
@@ -17,7 +17,7 @@
   --_badge-color: var(--badge-color);
   --_badge-font-size: var(--badge-font-size);
   --_badge-font-weight: var(--badge-font-weight);
-  --_badge-padding: var(--badge-padding);
+  --_badge-padding: var(--badge-padding, 0.625rem);
   --_badge-text-color: var(--badge-text-color);
 
   align-items: center;
