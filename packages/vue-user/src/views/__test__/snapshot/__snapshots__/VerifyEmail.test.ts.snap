@@ -1,49 +1,75 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`VerifyEmail > matches snapshot in en 1`] = `
-<page
-  class="auth verify-email"
-  title="Email verification"
+<div
+  class="page auth verify-email"
 >
-  <div
-    class="card"
-  >
+  <h1>
+    Email verification 
     <!---->
+  </h1>
+  <div
+    class="toolbar"
+  >
+    
+    
+  </div>
+  <main>
+    
     <div
-      class="card-body"
+      class="card"
     >
-      
-      <p>
-        Something went wrong. Please try again
-      </p>
-      
+      <!---->
+      <div
+        class="card-body"
+      >
+        
+        <p>
+          Something went wrong. Please try again
+        </p>
+        
+      </div>
+      <!---->
     </div>
     <!---->
-  </div>
-  <!---->
-</page>
+    
+  </main>
+</div>
 `;
 
 exports[`VerifyEmail > matches snapshot in fr 1`] = `
-<page
-  class="auth verify-email"
-  title="Email verification"
+<div
+  class="page auth verify-email"
 >
-  <div
-    class="card"
-  >
+  <h1>
+    Email verification 
     <!---->
+  </h1>
+  <div
+    class="toolbar"
+  >
+    
+    
+  </div>
+  <main>
+    
     <div
-      class="card-body"
+      class="card"
     >
-      
-      <p>
-        Something went wrong. Please try again
-      </p>
-      
+      <!---->
+      <div
+        class="card-body"
+      >
+        
+        <p>
+          Something went wrong. Please try again
+        </p>
+        
+      </div>
+      <!---->
     </div>
     <!---->
-  </div>
-  <!---->
-</page>
+    
+  </main>
+</div>
 `;
