@@ -1,7 +1,7 @@
 :root {
-  --button-alternate-color: var(--dz-alternate-color);
+  --button-alternate-color: var(--dz-alternate-color, #0284c7);
   --button-alternate-outlined-hover-color: #f1f9fc;
-  --button-danger-color: var(--dz-danger-color);
+  --button-danger-color: var(--dz-danger-color, #dc3545);
   --button-danger-outlined-hover-color: #fef1f1;
   --button-font-size: 1rem;
   --button-font-width: 700;
@@ -13,29 +13,29 @@
   --button-medium-icon-size: 1rem;
   --button-medium-padding: 0.75rem 1.25rem;
   --button-medium-width: 2.75rem;
-  --button-primary-color: var(--dz-primary-color);
+  --button-primary-color: var(--dz-primary-color, #007aff);
   --button-primary-outlined-hover-color: #eef6fe;
-  --button-secondary-color: var(--dz-secondary-color);
+  --button-secondary-color: var(--dz-secondary-color, #475569);
   --button-secondary-outlined-hover-color: #f3f4f5;
   --button-small-font-size: 0.875rem;
   --button-small-icon-size: 0.875rem;
   --button-small-padding: 0.65625rem 1.09375rem;
   --button-small-width: 2.438rem;
-  --button-success-color: var(--dz-success-color);
+  --button-success-color: var(--dz-success-color, #22c55e);
   --button-success-outlined-hover-color: #f0fcf6;
   --button-text-color: #ffffff;
-  --button-transition-duration: var(--transition-duration);
-  --button-warning-color: var(--dz-warning-color);
+  --button-transition-duration: var(--transition-duration, 0.2s);
+  --button-warning-color: var(--dz-warning-color, #ea580c);
   --button-warning-outlined-hover-color: #fef7f5;
 }
 
 .button {
-  --_button-color: var(--button-color);
+  --_button-color: var(--button-color, #0284c7);
   --_button-font-size: var(--button-font-size);
   --_button-font-width: var(--button-font-width);
-  --_button-icon-size: var(--button-icon-size);
-  --_button-outlined-hover-color: var(--button-outlined-hover-color);
-  --_button-padding: var(--button-padding);
+  --_button-icon-size: var(--button-icon-size, 0.875rem);
+  --_button-outlined-hover-color: var(--button-outlined-hover-color, #eef6fe);
+  --_button-padding: var(--button-padding, 1rem);
   --_button-text-color: var(--button-text-color);
 
   align-items: center;
