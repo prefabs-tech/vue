@@ -18,7 +18,7 @@
 
 <script lang="ts">
 export default {
-  name: "VerifyEmail",
+  name: "EmailVerificationReminder",
 };
 </script>
 
