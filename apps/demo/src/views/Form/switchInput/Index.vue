@@ -1,5 +1,11 @@
 <template>
   <Page :title="$t('form.label.switch')" class="demo">
+    <template #toolbar>
+      <router-link :to="{ name: 'form' }" class="back">
+        {{ $t("common.back") }}
+      </router-link>
+    </template>
+
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
