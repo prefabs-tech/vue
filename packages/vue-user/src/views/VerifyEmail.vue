@@ -28,7 +28,7 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, Card, LoadingPage } from "@dzangolab/vue3-ui";
+import { ButtonElement, Card, LoadingPage, Page } from "@dzangolab/vue3-ui";
 import { computed, onMounted, ref } from "vue";
 
 import { EMAIL_VERIFICATION } from "../constant";
