@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`VerifyEmail > matches snapshot in en 1`] = `
+<page
+  class="auth verify-email"
+  title="Email verification"
+>
+  <div
+    class="card"
+  >
+    <!---->
+    <div
+      class="card-body"
+    >
+      
+      <p>
+        Something went wrong. Please try again
+      </p>
+      
+    </div>
+    <!---->
+  </div>
+  <!---->
+</page>
+`;
+
+exports[`VerifyEmail > matches snapshot in fr 1`] = `
+<page
+  class="auth verify-email"
+  title="Email verification"
+>
+  <div
+    class="card"
+  >
+    <!---->
+    <div
+      class="card-body"
+    >
+      
+      <p>
+        Something went wrong. Please try again
+      </p>
+      
+    </div>
+    <!---->
+  </div>
+  <!---->
+</page>
+`;
