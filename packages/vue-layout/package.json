@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-layout",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Vue3 Layout Plugin",
   "exports": {
     ".": {
@@ -27,9 +27,9 @@
   "devDependencies": {
     "@12deg/eslint-config": "0.1.8",
     "@12deg/tsconfig": "0.1.8",
-    "@dzangolab/vue3-config": "0.9.0",
-    "@dzangolab/vue3-i18n": "0.9.0",
-    "@dzangolab/vue3-ui": "0.9.0",
+    "@dzangolab/vue3-config": "0.9.1",
+    "@dzangolab/vue3-i18n": "0.9.1",
+    "@dzangolab/vue3-ui": "0.9.1",
     "@iconify/vue": "4.1.0",
     "@types/node": "18.15.11",
     "@vitejs/plugin-vue": "4.2.1",
@@ -47,9 +47,9 @@
     "vue-tsc": "1.2.0"
   },
   "peerDependencies": {
-    "@dzangolab/vue3-config": "0.9.0",
-    "@dzangolab/vue3-i18n": "0.9.0",
-    "@dzangolab/vue3-ui": "0.9.0",
+    "@dzangolab/vue3-config": "0.9.1",
+    "@dzangolab/vue3-i18n": "0.9.1",
+    "@dzangolab/vue3-ui": "0.9.1",
     "@vueuse/core": ">=9.4.0",
     "vue": ">=3.2",
     "vue-router": ">=4.0"

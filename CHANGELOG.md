@@ -1,3 +1,12 @@
+## [0.9.1](https://github.com/dzangolab/vue/compare/v0.9.0...v0.9.1) (2024-11-12)
+
+
+### Features
+
+* add back button to each form component demo ([#385](https://github.com/dzangolab/vue/issues/385)) ([33041f2](https://github.com/dzangolab/vue/commit/33041f2c9573cd81a0a0b9367d7f2c385085dd37))
+
+
+
 # [0.9.0](https://github.com/dzangolab/vue/compare/v0.8.5...v0.9.0) (2024-11-05)
 
 
