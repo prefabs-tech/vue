@@ -9,11 +9,12 @@ exports[`Dropdown > matches snapshot 1`] = `
     tabindex="0"
   >
     <div
+      aria-label="popup"
       class="popup-trigger"
     >
       
       <div
-        aria-label="Dropdown"
+        aria-label="Dropdown dropdown"
         class="dropdown-trigger"
       >
         

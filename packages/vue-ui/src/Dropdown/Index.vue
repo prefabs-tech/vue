@@ -2,7 +2,7 @@
   <div class="dropdown">
     <Popup ref="popup" position="bottom" tabindex="0">
       <div
-        :aria-label="label ?? '' + ' dropdown'"
+        :aria-label="(label ?? '') + ' dropdown'"
         :class="{ triggered: popup?.isVisible }"
         class="dropdown-trigger"
       >
