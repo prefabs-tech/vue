@@ -157,53 +157,6 @@
         </Form>
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("form.label.customStyleInput") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;Form&gt;
-            &lt;SwitchInput 
-              v-model="input"
-              class="custom-style-input"
-              label="Switch"
-            /&gt;
-          &lt;/Form&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { SwitchInput } from "@dzangolab/vue3-form";
-          &lt;/script&gt;
-
-          &lt;style lang="css"&gt;
-            .custom-style-input {
-              --_switch-field-direction: row;
-              --_switch-field-gap: 1rem;
-
-              align-items: center;
-            }
-
-            .custom-style-input .switch input[type="checkbox"] {
-              --_switch-unchecked-bg-color: var(--dz-danger-color);
-            }
-  
-            .custom-style-input .switch input:checked {
-              --_switch-checked-bg-color: var(--dz-success-color);
-            }
-          &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Form>
-          <SwitchInput
-            v-model="formData.input"
-            :label="$t('form.label.switch')"
-            class="custom-style-input"
-          />
-        </Form>
-      </div>
-    </section>
   </Page>
 </template>
 
@@ -226,27 +179,9 @@ const inputSchema = z.coerce.boolean().refine((value) => value === true, {
 });
 
 let formData = reactive({
-  customStyleInput: ref(),
   disabled: ref(true),
   input: ref(),
   inputWithValidation: ref(false),
   noLabelInput: ref(),
 });
 </script>
-
-<style lang="css">
-.custom-style-input {
-  --_switch-field-direction: row;
-  --_switch-field-gap: 1rem;
-
-  align-items: center;
-}
-
-.custom-style-input .switch input[type="checkbox"] {
-  --_switch-unchecked-bg-color: var(--dz-danger-color);
-}
-
-.custom-style-input .switch input:checked {
-  --_switch-checked-bg-color: var(--dz-success-color);
-}
-</style>
