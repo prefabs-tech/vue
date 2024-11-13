@@ -2,6 +2,7 @@
 
 exports[`Tooltip > matches snapshot 1`] = `
 <div
+  aria-label="ariaLabel"
   class="tooltip-container"
 >
   <div
