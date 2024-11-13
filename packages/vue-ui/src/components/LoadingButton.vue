@@ -1,6 +1,5 @@
 <template>
   <button
-    :aria-label="label"
     :disabled="disabled || loading"
     class="loading-button"
     :class="{ loading: loading }"

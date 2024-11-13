@@ -1,9 +1,5 @@
 <template>
-  <button
-    :aria-label="label"
-    :disabled="disabled || loading"
-    @click="$emit('click')"
-  >
+  <button :disabled="disabled || loading" @click="$emit('click')">
     <img src="../assets/svg/google.svg" />
     <span>{{ label }}</span>
   </button>
