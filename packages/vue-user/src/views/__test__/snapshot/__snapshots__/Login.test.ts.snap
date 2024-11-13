@@ -78,17 +78,16 @@ exports[`Login > matches snapshot in en 1`] = `
         class="actions"
       >
         <button
-          aria-label="Sign in"
           class="loading-button"
-          data-v-d8daf161=""
+          data-v-3fdbc7b3=""
           tabindex="0"
         >
           <div
             class="label"
-            data-v-d8daf161=""
+            data-v-3fdbc7b3=""
           >
             <span
-              data-v-d8daf161=""
+              data-v-3fdbc7b3=""
             >
               Sign in
             </span>
@@ -199,17 +198,16 @@ exports[`Login > matches snapshot in fr 1`] = `
         class="actions"
       >
         <button
-          aria-label="Connexion"
           class="loading-button"
-          data-v-d8daf161=""
+          data-v-3fdbc7b3=""
           tabindex="0"
         >
           <div
             class="label"
-            data-v-d8daf161=""
+            data-v-3fdbc7b3=""
           >
             <span
-              data-v-d8daf161=""
+              data-v-3fdbc7b3=""
             >
               Connexion
             </span>

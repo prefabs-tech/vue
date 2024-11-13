@@ -111,16 +111,15 @@ exports[`SignUp > matches snapshot in en 1`] = `
         class="actions"
       >
         <button
-          aria-label="Create my account"
           class="loading-button"
-          data-v-d8daf161=""
+          data-v-3fdbc7b3=""
         >
           <div
             class="label"
-            data-v-d8daf161=""
+            data-v-3fdbc7b3=""
           >
             <span
-              data-v-d8daf161=""
+              data-v-3fdbc7b3=""
             >
               Create my account
             </span>
@@ -259,16 +258,15 @@ exports[`SignUp > matches snapshot in fr 1`] = `
         class="actions"
       >
         <button
-          aria-label="M'inscrire"
           class="loading-button"
-          data-v-d8daf161=""
+          data-v-3fdbc7b3=""
         >
           <div
             class="label"
-            data-v-d8daf161=""
+            data-v-3fdbc7b3=""
           >
             <span
-              data-v-d8daf161=""
+              data-v-3fdbc7b3=""
             >
               M'inscrire
             </span>
