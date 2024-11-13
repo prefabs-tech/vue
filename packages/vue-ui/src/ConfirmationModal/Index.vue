@@ -1,5 +1,5 @@
 <template>
-  <div :class="modalClassName">
+  <div :aria-label="ariaLabel" :class="modalClassName">
     <div class="modal-wrapper" @click="handleClose()">
       <div class="modal-container">
         <div :class="['modal-header', { 'disabled-header': disableHeader }]">
@@ -65,6 +65,10 @@ import ButtonElement from "../Button/Index.vue";
 const emits = defineEmits(["on:confirm", "on:close"]);
 
 const props = defineProps({
+  ariaLabel: {
+    default: "confirmation modal",
+    type: String,
+  },
   divider: {
     default: false,
     type: Boolean,
