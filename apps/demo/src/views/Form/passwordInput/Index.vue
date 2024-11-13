@@ -304,54 +304,6 @@
         </Form>
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("form.label.customStyleInput") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;Form&gt;
-            &lt;Password 
-              v-model="input"
-              class="custom-style-input"
-              label="Password"
-              placeholder="Enter a password"
-            /&gt;
-          &lt;/Form&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { Password } from "@dzangolab/vue3-form";
-          &lt;/script&gt;
-
-          &lt;style&gt;
-          .custom-style-input input {
-            --_input-field-border-color: #007aff;
-            --_input-field-border-radius: 0.5em;
-            --_input-field-label-color: #007aff;
-            --_input-field-padding-h: 0.5em;
-            --_input-field-padding-v: 0.5em;
-
-            color: #007aff;
-          }
-
-          .custom-style-input input:focus {
-            box-shadow: 0 0 0 0.25rem #03449e9a;
-          }
-          &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Form>
-          <Password
-            v-model="formData.customStyleInput"
-            :label="$t('form.label.password')"
-            :placeholder="$t('form.placeholder.password')"
-            class="custom-style-input"
-          />
-        </Form>
-      </div>
-    </section>
   </Page>
 </template>
 
@@ -398,7 +350,6 @@ const validationOptions = {
 } as StrongPasswordOptions;
 
 let formData = reactive({
-  customStyleInput: ref(),
   customValidationInput: ref(),
   disabled: ref("P@ssw0rd"),
   input: ref(),
@@ -407,22 +358,3 @@ let formData = reactive({
   passwordInput: ref(),
 });
 </script>
-
-<style lang="css">
-.custom-style-input input {
-  --_input-field-border-color: var(--dz-primary-color);
-  --_input-field-border-radius: 0.5em;
-  --_input-field-padding-h: 0.5em;
-  --_input-field-padding-v: 0.5em;
-
-  color: var(--dz-primary-color);
-}
-
-.custom-style-input input:focus {
-  box-shadow: 0 0 0 0.25rem #03449e9a;
-}
-
-.custom-style-input label {
-  --_input-field-label-color: var(--dz-primary-color);
-}
-</style>

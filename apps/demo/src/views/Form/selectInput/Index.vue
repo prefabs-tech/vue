@@ -310,68 +310,6 @@
         </Form>
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("form.label.customStyleInput") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;Form&gt;
-            &lt;SelectInput 
-              v-model="input"
-              :options="options"
-              class="custom-style-select"
-              label="Select"
-              multiple
-              placeholder="Select multiple value"
-            /&gt;
-          &lt;/Form&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
-          import { ref } from "vue";
-
-          const options = ref([
-            { value: "FR", label: "French" },
-            { value: "DE", label: "German" },
-            { value: "BE", label: "Dutch" },
-            { value: "NP", label: "Nepali" },
-            { value: "HI", label: "Hindi" },
-          ]);
-          &lt;/script&gt;
-
-          &lt;style lang="css"&gt;
-          .custom-style-select .multiple-mode .selected-option {
-            --_multiselect-tag-border-radius: 1rem;
-            --_multiselect-tag-color: #007aff;
-            color: #fff;
-          }
-
-          .custom-style-select .multiselect-input {
-            --_multiselect-border-color: #007aff;
-          }
-
-          .custom-style-select .multiselect-option.selected {
-            --_multiselect-selected-bg-color: #22c55e;
-            --_multiselect-selected-color: #fff;
-          }
-        &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Form>
-          <SelectInput
-            v-model="formData.multiSelect"
-            :label="$t('form.label.select')"
-            :options="options"
-            :placeholder="$t('form.placeholder.multiSelect')"
-            class="custom-style-select"
-            multiple
-          />
-        </Form>
-      </div>
-    </section>
   </Page>
 </template>
 
@@ -395,7 +333,6 @@ const inputSchema = z
   .min(1, { message: t("form.errors.multiSelect.invalid") });
 
 let formData = reactive({
-  customStyleInput: ref(),
   disabled: ref("DE"),
   disabledMultiSelect: ref(["BE", "DE"]),
   input: ref(),
@@ -412,21 +349,3 @@ const options = ref([
   { value: "HI", label: "Hindi" },
 ]);
 </script>
-
-<style lang="css">
-.custom-style-select .multiple-mode .selected-option {
-  --_multiselect-tag-border-radius: 1rem;
-  --_multiselect-tag-color: var(--dz-primary-color);
-
-  color: #fff;
-}
-
-.custom-style-select .multiselect-input {
-  --_multiselect-border-color: var(--dz-primary-color);
-}
-
-.custom-style-select .multiselect-option.selected {
-  --_multiselect-selected-bg-color: var(--dz-success-color);
-  --_multiselect-selected-color: #fff;
-}
-</style>

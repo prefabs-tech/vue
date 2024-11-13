@@ -204,58 +204,6 @@
         </Form>
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("form.label.customStyleInput") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;Form&gt;
-            &lt;Input 
-              v-model="number"
-              class="custom-style-input"
-              label="Number"
-              placeholder="Enter a number"
-              type="number"
-            /&gt;
-          &lt;/Form&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { Input } from "@dzangolab/vue3-form";
-          &lt;/script&gt;
-
-          &lt;style&gt;
-          .custom-style-input {
-            flex-direction: row;
-            align-items: center;
-          }
-
-          .custom-style-input input {
-            --_input-field-border-color: #007aff;
-            --_input-field-border-radius: 1em;
-            --_input-field-padding-h: 0.5em;
-            --_input-field-padding-v: 0.5em;
-          }
-
-          .custom-style-input input:focus {
-            box-shadow: 0 0 0 .25rem #004da08e;
-          }
-          &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Form>
-          <Input
-            v-model="formData.numberInput"
-            :label="$t('form.label.number')"
-            :placeholder="$t('form.placeholder.number')"
-            class="custom-style-input"
-            type="number"
-          />
-        </Form>
-      </div>
-    </section>
   </Page>
 </template>
 
@@ -282,25 +230,6 @@ let formData = reactive({
   input: ref(),
   inputWithValidation: ref(),
   noLabelInput: ref(),
-  numberInput: ref(),
   passwordInput: ref(),
 });
 </script>
-
-<style lang="css">
-.custom-style-input {
-  flex-direction: row;
-  align-items: center;
-}
-
-.custom-style-input input {
-  --_input-field-border-color: var(--dz-primary-color);
-  --_input-field-border-radius: 1em;
-  --_input-field-padding-h: 0.5em;
-  --_input-field-padding-v: 0.5em;
-}
-
-.custom-style-input input:focus {
-  box-shadow: 0 0 0 0.25rem #004da08e;
-}
-</style>
