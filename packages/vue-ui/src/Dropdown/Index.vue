@@ -1,7 +1,11 @@
 <template>
-  <div class="dropdown">
-    <Popup ref="popup" position="bottom">
-      <div :class="{ triggered: popup?.isVisible }" class="dropdown-trigger">
+  <div aria-label="dropdown section" class="dropdown">
+    <Popup ref="popup" position="bottom" tabindex="0">
+      <div
+        :aria-label="label + 'dropdown'"
+        :class="{ triggered: popup?.isVisible }"
+        class="dropdown-trigger"
+      >
         <slot>
           <label v-if="label" for="dropdown">
             {{ label }}
@@ -47,12 +51,14 @@
       </div>
 
       <template #content>
-        <ul>
+        <ul :aria-label="label + 'dropdown menu'" tabindex="0">
           <li
             v-for="menuItem in menu"
             :key="menuItem.label"
+            :aria-disabled="menuItem.disabled ? 'true' : 'false'"
             :class="{ disabled: menuItem.disabled }"
             class="menu-item"
+            tabindex="0"
             @click="onSelect(menuItem)"
           >
             {{ menuItem.label }}

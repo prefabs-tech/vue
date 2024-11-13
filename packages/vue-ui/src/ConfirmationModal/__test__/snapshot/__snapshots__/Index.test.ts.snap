@@ -19,7 +19,9 @@ exports[`ConfirmationModal > matches snapshot 1`] = `
         </span>
         
         <svg
+          aria-label="close modal"
           height="1em"
+          tabindex="0"
           viewBox="0 0 16 16"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -44,6 +46,7 @@ exports[`ConfirmationModal > matches snapshot 1`] = `
       >
         
         <button
+          aria-label=""
           class="button secondary small filled"
           role="button"
         >
@@ -61,6 +64,7 @@ exports[`ConfirmationModal > matches snapshot 1`] = `
           <!--v-if-->
         </button>
         <button
+          aria-label=""
           class="button primary small filled"
           role="button"
         >

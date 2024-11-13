@@ -2,6 +2,7 @@
 
 exports[`LoadingButton > matches snapshot based on loading props: false 1`] = `
 <button
+  aria-label="Login"
   class="loading-button"
   data-v-72076dd1=""
 >
@@ -21,6 +22,7 @@ exports[`LoadingButton > matches snapshot based on loading props: false 1`] = `
 
 exports[`LoadingButton > matches snapshot based on loading props: true 1`] = `
 <button
+  aria-label="Login"
   class="loading-button loading"
   data-v-72076dd1=""
   disabled=""

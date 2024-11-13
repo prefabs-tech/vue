@@ -8,10 +8,12 @@
           </slot>
 
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="1em"
+            aria-label="close modal"
             height="1em"
+            tabindex="0"
+            width="1em"
             viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
             @click="handleClose()"
           >
             <path

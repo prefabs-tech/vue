@@ -92,6 +92,7 @@ exports[`Stepper > matches snapshot 1`] = `
     data-v-8f3c25f9=""
   >
     <button
+      aria-label=""
       class="button primary medium outlined disabled"
       data-v-8f3c25f9=""
       disabled=""
@@ -111,6 +112,7 @@ exports[`Stepper > matches snapshot 1`] = `
       <!--v-if-->
     </button>
     <button
+      aria-label=""
       class="button primary medium filled"
       data-v-8f3c25f9=""
       role="button"
