@@ -2,6 +2,7 @@
 
 exports[`DebouncedInput > matches snapshot 1`] = `
 <div
+  aria-label=""
   class="debounce-input"
 >
   <input

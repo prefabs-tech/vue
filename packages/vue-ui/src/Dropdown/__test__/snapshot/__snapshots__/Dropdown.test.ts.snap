@@ -2,7 +2,6 @@
 
 exports[`Dropdown > matches snapshot 1`] = `
 <div
-  aria-label="dropdown section"
   class="dropdown"
 >
   <div
@@ -14,7 +13,7 @@ exports[`Dropdown > matches snapshot 1`] = `
     >
       
       <div
-        aria-label="Dropdowndropdown"
+        aria-label="Dropdown"
         class="dropdown-trigger"
       >
         

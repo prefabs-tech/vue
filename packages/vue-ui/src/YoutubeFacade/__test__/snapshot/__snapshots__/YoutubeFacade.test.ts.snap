@@ -9,6 +9,7 @@ exports[`YoutubeFacade > matches snapshot 1`] = `
     style="aspect-ratio: 16/9;"
   >
     <a
+      aria-label="play youtubevideo"
       data-youtube-video-token="YrxBCBibVo0"
       href="https://www.youtube.com/watch?v=YrxBCBibVo0"
       rel="noreferrer"

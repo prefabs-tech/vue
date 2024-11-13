@@ -1,5 +1,5 @@
 <template>
-  <div class="debounce-input">
+  <div :aria-label="ariaLabel ?? placeholder" class="debounce-input">
     <input
       :disabled="disabled"
       :placeholder="placeholder"
@@ -22,6 +22,10 @@ import { useDebouncedValue } from "../../utils";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  ariaLabel: {
+    default: "",
+    type: String,
+  },
   debounceTime: {
     default: 500,
     required: false,
