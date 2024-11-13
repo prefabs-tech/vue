@@ -23,7 +23,7 @@ import type { PropType } from "vue";
 
 const props = defineProps({
   ariaLabel: {
-    default: "",
+    default: "input",
     type: String,
   },
   debounceTime: {

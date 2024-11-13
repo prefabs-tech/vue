@@ -45,7 +45,7 @@ const emits = defineEmits(["click"]);
 
 const props = defineProps({
   ariaLabel: {
-    default: "",
+    default: "button",
     type: String,
   },
   children: {

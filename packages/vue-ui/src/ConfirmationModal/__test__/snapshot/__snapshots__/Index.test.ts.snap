@@ -47,7 +47,7 @@ exports[`ConfirmationModal > matches snapshot 1`] = `
       >
         
         <button
-          aria-label=""
+          aria-label="button"
           class="button secondary small filled"
           role="button"
         >
@@ -65,7 +65,7 @@ exports[`ConfirmationModal > matches snapshot 1`] = `
           <!--v-if-->
         </button>
         <button
-          aria-label=""
+          aria-label="button"
           class="button primary small filled"
           role="button"
         >
