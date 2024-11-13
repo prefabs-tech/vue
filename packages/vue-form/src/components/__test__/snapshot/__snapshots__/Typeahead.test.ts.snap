@@ -11,7 +11,7 @@ exports[`Typeahead > matches snapshot 1`] = `
   </label>
   
   <div
-    aria-label=""
+    aria-label="input"
     class="debounce-input"
     id="input-field-"
     tabindex="0"
