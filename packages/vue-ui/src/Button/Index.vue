@@ -1,6 +1,7 @@
 <template>
   <component
     :is="to ? 'a' : 'button'"
+    :aria-label="ariaLabel"
     :class="buttonClassName"
     :disabled="!to && isDisabled"
     :href="to && !isDisabled ? to : null"
@@ -43,6 +44,10 @@ import LoadingIcon from "../components/LoadingIcon.vue";
 const emits = defineEmits(["click"]);
 
 const props = defineProps({
+  ariaLabel: {
+    default: "button",
+    type: String,
+  },
   children: {
     default: false,
     type: Boolean,

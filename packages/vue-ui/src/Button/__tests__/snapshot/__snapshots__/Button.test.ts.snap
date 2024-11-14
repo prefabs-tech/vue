@@ -2,6 +2,7 @@
 
 exports[`Button > matches snapshot 1`] = `
 <button
+  aria-label="button"
   class="button rounded primary small filled"
   role="button"
 >

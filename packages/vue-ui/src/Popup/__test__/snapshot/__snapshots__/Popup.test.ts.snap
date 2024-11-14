@@ -5,6 +5,7 @@ exports[`Popup > matches snapshot 1`] = `
   class="popup-container"
 >
   <div
+    aria-label="popup"
     class="popup-trigger"
   >
     

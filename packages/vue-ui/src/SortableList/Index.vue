@@ -5,6 +5,7 @@
         <li v-for="element in list" :key="element.id">
           <span class="grab-icon">
             <svg
+              aria-label="sort list item"
               xmlns="http://www.w3.org/2000/svg"
               width="1em"
               height="1em"

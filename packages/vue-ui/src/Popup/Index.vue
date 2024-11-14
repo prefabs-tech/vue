@@ -1,6 +1,6 @@
 <template>
   <div ref="dzangolabVueUIPopup" class="popup-container">
-    <div class="popup-trigger" @click="togglePopup">
+    <div :aria-label="ariaLabel" class="popup-trigger" @click="togglePopup">
       <slot />
     </div>
     <div
@@ -23,6 +23,10 @@ import { onClickOutside } from "@vueuse/core";
 import { computed, ref, useSlots } from "vue";
 
 const props = defineProps({
+  ariaLabel: {
+    default: "popup",
+    type: String,
+  },
   position: {
     type: String,
     default: null,

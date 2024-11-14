@@ -5,6 +5,7 @@
   >
     <div :style="`aspect-ratio: ${aspectRatio}`">
       <a
+        :aria-label="(alt ?? 'youtube') + ' video'"
         :href="videoLink"
         :data-youtube-video-token="videoToken"
         rel="noreferrer"

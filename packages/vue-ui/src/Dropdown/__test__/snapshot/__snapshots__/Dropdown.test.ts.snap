@@ -6,12 +6,15 @@ exports[`Dropdown > matches snapshot 1`] = `
 >
   <div
     class="popup-container"
+    tabindex="0"
   >
     <div
+      aria-label="popup"
       class="popup-trigger"
     >
       
       <div
+        aria-label="Dropdown dropdown"
         class="dropdown-trigger"
       >
         
@@ -50,15 +53,22 @@ exports[`Dropdown > matches snapshot 1`] = `
       class="popup-content"
     >
       
-      <ul>
+      <ul
+        aria-label="Dropdowndropdown menu"
+        tabindex="0"
+      >
         
         <li
+          aria-disabled="false"
           class="menu-item"
+          tabindex="0"
         >
           Menu1
         </li>
         <li
+          aria-disabled="false"
           class="menu-item"
+          tabindex="0"
         >
           Menu2
         </li>

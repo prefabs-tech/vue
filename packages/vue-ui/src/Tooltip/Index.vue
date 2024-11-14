@@ -1,5 +1,6 @@
 <template>
   <div
+    :aria-label="ariaLabel"
     class="tooltip-container"
     @mouseenter="showTooltip"
     @mouseleave="hideTooltip"
@@ -26,6 +27,10 @@ import { computed, ref, useSlots } from "vue";
 const slots = useSlots();
 
 const props = defineProps({
+  ariaLabel: {
+    default: "tooltip",
+    type: String,
+  },
   clickable: {
     type: Boolean,
     default: false,
