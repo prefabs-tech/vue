@@ -1,6 +1,6 @@
 <template>
   <div
-    aria-label="ariaLabel"
+    :aria-label="ariaLabel"
     class="tooltip-container"
     @mouseenter="showTooltip"
     @mouseleave="hideTooltip"
