@@ -1,7 +1,7 @@
 <template>
   <component
     :is="to ? 'a' : 'button'"
-    :aria-label="ariaLabel ?? label"
+    :aria-label="ariaLabel"
     :class="buttonClassName"
     :disabled="!to && isDisabled"
     :href="to && !isDisabled ? to : null"

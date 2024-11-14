@@ -2,7 +2,6 @@
 
 exports[`ConfirmationModal > matches snapshot 1`] = `
 <div
-  aria-label="confirmation modal"
   class="modal divided-modal"
 >
   <div

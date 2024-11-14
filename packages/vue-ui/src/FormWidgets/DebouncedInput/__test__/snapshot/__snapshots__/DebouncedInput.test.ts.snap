@@ -2,10 +2,10 @@
 
 exports[`DebouncedInput > matches snapshot 1`] = `
 <div
-  aria-label="input"
   class="debounce-input"
 >
   <input
+    aria-label="input"
     placeholder="Search..."
     type="text"
   />

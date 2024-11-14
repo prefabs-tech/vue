@@ -1,6 +1,7 @@
 <template>
-  <div :aria-label="ariaLabel ?? placeholder" class="debounce-input">
+  <div class="debounce-input">
     <input
+      :aria-label="ariaLabel ?? placeholder"
       :disabled="disabled"
       :placeholder="placeholder"
       :type="type"
