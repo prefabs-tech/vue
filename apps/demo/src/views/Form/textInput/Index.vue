@@ -244,58 +244,6 @@
         </Form>
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("form.label.customStyleInput") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;Form&gt;
-            &lt;TextInput 
-              v-model="input"
-              class="custom-style-input"
-              label="Input"
-              placeholder="Enter input"
-            /&gt;
-          &lt;/Form&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { Input } from "@dzangolab/vue3-form";
-          &lt;/script&gt;
-
-          &lt;style&gt;
-          .custom-style-input {
-            flex-direction: row;
-            align-items: center;
-          }
-
-          .custom-style-input input {
-            --_input-field-border-color: #007aff;
-            --_input-field-border-radius: 0.5em;
-            --_input-field-padding-h: 0.5em;
-            --_input-field-padding-v: 0.5em;
-
-            color: #007aff;
-          }
-
-          .custom-style-input input:focus {
-            box-shadow: 0 0 0 0.25rem #03449e9a;
-          }
-          &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Form>
-          <TextInput
-            v-model="formData.customStyleInput"
-            :label="$t('form.label.input')"
-            :placeholder="$t('form.placeholder.input')"
-            class="custom-style-input"
-          />
-        </Form>
-      </div>
-    </section>
   </Page>
 </template>
 
@@ -327,7 +275,6 @@ const validationOptions = {
 };
 
 let formData = reactive({
-  customStyleInput: ref(),
   customValidationInput: ref(),
   disabled: ref("dzangolab"),
   input: ref(),
@@ -336,23 +283,3 @@ let formData = reactive({
   textInput: ref(),
 });
 </script>
-
-<style lang="css">
-.custom-style-input {
-  flex-direction: column;
-  align-items: left;
-}
-
-.custom-style-input input {
-  --_input-field-border-color: var(--dz-primary-color);
-  --_input-field-border-radius: 0.5em;
-  --_input-field-padding-h: 0.5em;
-  --_input-field-padding-v: 0.5em;
-
-  color: var(--dz-primary-color);
-}
-
-.custom-style-input input:focus {
-  box-shadow: 0 0 0 0.25rem #03449e9a;
-}
-</style>

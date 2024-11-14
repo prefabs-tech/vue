@@ -475,58 +475,6 @@
         </Form>
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("form.label.customStyleInput") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;Form&gt;
-            &lt;DatePicker 
-              v-model="pickupDate"
-              class="custom-style-input"
-              label="Pickup date"
-            /&gt;
-          &lt;/Form&gt;
-  
-          &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
-          &lt;/script&gt;
-  
-          &lt;style lang="css"&gt;
-          .custom-style-input input {
-            --dp-background-color: #f3f3f3;
-            --dp-border-color: var(--dz-primary-color);
-            --dp-border-radius: 0.5em;
-            --dp-font-size: 1rem;
-            --dp-text-color: var(--dz-primary-color);
-          }
-  
-          .custom-style-input .dp--clear-btn {
-            --dp-icon-color: var(--dz-primary-color);
-          }
-  
-          .custom-style-input .dp__input_icon {
-            --dp-icon-color: var(--dz-primary-color);
-          }
-  
-          .custom-style-input label {
-            --_label-color: var(--dz-primary-color);
-          }
-          &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Form>
-          <DatePicker
-            v-model="formData.pickupDate"
-            :label="$t('form.label.pickupDate')"
-            class="custom-style-input"
-          />
-        </Form>
-      </div>
-    </section>
   </Page>
 </template>
 
@@ -564,7 +512,6 @@ let formData = reactive({
   month: ref(),
   monthAndYear: ref(),
   noLabelInput: ref(),
-  pickupDate: ref(),
   presentationDate: ref(startDate),
   reportDate: ref([
     startDate,
@@ -574,25 +521,3 @@ let formData = reactive({
   year: ref(startDate.getFullYear()),
 });
 </script>
-
-<style lang="css">
-.custom-style-input input {
-  --dp-background-color: #f3f3f3;
-  --dp-border-color: var(--dz-primary-color);
-  --dp-border-radius: 0.5em;
-  --dp-font-size: 1rem;
-  --dp-text-color: var(--dz-primary-color);
-}
-
-.custom-style-input .dp--clear-btn {
-  --dp-icon-color: var(--dz-primary-color);
-}
-
-.custom-style-input .dp__input_icon {
-  --dp-icon-color: var(--dz-primary-color);
-}
-
-.custom-style-input label {
-  --_label-color: var(--dz-primary-color);
-}
-</style>
