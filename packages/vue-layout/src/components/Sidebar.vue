@@ -11,20 +11,7 @@
       <slot> </slot>
       <ul class="nav">
         <slot name="links">
-          <!-- <sidebar-item
-            :key="link.name + index"
-            :link="link"
-            v-for="(link, index) in sidebarLinks"
-            v-if="link.show"
-          >
-            <sidebar-item
-              :key="subLink.name + index"
-              :link="subLink"
-              v-for="(subLink, index) in link.children"
-              v-if="link.show"
-            >
-            </sidebar-item>
-          </sidebar-item> -->
+          <NavMenu :menu="menu" :sidebar-active="sidebarActive" />
         </slot>
         <slot name="afterNavLinks"></slot>
       </ul>
@@ -41,6 +28,10 @@ export default {
 
 <script setup lang="ts">
 import Logo from "./Logo.vue";
+import NavMenu from "./NavMenu.vue";
+
+import type { SidebarMenu } from "../types";
+import type { PropType } from "vue";
 
 defineProps({
   activeColor: {
@@ -50,6 +41,15 @@ defineProps({
   backgroundColor: {
     default: null,
     type: String,
+  },
+  menu: {
+    required: true,
+    type: Array as PropType<SidebarMenu[]>,
+  },
+  sidebarActive: {
+    default: true,
+    required: true,
+    type: Boolean,
   },
 });
 </script>
