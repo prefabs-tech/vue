@@ -5,4 +5,4 @@ export type {
 
 export type { LayoutType } from "./layout";
 
-export type { MenuItem } from "./menu";
+export type { MenuItem, SidebarMenu } from "./menu";
