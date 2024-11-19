@@ -68,7 +68,6 @@ const onClick = () => {
 <style lang="css">
 .link {
   align-items: center;
-  color: #636363;
   cursor: pointer;
   display: flex;
   font-size: 12px;
@@ -80,7 +79,15 @@ const onClick = () => {
   transition: 0.5s;
 }
 
-.sub-menu-item {
-  margin-left: 2rem;
+.link:hover {
+  --_hover-bg-color: var(--nav-hover-bg-color, #0870e5);
+
+  background-color: var(--_hover-bg-color);
+}
+
+.sub-menu-item .link {
+  --_submenu-padding-left: var(--nav-menu-padding-left, 2rem);
+
+  padding-left: var(--_submenu-padding-left);
 }
 </style>

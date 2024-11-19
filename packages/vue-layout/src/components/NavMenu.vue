@@ -44,9 +44,13 @@ const sideBarMenuToShow = computed(() => {
 
 <style lang="css">
 .nav-menu > .menu {
-  border-bottom: 1px solid #66615b;
-  padding-bottom: 20px;
-  padding-left: 0;
-  padding-top: 20px;
+  --_border-color: var(--border-color, #dbdbdb);
+  --_padding-h: var(--padding-h, 0);
+  --_padding-v: var(--padding-v, 1.5rem);
+
+  border-bottom: 1px solid var(--_border-color);
+  padding-bottom: var(--_padding-v);
+  padding-left: var(--_padding-h);
+  padding-top: var(--_padding-v);
 }
 </style>
