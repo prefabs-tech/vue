@@ -1,6 +1,6 @@
 <template>
   <div class="nav-menu-item">
-    <a aria-label="open menu" @click="onClick">
+    <a class="link" aria-label="open menu" @click="onClick">
       <i v-if="item.icon" :class="`icon ${item.icon}`" />
       <span v-if="showShortName">{{ item.shortName }}</span>
       <span class="item-name" :class="sidebarActive ? 'active-item' : ''">
@@ -64,3 +64,23 @@ const onClick = () => {
   }
 };
 </script>
+
+<style lang="css">
+.link {
+  align-items: center;
+  color: #636363;
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+  font-weight: 450;
+  height: 49.19px;
+  padding-left: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.sub-menu-item {
+  margin-left: 2rem;
+}
+</style>

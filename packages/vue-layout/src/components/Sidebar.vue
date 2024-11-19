@@ -4,8 +4,10 @@
     :data-color="backgroundColor"
     class="sidebar"
   >
-    <div class="logo">
-      <Logo />
+    <div class="header">
+      <div class="logo">
+        <Logo />
+      </div>
     </div>
     <div class="sidebar-wrapper" ref="sidebarScrollArea">
       <slot> </slot>
@@ -66,5 +68,12 @@ defineProps({
   transition: 0.2s ease-out;
   width: 16rem;
   z-index: 999;
+}
+
+.sidebar > .header {
+  align-items: center;
+  border-bottom: 1px solid #cbcbcb;
+  display: flex;
+  padding: 0 2px 12px 5px;
 }
 </style>

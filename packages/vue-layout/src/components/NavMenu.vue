@@ -41,3 +41,12 @@ const sideBarMenuToShow = computed(() => {
   return props.menu?.filter((menu) => !menu.hide);
 });
 </script>
+
+<style lang="css">
+.nav-menu > .menu {
+  border-bottom: 1px solid #66615b;
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-top: 20px;
+}
+</style>
