@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.accordion.title')">
+  <Page :title="$t('ui.accordion.title')" class="demo">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
