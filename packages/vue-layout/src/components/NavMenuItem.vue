@@ -1,6 +1,11 @@
 <template>
   <div class="nav-menu-item">
-    <a class="link" aria-label="open menu" @click="onClick">
+    <a
+      :class="{ active: isActive }"
+      class="link"
+      aria-label="open menu"
+      @click="onClick"
+    >
       <i
         v-if="item.icon"
         :class="[
@@ -30,10 +35,8 @@
         <NavMenuItem
           v-for="(child, index) in item.children"
           :key="child.name + '-' + index"
-          :class="{ active: activeIndex === index && !child.children?.length }"
           :item="child"
           :sidebar-active="sidebarActive"
-          @click="activeIndex = index"
         />
       </div>
     </transition>
@@ -52,7 +55,9 @@ export default {
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+
+import type { SidebarMenu } from "../types";
 
 const props = defineProps({
   item: {
@@ -67,10 +72,14 @@ const props = defineProps({
   },
 });
 
+const route = useRoute();
 const router = useRouter();
 
-const activeIndex = ref<number | null>(null);
 const showChildren = ref<boolean>(false);
+
+const isActive = computed(() => {
+  return route.name === props.item?.routeName;
+});
 
 const showShortName = computed(() => {
   return !props.sidebarActive && props.item.shortName;
@@ -80,8 +89,13 @@ const onClick = () => {
   if (props.item.routeName) {
     router.push({ name: props.item.routeName });
   } else {
-    activeIndex.value = null;
     showChildren.value = !showChildren.value;
   }
 };
+
+if (props.item.children?.length) {
+  showChildren.value = !!props.item.children.find(
+    (child: SidebarMenu) => route.name === child?.routeName,
+  );
+}
 </script>
