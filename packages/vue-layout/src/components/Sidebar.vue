@@ -5,7 +5,7 @@
         <Logo />
       </div>
       <slot name="title"></slot>
-      <div class="toggle-icon" @click="sidebarActive = !sidebarActive">
+      <div class="toggle" @click="sidebarActive = !sidebarActive">
         <img
           v-if="sidebarActive"
           src="../assets/svg/left-chevron.svg"
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, useSlots } from "vue";
+import { ref, onUnmounted, useSlots } from "vue";
 
 import Logo from "./Logo.vue";
 import NavMenu from "./NavMenu.vue";
@@ -57,9 +57,25 @@ defineProps({
   },
 });
 
+const slots = useSlots();
+
 const sidebarActive = ref<boolean>(true);
 
-const slots = useSlots();
+const handleResize = () => {
+  if (window.innerWidth >= 1025) {
+    sidebarActive.value = true;
+  } else {
+    sidebarActive.value = false;
+  }
+};
+
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
+});
+
+window.addEventListener("resize", handleResize);
+
+handleResize();
 </script>
 
 <style lang="css">
@@ -132,7 +148,7 @@ const slots = useSlots();
   width: 100%;
 }
 
-.sidebar > .header > .toggle-icon {
+.sidebar > .header > .toggle {
   cursor: pointer;
   width: var(--sidebar-toggle-icon-width, 1.5rem);
 }
@@ -142,7 +158,11 @@ const slots = useSlots();
   width: 5rem;
 }
 
-.toggle-icon > .extend {
+.sidebar:has(.extend) > .header > .logo {
+  width: max-content;
+}
+
+.toggle > .extend {
   --_bg-color: var(--sidebar-bg-color, #007aff);
   --_border-color: var(--sidebar-border-color, #fff);
   --_border-radius: 2rem;
