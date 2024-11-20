@@ -1,4 +1,4 @@
-.active-item .sub-menu-item > .active {
+.nav-menu-item > .link.active {
   --_bg-color: var(--nav-menu-bg-color, #0870e5);
 
   background-color: var(--_bg-color);
