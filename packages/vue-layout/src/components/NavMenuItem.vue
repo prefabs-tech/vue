@@ -16,10 +16,10 @@
       <span v-if="item.children && item.children.length" class="toggle-menu">
         <img
           v-if="!showChildren"
-          src="../assets/svg/down-chevron.svg"
           alt="open sub menu"
+          src="../assets/svg/down-chevron.svg"
         />
-        <img v-else src="../assets/svg/up-chevron.svg" alt="close sub menu" />
+        <img v-else alt="close sub menu" src="../assets/svg/up-chevron.svg" />
       </span>
     </a>
     <transition name="fade">
@@ -30,8 +30,8 @@
         <NavMenuItem
           v-for="(child, index) in item.children"
           :key="child.name"
-          :item="child"
           :class="{ active: activeIndex === index && !child.children?.length }"
+          :item="child"
           :sidebar-active="sidebarActive"
           @click="activeIndex = index"
         />
@@ -87,6 +87,12 @@ const onClick = () => {
 </script>
 
 <style lang="css">
+.active-item .sub-menu-item > .active {
+  --_bg-color: var(--nav-menu-bg-color, #0870e5);
+
+  background-color: var(--_bg-color);
+}
+
 .nav-menu-item > .link {
   --_font-size: var(--font-size-min, 0.8rem);
   --_font-weight: var(--font-weight, 450);
@@ -137,12 +143,6 @@ const onClick = () => {
   --_submenu-padding-left: var(--nav-menu-padding-left, 2rem);
 
   padding-left: var(--_submenu-padding-left);
-}
-
-.active-item .sub-menu-item > .active {
-  --_bg-color: var(--nav-menu-bg-color, #0870e5);
-
-  background-color: var(--_bg-color);
 }
 
 .toggle-menu {

@@ -8,14 +8,14 @@
       <div class="toggle" @click="sidebarActive = !sidebarActive">
         <img
           v-if="sidebarActive"
-          src="../assets/svg/left-chevron.svg"
           alt="minimize sidebar"
+          src="../assets/svg/left-chevron.svg"
         />
         <img
           v-else
           class="extend"
-          src="../assets/svg/right-chevron.svg"
           alt="extend sidebar"
+          src="../assets/svg/right-chevron.svg"
         />
       </div>
     </div>
