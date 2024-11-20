@@ -8,6 +8,7 @@ import AppHeader from "./components/AppHeader.vue";
 import Copyright from "./components/Copyright.vue";
 import Logo from "./components/Logo.vue";
 import MainMenu from "./components/MainMenu.vue";
+import Sidebar from "./components/Sidebar.vue";
 import Layout from "./Layout.vue";
 import BasicLayout from "./layouts/BasicLayout.vue";
 import NullLayout from "./layouts/NullLayout.vue";
@@ -63,6 +64,7 @@ export {
   Logo,
   MainMenu,
   NullLayout,
+  Sidebar,
   useTranslations,
 };
 
@@ -71,4 +73,5 @@ export type {
   DzangolabVue3LayoutPluginOptions,
   LayoutType,
   MenuItem,
+  SidebarMenu,
 } from "./types";

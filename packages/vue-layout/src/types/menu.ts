@@ -3,4 +3,13 @@ interface MenuItem {
   route: string;
 }
 
-export type { MenuItem };
+interface SidebarMenu {
+  children?: Array<SidebarMenu>;
+  name: string;
+  icon?: string;
+  routeName: string;
+  shortName?: string;
+  hide?: boolean;
+}
+
+export type { MenuItem, SidebarMenu };
