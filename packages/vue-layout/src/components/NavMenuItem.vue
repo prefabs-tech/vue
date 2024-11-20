@@ -6,9 +6,16 @@
       aria-label="open menu"
       @click="onClick"
     >
-      <i v-if="item.icon" :class="`icon ${item.icon}`" />
+      <i
+        v-if="item.icon"
+        :class="[
+          'icon',
+          item.icon,
+          { 'icon-only': !showShortName && !sidebarActive },
+        ]"
+      />
       <span v-if="showShortName">{{ item.shortName }}</span>
-      <span v-else class="item-name">
+      <span v-if="sidebarActive" class="item-name">
         {{ item.name }}
       </span>
     </a>
@@ -74,6 +81,8 @@ const onClick = () => {
 
 <style lang="css">
 .link {
+  --_padding-h: var(--sidebar-padding-h, 1rem);
+
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -81,7 +90,7 @@ const onClick = () => {
   font-weight: 450;
   gap: 0.75rem;
   height: 49.19px;
-  padding-left: 12px;
+  padding-left: var(--_padding-h);
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
@@ -91,6 +100,12 @@ const onClick = () => {
   --_hover-bg-color: var(--nav-hover-bg-color, #0870e5);
 
   background-color: var(--_hover-bg-color);
+}
+
+.link:has(.icon-only) {
+  font-size: 0.9rem;
+  justify-content: center;
+  padding-left: 0;
 }
 
 .sub-menu-item {

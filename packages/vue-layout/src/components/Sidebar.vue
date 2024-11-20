@@ -4,6 +4,7 @@
       <div class="logo">
         <Logo />
       </div>
+      <slot name="title"></slot>
       <div class="toggle-icon" @click="sidebarActive = !sidebarActive">
         <img
           v-if="sidebarActive"
@@ -142,13 +143,18 @@ const slots = useSlots();
 }
 
 .toggle-icon > .extend {
-  background-color: #007aff;
-  border: solid 1px #fff;
-  border-radius: 2rem;
+  --_bg-color: var(--sidebar-bg-color, #007aff);
+  --_border-color: var(--sidebar-border-color, #fff);
+  --_border-radius: 2rem;
+  --_width: 2rem;
+
+  background-color: var(--_bg-color);
+  border: solid 1px var(--_border-color);
+  border-radius: var(--_border-radius);
   left: 4rem;
   position: absolute;
   padding: 0.25rem;
   top: 1rem;
-  width: 2rem;
+  width: var(--_width);
 }
 </style>
