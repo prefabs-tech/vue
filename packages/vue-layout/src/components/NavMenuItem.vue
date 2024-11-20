@@ -1,23 +1,30 @@
 <template>
   <div class="nav-menu-item">
-    <a class="link" aria-label="open menu" @click="onClick">
+    <a
+      :class="sidebarActive ? 'active-item' : ''"
+      class="link"
+      aria-label="open menu"
+      @click="onClick"
+    >
       <i v-if="item.icon" :class="`icon ${item.icon}`" />
       <span v-if="showShortName">{{ item.shortName }}</span>
-      <span class="item-name" :class="sidebarActive ? 'active-item' : ''">
+      <span v-else class="item-name">
         {{ item.name }}
       </span>
     </a>
-    <div
-      v-if="item.children && item.children.length && showChildren"
-      class="sub-menu-item"
-    >
-      <NavMenuItem
-        v-for="child in item.children"
-        :key="child.name"
-        :item="child"
-        :sidebar-active="sidebarActive"
-      />
-    </div>
+    <transition name="fade">
+      <div
+        v-if="item.children && item.children.length && showChildren"
+        class="sub-menu-item"
+      >
+        <NavMenuItem
+          v-for="child in item.children"
+          :key="child.name"
+          :item="child"
+          :sidebar-active="sidebarActive"
+        />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -72,6 +79,7 @@ const onClick = () => {
   display: flex;
   font-size: 12px;
   font-weight: 450;
+  gap: 0.75rem;
   height: 49.19px;
   padding-left: 12px;
   text-decoration: none;
@@ -83,6 +91,22 @@ const onClick = () => {
   --_hover-bg-color: var(--nav-hover-bg-color, #0870e5);
 
   background-color: var(--_hover-bg-color);
+}
+
+.sub-menu-item {
+  overflow: hidden;
+  max-height: 20rem;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.sub-menu-item.fade-enter-active,
+.sub-menu-item.fade-leave-active {
+  transition: max-height 0.5s ease-in-out;
+}
+
+.sub-menu-item.fade-enter-from,
+.sub-menu-item.fade-leave-to {
+  max-height: 0;
 }
 
 .sub-menu-item .link {

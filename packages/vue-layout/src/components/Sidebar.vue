@@ -4,8 +4,18 @@
       <div class="logo">
         <Logo />
       </div>
-      <div class="minimize-icon" @click="sidebarActive = !sidebarActive">
-        <img src="../assets/svg/left-chevron.svg" alt="minimize sidebar" />
+      <div class="toggle-icon" @click="sidebarActive = !sidebarActive">
+        <img
+          v-if="sidebarActive"
+          src="../assets/svg/left-chevron.svg"
+          alt="minimize sidebar"
+        />
+        <img
+          v-else
+          class="extend"
+          src="../assets/svg/right-chevron.svg"
+          alt="extend sidebar"
+        />
       </div>
     </div>
     <div class="sidebar-wrapper">
@@ -18,8 +28,8 @@
       </ul>
       <slot name="afterSidebarMenu"></slot>
     </div>
-    <div class="footer">
-      <slot name="footer"> this is footer </slot>
+    <div v-if="slots.footer" class="footer">
+      <slot name="footer"></slot>
     </div>
   </div>
 </template>
@@ -31,7 +41,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, useSlots } from "vue";
 
 import Logo from "./Logo.vue";
 import NavMenu from "./NavMenu.vue";
@@ -47,6 +57,8 @@ defineProps({
 });
 
 const sidebarActive = ref<boolean>(true);
+
+const slots = useSlots();
 </script>
 
 <style lang="css">
@@ -68,30 +80,6 @@ const sidebarActive = ref<boolean>(true);
   transition: 0.2s ease-out;
   width: var(--_width);
   z-index: 999;
-}
-
-.sidebar > .header {
-  --_border-color: var(--sidebar-border-color, #dbdbdb);
-  --_padding-h: var(--sidebar-padding-h, 1rem);
-  --_padding-v: var(--sidebar-padding-v, 1.5rem);
-
-  align-items: center;
-  border-bottom: 1px solid var(--_border-color);
-  display: flex;
-  justify-content: space-between;
-  padding: var(--_padding-v) var(--_padding-h);
-}
-
-.sidebar > .header > .logo {
-  --_max-width: var(--sidebar-logo-max-width, 150px);
-
-  max-width: var(--_max-width);
-  width: 100%;
-}
-
-.sidebar > .header > .minimize-icon {
-  cursor: pointer;
-  width: var(--sidebar-minimize-icon-width, 1.5rem);
 }
 
 .sidebar > .footer {
@@ -122,5 +110,45 @@ const sidebarActive = ref<boolean>(true);
   position: var(--_position);
   text-align: center;
   width: var(--_width);
+}
+
+.sidebar > .header {
+  --_border-color: var(--sidebar-border-color, #dbdbdb);
+  --_padding-h: var(--sidebar-padding-h, 1rem);
+  --_padding-v: var(--sidebar-padding-v, 1.5rem);
+
+  align-items: center;
+  border-bottom: 1px solid var(--_border-color);
+  display: flex;
+  justify-content: space-between;
+  padding: var(--_padding-v) var(--_padding-h);
+}
+
+.sidebar > .header > .logo {
+  --_max-width: var(--sidebar-logo-max-width, 150px);
+
+  max-width: var(--_max-width);
+  width: 100%;
+}
+
+.sidebar > .header > .toggle-icon {
+  cursor: pointer;
+  width: var(--sidebar-toggle-icon-width, 1.5rem);
+}
+
+.sidebar:has(.extend) {
+  overflow: visible;
+  width: 5rem;
+}
+
+.toggle-icon > .extend {
+  background-color: #007aff;
+  border: solid 1px #fff;
+  border-radius: 2rem;
+  left: 4rem;
+  position: absolute;
+  padding: 0.25rem;
+  top: 1rem;
+  width: 2rem;
 }
 </style>
