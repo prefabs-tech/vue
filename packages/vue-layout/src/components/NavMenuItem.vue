@@ -1,11 +1,6 @@
 <template>
   <div class="nav-menu-item">
-    <a
-      :class="sidebarActive ? 'active-item' : ''"
-      class="link"
-      aria-label="open menu"
-      @click="onClick"
-    >
+    <a class="link" aria-label="open menu" @click="onClick">
       <i
         v-if="item.icon"
         :class="[
@@ -33,10 +28,12 @@
         class="sub-menu-item"
       >
         <NavMenuItem
-          v-for="child in item.children"
+          v-for="(child, index) in item.children"
           :key="child.name"
           :item="child"
+          :class="{ active: activeIndex === index && !child.children?.length }"
           :sidebar-active="sidebarActive"
+          @click="activeIndex = index"
         />
       </div>
     </transition>
@@ -72,6 +69,7 @@ const props = defineProps({
 
 const router = useRouter();
 
+const activeIndex = ref<number | null>(null);
 const showChildren = ref<boolean>(false);
 
 const showShortName = computed(() => {
@@ -82,35 +80,38 @@ const onClick = () => {
   if (props.item.routeName) {
     router.push({ name: props.item.routeName });
   } else {
+    activeIndex.value = null;
     showChildren.value = !showChildren.value;
   }
 };
 </script>
 
 <style lang="css">
-.link {
+.nav-menu-item > .link {
+  --_font-size: var(--font-size-min, 0.8rem);
+  --_font-weight: var(--font-weight, 450);
+  --_height: var(--nav-menu-height, 3rem);
   --_padding-h: var(--sidebar-padding-h, 1rem);
 
   align-items: center;
   cursor: pointer;
   display: flex;
-  font-size: 12px;
-  font-weight: 450;
+  font-size: var(--_font-size);
+  font-weight: var(--_font-weight);
   gap: 0.75rem;
-  height: 49.19px;
+  height: var(--_height);
   padding-left: var(--_padding-h);
   text-decoration: none;
-  text-transform: uppercase;
   transition: 0.5s;
 }
 
-.link:hover {
-  --_hover-bg-color: var(--nav-hover-bg-color, #0870e5);
+.nav-menu-item > .link:hover {
+  --_hover-bg-color: var(--nav-menu-bg-color, #0870e5);
 
   background-color: var(--_hover-bg-color);
 }
 
-.link:has(.icon-only) {
+.nav-menu-item > .link:has(.icon-only) {
   font-size: 0.9rem;
   justify-content: center;
   padding-left: 0;
@@ -136,6 +137,12 @@ const onClick = () => {
   --_submenu-padding-left: var(--nav-menu-padding-left, 2rem);
 
   padding-left: var(--_submenu-padding-left);
+}
+
+.active-item .sub-menu-item > .active {
+  --_bg-color: var(--nav-menu-bg-color, #0870e5);
+
+  background-color: var(--_bg-color);
 }
 
 .toggle-menu {

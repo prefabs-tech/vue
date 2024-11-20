@@ -4,8 +4,13 @@
       <NavMenuItem
         v-for="(menuItem, index) in sideBarMenuToShow"
         :key="index"
+        :class="{
+          'active-item': activeIndex === index,
+          active: activeIndex === index && !menuItem.children?.length,
+        }"
         :item="menuItem"
         :sidebar-active="sidebarActive"
+        @click="activeIndex = index"
       />
     </div>
   </nav>
@@ -18,7 +23,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { ref, computed } from "vue";
 
 import NavMenuItem from "./NavMenuItem.vue";
 
@@ -37,6 +42,8 @@ const props = defineProps({
   },
 });
 
+const activeIndex = ref<number | null>(null);
+
 const sideBarMenuToShow = computed(() => {
   return props.menu?.filter((menu) => !menu.hide);
 });
@@ -52,5 +59,11 @@ const sideBarMenuToShow = computed(() => {
   padding-bottom: var(--_padding-v);
   padding-left: var(--_padding-h);
   padding-top: var(--_padding-v);
+}
+
+.nav-menu > .menu > .active {
+  --_bg-color: var(--nav-menu-bg-color, #0870e5);
+
+  background-color: var(--_bg-color);
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <div class="header">
+    <div v-if="!noHeader" class="header">
       <div class="logo">
         <Logo />
       </div>
@@ -54,6 +54,10 @@ defineProps({
   menu: {
     required: true,
     type: Array as PropType<SidebarMenu[]>,
+  },
+  noHeader: {
+    default: false,
+    type: Boolean,
   },
 });
 
