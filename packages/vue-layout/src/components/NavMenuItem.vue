@@ -18,6 +18,14 @@
       <span v-if="sidebarActive" class="item-name">
         {{ item.name }}
       </span>
+      <span v-if="item.children && item.children.length" class="toggle-menu">
+        <img
+          v-if="!showChildren"
+          src="../assets/svg/down-chevron.svg"
+          alt="open sub menu"
+        />
+        <img v-else src="../assets/svg/up-chevron.svg" alt="close sub menu" />
+      </span>
     </a>
     <transition name="fade">
       <div
@@ -128,5 +136,14 @@ const onClick = () => {
   --_submenu-padding-left: var(--nav-menu-padding-left, 2rem);
 
   padding-left: var(--_submenu-padding-left);
+}
+
+.toggle-menu {
+  --_margin-right: 1rem;
+  --_width: 1rem;
+
+  margin-left: auto;
+  margin-right: var(--_margin-right);
+  width: var(--_width);
 }
 </style>
