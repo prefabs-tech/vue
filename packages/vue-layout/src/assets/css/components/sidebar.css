@@ -15,7 +15,6 @@
   top: 0;
   transition: 0.2s ease-out;
   width: var(--_width);
-  z-index: 999;
 }
 
 .sidebar > .footer {
