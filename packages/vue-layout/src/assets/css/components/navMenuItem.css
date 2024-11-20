@@ -1,0 +1,66 @@
+.active-item .sub-menu-item > .active {
+  --_bg-color: var(--nav-menu-bg-color, #0870e5);
+
+  background-color: var(--_bg-color);
+}
+
+.nav-menu-item > .link {
+  --_font-size: var(--font-size-min, 0.8rem);
+  --_font-weight: var(--font-weight, 450);
+  --_height: var(--nav-menu-height, 3rem);
+  --_padding-h: var(--sidebar-padding-h, 1rem);
+
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: var(--_font-size);
+  font-weight: var(--_font-weight);
+  gap: 0.75rem;
+  height: var(--_height);
+  padding-left: var(--_padding-h);
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.nav-menu-item > .link:hover {
+  --_hover-bg-color: var(--nav-menu-bg-color, #0870e5);
+
+  background-color: var(--_hover-bg-color);
+}
+
+.nav-menu-item > .link:has(.icon-only) {
+  font-size: 0.9rem;
+  justify-content: center;
+  padding-left: 0;
+}
+
+.sub-menu-item {
+  overflow: hidden;
+  max-height: 20rem;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.sub-menu-item.fade-enter-active,
+.sub-menu-item.fade-leave-active {
+  transition: max-height 0.5s ease-in-out;
+}
+
+.sub-menu-item.fade-enter-from,
+.sub-menu-item.fade-leave-to {
+  max-height: 0;
+}
+
+.sub-menu-item .link {
+  --_submenu-padding-left: var(--nav-menu-padding-left, 2rem);
+
+  padding-left: var(--_submenu-padding-left);
+}
+
+.toggle-menu {
+  --_margin-right: 1rem;
+  --_width: 1rem;
+
+  margin-left: auto;
+  margin-right: var(--_margin-right);
+  width: var(--_width);
+}

@@ -3,7 +3,7 @@
     <div v-if="sideBarMenuToShow?.length > 0" class="menu">
       <NavMenuItem
         v-for="(menuItem, index) in sideBarMenuToShow"
-        :key="index"
+        :key="menuItem.name + '-' + index"
         :class="{
           'active-item': activeIndex === index,
           active: activeIndex === index && !menuItem.children?.length,
