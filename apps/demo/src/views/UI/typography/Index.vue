@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.typography.title')">
+  <UiPage :title="$t('ui.typography.title')">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back" type="button">
         {{ $t("common.back") }}
@@ -52,7 +52,7 @@
         suspendisse sodales a litora a egestas.
       </p>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script lang="ts">
@@ -62,5 +62,5 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { Page } from "@dzangolab/vue3-ui";
+import UiPage from "../UiPage.vue";
 </script>

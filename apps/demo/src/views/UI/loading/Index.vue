@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.loading.title')" class="demo-loading">
+  <UiPage :title="$t('ui.loading.title')" class="demo-loading">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -45,12 +45,14 @@
         </div>
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { ButtonElement, LoadingPage } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
+
+import UiPage from "../UiPage.vue";
 
 const loading = ref(false);
 

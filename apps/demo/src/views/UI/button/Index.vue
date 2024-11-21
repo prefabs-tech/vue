@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.button.title')" class="demo-button">
+  <UiPage :title="$t('ui.button.title')" class="demo-button">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -476,12 +476,14 @@
         </div>
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { ButtonElement } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
+
+import UiPage from "../UiPage.vue";
 
 const currentTime = ref(undefined as unknown as Date);
 const loading = ref(false);
