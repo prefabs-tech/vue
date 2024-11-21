@@ -81,3 +81,7 @@ window.addEventListener("resize", handleResize);
 
 handleResize();
 </script>
+
+<style lang="css">
+@import "@/assets/css/components/sidebar.css";
+</style>
