@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.badge.title')" class="demo-badge">
+  <UiPage :title="$t('ui.badge.title')" class="demo-badge">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -248,11 +248,13 @@
         </div>
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { BadgeComponent } from "@dzangolab/vue3-ui";
+
+import UiPage from "../UiPage.vue";
 </script>
 
 <style lang="css" scoped>

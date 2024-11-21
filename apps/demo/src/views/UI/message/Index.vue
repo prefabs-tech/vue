@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.message.title')" class="demo-message">
+  <UiPage :title="$t('ui.message.title')" class="demo-message">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -137,12 +137,14 @@
         <Message :message="$t('ui.message.contents.content1')" />
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { Message } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
+
+import UiPage from "../UiPage.vue";
 
 const showEnableCloseSection = ref(true);
 </script>

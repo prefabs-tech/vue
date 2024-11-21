@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.popup.title')" class="demo">
+  <UiPage :title="$t('ui.popup.title')" class="demo">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -223,9 +223,11 @@
         </Popup>
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+
+import UiPage from "../UiPage.vue";
 </script>

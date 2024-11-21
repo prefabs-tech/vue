@@ -1,5 +1,5 @@
 <template>
-  <Page :title="t('ui.tabbed-panel.title')">
+  <UiPage :title="t('ui.tabbed-panel.title')">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back" type="button">
         {{ t("common.back") }}
@@ -14,7 +14,7 @@
       />
       <CustomIcons :title="t('ui.tabbed-panel.with-custom-icons')" />
     </TabbedPanel>
-  </Page>
+  </UiPage>
 </template>
 
 <script lang="ts">
@@ -31,6 +31,7 @@ import BasicUsage from "./BasicUsage.vue";
 import Colorized from "./Colorized.vue";
 import ColorizedWithShadow from "./ColorizedWithShadow.vue";
 import CustomIcons from "./CustomIcons.vue";
+import UiPage from "../UiPage.vue";
 
 const { t } = useI18n();
 </script>

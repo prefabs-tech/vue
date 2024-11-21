@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.sortableList.title')" class="demo-sortable-list">
+  <UiPage :title="$t('ui.sortableList.title')" class="demo-sortable-list">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -50,13 +50,15 @@
         </div>
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { SortableList } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
+
+import UiPage from "../UiPage.vue";
 
 const { t } = useI18n();
 
