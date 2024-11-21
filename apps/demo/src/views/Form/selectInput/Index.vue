@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('form.label.select')" class="demo">
+  <FormPage :title="$t('form.label.select')" class="demo">
     <template #toolbar>
       <router-link :to="{ name: 'form' }" class="back">
         {{ $t("common.back") }}
@@ -310,7 +310,7 @@
         </Form>
       </div>
     </section>
-  </Page>
+  </FormPage>
 </template>
 
 <script lang="ts">
@@ -324,6 +324,8 @@ import { Form, SelectInput } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { reactive, ref } from "vue";
 import { z } from "zod";
+
+import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
 

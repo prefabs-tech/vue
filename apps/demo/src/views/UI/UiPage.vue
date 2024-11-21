@@ -105,51 +105,5 @@ const menu = [
 </script>
 
 <style lang="css">
-.demo {
-  align-items: stretch;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.demo > .demo-main {
-  flex-basis: 0;
-  flex-grow: 999;
-}
-
-.demo-aside {
-  --_bg-color: #fff;
-  --_color: #000;
-  --_position: relative;
-  --_width: 100%;
-}
-
-.demo-aside .link.active,
-.demo-aside .link:hover {
-  --_hover-bg-color: transparent;
-  --_bg-color: transparent;
-
-  text-decoration: underline;
-}
-
-.demo-aside .nav-menu-item > .link {
-  --_font-weight: 400;
-}
-
-.demo-aside .nav-menu > .menu {
-  border-bottom: none;
-}
-
-@media screen and (min-width: 576px) {
-  .demo {
-    flex-direction: row;
-  }
-
-  .demo-aside {
-    --_width: 15rem;
-
-    min-width: var(--_width);
-    border-right: 1px solid black;
-  }
-}
+@import "@/assets/css/demoPage.css";
 </style>
