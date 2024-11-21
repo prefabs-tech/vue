@@ -1,1 +1,0 @@
-import{_ as o}from"./index-bc5452e9.js";import{G as n,o as a,c as r}from"./index-d658739c-63af44b8.js";const s={name:"Layout"};function c(t,p,l,_,i,m){const e=n("Page");return a(),r(e,{title:t.$t("layout.title")},null,8,["title"])}const d=o(s,[["render",c]]);export{d as default};
