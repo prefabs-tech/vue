@@ -85,5 +85,5 @@ const menu = [
 </script>
 
 <style lang="css">
-@import "@/assets/css/form/demoPage.css";
+@import "@/assets/css/demoPage.css";
 </style>
