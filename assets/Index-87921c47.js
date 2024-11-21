@@ -1,0 +1,132 @@
+import{m as _,l as p,Z as m}from"./DzangolabVue3Form.es-f6c872e7.js";import{d as $,a4 as T,l as x,j as c,G as f,o as F,c as w,w as o,K as n,C as e,S as i,f as a,D as l}from"./index-d658739c-63af44b8.js";import"./index-bc5452e9.js";const z={class:"section-content"},C={class:"section-content"},U={class:"section-content"},E={class:"section-content"},S={class:"section-content"},k={class:"section-content"},q={class:"section-content"},y={class:"section-content"},D={name:"TextareaInputField"},W=$({...D,setup(O){const{t:b}=T(),g=_.string().min(15,{message:b("form.errors.input.min",{length:15})}),v={required:b("form.errors.input.required")},h={ignore_whitespace:!0,required:!0};let r=x({customRowsColsInput:c(),customValidationInput:c(),disabled:c("Disabled textarea input"),input:c(),inputWithValidation:c(),noLabelInput:c(),textInput:c()});return(t,u)=>{const I=f("router-link"),d=f("SshPre"),V=f("Page");return F(),w(V,{title:t.$t("form.label.textarea"),class:"demo"},{toolbar:o(()=>[n(I,{to:{name:"form"},class:"back"},{default:o(()=>[e(i(t.$t("common.back")),1)]),_:1})]),default:o(()=>[e(),a("section",null,[a("h2",null,i(t.$t("form.label.basicInput")),1),e(),a("div",z,[n(d,{language:"html-vue"},{default:o(()=>[e(`
+          <Form>
+            <TextareaInput 
+              v-model="input"
+              placeholder="Enter Input"
+            />
+          </Form>
+
+          <script setup lang="ts">
+          import { TextareaInput } from "@dzangolab/vue3-form";
+          <\/script>
+        `)]),_:1}),e(),n(l(m),null,{default:o(()=>[n(l(p),{modelValue:l(r).noLabelInput,"onUpdate:modelValue":u[0]||(u[0]=s=>l(r).noLabelInput=s),placeholder:t.$t("form.placeholder.input")},null,8,["modelValue","placeholder"])]),_:1})])]),e(),a("section",null,[a("h2",null,i(t.$t("form.label.labelInput")),1),e(),a("div",C,[n(d,{language:"html-vue"},{default:o(()=>[e(`
+          <Form>
+            <TextareaInput 
+              v-model="input"
+              label="Input"
+              placeholder="Enter Input"
+            />
+          </Form>
+
+          <script setup lang="ts">
+          import { TextareaInput } from "@dzangolab/vue3-form";
+          <\/script>
+        `)]),_:1}),e(),n(l(m),null,{default:o(()=>[n(l(p),{modelValue:l(r).input,"onUpdate:modelValue":u[1]||(u[1]=s=>l(r).input=s),label:t.$t("form.label.textarea"),placeholder:t.$t("form.placeholder.textarea")},null,8,["modelValue","label","placeholder"])]),_:1})])]),e(),a("section",null,[a("h2",null,i(t.$t("form.label.disabled")),1),e(),a("div",U,[n(d,{language:"html-vue"},{default:o(()=>[e(`
+          <Form>
+            <TextareaInput 
+              v-model="input"
+              label="Disabled"
+              disabled
+            />
+          </Form>
+
+          <script setup lang="ts">
+          import { Input } from "@dzangolab/vue3-form";
+          <\/script>
+        `)]),_:1}),e(),n(l(m),null,{default:o(()=>[n(l(p),{modelValue:l(r).disabled,"onUpdate:modelValue":u[2]||(u[2]=s=>l(r).disabled=s),label:t.$t("form.label.disabled"),disabled:""},null,8,["modelValue","label"])]),_:1})])]),e(),a("section",null,[a("h2",null,i(t.$t("form.label.withI18n")),1),e(),a("div",E,[n(d,{language:"html-vue"},{default:o(()=>[e(`
+          <Form>
+            <TextareaInput 
+              v-model="input"
+              :label="t('form.label.textarea')"
+              :placeholder="t('form.placeholder.textarea')"
+            />
+          </Form>
+
+          <script setup lang="ts">
+          import { TextareaInput } from "@dzangolab/vue3-form";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+
+          const { t } = useI18n();
+          <\/script>
+        `)]),_:1}),e(),n(l(m),null,{default:o(()=>[n(l(p),{modelValue:l(r).input,"onUpdate:modelValue":u[3]||(u[3]=s=>l(r).input=s),label:t.$t("form.label.textarea"),placeholder:t.$t("form.placeholder.textarea")},null,8,["modelValue","label","placeholder"])]),_:1})])]),e(),a("section",null,[a("h2",null,i(t.$t("form.label.inputWithValidation")),1),e(),a("div",S,[n(d,{language:"html-vue"},{default:o(()=>[e(`
+          <Form>
+            <TextareaInput 
+              v-model="input"
+              :options="validationOptions"
+              label="Textarea"
+              placeholder="Enter input"
+            />
+          </Form>
+
+          <script setup lang="ts">
+          import { TextareaInput } from "@dzangolab/vue3-form";
+          
+          const validationOptions = {
+            ignore_whitespace: true,
+            required: true
+          };
+          <\/script>
+        `)]),_:1}),e(),n(l(m),null,{default:o(()=>[n(l(p),{modelValue:l(r).inputWithValidation,"onUpdate:modelValue":u[4]||(u[4]=s=>l(r).inputWithValidation=s),label:t.$t("form.label.textarea"),options:h,placeholder:t.$t("form.placeholder.input")},null,8,["modelValue","label","placeholder"])]),_:1})])]),e(),a("section",null,[a("h2",null,i(t.$t("form.label.customErrorMessageInput")),1),e(),a("div",k,[n(d,{language:"html-vue"},{default:o(()=>[e(`
+          <Form>
+            <TextareaInput 
+              v-model="input"
+              :error-messages="validationMessages"
+              :options="validationOptions"
+              label="Textarea"
+              placeholder="Enter input"
+            />
+          </Form>
+
+          <script setup lang="ts">
+          import { TextareaInput } from "@dzangolab/vue3-form";
+
+          const validationMessages = {
+            required: "The field should not be empty"
+          };
+
+          const validationOptions = {
+            ignore_whitespace: true,
+            required: true
+          };
+          <\/script>
+        `)]),_:1}),e(),n(l(m),null,{default:o(()=>[n(l(p),{modelValue:l(r).textInput,"onUpdate:modelValue":u[5]||(u[5]=s=>l(r).textInput=s),label:t.$t("form.label.textarea"),"error-messages":v,options:h,placeholder:t.$t("form.placeholder.input")},null,8,["modelValue","label","placeholder"])]),_:1})])]),e(),a("section",null,[a("h2",null,i(t.$t("form.label.customValidationInput")),1),e(),a("div",q,[n(d,{language:"html-vue"},{default:o(()=>[e(`
+          <Form>
+            <TextareaInput 
+              v-model="courseTitle"
+              :schema="inputSchema"
+              label="Textarea""
+              placeholder="Enter course title"
+              name="input"
+            />
+          </Form>
+
+          <script setup lang="ts">
+          import { Input } from "@dzangolab/vue3-form";
+          import { z } from "zod";
+
+          const inputSchema = z.string()
+            .min(15, { message: "Title must be at least 15 character(s)"") });
+          <\/script>
+        `)]),_:1}),e(),n(l(m),null,{default:o(()=>[n(l(p),{modelValue:l(r).customValidationInput,"onUpdate:modelValue":u[6]||(u[6]=s=>l(r).customValidationInput=s),label:t.$t("form.label.textarea"),placeholder:t.$t("form.placeholder.input"),schema:l(g),name:"custom_input"},null,8,["modelValue","label","placeholder","schema"])]),_:1})])]),e(),a("section",null,[a("h2",null,i(t.$t("form.label.customColsRowsInput")),1),e(),a("div",y,[n(d,{language:"html-vue"},{default:o(()=>[e(`
+          <Form>
+            <TextareaInput 
+              v-model="input"
+              class="textarea-field"
+              cols="100",
+              label="Textarea"
+              placeholder="Enter input"
+              rows="10"
+            />
+          </Form>
+
+          <script setup lang="ts">
+          import { Input } from "@dzangolab/vue3-form";
+          <\/script>
+
+          <style>
+          .textarea-field textarea {
+            --_input-field-textarea-height: unset;
+            --_input-field-textarea-width: unset;
+          }
+          </style>
+        `)]),_:1}),e(),n(l(m),null,{default:o(()=>[n(l(p),{modelValue:l(r).customRowsColsInput,"onUpdate:modelValue":u[7]||(u[7]=s=>l(r).customRowsColsInput=s),cols:100,label:t.$t("form.label.textarea"),placeholder:t.$t("form.placeholder.input"),rows:10,class:"textarea-field"},null,8,["modelValue","label","placeholder"])]),_:1})])])]),_:1},8,["title"])}}});export{W as default};
