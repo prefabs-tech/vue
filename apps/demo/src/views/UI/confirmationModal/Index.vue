@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.confirmationModal.title')" class="demo">
+  <UiPage :title="$t('ui.confirmationModal.title')" class="demo">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -387,12 +387,14 @@
         </ConfirmationModal>
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
+
+import UiPage from "../UiPage.vue";
 
 const currentTime = ref(undefined as unknown as Date);
 const showBorderedModal = ref(false);

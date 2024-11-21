@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.stepper.title')" class="demo">
+  <UiPage :title="$t('ui.stepper.title')" class="demo">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -219,7 +219,7 @@
         </Stepper>
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
@@ -227,6 +227,8 @@ import { TextInput, NumberInput } from "@dzangolab/vue3-form";
 import { Stepper } from "@dzangolab/vue3-ui";
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
+
+import UiPage from "../UiPage.vue";
 
 const router = useRouter();
 

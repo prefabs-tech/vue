@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.dropdown.title')" class="demo">
+  <UiPage :title="$t('ui.dropdown.title')" class="demo">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -125,12 +125,14 @@
         </Dropdown>
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { Dropdown } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
+
+import UiPage from "../UiPage.vue";
 
 const menu = ref([
   { disabled: true, label: "Change password", value: "password" },

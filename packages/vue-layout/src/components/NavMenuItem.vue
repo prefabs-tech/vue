@@ -99,3 +99,7 @@ if (props.item.children?.length) {
   );
 }
 </script>
+
+<style lang="css">
+@import "@/assets/css/components/navMenuItem.css";
+</style>

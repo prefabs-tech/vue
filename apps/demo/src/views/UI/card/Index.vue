@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.card.title')" class="demo">
+  <UiPage :title="$t('ui.card.title')" class="demo">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -139,9 +139,11 @@
         </Card>
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { Card } from "@dzangolab/vue3-ui";
+
+import UiPage from "../UiPage.vue";
 </script>

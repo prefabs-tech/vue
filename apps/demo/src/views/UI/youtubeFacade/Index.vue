@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('ui.youtubeFacade.title')" class="demo-youtube-facade">
+  <UiPage :title="$t('ui.youtubeFacade.title')" class="demo-youtube-facade">
     <template #toolbar>
       <router-link :to="{ name: 'ui' }" class="back">
         {{ $t("common.back") }}
@@ -95,11 +95,13 @@
         />
       </div>
     </section>
-  </Page>
+  </UiPage>
 </template>
 
 <script setup lang="ts">
 import { YoutubeFacade } from "@dzangolab/vue3-ui";
+
+import UiPage from "../UiPage.vue";
 </script>
 
 <style lang="css">
