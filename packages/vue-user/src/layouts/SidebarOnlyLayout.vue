@@ -1,0 +1,73 @@
+<template>
+  <Layout :menu="menu">
+    <template #userMenu>
+      <UserMenu v-if="showUserMenu" />
+    </template>
+
+    <template #afterNavLinks>
+      <slot name="afterNavLinks"></slot>
+    </template>
+
+    <template #afterSidebarMenu>
+      <slot name="afterSidebarMenu"></slot>
+    </template>
+
+    <slot></slot>
+  </Layout>
+</template>
+
+<script lang="ts">
+export default {
+  name: "SidebarOnlyLayout",
+};
+</script>
+
+<script setup lang="ts">
+import { useConfig } from "@dzangolab/vue3-config";
+import { SidebarOnlyLayout as Layout } from "@dzangolab/vue3-layout";
+import { storeToRefs } from "pinia";
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+
+import UserMenu from "../components/UserMenu.vue";
+import useUserStore from "../store";
+
+import type { MenuItem, SidebarMenu } from "@dzangolab/vue3-layout";
+
+defineProps({
+  showUserMenu: {
+    default: true,
+    required: false,
+    type: Boolean,
+  },
+});
+
+const userStore = useUserStore();
+
+const { user } = storeToRefs(userStore);
+
+const { layout: layoutConfig } = useConfig();
+
+const router = useRouter();
+
+const allRoutes = router.getRoutes();
+
+const menu = computed(() => {
+  if (!user.value) {
+    const menuItems = layoutConfig?.mainMenu?.filter((item) => {
+      const route = allRoutes.find((r) => r.name === item.route);
+
+      return route && !route.meta?.authenticated;
+    }) as MenuItem[];
+
+    return menuItems.map((item) => {
+      return {
+        name: item.name,
+        routeName: item.route,
+      };
+    }) as SidebarMenu[];
+  }
+
+  return [] as SidebarMenu[];
+});
+</script>

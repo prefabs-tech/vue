@@ -1,6 +1,15 @@
 <template>
   <div class="layout sidebar-only">
     <Sidebar :menu="menu" :no-header="noHeader" class="layout-sidebar">
+      <slot name="userMenu"></slot>
+      <template #afterNavLinks>
+        <slot name="afterNavLinks"></slot>
+      </template>
+
+      <template #afterSidebarMenu>
+        <slot name="afterSidebarMenu"></slot>
+      </template>
+
       <template #footer>
         <slot name="locales">
           <LocaleSwitcher class="locales" />
