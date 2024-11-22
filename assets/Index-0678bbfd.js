@@ -1,0 +1,1 @@
+import{_ as o}from"./index-2117dc0f.js";import{G as n,o as a,c as r}from"./index-d658739c-0fec2303.js";const s={name:"Layout"};function c(t,p,l,_,i,m){const e=n("Page");return a(),r(e,{title:t.$t("layout.title")},null,8,["title"])}const d=o(s,[["render",c]]);export{d as default};
