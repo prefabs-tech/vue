@@ -1,9 +1,9 @@
 <template>
   <div class="layout sidebar-only">
     <Sidebar :menu="menu" :no-header="noHeader" class="layout-sidebar">
-      <slot name="userMenu"></slot>
       <template #afterNavLinks>
         <slot name="afterNavLinks"></slot>
+        <slot name="userMenu"></slot>
       </template>
 
       <template #afterSidebarMenu>

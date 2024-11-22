@@ -57,27 +57,27 @@ const router = useRouter();
 const allRoutes = router.getRoutes();
 
 const menu = computed(() => {
+  let menuItems = layoutConfig?.mainMenu || [];
+
   if (!user.value) {
-    const menuItems = layoutConfig?.mainMenu?.filter((item) => {
+    menuItems = menuItems?.filter((item) => {
       const route = allRoutes.find((r) => r.name === item.route);
 
       return route && !route.meta?.authenticated;
     }) as MenuItem[];
-
-    return menuItems.map((item: MenuItem) => {
-      return {
-        name: item.name,
-        routeName: item.route,
-        children: item?.children?.map((childItem: MenuItem) => {
-          return {
-            name: childItem.name,
-            routeName: childItem.route,
-          };
-        }),
-      };
-    }) as SidebarMenu[];
   }
 
-  return [] as SidebarMenu[];
+  return menuItems.map((item: MenuItem) => {
+    return {
+      name: item.name,
+      routeName: item.route,
+      children: item?.children?.map((childItem: MenuItem) => {
+        return {
+          name: childItem.name,
+          routeName: childItem.route,
+        };
+      }),
+    };
+  }) as SidebarMenu[];
 });
 </script>
