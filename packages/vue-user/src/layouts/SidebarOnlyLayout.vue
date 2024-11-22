@@ -12,6 +12,10 @@
       <slot name="afterSidebarMenu"></slot>
     </template>
 
+    <template #locales>
+      <slot name="locales"></slot>
+    </template>
+
     <slot></slot>
   </Layout>
 </template>
@@ -60,10 +64,16 @@ const menu = computed(() => {
       return route && !route.meta?.authenticated;
     }) as MenuItem[];
 
-    return menuItems.map((item) => {
+    return menuItems.map((item: MenuItem) => {
       return {
         name: item.name,
         routeName: item.route,
+        children: item?.children?.map((childItem: MenuItem) => {
+          return {
+            name: childItem.name,
+            routeName: childItem.route,
+          };
+        }),
       };
     }) as SidebarMenu[];
   }

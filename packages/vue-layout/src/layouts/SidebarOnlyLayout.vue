@@ -8,12 +8,12 @@
 
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
-      </template>
-
-      <template #footer>
         <slot name="locales">
           <LocaleSwitcher class="locales" />
         </slot>
+      </template>
+
+      <template #footer>
         <AppFooter />
       </template>
     </Sidebar>
@@ -51,6 +51,22 @@ defineProps({
   grid-template-rows: auto 1fr;
   grid-template-areas: "sidebar main";
   transition: all 0.3s ease-in-out;
+}
+
+.layout.sidebar-only .locales {
+  background-color: #b5b5b5;
+  border-radius: 0.3rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.8rem;
+  padding: 0.4rem;
+  width: 10rem;
+}
+
+.layout.sidebar-only .locales ul.dropdown {
+  left: 0;
+  right: 0;
+  margin-top: 0.2rem;
 }
 
 .layout.sidebar-only:has(.extend) {
