@@ -72,8 +72,10 @@
 }
 
 .sidebar:has(.extend) {
+  --_width: var(--sidebar-collapsed-width, 5rem);
+
   overflow: visible;
-  width: 5rem;
+  width: var(--_width);
 }
 
 .sidebar:has(.extend) > .header > .logo {
