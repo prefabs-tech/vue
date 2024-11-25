@@ -32,6 +32,7 @@ describe("Copyright", () => {
       },
       props: {
         holder: appConfig.copyright?.holder as string,
+        showDisclaimer: true,
         url: appConfig.copyright?.url as string,
       },
     });

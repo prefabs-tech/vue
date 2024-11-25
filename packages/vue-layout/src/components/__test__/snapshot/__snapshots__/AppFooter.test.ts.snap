@@ -5,6 +5,7 @@ exports[`AppFooter > matches snapshot 1`] = `
   
   <copyright-stub
     holder="Dzango Technologies Limited"
+    showdisclaimer="false"
     url="https://dzango.com"
   />
   

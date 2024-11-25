@@ -1,7 +1,7 @@
 <template>
   <div class="copyright">
     &copy; {{ year }} <a :href="url" target="_blank">{{ holder }}</a
-    >.&nbsp;
+    >&nbsp;
     {{ copyright }}
   </div>
 </template>
@@ -21,7 +21,7 @@ import { useTranslations } from "../index";
 import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
 import type { PropType } from "vue";
 
-defineProps({
+const props = defineProps({
   holder: {
     required: true,
     type: String as PropType<string>,
@@ -30,6 +30,7 @@ defineProps({
     required: true,
     type: String as PropType<string>,
   },
+  showDisclaimer: Boolean,
 });
 
 const messages = useTranslations() as LocaleMessages<VueMessageType>;
@@ -37,7 +38,7 @@ const messages = useTranslations() as LocaleMessages<VueMessageType>;
 const { t } = useI18n({ messages });
 
 const copyright = computed(() => {
-  return t("copyright.disclaimer");
+  return props.showDisclaimer ? t("copyright.disclaimer") : null;
 });
 
 const year = new Date().getFullYear();
