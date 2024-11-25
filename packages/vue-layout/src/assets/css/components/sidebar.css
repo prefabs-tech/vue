@@ -83,8 +83,16 @@
   width: var(--sidebar-toggle-icon-width, 1.5rem);
 }
 
+.sidebar-toggle-enter-active {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar-toggle-enter-from {
+  opacity: 0;
+}
+
 .sidebar:has(.extend) {
-  --_width: var(--sidebar-collapsed-width, 5rem);
+  --_width: var(--sidebar-collapsed-width, 6rem);
 
   overflow: visible;
   width: var(--_width);
@@ -103,7 +111,7 @@
   background-color: var(--_bg-color);
   border: solid 1px var(--_border-color);
   border-radius: var(--_border-radius);
-  left: 4rem;
+  left: 5rem;
   position: absolute;
   padding: 0.25rem;
   top: 1rem;

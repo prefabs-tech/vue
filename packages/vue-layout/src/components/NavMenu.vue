@@ -38,7 +38,25 @@ const props = defineProps({
 });
 
 const sideBarMenuToShow = computed(() => {
-  return props.menu?.filter((menu) => !menu.hide);
+  return props.menu
+    ?.map((menu) => {
+      if (menu.hide) {
+        return null;
+      }
+
+      const filteredChildren =
+        menu.children?.filter((childMenu) => !childMenu.hide) || [];
+
+      if (menu.children?.length && !filteredChildren.length) {
+        return null;
+      }
+
+      return {
+        ...menu,
+        children: filteredChildren.length ? filteredChildren : undefined,
+      };
+    })
+    .filter(Boolean) as SidebarMenu[];
 });
 </script>
 

@@ -8,17 +8,19 @@
         <slot name="title"></slot>
       </div>
       <div class="toggle" @click="sidebarActive = !sidebarActive">
-        <img
-          v-if="sidebarActive"
-          alt="minimize sidebar"
-          src="../assets/svg/left-chevron.svg"
-        />
-        <img
-          v-else
-          class="extend"
-          alt="extend sidebar"
-          src="../assets/svg/right-chevron.svg"
-        />
+        <transition name="sidebar-toggle">
+          <img
+            v-if="sidebarActive"
+            alt="minimize sidebar"
+            src="../assets/svg/left-chevron.svg"
+          />
+          <img
+            v-else
+            class="extend"
+            alt="extend sidebar"
+            src="../assets/svg/right-chevron.svg"
+          />
+        </transition>
       </div>
     </div>
     <div class="sidebar-menu-wrapper">

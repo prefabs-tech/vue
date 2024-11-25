@@ -60,8 +60,20 @@ const menu = computed(() => {
   let menuItems = layoutConfig?.mainMenu || [];
 
   if (!user.value) {
-    menuItems = menuItems?.filter((item) => {
-      const route = allRoutes.find((r) => r.name === item.route);
+    menuItems = menuItems?.filter((item: MenuItem) => {
+      const route = allRoutes.find((r) => {
+        if (r.name === item.route) {
+          return true;
+        }
+
+        if (item.children?.length) {
+          return (item.children as MenuItem[]).some((child: MenuItem) => {
+            return allRoutes.some((cr) => cr.name === child.route);
+          });
+        }
+
+        return false;
+      });
 
       return route && !route.meta?.authenticated;
     }) as MenuItem[];
@@ -69,12 +81,18 @@ const menu = computed(() => {
 
   return menuItems.map((item: MenuItem) => {
     return {
+      hide: item?.hide,
+      icon: item?.icon,
       name: item.name,
       routeName: item.route,
+      shortName: item?.shortName,
       children: item?.children?.map((childItem: MenuItem) => {
         return {
+          hide: childItem?.hide,
+          icon: childItem?.icon,
           name: childItem.name,
           routeName: childItem.route,
+          shortName: childItem?.shortName,
         };
       }),
     };

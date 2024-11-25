@@ -70,6 +70,14 @@ defineProps({
   content: "";
 }
 
+.layout.sidebar-only:has(.extend) .locales {
+  width: 4rem;
+}
+
+.layout.sidebar-only:has(.extend) .locales .dropdown {
+  right: -7rem;
+}
+
 .layout.sidebar-only .locales {
   background-color: #b5b5b5;
   border-radius: 0.3rem;
@@ -86,7 +94,7 @@ defineProps({
 }
 
 .layout.sidebar-only:has(.extend) {
-  grid-template-columns: var(--sidebar-collapsed-width, 5rem) 1fr;
+  grid-template-columns: var(--sidebar-collapsed-width, 6rem) 1fr;
 }
 
 .layout.sidebar-only:has(.no-sidebar) {
@@ -96,6 +104,7 @@ defineProps({
 .layout.sidebar-only > .layout-sidebar {
   grid-area: sidebar;
   transition: width 0.3s ease-in-out;
+  z-index: 100;
 }
 
 .layout.sidebar-only > main {
@@ -110,5 +119,6 @@ defineProps({
 main {
   padding: var(--layout-default-padding-v, 2.5rem)
     var(--layout-default-padding-h, 2rem);
+  z-index: 99;
 }
 </style>
