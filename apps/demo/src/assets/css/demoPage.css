@@ -2,7 +2,10 @@
   align-items: stretch;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 2rem;
+  height: 100%;
+  width: 100%;
 }
 
 .demo > .demo-main {
@@ -12,7 +15,7 @@
 
 .demo-aside {
   --_bg-color: #fff;
-  --_color: #000;
+  --_color: #4e4e4e;
   --_position: relative;
   --_width: 100%;
 }
@@ -40,8 +43,9 @@
 
   .demo-aside {
     --_width: 15rem;
+    --_border-color: var(--border-color, #dee2e6);
 
     min-width: var(--_width);
-    border-right: 1px solid black;
+    border-right: 1px solid var(--_border-color);
   }
 }

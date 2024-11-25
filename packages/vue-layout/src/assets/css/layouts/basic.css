@@ -18,6 +18,7 @@
 }
 
 .layout.basic > main {
+  display: grid;
   flex: 1;
 }
 
