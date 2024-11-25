@@ -94,8 +94,8 @@ importers:
         specifier: 8.14.0
         version: 8.14.0(eslint@8.57.1)(typescript@5.5.4)
       '@vee-validate/i18n':
-        specifier: 4.7.4
-        version: 4.7.4
+        specifier: 4.14.7
+        version: 4.14.7
       '@vee-validate/rules':
         specifier: 4.7.4
         version: 4.7.4
@@ -285,8 +285,8 @@ importers:
         specifier: 8.14.0
         version: 8.14.0(eslint@8.57.1)(typescript@5.5.4)
       '@vee-validate/i18n':
-        specifier: 4.7.4
-        version: 4.7.4
+        specifier: 4.14.7
+        version: 4.14.7
       '@vee-validate/rules':
         specifier: 4.7.4
         version: 4.7.4
@@ -753,8 +753,8 @@ importers:
         specifier: 8.14.0
         version: 8.14.0(eslint@8.57.1)(typescript@5.5.4)
       '@vee-validate/i18n':
-        specifier: 4.7.4
-        version: 4.7.4
+        specifier: 4.14.7
+        version: 4.14.7
       '@vee-validate/rules':
         specifier: 4.7.4
         version: 4.7.4
@@ -2263,8 +2263,8 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@vee-validate/i18n@4.7.4':
-    resolution: {integrity: sha512-zK5rnPjgd4kBEfUj4jWUu6GHsldETji/JuorBb+emWSD1QUo4nEr1R7zFqHHunbAQu664iIQnzAlsfzkkXM40A==}
+  '@vee-validate/i18n@4.14.7':
+    resolution: {integrity: sha512-CTGNXC0d6tMSi6pEbf+jW1ZsLhvtNClgKDna8QmHD9G/8U8W9MlyQfgcQMqmpUz0kUHyGHNZ3B13jzILUeVcXw==}
 
   '@vee-validate/rules@4.7.4':
     resolution: {integrity: sha512-rWpmGKB/jy7/jbuAH/pfCYoCjiYDx77geNEaYeTl07eHo+2jL+j802Ttn85cTJsMUeXzRSUauepvNCpkVWV+aA==}
@@ -7232,7 +7232,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vee-validate/i18n@4.7.4': {}
+  '@vee-validate/i18n@4.14.7': {}
 
   '@vee-validate/rules@4.7.4': {}
 
