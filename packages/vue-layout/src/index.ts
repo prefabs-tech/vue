@@ -12,6 +12,7 @@ import Sidebar from "./components/Sidebar.vue";
 import Layout from "./Layout.vue";
 import BasicLayout from "./layouts/BasicLayout.vue";
 import NullLayout from "./layouts/NullLayout.vue";
+import SidebarOnlyLayout from "./layouts/SidebarOnlyLayout.vue";
 import messages from "./locales/messages.json";
 
 import type {
@@ -65,6 +66,7 @@ export {
   MainMenu,
   NullLayout,
   Sidebar,
+  SidebarOnlyLayout,
   useTranslations,
 };
 

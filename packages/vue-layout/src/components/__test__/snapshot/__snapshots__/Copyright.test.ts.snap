@@ -11,7 +11,7 @@ exports[`Copyright > matches snapshot en 1`] = `
   >
     Dzango Technologies Limited
   </a>
-  .  All rights reserved.
+    All rights reserved.
 </div>
 `;
 
@@ -26,6 +26,6 @@ exports[`Copyright > matches snapshot fr 1`] = `
   >
     Dzango Technologies Limited
   </a>
-  .  Tous droits réservés.
+    Tous droits réservés.
 </div>
 `;

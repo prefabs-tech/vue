@@ -1,4 +1,5 @@
 interface MenuItem {
+  children?: Array<MenuItem>;
   name: string;
   route: string;
 }
