@@ -1,10 +1,12 @@
 <template>
-  <div class="sidebar">
+  <div v-if="!isInactive" class="sidebar">
     <div v-if="!noHeader" class="header">
       <div class="logo">
         <Logo />
       </div>
-      <slot name="title"></slot>
+      <div class="title">
+        <slot name="title"></slot>
+      </div>
       <div class="toggle" @click="sidebarActive = !sidebarActive">
         <img
           v-if="sidebarActive"
@@ -33,6 +35,13 @@
       <slot name="footer"></slot>
     </div>
   </div>
+  <div v-else class="no-sidebar" @click="sidebarActive = true">
+    <img
+      v-if="!sidebarActive"
+      alt="show sidebar"
+      src="../assets/svg/right-chevron.svg"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -42,7 +51,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, onUnmounted, useSlots } from "vue";
+import { computed, ref, onUnmounted, useSlots } from "vue";
 
 import Logo from "./Logo.vue";
 import NavMenu from "./NavMenu.vue";
@@ -59,6 +68,15 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+});
+
+const isInactive = computed(() => {
+  if (!sidebarActive.value) {
+    return !props.menu?.filter((item) => !!(item.shortName || item.icon))
+      ?.length;
+  }
+
+  return false;
 });
 
 const slots = useSlots();

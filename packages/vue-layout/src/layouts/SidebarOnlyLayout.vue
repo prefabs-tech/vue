@@ -50,7 +50,7 @@ defineProps({
   grid-template-columns: var(--sidebar-width, 16rem) 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas: "sidebar main";
-  transition: all 0.3s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .layout.sidebar-only .locales {
@@ -70,6 +70,10 @@ defineProps({
 
 .layout.sidebar-only:has(.extend) {
   grid-template-columns: var(--sidebar-collapsed-width, 5rem) 1fr;
+}
+
+.layout.sidebar-only:has(.no-sidebar) {
+  grid-template-columns: var(--sidebar-collapsed-width, 2rem) 1fr;
 }
 
 .layout.sidebar-only > .layout-sidebar {

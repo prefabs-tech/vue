@@ -26,11 +26,11 @@ const props = defineProps({
     required: true,
     type: String as PropType<string>,
   },
+  showDisclaimer: Boolean,
   url: {
     required: true,
     type: String as PropType<string>,
   },
-  showDisclaimer: Boolean,
 });
 
 const messages = useTranslations() as LocaleMessages<VueMessageType>;
