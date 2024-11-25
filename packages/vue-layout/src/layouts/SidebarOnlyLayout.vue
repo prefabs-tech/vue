@@ -56,8 +56,7 @@ defineProps({
 .layout.sidebar-only .locales {
   background-color: #b5b5b5;
   border-radius: 0.3rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 1rem;
   margin-top: 0.8rem;
   padding: 0.4rem;
   width: 10rem;
@@ -88,6 +87,7 @@ defineProps({
 }
 
 main {
-  padding: 1rem;
+  padding: var(--layout-default-padding-v, 2.5rem)
+    var(--layout-default-padding-h, 2rem);
 }
 </style>

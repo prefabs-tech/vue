@@ -81,3 +81,27 @@ const menu = computed(() => {
   }) as SidebarMenu[];
 });
 </script>
+
+<style lang="css">
+.user-menu > ul {
+  --menu-margin-left: 0;
+
+  flex-direction: column !important;
+}
+
+.user-menu > ul > li {
+  --_font-size: var(--font-size-min, 0.8rem);
+  --_font-weight: var(--font-weight, 450);
+  --_height: var(--nav-menu-height, 3rem);
+  --_padding-h: var(--sidebar-padding-h, 1rem);
+  --menu-highlight-color: #0870e5;
+
+  width: 100%;
+  font-size: var(--_font-size);
+  font-weight: var(--_font-weight);
+  height: var(--_height);
+  padding-left: var(--_padding-h);
+  display: flex;
+  align-items: center;
+}
+</style>
