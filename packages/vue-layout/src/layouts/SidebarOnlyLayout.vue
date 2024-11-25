@@ -53,6 +53,23 @@ defineProps({
   transition: all 0.25s ease-in-out;
 }
 
+.layout.sidebar-only footer {
+  --_padding-h: var(--sidebar-padding-h, 1rem);
+  --_padding-v: var(--sidebar-padding-v, 1.5rem);
+
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  justify-content: space-between;
+  padding: 0 var(--_padding-h);
+  width: 100%;
+}
+
+.layout.sidebar-only .copyright a::after {
+  content: "";
+}
+
 .layout.sidebar-only .locales {
   background-color: #b5b5b5;
   border-radius: 0.3rem;
