@@ -92,16 +92,25 @@ const menu = computed(() => {
 .user-menu > ul > li {
   --_font-size: var(--font-size-min, 0.8rem);
   --_font-weight: var(--font-weight, 450);
-  --_height: var(--nav-menu-height, 3rem);
   --_padding-h: var(--sidebar-padding-h, 1rem);
   --menu-highlight-color: #0870e5;
 
   width: 100%;
   font-size: var(--_font-size);
   font-weight: var(--_font-weight);
-  height: var(--_height);
   padding-left: var(--_padding-h);
-  display: flex;
+}
+
+.user-menu > ul > li:has(.router-link-exact-active) {
+  background-color: #0870e5;
+}
+
+.user-menu > ul > li > a {
+  --_height: var(--nav-menu-height, 3rem);
+
   align-items: center;
+  display: flex;
+  height: var(--_height);
+  width: 100%;
 }
 </style>
