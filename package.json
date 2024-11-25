@@ -16,8 +16,6 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.8",
-    "@12deg/tsconfig": "0.1.8",
     "@commitlint/cli": "17.6.1",
     "@commitlint/config-conventional": "17.6.1",
     "husky": "8.0.3",
