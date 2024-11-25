@@ -1,0 +1,1 @@
+import{_ as e}from"./index-3ecf5c1a.js";import{G as n,o as a,c as r}from"./index-96491301-e3ed59ee.js";const s={name:"About"};function c(t,p,_,l,i,m){const o=n("Page");return a(),r(o,{title:t.$t("about.title")},null,8,["title"])}const $=e(s,[["render",c]]);export{$ as default};
