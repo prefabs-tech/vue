@@ -5,7 +5,10 @@ exports[`BasicLayout > matches snapshot 1`] = `
   class="layout basic"
 >
   
-  <app-header-stub />
+  <app-header-stub
+    nologo="false"
+    nomainmenu="false"
+  />
   
   <main>
     
