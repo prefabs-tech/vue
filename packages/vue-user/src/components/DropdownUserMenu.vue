@@ -1,13 +1,14 @@
 <template>
   <nav
     ref="dzangolabVueUserUserMenu"
-    class="user-menu"
+    class="user-menu-dropdown"
     :class="{ expanded: expanded }"
+    @click="toggle"
   >
-    <div class="email" @click="toggle">
+    <div class="email">
       {{ user?.email }}
     </div>
-    <span class="toggle" @click="toggle">&dtrif;</span>
+    <span class="toggle">&dtrif;</span>
     <ul class="dropdown">
       <li>
         <router-link :to="{ name: 'profile' }">
@@ -57,9 +58,10 @@ onClickOutside(dzangolabVueUserUserMenu, (event) => {
 });
 </script>
 
-<style scoped>
-nav {
+<style lang="css">
+nav.user-menu-dropdown {
   align-items: flex-start;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   gap: 0;
@@ -69,11 +71,11 @@ nav {
   min-width: var(--dropdown-width, 6rem);
 }
 
-.email {
+nav.user-menu-dropdown .email {
   cursor: pointer;
 }
 
-nav > span.toggle {
+nav.user-menu-dropdown > span.toggle {
   align-self: start;
   font-size: 1.5rem;
   line-height: 1.25rem;
@@ -81,7 +83,7 @@ nav > span.toggle {
   width: 1.25rem;
 }
 
-nav > ul.dropdown {
+nav.user-menu-dropdown > ul.dropdown {
   background-color: var(--dropdown-bg-color, #fff);
   border: var(--dropdown-border, 1px solid grey);
   border-radius: var(--dropdown-border-radius, 5px);
@@ -95,21 +97,21 @@ nav > ul.dropdown {
   z-index: var(--dropdown-z-index, 9999);
 }
 
-nav.expanded > ul.dropdown {
+nav.user-menu-dropdown.expanded > ul.dropdown {
   display: block;
 }
 
-nav > ul.dropdown > li {
+nav.user-menu-dropdown > ul.dropdown > li {
   cursor: pointer;
   list-style: none;
   padding: 0.25rem 0.5rem;
 }
 
-nav > .dropdown > li:hover {
+nav.user-menu-dropdown > .dropdown > li:hover {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
-nav a {
+nav.user-menu-dropdown a {
   color: inherit;
   text-decoration: none;
 }
