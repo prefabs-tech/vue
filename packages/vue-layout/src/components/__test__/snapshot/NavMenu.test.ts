@@ -3,10 +3,10 @@ import { describe, it, expect } from "vitest";
 
 import type { VueWrapper } from "@vue/test-utils";
 
-import Sidebar from "@/components/Sidebar.vue";
+import NavMenu from "@/components/NavMenu.vue";
 
-describe("Sidebar", () => {
-  const wrapper: VueWrapper = shallowMount(Sidebar, {
+describe("NavMenu", () => {
+  const wrapper: VueWrapper = shallowMount(NavMenu, {
     props: {
       menu: [
         {
@@ -20,13 +20,7 @@ describe("Sidebar", () => {
           shortName: "M2",
         },
       ],
-    },
-    slots: {
-      title: "<h3>Test</h3>",
-      default: "<div class='before-nav'></div>",
-      afterNavLinks: "<div class='after-nav'></div>",
-      afterSidebarMenu: "<div class='after-sidebar'></div>",
-      footer: "<p><small>This is some smaller text.</small></p>",
+      sidebarActive: true,
     },
   });
 
