@@ -31,7 +31,7 @@
 
 .sidebar > .footer {
   --_bg-color: var(--sidebar-bg-color, transparent);
-  --_border-color: var(--sidebar-border-color, #dbdbdb);
+  --_border-color: var(--sidebar-border-color, #dee2e6);
   --_bottom: var(--sidebar-footer-bottom, 0);
   --_font-size: var(--sidebar-font-size, 1rem);
   --_gap: var(--footer-gap, 1rem);
@@ -60,7 +60,7 @@
 }
 
 .sidebar > .header {
-  --_border-color: var(--sidebar-border-color, #dbdbdb);
+  --_border-color: var(--sidebar-border-color, #dee2e6);
   --_padding-h: var(--sidebar-padding-h, 1rem);
   --_padding-v: var(--sidebar-padding-v, 1.5rem);
 

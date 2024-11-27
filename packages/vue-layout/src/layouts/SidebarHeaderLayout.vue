@@ -108,6 +108,8 @@ defineProps({
 
   grid-area: header;
   padding-right: var(--header-padding-h);
+  position: sticky;
+  top: 0;
 }
 
 .layout.sidebar-header-layout > main {

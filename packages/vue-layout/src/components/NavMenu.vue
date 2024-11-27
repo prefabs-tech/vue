@@ -62,7 +62,7 @@ const sideBarMenuToShow = computed(() => {
 
 <style lang="css">
 .nav-menu > .menu {
-  --_border-color: var(--border-color, #dbdbdb);
+  --_border-color: var(--border-color, #dee2e6);
   --_padding-h: var(--padding-h, 0);
   --_padding-v: var(--padding-v, 1.5rem);
 
