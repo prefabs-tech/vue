@@ -68,7 +68,8 @@ defineProps({
 }
 
 .layout.sidebar-header-layout > .no-sidebar {
-  position: absolute;
+  position: fixed;
+  top: 0;
 }
 
 .layout.sidebar-header-layout .layout-sidebar > .header {
@@ -106,10 +107,12 @@ defineProps({
   --header-padding-h: 1rem;
   --header-padding-v: 2.1rem;
 
+  background-color: var(--header-bg-color, #fff);
   grid-area: header;
   padding-right: var(--header-padding-h);
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .layout.sidebar-header-layout > main {
