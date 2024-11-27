@@ -52,11 +52,11 @@ defineProps({
 <style lang="css">
 .layout.sidebar-header-layout {
   display: grid;
-  grid-template-columns: var(--sidebar-width, 16rem) 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
-    "sidebar header"
-    "sidebar main";
+    "header"
+    "main";
   transition: all 0.25s ease-in-out;
 }
 
@@ -107,7 +107,7 @@ defineProps({
   --header-padding-h: 1rem;
   --header-padding-v: 2.1rem;
 
-  background-color: var(--header-bg-color, #fff);
+  background-color: #fff;
   grid-area: header;
   padding-right: var(--header-padding-h);
   position: sticky;
@@ -128,5 +128,14 @@ main {
   padding: var(--layout-default-padding-v, 2.5rem)
     var(--layout-default-padding-h, 2rem);
   z-index: 99;
+}
+
+@media screen and (min-width: 1024px) {
+  .layout.sidebar-header-layout {
+    grid-template-columns: var(--sidebar-width, 16rem) 1fr;
+    grid-template-areas:
+      "sidebar header"
+      "sidebar main";
+  }
 }
 </style>

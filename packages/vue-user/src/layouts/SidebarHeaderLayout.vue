@@ -124,6 +124,7 @@ const menu = computed(() => {
   width: 100%;
   font-size: var(--_font-size);
   font-weight: var(--_font-weight);
+  padding: 0;
   padding-left: var(--_padding-h);
 }
 
