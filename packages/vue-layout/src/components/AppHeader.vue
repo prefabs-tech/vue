@@ -60,4 +60,8 @@ const close = () => {
 const toggle = () => {
   expanded.value = !expanded.value;
 };
+
+defineExpose({
+  expanded,
+});
 </script>

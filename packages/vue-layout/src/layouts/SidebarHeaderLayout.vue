@@ -1,13 +1,18 @@
 <template>
   <div class="layout sidebar-header-layout">
     <slot name="header">
-      <AppHeader no-logo no-main-menu>
+      <AppHeader ref="appHeader" no-logo no-main-menu>
         <template #locales>
           <slot name="locales" />
         </template>
       </AppHeader>
     </slot>
-    <Sidebar :menu="menu" :no-header="noSidebarHeader" class="layout-sidebar">
+    <Sidebar
+      ref="sidebar"
+      :menu="menu"
+      :no-header="noSidebarHeader"
+      class="layout-sidebar"
+    >
       <template #afterNavLinks>
         <slot name="afterNavLinks"></slot>
         <slot name="userMenu"></slot>
@@ -15,6 +20,11 @@
 
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
+        <template v-if="sidebarLocaleSwitcher">
+          <slot name="locales">
+            <LocaleSwitcher class="locales" />
+          </slot>
+        </template>
       </template>
 
       <template #footer>
@@ -30,12 +40,19 @@
 </template>
 
 <script setup lang="ts">
+import { LocaleSwitcher } from "@dzangolab/vue3-i18n";
+import { ref, watch, onUnmounted } from "vue";
+
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
 import Sidebar from "../components/Sidebar.vue";
 
 import type { SidebarMenu } from "../types";
 import type { PropType } from "vue";
+
+const appHeader = ref();
+const sidebar = ref();
+const sidebarLocaleSwitcher = ref<boolean>(false);
 
 defineProps({
   menu: {
@@ -47,6 +64,40 @@ defineProps({
     type: Boolean,
   },
 });
+
+watch(
+  () => appHeader.value?.expanded,
+  (newValue) => {
+    if (newValue) {
+      sidebar.value.sidebarActive = true;
+    }
+  },
+);
+
+watch(
+  () => sidebar.value?.sidebarActive,
+  (newValue) => {
+    if (!newValue) {
+      appHeader.value.expanded = false;
+    }
+  },
+);
+
+const handleResize = () => {
+  if (window.innerWidth >= 576) {
+    sidebarLocaleSwitcher.value = false;
+  } else {
+    sidebarLocaleSwitcher.value = true;
+  }
+};
+
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
+});
+
+window.addEventListener("resize", handleResize);
+
+handleResize();
 </script>
 
 <style lang="css">
@@ -68,6 +119,7 @@ defineProps({
 }
 
 .layout.sidebar-header-layout > .no-sidebar {
+  display: none;
   position: fixed;
   top: 0;
 }
@@ -97,6 +149,29 @@ defineProps({
   grid-template-columns: var(--sidebar-collapsed-width, 6rem) 1fr;
 }
 
+.layout.sidebar-header-layout:has(.extend) .locales {
+  width: 4rem;
+}
+
+.layout.sidebar-header-layout:has(.extend) .locales .dropdown {
+  right: -7rem;
+}
+
+.layout.sidebar-header-layout .sidebar-menu-wrapper .locales {
+  background-color: #b5b5b5;
+  border-radius: 0.3rem;
+  margin-left: 1rem;
+  margin-top: 0.8rem;
+  padding: 0.4rem;
+  width: 10rem;
+}
+
+.layout.sidebar-header-layout .locales ul.dropdown {
+  left: 0;
+  right: 0;
+  margin-top: 0.2rem;
+}
+
 .layout.sidebar-header-layout > .layout-sidebar {
   grid-area: sidebar;
   transition: width 0.3s ease-in-out;
@@ -113,6 +188,10 @@ defineProps({
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.layout.sidebar-header-layout > header > nav[data-expanded="true"] {
+  display: none;
 }
 
 .layout.sidebar-header-layout > main {
@@ -136,6 +215,12 @@ main {
     grid-template-areas:
       "sidebar header"
       "sidebar main";
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .layout.sidebar-header-layout > .no-sidebar {
+    display: block;
   }
 }
 </style>
