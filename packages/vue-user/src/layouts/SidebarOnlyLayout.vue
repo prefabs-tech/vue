@@ -101,13 +101,14 @@ const menu = computed(() => {
 </script>
 
 <style lang="css">
-.user-menu > ul {
+.sidebar-only .user-menu > ul {
   --menu-margin-left: 0;
 
-  flex-direction: column !important;
+  flex-direction: column;
 }
 
-.user-menu > ul > li {
+.sidebar-only .user-menu > ul > li,
+.sidebar-only .user-menu-dropdown {
   --_font-size: var(--font-size-min, 0.8rem);
   --_font-weight: var(--font-weight, 450);
   --_padding-h: var(--sidebar-padding-h, 1rem);
@@ -119,16 +120,40 @@ const menu = computed(() => {
   padding-left: var(--_padding-h);
 }
 
-.user-menu > ul > li:has(.router-link-exact-active) {
+.sidebar-only .user-menu > ul > li:has(.router-link-exact-active) {
   background-color: #0870e5;
 }
 
-.user-menu > ul > li > a {
+.sidebar-only .user-menu:not(.user-menu-dropdown) > ul > li > a,
+.sidebar-only .user-menu-dropdown,
+.sidebar-only .user-menu-dropdown > ul.dropdown > li {
   --_height: var(--nav-menu-height, 3rem);
 
   align-items: center;
   display: flex;
   height: var(--_height);
   width: 100%;
+}
+
+.sidebar-only .user-menu-dropdown {
+  --_padding-h: var(--sidebar-padding-h, 1rem);
+
+  padding-right: var(--_padding-h);
+}
+
+.sidebar-only .user-menu-dropdown:hover {
+  background-color: #0870e5;
+}
+
+.sidebar-only .user-menu-dropdown > .toggle {
+  align-self: center;
+}
+
+.sidebar-only .user-menu-dropdown > .dropdown {
+  --_left: var(--sidebar-padding-h, 1rem);
+  --_right: var(--sidebar-padding-h, 1rem);
+
+  left: var(--_left);
+  right: var(--_right);
 }
 </style>

@@ -1,0 +1,84 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Sidebar > matches snapshot  1`] = `
+<div
+  class="sidebar"
+>
+  <div
+    class="header"
+  >
+    <div
+      class="logo"
+    >
+      <logo-stub
+        route="home"
+      />
+    </div>
+    <div
+      class="title"
+    >
+      
+      <h3>
+        Test
+      </h3>
+      
+    </div>
+    <div
+      class="toggle"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="sidebar-toggle"
+        persisted="false"
+      >
+        <img
+          alt="extend sidebar"
+          class="extend"
+          src="/src/assets/svg/right-chevron.svg"
+        />
+      </transition-stub>
+    </div>
+  </div>
+  <div
+    class="sidebar-menu-wrapper"
+  >
+    
+    <div
+      class="before-nav"
+    />
+    
+    <ul
+      class="nav"
+    >
+      
+      <nav-menu-stub
+        menu="[object Object],[object Object]"
+        sidebaractive="false"
+      />
+      
+      
+      <div
+        class="after-nav"
+      />
+      
+    </ul>
+    
+    <div
+      class="after-sidebar"
+    />
+    
+  </div>
+  <div
+    class="footer"
+  >
+    
+    <p>
+      <small>
+        This is some smaller text.
+      </small>
+    </p>
+    
+  </div>
+</div>
+`;

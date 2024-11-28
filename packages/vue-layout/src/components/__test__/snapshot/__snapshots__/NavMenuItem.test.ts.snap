@@ -1,0 +1,91 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NavMenuItem > matches snapshot  1`] = `
+<div
+  class="nav-menu-item"
+>
+  <a
+    aria-label="open menu"
+    class="link"
+  >
+    <!--v-if-->
+    <!--v-if-->
+    <span
+      class="item-name"
+    >
+      Menu1
+    </span>
+    <span
+      class="toggle-menu"
+    >
+      <img
+        alt="close sub menu"
+        src="/src/assets/svg/up-chevron.svg"
+      />
+    </span>
+  </a>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="fade"
+    persisted="false"
+  >
+    <div
+      class="sub-menu-item"
+    >
+      
+      <div
+        class="nav-menu-item"
+      >
+        <a
+          aria-label="open menu"
+          class="link"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          <span
+            class="item-name"
+          >
+            child1
+          </span>
+          <!--v-if-->
+        </a>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="fade"
+          persisted="false"
+        >
+          <!--v-if-->
+        </transition-stub>
+      </div>
+      <div
+        class="nav-menu-item"
+      >
+        <a
+          aria-label="open menu"
+          class="link"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          <span
+            class="item-name"
+          >
+            child2
+          </span>
+          <!--v-if-->
+        </a>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="fade"
+          persisted="false"
+        >
+          <!--v-if-->
+        </transition-stub>
+      </div>
+      
+    </div>
+  </transition-stub>
+</div>
+`;
