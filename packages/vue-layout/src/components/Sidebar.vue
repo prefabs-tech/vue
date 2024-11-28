@@ -100,6 +100,10 @@ onUnmounted(() => {
 window.addEventListener("resize", handleResize);
 
 handleResize();
+
+defineExpose({
+  sidebarActive,
+});
 </script>
 
 <style lang="css">
