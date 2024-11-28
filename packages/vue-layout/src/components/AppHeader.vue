@@ -1,12 +1,12 @@
 <template>
   <header>
     <slot name="logo" class="logo">
-      <Logo :route="home" />
+      <Logo v-if="!noLogo" :route="home" />
     </slot>
     <nav :data-expanded="expanded">
       <slot name="menu">
         <MainMenu
-          v-if="layoutConfig?.mainMenu"
+          v-if="layoutConfig?.mainMenu && !noMainMenu"
           class="main-menu"
           :routes="layoutConfig?.mainMenu"
           @close="close"
@@ -41,6 +41,11 @@ import { ref } from "vue";
 import Logo from "./Logo.vue";
 import MainMenu from "./MainMenu.vue";
 
+defineProps({
+  noLogo: Boolean,
+  noMainMenu: Boolean,
+});
+
 const { layout: layoutConfig } = useConfig();
 
 const expanded = ref(false);
@@ -55,4 +60,8 @@ const close = () => {
 const toggle = () => {
   expanded.value = !expanded.value;
 };
+
+defineExpose({
+  expanded,
+});
 </script>

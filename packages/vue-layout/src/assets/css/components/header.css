@@ -58,6 +58,18 @@
   z-index: 1;
 }
 
+.layout header:not(:has(.logo)):not(:has(.main-menu)) {
+  grid-template-columns: var(--header-logo-max-width) 1fr;
+  grid-template-areas: "toggle";
+}
+
+.layout header:not(:has(.logo)):not(:has(.main-menu)) .toggle {
+  --_justify-self: left;
+  --_padding-left: 1rem;
+
+  padding-left: var(--_padding-left);
+}
+
 .layout > header > nav[data-expanded="false"] {
   display: none;
 }
@@ -68,9 +80,11 @@
 }
 
 .layout > header .toggle {
+  --_justify-self: right;
+
   cursor: pointer;
   grid-area: toggle;
-  justify-self: right;
+  justify-self: var(--_justify-self);
 }
 
 .layout > header .main-menu {
