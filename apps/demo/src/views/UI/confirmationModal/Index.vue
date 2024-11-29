@@ -23,7 +23,7 @@
             &lt;/div&gt;
 
             &lt;ConfirmationModal
-              v-show="showModal"
+              v-if="showModal"
               @on:close="showModal = false"
               @on:confirm="onConfirm()"
             /&gt;
@@ -54,7 +54,7 @@
         </div>
 
         <ConfirmationModal
-          v-show="showModal"
+          v-if="showModal"
           @on:close="showModal = false"
           @on:confirm="onConfirm()"
         />
@@ -77,7 +77,7 @@
             &lt;/div&gt;
 
             &lt;ConfirmationModal
-              v-show="showModal"
+              v-if="showModal"
               divider
               @on:close="showModal = false"
               @on:confirm="showModal = false"
@@ -102,7 +102,7 @@
         </div>
 
         <ConfirmationModal
-          v-show="showBorderedModal"
+          v-if="showBorderedModal"
           divider
           @on:close="showBorderedModal = false"
           @on:confirm="showBorderedModal = false"
@@ -126,7 +126,7 @@
             &lt;/div&gt;
 
             &lt;ConfirmationModal
-              v-show="showModal"
+              v-if="showModal"
               disable-header
               @on:close="showModal = false"
               @on:confirm="showModal = false"
@@ -151,7 +151,7 @@
         </div>
 
         <ConfirmationModal
-          v-show="showDisabledHeaderModal"
+          v-if="showDisabledHeaderModal"
           disable-header
           @on:close="showDisabledHeaderModal = false"
           @on:confirm="showDisabledHeaderModal = false"
@@ -175,7 +175,7 @@
             &lt;/div&gt;
 
             &lt;ConfirmationModal
-              v-show="showModal"
+              v-if="showModal"
               disable-body
               @on:close="showModal = false"
               @on:confirm="showModal = false"
@@ -200,7 +200,7 @@
         </div>
 
         <ConfirmationModal
-          v-show="showDisabledBodyModal"
+          v-if="showDisabledBodyModal"
           disable-body
           @on:close="showDisabledBodyModal = false"
           @on:confirm="showDisabledBodyModal = false"
@@ -224,7 +224,7 @@
             &lt;/div&gt;
 
             &lt;ConfirmationModal
-              v-show="showModal"
+              v-if="showModal"
               @on:close="showModal = false"
               @on:confirm="showModal = false"
             &gt;
@@ -262,7 +262,7 @@
         </div>
 
         <ConfirmationModal
-          v-show="showCustomContentModal"
+          v-if="showCustomContentModal"
           @on:close="showCustomContentModal = false"
           @on:confirm="showCustomContentModal = false"
         >
@@ -309,7 +309,7 @@
             &lt;/div&gt;
 
             &lt;ConfirmationModal
-              v-show="showModal"
+              v-if="showModal"
               @on:close="showModal = false"
               @on:confirm="showModal = false"
             &gt;
@@ -357,7 +357,7 @@
         </div>
 
         <ConfirmationModal
-          v-show="showI18nModal"
+          v-if="showI18nModal"
           @on:close="showI18nModal = false"
           @on:confirm="showI18nModal = false"
         >

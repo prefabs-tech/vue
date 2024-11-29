@@ -73,3 +73,7 @@
   display: table-cell;
   vertical-align: middle;
 }
+
+main:has(.modal .modal-wrapper) {
+  z-index: 999;
+}
