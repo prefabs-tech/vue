@@ -20,6 +20,8 @@
   background-color: var(--_bg-color);
   bottom: 0;
   color: var(--_color);
+  display: flex;
+  flex-direction: column;
   height: var(--_height);
   left: 0;
   overflow: hidden;
@@ -29,22 +31,29 @@
   width: var(--_width);
 }
 
+.sidebar .sidebar-menu-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.sidebar .sidebar-menu-wrapper > ul {
+  flex: 1;
+}
+
 .sidebar > .footer {
   --_bg-color: var(--sidebar-bg-color, transparent);
   --_border-color: var(--sidebar-border-color, #dee2e6);
-  --_bottom: var(--sidebar-footer-bottom, 0);
   --_font-size: var(--sidebar-font-size, 1rem);
   --_gap: var(--footer-gap, 1rem);
   --_justify-content: var(--sidebar-justify-content, center);
   --_padding-top: var(--footer-padding-v, 1rem);
   --_padding-bottom: var(--footer-padding-v, 1rem);
-  --_position: var(--sidebar-footer-position, absolute);
   --_width: var(--sidebar-width, 100%);
 
   align-items: center;
   background-color: var(--_bg-color);
   border-top: 1px solid var(--_border-color);
-  bottom: var(--_bottom);
   box-shadow: 0 0 0 100vmax var(--_bg-color);
   clip-path: inset(0 -100vmax);
   display: flex;
@@ -54,7 +63,6 @@
   justify-content: var(--_justify-content);
   padding-bottom: var(--_padding-bottom);
   padding-top: var(--_padding-top);
-  position: var(--_position);
   text-align: center;
   width: var(--_width);
 }

@@ -122,11 +122,11 @@ const menu = computed(() => {
   --_padding-h: var(--sidebar-padding-h, 1rem);
   --menu-highlight-color: #0870e5;
 
-  width: 100%;
   font-size: var(--_font-size);
   font-weight: var(--_font-weight);
   padding: 0;
   padding-left: var(--_padding-h);
+  width: 100%;
 }
 
 .sidebar-header-layout .user-menu > ul > li:has(.router-link-exact-active) {
@@ -145,8 +145,10 @@ const menu = computed(() => {
 }
 
 .sidebar-header-layout .user-menu-dropdown {
+  --_border-color: var(--sidebar-border-color, #dee2e6a6);
   --_padding-h: var(--sidebar-padding-h, 1rem);
 
+  border-top: 1px solid var(--_border-color);
   padding-right: var(--_padding-h);
 }
 
@@ -154,15 +156,21 @@ const menu = computed(() => {
   background-color: #0870e5;
 }
 
+.sidebar-header-layout .user-menu-dropdown.expanded > ul > li:hover {
+  --dropdown-bg-color-hover: #0870e5;
+}
+
 .sidebar-header-layout .user-menu-dropdown > .toggle {
   align-self: center;
 }
 
-.sidebar-header-layout .user-menu-dropdown > .dropdown {
-  --_left: var(--sidebar-padding-h, 1rem);
-  --_right: var(--sidebar-padding-h, 1rem);
+.sidebar-header-layout .user-menu-dropdown.expanded > .dropdown {
+  --dropdown-bg-color: #007aff;
+  --dropdown-border: 1px solid #007aff;
 
-  left: var(--_left);
-  right: var(--_right);
+  bottom: 105%;
+  box-shadow: 0 -2px 10px 2px #0870e5;
+  top: unset;
+  width: 100%;
 }
 </style>
