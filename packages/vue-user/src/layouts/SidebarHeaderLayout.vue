@@ -122,11 +122,11 @@ const menu = computed(() => {
   --_padding-h: var(--sidebar-padding-h, 1rem);
   --menu-highlight-color: #0870e5;
 
-  width: 100%;
   font-size: var(--_font-size);
   font-weight: var(--_font-weight);
   padding: 0;
   padding-left: var(--_padding-h);
+  width: 100%;
 }
 
 .sidebar-header-layout .user-menu > ul > li:has(.router-link-exact-active) {
