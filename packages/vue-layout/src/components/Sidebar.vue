@@ -74,8 +74,7 @@ const props = defineProps({
 
 const isInactive = computed(() => {
   if (!sidebarActive.value) {
-    return !props.menu?.filter((item) => !!(item.shortName || item.icon))
-      ?.length;
+    return !props.menu?.filter((item) => !!item.shortName)?.length;
   }
 
   return false;
