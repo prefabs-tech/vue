@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SidebarHeaderLayout > matches snapshot 1`] = `
+<div
+  class="layout sidebar-header-layout"
+>
+  
+  <app-header-stub
+    nologo="true"
+    nomainmenu="true"
+  />
+  
+  <sidebar-stub
+    class="layout-sidebar"
+    menu="[object Object],[object Object]"
+    noheader="false"
+  />
+  <main>
+    
+    <div
+      class="default"
+    />
+    
+  </main>
+</div>
+`;
