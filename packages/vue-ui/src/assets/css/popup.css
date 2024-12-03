@@ -17,7 +17,7 @@
   --_text-color: var(--popup-text-color, #000);
 
   background-color: var(--_bg-color);
-  border: 1px solid #f5f5f5;
+  border: 1px solid #e5e5e5;
   border-radius: var(--_border-radius);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   color: var(--_text-color);

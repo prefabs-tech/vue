@@ -37,7 +37,7 @@
   flex-direction: column;
 }
 
-.sidebar .sidebar-menu-wrapper > ul {
+.sidebar .sidebar-menu-wrapper > ul:has(.nav-menu-item) {
   flex: 1;
 }
 
