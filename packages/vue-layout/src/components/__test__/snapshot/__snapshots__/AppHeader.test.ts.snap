@@ -40,42 +40,42 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     
     <nav
       class="locale-switcher locales"
-      data-v-eedd8053=""
+      data-v-6707834e=""
     >
       <div
         class="locale-trigger"
-        data-v-eedd8053=""
+        data-v-6707834e=""
       >
         <div
           class="locale truncated"
-          data-v-eedd8053=""
+          data-v-6707834e=""
         >
           English (US)
         </div>
         <span
           class="truncated"
-          data-v-eedd8053=""
+          data-v-6707834e=""
         >
           <img
             alt="locale"
-            data-v-eedd8053=""
+            data-v-6707834e=""
             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pg0KDQo8IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPg0KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCg0KPHRpdGxlLz4NCg0KPGcgaWQ9IkNvbXBsZXRlIj4NCg0KPGcgaWQ9IkYtQ2hldnJvbiI+DQoNCjxwb2x5bGluZSBmaWxsPSJub25lIiBpZD0iRG93biIgcG9pbnRzPSI1IDguNSAxMiAxNS41IDE5IDguNSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPg0KDQo8L2c+DQoNCjwvZz4NCg0KPC9zdmc+DQo="
           />
         </span>
       </div>
       <ul
         class="dropdown"
-        data-v-eedd8053=""
+        data-v-6707834e=""
       >
         
         <li
           class="truncated"
-          data-v-eedd8053=""
+          data-v-6707834e=""
         >
           <div
             class="locale"
             data-v-5ee88038=""
-            data-v-eedd8053=""
+            data-v-6707834e=""
           >
             <span
               class="badge"
@@ -90,12 +90,12 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
         </li>
         <li
           class="truncated"
-          data-v-eedd8053=""
+          data-v-6707834e=""
         >
           <div
             class="locale"
             data-v-5ee88038=""
-            data-v-eedd8053=""
+            data-v-6707834e=""
           >
             <span
               class="badge"
