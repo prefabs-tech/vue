@@ -23,6 +23,8 @@
 
 .layout.sidebar-header-layout .layout-sidebar > .header {
   --_padding-v: 1rem;
+
+  height: var(--layout-header-height, 5.5rem);
 }
 
 .layout.sidebar-header-layout footer {
@@ -55,7 +57,7 @@
   --header-padding-v: 1rem;
 }
 
-.layout.sidebar-header-layout:has(.extend) .locales {
+.layout.sidebar-header-layout:has(.extend) .sidebar-menu-wrapper .locales {
   width: 4rem;
 }
 
@@ -87,10 +89,10 @@
 
 .layout.sidebar-header-layout > header {
   --header-padding-h: 1rem;
-  --header-padding-v: 2.1rem;
 
   background-color: #fff;
   grid-area: header;
+  height: var(--layout-header-height, 5.5rem);
   padding-right: var(--header-padding-h);
   position: sticky;
   top: 0;

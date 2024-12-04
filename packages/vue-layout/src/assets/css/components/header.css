@@ -59,9 +59,9 @@
   z-index: 1;
 }
 
-.layout header:not(:has(.logo)):not(:has(.main-menu)) {
-  grid-template-columns: var(--header-logo-max-width) 1fr;
-  grid-template-areas: "toggle";
+.layout > header:not(:has(.logo)):not(:has(.main-menu)) {
+  display: flex;
+  justify-content: end;
 }
 
 .layout header:not(:has(.logo)):not(:has(.main-menu)) .toggle {
@@ -69,6 +69,7 @@
   --_padding-left: 1rem;
 
   padding-left: var(--_padding-left);
+  width: 100%;
 }
 
 .layout > header > nav[data-expanded="false"] {

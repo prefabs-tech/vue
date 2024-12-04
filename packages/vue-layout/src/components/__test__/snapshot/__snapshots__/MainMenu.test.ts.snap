@@ -3,8 +3,8 @@
 exports[`MainMenu > matches snapshot 1`] = `
 "<nav class=\\"menu\\">
   <ul>
-    <li><a>Home</a></li>
-    <li><a>About</a></li>
+    <li class=\\"active\\"><a>Home</a></li>
+    <li class=\\"\\"><a>About</a></li>
   </ul>
 </nav>"
 `;
