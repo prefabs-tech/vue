@@ -6,12 +6,16 @@ exports[`SignInUpMenu > matches snapshot in en 1`] = `
 >
   <ul>
     
-    <li>
+    <li
+      class=""
+    >
       <a>
         Signin
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a>
         Signup
       </a>
@@ -27,12 +31,16 @@ exports[`SignInUpMenu > matches snapshot in fr 1`] = `
 >
   <ul>
     
-    <li>
+    <li
+      class=""
+    >
       <a>
         Connexion
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a>
         Inscription
       </a>
