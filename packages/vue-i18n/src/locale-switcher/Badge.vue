@@ -40,7 +40,7 @@ const country = computed(() => {
 <style lang="css" scoped>
 .country {
   bottom: -0.35rem;
-  background: var(--locale-switcher-badge-country-bf-color, #6495ed);
+  background: var(--locale-switcher-badge-country-bf-color, #007aff);
   color: var(--locale-switcher-badge-country-color, #fff);
   font-size: 0.5rem;
   font-weight: bold;
@@ -52,7 +52,7 @@ const country = computed(() => {
 
 .badge {
   align-items: center;
-  background-color: var(--locale-switcher-badge-bg-color, #c6deff);
+  background-color: var(--locale-switcher-badge-bg-color, #007aff);
   border-radius: 50%;
   display: flex;
   font-size: 0.9rem;
