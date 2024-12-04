@@ -4,7 +4,8 @@
       <li
         v-for="(route, index) in routes"
         :key="index"
-        @click="$emit('change-route', route.route)"
+        :class="{ active: activeRoute === route.route }"
+        @click="onClick(route.route)"
       >
         <router-link :to="{ name: route.route }">
           {{ route.name }}
@@ -21,9 +22,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
 import type { PropType } from "vue";
 
-defineEmits<{
+const emit = defineEmits<{
   (e: "change-route", route: string): void;
 }>();
 
@@ -33,6 +36,13 @@ defineProps({
     type: Array as PropType<{ name: string; route: string }[]>,
   },
 });
+
+const activeRoute = ref<string>("home");
+
+const onClick = (route: string) => {
+  activeRoute.value = route;
+  emit("change-route", route);
+};
 </script>
 
 <style lang="css">
@@ -51,8 +61,12 @@ nav.menu li {
   padding: 0.5rem 0;
 }
 
+nav.menu li.active {
+  background-color: var(--menu-bg-color, #e5e5e5);
+}
+
 nav.menu li:hover {
-  background-color: var(--menu-highlight-color, grey);
+  background-color: var(--menu-highlight-color, #e5e5e5);
 }
 
 nav.menu a {
@@ -65,12 +79,16 @@ nav.menu a {
   nav.menu > ul {
     align-items: center;
     flex-direction: row;
-    gap: var(--menu-gap, 0);
+    gap: var(--menu-gap, 0.25rem);
   }
 
   nav.menu li {
-    padding: var(--menu-item-padding-v, 0.25em)
-      var(--menu-item-padding-h, 0.5em);
+    --_menu-item-border-radius: var(--menu-item-border-radius, 0.325rem);
+    --_menu-item-padding-h: var(--menu-item-padding-h, 1rem);
+    --_menu-item-padding-v: var(--menu-item-padding-v, 0.625rem);
+
+    border-radius: var(--_menu-item-border-radius);
+    padding: var(--_menu-item-padding-v) var(--_menu-item-padding-h);
   }
 }
 </style>

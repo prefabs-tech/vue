@@ -21,12 +21,16 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     >
       <ul>
         
-        <li>
+        <li
+          class="active"
+        >
           <a>
             Home
           </a>
         </li>
-        <li>
+        <li
+          class=""
+        >
           <a>
             About
           </a>

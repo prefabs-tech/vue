@@ -6,37 +6,51 @@ exports[`ResponsiveMenu > should render 1`] = `
 >
   <ul>
     
-    <li>
+    <li
+      class="active"
+    >
       <a>
         Home
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a>
         About
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a>
         Test
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a>
         Abc
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a>
         Hello
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a>
         Namaste
       </a>
     </li>
-    <li>
+    <li
+      class=""
+    >
       <a>
         Check
       </a>
