@@ -1,14 +1,14 @@
 :root {
-  --dropdown-bg-color: #b5b5b5;
+  --dropdown-bg-color: #ffffff;
   --dropdown-disabled-color: #858585;
-  --dropdown-horizontal-padding: 0;
+  --dropdown-menu-horizontal-padding: 0;
   --dropdown-menu-min-width: 10rem;
-  --dropdown-vertical-padding: 0.5rem;
+  --dropdown-menu-vertical-padding: 0.5rem;
 }
 
 .dropdown .popup-content {
-  --_horizontal-padding: var(--dropdown-horizontal-padding, 0.5rem);
-  --_vertical-padding: var(--dropdown-vertical-padding, 0.5rem);
+  --_horizontal-padding: var(--dropdown-menu-horizontal-padding, 0.5rem);
+  --_vertical-padding: var(--dropdown-menu-vertical-padding, 0.5rem);
 
   left: 0;
   padding: var(--_vertical-padding) var(--_horizontal-padding);
@@ -21,13 +21,16 @@
 }
 
 .dropdown-trigger {
+  --_horizontal-padding: var(--dropdown-horizontal-padding, 0.5rem);
+  --_vertical-padding: var(--dropdown-vertical-padding, 0.5rem);
+
   border-radius: 0.25rem;
-  padding: 0.5rem;
+  padding: var(--_vertical-padding) var(--_horizontal-padding);
 }
 
 .dropdown-trigger:hover,
 .dropdown-trigger.triggered {
-  --_bg-color: var(--dropdown-bg-color, #b5b5b5);
+  --_bg-color: var(--dropdown-bg-hover-color, #b5b5b5);
 
   background: var(--_bg-color);
 }
@@ -59,7 +62,7 @@ ul > li.menu-item.disabled {
 }
 
 ul > li.menu-item:hover:not(.disabled) {
-  --_bg-color: var(--dropdown-bg-color, #b5b5b5);
+  --_bg-color: var(--dropdown-bg-hover-color, #b5b5b5);
 
   background-color: var(--_bg-color);
 }

@@ -4,10 +4,14 @@
     class="locale-switcher"
     :class="{ expanded: expanded }"
   >
-    <div class="locale truncated" @click="toggle">
-      {{ current.name }}
+    <div class="locale-trigger" @click="toggle">
+      <div class="locale truncated">
+        {{ current.name }}
+      </div>
+      <span class="truncated">
+        <img src="../assets/svg/chevron-down.svg" alt="locale" />
+      </span>
     </div>
-    <span class="truncated" @click="toggle">&dtrif;</span>
     <ul class="dropdown">
       <li
         v-for="l in availableLocales"
@@ -78,23 +82,33 @@ onClickOutside(dzangolabVueI18nLocaleSwitcher, (event) => {
 </script>
 
 <style scoped>
-nav {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  gap: 0;
-  justify-content: space-between;
+nav.locale-switcher {
+  cursor: pointer;
   padding: 0;
   position: relative;
-  width: var(--locale-switcher-width, 6rem);
+  width: var(--locale-switcher-width, 9rem);
+}
+
+nav.locale-switcher.expanded,
+nav.locale-switcher:hover {
+  background-color: var(--locale-switcher-hover-color, #e5e5e5);
+  border-radius: 5px;
+}
+
+nav.locale-switcher > .locale-trigger {
+  align-items: center;
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+  padding: var(--locale-switcher-padding-v, 0.625rem)
+    var(--locale-switcher-padding-h, 1rem);
 }
 
 .locale {
   flex: 1;
-  padding: 0 0.25rem;
 }
 
-nav > span {
+nav > .locale-trigger > span {
   align-self: start;
   font-size: 1.5rem;
   line-height: 1.25rem;
@@ -103,17 +117,19 @@ nav > span {
 }
 
 nav > ul.dropdown {
-  background-color: var(--dropdown-bg-color, #fff);
-  border: var(--dropdown-border, 1px solid grey);
-  border-radius: var(--dropdown-border-radius, 5px);
+  background-color: var(--locale-switcher-bg-color, #fff);
+  border: var(--locale-switcher-border, 1px solid #e5e5e5);
+  border-radius: var(--locale-switcher-border-radius, 5px);
+  box-shadow: 0 2px 5px #0000001a;
   display: none;
   list-style: none;
+  min-width: var(--locale-switcher-min-width, 160px);
   padding-inline-start: 0;
   padding: 0.15rem 0;
   position: absolute;
   right: 0;
-  top: 100%;
-  z-index: var(--dropdown-z-index, 9999);
+  top: 120%;
+  z-index: var(--locale-switcher-z-index, 9999);
 }
 
 nav.expanded ul {
@@ -123,7 +139,7 @@ nav.expanded ul {
 nav > .dropdown > li {
   cursor: pointer;
   list-style: none;
-  padding: 0.25rem 0.5rem;
+  padding: 0.7rem 1.25rem;
 }
 
 nav li.current {
@@ -131,12 +147,20 @@ nav li.current {
 }
 
 nav.expanded li:hover {
-  background-color: var(--locale-switcher-bg-color-hover, #dbe9fa);
+  background-color: var(--locale-switcher-hover-color, #e5e5e5);
 }
 
 .truncated {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+nav .truncated > img {
+  transition: transform 0.3s ease;
+}
+
+nav.expanded .truncated > img {
+  transform: rotate(180deg);
 }
 </style>
