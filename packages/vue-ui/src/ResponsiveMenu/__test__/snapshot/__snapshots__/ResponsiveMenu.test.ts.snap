@@ -7,7 +7,7 @@ exports[`ResponsiveMenu > should render 1`] = `
   <ul>
     
     <li
-      class="active"
+      class=""
     >
       <a>
         Home
