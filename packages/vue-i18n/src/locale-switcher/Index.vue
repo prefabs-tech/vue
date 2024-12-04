@@ -91,7 +91,7 @@ nav.locale-switcher {
 
 nav.locale-switcher.expanded,
 nav.locale-switcher:hover {
-  background-color: var(--dropdown-container-bg-color, #e5e5e5);
+  background-color: var(--locale-switcher-hover-color, #e5e5e5);
   border-radius: 5px;
 }
 
@@ -100,8 +100,8 @@ nav.locale-switcher > .locale-trigger {
   display: flex;
   gap: 0;
   justify-content: space-between;
-  padding: var(--dropdown-vertical-padding, 0.625rem)
-    var(--dropdown-horizontal-padding, 1rem);
+  padding: var(--locale-switcher-padding-v, 0.625rem)
+    var(--locale-switcher-padding-h, 1rem);
 }
 
 .locale {
@@ -117,19 +117,19 @@ nav > .locale-trigger > span {
 }
 
 nav > ul.dropdown {
-  background-color: var(--dropdown-bg-color, #fff);
-  border: var(--dropdown-border, 1px solid #e5e5e5);
-  border-radius: var(--dropdown-border-radius, 5px);
+  background-color: var(--locale-switcher-bg-color, #fff);
+  border: var(--locale-switcher-border, 1px solid #e5e5e5);
+  border-radius: var(--locale-switcher-border-radius, 5px);
   box-shadow: 0 2px 5px #0000001a;
   display: none;
   list-style: none;
-  min-width: var(--dropdown-min-width, 160px);
+  min-width: var(--locale-switcher-min-width, 160px);
   padding-inline-start: 0;
   padding: 0.15rem 0;
   position: absolute;
   right: 0;
   top: 120%;
-  z-index: var(--dropdown-z-index, 9999);
+  z-index: var(--locale-switcher-z-index, 9999);
 }
 
 nav.expanded ul {
@@ -147,7 +147,7 @@ nav li.current {
 }
 
 nav.expanded li:hover {
-  background-color: var(--locale-switcher-bg-color-hover, #e5e5e5);
+  background-color: var(--locale-switcher-hover-color, #e5e5e5);
 }
 
 .truncated {
