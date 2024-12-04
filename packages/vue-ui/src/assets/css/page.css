@@ -6,6 +6,7 @@
     "title toolbar"
     "main main";
   grid-template-columns: 1fr auto;
+  grid-template-rows: 2rem 1fr;
   gap: var(--page-gap, 0.5em);
   justify-items: flex-start;
 }

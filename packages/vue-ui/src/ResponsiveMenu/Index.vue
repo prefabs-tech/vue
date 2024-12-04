@@ -5,7 +5,7 @@
         v-for="(route, index) in routes"
         :key="index"
         :class="{ active: activeRoute === route.route }"
-        @click="onClick(route.route)"
+        @click="onMenuClick(route.route)"
       >
         <router-link :to="{ name: route.route }">
           {{ route.name }}
@@ -39,7 +39,7 @@ defineProps({
 
 const activeRoute = ref<string>("home");
 
-const onClick = (route: string) => {
+const onMenuClick = (route: string) => {
   activeRoute.value = route;
   emit("change-route", route);
 };
