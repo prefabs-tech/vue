@@ -1,6 +1,7 @@
 <template>
   <ResponsiveMenu
     ref="mainMenu"
+    :active-route="String(route?.name) ?? 'home'"
     :routes="routes"
     @change-route="$emit('close')"
   />
@@ -14,6 +15,7 @@ export default {
 
 <script setup lang="ts">
 import { ResponsiveMenu } from "@dzangolab/vue3-ui";
+import { useRoute } from "vue-router";
 
 import type { PropType } from "vue";
 
@@ -27,4 +29,6 @@ defineProps({
     type: Array as PropType<{ name: string; route: string }[]>,
   },
 });
+
+const route = useRoute();
 </script>

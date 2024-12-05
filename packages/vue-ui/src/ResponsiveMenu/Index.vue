@@ -5,7 +5,7 @@
         v-for="(route, index) in routes"
         :key="index"
         :class="{ active: activeRoute === route.route }"
-        @click="onMenuClick(route.route)"
+        @click="$emit('change-route', route.route)"
       >
         <router-link :to="{ name: route.route }">
           {{ route.name }}
@@ -22,11 +22,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref } from "vue";
-
 import type { PropType } from "vue";
 
-const emit = defineEmits<{
+defineEmits<{
   (e: "change-route", route: string): void;
 }>();
 
@@ -35,14 +33,12 @@ defineProps({
     required: true,
     type: Array as PropType<{ name: string; route: string }[]>,
   },
+  activeRoute: {
+    default: "",
+    required: false,
+    type: String,
+  },
 });
-
-const activeRoute = ref<string>("home");
-
-const onMenuClick = (route: string) => {
-  activeRoute.value = route;
-  emit("change-route", route);
-};
 </script>
 
 <style lang="css">
@@ -57,7 +53,7 @@ nav.menu > ul {
   padding: 0;
 }
 
-nav.menu li {
+nav.menu li > a {
   padding: 0.5rem 0;
 }
 
@@ -84,10 +80,14 @@ nav.menu a {
 
   nav.menu li {
     --_menu-item-border-radius: var(--menu-item-border-radius, 0.325rem);
+
+    border-radius: var(--_menu-item-border-radius);
+  }
+
+  nav.menu li > a {
     --_menu-item-padding-h: var(--menu-item-padding-h, 1rem);
     --_menu-item-padding-v: var(--menu-item-padding-v, 0.625rem);
 
-    border-radius: var(--_menu-item-border-radius);
     padding: var(--_menu-item-padding-v) var(--_menu-item-padding-h);
   }
 }
