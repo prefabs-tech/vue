@@ -55,9 +55,14 @@
 }
 
 .sidebar-header-layout .sidebar-menu-wrapper .locales {
-  margin-top: 0.8rem;
-  height: 3rem;
+  border-top: 1px solid var(--layout-border-color, #e5e5e5);
   width: 100%;
+}
+
+.sidebar-header-layout .sidebar-menu-wrapper .locales > .locale-trigger {
+  --locale-switcher-padding-v: 1rem;
+
+  height: var(--sidebar-menu-height, 3rem);
 }
 
 .sidebar-header-layout .sidebar-menu-wrapper .locales.expanded,

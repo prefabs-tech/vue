@@ -144,6 +144,11 @@ const menu = computed(() => {
   width: 100%;
 }
 
+.sidebar-header-layout .sidebar-menu-wrapper .user-menu .email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .sidebar-header-layout .sidebar-menu-wrapper .user-menu > ul > li > a {
   padding: 0;
 }
@@ -153,6 +158,7 @@ const menu = computed(() => {
   --_padding-h: var(--sidebar-padding-h, 1rem);
 
   border-top: 1px solid var(--_border-color);
+  height: var(--sidebar-menu-height, 3rem);
   padding-right: var(--_padding-h);
 }
 

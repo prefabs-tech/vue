@@ -135,13 +135,21 @@ const menu = computed(() => {
   width: 100%;
 }
 
+.sidebar-only .sidebar-menu-wrapper .user-menu .email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .sidebar-only .sidebar-menu-wrapper .user-menu > ul > li > a {
   padding: 0;
 }
 
 .sidebar-only .user-menu-dropdown {
+  --_border-color: var(--sidebar-border-color, #dee2e6a6);
   --_padding-h: var(--sidebar-padding-h, 1rem);
 
+  border-top: 1px solid var(--_border-color);
+  height: var(--sidebar-menu-height, 3rem);
   padding-right: var(--_padding-h);
 }
 

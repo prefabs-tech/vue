@@ -3,11 +3,11 @@
     <Sidebar :menu="menu" :no-header="noHeader" class="layout-sidebar">
       <template #afterNavLinks>
         <slot name="afterNavLinks"></slot>
-        <slot name="userMenu"></slot>
       </template>
 
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
+        <slot name="userMenu"></slot>
         <slot name="locales">
           <LocaleSwitcher class="locales">
             <template #icon>
