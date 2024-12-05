@@ -23,16 +23,12 @@
   content: "";
 }
 
-.layout.sidebar-only:has(.extend) .locales {
-  width: 4rem;
-}
-
 .layout.sidebar-only:has(.extend) .locales .dropdown {
   right: -7rem;
 }
 
 .layout.sidebar-only .locales {
-  border-top: 1px solid var(--layout-border-color, #e5e5e5);
+  border-top: 1px solid var(--layout-border-color, #dee2e6a6);
   width: 100%;
 }
 
@@ -52,7 +48,7 @@
 }
 
 .layout.sidebar-only .locales.expanded .truncated > img {
-  transform: rotate(-180deg);
+  transform: rotate(180deg);
 }
 
 .layout.sidebar-only .locales ul.dropdown {
