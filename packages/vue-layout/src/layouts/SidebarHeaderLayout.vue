@@ -15,6 +15,7 @@
     >
       <template #afterNavLinks>
         <slot name="afterNavLinks"></slot>
+        <slot name="userMenu"></slot>
       </template>
 
       <template #afterSidebarMenu>
@@ -28,7 +29,6 @@
             </LocaleSwitcher>
           </slot>
         </template>
-        <slot name="userMenu"></slot>
       </template>
 
       <template #footer>
