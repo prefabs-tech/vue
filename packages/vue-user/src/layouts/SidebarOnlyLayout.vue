@@ -157,15 +157,15 @@ const menu = computed(() => {
   background-color: #0870e5;
 }
 
-.sidebar-only .user-menu-dropdown > .toggle {
-  align-self: center;
-}
-
 .sidebar-only .user-menu-dropdown > .dropdown {
   --_left: var(--sidebar-padding-h, 1rem);
   --_right: var(--sidebar-padding-h, 1rem);
 
   left: var(--_left);
   right: var(--_right);
+}
+
+.sidebar-only .user-menu-dropdown > .toggle {
+  align-self: center;
 }
 </style>
