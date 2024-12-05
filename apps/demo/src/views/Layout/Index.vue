@@ -3,24 +3,24 @@
     <div class="layout-container">
       <div
         class="layout"
-        :class="{ active: activeLayout === 'basic' }"
-        @click="switchLayout('basic')"
+        :class="{ active: activeLayout === BASIC_LAYOUT }"
+        @click="switchLayout(BASIC_LAYOUT)"
       >
-        Basic
+        {{ $t("layout.basic") }}
       </div>
       <div
         class="layout"
-        :class="{ active: activeLayout === 'sidebar_only' }"
-        @click="switchLayout('sidebar_only')"
+        :class="{ active: activeLayout === SIDEBAR_HEADER_LAYOUT }"
+        @click="switchLayout(SIDEBAR_HEADER_LAYOUT)"
       >
-        SidebarOnly
+        {{ $t("layout.sidebarHeader") }}
       </div>
       <div
         class="layout"
-        :class="{ active: activeLayout === 'sidebar_header' }"
-        @click="switchLayout('sidebar_header')"
+        :class="{ active: activeLayout === SIDEBAR_ONLY_LAYOUT }"
+        @click="switchLayout(SIDEBAR_ONLY_LAYOUT)"
       >
-        SidebarHeader
+        {{ $t("layout.sidebarOnly") }}
       </div>
     </div>
   </Page>
@@ -33,6 +33,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import {
+  BASIC_LAYOUT,
+  SIDEBAR_HEADER_LAYOUT,
+  SIDEBAR_ONLY_LAYOUT,
+} from "./_constants/layout";
 import { activeLayout, switchLayout } from "./_store/layout-store";
 </script>
 
