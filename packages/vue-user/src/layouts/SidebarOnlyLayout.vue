@@ -135,6 +135,10 @@ const menu = computed(() => {
   width: 100%;
 }
 
+.sidebar-only .sidebar-menu-wrapper .user-menu > ul > li > a {
+  padding: 0;
+}
+
 .sidebar-only .user-menu-dropdown {
   --_padding-h: var(--sidebar-padding-h, 1rem);
 

@@ -9,7 +9,11 @@
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
         <slot name="locales">
-          <LocaleSwitcher class="locales" />
+          <LocaleSwitcher class="locales">
+            <template #icon>
+              <img src="../assets/svg/up-chevron.svg" alt="toggle icon" />
+            </template>
+          </LocaleSwitcher>
         </slot>
       </template>
 
@@ -45,80 +49,5 @@ defineProps({
 </script>
 
 <style lang="css">
-.layout.sidebar-only {
-  display: grid;
-  grid-template-columns: var(--sidebar-width, 16rem) 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas: "sidebar main";
-  transition: all 0.25s ease-in-out;
-}
-
-.layout.sidebar-only footer {
-  --_padding-h: var(--sidebar-padding-h, 1rem);
-  --_padding-v: var(--sidebar-padding-v, 1.5rem);
-
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0.875rem;
-  justify-content: space-between;
-  padding: 0 var(--_padding-h);
-  width: 100%;
-}
-
-.layout.sidebar-only .copyright a::after {
-  content: "";
-}
-
-.layout.sidebar-only:has(.extend) .locales {
-  width: 4rem;
-}
-
-.layout.sidebar-only:has(.extend) .locales .dropdown {
-  right: -7rem;
-}
-
-.layout.sidebar-only .locales {
-  background-color: #b5b5b5;
-  border-radius: 0.3rem;
-  margin-left: 1rem;
-  margin-top: 0.8rem;
-  padding: 0.4rem;
-  width: 10rem;
-}
-
-.layout.sidebar-only .locales ul.dropdown {
-  left: 0;
-  right: 0;
-  margin-top: 0.2rem;
-}
-
-.layout.sidebar-only:has(.extend) {
-  grid-template-columns: var(--sidebar-collapsed-width, 6rem) 1fr;
-}
-
-.layout.sidebar-only:has(.no-sidebar) {
-  grid-template-columns: var(--sidebar-collapsed-width, 2rem) 1fr;
-}
-
-.layout.sidebar-only > .layout-sidebar {
-  grid-area: sidebar;
-  transition: width 0.3s ease-in-out;
-  z-index: 100;
-}
-
-.layout.sidebar-only > main {
-  grid-area: main;
-  transition: all 0.3s ease-in-out;
-}
-
-.layout-sidebar {
-  transition: width 0.3s ease-in-out;
-}
-
-main {
-  padding: var(--layout-default-padding-v, 2.5rem)
-    var(--layout-default-padding-h, 2rem);
-  z-index: 99;
-}
+@import "../assets/css/layouts/sidebarOnly.css";
 </style>

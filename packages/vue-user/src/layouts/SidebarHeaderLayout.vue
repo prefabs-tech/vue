@@ -144,6 +144,10 @@ const menu = computed(() => {
   width: 100%;
 }
 
+.sidebar-header-layout .sidebar-menu-wrapper .user-menu > ul > li > a {
+  padding: 0;
+}
+
 .sidebar-header-layout .user-menu-dropdown {
   --_border-color: var(--sidebar-border-color, #dee2e6a6);
   --_padding-h: var(--sidebar-padding-h, 1rem);
