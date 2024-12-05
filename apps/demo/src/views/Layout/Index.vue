@@ -2,22 +2,19 @@
   <Page :title="$t('layout.title')">
     <div class="layout-container">
       <div
-        class="layout"
-        :class="{ active: activeLayout === BASIC_LAYOUT }"
+        :class="['layout', { active: activeLayout === BASIC_LAYOUT }]"
         @click="switchLayout(BASIC_LAYOUT)"
       >
         {{ $t("layout.basic") }}
       </div>
       <div
-        class="layout"
-        :class="{ active: activeLayout === SIDEBAR_HEADER_LAYOUT }"
+        :class="['layout', { active: activeLayout === SIDEBAR_HEADER_LAYOUT }]"
         @click="switchLayout(SIDEBAR_HEADER_LAYOUT)"
       >
         {{ $t("layout.sidebarHeader") }}
       </div>
       <div
-        class="layout"
-        :class="{ active: activeLayout === SIDEBAR_ONLY_LAYOUT }"
+        :class="['layout', { active: activeLayout === SIDEBAR_ONLY_LAYOUT }]"
         @click="switchLayout(SIDEBAR_ONLY_LAYOUT)"
       >
         {{ $t("layout.sidebarOnly") }}

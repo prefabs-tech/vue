@@ -13,26 +13,28 @@ import {
 
 const activeLayout = ref<string>("basic");
 const currentLayout = shallowRef(BasicLayout);
-const layoutKey = ref(0);
+const layoutKey = ref(BASIC_LAYOUT);
 
 const switchLayout = (layout: string) => {
   activeLayout.value = layout;
 
   switch (layout) {
     case BASIC_LAYOUT:
+      layoutKey.value = BASIC_LAYOUT;
       currentLayout.value = BasicLayout;
       break;
     case SIDEBAR_ONLY_LAYOUT:
+      layoutKey.value = SIDEBAR_ONLY_LAYOUT;
       currentLayout.value = SidebarOnlyLayout;
       break;
     case SIDEBAR_HEADER_LAYOUT:
+      layoutKey.value = SIDEBAR_HEADER_LAYOUT;
       currentLayout.value = SidebarHeaderLayout;
       break;
     default:
+      layoutKey.value = BASIC_LAYOUT;
       currentLayout.value = BasicLayout;
   }
-
-  layoutKey.value++;
 };
 
 export { activeLayout, currentLayout, layoutKey, switchLayout };
