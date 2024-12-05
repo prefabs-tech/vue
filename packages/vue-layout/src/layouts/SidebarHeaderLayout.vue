@@ -21,7 +21,11 @@
         <slot name="afterSidebarMenu"></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
-            <LocaleSwitcher class="locales" />
+            <LocaleSwitcher class="locales">
+              <template #icon>
+                <img src="../assets/svg/up-chevron.svg" alt="toggle icon" />
+              </template>
+            </LocaleSwitcher>
           </slot>
         </template>
         <slot name="userMenu"></slot>
