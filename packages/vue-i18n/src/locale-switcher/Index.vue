@@ -9,7 +9,9 @@
         {{ current.name }}
       </div>
       <span class="truncated">
-        <img src="../assets/svg/chevron-down.svg" alt="locale" />
+        <slot name="icon">
+          <img src="../assets/svg/chevron-down.svg" alt="locale" />
+        </slot>
       </span>
     </div>
     <ul class="dropdown">
