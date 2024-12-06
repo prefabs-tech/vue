@@ -17,6 +17,38 @@
   width: 100%;
 }
 
+.layout.basic > header {
+  height: var(--layout-header-height, 5.5rem);
+}
+
+.layout.basic > header > nav[data-expanded="true"] {
+  --layout-basic-padding-left: 0;
+  --layout-basic-padding-right: 0;
+
+  opacity: 1;
+  left: calc(var(--layout-basic-padding-h)*-1);
+  right: calc(var(--layout-basic-padding-h)*-1);
+}
+
+.layout.basic > header > nav[data-expanded="true"] > .menu > ul {
+  --menu-margin-left: 0;
+}
+
+.layout.basic > header > nav[data-expanded="true"] ul > li > a {
+  --_nav-item-padding-h: var(--layout-menu-item-padding-h, 1rem);
+  --_nav-item-padding-v: var(--layout-menu-item-padding-v, .625rem);
+
+  padding: var(--_nav-item-padding-v) var(--_nav-item-padding-h);
+}
+
+.layout.basic > header > nav[data-expanded="true"] nav.locale-switcher {
+  --locale-switcher-width: 100%;
+}
+
+.layout.basic > header > nav[data-expanded="true"] nav.locale-switcher .dropdown {
+  left: 0;
+}
+
 .layout.basic > main {
   display: grid;
   flex: 1;
