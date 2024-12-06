@@ -34,12 +34,11 @@
   left: calc(var(--layout-basic-padding-h)*-1);
   opacity: 1;
   padding: 0;
-  padding-bottom: var(--layout-basic-padding-v, 0.625rem);
   right: calc(var(--layout-basic-padding-h)*-1);
 }
 
 .layout.basic > header > nav[data-expanded="true"] > .menu {
-  --_layout-nav-menu-padding-v: 1rem;
+  --_layout-nav-menu-padding-v: var(--layout-nav-menu-padding-v, 0.75rem);
   --_layout-nav-menu-padding-h: 0;
 
   padding: var(--_layout-nav-menu-padding-v) var(--_layout-nav-menu-padding-h);
@@ -58,9 +57,12 @@
 }
 
 .layout.basic > header > nav[data-expanded="true"] nav.locale-switcher {
+  --_layout-nav-menu-margin-v: var(--layout-nav-menu-margin-v, 0.75rem);
   --locale-switcher-width: 100%;
 
   font-size: var(--header-font-size);
+  margin-top: var(--_layout-nav-menu-margin-v);
+  margin-bottom: 0.25rem;
 }
 
 .layout.basic > header > nav[data-expanded="true"] nav.locale-switcher .dropdown {
