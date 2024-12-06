@@ -18,7 +18,7 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
           href="/"
         >
           <img
-            alt=""
+            alt="dzango"
             src="/logo.png"
           />
         </a>

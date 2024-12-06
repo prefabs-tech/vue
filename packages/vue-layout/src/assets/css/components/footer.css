@@ -11,10 +11,10 @@
   box-shadow: 0 0 0 100vmax var(--footer-bg-color);
   clip-path: inset(0 -100vmax);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: var(--footer-font-size);
   gap: var(--footer-gap);
-  justify-content: center;
+  justify-content: space-between;
   padding-bottom: var(--footer-padding-v);
   padding-top: var(--footer-padding-v);
   text-align: center;
@@ -22,11 +22,4 @@
 
 .layout > footer .version {
   font-size: calc(0.8 * var(--footer-font-size));
-}
-
-@media screen and (min-width: 576px) {
-  .layout > footer {
-    flex-direction: row;
-    justify-content: space-between;
-  }
 }

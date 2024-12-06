@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header ref="dzangolabVueAppHeader">
     <slot name="logo" class="logo">
       <Logo v-if="!noLogo" :route="home" />
     </slot>
@@ -36,6 +36,7 @@ export default {
 import { useConfig } from "@dzangolab/vue3-config";
 import { LocaleSwitcher } from "@dzangolab/vue3-i18n";
 import { Icon } from "@iconify/vue";
+import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 
 import Logo from "./Logo.vue";
@@ -48,6 +49,7 @@ defineProps({
 
 const { layout: layoutConfig } = useConfig();
 
+const dzangolabVueAppHeader = ref(null);
 const expanded = ref(false);
 
 const home =
@@ -60,6 +62,10 @@ const close = () => {
 const toggle = () => {
   expanded.value = !expanded.value;
 };
+
+onClickOutside(dzangolabVueAppHeader, (event) => {
+  expanded.value = false;
+});
 
 defineExpose({
   expanded,

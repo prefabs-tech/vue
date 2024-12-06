@@ -150,7 +150,7 @@
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
   .layout.sidebar-header-layout > .no-sidebar {
     display: block;
   }
