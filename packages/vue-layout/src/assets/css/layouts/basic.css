@@ -31,10 +31,18 @@
   --layout-basic-padding-left: 0;
   --layout-basic-padding-right: 0;
 
-  gap: 1rem;
   left: calc(var(--layout-basic-padding-h)*-1);
   opacity: 1;
+  padding: 0;
+  padding-bottom: var(--layout-basic-padding-v, 0.625rem);
   right: calc(var(--layout-basic-padding-h)*-1);
+}
+
+.layout.basic > header > nav[data-expanded="true"] > .menu {
+  --_layout-nav-menu-padding-v: 1rem;
+  --_layout-nav-menu-padding-h: 0;
+
+  padding: var(--_layout-nav-menu-padding-v) var(--_layout-nav-menu-padding-h);
 }
 
 .layout.basic > header > nav[data-expanded="true"] > .menu > ul {
@@ -45,11 +53,14 @@
   --_nav-item-padding-h: var(--layout-menu-item-padding-h, 1rem);
   --_nav-item-padding-v: var(--layout-menu-item-padding-v, .625rem);
 
+  font-size: var(--header-font-size);
   padding: var(--_nav-item-padding-v) var(--_nav-item-padding-h);
 }
 
 .layout.basic > header > nav[data-expanded="true"] nav.locale-switcher {
   --locale-switcher-width: 100%;
+
+  font-size: var(--header-font-size);
 }
 
 .layout.basic > header > nav[data-expanded="true"] nav.locale-switcher .dropdown {
@@ -83,11 +94,23 @@
     gap: 0.5rem;
   }
 
+
+.layout.basic > header > nav[data-expanded="true"] > .menu {
+  --_layout-nav-menu-padding-v: 1rem;
+  --_layout-nav-menu-padding-h: 1rem;
+
+  padding: var(--_layout-nav-menu-padding-v) var(--_layout-nav-menu-padding-h);
+}
+
   .layout.basic > header nav.locale-switcher,
   .layout.basic > header nav.menu li>a {
     --_menu-item-padding-h: 1em;
     --_menu-item-padding-v: 0.625em;
 
     font-size: 1rem;
+  }
+
+  .layout.basic > header > nav[data-expanded="true"] nav.locale-switcher {
+    --locale-switcher-width: 9rem;
   }
 }
