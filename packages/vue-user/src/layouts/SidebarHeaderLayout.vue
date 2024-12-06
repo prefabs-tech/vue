@@ -110,8 +110,10 @@ const menu = computed(() => {
 
 <style lang="css">
 .sidebar-header-layout .user-menu > ul {
+  --_border-color: var(--sidebar-border-color, #dee2e6a6);
   --menu-margin-left: 0;
 
+  border-top: 1px solid var(--_border-color);
   flex-direction: column;
 }
 
@@ -144,15 +146,19 @@ const menu = computed(() => {
   width: 100%;
 }
 
+.sidebar-header-layout .sidebar-menu-wrapper .user-menu .email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: var(--user-menu-email-width, 13rem);
+}
+
 .sidebar-header-layout .sidebar-menu-wrapper .user-menu > ul > li > a {
   padding: 0;
 }
 
 .sidebar-header-layout .user-menu-dropdown {
-  --_border-color: var(--sidebar-border-color, #dee2e6a6);
   --_padding-h: var(--sidebar-padding-h, 1rem);
 
-  border-top: 1px solid var(--_border-color);
   padding-right: var(--_padding-h);
 }
 

@@ -19,6 +19,7 @@
 
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
+        <slot name="userMenu"></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
             <LocaleSwitcher class="locales">
@@ -28,7 +29,6 @@
             </LocaleSwitcher>
           </slot>
         </template>
-        <slot name="userMenu"></slot>
       </template>
 
       <template #footer>
