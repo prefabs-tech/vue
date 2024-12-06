@@ -71,7 +71,7 @@ nav.menu a {
   text-decoration: none;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
   nav.menu > ul {
     align-items: center;
     flex-direction: row;

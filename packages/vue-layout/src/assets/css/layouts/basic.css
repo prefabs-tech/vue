@@ -18,7 +18,13 @@
 }
 
 .layout.basic > header {
+  --header-logo-max-width: 120px;
+
   height: var(--layout-header-height, 5.5rem);
+}
+
+.layout.basic > header > nav {
+  gap: 0.25rem;
 }
 
 .layout.basic > header > nav[data-expanded="true"] {
@@ -49,6 +55,14 @@
   left: 0;
 }
 
+.layout.basic > header nav.locale-switcher,
+.layout.basic > header nav.menu li>a {
+  --_menu-item-padding-h: 0.5em;
+  --_menu-item-padding-v: 0.4em;
+
+  font-size: 0.9rem;
+}
+
 .layout.basic > main {
   display: grid;
   flex: 1;
@@ -60,7 +74,19 @@
     padding-right: 2rem;
   }
 
-  .layout.basic > header > nav[data-expanded="true"] nav.locale-switcher.expanded {
-    --locale-switcher-width: 9rem;
+  .layout.basic > header {
+    --header-logo-max-width: 150px;
+  }
+
+  .layout.basic > header > nav {
+    gap: 0.5rem;
+  }
+
+  .layout.basic > header nav.locale-switcher,
+  .layout.basic > header nav.menu li>a {
+    --_menu-item-padding-h: 1em;
+    --_menu-item-padding-v: 0.625em;
+
+    font-size: 1rem;
   }
 }

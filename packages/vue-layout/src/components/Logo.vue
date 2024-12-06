@@ -1,6 +1,6 @@
 <template>
   <router-link :to="{ name: route }" class="logo">
-    <img :src="logo" alt="" />
+    <img :src="logo" alt="dzango" />
   </router-link>
 </template>
 
