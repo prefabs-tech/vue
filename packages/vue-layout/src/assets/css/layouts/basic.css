@@ -31,8 +31,9 @@
   --layout-basic-padding-left: 0;
   --layout-basic-padding-right: 0;
 
-  opacity: 1;
+  gap: 1rem;
   left: calc(var(--layout-basic-padding-h)*-1);
+  opacity: 1;
   right: calc(var(--layout-basic-padding-h)*-1);
 }
 
