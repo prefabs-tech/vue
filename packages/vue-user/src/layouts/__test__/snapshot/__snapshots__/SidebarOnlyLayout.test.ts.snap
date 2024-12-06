@@ -121,9 +121,6 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
         
         
         
-        <user-menu-stub />
-        
-        
       </ul>
       
       
@@ -132,6 +129,9 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
         class="after-sidebar"
       />
       
+      
+      
+      <user-menu-stub />
       
       
       <locale-switcher-stub
