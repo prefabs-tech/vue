@@ -51,8 +51,8 @@ importers:
         specifier: ^6.6.0
         version: 6.6.0
       '@iconify/vue':
-        specifier: 4.1.0
-        version: 4.1.0(vue@3.2.47)
+        specifier: 4.2.0
+        version: 4.2.0(vue@3.2.47)
       '@kyvg/vue3-notification':
         specifier: 2.9.0
         version: 2.9.0(vue@3.2.47)
@@ -469,8 +469,8 @@ importers:
         specifier: 0.9.2
         version: link:../vue-ui
       '@iconify/vue':
-        specifier: 4.1.0
-        version: 4.1.0(vue@3.2.47)
+        specifier: 4.2.0
+        version: 4.2.0(vue@3.2.47)
       '@types/node':
         specifier: 18.15.11
         version: 18.15.11
@@ -557,8 +557,8 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@18.15.11)
       '@iconify/vue':
-        specifier: 4.1.0
-        version: 4.1.0(vue@3.2.47)
+        specifier: 4.2.0
+        version: 4.2.0(vue@3.2.47)
       '@types/node':
         specifier: 18.15.11
         version: 18.15.11
@@ -741,8 +741,8 @@ importers:
         specifier: 0.9.2
         version: link:../vue-ui
       '@iconify/vue':
-        specifier: 4.1.0
-        version: 4.1.0(vue@3.2.47)
+        specifier: 4.2.0
+        version: 4.2.0(vue@3.2.47)
       '@types/node':
         specifier: 18.15.11
         version: 18.15.11
@@ -1884,8 +1884,8 @@ packages:
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
-  '@iconify/vue@4.1.0':
-    resolution: {integrity: sha512-rBQVxNoSDooqgWkQg2MqkIHkH/huNuvXGqui5wijc1zLnU7TKzbBHW9VGmbnV4asNTmIHmqV4Nvt0M2rZ/9nHA==}
+  '@iconify/vue@4.2.0':
+    resolution: {integrity: sha512-CMynoz9BDWugDO2B7LU/s8L99dHCiqDGCjCki6bhVx5etZhw9x0BTV7wWRdj82jtl1yQTc+QQRcHQmSvUY6R+g==}
     peerDependencies:
       vue: '>=3'
 
@@ -6749,7 +6749,7 @@ snapshots:
 
   '@iconify/types@2.0.0': {}
 
-  '@iconify/vue@4.1.0(vue@3.2.47)':
+  '@iconify/vue@4.2.0(vue@3.2.47)':
     dependencies:
       '@iconify/types': 2.0.0
       vue: 3.2.47

@@ -30,7 +30,7 @@
     "@dzangolab/vue3-config": "0.9.2",
     "@dzangolab/vue3-i18n": "0.9.2",
     "@dzangolab/vue3-ui": "0.9.2",
-    "@iconify/vue": "4.1.0",
+    "@iconify/vue": "4.2.0",
     "@types/node": "18.15.11",
     "@typescript-eslint/eslint-plugin": "8.14.0",
     "@typescript-eslint/parser": "8.14.0",
