@@ -38,7 +38,6 @@ export default {
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Errors, Page } from "@dzangolab/vue3-ui";
-import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -60,8 +59,7 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 const userStore = useUserStore();
-const { login } = userStore;
-const { user } = storeToRefs(userStore);
+const { login, setUser } = userStore;
 
 const router = useRouter();
 
@@ -72,24 +70,29 @@ const loading = ref(false);
 const handleSubmit = async (credentials: LoginCredentials) => {
   loading.value = true;
 
-  await login(credentials).catch((error) => {
-    errors.value = [
-      {
-        code: error.message,
-        message: t(`user.login.errors.${error.message}`),
-      },
-    ];
-  });
+  await login(credentials)
+    .then(async (response) => {
+      if (response) {
+        const supportedRoles = config?.user?.supportedRoles;
 
-  if (user.value) {
-    if (
-      config &&
-      config.user?.supportedRoles &&
-      (await verifySessionRoles(config.user?.supportedRoles))
-    ) {
-      router.push({ name: "home" });
-    }
-  }
+        if (
+          (supportedRoles && (await verifySessionRoles(supportedRoles))) ||
+          !supportedRoles?.length
+        ) {
+          setUser(response);
+
+          router.push({ name: "home" });
+        }
+      }
+    })
+    .catch((error) => {
+      errors.value = [
+        {
+          code: error.message,
+          message: t(`user.login.errors.${error.message}`),
+        },
+      ];
+    });
 
   loading.value = false;
 };

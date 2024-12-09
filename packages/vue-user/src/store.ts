@@ -39,7 +39,7 @@ const useUserStore = defineStore("user", () => {
   const login = async (credentials: LoginCredentials) => {
     const response = await doLogin(credentials);
 
-    setUser(response);
+    return response;
   };
 
   const logout = async () => {

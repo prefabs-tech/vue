@@ -1,7 +1,6 @@
 import Session from "supertokens-web-js/recipe/session";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
-import logout from "./logout";
 import useUserStore from "../store";
 
 export async function verifySessionRoles(claims: string[]): Promise<boolean> {
@@ -37,9 +36,8 @@ export async function verifySessionRoles(claims: string[]): Promise<boolean> {
     } else {
       const userStore = useUserStore();
 
-      const { removeUser } = userStore;
+      const { logout } = userStore;
       // all user roles claim check failed
-      removeUser();
       await logout();
     }
   }
