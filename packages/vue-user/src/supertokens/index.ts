@@ -4,6 +4,7 @@ import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import googleSignIn from "./google-signin";
+import { verifySessionRoles } from "./helper";
 import login from "./login";
 import logout from "./logout";
 import requestPasswordReset from "./request-password-reset";
@@ -66,4 +67,5 @@ export {
   resetPassword,
   signup,
   verifyEmail,
+  verifySessionRoles,
 };

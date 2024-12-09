@@ -46,6 +46,7 @@ import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
+import { verifySessionRoles } from "../supertokens";
 
 import type { LoginCredentials } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
@@ -81,7 +82,13 @@ const handleSubmit = async (credentials: LoginCredentials) => {
   });
 
   if (user.value) {
-    router.push({ name: "home" });
+    if (
+      config &&
+      config.user?.supportedRoles &&
+      (await verifySessionRoles(config.user?.supportedRoles))
+    ) {
+      router.push({ name: "home" });
+    }
   }
 
   loading.value = false;

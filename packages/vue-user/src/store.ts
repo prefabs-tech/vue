@@ -51,6 +51,10 @@ const useUserStore = defineStore("user", () => {
         "sFrontToken=; Max-Age=0; path=/; domain=" + location.hostname;
     });
 
+    removeUser();
+  };
+
+  const removeUser = () => {
     localStorage.removeItem(USER_KEY);
   };
 
@@ -83,6 +87,7 @@ const useUserStore = defineStore("user", () => {
     getUser,
     login,
     logout,
+    removeUser,
     resetPassword,
     requestPasswordReset,
     setUser,

@@ -19,6 +19,7 @@ interface DzangolabVueUserConfig {
   };
   routes?: RouteOverrides;
   socialLogins?: string[];
+  supportedRoles?: string[];
 }
 
 declare module "@dzangolab/vue3-config" {
