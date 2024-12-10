@@ -38,6 +38,7 @@ export default {
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Errors, Page } from "@dzangolab/vue3-ui";
+import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -45,7 +46,6 @@ import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
-import { verifySessionRoles } from "../supertokens";
 
 import type { LoginCredentials } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
@@ -59,7 +59,8 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 const userStore = useUserStore();
-const { login, setUser } = userStore;
+const { login } = userStore;
+const { user } = storeToRefs(userStore);
 
 const router = useRouter();
 
@@ -70,29 +71,18 @@ const loading = ref(false);
 const handleSubmit = async (credentials: LoginCredentials) => {
   loading.value = true;
 
-  await login(credentials)
-    .then(async (response) => {
-      if (response) {
-        const supportedRoles = config?.user?.supportedRoles;
+  await login(credentials).catch((error) => {
+    errors.value = [
+      {
+        code: error.message,
+        message: t(`user.login.errors.${error.message}`),
+      },
+    ];
+  });
 
-        if (
-          (supportedRoles && (await verifySessionRoles(supportedRoles))) ||
-          !supportedRoles?.length
-        ) {
-          setUser(response);
-
-          router.push({ name: "home" });
-        }
-      }
-    })
-    .catch((error) => {
-      errors.value = [
-        {
-          code: error.message,
-          message: t(`user.login.errors.${error.message}`),
-        },
-      ];
-    });
+  if (user.value) {
+    router.push({ name: "home" });
+  }
 
   loading.value = false;
 };
