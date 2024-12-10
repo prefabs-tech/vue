@@ -9,6 +9,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { onMounted, ref } from "vue";
@@ -16,6 +17,11 @@ import { useRouter } from "vue-router";
 
 import { useTranslations } from "../index";
 import useUserStore from "../store";
+import { verifySessionRoles } from "../supertokens";
+
+import type { AppConfig } from "@dzangolab/vue3-config";
+
+const config = useConfig() as AppConfig;
 
 const messages = useTranslations();
 
@@ -27,6 +33,7 @@ const router = useRouter();
 const { setUser } = useUserStore();
 
 onMounted(async () => {
+  console.log("google login");
   loading.value = true;
 
   const response = await ThirdPartyEmailPassword.thirdPartySignInAndUp({});
@@ -35,10 +42,19 @@ onMounted(async () => {
     return window.location.assign("/auth?error=signin");
   }
 
-  setUser(response.user);
+  if (response?.user) {
+    const supportedRoles = config?.user?.supportedRoles;
+
+    if (
+      (supportedRoles && (await verifySessionRoles(supportedRoles))) ||
+      !supportedRoles?.length
+    ) {
+      setUser(response.user);
+
+      router.push({ name: "home" });
+    }
+  }
 
   loading.value = false;
-
-  router.push({ name: "home" });
 });
 </script>
