@@ -97,11 +97,6 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
       </div>
     </form>
     <div
-      class="social-logins"
-    >
-      <!--v-if-->
-    </div>
-    <div
       class="links"
     >
       <!--v-if-->
@@ -110,6 +105,14 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
       >
         Forgot password
       </a>
+    </div>
+    <div
+      class="divider"
+    />
+    <div
+      class="social-logins"
+    >
+      <!--v-if-->
     </div>
     
   </main>
@@ -213,11 +216,6 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
       </div>
     </form>
     <div
-      class="social-logins"
-    >
-      <!--v-if-->
-    </div>
-    <div
       class="links"
     >
       <!--v-if-->
@@ -226,6 +224,14 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
       >
         Mot de passe oublié
       </a>
+    </div>
+    <div
+      class="divider"
+    />
+    <div
+      class="social-logins"
+    >
+      <!--v-if-->
     </div>
     
   </main>

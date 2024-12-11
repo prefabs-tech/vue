@@ -6,13 +6,6 @@
 
     <LoginForm :loading="loading" @submit="handleSubmit" />
 
-    <div class="social-logins">
-      <GoogleLogin
-        v-if="config.user?.socialLogins?.includes('google')"
-        @error="onError"
-      />
-    </div>
-
     <div class="links">
       <router-link
         v-if="!config?.user?.routes?.signup.disabled"
@@ -24,6 +17,15 @@
       <router-link :to="{ name: 'resetPasswordRequest' }" class="reset">
         {{ t("user.login.links.forgotPassword") }}
       </router-link>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="social-logins">
+      <GoogleLogin
+        v-if="config.user?.socialLogins?.includes('google')"
+        @error="onError"
+      />
     </div>
   </Page>
 </template>
@@ -101,3 +103,12 @@ const onError = (error: ErrorType) => {
   errors.value = [error];
 };
 </script>
+
+<style lang="css">
+.auth.login .divider {
+  height: 0;
+  margin: 1rem 0;
+  width: 100%;
+  border-top: 1px solid #d0d0d0;
+}
+</style>

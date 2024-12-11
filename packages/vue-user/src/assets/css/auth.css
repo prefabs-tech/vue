@@ -1,7 +1,11 @@
 .auth {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   gap: var(--auth-page-gap, 0.5em);
   margin: 0 auto;
-  max-width: var(--user-auth-max-width, 20rem);
+  max-width: var(--user-auth-max-width, 25rem);
+  width: var(--auth-page-width, 100%);
 }
 
 .auth .links {
@@ -11,8 +15,7 @@
 }
 
 .auth .links a {
-  color: inherit;
-  font-size: 90%;
+  color: var(--auth-page-link-color, #1c4786);
   text-decoration: none;
 }
 
@@ -43,4 +46,13 @@
 
 .auth.verify-email, .auth.verify-email-reminder {
   max-width: var(--user-auth-max-width, 30rem);
+}
+
+.auth > main {
+  --layout-default-padding-v: 1rem;
+  --layout-default-padding-v: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
