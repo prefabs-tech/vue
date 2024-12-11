@@ -33,7 +33,6 @@ const router = useRouter();
 const { setUser } = useUserStore();
 
 onMounted(async () => {
-  console.log("google login");
   loading.value = true;
 
   const response = await ThirdPartyEmailPassword.thirdPartySignInAndUp({});
