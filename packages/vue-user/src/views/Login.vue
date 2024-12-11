@@ -106,9 +106,9 @@ const onError = (error: ErrorType) => {
 
 <style lang="css">
 .auth.login .divider {
+  border-top: 1px solid #d0d0d0;
   height: 0;
   margin: 1rem 0;
   width: 100%;
-  border-top: 1px solid #d0d0d0;
 }
 </style>
