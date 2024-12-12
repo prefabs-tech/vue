@@ -1,17 +1,13 @@
 <template>
   <Page :title="$t('home.title')" class="home">
     <div class="container">
-      <div
+      <router-link
         v-for="(menu, index) in packages"
         :key="index + '-' + menu.name"
-        class="package"
+        :to="menu.route"
       >
-        <router-link :to="menu.route">
-          <Card :title="$t(`${menu.name}.title`)">
-            <div class="content">{{ menu.description }}</div>
-          </Card>
-        </router-link>
-      </div>
+        <Card :title="$t(`${menu.name}.title`)">{{ menu.description }}</Card>
+      </router-link>
     </div>
   </Page>
 </template>
