@@ -4,7 +4,7 @@
       <div ref="dzangolabVueModal" class="dialog">
         <div class="header">
           <slot name="header">
-            <span v-if="title">{{ title }}</span>
+            <span v-if="title" role="heading">{{ title }}</span>
           </slot>
 
           <svg
@@ -23,11 +23,11 @@
           </svg>
         </div>
 
-        <div class="content">
+        <div v-if="slots.default" class="content">
           <slot></slot>
         </div>
 
-        <div class="footer">
+        <div v-if="slots.footer" class="footer">
           <slot name="footer"></slot>
         </div>
       </div>
@@ -43,7 +43,7 @@ export default {
 
 <script setup lang="ts">
 import { onClickOutside } from "@vueuse/core";
-import { ref } from "vue";
+import { ref, useSlots } from "vue";
 
 const dzangolabVueModal = ref();
 
@@ -59,6 +59,8 @@ defineProps({
     type: String,
   },
 });
+
+const slots = useSlots();
 
 onClickOutside(dzangolabVueModal, (event) => {
   handleClose();

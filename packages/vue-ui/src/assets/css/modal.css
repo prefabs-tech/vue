@@ -38,6 +38,11 @@
   padding: 0.7rem;
 }
 
+.modal .header > span[role=heading] {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .modal .header svg {
   --_icon-color: var(--icon-color, #000000);
 
