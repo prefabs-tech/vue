@@ -255,10 +255,10 @@ const formData = reactive({
   password: ref(),
 });
 
-const showSlotModal = ref(false);
-const showTitleModal = ref(false);
 const showI18nModal = ref(false);
 const showModal = ref(false);
+const showSlotModal = ref(false);
+const showTitleModal = ref(false);
 </script>
 
 <style lang="css">
