@@ -12,8 +12,8 @@
 .field input, .field textarea {
   --_input-field-border-color: var(--form-input-border-color, #000);
   --_input-field-border-radius: var(--form-input-border-radius, 0.25em);
-  --_input-field-padding-h: var(--form-input-padding-h, 0.5em);
-  --_input-field-padding-v: var(--form-input-padding-v, 0.5em);
+  --_input-field-padding-h: var(--form-input-padding-h, 0.75em);
+  --_input-field-padding-v: var(--form-input-padding-v, 0.65em);
 
   border-radius: var(--_input-field-border-radius);
   border: 1px solid var(--_input-field-border-color);
