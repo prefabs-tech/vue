@@ -51,4 +51,8 @@ const packages = [
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 }
+
+.page.home .container .card:hover {
+  --_border-color: var(--dz-secondary-color);
+}
 </style>
