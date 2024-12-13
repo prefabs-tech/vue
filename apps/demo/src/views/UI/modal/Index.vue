@@ -80,10 +80,75 @@
 
         <Modal
           :show="showTitleModal"
-          :title="$t('ui.modal.usage.productDetail')"
+          :title="$t('ui.modal.header.productDetail')"
           @on:close="showTitleModal = false"
         >
           {{ $t("ui.modal.content") }}
+        </Modal>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.modal.usage.disableDismiss") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;ButtonElement
+              label="View detail"
+              @click="showModal = true"
+            /&gt;
+
+            &lt;Modal
+              :dismiss-on-click-out="false"
+              :show="showModal"
+              title="Product detail"
+              @on:close="showModal = false"
+            &gt;
+              &lt;div
+                v-for="(detail, index) in productDetail"
+                :key="index + '-' + detail"
+                class="info"
+              &gt;
+                &lt;span class="label"&gt;&lbrace;&lbrace; detail.label &rbrace;&rbrace;&lt;/span&gt;
+                &lt;span class="value"&gt;&lbrace;&lbrace; " : " + detail.value &rbrace;&rbrace;&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/Modal&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { ref } from "vue";
+
+          const productDetail = [
+            ...
+          ];
+
+          const showModal = ref(false);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <ButtonElement
+          :label="$t('ui.modal.label.viewDetail')"
+          @click="showDisableDismissModal = true"
+        />
+
+        <Modal
+          :dismiss-on-click-out="false"
+          :show="showDisableDismissModal"
+          :title="$t('ui.modal.header.productDetail')"
+          @on:close="showDisableDismissModal = false"
+        >
+          <div
+            v-for="(detail, index) in productDetail"
+            :key="index + '-' + detail"
+            class="info"
+          >
+            <span class="label">{{ detail.label }}</span>
+            <span class="value">{{ " : " + detail.value }}</span>
+          </div>
         </Modal>
       </div>
     </section>
@@ -102,7 +167,7 @@
 
             &lt;Modal
               :show="showModal"
-              :title="t('ui.modal.usage.productDetail')"
+              :title="t('ui.modal.header.productDetail')"
               @on:close="showModal = false"
             &gt;
               &lbrace;&lbrace; t("ui.modal.content") &rbrace;&rbrace;
@@ -128,7 +193,7 @@
 
         <Modal
           :show="showI18nModal"
-          :title="$t('ui.modal.usage.productDetail')"
+          :title="$t('ui.modal.header.productDetail')"
           @on:close="showI18nModal = false"
         >
           {{ $t("ui.modal.content") }}
@@ -255,6 +320,22 @@ const formData = reactive({
   password: ref(),
 });
 
+const productDetail = [
+  {
+    label: "Name",
+    value: "Acer Nitro 5",
+  },
+  {
+    label: "Category",
+    value: "Laptop",
+  },
+  {
+    label: "Color",
+    value: "Black",
+  },
+];
+
+const showDisableDismissModal = ref(false);
 const showI18nModal = ref(false);
 const showModal = ref(false);
 const showSlotModal = ref(false);
@@ -262,6 +343,17 @@ const showTitleModal = ref(false);
 </script>
 
 <style lang="css">
+.demo .info {
+  display: flex;
+  line-height: 1.5rem;
+  width: 20rem;
+}
+
+.demo .info > .label {
+  font-weight: 600;
+  min-width: 5rem;
+}
+
 .demo .login-actions {
   margin-bottom: 0;
 }

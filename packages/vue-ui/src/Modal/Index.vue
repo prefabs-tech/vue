@@ -49,7 +49,11 @@ const dzangolabVueModal = ref();
 
 const emits = defineEmits(["on:close"]);
 
-defineProps({
+const props = defineProps({
+  dismissOnClickOut: {
+    default: true,
+    type: Boolean,
+  },
   show: {
     default: false,
     type: Boolean,
@@ -63,7 +67,9 @@ defineProps({
 const slots = useSlots();
 
 onClickOutside(dzangolabVueModal, (event) => {
-  handleClose();
+  if (props.dismissOnClickOut) {
+    handleClose();
+  }
 });
 
 const handleClose = () => {
