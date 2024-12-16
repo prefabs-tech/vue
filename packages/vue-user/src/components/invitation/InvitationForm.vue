@@ -91,6 +91,17 @@ const updatedApps = computed(() => {
 });
 
 const updatedRoles = computed(() => {
+  if (formData.value?.appId) {
+    return props.apps
+      ?.find((app) => app.id === formData.value.appId)
+      ?.supportedRoles.map((role) => {
+        return {
+          label: role.name,
+          value: role.name,
+        };
+      });
+  }
+
   return (
     props.roles?.map((role) => {
       return {
