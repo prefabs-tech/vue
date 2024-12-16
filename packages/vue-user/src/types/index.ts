@@ -8,6 +8,8 @@ export type {
 
 export type { DzangolabVueUserConfig } from "./config";
 
+export type { InvitationAppOption, InvitationPayload, InvitationRoleOption } from "./invitation";
+
 export type { DzangolabVueUserPluginOptions } from "./plugin";
 
 export type { RouteOverride, RouteOverrides } from "./router";
