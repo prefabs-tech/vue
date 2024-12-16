@@ -56,6 +56,7 @@ export type {
   AuthTokens,
   DzangolabVueUserConfig,
   DzangolabVueUserPluginOptions,
+  InvitationPayload,
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,

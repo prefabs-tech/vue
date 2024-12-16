@@ -4,18 +4,23 @@
       <Email v-model="formData.email" label="Email" />
 
       <SelectInput
-        v-model="formData.app"
+        v-if="apps?.length"
+        v-model="formData.appId"
         :options="updatedApps"
         label="App"
         placeholder="Select app"
       />
 
       <SelectInput
+        v-if="apps?.length || roles?.length"
         v-model="formData.role"
+        :disabled="Boolean(!updatedRoles?.length)"
         :options="updatedRoles"
         label="Role"
         placeholder="Select role"
       />
+
+      <FormActions :submit-label="submitLabel" />
     </Form>
   </div>
 </template>
@@ -27,8 +32,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, Email, SelectInput } from "@dzangolab/vue3-form";
-import { computed, reactive } from "vue";
+import { Email, Form, FormActions, SelectInput } from "@dzangolab/vue3-form";
+import { computed, ref } from "vue";
 
 import type {
   InvitationAppOption,
@@ -42,19 +47,23 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<Array<InvitationAppOption>>,
   },
+  invitationData: {
+    default: () => ({}) as InvitationPayload,
+    type: Object,
+  },
   roles: {
     default: () => [],
     type: Array as PropType<Array<InvitationRoleOption>>,
+  },
+  submitLabel: {
+    default: "Invite user",
+    type: String,
   },
 });
 
 const emit = defineEmits(["submit"]);
 
-const formData = reactive({
-  app: undefined,
-  email: "",
-  role: undefined,
-});
+const formData = ref<InvitationPayload>({} as InvitationPayload);
 
 const updatedApps = computed(() => {
   let modifiedApps = props.apps || [];
@@ -95,4 +104,10 @@ const updatedRoles = computed(() => {
 const onSubmit = (data: InvitationPayload) => {
   emit("submit", data);
 };
+
+const prepareComponent = () => {
+  formData.value = props.invitationData as InvitationPayload;
+};
+
+prepareComponent();
 </script>
