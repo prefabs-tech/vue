@@ -8,6 +8,7 @@
     "basic": "Basic",
     "invitationForm": "Invitation form",
     "withAppField": "With app field",
+    "withExpiryDate": "With expiry date field",
     "withRoleField": "With role field"
   },
   "title": "User library"
