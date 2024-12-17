@@ -24,6 +24,14 @@
         placeholder="Select role"
       />
 
+      <DatePicker
+        v-if="expiryMode === 'calendar'"
+        v-model="formData.expiresAt"
+        :schema="expiresAtSchema"
+        label="Expires at"
+        name="expires-at"
+      />
+
       <FormActions :submit-label="submitLabel" />
     </Form>
   </div>
@@ -36,7 +44,13 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Email, Form, FormActions, SelectInput } from "@dzangolab/vue3-form";
+import {
+  DatePicker,
+  Email,
+  Form,
+  FormActions,
+  SelectInput,
+} from "@dzangolab/vue3-form";
 import { computed, ref } from "vue";
 import { z } from "zod";
 
@@ -58,6 +72,18 @@ const props = defineProps({
     }),
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+  },
+  expiresAtSchema: {
+    default: z.coerce.date().min(new Date(new Date().setHours(0, 0, 0, 0)), {
+      message: "Please provide a present or future date",
+    }),
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | Date | object>>,
+  },
+  expiryMode: {
+    default: undefined,
+    type: String,
+    validator: (value: string) => ["calendar", "days"].includes(value),
   },
   invitationData: {
     default: () => ({}) as InvitationPayload,
