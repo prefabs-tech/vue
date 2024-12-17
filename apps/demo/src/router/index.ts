@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import { feature } from "@/config";
 import form from "./form";
 import ui from "./ui";
+import user from "./user";
 
 // import About from "@/views/About.vue";
 import Home from "@/views/Home.vue";
@@ -49,6 +50,7 @@ const router: Router = createRouter({
     },
     ...form,
     ...ui,
+    ...user,
   ],
 } as RouterOptions);
 

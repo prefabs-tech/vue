@@ -15,7 +15,7 @@ import { Form } from "vee-validate";
 
 const emit = defineEmits(["submit"]);
 
-const onSubmit = () => {
-  emit("submit");
+const onSubmit = (data: object) => {
+  emit("submit", data);
 };
 </script>

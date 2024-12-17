@@ -1,0 +1,14 @@
+{
+  "message": {
+    "invitation": {
+      "success": "Invitation sent to {user} successfully"
+    }
+  },
+  "label": {
+    "basic": "Basic",
+    "invitationForm": "Invitation form",
+    "withAppField": "With app field",
+    "withRoleField": "With role field"
+  },
+  "title": "User library"
+}
