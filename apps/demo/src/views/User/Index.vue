@@ -1,5 +1,5 @@
 <template>
-  <UserPage :title="$t('ui.title')" />
+  <UserPage :title="$t('user.title')" />
 </template>
 
 <script lang="ts">
