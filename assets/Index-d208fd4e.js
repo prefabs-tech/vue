@@ -1,1 +1,0 @@
-import{_ as e}from"./UserPage.vue_vue_type_style_index_0_lang-f458f1e7.js";import{d as o,o as a,c as n}from"./index-66214709-91038599.js";const r={name:"User"},l=o({...r,setup(s){return(t,_)=>(a(),n(e,{title:t.$t("ui.title")},null,8,["title"]))}});export{l as default};
