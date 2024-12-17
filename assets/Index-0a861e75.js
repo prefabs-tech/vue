@@ -1,1 +1,0 @@
-import{_ as e}from"./FormPage.vue_vue_type_style_index_0_lang-2c538954.js";import{d as o,o as r,c as a}from"./index-66214709-7b57635f.js";const n={name:"Form"},l=o({...n,setup(_){return(t,s)=>(r(),a(e,{title:t.$t("form.title")},null,8,["title"]))}});export{l as default};
