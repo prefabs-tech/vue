@@ -34,6 +34,102 @@
         <InvitationForm @submit="onSubmit" />
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("user.label.withAppField") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;InvitationForm :apps="apps" @submit="onSubmit" /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { InvitationForm } from "@dzangolab/vue3-user";
+
+          import type { InvitationPayload } from "@dzangolab/vue3-user";
+
+          const apps = [
+            {
+              id: 1,
+              name: "Admin",
+              origin: "admin-origin",
+              supportedRoles: [
+                {
+                  id: 1,
+                  name: "ADMIN",
+                },
+                {
+                  id: 2,
+                  name: "SUPERADMIN",
+                },
+              ],
+            },
+            {
+              id: 2,
+              name: "User",
+              origin: "user-origin",
+              supportedRoles: [
+                {
+                  id: 3,
+                  name: "USER",
+                },
+              ],
+            },
+          ];
+
+          const onSubmit = (formData: InvitationPayload) => {
+            ...
+          };
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <InvitationForm :apps="apps" @submit="onSubmit" />
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("user.label.withRoleField") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;InvitationForm :roles="roles" @submit="onSubmit" /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { InvitationForm } from "@dzangolab/vue3-user";
+
+          import type { InvitationPayload } from "@dzangolab/vue3-user";
+
+          const roles = [
+            {
+              id: 1,
+              name: "ADMIN",
+            },
+            {
+              id: 2,
+              name: "SUPERADMIN",
+            },
+            {
+              id: 3,
+              name: "USER",
+            },
+          ];
+
+          const onSubmit = (formData: InvitationPayload) => {
+            ...
+          };
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <InvitationForm :roles="roles" @submit="onSubmit" />
+      </div>
+    </section>
   </UserPage>
 </template>
 
@@ -47,6 +143,50 @@ import UserPage from "../UserPage.vue";
 import type { InvitationPayload } from "@dzangolab/vue3-user";
 
 const { t } = useI18n();
+
+const roles = [
+  {
+    id: 1,
+    name: "ADMIN",
+  },
+  {
+    id: 2,
+    name: "SUPERADMIN",
+  },
+  {
+    id: 3,
+    name: "USER",
+  },
+];
+
+const apps = [
+  {
+    id: 1,
+    name: "Admin",
+    origin: "admin-origin",
+    supportedRoles: [
+      {
+        id: 1,
+        name: "ADMIN",
+      },
+      {
+        id: 2,
+        name: "SUPERADMIN",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "User",
+    origin: "user-origin",
+    supportedRoles: [
+      {
+        id: 3,
+        name: "USER",
+      },
+    ],
+  },
+];
 
 const onSubmit = (formData: InvitationPayload) => {
   notify({

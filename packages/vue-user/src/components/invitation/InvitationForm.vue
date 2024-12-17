@@ -7,7 +7,9 @@
         v-if="apps?.length"
         v-model="formData.appId"
         :options="updatedApps"
+        :schema="appSchema"
         label="App"
+        name="app"
         placeholder="Select app"
       />
 
@@ -16,7 +18,9 @@
         v-model="formData.role"
         :disabled="Boolean(!updatedRoles?.length)"
         :options="updatedRoles"
+        :schema="roleSchema"
         label="Role"
+        name="role"
         placeholder="Select role"
       />
 
@@ -34,6 +38,7 @@ export default {
 <script setup lang="ts">
 import { Email, Form, FormActions, SelectInput } from "@dzangolab/vue3-form";
 import { computed, ref } from "vue";
+import { z } from "zod";
 
 import type {
   InvitationAppOption,
@@ -47,6 +52,13 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<Array<InvitationAppOption>>,
   },
+  appSchema: {
+    default: z.number({
+      invalid_type_error: "Please select at least one valid option",
+    }),
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+  },
   invitationData: {
     default: () => ({}) as InvitationPayload,
     type: Object,
@@ -54,6 +66,13 @@ const props = defineProps({
   roles: {
     default: () => [],
     type: Array as PropType<Array<InvitationRoleOption>>,
+  },
+  roleSchema: {
+    default: z.string({
+      invalid_type_error: "Please select at least one valid option",
+    }),
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
   },
   submitLabel: {
     default: "Invite user",

@@ -6,7 +6,9 @@
   },
   "label": {
     "basic": "Basic",
-    "invitationForm": "Invitation form"
+    "invitationForm": "Invitation form",
+    "withAppField": "With app field",
+    "withRoleField": "With role field"
   },
   "title": "User library"
 }
