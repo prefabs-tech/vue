@@ -3,6 +3,9 @@
     "submit": "Submit[fr]"
   },
   "errors": {
+    "daysInput": {
+      "invalid": "Please provide number of days within a year"
+    },
     "datePicker": {
       "invalid": "Please provide a present or past date[fr]"
     },
@@ -48,11 +51,13 @@
     "datePicker": "Date picker[fr]",
     "dateRange": "Date range[fr]",
     "dateTimePicker": "Datetime picker[fr]",
+    "daysInput": "Days input",
     "debouncedTypeahead": "With debounce time prop",
     "disabledMultiSelect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
     "disableWeekDays": "Disable week days[fr]",
     "email": "Email[fr]",
+    "expiresAfter": "Expires after",
     "iconSlot": "Icon slot",
     "input": "Input[fr]",
     "inputWithType": "With type prop[fr]",
@@ -85,6 +90,7 @@
     "yearPicker": "Year picke[fr]"
   },
   "placeholder": {
+    "days": "Enter number of days",
     "email": "Enter a email[fr]",
     "input": "Enter input[fr]",
     "multiSelect": "Select multiple value[fr]",

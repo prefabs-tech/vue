@@ -1,7 +1,8 @@
 <template>
   <NumberInput
-    :model-value="modelValue"
+    :disabled="disabled"
     :label="label"
+    :model-value="modelValue"
     :name="name"
     :placeholder="placeholder"
     :schema="schema"
@@ -46,9 +47,7 @@ defineProps({
     type: String,
   },
   schema: {
-    default: () => {
-      return {};
-    },
+    default: z.coerce.number().optional(),
     required: false,
     type: Object as PropType<z.ZodType<string | number>>,
   },
@@ -59,13 +58,11 @@ const emit = defineEmits(["update:date", "update:modelValue"]);
 const onInput = (value: number) => {
   emit("update:modelValue", value);
 
-  if (value >= 0) {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const date = new Date(today);
-    date.setDate(today.getDate() + value);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const date = new Date(today);
+  date.setDate(today.getDate() + value);
 
-    emit("update:date", date.toISOString().split("T")[0]);
-  }
+  emit("update:date", date.toISOString().split("T")[0]);
 };
 </script>

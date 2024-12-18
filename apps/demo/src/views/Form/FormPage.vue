@@ -46,6 +46,10 @@ const menu = [
     routeName: "datePicker",
   },
   {
+    name: "Days input",
+    routeName: "daysInput",
+  },
+  {
     name: "Email",
     routeName: "emailInput",
   },
