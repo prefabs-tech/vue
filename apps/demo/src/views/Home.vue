@@ -28,6 +28,11 @@ const packages = [
     description: "@dzangolab/vue3-ui components and utilities",
   },
   {
+    name: "user",
+    route: "/user",
+    description: "@dzangolab/vue3-user components and utilities",
+  },
+  {
     name: "form",
     route: "/form",
     description: "@dzangolab/vue3-form components and utilities",
