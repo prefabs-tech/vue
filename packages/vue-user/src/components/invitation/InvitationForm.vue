@@ -11,6 +11,7 @@
         label="App"
         name="app"
         placeholder="Select app"
+        @update:model-value="onAppSelect"
       />
 
       <SelectInput
@@ -174,6 +175,10 @@ const updatedRoles = computed(() => {
     }) || []
   );
 });
+
+const onAppSelect = () => {
+  formData.value.role = undefined;
+};
 
 const onSubmit = () => {
   if (formData.value?.expiresAt) {

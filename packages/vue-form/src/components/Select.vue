@@ -59,7 +59,7 @@ export default {
 
 <script setup lang="ts">
 import { onClickOutside } from "@vueuse/core";
-import { onMounted, ref, toRefs } from "vue";
+import { onMounted, ref, toRefs, watch } from "vue";
 
 import type { SelectOption } from "../types";
 import type { PropType, Ref } from "vue";
@@ -105,6 +105,13 @@ const showDropdownMenu: Ref<boolean> = ref(false);
 onClickOutside(dzangolabVueFormSelect, (event) => {
   showDropdownMenu.value = false;
 });
+
+watch(
+  () => props.modelValue,
+  () => {
+    prepareComponent();
+  },
+);
 
 const getSelectedOption = (value: number | string) =>
   options.value?.find((option) => option.value === value);
@@ -165,7 +172,7 @@ const toggleDropdown = () => {
   showDropdownMenu.value = !showDropdownMenu.value;
 };
 
-onMounted(() => {
+const prepareComponent = () => {
   if (multiple.value && Array.isArray(props.modelValue)) {
     selectedOptions.value = props.modelValue.map((value) => {
       return getSelectedOption(value as string | number);
@@ -174,7 +181,13 @@ onMounted(() => {
     selectedOptions.value = [
       getSelectedOption(props.modelValue),
     ] as SelectOption[];
+  } else if (!props.modelValue) {
+    selectedOptions.value = [];
   }
+};
+
+onMounted(() => {
+  prepareComponent();
 });
 </script>
 
