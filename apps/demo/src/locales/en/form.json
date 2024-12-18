@@ -3,6 +3,9 @@
     "submit": "Submit"
   },
   "errors": {
+    "daysInput": {
+      "invalid": "Please provide number of days within a year"
+    },
     "datePicker": {
       "invalid": "Please provide a present or past date"
     },
@@ -48,11 +51,13 @@
     "datePicker": "Date picker",
     "dateRange": "Date range",
     "dateTimePicker": "Datetime picker",
+    "daysInput": "Days input",
     "debouncedTypeahead": "With debounce time prop",
     "disabled": "Disabled",
     "disableWeekDays": "Disable week days",
     "disabledMultiSelect": "Disabled multiselect",
     "email": "Email",
+    "expiresAfter": "Expires after",
     "iconSlot": "Icon slot",
     "input": "Input",
     "inputWithType": "With type prop",
@@ -85,6 +90,7 @@
     "yearPicker": "Year picker"
   },
   "placeholder": {
+    "days": "Enter number of days",
     "email": "Enter a email",
     "input": "Enter input",
     "multiSelect": "Select multiple value",
