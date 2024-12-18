@@ -175,8 +175,12 @@ const updatedRoles = computed(() => {
   );
 });
 
-const onSubmit = (data: InvitationPayload) => {
-  emit("submit", data);
+const onSubmit = () => {
+  if (formData.value?.expiresAt) {
+    formData.value.expiresAt = new Date(formData.value.expiresAt).toISOString();
+  }
+
+  emit("submit", formData.value);
 };
 
 const prepareComponent = () => {

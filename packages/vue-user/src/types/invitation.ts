@@ -10,7 +10,7 @@ interface InvitationPayload {
   email: string;
   role: string;
   appId?: number;
-  expiresAt?: Date;
+  expiresAt?: Date | string;
 }
 
 interface InvitationRoleOption {
