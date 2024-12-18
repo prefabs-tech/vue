@@ -23,7 +23,7 @@ import NumberInput from "./NumberInput.vue";
 
 import type { PropType } from "vue";
 
-defineProps({
+const props = defineProps({
   disabled: {
     default: false,
     type: Boolean,
@@ -58,11 +58,21 @@ const emit = defineEmits(["update:date", "update:modelValue"]);
 const onInput = (value: number) => {
   emit("update:modelValue", value);
 
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const date = new Date(today);
-  date.setDate(today.getDate() + value);
-
-  emit("update:date", date.toISOString().split("T")[0]);
+  calculateDate(value);
 };
+
+const calculateDate = (days: number) => {
+  const today = new Date();
+  today.setDate(today.getDate() + days);
+
+  emit("update:date", today.toISOString());
+};
+
+const prepareComponent = () => {
+  if (props.modelValue || props.modelValue === 0) {
+    calculateDate(props.modelValue);
+  }
+};
+
+prepareComponent();
 </script>

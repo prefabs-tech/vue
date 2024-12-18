@@ -81,6 +81,48 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.disabled") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;DaysInput
+              v-model="input"
+              disabled
+              label="Appointment date"
+              placeholder="Enter number of days"
+              @update:date="result = $event"
+            /&gt;
+          &lt;/Form&gt;
+          &lt;div v-if="result" class="result-date"&gt;&lbrace;&lbrace; result &rbrace;&rbrace;&lt;/div&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { DaysInput, Form } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const input = ref();
+          const result = ref();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <Form>
+          <DaysInput
+            v-model="formData.disabled"
+            :label="$t('form.label.appointmentDate')"
+            :placeholder="$t('form.placeholder.days')"
+            disabled
+            @update:date="result.disabled = $event"
+          />
+        </Form>
+        <div v-if="result.disabled" class="result-date">
+          {{ result.disabled }}
+        </div>
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
       <div class="section-content">
@@ -165,12 +207,14 @@ const inputSchema = z.coerce
 
 const result = reactive({
   basic: ref(),
+  disabled: ref(),
   label: ref(),
   validationInput: ref(),
 });
 
 let formData = reactive({
   basic: ref(),
+  disabled: ref(30),
   label: ref(),
   validationInput: ref(),
 });
