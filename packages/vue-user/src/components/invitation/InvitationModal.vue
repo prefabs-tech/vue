@@ -1,0 +1,108 @@
+<template>
+  <Modal
+    :dismiss-on-click-out="dismissOnClickOut"
+    :show="show"
+    :title="title"
+    class="invitation-modal"
+    @on:close="handleClose"
+  >
+    <InvitationForm
+      :apps="apps"
+      :app-schema="appSchema"
+      :expires-at-schema="expiresAtSchema"
+      :expiry-mode="expiryMode"
+      :invitation-data="invitationData"
+      :roles="roles"
+      :role-schema="roleSchema"
+      :submit-label="submitLabel"
+      @submit="onSubmit"
+    />
+  </Modal>
+</template>
+
+<script lang="ts">
+export default {
+  name: "InvitationModal",
+};
+</script>
+
+<script setup lang="ts">
+import { Modal } from "@dzangolab/vue3-ui";
+import { z } from "zod";
+
+import InvitationForm from "./InvitationForm.vue";
+
+import type {
+  InvitationAppOption,
+  InvitationPayload,
+  InvitationRoleOption,
+} from "../../types";
+import type { PropType } from "vue";
+
+defineProps({
+  apps: {
+    default: () => [],
+    type: Array as PropType<Array<InvitationAppOption>>,
+  },
+  appSchema: {
+    default: () => {
+      return {};
+    },
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+  },
+  dismissOnClickOut: {
+    default: true,
+    type: Boolean,
+  },
+  expiresAtSchema: {
+    default: () => {
+      return {};
+    },
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | Date | object>>,
+  },
+  expiryMode: {
+    default: undefined,
+    type: String,
+    validator: (value: string) => ["calendar", "days"].includes(value),
+  },
+  invitationData: {
+    default: () => ({}) as InvitationPayload,
+    type: Object,
+  },
+  roles: {
+    default: () => [],
+    type: Array as PropType<Array<InvitationRoleOption>>,
+  },
+  roleSchema: {
+    default: () => {
+      return {};
+    },
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+  },
+  show: {
+    default: false,
+    type: Boolean,
+  },
+  submitLabel: {
+    default: "",
+    type: String,
+  },
+  title: {
+    default: "",
+    type: String,
+  },
+});
+
+const emit = defineEmits(["on:close", "submit"]);
+
+const handleClose = () => {
+  emit("on:close");
+};
+
+const onSubmit = (data: InvitationPayload) => {
+  emit("submit", data);
+};
+</script>
