@@ -1,7 +1,7 @@
 <template>
   <UserPage
     :title="$t('user.label.invitationModal')"
-    class="demo-invitation-form"
+    class="demo-invitation-modal"
   >
     <template #toolbar>
       <router-link :to="{ name: 'user' }" class="back">
