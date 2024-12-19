@@ -11,6 +11,7 @@
         label="App"
         name="app"
         placeholder="Select app"
+        @update:model-value="onAppSelect"
       />
 
       <SelectInput
@@ -32,6 +33,15 @@
         name="expires-at"
       />
 
+      <DaysInput
+        v-else-if="expiryMode === 'days'"
+        v-model="expiresAfter"
+        :schema="expiresAfterSchema"
+        label="Expires after"
+        name="expires-after"
+        @update:date="formData.expiresAt = $event"
+      />
+
       <FormActions :submit-label="submitLabel" />
     </Form>
   </div>
@@ -46,6 +56,7 @@ export default {
 <script setup lang="ts">
 import {
   DatePicker,
+  DaysInput,
   Email,
   Form,
   FormActions,
@@ -72,6 +83,13 @@ const props = defineProps({
     }),
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+  },
+  expiresAfterSchema: {
+    default: z.coerce
+      .number({ invalid_type_error: "Expiry days is required" })
+      .gte(1, "please provide valid days"),
+    required: false,
+    type: Object as PropType<z.ZodType<string | number>>,
   },
   expiresAtSchema: {
     default: z.coerce.date().min(new Date(new Date().setHours(0, 0, 0, 0)), {
@@ -108,6 +126,7 @@ const props = defineProps({
 
 const emit = defineEmits(["submit"]);
 
+const expiresAfter = ref<number>();
 const formData = ref<InvitationPayload>({} as InvitationPayload);
 
 const updatedApps = computed(() => {
@@ -157,12 +176,28 @@ const updatedRoles = computed(() => {
   );
 });
 
-const onSubmit = (data: InvitationPayload) => {
-  emit("submit", data);
+const onAppSelect = () => {
+  formData.value.role = undefined;
+};
+
+const onSubmit = () => {
+  if (formData.value?.expiresAt) {
+    formData.value.expiresAt = new Date(formData.value.expiresAt).toISOString();
+  }
+
+  emit("submit", formData.value);
 };
 
 const prepareComponent = () => {
   formData.value = props.invitationData as InvitationPayload;
+
+  if (props.expiryMode === "days" && formData.value?.expiresAt) {
+    const today = new Date();
+    const expiryDate = new Date(formData.value?.expiresAt);
+    const differenceInTime = expiryDate.getTime() - today.getTime();
+
+    expiresAfter.value = Math.round(differenceInTime / (24 * 60 * 60 * 1000));
+  }
 };
 
 prepareComponent();

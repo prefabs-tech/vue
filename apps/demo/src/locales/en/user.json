@@ -18,6 +18,7 @@
     "sendInvitation": "Send invitation",
     "withAppField": "With app field",
     "withExpiryDate": "With expiry date field",
+    "withExpiryDays": "With expiry days field",
     "withRoleField": "With role field",
     "withTitle": "With title"
   },

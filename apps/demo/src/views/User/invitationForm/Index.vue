@@ -168,6 +168,40 @@
         />
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("user.label.withExpiryDays") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;InvitationForm
+              :roles="roles"
+              expiry-mode="days"
+              @submit="onSubmit"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { InvitationForm } from "@dzangolab/vue3-user";
+
+          import type { InvitationPayload } from "@dzangolab/vue3-user";
+
+          const roles = [
+            ...
+          ];
+
+          const onSubmit = (formData: InvitationPayload) => {
+            ...
+          };
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <InvitationForm :roles="roles" expiry-mode="days" @submit="onSubmit" />
+      </div>
+    </section>
   </UserPage>
 </template>
 
