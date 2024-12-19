@@ -42,7 +42,7 @@
         @update:date="formData.expiresAt = $event"
       />
 
-      <FormActions :submit-label="submitLabel" />
+      <FormActions :submit-label="submitLabel" @cancel="$emit('cancel')" />
     </Form>
   </div>
 </template>
@@ -124,7 +124,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["submit"]);
+const emit = defineEmits(["cancel", "submit"]);
 
 const expiresAfter = ref<number>();
 const formData = ref<InvitationPayload>({} as InvitationPayload);
