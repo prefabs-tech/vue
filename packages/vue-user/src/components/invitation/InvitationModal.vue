@@ -16,6 +16,7 @@
       :roles="roles"
       :role-schema="roleSchema"
       :submit-label="submitLabel"
+      @cancel="handleClose"
       @submit="onSubmit"
     />
   </Modal>
