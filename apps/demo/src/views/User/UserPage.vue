@@ -45,6 +45,10 @@ const menu = [
     name: "Invitation form",
     routeName: "invitationForm",
   },
+  {
+    name: "Invitation modal",
+    routeName: "invitationModal",
+  },
 ];
 </script>
 

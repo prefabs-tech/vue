@@ -45,9 +45,7 @@ defineProps({
     type: Array as PropType<Array<InvitationAppOption>>,
   },
   appSchema: {
-    default: () => {
-      return {};
-    },
+    default: undefined,
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
   },
@@ -56,9 +54,7 @@ defineProps({
     type: Boolean,
   },
   expiresAtSchema: {
-    default: () => {
-      return {};
-    },
+    default: undefined,
     required: false,
     type: Object as PropType<z.ZodType<string | number | Date | object>>,
   },
@@ -76,9 +72,7 @@ defineProps({
     type: Array as PropType<Array<InvitationRoleOption>>,
   },
   roleSchema: {
-    default: () => {
-      return {};
-    },
+    default: undefined,
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
   },
@@ -87,7 +81,7 @@ defineProps({
     type: Boolean,
   },
   submitLabel: {
-    default: "",
+    default: undefined,
     type: String,
   },
   title: {
