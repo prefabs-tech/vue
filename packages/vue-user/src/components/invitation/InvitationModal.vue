@@ -9,6 +9,7 @@
     <InvitationForm
       :apps="apps"
       :app-schema="appSchema"
+      :expires-after-schema="expiresAfterSchema"
       :expires-at-schema="expiresAtSchema"
       :expiry-mode="expiryMode"
       :invitation-data="invitationData"
@@ -52,6 +53,11 @@ defineProps({
   dismissOnClickOut: {
     default: true,
     type: Boolean,
+  },
+  expiresAfterSchema: {
+    default: undefined,
+    required: false,
+    type: Object as PropType<z.ZodType<string | number>>,
   },
   expiresAtSchema: {
     default: undefined,

@@ -372,6 +372,64 @@
         />
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("user.label.withExpiryDays") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;ButtonElement
+              label="Send invitation"
+              @click="showModal = true"
+            /&gt;
+
+            &lt;InvitationModal
+              :roles="roles"
+              :show="showModal"
+              expiry-mode="days"
+              title="Invite with expiry date"
+              @on:close="showModal = false"
+              @submit="onSubmit"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ButtonElement } from "@dzangolab/vue3-ui";
+          import { InvitationModal } from "@dzangolab/vue3-user";
+          import { ref } from "vue";
+
+          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          
+          const showModal = ref(false);
+
+          const roles = [
+            ...
+          ];
+
+          const onSubmit = (formData: InvitationPayload) => {
+            ...
+          };
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <ButtonElement
+          :label="$t('user.label.sendInvitation')"
+          @click="showExpiryDaysModal = true"
+        />
+
+        <InvitationModal
+          :roles="roles"
+          :show="showExpiryDaysModal"
+          :title="$t('user.label.inviteWithExpiry')"
+          expiry-mode="days"
+          @on:close="showExpiryDaysModal = false"
+          @submit="onSubmit"
+        />
+      </div>
+    </section>
   </UserPage>
 </template>
 
@@ -390,6 +448,7 @@ const { t } = useI18n();
 
 const showAppFieldModal = ref(false);
 const showDisableDismissModal = ref(false);
+const showExpiryDaysModal = ref(false);
 const showExpiryFieldModal = ref(false);
 const showModal = ref(false);
 const showRoleFieldModal = ref(false);
@@ -447,6 +506,7 @@ const onSubmit = (formData: InvitationPayload) => {
 
   showAppFieldModal.value = false;
   showDisableDismissModal.value = false;
+  showExpiryDaysModal.value = false;
   showExpiryFieldModal.value = false;
   showModal.value = false;
   showRoleFieldModal.value = false;
