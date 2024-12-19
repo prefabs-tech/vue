@@ -107,3 +107,15 @@ const onSubmit = (data: InvitationPayload) => {
   emit("submit", data);
 };
 </script>
+
+<style lang="css">
+.invitation-modal .dialog {
+  --modal-min-width: 23rem;
+}
+
+@media screen and (min-width: 768px) {
+  .invitation-modal .dialog {
+    --modal-min-width: 30rem;
+  }
+}
+</style>
