@@ -14,11 +14,13 @@
   --_input-field-border-radius: var(--form-input-border-radius, 0.25em);
   --_input-field-padding-h: var(--form-input-padding-h, 0.75em);
   --_input-field-padding-v: var(--form-input-padding-v, 0.65em);
+  --_input-field-height: var(--form-input-height, 2.8em);
 
-  border-radius: var(--_input-field-border-radius);
   border: 1px solid var(--_input-field-border-color);
+  border-radius: var(--_input-field-border-radius);
   font-size: 1rem;
-  padding: var(--_input-field-padding-v) var(--_input-field-padding-v);
+  height: var(--_input-field-height);
+  padding: var(--_input-field-padding-v) var(--_input-field-padding-h);
   width: 100%;
 }
 

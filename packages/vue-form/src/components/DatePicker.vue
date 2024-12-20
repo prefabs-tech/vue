@@ -11,10 +11,13 @@
     >
       <VueDatePicker
         v-bind="{ ...filteredAttributes, ...field }"
-        :class="{
-          invalid: meta.touched && !meta.valid,
-          valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
-        }"
+        :class="[
+          'field',
+          {
+            invalid: meta.touched && !meta.valid,
+            valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
+          },
+        ]"
         :disabled="disabled"
         :enable-time-picker="enableTimePicker"
         :format="format"
@@ -136,6 +139,10 @@ const onUpdate = (
   color: var(--_label-color);
 }
 
+.date-picker .dp__main > div {
+  width: 100%;
+}
+
 .dp--clear-btn {
   --dp-icon-color: var(--icon-color, #555);
 }
@@ -159,6 +166,10 @@ const onUpdate = (
 
 .dp__input_icon {
   --dp-icon-color: var(--icon-color, #555);
+}
+
+.date-picker .field input {
+  --_input-field-padding-h: 2.2rem;
 }
 
 .invalid .dp__input {
