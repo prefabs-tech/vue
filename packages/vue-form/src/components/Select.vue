@@ -227,13 +227,18 @@ onMounted(() => {
 }
 
 .multiselect-input {
+  --_border-radius: var(--form-input-border-radius, 0.25em);
   --_multiselect-border-color: var(--form-input-border-color, #555);
+  --_padding-h: var(--padding-h, 0.75em);
+  --_padding-v: var(--form-input-padding-v, 0.65em);
+  --_height: var(--form-input-height, 2.8em);
 
   align-content: center;
   border: 1px solid var(--_multiselect-border-color);
+  border-radius: var(--_border-radius);
   cursor: pointer;
-  min-height: 3rem;
-  padding: 10px;
+  height: var(--_height);
+  padding: var(--_padding-v) var(--_padding-h);
   user-select: none;
 }
 
