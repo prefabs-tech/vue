@@ -3,7 +3,7 @@
 exports[`MainMenu > matches snapshot 1`] = `
 "<nav class=\\"menu\\">
   <ul>
-    <li class=\\"\\"><a>Home</a></li>
+    <li class=\\"active\\"><a>Home</a></li>
     <li class=\\"\\"><a>About</a></li>
   </ul>
 </nav>"
