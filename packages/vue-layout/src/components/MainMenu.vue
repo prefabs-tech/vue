@@ -40,13 +40,22 @@ const activeRoute = computed(() => {
   )?.route;
 
   if (!matchedRoute) {
-    const match = route?.path.match(/^\/([^/]+)/);
-    if (match) {
-      matchedRoute = getRouteNameFromPath(`/${match[1]}`);
-    }
+    matchedRoute = currentParentRouteName.value;
   }
 
   return matchedRoute;
+});
+
+const currentParentRouteName = computed(() => {
+  const matched = route?.matched;
+
+  if (matched?.length > 1) {
+    const parentRoute = matched[matched.length - 2];
+
+    return getRouteNameFromPath(parentRoute?.path);
+  }
+
+  return "";
 });
 
 const getRouteNameFromPath = (path: string) => {

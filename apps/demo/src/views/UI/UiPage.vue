@@ -39,7 +39,7 @@ defineProps({
 const menu = [
   {
     name: "Get started",
-    routeName: "ui",
+    routeName: "",
   },
   {
     name: "Accordion",
