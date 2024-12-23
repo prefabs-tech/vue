@@ -106,7 +106,7 @@ let payload = {
   newPassword: undefined,
 } as Partial<UpdatePasswordPayload>;
 
-const onSubmit = (credentials: UpdatePasswordPayload) => {
-  emit("submit", credentials);
+const onSubmit = () => {
+  emit("submit", payload);
 };
 </script>

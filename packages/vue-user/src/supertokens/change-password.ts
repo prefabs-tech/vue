@@ -12,7 +12,7 @@ const changePassword = async (
     const response = await client(apiBaseUrl).post(
       "/change_password",
       {
-        currentPassword: payload.currentPassword,
+        oldPassword: payload.currentPassword,
         newPassword: payload.newPassword,
       },
       {
