@@ -9,6 +9,7 @@ interface RouteOverride {
 }
 
 interface RouteOverrides {
+  changePassword: RouteOverride;
   google?: RouteOverride;
   home?: string;
   login: RouteOverride;
