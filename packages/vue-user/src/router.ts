@@ -4,6 +4,7 @@ import { Router } from "vue-router";
 import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
 import useUserStore from "./store";
 import { getUser, getVerificationStatus } from "./supertokens";
+import ChangePassword from "./views/ChangePassword.vue";
 import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
 import Login from "./views/Login.vue";
 import PasswordReset from "./views/PasswordReset.vue";
@@ -21,6 +22,14 @@ import type {
 import type { RouteMeta, RouteRecordRaw } from "vue-router";
 
 const _routes = {
+  changePassword: {
+    meta: {
+      authenticated: true,
+    } as RouteMeta,
+    component: ChangePassword,
+    name: "changePassword",
+    path: "/change-password",
+  },
   google: {
     component: AuthGoogleCallback,
     name: "authcallback",
@@ -110,6 +119,13 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
     getRoute(
       _routes.passwordResetRequestAcknowledge,
       routes?.passwordResetRequestAcknowledge,
+    ),
+  );
+
+  router.addRoute(
+    getRoute(
+      _routes.changePassword,
+      routes?.changePassword,
     ),
   );
 
