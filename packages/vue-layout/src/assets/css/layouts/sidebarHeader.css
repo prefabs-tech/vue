@@ -5,6 +5,7 @@
   grid-template-areas:
     "header"
     "main";
+  min-height: 100dvh;
   transition: all 0.25s ease-in-out;
 }
 
