@@ -1,7 +1,7 @@
 <template>
   <ResponsiveMenu
     ref="mainMenu"
-    :active-route="String(route?.name) ?? 'home'"
+    :active-route="activeRoute ?? 'home'"
     :routes="routes"
     @change-route="$emit('close')"
   />
@@ -15,7 +15,8 @@ export default {
 
 <script setup lang="ts">
 import { ResponsiveMenu } from "@dzangolab/vue3-ui";
-import { useRoute } from "vue-router";
+import { computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 import type { PropType } from "vue";
 
@@ -23,7 +24,7 @@ defineEmits<{
   (e: "close"): void;
 }>();
 
-defineProps({
+const props = defineProps({
   routes: {
     required: true,
     type: Array as PropType<{ name: string; route: string }[]>,
@@ -31,4 +32,34 @@ defineProps({
 });
 
 const route = useRoute();
+const router = useRouter();
+
+const activeRoute = computed(() => {
+  let matchedRoute = props.routes?.find(
+    (routeData) => routeData.route === route?.name,
+  )?.route;
+
+  if (!matchedRoute) {
+    matchedRoute = currentParentRouteName.value;
+  }
+
+  return matchedRoute;
+});
+
+const currentParentRouteName = computed(() => {
+  const matched = route?.matched;
+
+  if (matched?.length > 1) {
+    const parentRoute = matched[matched.length - 2];
+
+    return getRouteNameFromPath(parentRoute?.path);
+  }
+
+  return "";
+});
+
+const getRouteNameFromPath = (path: string) => {
+  const route = router.getRoutes().find((r) => r.path === path);
+  return String(route?.name);
+};
 </script>

@@ -77,17 +77,52 @@ const router = useRouter();
 
 const showChildren = ref<boolean>(false);
 
+const currentParentRouteName = computed(() => {
+  const matched = route?.matched;
+
+  if (matched?.length > 1) {
+    const parentRoute = matched[matched.length - 2];
+
+    return getRouteNameFromPath(parentRoute?.path);
+  }
+
+  return "";
+});
+
 const isActive = computed(() => {
-  return route.name === props.item?.routeName;
+  let isActiveRoute = route.name === props.item?.routeName;
+
+  if (!isActiveRoute) {
+    if (props.item?.routeName) {
+      isActiveRoute =
+        !!currentParentRouteName.value &&
+        currentParentRouteName.value === props.item?.routeName;
+    } else if (
+      !props.item?.routeName &&
+      !props.item?.children?.length &&
+      route.name === currentParentRouteName.value
+    ) {
+      isActiveRoute = true;
+    }
+  }
+
+  return isActiveRoute;
 });
 
 const showShortName = computed(() => {
   return !props.sidebarActive && props.item.shortName;
 });
 
+const getRouteNameFromPath = (path: string) => {
+  const route = router.getRoutes().find((r) => r.path === path);
+  return String(route?.name);
+};
+
 const onClick = () => {
   if (props.item.routeName) {
     router.push({ name: props.item.routeName });
+  } else if (!props.item.routeName && !props.item.children?.length) {
+    router.push({ name: currentParentRouteName.value });
   } else {
     showChildren.value = !showChildren.value;
   }
