@@ -50,6 +50,10 @@ const menu = [
     routeName: "daysInput",
   },
   {
+    name: "Editable content",
+    routeName: "editableContent",
+  },
+  {
     name: "Email",
     routeName: "emailInput",
   },

@@ -61,7 +61,7 @@ const props = defineProps({
     type: String,
   },
   size: {
-    default: "medium",
+    default: "small",
     type: String,
     validator: (value: string) =>
       ["small", "medium", "large", "full"].includes(value),
@@ -131,8 +131,8 @@ const onInput = (value: string) => {
 
 .editable-content > .card .field {
   height: 100%;
-  width: 100%;
   margin-bottom: 0;
+  width: 100%;
 }
 
 .editable-content > .card .resize-both textarea {
@@ -155,7 +155,8 @@ const onInput = (value: string) => {
   cursor: default;
 }
 
-.editable-content > .card .content > p {
+.editable-content > .card .content > * {
+  margin: 0;
   padding: 0;
 }
 </style>
