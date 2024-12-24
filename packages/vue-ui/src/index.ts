@@ -9,6 +9,7 @@ import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
 import SubPane from "./components/SubPane.vue";
 import ConfirmationModal from "./ConfirmationModal/Index.vue";
+import Divider from "./Divider/Index.vue";
 import Dropdown from "./Dropdown/Index.vue";
 import Errors from "./Errors/Index.vue";
 import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
@@ -41,6 +42,7 @@ export {
   BadgeComponent,
   ButtonElement,
   Card,
+  Divider,
   Dropdown,
   ConfirmationModal,
   DebouncedInput,

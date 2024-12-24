@@ -128,6 +128,13 @@
       "withI18n": "With i18n"
     }
   },
+  "divider": {
+    "title": "Divider",
+    "usage": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertical"
+    }
+  },
   "dropdown": {
     "label": {
       "email": "Email",

@@ -62,6 +62,10 @@ const menu = [
     routeName: "confirmationModal",
   },
   {
+    name: "Divider",
+    routeName: "divider",
+  },
+  {
     name: "Dropdown",
     routeName: "dropdown",
   },
