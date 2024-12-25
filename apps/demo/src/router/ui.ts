@@ -6,6 +6,7 @@ const ConfirmationModal = () =>
   import("@/views/UI/confirmationModal/Index.vue");
 const Divider = () => import("@/views/UI/divider/Index.vue");
 const Dropdown = () => import("@/views/UI/dropdown/Index.vue");
+const GridContainer = () => import("@/views/UI/gridContainer/Index.vue");
 const LoadingPage = () => import("@/views/UI/loading/Index.vue");
 const Message = () => import("@/views/UI/message/Index.vue");
 const Modal = () => import("@/views/UI/modal/Index.vue");
@@ -62,6 +63,11 @@ const routes = [
         component: ConfirmationModal,
         name: "confirmationModal",
         path: "confirmation-modal",
+      },
+      {
+        component: GridContainer,
+        name: "gridContainer",
+        path: "grid-container",
       },
       {
         component: Tooltip,

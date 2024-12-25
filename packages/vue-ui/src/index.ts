@@ -13,6 +13,7 @@ import Divider from "./Divider/Index.vue";
 import Dropdown from "./Dropdown/Index.vue";
 import Errors from "./Errors/Index.vue";
 import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
+import GridContainer from "./GridContainer/Index.vue";
 import LoadingPage from "./LoadingPage/Index.vue";
 import Message from "./Message/Index.vue";
 import Modal from "./Modal/Index.vue";
@@ -47,6 +48,7 @@ export {
   ConfirmationModal,
   DebouncedInput,
   Errors,
+  GridContainer,
   GoogleSignInButton,
   LoadingButton,
   LoadingIcon,

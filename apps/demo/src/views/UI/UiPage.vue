@@ -70,6 +70,10 @@ const menu = [
     routeName: "dropdown",
   },
   {
+    name: "Grid container",
+    routeName: "gridContainer",
+  },
+  {
     name: "Loading page",
     routeName: "loadingPage",
   },
