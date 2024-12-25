@@ -2,6 +2,7 @@
   "header": {
     "menu": {
       "about": "About",
+      "changePassword": "Change password",
       "home": "Home",
       "profile": "Profile",
       "login": "Login",

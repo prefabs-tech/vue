@@ -2,6 +2,7 @@
   "header": {
     "menu": {
       "about": "A propos de nous",
+      "changePassword": "Change password",
       "home": "Accueil",
       "profile": "Profil",
       "login": "Connexion",
