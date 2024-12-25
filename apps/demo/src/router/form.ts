@@ -1,5 +1,6 @@
 const DatePicker = () => import("@/views/Form/datePicker/Index.vue");
 const DaysInput = () => import("@/views/Form/daysInput/Index.vue");
+const EditableContent = () => import("@/views/Form/editableContent/Index.vue");
 const Email = () => import("@/views/Form/emailInput/Index.vue");
 const Form = () => import("@/views/Form/Index.vue");
 const Input = () => import("@/views/Form/input/Index.vue");
@@ -24,6 +25,11 @@ const routes = [
         component: DaysInput,
         name: "daysInput",
         path: "days-input",
+      },
+      {
+        component: EditableContent,
+        name: "editableContent",
+        path: "editable-content",
       },
       {
         component: Email,
