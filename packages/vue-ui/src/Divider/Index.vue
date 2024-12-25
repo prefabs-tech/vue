@@ -1,10 +1,10 @@
 <template>
-  <div :data-aria-orientation="orientation" role="separator" class="divider" />
+  <div :data-aria-orientation="orientation" class="divider" role="separator" />
 </template>
 
 <script lang="ts">
 export default {
-  name: "Divider",
+  name: "DividerElement",
 };
 </script>
 

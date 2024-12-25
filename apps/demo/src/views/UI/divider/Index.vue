@@ -115,13 +115,13 @@
 <script setup lang="ts">
 import { Divider } from "@dzangolab/vue3-ui";
 
+import UiPage from "../UiPage.vue";
+
 const firstMessage =
   "Programming isn’t about what you know; it’s about what you can figure out.";
 const secondMessage = "Code is read much more often than it is written.";
 const thirdMessage =
   "The most dangerous phrase in the language is, ‘We’ve always done it this way.'";
-
-import UiPage from "../UiPage.vue";
 </script>
 
 <style lang="css">
