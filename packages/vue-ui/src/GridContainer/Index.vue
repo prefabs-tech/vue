@@ -15,8 +15,8 @@ export default {
 <style lang="css">
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 1rem;
+  grid-template-columns: 1fr;
 }
 
 @media screen and (min-width: 60rem) {
