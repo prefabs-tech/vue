@@ -150,6 +150,12 @@
       "withSlot": "With slot"
     }
   },
+  "gridContainer": {
+    "usage": {
+      "basic": "Basic"
+    },
+    "title": "Grid container"
+  },
   "loading": {
     "buttonLabel": {
       "clickMe": "Click me"
