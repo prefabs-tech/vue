@@ -102,10 +102,6 @@ const menu = computed(() => {
 
 <style lang="css">
 .sidebar-only .user-menu > ul {
-  --_border-color: var(--sidebar-border-color, #dee2e6a6);
-  --menu-margin-left: 0;
-
-  border-top: 1px solid var(--_border-color);
   flex-direction: column;
 }
 
@@ -113,13 +109,11 @@ const menu = computed(() => {
 .sidebar-only .user-menu-dropdown {
   --_font-size: var(--font-size-min, 0.8rem);
   --_font-weight: var(--font-weight, 450);
-  --_padding-h: var(--sidebar-padding-h, 1rem);
+  --dropdown-container-bg-color: #0870e5;
   --menu-highlight-color: #0870e5;
 
   font-size: var(--_font-size);
   font-weight: var(--_font-weight);
-  padding: 0;
-  padding-left: var(--_padding-h);
   width: 100%;
 }
 
@@ -138,22 +132,6 @@ const menu = computed(() => {
   width: 100%;
 }
 
-.sidebar-only .sidebar-menu-wrapper .user-menu .email {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: var(--user-menu-email-width, 13rem);
-}
-
-.sidebar-only .sidebar-menu-wrapper .user-menu > ul > li > a {
-  padding: 0;
-}
-
-.sidebar-only .user-menu-dropdown {
-  --_padding-h: var(--sidebar-padding-h, 1rem);
-
-  padding-right: var(--_padding-h);
-}
-
 .sidebar-only .user-menu-dropdown:hover {
   background-color: #0870e5;
 }
@@ -163,12 +141,20 @@ const menu = computed(() => {
 }
 
 .sidebar-only .user-menu-dropdown > .dropdown {
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 0.3s ease,
+    opacity 0.5s ease;
+}
+
+.sidebar-only .user-menu-dropdown.expanded > .dropdown {
   --dropdown-bg-color: #007aff;
   --dropdown-border: 1px solid #007aff;
 
-  bottom: 105%;
   box-shadow: 0 -2px 10px 2px #0870e5;
-  top: unset;
+  opacity: 1;
+  transform: translate3d(0, -152.5px, 0);
   width: 100%;
 }
 
