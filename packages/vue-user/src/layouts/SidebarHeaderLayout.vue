@@ -152,11 +152,20 @@ const menu = computed(() => {
   align-self: center;
 }
 
+.sidebar-header-layout .user-menu-dropdown > .dropdown {
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 0.3s ease,
+    opacity 0.5s ease;
+}
+
 .sidebar-header-layout .user-menu-dropdown.expanded > .dropdown {
   --dropdown-bg-color: #007aff;
   --dropdown-border: 1px solid #007aff;
 
   box-shadow: 0 -2px 10px 2px #0870e5;
+  opacity: 1;
   transform: translate3d(0, -152.5px, 0);
   width: 100%;
 }

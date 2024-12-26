@@ -156,7 +156,8 @@ nav.user-menu-dropdown > ul.dropdown > li {
   transition: all var(--transition-duration) ease 0s;
 }
 
-nav.user-menu-dropdown > .dropdown > li:hover {
+nav.user-menu-dropdown > .dropdown > li:hover,
+nav.user-menu > ul > li:has(.router-link-exact-active) {
   background-color: var(--dropdown-bg-color-hover, #e5e5e5);
 }
 
