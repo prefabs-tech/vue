@@ -7,6 +7,7 @@ export { default as FormActions } from "./FormActions.vue";
 export { default as Input } from "./Input.vue";
 export { default as NumberInput } from "./NumberInput.vue";
 export { default as Password } from "./Password.vue";
+export { default as RadioInput } from "./RadioInput.vue";
 export { default as Select } from "./Select.vue";
 export { default as SelectInput } from "./SelectInput.vue";
 export { default as Switch } from "./Switch.vue";

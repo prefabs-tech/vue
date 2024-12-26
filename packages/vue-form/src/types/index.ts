@@ -3,6 +3,11 @@ interface EmailErrorMessages {
   required?: string;
 }
 
+interface InputOption {
+  label: string;
+  value: string | number;
+}
+
 interface MonthPickerValue {
   month: number | string;
   year: number | string;
@@ -18,7 +23,7 @@ interface PasswordErrorMessages {
   weak?: string;
 }
 
-interface SelectOption {
+interface SelectOption extends InputOption {
   label: string;
   value: string | number;
 }
@@ -30,6 +35,7 @@ interface TextErrorMessages {
 
 export type {
   EmailErrorMessages,
+  InputOption,
   MonthPickerValue,
   NumberErrorMessages,
   PasswordErrorMessages,
