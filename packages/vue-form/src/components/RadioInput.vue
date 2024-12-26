@@ -1,24 +1,28 @@
 <template>
-  <fieldset class="field radio">
-    <legend v-if="label">{{ label }}</legend>
-    <div
-      v-for="option in options"
-      :key="option.value"
-      class="radio-button-wrapper"
+  <div :class="`field switch-toggle ${name}`">
+    <Field
+      v-slot="{ field, meta }"
+      :name="name"
+      :rules="fieldSchema"
+      @change="onChange"
     >
-      <input
-        :id="label"
-        :checked="modelValue === option.value"
+      <Radio
+        v-bind="field"
+        :id="`input-field-${name}`"
+        :class="{
+          invalid: meta.touched && !meta.valid,
+        }"
         :disabled="disabled"
+        :helper-text="helperText"
+        :label="label"
+        :model-value="modelValue"
         :name="name"
-        :value="option.value"
-        type="radio"
-        @change="onChange"
+        :options="options"
+        tabindex="0"
       />
-      <label v-if="option.label" :for="option.label">{{ option.label }}</label>
-    </div>
-    <span v-if="helperText" class="helper-text">{{ helperText }}</span>
-  </fieldset>
+      <ErrorMessage :name="name" />
+    </Field>
+  </div>
 </template>
 
 <script lang="ts">
@@ -28,10 +32,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { toFieldValidator } from "@vee-validate/zod";
+import { ErrorMessage, Field } from "vee-validate";
+import { z } from "zod";
+
+import Radio from "./Radio.vue";
+
 import type { InputOption } from "../types";
 import type { PropType } from "vue";
 
-defineProps({
+const props = defineProps({
   disabled: {
     default: false,
     type: Boolean,
@@ -58,31 +68,36 @@ defineProps({
     required: true,
     type: Array as PropType<InputOption[]>,
   },
+  schema: {
+    default: () => {
+      return {};
+    },
+    required: false,
+    type: Object as PropType<z.ZodType<string | number | boolean>>,
+  },
 });
 
 const emit = defineEmits(["update:modelValue"]);
 
-const onChange = (event: Event) => {
-  const value = (event.target as HTMLInputElement).value;
+const fieldSchema = Object.keys(props.schema).length
+  ? toFieldValidator(props.schema)
+  : null;
 
-  if ((event.target as HTMLInputElement).checked) {
-    emit("update:modelValue", value);
-  }
+const onChange = (event: Event) => {
+  const value = (event.target as HTMLInputElement).checked;
+
+  emit("update:modelValue", Boolean(value));
 };
 </script>
 
 <style lang="css">
-.radio-button-wrapper {
+.switch-toggle {
+  --_switch-field-direction: var(--switch-field-direction, row);
+  --_switch-field-gap: var(--form-field-gap, 0.75rem);
+
   display: flex;
-}
-
-.radio-button-wrapper input[type="radio"] {
-  cursor: pointer;
-  outline: none;
-  transform: scale(1.5);
-}
-
-.radio-button-wrapper label {
-  margin-left: 0.5rem;
+  flex-direction: var(--_switch-field-direction);
+  gap: var(--_switch-field-gap);
+  width: max-content;
 }
 </style>
