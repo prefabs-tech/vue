@@ -42,3 +42,10 @@
 .field textarea:disabled {
   resize: none;
 }
+
+input[type=checkbox] {
+  margin-right: .5em;
+  width: auto;
+  cursor: pointer;
+  accent-color: #007aff;
+}
