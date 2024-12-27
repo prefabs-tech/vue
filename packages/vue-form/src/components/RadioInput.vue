@@ -56,7 +56,7 @@ const props = defineProps({
     type: String,
   },
   modelValue: {
-    default: undefined,
+    default: "",
     type: [String, Number] as PropType<string | number | null | undefined>,
   },
   name: {
@@ -84,20 +84,10 @@ const fieldSchema = Object.keys(props.schema).length
   : null;
 
 const onChange = (event: Event) => {
-  const value = (event.target as HTMLInputElement).checked;
+  const value = (event.target as HTMLInputElement).value;
 
-  emit("update:modelValue", Boolean(value));
+  if ((event.target as HTMLInputElement).checked) {
+    emit("update:modelValue", value);
+  }
 };
 </script>
-
-<style lang="css">
-.switch-toggle {
-  --_switch-field-direction: var(--switch-field-direction, row);
-  --_switch-field-gap: var(--form-field-gap, 0.75rem);
-
-  display: flex;
-  flex-direction: var(--_switch-field-direction);
-  gap: var(--_switch-field-gap);
-  width: max-content;
-}
-</style>

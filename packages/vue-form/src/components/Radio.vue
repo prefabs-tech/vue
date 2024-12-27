@@ -46,7 +46,7 @@ defineProps({
     type: String,
   },
   modelValue: {
-    default: undefined,
+    default: "",
     type: [String, Number] as PropType<string | number | null | undefined>,
   },
   name: {
@@ -73,6 +73,7 @@ const onChange = (event: Event) => {
 
 <style lang="css">
 .radio-button-wrapper {
+  align-items: center;
   display: flex;
 }
 
