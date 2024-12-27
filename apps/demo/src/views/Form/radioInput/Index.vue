@@ -210,13 +210,19 @@
                 :schema="inputSchema"
                 label="Gender"
               /&gt;
+
+              &lt;ButtonElement label="Submit" /&gt;
             &lt;/Form&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Form, RadioInput } from "@dzangolab/vue3-form";
+          import { ButtonElement } from "@dzangolab/vue3-ui";
 
-          const inputSchema = z.string();
+          const inputSchema = z.string({
+            required_error: "Please choose one option",
+          });
+
           const genderOptions = [
             {
               label: "Male",
@@ -238,6 +244,8 @@
             :options="genderOptions"
             :schema="inputSchema"
           />
+
+          <ButtonElement :label="t('form.label.submit')" />
         </Form>
       </div>
     </section>
@@ -253,6 +261,7 @@ export default {
 <script setup lang="ts">
 import { Form, RadioInput } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { ButtonElement } from "@dzangolab/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
@@ -260,7 +269,9 @@ import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
 
-const inputSchema = z.string();
+const inputSchema = z.string({
+  required_error: t("form.errors.radio.required"),
+});
 
 const basicInputOptions = [
   {

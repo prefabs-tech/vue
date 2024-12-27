@@ -28,6 +28,9 @@
       "invalid": "Please provide a strong password",
       "min": "Password must be at least {length} character(s)"
     },
+    "radio": {
+      "required": "Please choose one option"
+    },
     "select": {
       "invalid": "Please select a valid option",
       "required": "The select field is required"
@@ -87,6 +90,7 @@
     "reportDate": "Report date",
     "size": "Size",
     "select": "Select",
+    "submit": "Submit",
     "switch": "Switch",
     "textarea": "Textarea",
     "textInput": "Text input",

@@ -24,6 +24,9 @@
       "invalid": "Please provide a number between 1 to 100[fr]",
       "required": "The field is required[fr]"
     },
+    "radio": {
+      "required": "Please choose one option"
+    },
     "password": {
       "invalid": "Please provide a strong password[fr]",
       "min": "Input must be at least {length} character(s)[fr]"
@@ -87,6 +90,7 @@
     "reportDate": "Report date[fr]",
     "size": "Size",
     "select": "Select[fr]",
+    "submit": "Submit",
     "switch": "Switch[fr]",
     "textarea": "Textarea[fr]",
     "textInput": "Text input[fr]",
