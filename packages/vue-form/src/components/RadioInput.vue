@@ -12,6 +12,7 @@
         :class="{
           invalid: meta.touched && !meta.valid,
         }"
+        :direction="direction"
         :disabled="disabled"
         :helper-text="helperText"
         :label="label"
@@ -42,6 +43,11 @@ import type { InputOption } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  direction: {
+    default: undefined,
+    type: String,
+    validator: (value: string) => ["vertical", "horizontal"].includes(value),
+  },
   disabled: {
     default: false,
     type: Boolean,

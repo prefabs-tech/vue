@@ -66,6 +66,10 @@ const menu = [
     routeName: "numberInput",
   },
   {
+    name: "Radio input",
+    routeName: "radioInput",
+  },
+  {
     name: "Password",
     routeName: "passwordInput",
   },

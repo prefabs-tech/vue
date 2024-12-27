@@ -1,5 +1,5 @@
 <template>
-  <fieldset class="field radio">
+  <fieldset :class="`field radio direction-${direction}`">
     <legend v-if="label">{{ label }}</legend>
     <div
       v-for="option in options"
@@ -7,7 +7,7 @@
       class="radio-button-wrapper"
     >
       <input
-        :id="label"
+        :id="`${name}-${option.value}`"
         :checked="modelValue === option.value"
         :disabled="disabled"
         :name="name"
@@ -15,7 +15,9 @@
         type="radio"
         @change="onChange"
       />
-      <label v-if="option.label" :for="option.label">{{ option.label }}</label>
+      <label v-if="option.label" :for="`${name}-${option.value}`">
+        {{ option.label }}
+      </label>
     </div>
     <span v-if="helperText" class="helper-text">{{ helperText }}</span>
   </fieldset>
@@ -23,7 +25,7 @@
 
 <script lang="ts">
 export default {
-  name: "Radio",
+  name: "RadioElement",
 };
 </script>
 
@@ -32,6 +34,11 @@ import type { InputOption } from "../types";
 import type { PropType } from "vue";
 
 defineProps({
+  direction: {
+    default: "vertical",
+    type: String,
+    validator: (value: string) => ["vertical", "horizontal"].includes(value),
+  },
   disabled: {
     default: false,
     type: Boolean,
@@ -72,6 +79,12 @@ const onChange = (event: Event) => {
 </script>
 
 <style lang="css">
+.field.radio.direction-horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
 .radio-button-wrapper {
   align-items: center;
   display: flex;
@@ -81,6 +94,10 @@ const onChange = (event: Event) => {
   cursor: pointer;
   outline: none;
   transform: scale(1.5);
+}
+
+.radio-button-wrapper input[type="radio"]:disabled {
+  cursor: default;
 }
 
 .radio-button-wrapper label {

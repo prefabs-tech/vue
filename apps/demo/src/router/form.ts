@@ -6,6 +6,7 @@ const Form = () => import("@/views/Form/Index.vue");
 const Input = () => import("@/views/Form/input/Index.vue");
 const NumberInput = () => import("@/views/Form/numberInput/Index.vue");
 const Password = () => import("@/views/Form/passwordInput/Index.vue");
+const RadioInput = () => import("@/views/Form/radioInput/Index.vue");
 const SelectInput = () => import("@/views/Form/selectInput/Index.vue");
 const SwitchInput = () => import("@/views/Form/switchInput/Index.vue");
 const TextareaInput = () => import("@/views/Form/textareaInput/Index.vue");
@@ -55,6 +56,11 @@ const routes = [
         component: Password,
         name: "passwordInput",
         path: "password-input",
+      },
+      {
+        component: RadioInput,
+        name: "radioInput",
+        path: "radio-input",
       },
       {
         component: SelectInput,
