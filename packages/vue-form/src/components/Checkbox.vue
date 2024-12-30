@@ -5,6 +5,7 @@
       :checked="modelValue"
       :disabled="disabled"
       :name="name"
+      :value="value"
       type="checkbox"
       @change="onChange"
     />
@@ -40,6 +41,11 @@ defineProps({
     required: false,
     type: String as PropType<string>,
   },
+  value: {
+    default: undefined,
+    required: false,
+    type: [String, Number, Boolean] as PropType<string | number | boolean>,
+  },
 });
 
 const emit = defineEmits(["update:modelValue"]);
@@ -55,6 +61,10 @@ const onChange = (event: Event) => {
 .checkbox-wrapper > input[type="checkbox"] {
   transform: scale(1.5);
   accent-color: var(--field-background-color, #007aff);
+}
+
+.checkbox-wrapper > input[type="checkbox"]:disabled {
+  cursor: default;
 }
 
 .checkbox-wrapper > input[type="checkbox"]:focus,
