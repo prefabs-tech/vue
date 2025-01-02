@@ -13,7 +13,7 @@ defineProps({
   orientation: {
     default: "horizontal",
     type: String,
-    validator: (value: string) => ["horizontal, vertical"].includes(value),
+    validator: (value: string) => ["horizontal", "vertical"].includes(value),
   },
 });
 </script>
