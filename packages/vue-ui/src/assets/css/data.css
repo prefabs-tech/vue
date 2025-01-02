@@ -1,0 +1,19 @@
+.data {
+  display: grid;
+  grid-template-areas:
+    "label"
+    "value";
+  gap: 0.25rem;
+}
+
+.data > .data-label {
+  grid-area: label;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.data > .data-value {
+  grid-area: value;
+  font-weight: 500;
+  line-height: 1.5;
+}
