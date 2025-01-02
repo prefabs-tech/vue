@@ -42,76 +42,106 @@ const menu = [
     routeName: "",
   },
   {
-    name: "Accordion",
-    routeName: "accordion",
+    name: "Buttons",
+    children: [
+      {
+        name: "Button",
+        routeName: "button",
+      },
+    ],
   },
   {
-    name: "Badge",
-    routeName: "badge",
+    name: "Menu",
+    children: [
+      {
+        name: "Dropdown",
+        routeName: "dropdown",
+      },
+    ],
   },
   {
-    name: "Button",
-    routeName: "button",
+    name: "Messages",
+    children: [
+      {
+        name: "Message",
+        routeName: "message",
+      },
+    ],
   },
   {
-    name: "Card",
-    routeName: "card",
+    name: "Overlay",
+    children: [
+      {
+        name: "Confirmation modal",
+        routeName: "confirmationModal",
+      },
+      {
+        name: "Modal",
+        routeName: "modal",
+      },
+      {
+        name: "Popup",
+        routeName: "popup",
+      },
+      {
+        name: "Tooltip",
+        routeName: "tooltip",
+      },
+    ],
   },
   {
-    name: "Confirmation modal",
-    routeName: "confirmationModal",
+    name: "Panel",
+    children: [
+      {
+        name: "Accordion",
+        routeName: "accordion",
+      },
+      {
+        name: "Card",
+        routeName: "card",
+      },
+      {
+        name: "Stepper",
+        routeName: "stepper",
+      },
+      {
+        name: "Tabbed panel",
+        routeName: "tabbedPanel",
+      },
+    ],
   },
   {
-    name: "Divider",
-    routeName: "divider",
-  },
-  {
-    name: "Dropdown",
-    routeName: "dropdown",
-  },
-  {
-    name: "Grid container",
-    routeName: "gridContainer",
-  },
-  {
-    name: "Loading page",
-    routeName: "loadingPage",
-  },
-  {
-    name: "Message",
-    routeName: "message",
-  },
-  {
-    name: "Modal",
-    routeName: "modal",
-  },
-  {
-    name: "Popup",
-    routeName: "popup",
-  },
-  {
-    name: "Sortable list",
-    routeName: "sortableList",
-  },
-  {
-    name: "Stepper",
-    routeName: "stepper",
-  },
-  {
-    name: "Tabbed panel",
-    routeName: "tabbedPanel",
-  },
-  {
-    name: "Tooltip",
-    routeName: "tooltip",
-  },
-  {
-    name: "Typography",
-    routeName: "typography",
-  },
-  {
-    name: "Youtube facade",
-    routeName: "youtubeFacade",
+    name: "Misc",
+    children: [
+      {
+        name: "Badge",
+        routeName: "badge",
+      },
+      {
+        name: "Divider",
+        routeName: "divider",
+      },
+      {
+        name: "Grid container",
+        routeName: "gridContainer",
+      },
+      {
+        name: "Loading page",
+        routeName: "loadingPage",
+      },
+      {
+        name: "Sortable list",
+        routeName: "sortableList",
+      },
+      {
+        name: "Typography",
+        routeName: "typography",
+      },
+      {
+        name: "Youtube facade",
+        routeName: "youtubeFacade",
+      },
+    ],
   },
 ];
 </script>
