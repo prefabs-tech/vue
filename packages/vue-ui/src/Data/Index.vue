@@ -1,6 +1,9 @@
 <template>
-  <div class="data">
+  <div :class="`data direction-${direction}`">
     <span class="data-label">{{ label }}</span>
+    <span v-if="slots.separator" class="separator">
+      <slot name="separator"></slot>
+    </span>
     <span class="data-value">{{ displayValue }}</span>
   </div>
 </template>
@@ -12,7 +15,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, useSlots } from "vue";
 
 import type { PropType } from "vue";
 
@@ -20,6 +23,11 @@ const props = defineProps({
   dataKey: {
     default: undefined,
     type: String,
+  },
+  direction: {
+    default: "vertical",
+    type: String,
+    validator: (value: string) => ["horizontal", "vertical"].includes(value),
   },
   label: {
     type: [String, Number, Object] as PropType<string | number>,
@@ -30,6 +38,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+const slots = useSlots();
 
 const displayValue = computed(() => {
   if (

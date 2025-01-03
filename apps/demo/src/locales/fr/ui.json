@@ -137,6 +137,7 @@
     "usage": {
       "basic": "Basic",
       "displayObject": "Display value from object",
+      "separatorSlot": "With separator slot",
       "structuredData": "Rendering structured data"
     }
   },
