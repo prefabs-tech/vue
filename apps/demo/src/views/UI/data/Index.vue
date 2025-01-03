@@ -182,11 +182,6 @@ import { Data, GridContainer } from "@dzangolab/vue3-ui";
 
 import UiPage from "../UiPage.vue";
 
-const userData = {
-  email: "john.doe@example.com",
-  name: "John Doe",
-};
-
 const structuredData = [
   {
     label: "Name",
@@ -213,4 +208,9 @@ const structuredData = [
     value: "Active",
   },
 ];
+
+const userData = {
+  email: "john.doe@example.com",
+  name: "John Doe",
+};
 </script>
