@@ -4,7 +4,11 @@
     <span v-if="slots.separator" class="separator">
       <slot name="separator"></slot>
     </span>
-    <span class="data-value">{{ displayValue }}</span>
+    <span class="data-value">
+      <slot name="value">
+        {{ displayValue }}
+      </slot>
+    </span>
   </div>
 </template>
 
