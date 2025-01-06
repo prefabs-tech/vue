@@ -1,6 +1,10 @@
 <template>
   <Form @submit="onSubmit">
-    <Email label="new Email" name="email" />
+    <Email
+      :error-messages="errorMessages"
+      :label="t('profile.accountInfo.newEmail')"
+      name="email"
+    />
 
     <FormActions :loading="loading" />
   </Form>
@@ -32,6 +36,11 @@ const messages = useTranslations();
 const { setUser, user } = useUserStore();
 const { t } = useI18n({ messages });
 
+const errorMessages = {
+  invalid: t("profile.accountInfo.messages.invalid"),
+  required: t("profile.accountInfo.messages.email"),
+};
+
 const loading = ref<boolean>(false);
 
 const onSubmit = async (data: UpdateEmailFormData) => {
@@ -46,7 +55,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
 
         if (config.user?.features?.signUp?.emailVerification && isSameEmail) {
           emitter.emit("notify", {
-            text: "A verification link has been sent to your email.",
+            text: t("profile.accountInfo.messages.emailSent"),
             type: "success",
           });
         } else {
