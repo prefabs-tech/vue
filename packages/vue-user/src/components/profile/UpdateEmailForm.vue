@@ -2,7 +2,7 @@
   <Form @submit="onSubmit">
     <Email
       :error-messages="errorMessages"
-      :label="t('profile.accountInfo.newEmail')"
+      :label="t('user.profile.accountInfo.newEmail')"
       name="email"
     />
 
@@ -37,8 +37,8 @@ const { setUser, user } = useUserStore();
 const { t } = useI18n({ messages });
 
 const errorMessages = {
-  invalid: t("profile.accountInfo.messages.invalid"),
-  required: t("profile.accountInfo.messages.email"),
+  invalid: t("user.profile.accountInfo.messages.invalid"),
+  required: t("user.profile.accountInfo.messages.email"),
 };
 
 const loading = ref<boolean>(false);
@@ -55,13 +55,13 @@ const onSubmit = async (data: UpdateEmailFormData) => {
 
         if (config.user?.features?.signUp?.emailVerification && isSameEmail) {
           emitter.emit("notify", {
-            text: t("profile.accountInfo.messages.emailSent"),
+            text: t("user.profile.accountInfo.messages.emailSent"),
             type: "success",
           });
         } else {
           setUser(userInfo.data);
           emitter.emit("notify", {
-            text: t("profile.accountInfo.messages.success"),
+            text: t("user.profile.accountInfo.messages.success"),
             type: "success",
           });
         }
@@ -70,35 +70,35 @@ const onSubmit = async (data: UpdateEmailFormData) => {
       }
       case "EMAIL_ALREADY_EXISTS_ERROR": {
         emitter.emit("notify", {
-          text: t("profile.accountInfo.messages.alreadyExist"),
+          text: t("user.profile.accountInfo.messages.alreadyExist"),
           type: "danger",
         });
         break;
       }
       case "EMAIL_SAME_AS_CURRENT_ERROR": {
         emitter.emit("notify", {
-          text: t("profile.accountInfo.messages.duplicate"),
+          text: t("user.profile.accountInfo.messages.duplicate"),
           type: "danger",
         });
         break;
       }
       case "EMAIL_INVALID_ERROR": {
         emitter.emit("notify", {
-          text: t("profile.accountInfo.messages.invalid"),
+          text: t("user.profile.accountInfo.messages.invalid"),
           type: "danger",
         });
         break;
       }
       case "EMAIL_FEATURE_DISABLED_ERROR": {
         emitter.emit("notify", {
-          text: t("profile.accountInfo.messages.disabled"),
+          text: t("user.profile.accountInfo.messages.disabled"),
           type: "danger",
         });
         break;
       }
       default: {
         emitter.emit("notify", {
-          text: t("profile.accountInfo.messages.error"),
+          text: t("user.profile.accountInfo.messages.error"),
           type: "danger",
         });
         break;
@@ -108,7 +108,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
     loading.value = false;
   } catch (error) {
     emitter.emit("notify", {
-      text: t("profile.accountInfo.messages.error"),
+      text: t("user.profile.accountInfo.messages.error"),
       type: "danger",
     });
 
