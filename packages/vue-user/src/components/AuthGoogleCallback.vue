@@ -19,6 +19,7 @@ import { useTranslations } from "../index";
 import useUserStore from "../store";
 import { verifySessionRoles } from "../supertokens";
 
+import type { UserType } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
 
 const config = useConfig() as AppConfig;
@@ -48,7 +49,7 @@ onMounted(async () => {
       (supportedRoles && (await verifySessionRoles(supportedRoles))) ||
       !supportedRoles?.length
     ) {
-      setUser(response.user);
+      setUser(response.user as UserType);
 
       router.push({ name: "home" });
     }

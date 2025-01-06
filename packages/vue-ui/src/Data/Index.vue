@@ -1,14 +1,14 @@
 <template>
   <div :class="`data direction-${direction}`">
-    <span class="data-label">{{ label }}</span>
-    <span v-if="slots.separator" class="separator">
+    <div class="data-label">{{ label }}</div>
+    <div v-if="slots.separator" class="separator">
       <slot name="separator"></slot>
-    </span>
-    <span class="data-value">
+    </div>
+    <div class="data-value">
       <slot name="value">
         {{ displayValue }}
       </slot>
-    </span>
+    </div>
   </div>
 </template>
 
@@ -38,8 +38,8 @@ const props = defineProps({
     required: true,
   },
   value: {
+    default: "",
     type: [Object, String, Number] as PropType<string | number | object>,
-    required: true,
   },
 });
 
