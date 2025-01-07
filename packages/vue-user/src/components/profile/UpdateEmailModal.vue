@@ -3,6 +3,7 @@
     class="update-email-modal"
     :show="show"
     :title="t('user.profile.accountInfo.title')"
+    @on:close="$emit('on:close')"
   >
     <UpdateEmailForm />
   </Modal>
@@ -10,7 +11,7 @@
 
 <script lang="ts">
 export default {
-  name: "DataElement",
+  name: "UpdateEmailModal",
 };
 </script>
 
@@ -30,4 +31,6 @@ defineProps({
     type: Boolean,
   },
 });
+
+defineEmits(["on:close"]);
 </script>
