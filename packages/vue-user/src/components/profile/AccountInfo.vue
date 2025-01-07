@@ -40,6 +40,7 @@ export default {
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Data } from "@dzangolab/vue3-ui";
+import { storeToRefs } from "pinia";
 import { ref } from "vue";
 
 import UpdateEmailModal from "./UpdateEmailModal.vue";
@@ -49,9 +50,12 @@ import useUserStore from "../../store";
 const messages = useTranslations();
 const { t } = useI18n({ messages });
 const { user: userConfig } = useConfig();
-const { user } = useUserStore();
+const userStore = useUserStore();
 
-const canUpdateEmail = userConfig?.features?.updateEmail && !user?.thirdParty;
+const { user } = storeToRefs(userStore);
+
+const canUpdateEmail =
+  userConfig?.features?.updateEmail && !user.value?.thirdParty;
 
 const showModal = ref<boolean>(false);
 </script>
