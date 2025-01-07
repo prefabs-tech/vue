@@ -23,6 +23,7 @@ export default {
 import { useConfig } from "@dzangolab/vue3-config";
 import { Email, Form, FormActions } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { storeToRefs } from "pinia";
 import { ref } from "vue";
 
 import { getMe } from "../../api/user";
@@ -35,9 +36,13 @@ type UpdateEmailFormData = {
 };
 
 const config = useConfig();
+
 const messages = useTranslations();
-const { setUser, user } = useUserStore();
 const { t } = useI18n({ messages });
+
+const userStore = useUserStore();
+const setUser = userStore.setUser;
+const { user } = storeToRefs(userStore);
 
 const errorMessages = {
   invalid: t("user.profile.accountInfo.messages.invalid"),
@@ -55,7 +60,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
     switch (response?.status) {
       case "OK": {
         const userInfo = await getMe(config.apiBaseUrl);
-        const isSameEmail = userInfo.data.email === user?.email;
+        const isSameEmail = userInfo.data.email === user.value?.email;
 
         if (config.user?.features?.signUp?.emailVerification && isSameEmail) {
           emitter.emit("notify", {
@@ -75,35 +80,35 @@ const onSubmit = async (data: UpdateEmailFormData) => {
       case "EMAIL_ALREADY_EXISTS_ERROR": {
         emitter.emit("notify", {
           text: t("user.profile.accountInfo.messages.alreadyExist"),
-          type: "danger",
+          type: "error",
         });
         break;
       }
       case "EMAIL_SAME_AS_CURRENT_ERROR": {
         emitter.emit("notify", {
           text: t("user.profile.accountInfo.messages.duplicate"),
-          type: "danger",
+          type: "error",
         });
         break;
       }
       case "EMAIL_INVALID_ERROR": {
         emitter.emit("notify", {
           text: t("user.profile.accountInfo.messages.invalid"),
-          type: "danger",
+          type: "error",
         });
         break;
       }
       case "EMAIL_FEATURE_DISABLED_ERROR": {
         emitter.emit("notify", {
           text: t("user.profile.accountInfo.messages.disabled"),
-          type: "danger",
+          type: "error",
         });
         break;
       }
       default: {
         emitter.emit("notify", {
           text: t("user.profile.accountInfo.messages.error"),
-          type: "danger",
+          type: "error",
         });
         break;
       }
@@ -114,7 +119,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
   } catch (error) {
     emitter.emit("notify", {
       text: t("user.profile.accountInfo.messages.error"),
-      type: "danger",
+      type: "error",
     });
 
     loading.value = false;

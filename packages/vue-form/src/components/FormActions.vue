@@ -107,7 +107,7 @@ button {
 }
 
 .form-actions .submit-button {
-  background: var(--dz-primary-color);
+  background: var(--dz-primary-color, #007aff);
   border: none;
   color: #fff;
 }
