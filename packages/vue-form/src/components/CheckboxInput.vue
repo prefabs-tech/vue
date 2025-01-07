@@ -55,6 +55,10 @@ import type { InputOption } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  checked: {
+    default: false,
+    type: Boolean,
+  },
   direction: {
     default: undefined,
     type: String,
@@ -64,14 +68,14 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  inputLabel: {
+    default: undefined,
+    type: String as PropType<string>,
+  },
   label: {
     default: "",
     required: false,
     type: String as PropType<string>,
-  },
-  checked: {
-    default: false,
-    type: Boolean,
   },
   modelValue: {
     default: () => [] as string[] | number[],
@@ -85,10 +89,6 @@ const props = defineProps({
   options: {
     default: () => [] as string[] | number[],
     type: Array as PropType<InputOption[]>,
-  },
-  inputLabel: {
-    default: undefined,
-    type: String as PropType<string>,
   },
   schema: {
     default: () => {
