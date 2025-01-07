@@ -1,12 +1,15 @@
 <template>
-  <Form @submit="onSubmit">
+  <Form ref="dzangolabVueUpdateEmail" @submit="onSubmit">
     <Email
       :error-messages="errorMessages"
       :label="t('user.profile.accountInfo.newEmail')"
       name="email"
     />
 
-    <FormActions :loading="loading" />
+    <FormActions
+      :loading="loading"
+      @cancel="dzangolabVueUpdateEmail.resetForm()"
+    />
   </Form>
 </template>
 
@@ -41,6 +44,7 @@ const errorMessages = {
   required: t("user.profile.accountInfo.messages.email"),
 };
 
+const dzangolabVueUpdateEmail = ref();
 const loading = ref<boolean>(false);
 
 const onSubmit = async (data: UpdateEmailFormData) => {
@@ -105,6 +109,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
       }
     }
 
+    dzangolabVueUpdateEmail.value?.resetForm();
     loading.value = false;
   } catch (error) {
     emitter.emit("notify", {
