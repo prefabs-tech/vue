@@ -69,8 +69,8 @@ const onSubmit = () => emit("submit");
 <style lang="css">
 .form-actions {
   display: flex;
-  gap: var(--form-field-gap);
-  margin-bottom: 2rem;
+  gap: var(--form-field-gap, 0.5em);
+  margin-bottom: var(--form-margin-bottom, 2rem);
   width: 100%;
 }
 
