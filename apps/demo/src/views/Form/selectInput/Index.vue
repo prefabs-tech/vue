@@ -12,13 +12,13 @@
       <div class="section-content">
         <!-- eslint-disable -->
          <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;SelectInput
               v-model="input"
               :options="options"
               placeholder="Select a value"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { SelectInput } from "@dzangolab/vue3-form";
@@ -35,13 +35,11 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Form>
-          <SelectInput
-            v-model="formData.noLabelInput"
-            :options="options"
-            :placeholder="$t('form.placeholder.select')"
-          />
-        </Form>
+        <SelectInput
+          v-model="formData.noLabelInput"
+          :options="options"
+          :placeholder="$t('form.placeholder.select')"
+        />
       </div>
     </section>
 
@@ -51,14 +49,14 @@
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;SelectInput 
               v-model="input"
               :options="options"
               label="Select"
               placeholder="Select a value"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { SelectInput } from "@dzangolab/vue3-form";
@@ -75,14 +73,12 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Form>
-          <SelectInput
-            v-model="formData.input"
-            :label="$t('form.label.select')"
-            :options="options"
-            :placeholder="$t('form.placeholder.select')"
-          />
-        </Form>
+        <SelectInput
+          v-model="formData.input"
+          :label="$t('form.label.select')"
+          :options="options"
+          :placeholder="$t('form.placeholder.select')"
+        />
       </div>
     </section>
 
@@ -130,19 +126,60 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.disableSort") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :has-sorted-options="false"
+              :options="options"
+              label="Select"
+              placeholder="Select a value"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { value: "FR", label: "French" },
+            { value: "DE", label: "German" },
+            { value: "BE", label: "Dutch" },
+            { value: "NP", label: "Nepali" },
+            { value: "HI", label: "Hindi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <SelectInput
+          v-model="formData.input"
+          :has-sorted-options="false"
+          :label="$t('form.label.select')"
+          :options="options"
+          :placeholder="$t('form.placeholder.select')"
+        />
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;SelectInput 
               v-model="input"
               :options="options"
               :label="t('form.label.select')"
               :placeholder="t('form.placeholder.select')"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { SelectInput } from "@dzangolab/vue3-form";
@@ -162,14 +199,12 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Form>
-          <SelectInput
-            v-model="formData.input"
-            :label="$t('form.label.select')"
-            :options="options"
-            :placeholder="$t('form.placeholder.select')"
-          />
-        </Form>
+        <SelectInput
+          v-model="formData.input"
+          :label="$t('form.label.select')"
+          :options="options"
+          :placeholder="$t('form.placeholder.select')"
+        />
       </div>
     </section>
 
@@ -179,7 +214,7 @@
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;SelectInput 
               v-model="input"
               :options="options"
@@ -187,7 +222,7 @@
               multiple
               placeholder="Select multiple value"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { SelectInput } from "@dzangolab/vue3-form";
@@ -204,15 +239,13 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Form>
-          <SelectInput
-            v-model="formData.multiSelect"
-            :label="$t('form.label.select')"
-            :options="options"
-            :placeholder="$t('form.placeholder.multiSelect')"
-            multiple
-          />
-        </Form>
+        <SelectInput
+          v-model="formData.multiSelect"
+          :label="$t('form.label.select')"
+          :options="options"
+          :placeholder="$t('form.placeholder.multiSelect')"
+          multiple
+        />
       </div>
     </section>
 
@@ -222,7 +255,7 @@
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;SelectInput 
               v-model="disabled"
               :options="options"
@@ -230,7 +263,7 @@
               label="Disabled"
               multiple
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { SelectInput } from "@dzangolab/vue3-form";
@@ -249,15 +282,13 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Form>
-          <SelectInput
-            v-model="formData.disabledMultiSelect"
-            :label="$t('form.label.disabled')"
-            :options="options"
-            disabled
-            multiple
-          />
-        </Form>
+        <SelectInput
+          v-model="formData.disabledMultiSelect"
+          :label="$t('form.label.disabled')"
+          :options="options"
+          disabled
+          multiple
+        />
       </div>
     </section>
 

@@ -72,6 +72,7 @@
     "disabled": "Disabled",
     "disableWeekDays": "Disable week days",
     "disabledMultiSelect": "Disabled multiselect",
+    "disableSort": "Disable alphabetical sorting",
     "editableContent": "Editable content",
     "email": "Email",
     "expiresAfter": "Expires after",

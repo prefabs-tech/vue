@@ -82,7 +82,7 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
       <input
         type="checkbox"
       />
-       FR
+       BE
     </li>
     <li
       class="multiselect-option"
@@ -98,7 +98,7 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
       <input
         type="checkbox"
       />
-       BE
+       FE
     </li>
     <li
       class="multiselect-option"
@@ -106,7 +106,7 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
       <input
         type="checkbox"
       />
-       FE
+       FR
     </li>
     <li
       class="multiselect-option"
@@ -152,10 +152,10 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     <!--v-if-->
     
     <li
-      class="multiselect-option selected"
+      class="multiselect-option"
     >
       <!--v-if-->
-       FR
+       BE
     </li>
     <li
       class="multiselect-option"
@@ -167,13 +167,13 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
       class="multiselect-option"
     >
       <!--v-if-->
-       BE
+       FE
     </li>
     <li
-      class="multiselect-option"
+      class="multiselect-option selected"
     >
       <!--v-if-->
-       FE
+       FR
     </li>
     <li
       class="multiselect-option"

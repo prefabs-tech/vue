@@ -38,7 +38,7 @@
         Select all
       </li>
       <li
-        v-for="option in options"
+        v-for="option in sortedOptions"
         :key="option.label"
         class="multiselect-option"
         :class="{ selected: isSelected(option) && !multiple }"
@@ -59,7 +59,7 @@ export default {
 
 <script setup lang="ts">
 import { onClickOutside } from "@vueuse/core";
-import { onMounted, ref, toRefs, watch } from "vue";
+import { computed, onMounted, ref, toRefs, watch } from "vue";
 
 import type { SelectOption } from "../types";
 import type { PropType, Ref } from "vue";
@@ -67,6 +67,10 @@ import type { PropType, Ref } from "vue";
 const props = defineProps({
   disabled: {
     default: false,
+    type: Boolean,
+  },
+  hasSortedOptions: {
+    default: true,
     type: Boolean,
   },
   label: {
@@ -112,6 +116,16 @@ watch(
     prepareComponent();
   },
 );
+
+const sortedOptions = computed(() => {
+  if (props.hasSortedOptions) {
+    return props.options
+      ?.slice()
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }
+
+  return props.options;
+});
 
 const getSelectedOption = (value: number | string) =>
   options.value?.find((option) => option.value === value);
@@ -265,10 +279,13 @@ onMounted(() => {
 }
 
 .multiselect-option input {
+  box-shadow: none;
+  height: fit-content;
   width: auto;
 }
 
-.multiselect-option.selected {
+.multiselect-option.selected,
+.multiselect-option:hover {
   --_multiselect-selected-bg-color: var(
     --multiselect-selected-bg-color,
     #007bff

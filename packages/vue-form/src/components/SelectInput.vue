@@ -16,8 +16,9 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
-        :model-value="modelValue"
         :disabled="disabled"
+        :has-sorted-options="hasSortedOptions"
+        :model-value="modelValue"
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
@@ -48,6 +49,10 @@ import type { PropType } from "vue";
 const props = defineProps({
   disabled: {
     default: false,
+    type: Boolean,
+  },
+  hasSortedOptions: {
+    default: true,
     type: Boolean,
   },
   label: {
