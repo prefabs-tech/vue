@@ -1,14 +1,14 @@
 <template>
   <div :class="`data direction-${direction}`">
-    <div class="data-label">{{ label }}</div>
-    <div v-if="slots.separator" class="separator">
+    <span class="data-label">{{ label }}</span>
+    <span v-if="slots.separator" class="separator">
       <slot name="separator"></slot>
-    </div>
-    <div class="data-value">
+    </span>
+    <span class="data-value">
       <slot name="value">
         {{ displayValue }}
       </slot>
-    </div>
+    </span>
   </div>
 </template>
 
