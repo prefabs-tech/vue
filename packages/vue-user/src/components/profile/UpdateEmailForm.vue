@@ -84,6 +84,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
         }
 
         emit("email:updateProcessed");
+        dzangolabVueUpdateEmail.value?.resetForm();
         break;
       }
       case "EMAIL_ALREADY_EXISTS_ERROR": {
@@ -123,7 +124,6 @@ const onSubmit = async (data: UpdateEmailFormData) => {
       }
     }
 
-    dzangolabVueUpdateEmail.value?.resetForm();
     loading.value = false;
   } catch (error) {
     emitter.emit("notify", {
