@@ -1,5 +1,7 @@
 <template>
-  <Page :title="t('user.profile.title')" />
+  <Page :title="t('user.profile.title')" class="profile">
+    <AccountInfo />
+  </Page>
 </template>
 
 <script lang="ts">
@@ -12,6 +14,7 @@ export default {
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Page } from "@dzangolab/vue3-ui";
 
+import AccountInfo from "../components/profile/AccountInfo.vue";
 import { useTranslations } from "../index";
 
 const messages = useTranslations();
