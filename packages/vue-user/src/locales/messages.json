@@ -147,6 +147,9 @@
       },
       "profile": {
         "accountInfo": {
+          "actions": {
+            "update": "Update"
+          },
           "label": "Email",
           "newEmail": "New Email",
           "messages": {
@@ -159,7 +162,8 @@
             "invalid": "Invalid email",
             "success": "Email updated successfully.",
             "verify": "Verify email to complete the email update."
-          }
+          },
+          "title": "Update email"
         },
         "title": "Profile"
       },
@@ -351,6 +355,9 @@
       },
       "profile": {
         "accountInfo": {
+          "actions": {
+            "update": "Update"
+          },
           "label": "Email",
           "newEmail": "New Email",
           "messages": {
@@ -363,7 +370,8 @@
             "invalid": "Invalid email",
             "success": "Email updated successfully.",
             "verify": "Verify email to complete the email update."
-          }
+          },
+          "title": "Update email"
         },
         "title": "Profil"
       },

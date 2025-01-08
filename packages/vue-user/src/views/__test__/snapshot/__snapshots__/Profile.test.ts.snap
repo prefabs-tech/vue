@@ -2,7 +2,7 @@
 
 exports[`Profile > matches snapshot in en 1`] = `
 <div
-  class="page"
+  class="page profile"
 >
   <h1>
     Profile 
@@ -16,6 +16,7 @@ exports[`Profile > matches snapshot in en 1`] = `
   </div>
   <main>
     
+    <account-info-stub />
     
   </main>
 </div>
@@ -23,7 +24,7 @@ exports[`Profile > matches snapshot in en 1`] = `
 
 exports[`Profile > matches snapshot in fr 1`] = `
 <div
-  class="page"
+  class="page profile"
 >
   <h1>
     Profil 
@@ -37,6 +38,7 @@ exports[`Profile > matches snapshot in fr 1`] = `
   </div>
   <main>
     
+    <account-info-stub />
     
   </main>
 </div>

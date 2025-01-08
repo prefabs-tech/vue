@@ -16,6 +16,7 @@ interface DzangolabVueUserConfig {
         showCheckbox?: boolean;
       };
     };
+    updateEmail?: boolean;
   };
   password?: {
     minLength: number;

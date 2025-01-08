@@ -16,13 +16,13 @@ import type {
   PasswordResetPayload,
   PasswordResetRequestPayload,
   UpdatePasswordPayload,
-  User,
+  UserType,
 } from "./types";
 
 const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
-  const user = ref<User | undefined>(undefined);
+  const user = ref<UserType | undefined>(undefined);
 
   const changePassword = async (
     payload: UpdatePasswordPayload,
@@ -33,7 +33,7 @@ const useUserStore = defineStore("user", () => {
     return response;
   };
 
-  const getUser = (): User => {
+  const getUser = (): UserType => {
     if (user.value) {
       return user.value;
     }
@@ -81,7 +81,7 @@ const useUserStore = defineStore("user", () => {
     return doResetPassword(payload);
   };
 
-  const setUser = (userData: User | undefined) => {
+  const setUser = (userData: UserType | undefined) => {
     user.value = userData;
 
     localStorage.setItem(USER_KEY, JSON.stringify(userData));

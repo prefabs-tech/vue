@@ -1,11 +1,11 @@
 import { emailPasswordSignUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import type { LoginCredentials, User } from "../types";
+import type { LoginCredentials, UserType } from "../types";
 
 const signup = async (
   credentials: LoginCredentials,
-): Promise<User | undefined> => {
-  let user: User | undefined;
+): Promise<UserType | undefined> => {
+  let user: UserType | undefined;
   let response;
 
   const data = {
@@ -29,7 +29,7 @@ const signup = async (
   }
 
   if (response.status === "OK") {
-    user = response.user;
+    user = response.user as UserType;
 
     return user;
   } else if (response.status === "FIELD_ERROR") {

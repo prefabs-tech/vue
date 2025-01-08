@@ -1,3 +1,4 @@
+export { default as AccountInfo } from "./profile/AccountInfo.vue";
 export { default as ChangePasswordForm } from "./ChangePasswordForm.vue";
 export { default as DropdownUserMenu } from "./DropdownUserMenu.vue";
 export { default as InvitationForm } from "./invitation/InvitationForm.vue";
@@ -9,4 +10,5 @@ export { default as SignInUpMenu } from "./SignInUpMenu.vue";
 export { default as SignupForm } from "./SignupForm.vue";
 export { default as TermsAndConditions } from "./TermsAndConditions.vue";
 export { default as UpdateEmailForm } from "./profile/UpdateEmailForm.vue";
+export { default as UpdateEmailModal } from "./profile/UpdateEmailModal.vue";
 export { default as UserMenu } from "./UserMenu.vue";

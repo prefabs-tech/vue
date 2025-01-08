@@ -17,7 +17,7 @@ import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "../constant";
 import useUserStore from "../store";
 import verifyEmail, { getVerificationStatus } from "./verify-email";
 
-import type { User } from "../types";
+import type { UserType } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
 
 const initSupertokens = (config: AppConfig) => {
@@ -47,7 +47,7 @@ const isLoggedIn = async () => {
   return await Session.doesSessionExist();
 };
 
-const getUser = async (): Promise<User | undefined> => {
+const getUser = async (): Promise<UserType | undefined> => {
   const { getUser } = useUserStore();
 
   if (await isLoggedIn()) {
