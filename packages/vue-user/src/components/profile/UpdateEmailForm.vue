@@ -1,13 +1,14 @@
 <template>
   <Form ref="dzangolabVueUpdateEmail" @submit="onSubmit">
     <Email
+      v-model="email"
       :error-messages="errorMessages"
       :label="t('user.profile.accountInfo.newEmail')"
       name="email"
     />
 
     <FormActions
-      :loading="loading"
+      :loading="loading || !isEmailDirty"
       @cancel="dzangolabVueUpdateEmail.resetForm()"
     />
   </Form>
@@ -24,7 +25,7 @@ import { useConfig } from "@dzangolab/vue3-config";
 import { Email, Form, FormActions } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { storeToRefs } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 import { getMe } from "../../api/user";
 import { emitter, useTranslations } from "../../index";
@@ -50,7 +51,12 @@ const errorMessages = {
 };
 
 const dzangolabVueUpdateEmail = ref();
+const email = ref<string | undefined>(user.value?.email);
 const loading = ref<boolean>(false);
+
+const isEmailDirty = computed(() => {
+  return user.value?.email !== email.value;
+});
 
 const onSubmit = async (data: UpdateEmailFormData) => {
   loading.value = true;

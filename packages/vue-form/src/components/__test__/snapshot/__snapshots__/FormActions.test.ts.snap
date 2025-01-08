@@ -3,26 +3,35 @@
 exports[`FormActions > matches snapshot 1`] = `
 <div
   class="align-right direction-horizontal form-actions"
-  data-v-ed243437=""
 >
   
   
-  <button
+  <button-element-stub
+    arialabel="button"
     class="cancel-button"
-    data-v-ed243437=""
+    disabled="false"
+    label="Cancel"
+    loading="false"
+    rounded="false"
+    severity="primary"
+    size="medium"
     type="button"
-  >
-    Cancel
-  </button>
+    variant="outlined"
+  />
   
   
-  <button
+  <button-element-stub
+    arialabel="button"
     class="submit-button"
-    data-v-ed243437=""
+    disabled="false"
+    label="Submit"
+    loading="false"
+    rounded="false"
+    severity="primary"
+    size="medium"
     type="submit"
-  >
-    Submit
-  </button>
+    variant="filled"
+  />
   
   
 </div>
