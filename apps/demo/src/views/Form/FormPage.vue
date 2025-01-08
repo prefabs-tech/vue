@@ -90,6 +90,10 @@ const menu = [
     name: t("form.label.selection"),
     children: [
       {
+        name: t("form.label.checkbox"),
+        routeName: "checkboxInput",
+      },
+      {
         name: t("form.label.radio"),
         routeName: "radioInput",
       },

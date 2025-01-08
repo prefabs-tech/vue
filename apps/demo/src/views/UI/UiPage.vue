@@ -54,6 +54,15 @@ const menu = [
     ],
   },
   {
+    name: t("ui.data.title"),
+    children: [
+      {
+        name: t("ui.data.title"),
+        routeName: "data",
+      },
+    ],
+  },
+  {
     name: t("ui.menu"),
     children: [
       {
