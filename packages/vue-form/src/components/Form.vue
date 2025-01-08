@@ -18,11 +18,21 @@ const emit = defineEmits(["submit"]);
 
 const dzangolabVueForm = ref();
 
+const getFieldMeta = (fieldName: string) => {
+  return dzangolabVueForm.value?.getMeta(fieldName);
+};
+
+const getFieldValue = (fieldName: string) => {
+  return dzangolabVueForm.value?.getValues()?.[fieldName];
+};
+
 const onSubmit = (data: object) => {
   emit("submit", data);
 };
 
 defineExpose({
+  getFieldMeta,
+  getFieldValue,
   resetForm: () => dzangolabVueForm.value?.resetForm(),
 });
 </script>

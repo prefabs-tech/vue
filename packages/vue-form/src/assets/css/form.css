@@ -51,7 +51,7 @@ form input {
   width: 100%;
 }
 
-form :disabled {
+form input:disabled {
   background-color: var(--form-input-bg-color-disabled);
   border-color: var(--form-input-border-color-disabled);
 }

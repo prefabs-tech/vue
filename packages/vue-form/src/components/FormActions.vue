@@ -5,24 +5,23 @@
   >
     <slot>
       <slot name="cancelButton">
-        <button
+        <ButtonElement
           :disabled="loading"
+          :label="cancelLabel"
           class="cancel-button"
           type="button"
+          variant="outlined"
           @click="onCancel"
-        >
-          {{ cancelLabel }}
-        </button>
+        />
       </slot>
       <slot name="submitButton">
-        <button
+        <ButtonElement
           :disabled="loading"
+          :label="submitLabel"
           class="submit-button"
           type="submit"
           @click="onSubmit"
-        >
-          {{ submitLabel }}
-        </button>
+        />
       </slot>
     </slot>
   </div>
@@ -35,6 +34,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { ButtonElement } from "@dzangolab/vue3-ui";
+
 defineProps({
   alignment: {
     default: "right",
@@ -65,7 +66,7 @@ const onCancel = () => emit("cancel");
 const onSubmit = () => emit("submit");
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .form-actions {
   display: flex;
   gap: var(--form-field-gap);
@@ -95,24 +96,5 @@ const onSubmit = () => emit("submit");
 
 .form-actions.direction-vertical {
   flex-direction: column;
-}
-
-button {
-  border-radius: 0.5rem;
-  cursor: pointer;
-  float: right;
-  font-weight: 700;
-  padding: 0.75rem 1.25rem;
-  width: max-content;
-}
-
-.form-actions .submit-button {
-  background: var(--dz-primary-color, #007aff);
-  border: none;
-  color: #fff;
-}
-
-.form-actions .cancel-button {
-  border: 1px solid var(--button-border-color, #000);
 }
 </style>
