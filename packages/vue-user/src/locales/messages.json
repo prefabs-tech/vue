@@ -146,6 +146,21 @@
         "title": "Reset your password"
       },
       "profile": {
+        "accountInfo": {
+          "label": "Email",
+          "newEmail": "New Email",
+          "messages": {
+            "alreadyExist": "Email already exists.",
+            "duplicate": "Email is same as the current one.",
+            "disabled": "Update email feature is currently disabled.",
+            "email": "Email is required.",
+            "emailSent": "A verification link has been sent to your email.",
+            "error": "An error occurred while updating the email.",
+            "invalid": "Invalid email",
+            "success": "Email updated successfully.",
+            "verify": "Verify email to complete the email update."
+          }
+        },
         "title": "Profile"
       },
       "signup": {
@@ -335,6 +350,21 @@
         "title": "Réinitialisation de votre mot de passe"
       },
       "profile": {
+        "accountInfo": {
+          "label": "Email",
+          "newEmail": "New Email",
+          "messages": {
+            "alreadyExist": "Email already exists.",
+            "duplicate": "Email is same as the current one.",
+            "disabled": "Update email feature is currently disabled.",
+            "email": "Email is required.",
+            "emailSent": "A verification link has been sent to your email.",
+            "error": "An error occurred while updating the email.",
+            "invalid": "Invalid email",
+            "success": "Email updated successfully.",
+            "verify": "Verify email to complete the email update."
+          }
+        },
         "title": "Profil"
       },
       "signup": {
