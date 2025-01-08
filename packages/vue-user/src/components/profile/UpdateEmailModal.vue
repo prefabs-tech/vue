@@ -5,7 +5,7 @@
     :title="t('user.profile.accountInfo.title')"
     @on:close="$emit('on:close')"
   >
-    <UpdateEmailForm />
+    <UpdateEmailForm @email:update-processed="$emit('on:close')" />
   </Modal>
 </template>
 
