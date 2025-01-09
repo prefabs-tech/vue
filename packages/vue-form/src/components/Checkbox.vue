@@ -60,6 +60,7 @@ const onChange = (event: Event) => {
 <style lang="css">
 .checkbox-wrapper {
   display: flex;
+  align-items: baseline;
 }
 
 .checkbox-wrapper > input[type="checkbox"] {
