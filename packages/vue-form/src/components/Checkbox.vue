@@ -59,13 +59,13 @@ const onChange = (event: Event) => {
 
 <style lang="css">
 .checkbox-wrapper {
-  display: flex;
   align-items: baseline;
+  display: flex;
 }
 
 .checkbox-wrapper > input[type="checkbox"] {
-  transform: scale(1.5);
   accent-color: var(--field-background-color, #007aff);
+  transform: scale(1.5);
 }
 
 .checkbox-wrapper > input[type="checkbox"]:disabled {
