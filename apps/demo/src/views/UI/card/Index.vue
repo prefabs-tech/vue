@@ -10,6 +10,12 @@
       <h2>{{ $t("ui.card.usage.basic") }}</h2>
 
       <div class="section-content">
+        <Card>
+          <p class="content">
+            {{ $t("ui.card.content") }}
+          </p>
+        </Card>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -25,12 +31,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Card>
-          <p class="content">
-            {{ $t("ui.card.content") }}
-          </p>
-        </Card>
       </div>
     </section>
 
@@ -38,6 +38,12 @@
       <h2>{{ $t("ui.card.usage.withTitle") }}</h2>
 
       <div class="section-content">
+        <Card :title="$t('ui.card.headerContent')">
+          <p class="content">
+            {{ $t("ui.card.content") }}
+          </p>
+        </Card>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -53,12 +59,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Card :title="$t('ui.card.headerContent')">
-          <p class="content">
-            {{ $t("ui.card.content") }}
-          </p>
-        </Card>
       </div>
     </section>
 
@@ -66,6 +66,12 @@
       <h2>{{ $t("ui.card.usage.withI18n") }}</h2>
 
       <div class="section-content">
+        <Card :title="$t('ui.card.headerContent')">
+          <p class="content">
+            {{ $t("ui.card.content") }}
+          </p>
+        </Card>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -85,12 +91,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Card :title="$t('ui.card.headerContent')">
-          <p class="content">
-            {{ $t("ui.card.content") }}
-          </p>
-        </Card>
       </div>
     </section>
 
@@ -98,6 +98,22 @@
       <h2>{{ $t("ui.card.usage.slots") }}</h2>
 
       <div class="section-content">
+        <Card>
+          <template #header>
+            <h3 class="title">
+              {{ $t("ui.card.headerContent") }}
+            </h3>
+          </template>
+          <p class="content">
+            {{ $t("ui.card.content") }}
+          </p>
+          <template #footer>
+            <div class="footer">
+              {{ $t("ui.card.footerContent") }}
+            </div>
+          </template>
+        </Card>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -121,22 +137,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Card>
-          <template #header>
-            <h3 class="title">
-              {{ $t("ui.card.headerContent") }}
-            </h3>
-          </template>
-          <p class="content">
-            {{ $t("ui.card.content") }}
-          </p>
-          <template #footer>
-            <div class="footer">
-              {{ $t("ui.card.footerContent") }}
-            </div>
-          </template>
-        </Card>
       </div>
     </section>
   </UiPage>

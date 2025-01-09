@@ -10,6 +10,31 @@
       <h2>{{ $t("ui.dropdown.usage.basic") }}</h2>
 
       <div class="section-content">
+        <Dropdown
+          :label="$t('ui.dropdown.label.user')"
+          :menu="menu"
+          @select="onSelect"
+        />
+
+        <template v-if="showProfile">
+          <div class="email">
+            <span class="label">
+              {{ $t("ui.dropdown.label.email") }}
+            </span>
+            <span class="value">
+              {{ ": " + $t("ui.dropdown.usage.email") }}
+            </span>
+          </div>
+          <div class="name">
+            <span class="label">
+              {{ $t("ui.dropdown.label.name") }}
+            </span>
+            <span class="value">
+              {{ ": " + $t("ui.dropdown.usage.name") }}
+            </span>
+          </div>
+        </template>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -58,31 +83,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Dropdown
-          :label="$t('ui.dropdown.label.user')"
-          :menu="menu"
-          @select="onSelect"
-        />
-
-        <template v-if="showProfile">
-          <div class="email">
-            <span class="label">
-              {{ $t("ui.dropdown.label.email") }}
-            </span>
-            <span class="value">
-              {{ ": " + $t("ui.dropdown.usage.email") }}
-            </span>
-          </div>
-          <div class="name">
-            <span class="label">
-              {{ $t("ui.dropdown.label.name") }}
-            </span>
-            <span class="value">
-              {{ ": " + $t("ui.dropdown.usage.name") }}
-            </span>
-          </div>
-        </template>
       </div>
     </section>
 
@@ -90,6 +90,10 @@
       <h2>{{ $t("ui.dropdown.usage.withSlot") }}</h2>
 
       <div class="section-content">
+        <Dropdown :menu="menu">
+          <div class="trigger">...</div>
+        </Dropdown>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -119,10 +123,6 @@
           &lt;/style&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Dropdown :menu="menu">
-          <div class="trigger">...</div>
-        </Dropdown>
       </div>
     </section>
   </UiPage>

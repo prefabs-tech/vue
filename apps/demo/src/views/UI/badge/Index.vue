@@ -10,6 +10,8 @@
       <h2>{{ $t("ui.badge.usage.basic") }}</h2>
 
       <div class="section-content">
+        <BadgeComponent :label="$t('ui.badge.label.basic')" />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -21,8 +23,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <BadgeComponent :label="$t('ui.badge.label.basic')" />
       </div>
     </section>
 
@@ -30,6 +30,8 @@
       <h2>{{ $t("ui.badge.usage.withI18n") }}</h2>
 
       <div class="section-content">
+        <BadgeComponent :label="$t('ui.badge.label.addedIn')" />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -44,8 +46,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <BadgeComponent :label="$t('ui.badge.label.addedIn')" />
       </div>
     </section>
 
@@ -53,6 +53,8 @@
       <h2>{{ $t("ui.badge.usage.rounded") }}</h2>
 
       <div class="section-content">
+        <BadgeComponent :label="$t('ui.badge.label.rounded')" rounded />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -64,8 +66,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <BadgeComponent :label="$t('ui.badge.label.rounded')" rounded />
       </div>
     </section>
 
@@ -73,23 +73,6 @@
       <h2>{{ $t("ui.badge.usage.severity") }}</h2>
 
       <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Badge label="Primary" severity="primary" /&gt;
-            &lt;Badge label="Secondary" severity="secondary" /&gt;
-            &lt;Badge label="Alternate" severity="alternate" /&gt;
-            &lt;Badge label="Success" severity="success" /&gt;
-            &lt;Badge label="Danger" severity="danger" /&gt;
-            &lt;Badge label="Warning" severity="warning" /&gt;
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
         <div class="container">
           <BadgeComponent
             :label="$t('ui.badge.label.primary')"
@@ -116,6 +99,23 @@
             severity="warning"
           />
         </div>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Badge label="Primary" severity="primary" /&gt;
+            &lt;Badge label="Secondary" severity="secondary" /&gt;
+            &lt;Badge label="Alternate" severity="alternate" /&gt;
+            &lt;Badge label="Success" severity="success" /&gt;
+            &lt;Badge label="Danger" severity="danger" /&gt;
+            &lt;Badge label="Warning" severity="warning" /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
       </div>
     </section>
 
@@ -123,6 +123,11 @@
       <h2>{{ $t("ui.badge.usage.icon") }}</h2>
 
       <div class="section-content">
+        <div class="container">
+          <BadgeComponent icon-left="pi pi-thumbs-up" />
+          <BadgeComponent icon-right="pi pi-thumbs-down" />
+        </div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -135,11 +140,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <div class="container">
-          <BadgeComponent icon-left="pi pi-thumbs-up" />
-          <BadgeComponent icon-right="pi pi-thumbs-down" />
-        </div>
       </div>
     </section>
 
@@ -147,19 +147,6 @@
       <h2>{{ $t("ui.badge.usage.iconPackage") }}</h2>
 
       <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Badge label="Locked" icon-left="pi pi-lock" /&gt;
-            &lt;Badge label="Unlocked" icon-right="fa-solid fa-lock-open" severity="success /&gt;
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
         <div class="container">
           <BadgeComponent
             :label="$t('ui.badge.label.locked')"
@@ -172,18 +159,12 @@
             severity="success"
           />
         </div>
-      </div>
-    </section>
 
-    <section>
-      <h2>{{ $t("ui.badge.usage.iconAndLabel") }}</h2>
-
-      <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Badge label="Locked" icon-left="pi pi-lock" /&gt;
-            &lt;Badge label="Unlocked" icon-right="pi pi-lock-open" severity="success /&gt;
+            &lt;Badge label="Unlocked" icon-right="fa-solid fa-lock-open" severity="success /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
@@ -191,7 +172,13 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
+      </div>
+    </section>
 
+    <section>
+      <h2>{{ $t("ui.badge.usage.iconAndLabel") }}</h2>
+
+      <div class="section-content">
         <div class="container">
           <BadgeComponent
             :label="$t('ui.badge.label.locked')"
@@ -204,6 +191,19 @@
             severity="success"
           />
         </div>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Badge label="Locked" icon-left="pi pi-lock" /&gt;
+            &lt;Badge label="Unlocked" icon-right="pi pi-lock-open" severity="success /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
       </div>
     </section>
 
@@ -211,6 +211,20 @@
       <h2>{{ $t("ui.badge.usage.iconElement") }}</h2>
 
       <div class="section-content">
+        <div class="container">
+          <BadgeComponent :label="$t('ui.badge.label.correct')">
+            <template #iconLeft>
+              <i class="pi pi-check" />
+            </template>
+          </BadgeComponent>
+
+          <BadgeComponent :label="$t('ui.badge.label.wrong')" severity="danger">
+            <template #iconRight>
+              <i class="pi pi-times" />
+            </template>
+          </BadgeComponent>
+        </div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -232,20 +246,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <div class="container">
-          <BadgeComponent :label="$t('ui.badge.label.correct')">
-            <template #iconLeft>
-              <i class="pi pi-check" />
-            </template>
-          </BadgeComponent>
-
-          <BadgeComponent :label="$t('ui.badge.label.wrong')" severity="danger">
-            <template #iconRight>
-              <i class="pi pi-times" />
-            </template>
-          </BadgeComponent>
-        </div>
       </div>
     </section>
   </UiPage>

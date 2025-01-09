@@ -10,6 +10,16 @@
       <h2>{{ $t("ui.tooltip.usage.basic") }}</h2>
 
       <div class="section-content">
+        <Tooltip>
+          <ButtonElement
+            :label="$t('ui.tooltip.label.button')"
+            severity="success"
+          />
+          <template #content>
+            {{ $t("ui.tooltip.content") }}
+          </template>
+        </Tooltip>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -18,7 +28,7 @@
                 :label="Tooltip"
                 severity="success"
               /&gt;
-              &lt;template #tooltip&gt;
+              &lt;template #content&gt;
                 This is a tooltip
               &lt;/template&gt;
             &lt;/Tooltip&gt;
@@ -29,16 +39,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Tooltip>
-          <ButtonElement
-            :label="$t('ui.tooltip.label.button')"
-            severity="success"
-          />
-          <template #content>
-            {{ $t("ui.tooltip.content") }}
-          </template>
-        </Tooltip>
       </div>
     </section>
 
@@ -46,6 +46,15 @@
       <h2>{{ $t("ui.tooltip.usage.top") }}</h2>
 
       <div class="section-content">
+        <Tooltip position="top">
+          <div class="trigger">
+            {{ $t("ui.tooltip.usage.top") }}
+          </div>
+          <template #content>
+            {{ $t("ui.tooltip.content") }}
+          </template>
+        </Tooltip>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -54,7 +63,7 @@
                 Top
               &lt;/div&gt;
               /&gt;
-              &lt;template #tooltip&gt;
+              &lt;template #content&gt;
                 This is a tooltip
               &lt;/template&gt;
             &lt;/Tooltip&gt;
@@ -75,15 +84,6 @@
           &lt;/style&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Tooltip position="top">
-          <div class="trigger">
-            {{ $t("ui.tooltip.usage.top") }}
-          </div>
-          <template #content>
-            {{ $t("ui.tooltip.content") }}
-          </template>
-        </Tooltip>
       </div>
     </section>
 
@@ -91,25 +91,6 @@
       <h2>{{ $t("ui.tooltip.usage.bottom") }}</h2>
 
       <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Tooltip position="bottom"&gt;
-              &lt;div class="trigger"&gt;
-                Bottom
-              &lt;/div&gt;
-              &lt;template #tooltip&gt;
-                This is a tooltip
-              &lt;/template&gt;
-            &lt;/Tooltip&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { Tooltip } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
         <Tooltip position="bottom">
           <div class="trigger">
             {{ $t("ui.tooltip.usage.bottom") }}
@@ -118,21 +99,15 @@
             {{ $t("ui.tooltip.content") }}
           </template>
         </Tooltip>
-      </div>
-    </section>
 
-    <section>
-      <h2>{{ $t("ui.tooltip.usage.left") }}</h2>
-
-      <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Tooltip position="left"&gt;
+            &lt;Tooltip position="bottom"&gt;
               &lt;div class="trigger"&gt;
-                Left
+                Bottom
               &lt;/div&gt;
-              &lt;template #tooltip&gt;
+              &lt;template #content&gt;
                 This is a tooltip
               &lt;/template&gt;
             &lt;/Tooltip&gt;
@@ -143,7 +118,13 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
+      </div>
+    </section>
 
+    <section>
+      <h2>{{ $t("ui.tooltip.usage.left") }}</h2>
+
+      <div class="section-content">
         <Tooltip position="left">
           <div class="trigger">
             {{ $t("ui.tooltip.usage.left") }}
@@ -152,21 +133,15 @@
             {{ $t("ui.tooltip.content") }}
           </template>
         </Tooltip>
-      </div>
-    </section>
 
-    <section>
-      <h2>{{ $t("ui.tooltip.usage.right") }}</h2>
-
-      <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Tooltip position="right"&gt;
+            &lt;Tooltip position="left"&gt;
               &lt;div class="trigger"&gt;
-                Right
+                Left
               &lt;/div&gt;
-              &lt;template #tooltip&gt;
+              &lt;template #content&gt;
                 This is a tooltip
               &lt;/template&gt;
             &lt;/Tooltip&gt;
@@ -177,7 +152,13 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
+      </div>
+    </section>
 
+    <section>
+      <h2>{{ $t("ui.tooltip.usage.right") }}</h2>
+
+      <div class="section-content">
         <Tooltip position="right">
           <div class="trigger">
             {{ $t("ui.tooltip.usage.right") }}
@@ -186,21 +167,15 @@
             {{ $t("ui.tooltip.content") }}
           </template>
         </Tooltip>
-      </div>
-    </section>
 
-    <section>
-      <h2>{{ $t("ui.tooltip.usage.clickable") }}</h2>
-
-      <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Tooltip clickable&gt;
+            &lt;Tooltip position="right"&gt;
               &lt;div class="trigger"&gt;
-                Clickable
+                Right
               &lt;/div&gt;
-              &lt;template #tooltip&gt;
+              &lt;template #content&gt;
                 This is a tooltip
               &lt;/template&gt;
             &lt;/Tooltip&gt;
@@ -211,7 +186,13 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
+      </div>
+    </section>
 
+    <section>
+      <h2>{{ $t("ui.tooltip.usage.clickable") }}</h2>
+
+      <div class="section-content">
         <Tooltip clickable>
           <div class="trigger">
             {{ $t("ui.tooltip.label.button") }}
@@ -220,21 +201,15 @@
             {{ $t("ui.tooltip.content") }}
           </template>
         </Tooltip>
-      </div>
-    </section>
 
-    <section>
-      <h2>{{ $t("ui.tooltip.usage.delay") }}</h2>
-
-      <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Tooltip :delay="1000"&gt;
+            &lt;Tooltip clickable&gt;
               &lt;div class="trigger"&gt;
-                Delay
+                Clickable
               &lt;/div&gt;
-              &lt;template #tooltip&gt;
+              &lt;template #content&gt;
                 This is a tooltip
               &lt;/template&gt;
             &lt;/Tooltip&gt;
@@ -245,7 +220,13 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
+      </div>
+    </section>
 
+    <section>
+      <h2>{{ $t("ui.tooltip.usage.delay") }}</h2>
+
+      <div class="section-content">
         <Tooltip :delay="1000">
           <div class="trigger">
             {{ $t("ui.tooltip.label.delay") }}
@@ -254,6 +235,25 @@
             {{ $t("ui.tooltip.content") }}
           </template>
         </Tooltip>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Tooltip :delay="1000"&gt;
+              &lt;div class="trigger"&gt;
+                Delay
+              &lt;/div&gt;
+              &lt;template #content&gt;
+                This is a tooltip
+              &lt;/template&gt;
+            &lt;/Tooltip&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Tooltip } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
       </div>
     </section>
   </UiPage>

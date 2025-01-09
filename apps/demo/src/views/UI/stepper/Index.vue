@@ -11,6 +11,8 @@
 
       <div class="section-content">
         <!-- eslint-disable -->
+        <Stepper :steps="steps" @complete="onFinish" />
+
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Stepper :steps="steps" @complete="onFinish" /&gt;
@@ -23,7 +25,7 @@
 
           const router = useRouter();
 
-          const steps = ref([
+          const steps = [
             {
               content: "Please enter personal details",
               label: "Personal",
@@ -44,7 +46,7 @@
               label: "Confirmation",
               step: 4,
             },
-          ]);
+          ];
 
           const onFinish = () => {
             router.push("/ui");
@@ -52,8 +54,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Stepper :steps="steps" @complete="onFinish" />
       </div>
     </section>
 
@@ -61,6 +61,12 @@
       <h2>{{ $t("ui.stepper.usage.buttonProperties") }}</h2>
 
       <div class="section-content">
+        <Stepper
+          :next-button-properties="nextButtonProperties"
+          :previous-button-properties="previousButtonProperties"
+          :steps="steps"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -74,7 +80,7 @@
           &lt;script setup lang="ts"&gt;
           import { Stepper } from "@dzangolab/vue3-ui";
 
-          const steps = ref([
+          const steps = [
             {
               content: "Please enter personal details",
               label: "Personal",
@@ -95,30 +101,24 @@
               label: "Confirmation",
               step: 4,
             },
-          ]);
+          ];
 
-          const nextButtonProperties = ref({
+          const nextButtonProperties = {
             iconRight: "pi pi-chevron-right",
             label: "Next",
             severity: "primary",
             variant: "filled",
-          });
+          };
 
-          const previousButtonProperties = ref({
+          const previousButtonProperties = {
             iconLeft: "pi pi-chevron-left",
             label: "Back",
             severity: 'secondary',
             variant: "filled",
-          });
+          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Stepper
-          :next-button-properties="nextButtonProperties"
-          :previous-button-properties="previousButtonProperties"
-          :steps="steps"
-        />
       </div>
     </section>
 
@@ -126,6 +126,36 @@
       <h2>{{ $t("ui.stepper.usage.withSlot") }}</h2>
 
       <div class="section-content">
+        <Stepper :steps="steps">
+          <template #1>
+            <TextInput
+              v-model="formData.name"
+              :label="$t('ui.stepper.label.name')"
+              :placeholder="$t('ui.stepper.placeholder.name')"
+              name="name"
+            />
+          </template>
+          <template #2>
+            <NumberInput
+              v-model="formData.phone"
+              :label="$t('ui.stepper.label.phone')"
+              :placeholder="$t('ui.stepper.placeholder.phone')"
+              name="phone"
+            />
+          </template>
+          <template #3>
+            <TextInput
+              v-model="formData.price"
+              :label="$t('ui.stepper.label.price')"
+              disabled
+              name="price"
+            />
+          </template>
+          <template #4>
+            {{ $t("ui.stepper.usage.complete") }}
+          </template>
+        </Stepper>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -166,18 +196,18 @@
           import { TextInput, NumberInput } from "@dzangolab/vue3-form";
           import { Stepper } from "@dzangolab/vue3-ui";
 
-          import { reactive, ref } from "vue";
+          import { reactive } from "vue";
 
           const { t } = useI18n();
 
-          const steps = ref([
+          const steps = [
             {
               content: "Please enter personal details",
               label: "Personal",
               step: 1,
             },
             ...
-          ]);
+          ];
 
           const formData = reactive({
             name: null,
@@ -187,36 +217,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Stepper :steps="steps">
-          <template #1>
-            <TextInput
-              v-model="formData.name"
-              :label="$t('ui.stepper.label.name')"
-              :placeholder="$t('ui.stepper.placeholder.name')"
-              name="name"
-            />
-          </template>
-          <template #2>
-            <NumberInput
-              v-model="formData.phone"
-              :label="$t('ui.stepper.label.phone')"
-              :placeholder="$t('ui.stepper.placeholder.phone')"
-              name="phone"
-            />
-          </template>
-          <template #3>
-            <TextInput
-              v-model="formData.price"
-              :label="$t('ui.stepper.label.price')"
-              disabled
-              name="price"
-            />
-          </template>
-          <template #4>
-            {{ $t("ui.stepper.usage.complete") }}
-          </template>
-        </Stepper>
       </div>
     </section>
   </UiPage>
@@ -225,7 +225,7 @@
 <script setup lang="ts">
 import { TextInput, NumberInput } from "@dzangolab/vue3-form";
 import { Stepper } from "@dzangolab/vue3-ui";
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
 
 import UiPage from "../UiPage.vue";
@@ -238,21 +238,21 @@ const formData = reactive({
   price: "$50",
 });
 
-const nextButtonProperties = ref({
+const nextButtonProperties = {
   iconRight: "pi pi-chevron-right",
   label: "Next",
   severity: "primary",
   variant: "filled",
-});
+};
 
-const previousButtonProperties = ref({
+const previousButtonProperties = {
   iconLeft: "pi pi-chevron-left",
   label: "Back",
   severity: "secondary",
   variant: "filled",
-});
+};
 
-const steps = ref([
+const steps = [
   {
     content: "Please enter personal details",
     label: "Personal",
@@ -273,7 +273,7 @@ const steps = ref([
     label: "Confirmation",
     step: 4,
   },
-]);
+];
 
 const onFinish = () => {
   router.push("/ui");

@@ -1,7 +1,7 @@
 <template>
   <div :class="modalClassName">
-    <div class="modal-wrapper" @click="handleClose()">
-      <div class="modal-container">
+    <div class="modal-wrapper">
+      <div ref="dzangolabVueModal" class="modal-container">
         <div :class="['modal-header', { 'disabled-header': disableHeader }]">
           <slot v-if="!disableHeader" name="header">
             <span>Confirmation required</span>
@@ -58,7 +58,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { onClickOutside } from "@vueuse/core";
+import { computed, ref } from "vue";
 
 import ButtonElement from "../Button/Index.vue";
 
@@ -77,6 +78,12 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+});
+
+const dzangolabVueModal = ref();
+
+onClickOutside(dzangolabVueModal, (event) => {
+  handleClose();
 });
 
 const modalClassName = computed(() => {

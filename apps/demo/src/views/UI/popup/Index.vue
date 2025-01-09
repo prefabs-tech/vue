@@ -10,6 +10,17 @@
       <h2>{{ $t("ui.popup.usage.basic") }}</h2>
 
       <div class="section-content">
+        <Popup>
+          <ButtonElement
+            :label="$t('ui.popup.label.button')"
+            severity="success"
+          />
+          <template #content>
+            <h3 class="popup-title">{{ $t("ui.popup.title") }}</h3>
+            <div class="popup-body">{{ $t("ui.popup.content") }}</div>
+          </template>
+        </Popup>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -18,6 +29,7 @@
                 :label="Click me"
                 severity="success"
               /&gt;
+
               &lt;template #content&gt;
                 &lt;h3 class="popup-title"&gt;Popup&lt;/h3&gt;
                 &lt;div class="popup-body"&gt;This is a popup&lt;/div&gt;
@@ -30,17 +42,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Popup>
-          <ButtonElement
-            :label="$t('ui.popup.label.button')"
-            severity="success"
-          />
-          <template #content>
-            <h3 class="popup-title">{{ $t("ui.popup.title") }}</h3>
-            <div class="popup-body">{{ $t("ui.popup.content") }}</div>
-          </template>
-        </Popup>
       </div>
     </section>
 
@@ -48,6 +49,16 @@
       <h2>{{ $t("ui.popup.usage.withI18n") }}</h2>
 
       <div class="section-content">
+        <Popup>
+          <ButtonElement
+            :label="$t('ui.popup.label.button')"
+            severity="success"
+          />
+          <template #content>
+            {{ $t("ui.popup.content") }}
+          </template>
+        </Popup>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -70,16 +81,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Popup>
-          <ButtonElement
-            :label="$t('ui.popup.label.button')"
-            severity="success"
-          />
-          <template #content>
-            {{ $t("ui.popup.content") }}
-          </template>
-        </Popup>
       </div>
     </section>
 
@@ -87,6 +88,13 @@
       <h2>{{ $t("ui.tooltip.usage.top") }}</h2>
 
       <div class="section-content">
+        <Popup position="top">
+          <ButtonElement :label="$t('ui.popup.usage.top')" severity="success" />
+          <template #content>
+            {{ $t("ui.popup.content") }}
+          </template>
+        </Popup>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -106,13 +114,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Popup position="top">
-          <ButtonElement :label="$t('ui.popup.usage.top')" severity="success" />
-          <template #content>
-            {{ $t("ui.popup.content") }}
-          </template>
-        </Popup>
       </div>
     </section>
 
@@ -120,6 +121,16 @@
       <h2>{{ $t("ui.tooltip.usage.bottom") }}</h2>
 
       <div class="section-content">
+        <Popup position="bottom">
+          <ButtonElement
+            :label="$t('ui.popup.usage.bottom')"
+            severity="success"
+          />
+          <template #content>
+            {{ $t("ui.popup.content") }}
+          </template>
+        </Popup>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -139,16 +150,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Popup position="bottom">
-          <ButtonElement
-            :label="$t('ui.popup.usage.bottom')"
-            severity="success"
-          />
-          <template #content>
-            {{ $t("ui.popup.content") }}
-          </template>
-        </Popup>
       </div>
     </section>
 
@@ -156,6 +157,16 @@
       <h2>{{ $t("ui.tooltip.usage.left") }}</h2>
 
       <div class="section-content">
+        <Popup position="left">
+          <ButtonElement
+            :label="$t('ui.popup.usage.left')"
+            severity="success"
+          />
+          <template #content>
+            {{ $t("ui.popup.content") }}
+          </template>
+        </Popup>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -175,16 +186,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Popup position="left">
-          <ButtonElement
-            :label="$t('ui.popup.usage.left')"
-            severity="success"
-          />
-          <template #content>
-            {{ $t("ui.popup.content") }}
-          </template>
-        </Popup>
       </div>
     </section>
 
@@ -192,6 +193,16 @@
       <h2>{{ $t("ui.tooltip.usage.right") }}</h2>
 
       <div class="section-content">
+        <Popup position="right">
+          <ButtonElement
+            :label="$t('ui.popup.usage.right')"
+            severity="success"
+          />
+          <template #content>
+            {{ $t("ui.popup.content") }}
+          </template>
+        </Popup>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -211,16 +222,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Popup position="right">
-          <ButtonElement
-            :label="$t('ui.popup.usage.right')"
-            severity="success"
-          />
-          <template #content>
-            {{ $t("ui.popup.content") }}
-          </template>
-        </Popup>
       </div>
     </section>
   </UiPage>
