@@ -47,7 +47,7 @@ const onChange = (event: Event) => {
 </script>
 <style lang="css">
 .input-field-checkbox {
-  align-items: center;
+  align-items: baseline;
   color: #525252;
   display: flex;
   font-size: 12px;
