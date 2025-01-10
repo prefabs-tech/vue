@@ -13,6 +13,17 @@
       <h2>{{ $t("user.label.basic") }}</h2>
 
       <div class="section-content">
+        <ButtonElement
+          :label="$t('user.label.invite')"
+          @click="showModal = true"
+        />
+
+        <InvitationModal
+          :show="showModal"
+          @on:close="showModal = false"
+          @submit="onSubmit"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -45,17 +56,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <ButtonElement
-          :label="$t('user.label.invite')"
-          @click="showModal = true"
-        />
-
-        <InvitationModal
-          :show="showModal"
-          @on:close="showModal = false"
-          @submit="onSubmit"
-        />
       </div>
     </section>
 
@@ -63,6 +63,18 @@
       <h2>{{ $t("user.label.withTitle") }}</h2>
 
       <div class="section-content">
+        <ButtonElement
+          :label="$t('user.label.send')"
+          @click="showTitleModal = true"
+        />
+
+        <InvitationModal
+          :show="showTitleModal"
+          :title="$t('user.label.invite')"
+          @on:close="showTitleModal = false"
+          @submit="onSubmit"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -96,18 +108,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <ButtonElement
-          :label="$t('user.label.send')"
-          @click="showTitleModal = true"
-        />
-
-        <InvitationModal
-          :show="showTitleModal"
-          :title="$t('user.label.invite')"
-          @on:close="showTitleModal = false"
-          @submit="onSubmit"
-        />
       </div>
     </section>
 
@@ -115,6 +115,19 @@
       <h2>{{ $t("user.label.disableDismiss") }}</h2>
 
       <div class="section-content">
+        <ButtonElement
+          :label="$t('user.label.inviteUser')"
+          @click="showDisableDismissModal = true"
+        />
+
+        <InvitationModal
+          :dismiss-on-click-out="false"
+          :show="showDisableDismissModal"
+          :title="$t('user.label.inviteUser')"
+          @on:close="showDisableDismissModal = false"
+          @submit="onSubmit"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -149,19 +162,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <ButtonElement
-          :label="$t('user.label.inviteUser')"
-          @click="showDisableDismissModal = true"
-        />
-
-        <InvitationModal
-          :dismiss-on-click-out="false"
-          :show="showDisableDismissModal"
-          :title="$t('user.label.inviteUser')"
-          @on:close="showDisableDismissModal = false"
-          @submit="onSubmit"
-        />
       </div>
     </section>
 
@@ -169,6 +169,19 @@
       <h2>{{ $t("user.label.withAppField") }}</h2>
 
       <div class="section-content">
+        <ButtonElement
+          :label="$t('user.label.invite')"
+          @click="showAppFieldModal = true"
+        />
+
+        <InvitationModal
+          :apps="apps"
+          :show="showAppFieldModal"
+          :title="$t('user.label.inviteToApp')"
+          @on:close="showAppFieldModal = false"
+          @submit="onSubmit"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -232,19 +245,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <ButtonElement
-          :label="$t('user.label.invite')"
-          @click="showAppFieldModal = true"
-        />
-
-        <InvitationModal
-          :apps="apps"
-          :show="showAppFieldModal"
-          :title="$t('user.label.inviteToApp')"
-          @on:close="showAppFieldModal = false"
-          @submit="onSubmit"
-        />
       </div>
     </section>
 
@@ -252,6 +252,19 @@
       <h2>{{ $t("user.label.withRoleField") }}</h2>
 
       <div class="section-content">
+        <ButtonElement
+          :label="$t('user.label.sendInvitation')"
+          @click="showRoleFieldModal = true"
+        />
+
+        <InvitationModal
+          :roles="roles"
+          :show="showRoleFieldModal"
+          :title="$t('user.label.inviteWithRole')"
+          @on:close="showRoleFieldModal = false"
+          @submit="onSubmit"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -299,19 +312,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <ButtonElement
-          :label="$t('user.label.sendInvitation')"
-          @click="showRoleFieldModal = true"
-        />
-
-        <InvitationModal
-          :roles="roles"
-          :show="showRoleFieldModal"
-          :title="$t('user.label.inviteWithRole')"
-          @on:close="showRoleFieldModal = false"
-          @submit="onSubmit"
-        />
       </div>
     </section>
 
@@ -319,6 +319,20 @@
       <h2>{{ $t("user.label.withExpiryDate") }}</h2>
 
       <div class="section-content">
+        <ButtonElement
+          :label="$t('user.label.inviteUser')"
+          @click="showExpiryFieldModal = true"
+        />
+
+        <InvitationModal
+          :roles="roles"
+          :show="showExpiryFieldModal"
+          :title="$t('user.label.inviteWithExpiry')"
+          expiry-mode="calendar"
+          @on:close="showExpiryFieldModal = false"
+          @submit="onSubmit"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -356,20 +370,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <ButtonElement
-          :label="$t('user.label.inviteUser')"
-          @click="showExpiryFieldModal = true"
-        />
-
-        <InvitationModal
-          :roles="roles"
-          :show="showExpiryFieldModal"
-          :title="$t('user.label.inviteWithExpiry')"
-          expiry-mode="calendar"
-          @on:close="showExpiryFieldModal = false"
-          @submit="onSubmit"
-        />
       </div>
     </section>
 
@@ -377,6 +377,20 @@
       <h2>{{ $t("user.label.withExpiryDays") }}</h2>
 
       <div class="section-content">
+        <ButtonElement
+          :label="$t('user.label.sendInvitation')"
+          @click="showExpiryDaysModal = true"
+        />
+
+        <InvitationModal
+          :roles="roles"
+          :show="showExpiryDaysModal"
+          :title="$t('user.label.inviteWithExpiry')"
+          expiry-mode="days"
+          @on:close="showExpiryDaysModal = false"
+          @submit="onSubmit"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -414,20 +428,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <ButtonElement
-          :label="$t('user.label.sendInvitation')"
-          @click="showExpiryDaysModal = true"
-        />
-
-        <InvitationModal
-          :roles="roles"
-          :show="showExpiryDaysModal"
-          :title="$t('user.label.inviteWithExpiry')"
-          expiry-mode="days"
-          @on:close="showExpiryDaysModal = false"
-          @submit="onSubmit"
-        />
       </div>
     </section>
   </UserPage>

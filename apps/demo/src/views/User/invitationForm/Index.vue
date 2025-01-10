@@ -13,6 +13,8 @@
       <h2>{{ $t("user.label.basic") }}</h2>
 
       <div class="section-content">
+        <InvitationForm @submit="onSubmit" />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -30,8 +32,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <InvitationForm @submit="onSubmit" />
       </div>
     </section>
 
@@ -39,6 +39,8 @@
       <h2>{{ $t("user.label.withAppField") }}</h2>
 
       <div class="section-content">
+        <InvitationForm :apps="apps" @submit="onSubmit" />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -85,8 +87,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <InvitationForm :apps="apps" @submit="onSubmit" />
       </div>
     </section>
 
@@ -94,6 +94,8 @@
       <h2>{{ $t("user.label.withRoleField") }}</h2>
 
       <div class="section-content">
+        <InvitationForm :roles="roles" @submit="onSubmit" />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -126,8 +128,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <InvitationForm :roles="roles" @submit="onSubmit" />
       </div>
     </section>
 
@@ -135,6 +135,12 @@
       <h2>{{ $t("user.label.withExpiryDate") }}</h2>
 
       <div class="section-content">
+        <InvitationForm
+          :roles="roles"
+          expiry-mode="calendar"
+          @submit="onSubmit"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -160,12 +166,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <InvitationForm
-          :roles="roles"
-          expiry-mode="calendar"
-          @submit="onSubmit"
-        />
       </div>
     </section>
 
@@ -173,6 +173,8 @@
       <h2>{{ $t("user.label.withExpiryDays") }}</h2>
 
       <div class="section-content">
+        <InvitationForm :roles="roles" expiry-mode="days" @submit="onSubmit" />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -198,8 +200,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <InvitationForm :roles="roles" expiry-mode="days" @submit="onSubmit" />
       </div>
     </section>
   </UserPage>
