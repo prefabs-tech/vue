@@ -1,11 +1,14 @@
 .layout.basic {
-  --layout-basic-max-width: 60rem;
   --layout-basic-padding-h: 1em;
 
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas:
+  "header"
+  "main"
+  "footer";
   gap: var(--layout-basic-gap);
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
 }
 
 .layout.basic > :is(footer, header, main) {
@@ -16,9 +19,15 @@
   width: 100%;
 }
 
+
+.layout.basic > footer {
+  grid-area: footer;
+}
+
 .layout.basic > header {
   --header-logo-max-width: 120px;
 
+  grid-area: header;
   height: var(--layout-header-height, 5.5rem);
   padding-inline: var(--layout-header-padding-h, 1em);
 }
@@ -78,8 +87,9 @@
 }
 
 .layout.basic > main {
-  display: grid;
-  flex: 1;
+  max-width: 100%;
+  min-width: 100%;
+  grid-area: main;
 }
 
 @media screen and (min-width: 1200px) {
