@@ -10,6 +10,8 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
+        <EditableContent v-model="formData.basic" />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
           &lt;EditableContent v-model="input" /&gt;
@@ -22,8 +24,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <EditableContent v-model="formData.basic" />
       </div>
     </section>
 
@@ -31,6 +31,12 @@
       <h2>{{ $t("form.label.contentElement") }}</h2>
 
       <div class="section-content">
+        <div class="editable-group">
+          <EditableContent v-model="formData.content" content-element="h3" />
+          <EditableContent v-model="formData.underline" content-element="i" />
+          <EditableContent v-model="formData.italic" content-element="u" />
+        </div>
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
           &lt;EditableContent v-model="input1" content-element="h3" /&gt;
@@ -47,12 +53,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <div class="editable-group">
-          <EditableContent v-model="formData.content" content-element="h3" />
-          <EditableContent v-model="formData.underline" content-element="i" />
-          <EditableContent v-model="formData.italic" content-element="u" />
-        </div>
       </div>
     </section>
 
@@ -60,6 +60,8 @@
       <h2>{{ $t("form.label.disabled") }}</h2>
 
       <div class="section-content">
+        <EditableContent v-model="formData.disabled" :allow-edit="false" />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
           &lt;EditableContent v-model="input" :allow-edit="false" /&gt;
@@ -72,8 +74,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <EditableContent v-model="formData.disabled" :allow-edit="false" />
       </div>
     </section>
 
@@ -81,6 +81,13 @@
       <h2>{{ $t("form.label.size") }}</h2>
 
       <div class="section-content">
+        <div class="editable-group">
+          <EditableContent v-model="formData.smallSize" size="small" />
+          <EditableContent v-model="formData.mediumSize" size="medium" />
+          <EditableContent v-model="formData.largeSize" size="large" />
+        </div>
+        <EditableContent v-model="formData.fullSize" size="full" />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
           &lt;EditableContent v-model="input1" size="small" /&gt;
@@ -99,13 +106,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <div class="editable-group">
-          <EditableContent v-model="formData.smallSize" size="small" />
-          <EditableContent v-model="formData.mediumSize" size="medium" />
-          <EditableContent v-model="formData.largeSize" size="large" />
-        </div>
-        <EditableContent v-model="formData.fullSize" size="full" />
       </div>
     </section>
   </FormPage>
@@ -146,5 +146,6 @@ let formData = reactive({
   align-items: flex-end;
   display: flex;
   gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 </style>

@@ -10,27 +10,25 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
+        <Password
+          v-model="formData.noLabelInput"
+          :placeholder="$t('form.placeholder.password')"
+        />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
-          &lt;From&gt;
+          &lt;template&gt;
             &lt;Password 
               v-model="input"
               placeholder="Enter a password"
             /&gt;
-          &lt;/From&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Password } from "@dzangolab/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Password
-            v-model="formData.noLabelInput"
-            :placeholder="$t('form.placeholder.password')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -38,29 +36,27 @@
       <h2>{{ $t("form.label.labelInput") }}</h2>
 
       <div class="section-content">
+        <Password
+          v-model="formData.input"
+          :label="$t('form.label.password')"
+          :placeholder="$t('form.placeholder.password')"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;Password 
               v-model="input"
               label="Password"
               placeholder="Enter a password"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Password } from "@dzangolab/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Password
-            v-model="formData.input"
-            :label="$t('form.label.password')"
-            :placeholder="$t('form.placeholder.password')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -68,15 +64,21 @@
       <h2>{{ $t("form.label.disabled") }}</h2>
 
       <div class="section-content">
+        <Password
+          v-model="formData.disabled"
+          :label="$t('form.label.password')"
+          disabled
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;Password 
               v-model="input"
               label="Password"
               disabled
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Password } from "@dzangolab/vue3-form";
@@ -86,14 +88,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Password
-            v-model="formData.disabled"
-            :label="$t('form.label.password')"
-            disabled
-          />
-        </Form>
       </div>
     </section>
 
@@ -101,15 +95,21 @@
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
+        <Password
+          v-model="formData.input"
+          :label="$t('form.label.password')"
+          :placeholder="$t('form.placeholder.password')"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;Password 
               v-model="input"
               :label="t('form.label.password')"
               :placeholder="t('form.placeholder.password')"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Password } from "@dzangolab/vue3-form";
@@ -119,14 +119,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Password
-            v-model="formData.input"
-            :label="$t('form.label.password')"
-            :placeholder="$t('form.placeholder.password')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -134,9 +126,19 @@
       <h2>{{ $t("form.label.iconSlot") }}</h2>
 
       <div class="section-content">
+        <Password
+          v-model="formData.input"
+          :label="$t('form.label.password')"
+          :placeholder="$t('form.placeholder.password')"
+        >
+          <template #icon="{ showPassword }">
+            <i :class="`pi ${showPassword ? 'pi-eye' : 'pi-eye-slash'}`" />
+          </template>
+        </Password>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;Password 
               v-model="input"
               :label="t('form.label.password')"
@@ -146,7 +148,7 @@
                 &lt;i :class="`pi ${ showPassword ? 'pi-eye' : 'pi-eye-slash'}`" /&gt;
               &lt;/template&gt;
             &lt;Password&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Password } from "@dzangolab/vue3-form";
@@ -156,18 +158,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Password
-            v-model="formData.input"
-            :label="$t('form.label.password')"
-            :placeholder="$t('form.placeholder.password')"
-          >
-            <template #icon="{ showPassword }">
-              <i :class="`pi ${showPassword ? 'pi-eye' : 'pi-eye-slash'}`" />
-            </template>
-          </Password>
-        </Form>
       </div>
     </section>
 
@@ -175,6 +165,15 @@
       <h2>{{ $t("form.label.inputWithValidation") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <Password
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.password')"
+            :options="validationOptions"
+            :placeholder="$t('form.placeholder.password')"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -200,15 +199,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Password
-            v-model="formData.inputWithValidation"
-            :label="$t('form.label.password')"
-            :options="validationOptions"
-            :placeholder="$t('form.placeholder.password')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -216,6 +206,16 @@
       <h2>{{ $t("form.label.customErrorMessageInput") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <Password
+            v-model="formData.passwordInput"
+            :label="$t('form.label.password')"
+            :error-messages="validationMessages"
+            :options="validationOptions"
+            :placeholder="$t('form.placeholder.password')"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -246,16 +246,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Password
-            v-model="formData.passwordInput"
-            :label="$t('form.label.password')"
-            :error-messages="validationMessages"
-            :options="validationOptions"
-            :placeholder="$t('form.placeholder.password')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -263,6 +253,16 @@
       <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <Password
+            v-model="formData.customValidationInput"
+            :label="$t('form.label.password')"
+            :placeholder="$t('form.placeholder.password')"
+            :schema="inputSchema"
+            name="custom_input"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -292,16 +292,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Password
-            v-model="formData.customValidationInput"
-            :label="$t('form.label.password')"
-            :placeholder="$t('form.placeholder.password')"
-            :schema="inputSchema"
-            name="custom_input"
-          />
-        </Form>
       </div>
     </section>
   </FormPage>

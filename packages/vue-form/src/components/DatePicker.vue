@@ -139,6 +139,12 @@ const onUpdate = (
   color: var(--_label-color);
 }
 
+.date-picker .dp__main.field {
+  --_input-field-margin-bottom: 0;
+
+  gap: 0;
+}
+
 .date-picker .dp__main > div {
   width: 100%;
 }

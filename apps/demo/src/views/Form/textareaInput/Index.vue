@@ -10,27 +10,25 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
+        <TextareaInput
+          v-model="formData.noLabelInput"
+          :placeholder="$t('form.placeholder.input')"
+        />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;TextareaInput 
               v-model="input"
               placeholder="Enter Input"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { TextareaInput } from "@dzangolab/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <TextareaInput
-            v-model="formData.noLabelInput"
-            :placeholder="$t('form.placeholder.input')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -38,29 +36,27 @@
       <h2>{{ $t("form.label.labelInput") }}</h2>
 
       <div class="section-content">
+        <TextareaInput
+          v-model="formData.input"
+          :label="$t('form.label.textarea')"
+          :placeholder="$t('form.placeholder.textarea')"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;TextareaInput 
               v-model="input"
               label="Input"
               placeholder="Enter Input"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { TextareaInput } from "@dzangolab/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <TextareaInput
-            v-model="formData.input"
-            :label="$t('form.label.textarea')"
-            :placeholder="$t('form.placeholder.textarea')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -68,29 +64,27 @@
       <h2>{{ $t("form.label.disabled") }}</h2>
 
       <div class="section-content">
+        <TextareaInput
+          v-model="formData.disabled"
+          :label="$t('form.label.disabled')"
+          disabled
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;TextareaInput 
               v-model="input"
               label="Disabled"
               disabled
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Input } from "@dzangolab/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <TextareaInput
-            v-model="formData.disabled"
-            :label="$t('form.label.disabled')"
-            disabled
-          />
-        </Form>
       </div>
     </section>
 
@@ -98,15 +92,21 @@
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
+        <TextareaInput
+          v-model="formData.input"
+          :label="$t('form.label.textarea')"
+          :placeholder="$t('form.placeholder.textarea')"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;TextareaInput 
               v-model="input"
               :label="t('form.label.textarea')"
               :placeholder="t('form.placeholder.textarea')"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { TextareaInput } from "@dzangolab/vue3-form";
@@ -116,14 +116,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <TextareaInput
-            v-model="formData.input"
-            :label="$t('form.label.textarea')"
-            :placeholder="$t('form.placeholder.textarea')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -131,6 +123,15 @@
       <h2>{{ $t("form.label.inputWithValidation") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <TextareaInput
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.textarea')"
+            :options="validationOptions"
+            :placeholder="$t('form.placeholder.input')"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -143,7 +144,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TextareaInput } from "@dzangolab/vue3-form";
+          import { Form, TextareaInput } from "@dzangolab/vue3-form";
           
           const validationOptions = {
             ignore_whitespace: true,
@@ -152,15 +153,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <TextareaInput
-            v-model="formData.inputWithValidation"
-            :label="$t('form.label.textarea')"
-            :options="validationOptions"
-            :placeholder="$t('form.placeholder.input')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -168,6 +160,16 @@
       <h2>{{ $t("form.label.customErrorMessageInput") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <TextareaInput
+            v-model="formData.textInput"
+            :label="$t('form.label.textarea')"
+            :error-messages="validationMessages"
+            :options="validationOptions"
+            :placeholder="$t('form.placeholder.input')"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -181,7 +183,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TextareaInput } from "@dzangolab/vue3-form";
+          import { Form, TextareaInput } from "@dzangolab/vue3-form";
 
           const validationMessages = {
             required: "The field should not be empty"
@@ -194,16 +196,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <TextareaInput
-            v-model="formData.textInput"
-            :label="$t('form.label.textarea')"
-            :error-messages="validationMessages"
-            :options="validationOptions"
-            :placeholder="$t('form.placeholder.input')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -211,6 +203,16 @@
       <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <TextareaInput
+            v-model="formData.customValidationInput"
+            :label="$t('form.label.textarea')"
+            :placeholder="$t('form.placeholder.input')"
+            :schema="inputSchema"
+            name="custom_input"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -224,7 +226,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Input } from "@dzangolab/vue3-form";
+          import { Form, TextareaInput } from "@dzangolab/vue3-form";
           import { z } from "zod";
 
           const inputSchema = z.string()
@@ -232,16 +234,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <TextareaInput
-            v-model="formData.customValidationInput"
-            :label="$t('form.label.textarea')"
-            :placeholder="$t('form.placeholder.input')"
-            :schema="inputSchema"
-            name="custom_input"
-          />
-        </Form>
       </div>
     </section>
 
@@ -249,6 +241,17 @@
       <h2>{{ $t("form.label.customColsRowsInput") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <TextareaInput
+            v-model="formData.customRowsColsInput"
+            :cols="100"
+            :label="$t('form.label.textarea')"
+            :placeholder="$t('form.placeholder.input')"
+            :rows="5"
+            class="textarea-field"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -258,7 +261,7 @@
               cols="100",
               label="Textarea"
               placeholder="Enter input"
-              rows="10"
+              rows="5"
             /&gt;
           &lt;/Form&gt;
 
@@ -274,17 +277,6 @@
           &lt;/style&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <TextareaInput
-            v-model="formData.customRowsColsInput"
-            :cols="100"
-            :label="$t('form.label.textarea')"
-            :placeholder="$t('form.placeholder.input')"
-            :rows="10"
-            class="textarea-field"
-          />
-        </Form>
       </div>
     </section>
   </FormPage>

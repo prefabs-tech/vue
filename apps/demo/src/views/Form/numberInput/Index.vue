@@ -10,27 +10,25 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
+        <NumberInput
+          v-model="formData.noLabelInput"
+          :placeholder="$t('form.placeholder.number')"
+        />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;NumberInput 
               v-model="input"
               placeholder="Enter a number"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { NumberInput } from "@dzangolab/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <NumberInput
-            v-model="formData.noLabelInput"
-            :placeholder="$t('form.placeholder.number')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -38,29 +36,27 @@
       <h2>{{ $t("form.label.labelInput") }}</h2>
 
       <div class="section-content">
+        <NumberInput
+          v-model="formData.input"
+          :label="$t('form.label.number')"
+          :placeholder="$t('form.placeholder.number')"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;NumberInput 
               v-model="input"
               label="Number"
               placeholder="Enter a number"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { NumberInput } from "@dzangolab/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <NumberInput
-            v-model="formData.input"
-            :label="$t('form.label.number')"
-            :placeholder="$t('form.placeholder.number')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -68,29 +64,27 @@
       <h2>{{ $t("form.label.disabled") }}</h2>
 
       <div class="section-content">
+        <NumberInput
+          v-model="formData.disabled"
+          :label="$t('form.label.number')"
+          disabled
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;NumberInput 
               v-model="input"
               label="Number"
               disabled
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { NumberInput } from "@dzangolab/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <NumberInput
-            v-model="formData.disabled"
-            :label="$t('form.label.number')"
-            disabled
-          />
-        </Form>
       </div>
     </section>
 
@@ -98,15 +92,21 @@
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
+        <NumberInput
+          v-model="formData.input"
+          :label="$t('form.label.number')"
+          :placeholder="$t('form.placeholder.number')"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;NumberInput 
               v-model="input"
               :label="t('form.label.number')"
               :placeholder="t('form.placeholder.number')"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { NumberInput } from "@dzangolab/vue3-form";
@@ -116,14 +116,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <NumberInput
-            v-model="formData.input"
-            :label="$t('form.label.number')"
-            :placeholder="$t('form.placeholder.number')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -131,6 +123,15 @@
       <h2>{{ $t("form.label.inputWithValidation") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <NumberInput
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.number')"
+            :options="validationOptions"
+            :placeholder="$t('form.placeholder.number')"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -155,15 +156,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <NumberInput
-            v-model="formData.inputWithValidation"
-            :label="$t('form.label.number')"
-            :options="validationOptions"
-            :placeholder="$t('form.placeholder.number')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -171,6 +163,16 @@
       <h2>{{ $t("form.label.customErrorMessageInput") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <NumberInput
+            v-model="formData.textInput"
+            :label="$t('form.label.number')"
+            :error-messages="validationMessages"
+            :options="validationOptions"
+            :placeholder="$t('form.placeholder.number')"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -201,16 +203,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <NumberInput
-            v-model="formData.textInput"
-            :label="$t('form.label.number')"
-            :error-messages="validationMessages"
-            :options="validationOptions"
-            :placeholder="$t('form.placeholder.number')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -218,6 +210,16 @@
       <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <NumberInput
+            v-model="formData.customValidationInput"
+            :label="$t('form.label.number')"
+            :placeholder="$t('form.placeholder.number')"
+            :schema="inputSchema"
+            name="number"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -243,16 +245,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <NumberInput
-            v-model="formData.customValidationInput"
-            :label="$t('form.label.number')"
-            :placeholder="$t('form.placeholder.number')"
-            :schema="inputSchema"
-            name="number"
-          />
-        </Form>
       </div>
     </section>
   </FormPage>

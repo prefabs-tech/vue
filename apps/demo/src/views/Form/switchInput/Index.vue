@@ -10,23 +10,19 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
+        <SwitchInput v-model="formData.noLabelInput" />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
-          &lt;Form&gt;
-            &lt;SwitchInput
-              v-model="input"
-            /&gt;
-          &lt;/Form&gt;
+          &lt;template&gt;
+            &lt;SwitchInput v-model="input" /&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { SwitchInput } from "@dzangolab/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <SwitchInput v-model="formData.noLabelInput" />
-        </Form>
       </div>
     </section>
 
@@ -34,13 +30,15 @@
       <h2>{{ $t("form.label.labelInput") }}</h2>
 
       <div class="section-content">
+        <SwitchInput
+          v-model="formData.input"
+          :label="$t('form.label.switch')"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
-            &lt;SwitchInput 
-              v-model="input"
-              label="Switch"
-            /&gt;
+            &lt;SwitchInput v-model="input" label="Switch" /&gt;
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -48,13 +46,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <SwitchInput
-            v-model="formData.input"
-            :label="$t('form.label.switch')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -62,15 +53,21 @@
       <h2>{{ $t("form.label.disabled") }}</h2>
 
       <div class="section-content">
+        <SwitchInput
+          v-model="formData.disabled"
+          :label="$t('form.label.disabled')"
+          disabled
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;SwitchInput 
               v-model="disabled"
               disabled
               label="Disabled"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { SwitchInput } from "@dzangolab/vue3-form";
@@ -80,14 +77,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <SwitchInput
-            v-model="formData.disabled"
-            :label="$t('form.label.disabled')"
-            disabled
-          />
-        </Form>
       </div>
     </section>
 
@@ -95,14 +84,19 @@
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
+        <SwitchInput
+          v-model="formData.input"
+          :label="$t('form.label.switch')"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;SwitchInput 
               v-model="input"
               :label="t('form.label.switch')"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { SwitchInput } from "@dzangolab/vue3-form";
@@ -112,13 +106,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <SwitchInput
-            v-model="formData.input"
-            :label="$t('form.label.switch')"
-          />
-        </Form>
       </div>
     </section>
 
@@ -126,6 +113,14 @@
       <h2>{{ $t("form.label.inputWithValidation") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <SwitchInput
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.switch')"
+            :schema="inputSchema"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -137,7 +132,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SwitchInput } from "@dzangolab/vue3-form";
+          import { Form, SwitchInput } from "@dzangolab/vue3-form";
 
           const inputSchema = z.coerce
             .boolean()
@@ -147,14 +142,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <SwitchInput
-            v-model="formData.inputWithValidation"
-            :label="$t('form.label.switch')"
-            :schema="inputSchema"
-          />
-        </Form>
       </div>
     </section>
   </FormPage>
