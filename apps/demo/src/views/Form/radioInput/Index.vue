@@ -10,6 +10,12 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
+        <RadioInput
+          v-model="formData.noLabelInput"
+          :options="basicInputOptions"
+          name="basic"
+        />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
           &lt;template&gt;
@@ -42,12 +48,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <RadioInput
-          v-model="formData.noLabelInput"
-          :options="basicInputOptions"
-          name="basic"
-        />
       </div>
     </section>
 
@@ -55,6 +55,14 @@
       <h2>{{ $t("form.label.labelInput") }}</h2>
 
       <div class="section-content">
+        <RadioInput
+          v-model="formData.input"
+          :label="$t('form.label.gender')"
+          :options="genderOptions"
+          direction="horizontal"
+          name="label-input"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -86,14 +94,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <RadioInput
-          v-model="formData.input"
-          :label="$t('form.label.gender')"
-          :options="genderOptions"
-          direction="horizontal"
-          name="label-input"
-        />
       </div>
     </section>
 
@@ -101,6 +101,14 @@
       <h2>{{ $t("form.label.disabled") }}</h2>
 
       <div class="section-content">
+        <RadioInput
+          v-model="formData.disabled"
+          :label="$t('form.label.vehicle')"
+          :options="vehicleOptions"
+          disabled
+          name="disabled-input"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -135,14 +143,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <RadioInput
-          v-model="formData.disabled"
-          :label="$t('form.label.vehicle')"
-          :options="vehicleOptions"
-          disabled
-          name="disabled-input"
-        />
       </div>
     </section>
 
@@ -150,6 +150,14 @@
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
+        <RadioInput
+          v-model="formData.i18nInput"
+          :label="$t('form.label.vehicle')"
+          :options="vehicleOptions"
+          direction="horizontal"
+          name="i18n-input"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -185,14 +193,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <RadioInput
-          v-model="formData.i18nInput"
-          :label="$t('form.label.vehicle')"
-          :options="vehicleOptions"
-          direction="horizontal"
-          name="i18n-input"
-        />
       </div>
     </section>
 
@@ -200,6 +200,17 @@
       <h2>{{ $t("form.label.inputWithValidation") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <RadioInput
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.gender')"
+            :options="genderOptions"
+            :schema="inputSchema"
+          />
+
+          <ButtonElement :label="t('form.label.submit')" />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -236,17 +247,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <RadioInput
-            v-model="formData.inputWithValidation"
-            :label="$t('form.label.gender')"
-            :options="genderOptions"
-            :schema="inputSchema"
-          />
-
-          <ButtonElement :label="t('form.label.submit')" />
-        </Form>
       </div>
     </section>
   </FormPage>

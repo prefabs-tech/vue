@@ -10,6 +10,12 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
+        <CheckboxInput
+          v-model:checked="formData.noLabelInput"
+          :input-label="$t('form.label.accept')"
+          name="basic"
+        />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
           &lt;template&gt;
@@ -28,12 +34,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <CheckboxInput
-          v-model:checked="formData.noLabelInput"
-          :input-label="$t('form.label.accept')"
-          name="basic"
-        />
       </div>
     </section>
 
@@ -41,6 +41,13 @@
       <h2>{{ $t("form.label.multiCheckbox") }}</h2>
 
       <div class="section-content">
+        <CheckboxInput
+          v-model="formData.multiCheckbox"
+          :label="$t('form.label.vehicle')"
+          :options="vehicleOptions"
+          name="multi-checkbox"
+        />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
           &lt;template&gt;
@@ -74,13 +81,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <CheckboxInput
-          v-model="formData.multiCheckbox"
-          :label="$t('form.label.vehicle')"
-          :options="vehicleOptions"
-          name="multi-checkbox"
-        />
       </div>
     </section>
 
@@ -88,6 +88,15 @@
       <h2>{{ $t("form.label.disabled") }}</h2>
 
       <div class="section-content">
+        <CheckboxInput
+          v-model="formData.disabled"
+          :label="$t('form.label.vehicle')"
+          :options="vehicleOptions"
+          direction="horizontal"
+          disabled
+          name="disabled-checkbox"
+        />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
           &lt;template&gt;
@@ -123,15 +132,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <CheckboxInput
-          v-model="formData.disabled"
-          :label="$t('form.label.vehicle')"
-          :options="vehicleOptions"
-          direction="horizontal"
-          disabled
-          name="disabled-checkbox"
-        />
       </div>
     </section>
 
@@ -139,6 +139,16 @@
       <h2>{{ $t("form.label.inputWithValidation") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <CheckboxInput
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.dailySynchro')"
+            :options="dailySynchroOptions"
+            :schema="inputSchema"
+            name="daily-synchro"
+          />
+        </Form>
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
           &lt;template&gt;
@@ -211,16 +221,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <CheckboxInput
-            v-model="formData.inputWithValidation"
-            :label="$t('form.label.dailySynchro')"
-            :options="dailySynchroOptions"
-            :schema="inputSchema"
-            name="daily-synchro"
-          />
-        </Form>
       </div>
     </section>
   </FormPage>

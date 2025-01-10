@@ -84,6 +84,7 @@
     "input": "Input",
     "inputWithType": "With type prop",
     "inputWithValidation": "With validation",
+    "inputWithValidationOptions": "With validation options",
     "invalid": "Show invalid state",
     "joinedDate": "Joined date",
     "labelInput": "With label",

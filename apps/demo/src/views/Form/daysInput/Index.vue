@@ -10,19 +10,26 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
+        <DaysInput
+          v-model="formData.basic"
+          :placeholder="$t('form.placeholder.days')"
+          @update:date="result.basic = $event"
+        />
+        <div v-if="result.basic" class="result-date">{{ result.basic }}</div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;DaysInput
               v-model="input"
               placeholder="Enter number of days"
               @update:date="result = $event"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
           &lt;div v-if="result" class="result-date"&gt;&lbrace;&lbrace; result &rbrace;&rbrace;&lt;/div&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { DaysInput, Form } from "@dzangolab/vue3-form";
+          import { DaysInput } from "@dzangolab/vue3-form";
           import { ref } from "vue";
 
           const input = ref();
@@ -30,15 +37,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <DaysInput
-            v-model="formData.basic"
-            :placeholder="$t('form.placeholder.days')"
-            @update:date="result.basic = $event"
-          />
-        </Form>
-        <div v-if="result.basic" class="result-date">{{ result.basic }}</div>
       </div>
     </section>
 
@@ -46,6 +44,16 @@
       <h2>{{ $t("form.label.labelInput") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <DaysInput
+            v-model="formData.label"
+            :label="$t('form.label.arrivalDate')"
+            :placeholder="$t('form.placeholder.days')"
+            @update:date="result.label = $event"
+          />
+        </Form>
+        <div v-if="result.label" class="result-date">{{ result.label }}</div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -67,16 +75,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <DaysInput
-            v-model="formData.label"
-            :label="$t('form.label.arrivalDate')"
-            :placeholder="$t('form.placeholder.days')"
-            @update:date="result.label = $event"
-          />
-        </Form>
-        <div v-if="result.label" class="result-date">{{ result.label }}</div>
       </div>
     </section>
 
@@ -84,6 +82,19 @@
       <h2>{{ $t("form.label.disabled") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <DaysInput
+            v-model="formData.disabled"
+            :label="$t('form.label.appointmentDate')"
+            :placeholder="$t('form.placeholder.days')"
+            disabled
+            @update:date="result.disabled = $event"
+          />
+        </Form>
+        <div v-if="result.disabled" class="result-date">
+          {{ result.disabled }}
+        </div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -106,19 +117,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <DaysInput
-            v-model="formData.disabled"
-            :label="$t('form.label.appointmentDate')"
-            :placeholder="$t('form.placeholder.days')"
-            disabled
-            @update:date="result.disabled = $event"
-          />
-        </Form>
-        <div v-if="result.disabled" class="result-date">
-          {{ result.disabled }}
-        </div>
       </div>
     </section>
 
@@ -126,6 +124,26 @@
       <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <DaysInput
+            v-model="formData.validationInput"
+            :label="$t('form.label.expiresAfter')"
+            :placeholder="$t('form.placeholder.days')"
+            :schema="inputSchema"
+            @update:date="result.validationInput = $event"
+          />
+        </Form>
+        <div
+          v-if="
+            result.validationInput &&
+            formData.validationInput > 0 &&
+            formData.validationInput <= 365
+          "
+          class="result-date"
+        >
+          {{ result.validationInput }}
+        </div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -159,26 +177,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <DaysInput
-            v-model="formData.validationInput"
-            :label="$t('form.label.expiresAfter')"
-            :placeholder="$t('form.placeholder.days')"
-            :schema="inputSchema"
-            @update:date="result.validationInput = $event"
-          />
-        </Form>
-        <div
-          v-if="
-            result.validationInput &&
-            formData.validationInput > 0 &&
-            formData.validationInput <= 365
-          "
-          class="result-date"
-        >
-          {{ result.validationInput }}
-        </div>
       </div>
     </section>
   </FormPage>

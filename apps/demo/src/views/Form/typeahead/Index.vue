@@ -10,15 +10,21 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
+        <Typeahead
+          v-model="formData.noLabelInput"
+          :placeholder="$t('form.placeholder.input')"
+          :suggestions="suggestionItems"
+        />
+
         <!-- eslint-disable -->
          <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;Typeahead
               v-model="input"
               :suggestions="suggestionItems"
               placeholder="Enter Input"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -76,14 +82,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Typeahead
-            v-model="formData.noLabelInput"
-            :placeholder="$t('form.placeholder.input')"
-            :suggestions="suggestionItems"
-          />
-        </Form>
       </div>
     </section>
 
@@ -91,16 +89,23 @@
       <h2>{{ $t("form.label.labelInput") }}</h2>
 
       <div class="section-content">
+        <Typeahead
+          v-model="formData.input"
+          :label="$t('form.label.typeahead')"
+          :placeholder="$t('form.placeholder.input')"
+          :suggestions="suggestionItems"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;Typeahead
               v-model="input"
               :suggestions="suggestionItems"
               label="Typeahead"
               placeholder="Enter Input"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -158,15 +163,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Typeahead
-            v-model="formData.input"
-            :label="$t('form.label.typeahead')"
-            :placeholder="$t('form.placeholder.input')"
-            :suggestions="suggestionItems"
-          />
-        </Form>
       </div>
     </section>
 
@@ -174,9 +170,17 @@
       <h2>{{ $t("form.label.disabled") }}</h2>
 
       <div class="section-content">
+        <Typeahead
+          v-model="formData.disabled"
+          :label="$t('form.label.disabled')"
+          :suggestions="suggestionItems"
+          type="text"
+          disabled
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;Typeahead
               v-model="input"
               :suggestions="suggestionItems"
@@ -184,7 +188,7 @@
               type="text"
               disabled
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -242,16 +246,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Typeahead
-            v-model="formData.disabled"
-            :label="$t('form.label.disabled')"
-            :suggestions="suggestionItems"
-            type="text"
-            disabled
-          />
-        </Form>
       </div>
     </section>
 
@@ -259,16 +253,23 @@
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
+        <Typeahead
+          v-model="formData.input"
+          :label="$t('form.label.typeahead')"
+          :placeholder="$t('form.placeholder.input')"
+          :suggestions="suggestionItems"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;Typeahead
               v-model="input"
               :suggestions="suggestionItems"
               :label="t('form.label.typeahead')"
               :placeholder="t('form.placeholder.input')"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -329,15 +330,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Typeahead
-            v-model="formData.input"
-            :label="$t('form.label.typeahead')"
-            :placeholder="$t('form.placeholder.input')"
-            :suggestions="suggestionItems"
-          />
-        </Form>
       </div>
     </section>
 
@@ -345,9 +337,17 @@
       <h2>{{ $t("form.label.debouncedTypeahead") }}</h2>
 
       <div class="section-content">
+        <Typeahead
+          v-model="formData.input"
+          :debounce-time="1000"
+          :label="$t('form.label.typeahead')"
+          :placeholder="$t('form.placeholder.input')"
+          :suggestions="suggestionItems"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;Form&gt;
+          &lt;template&gt;
             &lt;Typeahead
               v-model="input"
               :debounce-time="1000"
@@ -355,7 +355,7 @@
               label="Typeahead"
               placeholder="Enter Input"
             /&gt;
-          &lt;/Form&gt;
+          &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -413,16 +413,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Typeahead
-            v-model="formData.input"
-            :debounce-time="1000"
-            :label="$t('form.label.typeahead')"
-            :placeholder="$t('form.placeholder.input')"
-            :suggestions="suggestionItems"
-          />
-        </Form>
       </div>
     </section>
 
@@ -430,6 +420,18 @@
       <h2>{{ $t("form.label.inputWithValidation") }}</h2>
 
       <div class="section-content">
+        <Form>
+          <Typeahead
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.typeahead')"
+            :name="$t('form.label.typeahead')"
+            :placeholder="$t('form.placeholder.input')"
+            :schema="inputSchema"
+            :suggestions="suggestionItems"
+            type="text"
+          />
+        </Form>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;Form&gt;
@@ -504,18 +506,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Form>
-          <Typeahead
-            v-model="formData.inputWithValidation"
-            :label="$t('form.label.typeahead')"
-            :name="$t('form.label.typeahead')"
-            :placeholder="$t('form.placeholder.input')"
-            :schema="inputSchema"
-            :suggestions="suggestionItems"
-            type="text"
-          />
-        </Form>
       </div>
     </section>
   </FormPage>
