@@ -3,9 +3,9 @@
 
   display: grid;
   grid-template-areas:
-  "header"
-  "main"
-  "footer";
+    "header"
+    "main"
+    "footer";
   gap: var(--layout-basic-gap);
   grid-template-rows: auto 1fr auto;
   min-height: 100dvh;
