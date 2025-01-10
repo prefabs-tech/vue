@@ -10,6 +10,12 @@
       <h2>{{ $t("ui.youtubeFacade.usage.basic") }}</h2>
 
       <div class="section-content">
+        <YoutubeFacade
+          :alt="$t('ui.youtubeFacade.alternativeMessage')"
+          video-link="https://www.youtube.com/watch?v=YrxBCBibVo0"
+          video-token="YrxBCBibVo0"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -25,12 +31,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <YoutubeFacade
-          :alt="$t('ui.youtubeFacade.alternativeMessage')"
-          video-link="https://www.youtube.com/watch?v=YrxBCBibVo0"
-          video-token="YrxBCBibVo0"
-        />
       </div>
     </section>
 
@@ -38,6 +38,13 @@
       <h2>{{ $t("ui.youtubeFacade.usage.aspectRatio") }}</h2>
 
       <div class="section-content">
+        <YoutubeFacade
+          :alt="$t('ui.youtubeFacade.alternativeMessage')"
+          aspect-ratio="16/10"
+          video-link="https://www.youtube.com/watch?v=F7PLPJqVotk"
+          video-token="F7PLPJqVotk"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -54,13 +61,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <YoutubeFacade
-          :alt="$t('ui.youtubeFacade.alternativeMessage')"
-          aspect-ratio="16/10"
-          video-link="https://www.youtube.com/watch?v=F7PLPJqVotk"
-          video-token="F7PLPJqVotk"
-        />
       </div>
     </section>
 
@@ -68,12 +68,20 @@
       <h2>{{ $t("ui.youtubeFacade.usage.customThumbnail") }}</h2>
 
       <div class="section-content">
+        <YoutubeFacade
+          :alt="$t('ui.youtubeFacade.alternativeMessage')"
+          aspect-ratio="1.95/1"
+          image-source="logo.png"
+          video-link="https://www.youtube.com/watch?v=YrxBCBibVo0"
+          video-token="YrxBCBibVo0"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;YoutubeFacade
               alt="Vue basic"
-              aspect-ratio="1.85/1"
+              aspect-ratio="1.95/1"
               image-source="logo.png"
               video-link="https://www.youtube.com/watch?v=YrxBCBibVo0"
               video-token="YrxBCBibVo0"
@@ -85,14 +93,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <YoutubeFacade
-          :alt="$t('ui.youtubeFacade.alternativeMessage')"
-          aspect-ratio="1.85/1"
-          image-source="logo.png"
-          video-link="https://www.youtube.com/watch?v=YrxBCBibVo0"
-          video-token="YrxBCBibVo0"
-        />
       </div>
     </section>
   </UiPage>

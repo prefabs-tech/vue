@@ -10,6 +10,15 @@
       <h2>{{ $t("ui.loading.usage.basic") }}</h2>
 
       <div class="section-content">
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.loading.buttonLabel.clickMe')"
+            @click="startLoading"
+          />
+
+          <LoadingPage :loading="loading" />
+        </div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -34,15 +43,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <div class="container">
-          <ButtonElement
-            :label="$t('ui.loading.buttonLabel.clickMe')"
-            @click="startLoading"
-          />
-
-          <LoadingPage :loading="loading" />
-        </div>
       </div>
     </section>
   </UiPage>
@@ -72,6 +72,6 @@ const startLoading = () => {
 
 .demo-loading .section-content {
   display: grid;
-  gap: 2.5rem;
+  gap: 1rem;
 }
 </style>

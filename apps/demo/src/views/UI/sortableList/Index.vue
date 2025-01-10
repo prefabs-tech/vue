@@ -10,6 +10,12 @@
       <h2>{{ $t("ui.sortableList.usage.basic") }}</h2>
 
       <div class="section-content">
+        <h3>{{ $t("ui.sortableList.usage.sortSport") }}</h3>
+        <SortableList :list="list" @on-drag="onDrag" />
+        <div v-if="mostFavourite" class="most-favourite">
+          {{ $t("ui.sortableList.games.favourite", { sport: mostFavourite }) }}
+        </div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -42,12 +48,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <h3>{{ $t("ui.sortableList.usage.sortSport") }}</h3>
-        <SortableList :list="list" @on-drag="onDrag" />
-        <div v-if="mostFavourite" class="most-favourite">
-          {{ $t("ui.sortableList.games.favourite", { sport: mostFavourite }) }}
-        </div>
       </div>
     </section>
   </UiPage>
@@ -99,6 +99,6 @@ const onDrag = (sortedList: [{ id: number; data: string }]) => {
 
 .demo-sortable-list .section-content {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 </style>

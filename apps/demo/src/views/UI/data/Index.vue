@@ -10,6 +10,8 @@
       <h2>{{ $t("ui.data.usage.basic") }}</h2>
 
       <div class="section-content">
+        <Data :label="$t('ui.data.label.name')" :value="userData.name" />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -21,8 +23,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Data :label="$t('ui.data.label.name')" :value="userData.name" />
       </div>
     </section>
 
@@ -30,6 +30,12 @@
       <h2>{{ $t("ui.data.usage.displayObject") }}</h2>
 
       <div class="section-content">
+        <Data
+          :label="$t('ui.data.label.email')"
+          :value="userData"
+          data-key="email"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -50,12 +56,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Data
-          :label="$t('ui.data.label.email')"
-          :value="userData"
-          data-key="email"
-        />
       </div>
     </section>
 
@@ -63,6 +63,14 @@
       <h2>{{ $t("ui.data.usage.structuredData") }}</h2>
 
       <div class="section-content">
+        <GridContainer>
+          <Data
+            v-for="(data, index) in structuredData"
+            :key="index"
+            v-bind="data"
+          />
+        </GridContainer>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -103,14 +111,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <GridContainer>
-          <Data
-            v-for="(data, index) in structuredData"
-            :key="index"
-            v-bind="data"
-          />
-        </GridContainer>
       </div>
     </section>
 
@@ -118,6 +118,15 @@
       <h2>{{ $t("ui.data.usage.separatorSlot") }}</h2>
 
       <div class="section-content">
+        <Data
+          v-for="(data, index) in structuredData"
+          :key="index"
+          v-bind="data"
+          direction="horizontal"
+        >
+          <template #separator>:</template>
+        </Data>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -163,15 +172,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Data
-          v-for="(data, index) in structuredData"
-          :key="index"
-          v-bind="data"
-          direction="horizontal"
-        >
-          <template #separator>:</template>
-        </Data>
       </div>
     </section>
   </UiPage>

@@ -10,6 +10,8 @@
       <h2>{{ $t("ui.message.usage.basic") }}</h2>
 
       <div class="section-content">
+        <Message :message="$t('ui.message.contents.content1')" />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -21,8 +23,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Message :message="$t('ui.message.contents.content1')" />
       </div>
     </section>
 
@@ -30,6 +30,11 @@
       <h2>{{ $t("ui.message.usage.icons.icon") }}</h2>
 
       <div class="section-content">
+        <Message
+          :message="$t('ui.message.contents.content2')"
+          icon="pi pi-android"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -44,11 +49,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Message
-          :message="$t('ui.message.contents.content2')"
-          icon="pi pi-android"
-        />
       </div>
     </section>
 
@@ -56,6 +56,12 @@
       <h2>{{ $t("ui.message.usage.icons.iconSlot") }}</h2>
 
       <div class="section-content">
+        <Message :message="$t('ui.message.contents.content3')">
+          <template #icon>
+            <i class="fa-regular fa-bell" />
+          </template>
+        </Message>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -73,22 +79,23 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Message :message="$t('ui.message.contents.content3')">
-          <template #icon>
-            <i class="fa-regular fa-bell" />
-          </template>
-        </Message>
       </div>
     </section>
 
-    <section v-if="showEnableCloseSection">
+    <section>
       <h2>{{ $t("ui.message.usage.enableClose") }}</h2>
 
       <div class="section-content">
+        <Message
+          :message="$t('ui.message.contents.content4')"
+          icon="pi pi-comments"
+          enable-close
+          @close="showEnableCloseSection = false"
+        />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;template v-if="showEnableCloseSection"&gt;
+          &lt;template&gt;
             &lt;Message
               icon="pi pi-comments"
               message="We value your feedback: take our quick survey!"
@@ -105,13 +112,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Message
-          :message="$t('ui.message.contents.content4')"
-          icon="pi pi-comments"
-          enable-close
-          @close="showEnableCloseSection = false"
-        />
       </div>
     </section>
 
@@ -119,6 +119,8 @@
       <h2>{{ $t("ui.message.usage.withI18n") }}</h2>
 
       <div class="section-content">
+        <Message :message="$t('ui.message.contents.content1')" />
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -133,8 +135,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <Message :message="$t('ui.message.contents.content1')" />
       </div>
     </section>
   </UiPage>

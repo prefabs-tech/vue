@@ -1,7 +1,7 @@
 .layout.sidebar-only {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr;
   grid-template-areas: "main";
   min-height: 100dvh;
   transition: all 0.25s ease-in-out;

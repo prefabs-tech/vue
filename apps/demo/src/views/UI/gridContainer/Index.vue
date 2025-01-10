@@ -10,6 +10,16 @@
       <h2>{{ $t("ui.gridContainer.usage.basic") }}</h2>
 
       <div class="section-content">
+        <GridContainer>
+          <Card
+            v-for="(menu, index) in packages"
+            :key="index + '-' + menu.name"
+            :title="menu.name"
+          >
+            {{ menu.description }}
+          </Card>
+        </GridContainer>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -53,16 +63,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <GridContainer>
-          <Card
-            v-for="(menu, index) in packages"
-            :key="index + '-' + menu.name"
-            :title="menu.name"
-          >
-            {{ menu.description }}
-          </Card>
-        </GridContainer>
       </div>
     </section>
   </UiPage>

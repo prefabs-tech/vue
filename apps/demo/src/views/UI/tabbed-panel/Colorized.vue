@@ -5,6 +5,14 @@
     <section>
       <h3>{{ t("ui.tabbed-panel.position.top") }}</h3>
 
+      <TabbedPanel class="colorized">
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
+      </TabbedPanel>
+
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
@@ -23,14 +31,6 @@
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
-
-      <TabbedPanel class="colorized">
-        <template #icon="slot">
-          <Icon :icon="slot?.props?.icon" height="1.5rem" />
-        </template>
-        <Pane1 title="Praesent" icon="mdi-light:home" />
-        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
-      </TabbedPanel>
     </section>
 
     <section>

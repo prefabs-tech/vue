@@ -50,6 +50,7 @@
   gap: 0.5rem;
   justify-content: center;
   padding: var(--_button-padding);
+  position: relative;
   text-align: center;
   transition: all var(--button-transition-duration) ease;
   user-select: none;

@@ -10,6 +10,14 @@
       <h2>{{ $t("ui.divider.usage.horizontal") }}</h2>
 
       <div class="section-content">
+        <div class="content-wrapper">
+          <p class="content-item">{{ firstMessage }}</p>
+          <Divider />
+          <p class="content-item">{{ secondMessage }}</p>
+          <Divider orientation="horizontal" />
+          <p class="content-item">{{ thirdMessage }}</p>
+        </div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -43,14 +51,6 @@
           &lt;/style&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <div class="content-wrapper">
-          <p class="content-item">{{ firstMessage }}</p>
-          <Divider />
-          <p class="content-item">{{ secondMessage }}</p>
-          <Divider orientation="horizontal" />
-          <p class="content-item">{{ thirdMessage }}</p>
-        </div>
       </div>
     </section>
 
@@ -58,6 +58,14 @@
       <h2>{{ $t("ui.divider.usage.vertical") }}</h2>
 
       <div class="section-content">
+        <div class="content-wrapper vertical">
+          <p class="content-item">{{ firstMessage }}</p>
+          <Divider orientation="vertical" />
+          <p class="content-item">{{ secondMessage }}</p>
+          <Divider orientation="vertical" />
+          <p class="content-item">{{ thirdMessage }}</p>
+        </div>
+
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -99,14 +107,6 @@
           &lt;/style&gt;
         </SshPre>
         <!-- eslint-enable -->
-
-        <div class="content-wrapper vertical">
-          <p class="content-item">{{ firstMessage }}</p>
-          <Divider orientation="vertical" />
-          <p class="content-item">{{ secondMessage }}</p>
-          <Divider orientation="vertical" />
-          <p class="content-item">{{ thirdMessage }}</p>
-        </div>
       </div>
     </section>
   </UiPage>

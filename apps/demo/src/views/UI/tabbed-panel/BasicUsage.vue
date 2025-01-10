@@ -5,6 +5,14 @@
     <section>
       <h3>{{ t("ui.tabbed-panel.position.top") }}</h3>
 
+      <TabbedPanel>
+        <template #icon="slot">
+          <Icon :icon="slot?.props?.icon" height="1.5rem" />
+        </template>
+        <Pane1 title="Praesent" icon="mdi-light:home" />
+        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
+      </TabbedPanel>
+
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
@@ -23,18 +31,18 @@
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
+    </section>
 
-      <TabbedPanel>
+    <section>
+      <h3>{{ t("ui.tabbed-panel.position.bottom") }}</h3>
+
+      <TabbedPanel position="bottom">
         <template #icon="slot">
           <Icon :icon="slot?.props?.icon" height="1.5rem" />
         </template>
         <Pane1 title="Praesent" icon="mdi-light:home" />
         <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
-    </section>
-
-    <section>
-      <h3>{{ t("ui.tabbed-panel.position.bottom") }}</h3>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
@@ -54,18 +62,18 @@
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
+    </section>
 
-      <TabbedPanel position="bottom">
+    <section>
+      <h3>{{ t("ui.tabbed-panel.position.left") }}</h3>
+
+      <TabbedPanel position="left">
         <template #icon="slot">
           <Icon :icon="slot?.props?.icon" height="1.5rem" />
         </template>
         <Pane1 title="Praesent" icon="mdi-light:home" />
         <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
-    </section>
-
-    <section>
-      <h3>{{ t("ui.tabbed-panel.position.left") }}</h3>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
@@ -85,18 +93,18 @@
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
+    </section>
 
-      <TabbedPanel position="left">
+    <section>
+      <h3>{{ $t("ui.tabbed-panel.position.right") }}</h3>
+
+      <TabbedPanel position="right">
         <template #icon="slot">
           <Icon :icon="slot?.props?.icon" height="1.5rem" />
         </template>
         <Pane1 title="Praesent" icon="mdi-light:home" />
         <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
       </TabbedPanel>
-    </section>
-
-    <section>
-      <h3>{{ $t("ui.tabbed-panel.position.right") }}</h3>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
@@ -116,18 +124,19 @@
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
+    </section>
 
-      <TabbedPanel position="right">
+    <section>
+      <h3>{{ $t("ui.tabbed-panel.no-title") }}</h3>
+
+      <TabbedPanel>
         <template #icon="slot">
           <Icon :icon="slot?.props?.icon" height="1.5rem" />
         </template>
         <Pane1 title="Praesent" icon="mdi-light:home" />
         <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
+        <Pane2 />
       </TabbedPanel>
-    </section>
-
-    <section>
-      <h3>{{ $t("ui.tabbed-panel.no-title") }}</h3>
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
@@ -150,15 +159,6 @@
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
-
-      <TabbedPanel>
-        <template #icon="slot">
-          <Icon :icon="slot?.props?.icon" height="1.5rem" />
-        </template>
-        <Pane1 title="Praesent" icon="mdi-light:home" />
-        <Pane2 title="A ullamcorper eros" icon="mdi:cellphone-lock" />
-        <Pane2 />
-      </TabbedPanel>
     </section>
   </section>
 </template>
