@@ -271,7 +271,7 @@ import UiPage from "../UiPage.vue";
   --_text-color: var(--dz-secondary-color);
 }
 
-.demo .trigger {
+.tooltip-container .trigger {
   border: 1px solid #000;
   border-radius: 0.25rem;
   padding: 0.5rem;

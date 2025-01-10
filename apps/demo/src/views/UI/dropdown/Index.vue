@@ -149,12 +149,12 @@ const onSelect = (value: string | number) => {
 </script>
 
 <style lang="css">
-.label {
+.dropdown .label {
   font-weight: 600;
   margin-right: 1rem;
 }
 
-.trigger {
+.dropdown .trigger {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
