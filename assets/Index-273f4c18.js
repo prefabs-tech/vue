@@ -1,4 +1,4 @@
-import{O as c,$ as g}from"./DzangolabVue3Form.es-e3591036.js";import{d as C,a7 as I,p as V,j as p,K as d,o as x,c as y,w as s,L as t,C as e,M as m,f as a,E as n}from"./index-8e1c3ab6-d459558c.js";import{m as _}from"./index-32635991.js";import{_ as $}from"./FormPage.vue_vue_type_style_index_0_lang-a26aea77.js";const S={class:"section-content"},O={class:"section-content"},z={class:"section-content"},L={class:"section-content"},B={name:"CheckboxInput"},N=C({...B,setup(w){const{t:l}=I(),h=_.string().array().min(6,{message:l("form.errors.checkbox.min",{min:6})});let r=V({disabled:p(["car"]),inputWithValidation:p(),multiCheckbox:p([]),noLabelInput:p()});const v=[{label:l("form.label.title"),value:1},{label:l("form.label.solutions"),value:2},{label:l("form.label.deliverableList"),value:3},{label:l("form.label.workInProgress"),value:4},{label:l("form.label.summary"),value:5},{label:l("form.label.next"),value:6},{label:l("form.label.assumptions"),value:7},{label:l("form.label.generalQuestions"),value:8},{label:l("form.label.consequences"),value:9},{label:l("form.label.other"),value:10}],f=[{label:l("form.label.bike"),value:"bike"},{label:l("form.label.car"),value:"car"},{label:l("form.label.truck"),value:"truck"}];return(o,i)=>{const k=d("router-link"),b=d("SshPre");return x(),y($,{title:o.$t("form.label.checkbox"),class:"demo"},{toolbar:s(()=>[t(k,{to:{name:"form"},class:"back"},{default:s(()=>[e(m(o.$t("common.back")),1)]),_:1})]),default:s(()=>[e(),a("section",null,[a("h2",null,m(o.$t("form.label.basicInput")),1),e(),a("div",S,[t(b,{language:"html-vue"},{default:s(()=>[e(`
+import{O as c,$ as g}from"./DzangolabVue3Form.es-e6467f04.js";import{d as C,a7 as I,p as V,j as p,K as d,o as x,c as y,w as s,L as t,C as e,M as m,f as a,E as n}from"./index-8e1c3ab6-d459558c.js";import{m as _}from"./index-55edaaac.js";import{_ as $}from"./FormPage.vue_vue_type_style_index_0_lang-a26aea77.js";const S={class:"section-content"},O={class:"section-content"},z={class:"section-content"},L={class:"section-content"},B={name:"CheckboxInput"},N=C({...B,setup(w){const{t:l}=I(),h=_.string().array().min(6,{message:l("form.errors.checkbox.min",{min:6})});let r=V({disabled:p(["car"]),inputWithValidation:p(),multiCheckbox:p([]),noLabelInput:p()});const v=[{label:l("form.label.title"),value:1},{label:l("form.label.solutions"),value:2},{label:l("form.label.deliverableList"),value:3},{label:l("form.label.workInProgress"),value:4},{label:l("form.label.summary"),value:5},{label:l("form.label.next"),value:6},{label:l("form.label.assumptions"),value:7},{label:l("form.label.generalQuestions"),value:8},{label:l("form.label.consequences"),value:9},{label:l("form.label.other"),value:10}],f=[{label:l("form.label.bike"),value:"bike"},{label:l("form.label.car"),value:"car"},{label:l("form.label.truck"),value:"truck"}];return(o,i)=>{const k=d("router-link"),b=d("SshPre");return x(),y($,{title:o.$t("form.label.checkbox"),class:"demo"},{toolbar:s(()=>[t(k,{to:{name:"form"},class:"back"},{default:s(()=>[e(m(o.$t("common.back")),1)]),_:1})]),default:s(()=>[e(),a("section",null,[a("h2",null,m(o.$t("form.label.basicInput")),1),e(),a("div",S,[t(n(c),{checked:n(r).noLabelInput,"onUpdate:checked":i[0]||(i[0]=u=>n(r).noLabelInput=u),"input-label":o.$t("form.label.accept"),name:"basic"},null,8,["checked","input-label"]),e(),t(b,{language:"html-vue"},{default:s(()=>[e(`
           <template>
             <CheckboxInput
               v-model:checked="input"
@@ -13,7 +13,7 @@ import{O as c,$ as g}from"./DzangolabVue3Form.es-e3591036.js";import{d as C,a7 a
 
           const input = ref();
           <\/script>
-        `)]),_:1}),e(),t(n(c),{checked:n(r).noLabelInput,"onUpdate:checked":i[0]||(i[0]=u=>n(r).noLabelInput=u),"input-label":o.$t("form.label.accept"),name:"basic"},null,8,["checked","input-label"])])]),e(),a("section",null,[a("h2",null,m(o.$t("form.label.multiCheckbox")),1),e(),a("div",O,[t(b,{language:"html-vue"},{default:s(()=>[e(`
+        `)]),_:1}),e()])]),e(),a("section",null,[a("h2",null,m(o.$t("form.label.multiCheckbox")),1),e(),a("div",O,[t(n(c),{modelValue:n(r).multiCheckbox,"onUpdate:modelValue":i[1]||(i[1]=u=>n(r).multiCheckbox=u),label:o.$t("form.label.vehicle"),options:f,name:"multi-checkbox"},null,8,["modelValue","label"]),e(),t(b,{language:"html-vue"},{default:s(()=>[e(`
           <template>
             <CheckboxInput
               v-model="input"
@@ -43,7 +43,7 @@ import{O as c,$ as g}from"./DzangolabVue3Form.es-e3591036.js";import{d as C,a7 a
             },
           ];
           <\/script>
-        `)]),_:1}),e(),t(n(c),{modelValue:n(r).multiCheckbox,"onUpdate:modelValue":i[1]||(i[1]=u=>n(r).multiCheckbox=u),label:o.$t("form.label.vehicle"),options:f,name:"multi-checkbox"},null,8,["modelValue","label"])])]),e(),a("section",null,[a("h2",null,m(o.$t("form.label.disabled")),1),e(),a("div",z,[t(b,{language:"html-vue"},{default:s(()=>[e(`
+        `)]),_:1}),e()])]),e(),a("section",null,[a("h2",null,m(o.$t("form.label.disabled")),1),e(),a("div",z,[t(n(c),{modelValue:n(r).disabled,"onUpdate:modelValue":i[2]||(i[2]=u=>n(r).disabled=u),label:o.$t("form.label.vehicle"),options:f,direction:"horizontal",disabled:"",name:"disabled-checkbox"},null,8,["modelValue","label"]),e(),t(b,{language:"html-vue"},{default:s(()=>[e(`
           <template>
             <CheckboxInput
               v-model="input"
@@ -75,7 +75,7 @@ import{O as c,$ as g}from"./DzangolabVue3Form.es-e3591036.js";import{d as C,a7 a
             },
           ];
           <\/script>
-        `)]),_:1}),e(),t(n(c),{modelValue:n(r).disabled,"onUpdate:modelValue":i[2]||(i[2]=u=>n(r).disabled=u),label:o.$t("form.label.vehicle"),options:f,direction:"horizontal",disabled:"",name:"disabled-checkbox"},null,8,["modelValue","label"])])]),e(),a("section",null,[a("h2",null,m(o.$t("form.label.inputWithValidation")),1),e(),a("div",L,[t(b,{language:"html-vue"},{default:s(()=>[e(`
+        `)]),_:1}),e()])]),e(),a("section",null,[a("h2",null,m(o.$t("form.label.inputWithValidation")),1),e(),a("div",L,[t(n(g),null,{default:s(()=>[t(n(c),{modelValue:n(r).inputWithValidation,"onUpdate:modelValue":i[3]||(i[3]=u=>n(r).inputWithValidation=u),label:o.$t("form.label.dailySynchro"),options:v,schema:n(h),name:"daily-synchro"},null,8,["modelValue","label","schema"])]),_:1}),e(),t(b,{language:"html-vue"},{default:s(()=>[e(`
           <template>
             <Form>
               <CheckboxInput
@@ -144,4 +144,4 @@ import{O as c,$ as g}from"./DzangolabVue3Form.es-e3591036.js";import{d as C,a7 a
             },
           ];
           <\/script>
-        `)]),_:1}),e(),t(n(g),null,{default:s(()=>[t(n(c),{modelValue:n(r).inputWithValidation,"onUpdate:modelValue":i[3]||(i[3]=u=>n(r).inputWithValidation=u),label:o.$t("form.label.dailySynchro"),options:v,schema:n(h),name:"daily-synchro"},null,8,["modelValue","label","schema"])]),_:1})])])]),_:1},8,["title"])}}});export{N as default};
+        `)]),_:1}),e()])])]),_:1},8,["title"])}}});export{N as default};

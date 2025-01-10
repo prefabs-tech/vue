@@ -1,11 +1,11 @@
-import{$ as h,z as p}from"./DzangolabVue3Form.es-e3591036.js";import{d as y,a7 as v,p as A,j as g,K as m,o as L,c as D,w as t,L as a,C as e,M as u,f as o,E as l}from"./index-8e1c3ab6-d459558c.js";import{m as T}from"./index-32635991.js";import{_ as I}from"./FormPage.vue_vue_type_style_index_0_lang-a26aea77.js";const V={class:"section-content"},$={class:"section-content"},k={class:"section-content"},S={class:"section-content"},C={class:"section-content"},P={class:"section-content"},M={name:"InputField"},_=y({...M,setup(q){const{t:b}=v(),w=T.string().min(3,{message:b("form.errors.input.min",{length:3})}),d=[{value:"Roslabel",label:"Roslabel - A fragrant flower often associated with romance"},{value:"Tulip",label:"Tulip - A bright, cup-shaped flower popular in spring"},{value:"Daisy",label:"Daisy - A simple, white flower with a yellow center"},{value:"Sunflower",label:"Sunflower - A tall plant with a large, yellow flower head"},{value:"Lily",label:"Lily - An elegant flower often used in bouquets"},{value:"Orchid",label:"Orchid - An exotic flower with a unique shape"},{value:"Marigold",label:"Marigold - A vibrant, orange or yellow flower"},{value:"Lavender",label:"Lavender - A fragrant flower known for its calming scent"},{value:"Peony",label:"Peony - A lush, full flower often used in weddings"},{value:"Chrysanthemum",label:"Chrysanthemum - A hardy flower with a variety of colors"},{value:"Daffodil",label:"Daffodil - A bright, yellow flower that blooms in spring"},{value:"Hydrangea",label:"Hydrangea - A large, cluster-like flower that changes color"}];let r=A({disabled:g("Lily"),input:g(),inputWithValidation:g(),noLabelInput:g()});return(n,i)=>{const c=m("router-link"),f=m("SshPre");return L(),D(I,{title:n.$t("form.label.typeahead"),class:"demo"},{toolbar:t(()=>[a(c,{to:{name:"form"},class:"back"},{default:t(()=>[e(u(n.$t("common.back")),1)]),_:1})]),default:t(()=>[e(),o("section",null,[o("h2",null,u(n.$t("form.label.basicInput")),1),e(),o("div",V,[a(f,{language:"html-vue"},{default:t(()=>[e(`
-          <Form>
+import{z as h,$ as c}from"./DzangolabVue3Form.es-e6467f04.js";import{d as y,a7 as v,p as A,j as p,K as g,o as L,c as D,w as s,L as o,C as e,M as u,f as a,E as l}from"./index-8e1c3ab6-d459558c.js";import{m as T}from"./index-55edaaac.js";import{_ as I}from"./FormPage.vue_vue_type_style_index_0_lang-a26aea77.js";const V={class:"section-content"},$={class:"section-content"},k={class:"section-content"},S={class:"section-content"},C={class:"section-content"},P={class:"section-content"},M={name:"InputField"},_=y({...M,setup(q){const{t:m}=v(),b=T.string().min(3,{message:m("form.errors.input.min",{length:3})}),d=[{value:"Roslabel",label:"Roslabel - A fragrant flower often associated with romance"},{value:"Tulip",label:"Tulip - A bright, cup-shaped flower popular in spring"},{value:"Daisy",label:"Daisy - A simple, white flower with a yellow center"},{value:"Sunflower",label:"Sunflower - A tall plant with a large, yellow flower head"},{value:"Lily",label:"Lily - An elegant flower often used in bouquets"},{value:"Orchid",label:"Orchid - An exotic flower with a unique shape"},{value:"Marigold",label:"Marigold - A vibrant, orange or yellow flower"},{value:"Lavender",label:"Lavender - A fragrant flower known for its calming scent"},{value:"Peony",label:"Peony - A lush, full flower often used in weddings"},{value:"Chrysanthemum",label:"Chrysanthemum - A hardy flower with a variety of colors"},{value:"Daffodil",label:"Daffodil - A bright, yellow flower that blooms in spring"},{value:"Hydrangea",label:"Hydrangea - A large, cluster-like flower that changes color"}];let t=A({disabled:p("Lily"),input:p(),inputWithValidation:p(),noLabelInput:p()});return(n,r)=>{const w=g("router-link"),f=g("SshPre");return L(),D(I,{title:n.$t("form.label.typeahead"),class:"demo"},{toolbar:s(()=>[o(w,{to:{name:"form"},class:"back"},{default:s(()=>[e(u(n.$t("common.back")),1)]),_:1})]),default:s(()=>[e(),a("section",null,[a("h2",null,u(n.$t("form.label.basicInput")),1),e(),a("div",V,[o(l(h),{modelValue:l(t).noLabelInput,"onUpdate:modelValue":r[0]||(r[0]=i=>l(t).noLabelInput=i),placeholder:n.$t("form.placeholder.input"),suggestions:d},null,8,["modelValue","placeholder"]),e(),o(f,{language:"html-vue"},{default:s(()=>[e(`
+          <template>
             <Typeahead
               v-model="input"
               :suggestions="suggestionItems"
               placeholder="Enter Input"
             />
-          </Form>
+          </template>
 
           <script setup lang="ts">
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -61,15 +61,15 @@ import{$ as h,z as p}from"./DzangolabVue3Form.es-e3591036.js";import{d as y,a7 a
             },
           ];
           <\/script>
-        `)]),_:1}),e(),a(l(h),null,{default:t(()=>[a(l(p),{modelValue:l(r).noLabelInput,"onUpdate:modelValue":i[0]||(i[0]=s=>l(r).noLabelInput=s),placeholder:n.$t("form.placeholder.input"),suggestions:d},null,8,["modelValue","placeholder"])]),_:1})])]),e(),o("section",null,[o("h2",null,u(n.$t("form.label.labelInput")),1),e(),o("div",$,[a(f,{language:"html-vue"},{default:t(()=>[e(`
-          <Form>
+        `)]),_:1}),e()])]),e(),a("section",null,[a("h2",null,u(n.$t("form.label.labelInput")),1),e(),a("div",$,[o(l(h),{modelValue:l(t).input,"onUpdate:modelValue":r[1]||(r[1]=i=>l(t).input=i),label:n.$t("form.label.typeahead"),placeholder:n.$t("form.placeholder.input"),suggestions:d},null,8,["modelValue","label","placeholder"]),e(),o(f,{language:"html-vue"},{default:s(()=>[e(`
+          <template>
             <Typeahead
               v-model="input"
               :suggestions="suggestionItems"
               label="Typeahead"
               placeholder="Enter Input"
             />
-          </Form>
+          </template>
 
           <script setup lang="ts">
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -125,8 +125,8 @@ import{$ as h,z as p}from"./DzangolabVue3Form.es-e3591036.js";import{d as y,a7 a
             },
           ];
           <\/script>
-        `)]),_:1}),e(),a(l(h),null,{default:t(()=>[a(l(p),{modelValue:l(r).input,"onUpdate:modelValue":i[1]||(i[1]=s=>l(r).input=s),label:n.$t("form.label.typeahead"),placeholder:n.$t("form.placeholder.input"),suggestions:d},null,8,["modelValue","label","placeholder"])]),_:1})])]),e(),o("section",null,[o("h2",null,u(n.$t("form.label.disabled")),1),e(),o("div",k,[a(f,{language:"html-vue"},{default:t(()=>[e(`
-          <Form>
+        `)]),_:1}),e()])]),e(),a("section",null,[a("h2",null,u(n.$t("form.label.disabled")),1),e(),a("div",k,[o(l(h),{modelValue:l(t).disabled,"onUpdate:modelValue":r[2]||(r[2]=i=>l(t).disabled=i),label:n.$t("form.label.disabled"),suggestions:d,type:"text",disabled:""},null,8,["modelValue","label"]),e(),o(f,{language:"html-vue"},{default:s(()=>[e(`
+          <template>
             <Typeahead
               v-model="input"
               :suggestions="suggestionItems"
@@ -134,7 +134,7 @@ import{$ as h,z as p}from"./DzangolabVue3Form.es-e3591036.js";import{d as y,a7 a
               type="text"
               disabled
             />
-          </Form>
+          </template>
 
           <script setup lang="ts">
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -190,15 +190,15 @@ import{$ as h,z as p}from"./DzangolabVue3Form.es-e3591036.js";import{d as y,a7 a
             },
           ];
           <\/script>
-        `)]),_:1}),e(),a(l(h),null,{default:t(()=>[a(l(p),{modelValue:l(r).disabled,"onUpdate:modelValue":i[2]||(i[2]=s=>l(r).disabled=s),label:n.$t("form.label.disabled"),suggestions:d,type:"text",disabled:""},null,8,["modelValue","label"])]),_:1})])]),e(),o("section",null,[o("h2",null,u(n.$t("form.label.withI18n")),1),e(),o("div",S,[a(f,{language:"html-vue"},{default:t(()=>[e(`
-          <Form>
+        `)]),_:1}),e()])]),e(),a("section",null,[a("h2",null,u(n.$t("form.label.withI18n")),1),e(),a("div",S,[o(l(h),{modelValue:l(t).input,"onUpdate:modelValue":r[3]||(r[3]=i=>l(t).input=i),label:n.$t("form.label.typeahead"),placeholder:n.$t("form.placeholder.input"),suggestions:d},null,8,["modelValue","label","placeholder"]),e(),o(f,{language:"html-vue"},{default:s(()=>[e(`
+          <template>
             <Typeahead
               v-model="input"
               :suggestions="suggestionItems"
               :label="t('form.label.typeahead')"
               :placeholder="t('form.placeholder.input')"
             />
-          </Form>
+          </template>
 
           <script setup lang="ts">
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -257,8 +257,8 @@ import{$ as h,z as p}from"./DzangolabVue3Form.es-e3591036.js";import{d as y,a7 a
             },
           ];
           <\/script>
-        `)]),_:1}),e(),a(l(h),null,{default:t(()=>[a(l(p),{modelValue:l(r).input,"onUpdate:modelValue":i[3]||(i[3]=s=>l(r).input=s),label:n.$t("form.label.typeahead"),placeholder:n.$t("form.placeholder.input"),suggestions:d},null,8,["modelValue","label","placeholder"])]),_:1})])]),e(),o("section",null,[o("h2",null,u(n.$t("form.label.debouncedTypeahead")),1),e(),o("div",C,[a(f,{language:"html-vue"},{default:t(()=>[e(`
-          <Form>
+        `)]),_:1}),e()])]),e(),a("section",null,[a("h2",null,u(n.$t("form.label.debouncedTypeahead")),1),e(),a("div",C,[o(l(h),{modelValue:l(t).input,"onUpdate:modelValue":r[4]||(r[4]=i=>l(t).input=i),"debounce-time":1e3,label:n.$t("form.label.typeahead"),placeholder:n.$t("form.placeholder.input"),suggestions:d},null,8,["modelValue","label","placeholder"]),e(),o(f,{language:"html-vue"},{default:s(()=>[e(`
+          <template>
             <Typeahead
               v-model="input"
               :debounce-time="1000"
@@ -266,7 +266,7 @@ import{$ as h,z as p}from"./DzangolabVue3Form.es-e3591036.js";import{d as y,a7 a
               label="Typeahead"
               placeholder="Enter Input"
             />
-          </Form>
+          </template>
 
           <script setup lang="ts">
           import { Typeahead } from "@dzangolab/vue3-form";
@@ -322,7 +322,7 @@ import{$ as h,z as p}from"./DzangolabVue3Form.es-e3591036.js";import{d as y,a7 a
             },
           ];
           <\/script>
-        `)]),_:1}),e(),a(l(h),null,{default:t(()=>[a(l(p),{modelValue:l(r).input,"onUpdate:modelValue":i[4]||(i[4]=s=>l(r).input=s),"debounce-time":1e3,label:n.$t("form.label.typeahead"),placeholder:n.$t("form.placeholder.input"),suggestions:d},null,8,["modelValue","label","placeholder"])]),_:1})])]),e(),o("section",null,[o("h2",null,u(n.$t("form.label.inputWithValidation")),1),e(),o("div",P,[a(f,{language:"html-vue"},{default:t(()=>[e(`
+        `)]),_:1}),e()])]),e(),a("section",null,[a("h2",null,u(n.$t("form.label.inputWithValidation")),1),e(),a("div",P,[o(l(c),null,{default:s(()=>[o(l(h),{modelValue:l(t).inputWithValidation,"onUpdate:modelValue":r[5]||(r[5]=i=>l(t).inputWithValidation=i),label:n.$t("form.label.typeahead"),name:n.$t("form.label.typeahead"),placeholder:n.$t("form.placeholder.input"),schema:l(b),suggestions:d,type:"text"},null,8,["modelValue","label","name","placeholder","schema"])]),_:1}),e(),o(f,{language:"html-vue"},{default:s(()=>[e(`
           <Form>
             <Typeahead
               v-model="inputWithValidation"
@@ -393,4 +393,4 @@ import{$ as h,z as p}from"./DzangolabVue3Form.es-e3591036.js";import{d as y,a7 a
           const inputSchema = z.string()
             .min(3, { message: "Input must be at least 3 character(s)" });        
           <\/script>
-        `)]),_:1}),e(),a(l(h),null,{default:t(()=>[a(l(p),{modelValue:l(r).inputWithValidation,"onUpdate:modelValue":i[5]||(i[5]=s=>l(r).inputWithValidation=s),label:n.$t("form.label.typeahead"),name:n.$t("form.label.typeahead"),placeholder:n.$t("form.placeholder.input"),schema:l(w),suggestions:d,type:"text"},null,8,["modelValue","label","name","placeholder","schema"])]),_:1})])])]),_:1},8,["title"])}}});export{_ as default};
+        `)]),_:1}),e()])])]),_:1},8,["title"])}}});export{_ as default};
