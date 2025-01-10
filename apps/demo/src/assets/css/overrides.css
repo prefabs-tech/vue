@@ -24,6 +24,7 @@ section:has(h3) {
 
 .demo .section-content {
   display: grid;
+  gap: 0.25em;
   margin-top: 1em;
 }
 
