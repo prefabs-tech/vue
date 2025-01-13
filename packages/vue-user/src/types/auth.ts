@@ -27,6 +27,12 @@ interface UpdatePasswordPayload {
   newPassword: string;
 }
 
+type UpdateProfileInputType = {
+  email: string;
+  givenName: string;
+  surname: string;
+};
+
 interface User extends EmailPasswordUserType {
   //usertype and emailusertype are same one type with different name in different recipe
   email: string;
@@ -55,6 +61,7 @@ export type {
   PasswordResetPayload,
   PasswordResetRequestPayload,
   UpdatePasswordPayload,
+  UpdateProfileInputType,
   User,
   UserType,
 };
