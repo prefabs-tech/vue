@@ -19,7 +19,7 @@
       </router-link>
     </div>
 
-    <div class="divider"></div>
+    <div v-if="config.user?.socialLogins?.length" class="divider"></div>
 
     <div class="social-logins">
       <GoogleLogin

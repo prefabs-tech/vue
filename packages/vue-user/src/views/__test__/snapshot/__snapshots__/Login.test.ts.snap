@@ -110,9 +110,7 @@ exports[`Login > matches snapshot in en 1`] = `
         Forgot password
       </a>
     </div>
-    <div
-      class="divider"
-    />
+    <!--v-if-->
     <div
       class="social-logins"
     >
@@ -233,9 +231,7 @@ exports[`Login > matches snapshot in fr 1`] = `
         Mot de passe oublié
       </a>
     </div>
-    <div
-      class="divider"
-    />
+    <!--v-if-->
     <div
       class="social-logins"
     >
