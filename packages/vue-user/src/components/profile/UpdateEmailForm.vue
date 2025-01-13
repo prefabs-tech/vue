@@ -36,6 +36,8 @@ type UpdateEmailFormData = {
   email: string;
 };
 
+const emit = defineEmits(["email:updateProcessed"]);
+
 const config = useConfig();
 
 const messages = useTranslations();
@@ -81,6 +83,8 @@ const onSubmit = async (data: UpdateEmailFormData) => {
           });
         }
 
+        emit("email:updateProcessed");
+        dzangolabVueUpdateEmail.value?.resetForm();
         break;
       }
       case "EMAIL_ALREADY_EXISTS_ERROR": {
@@ -120,7 +124,6 @@ const onSubmit = async (data: UpdateEmailFormData) => {
       }
     }
 
-    dzangolabVueUpdateEmail.value?.resetForm();
     loading.value = false;
   } catch (error) {
     emitter.emit("notify", {

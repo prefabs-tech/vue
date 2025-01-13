@@ -38,8 +38,8 @@ const props = defineProps({
     required: true,
   },
   value: {
+    default: "",
     type: [Object, String, Number] as PropType<string | number | object>,
-    required: true,
   },
 });
 
