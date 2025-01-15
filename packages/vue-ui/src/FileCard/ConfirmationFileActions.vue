@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="confirmation-file-actions">
     <ConfirmationModal
       v-if="showArchiveConfirmation"
       @on:close="$emit('on:closeArchive')"

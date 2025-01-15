@@ -112,7 +112,7 @@
       <ButtonElement
         v-if="actionButtonsVisibility.archive"
         v-bind="archiveButtonProps"
-        label="Archive"
+        :label="messages?.archiveAction || 'Archive'"
         size="small"
         @click="showArchiveConfirmation = true"
       >
@@ -135,7 +135,7 @@
       <ButtonElement
         v-if="actionButtonsVisibility.delete"
         v-bind="deleteButtonProps"
-        label="Delete"
+        :label="messages?.deleteAction || 'Delete'"
         size="small"
         @click="showDeleteConfirmation = true"
       >
@@ -158,7 +158,7 @@
       <ButtonElement
         v-if="actionButtonsVisibility.download"
         v-bind="downloadButtonProps"
-        label="Download"
+        :label="messages?.downloadAction || 'Download'"
         size="small"
         @click="emitAction('download')"
       >
@@ -182,7 +182,7 @@
       <ButtonElement
         v-if="actionButtonsVisibility.share"
         v-bind="shareButtonProps"
-        label="Share"
+        :label="messages?.shareAction || 'Share'"
         size="small"
         @click="emitAction('share')"
       >
@@ -204,7 +204,7 @@
       <ButtonElement
         v-if="actionButtonsVisibility.view"
         v-bind="viewButtonProps"
-        label="View"
+        :label="messages?.viewAction || 'View'"
         size="small"
         @click="emitAction('view')"
       >
@@ -233,6 +233,10 @@
       </ButtonElement>
 
       <ConfirmationFileActions
+        :archive-confirmation-header="messages?.archiveConfirmationHeader"
+        :archive-confirmation-message="messages?.archiveConfirmationMessage"
+        :delete-confirmation-header="messages?.deleteConfirmationHeader"
+        :delete-confirmation-message="messages?.deleteConfirmationMessage"
         :show-archive-confirmation="showArchiveConfirmation"
         :show-delete-confirmation="showDeleteConfirmation"
         @on:close-archive="showArchiveConfirmation = false"

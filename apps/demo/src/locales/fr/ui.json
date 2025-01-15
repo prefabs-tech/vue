@@ -166,7 +166,11 @@
   },
   "file": "File",
   "fileCard": {
-    "title": "File card"
+    "title": "File card",
+    "usage": {
+      "basic": "Basic",
+      "messages": "Custom messages"
+    }
   },
   "getStarted": "Get started",
   "gridContainer": {

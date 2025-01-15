@@ -70,4 +70,4 @@ export {
   YoutubeFacade,
 };
 
-export type { Error, IFile } from "./types";
+export type { Error, FileMessages, IFile } from "./types";
