@@ -13,6 +13,7 @@ import ConfirmationModal from "./ConfirmationModal/Index.vue";
 import Divider from "./Divider/Index.vue";
 import Dropdown from "./Dropdown/Index.vue";
 import Errors from "./Errors/Index.vue";
+import FileCard from "./FileCard/Index.vue";
 import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
 import GridContainer from "./GridContainer/Index.vue";
 import LoadingPage from "./LoadingPage/Index.vue";
@@ -50,6 +51,7 @@ export {
   ConfirmationModal,
   DebouncedInput,
   Errors,
+  FileCard,
   GridContainer,
   GoogleSignInButton,
   LoadingButton,
@@ -68,4 +70,4 @@ export {
   YoutubeFacade,
 };
 
-export type { Error } from "./types";
+export type { Error, FileMessages, IFile } from "./types";
