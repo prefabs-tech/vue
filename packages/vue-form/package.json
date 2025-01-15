@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-form",
-  "version": "0.9.4",
+  "version": "0.10.0",
   "description": "Vue Form plugin",
   "license": "MIT",
   "type": "module",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@12deg/eslint-config": "0.1.11",
     "@12deg/tsconfig": "0.1.11",
-    "@dzangolab/vue3-ui": "0.9.4",
+    "@dzangolab/vue3-ui": "0.10.0",
     "@types/node": "18.15.11",
     "@types/validator": "13.7.13",
     "@typescript-eslint/eslint-plugin": "8.14.0",
