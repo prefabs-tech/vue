@@ -63,6 +63,15 @@ const menu = [
     ],
   },
   {
+    name: t("ui.file"),
+    children: [
+      {
+        name: t("ui.fileCard.title"),
+        routeName: "fileCard",
+      },
+    ],
+  },
+  {
     name: t("ui.menu"),
     children: [
       {

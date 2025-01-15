@@ -4,8 +4,8 @@
       <div v-if="showThumbnail" class="file-thumbnail">
         <slot name="thumbnail">
           <svg
-            viewBox="0 0 24 24"
             fill="none"
+            viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -46,7 +46,6 @@
                 <svg
                   fill="none"
                   viewBox="0 -0.5 25 25"
-                  width="20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -73,12 +72,12 @@
             class="file-upload-details"
           >
             <div v-if="visibilityDetail.uploadedBy" class="uploaded-by">
-              <span>{{ messages.uploadedByHeader || "Uploaded by" }}</span>
+              <span>{{ messages?.uploadedByHeader || "Uploaded by" }}</span>
               <span>{{ checkUploadedByData(file) }}</span>
             </div>
 
             <div v-if="visibilityDetail.uploadedAt" class="uploaded-at">
-              <span>{{ messages.uploadedAtHeader || "Uploaded at" }}</span>
+              <span>{{ messages?.uploadedAtHeader || "Uploaded at" }}</span>
               <span>{{ formatDateTime(file.uploadedAt) }}</span>
             </div>
           </div>
@@ -91,7 +90,7 @@
             class="file-download-details"
           >
             <div v-if="visibilityDetail.downloadCount" class="download-count">
-              <span>{{ messages.downloadCountHeader || "Downloads:" }}</span>
+              <span>{{ messages?.downloadCountHeader || "Downloads:" }}</span>
               <span>{{ file.downloadCount }}</span>
             </div>
 
@@ -100,7 +99,7 @@
               class="last-downloaded-at"
             >
               <span>{{
-                messages.lastDownloadedAtHeader || "Last download:"
+                messages?.lastDownloadedAtHeader || "Last download:"
               }}</span>
               <span>{{ formatDate(Number(file.lastDownloadedAt)) }}</span>
             </div>
@@ -115,7 +114,7 @@
         v-bind="archiveButtonProps"
         label="Archive"
         size="small"
-        @click="emitAction('archive')"
+        @click="showArchiveConfirmation = true"
       >
         <template #iconLeft>
           <svg
@@ -138,7 +137,7 @@
         v-bind="deleteButtonProps"
         label="Delete"
         size="small"
-        @click="emitAction('delete')"
+        @click="showDeleteConfirmation = true"
       >
         <template #iconLeft>
           <svg
@@ -148,7 +147,7 @@
           >
             <path
               d="M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6M18 6V16.2C18 17.8802 18 18.7202 17.673 19.362C17.3854 19.9265 16.9265 20.3854 16.362 20.673C15.7202 21 14.8802 21 13.2 21H10.8C9.11984 21 8.27976 21 7.63803 20.673C7.07354 20.3854 6.6146 19.9265 6.32698 19.362C6 18.7202 6 17.8802 6 16.2V6M14 10V17M10 10V17"
-              stroke="#000000"
+              stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
@@ -233,21 +232,14 @@
         </template>
       </ButtonElement>
 
-      <!-- <ConfirmationFileActions
-        :file="file"
-        :visibleArchiveConfirmation="visibleArchiveConfirmation"
-        :visibleDeleteConfirmation="visibleDeleteConfirmation"
-        @update:visibleArchiveConfirmation="setVisibleArchiveConfirmation"
-        @update:visibleDeleteConfirmation="setVisibleDeleteConfirmation"
-        :archiveConfirmationProps="archiveConfirmationProps"
-        :deleteConfirmationProps="deleteConfirmationProps"
-        :archiveConfirmationHeader="messages.archiveConfirmationHeader"
-        :archiveConfirmationMessage="messages.archiveConfirmationMessage"
-        :deleteConfirmationHeader="messages.deleteConfirmationHeader"
-        :deleteConfirmationMessage="messages.deleteConfirmationMessage"
-        :onArchive="onArchive"
-        :onDelete="onDelete"
-      /> -->
+      <ConfirmationFileActions
+        :show-archive-confirmation="showArchiveConfirmation"
+        :show-delete-confirmation="showDeleteConfirmation"
+        @on:close-archive="showArchiveConfirmation = false"
+        @on:close-delete="showDeleteConfirmation = false"
+        @on:confirm-archive="onArchive"
+        @on:confirm-delete="onDelete"
+      />
     </div>
   </Card>
 </template>
@@ -259,9 +251,12 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
 import ButtonElement from "../Button/Index.vue";
 import Card from "../Card/Index.vue";
 import { formatDate, formatDateTime } from "../utils";
+import ConfirmationFileActions from "./ConfirmationFileActions.vue";
 
 import type { FileMessages, IFile } from "../types/file";
 import type { PropType } from "vue";
@@ -338,6 +333,9 @@ const emit = defineEmits([
   "on:view",
 ]);
 
+const showArchiveConfirmation = ref<boolean>(false);
+const showDeleteConfirmation = ref<boolean>(false);
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const checkUploadedByData = (data: any) => {
   if (!data.uploadedBy) {
@@ -362,4 +360,20 @@ const emitAction = (action: string) => {
       break;
   }
 };
+
+const onArchive = () => {
+  emitAction("archive");
+
+  showArchiveConfirmation.value = false;
+};
+
+const onDelete = () => {
+  emitAction("delete");
+
+  showDeleteConfirmation.value = false;
+};
 </script>
+
+<style lang="css">
+@import "../assets/css/file-card.css";
+</style>
