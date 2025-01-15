@@ -34,6 +34,7 @@ describe("Profile", () => {
         stubs: {
           RouterLink: RouterLinkStub,
           AccountInfo: true,
+          profileForm: true,
         },
       },
     });

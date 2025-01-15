@@ -4,6 +4,7 @@ export type {
   PasswordResetPayload,
   PasswordResetRequestPayload,
   UpdatePasswordPayload,
+  UpdateProfileInputType,
   User,
   UserType,
 } from "./auth";

@@ -165,6 +165,20 @@
           },
           "title": "Update email"
         },
+        "form": {
+          "firstName": {
+            "label": "First name",
+            "placeholder": "Enter your first name"
+          },
+          "lastName": {
+            "label": "Last name",
+            "placeholder": "Enter your last name"
+          },
+          "messages": {
+            "error": "Something went wrong. Please try again",
+            "success": "Profile updated successfully"
+          }
+        },
         "title": "Profile"
       },
       "signup": {
@@ -373,7 +387,21 @@
           },
           "title": "Update email"
         },
-        "title": "Profil"
+        "form": {
+          "firstName": {
+            "label": "First name",
+            "placeholder": "Enter your first name"
+          },
+          "lastName": {
+            "label": "Last name",
+            "placeholder": "Enter your last name"
+          },
+          "messages": {
+            "error": "Something went wrong. Please try again",
+            "success": "Profile updated successfully"
+          }
+        },
+      "title": "Profil"
       },
       "signup": {
         "errors": {
