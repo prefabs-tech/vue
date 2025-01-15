@@ -149,6 +149,69 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("ui.fileCard.usage.visibilityDetail") }}</h2>
+
+      <div class="section-content">
+        <FileCard
+          :action-buttons-visibility="{
+            archive: false,
+            delete: true,
+            download: true,
+            share: false,
+            view: true,
+          }"
+          :file="file"
+          :visibility-detail="{
+            actions: true,
+            description: false,
+            downloadCount: true,
+            lastDownloadedAt: false,
+            originalFileName: true,
+            size: false,
+            uploadedAt: true,
+            uploadedBy: true,
+          }"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;FileCard
+              :action-buttons-visibility="{
+                archive: false,
+                delete: true,
+                download: true,
+                share: false,
+                view: true,
+              }"
+              :file="file"
+              :visibility-detail="{
+                actions: true,
+                description: false,
+                downloadCount: true,
+                lastDownloadedAt: false,
+                originalFileName: true,
+                size: false,
+                uploadedAt: true,
+                uploadedBy: true,
+              }"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { FileCard } from "@dzangolab/vue3-ui";
+
+          import type { IFile } from "@dzangolab/vue3-ui";
+
+          const file = {
+            ...
+          } as IFile;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </UiPage>
 </template>
 

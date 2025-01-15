@@ -169,8 +169,9 @@
     "title": "File card",
     "usage": {
       "basic": "Basic",
-      "buttonProps": "Action buttons props",
-      "messages": "Custom messages"
+      "buttonProps": "Action button's props",
+      "messages": "Custom messages",
+      "visibilityDetail": "With visibility detail"
     }
   },
   "getStarted": "Get started",

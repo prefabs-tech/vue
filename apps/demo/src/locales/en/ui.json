@@ -170,7 +170,8 @@
     "usage": {
       "basic": "Basic",
       "buttonProps": "Action button's props",
-      "messages": "Custom messages"
+      "messages": "Custom messages",
+      "visibilityDetail": "With visibility detail"
     }
   },
   "getStarted": "Get started",
