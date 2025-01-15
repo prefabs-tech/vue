@@ -24,14 +24,14 @@
           import type { IFile } from "@dzangolab/vue3-ui";
 
           const file = {
-            id: 1,
-            originalFileName: "file.png",
             description: "This is a file",
+            downloadCount: 0,
+            id: 1,
+            lastDownloadedAt: Date.now(),
+            originalFileName: "file.png",
             size: 4,
             uploadedBy: { givenName: "Test", lastName: "user" },
             uploadedAt: Date.now(),
-            downloadCount: 0,
-            lastDownloadedAt: Date.now(),
           } as IFile;
           &lt;/script&gt;
         </SshPre>
@@ -65,14 +65,14 @@
             archiveConfirmationHeader: "Confirm archive?",
             archiveConfirmationMessage: "Are you sure to archive this file?",
             deleteAction: "Delete file",
-            downloadAction: "Download file",
             deleteConfirmationHeader: "Confirm delete?",
             deleteConfirmationMessage: "Are you sure to delete this file?",
+            downloadAction: "Download file",
             downloadCountHeader: "Download count:",
             lastDownloadedAtHeader: "Last downloaded date:",
-            uploadedByHeader: "Uploaded by:",
-            uploadedAtHeader: "Uploaded date:",
             shareAction: "Share file",
+            uploadedAtHeader: "Uploaded date:",
+            uploadedByHeader: "Uploaded by:",
             viewAction: "View file",
           } as FileMessages;
           &lt;/script&gt;
@@ -241,14 +241,14 @@ const downloadButtonProperties = {
 };
 
 const file = {
-  id: 1,
-  originalFileName: "file.png",
   description: "This is a file",
+  downloadCount: 0,
+  id: 1,
+  lastDownloadedAt: Date.now(),
+  originalFileName: "file.png",
   size: 4,
   uploadedBy: { givenName: "Test", lastName: "user" },
   uploadedAt: Date.now(),
-  downloadCount: 0,
-  lastDownloadedAt: Date.now(),
 } as IFile;
 
 const messages = {
@@ -256,14 +256,14 @@ const messages = {
   archiveConfirmationHeader: "Confirm archive?",
   archiveConfirmationMessage: "Are you sure to archive this file?",
   deleteAction: "Delete file",
-  downloadAction: "Download file",
   deleteConfirmationHeader: "Confirm delete?",
   deleteConfirmationMessage: "Are you sure to delete this file?",
+  downloadAction: "Download file",
   downloadCountHeader: "Download count:",
   lastDownloadedAtHeader: "Last downloaded date:",
-  uploadedByHeader: "Uploaded by:",
-  uploadedAtHeader: "Uploaded date:",
   shareAction: "Share file",
+  uploadedAtHeader: "Uploaded date:",
+  uploadedByHeader: "Uploaded by:",
   viewAction: "View file",
 } as FileMessages;
 
