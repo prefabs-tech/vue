@@ -1,3 +1,19 @@
+# [0.10.0](https://github.com/dzangolab/vue/compare/v0.9.4...v0.10.0) (2025-01-15)
+
+
+### Bug Fixes
+
+* change color schema to only light mode ([#455](https://github.com/dzangolab/vue/issues/455)) ([d6e9359](https://github.com/dzangolab/vue/commit/d6e9359312c25aee4d1ad8b0fe3d6bd15910946e))
+
+
+### Features
+
+* add change email endpoint and get me methods ([dcd528d](https://github.com/dzangolab/vue/commit/dcd528d19bcd253908c5e38100528ac834e0afb7))
+* add divider component to ui with demo ([#438](https://github.com/dzangolab/vue/issues/438)) ([603cb37](https://github.com/dzangolab/vue/commit/603cb373be1bc678c89fb8cee4332ae5cf2e84d3))
+* add stub update email form ([7454394](https://github.com/dzangolab/vue/commit/74543949dac25c97b845a17c676ba3c9df446c87))
+
+
+
 ## [0.9.4](https://github.com/dzangolab/vue/compare/v0.9.3...v0.9.4) (2024-12-24)
 
 
