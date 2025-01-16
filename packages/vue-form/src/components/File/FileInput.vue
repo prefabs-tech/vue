@@ -91,6 +91,7 @@ const props = defineProps({
   inputMethod: {
     default: "button",
     type: String,
+    validator: (value: string) => ["button", "dropzone"].includes(value),
   },
   label: {
     default: undefined,
