@@ -1,0 +1,33 @@
+.file-input .dropzone {
+  align-items: center;
+  background-color: var(--dz-input-fill-color);
+  border-color: #eeeeee;
+  border-radius: 2px;
+  border-style: dashed;
+  border-width: 2px;
+  color: #bdbdbd;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-block: 1em;
+  outline: none;
+  padding: 30px 20px;
+  transition: border 0.24s ease-in-out;
+}
+
+.file-input .dropzone.focused {
+  border-color: #2196f3;
+}
+
+.file-input .dropzone.accepted {
+  border-color: #00e676;
+}
+
+.file-input .dropzone.rejected {
+  border-color: #ff1744;
+}
+
+.file-input .error-message {
+  color: var(--error-message-color, #dc3545);
+  font-size: var(--error-message-font-size, 0.8rem);
+}
