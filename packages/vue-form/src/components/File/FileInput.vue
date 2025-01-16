@@ -26,19 +26,19 @@
       {{ errorMessage }}
     </span>
 
-    <!-- <ul v-if="value.length" class="selected">
+    <ul v-if="inputFiles.length" class="selected">
       <SelectedFile
-        v-for="(file, index) in value"
+        v-for="(file, index) in inputFiles"
         :key="file.name"
+        :add-description-label="addDescriptionLabel"
+        :description-placeholder="descriptionPlaceholder"
+        :enable-description="enableDescription"
         :file="file"
         :index="index"
-        :enableDescription="enableDescription"
-        :addDescriptionLabel="addDescriptionLabel"
-        :descriptionPlaceholder="descriptionPlaceholder"
-        @remove="onRemove(index)"
-        @descriptionChange="file.description = $event"
+        @on:remove="onRemove"
+        @update:file="updateFile"
       />
-    </ul> -->
+    </ul>
   </div>
 </template>
 
@@ -53,9 +53,16 @@ import { ButtonElement } from "@dzangolab/vue3-ui";
 import { computed, ref } from "vue";
 import { useDropzone } from "vue3-dropzone";
 
+import SelectedFile from "./SelectedFile.vue";
+
+import type { FileExtended } from "../../types/index";
 import type { FileRejectReason } from "vue3-dropzone";
 
 const props = defineProps({
+  addDescriptionLabel: {
+    default: undefined,
+    type: String,
+  },
   buttonLabel: {
     default: "Select",
     type: String,
@@ -68,6 +75,10 @@ const props = defineProps({
     default: () => ({}),
     type: Object,
   },
+  descriptionPlaceholder: {
+    default: undefined,
+    type: String,
+  },
   dropzoneMessage: {
     default: "Drag and drop or click",
     type: String,
@@ -76,6 +87,7 @@ const props = defineProps({
     default: () => ({}),
     type: Object,
   },
+  enableDescription: Boolean,
   inputMethod: {
     default: "button",
     type: String,
@@ -92,6 +104,8 @@ const props = defineProps({
   showErrorMessage: Boolean,
 });
 
+const emit = defineEmits(["on:filesUpdate"]);
+
 const errorMessage = ref<string | undefined>();
 const inputFiles = ref<File[]>([]);
 
@@ -104,7 +118,10 @@ const dropzoneClass = computed(
     } ${isDragReject.value || errorMessage.value ? "rejected" : ""}`,
 );
 
-const onDrop = (acceptFiles: File[], rejectReasons: FileRejectReason[]) => {
+const onDrop = (
+  acceptFiles: FileExtended[],
+  rejectReasons: FileRejectReason[],
+) => {
   inputFiles.value = acceptFiles.length ? acceptFiles : [];
 
   const firstError = rejectReasons[0]?.errors[0];
@@ -112,6 +129,26 @@ const onDrop = (acceptFiles: File[], rejectReasons: FileRejectReason[]) => {
     firstError && typeof firstError === "object" && "message" in firstError
       ? firstError.message
       : undefined;
+
+  if (inputFiles.value.length) {
+    emit("on:filesUpdate", inputFiles.value);
+  }
+};
+
+const onRemove = (file: FileExtended) => {
+  inputFiles.value = inputFiles.value.filter((inputFile) => {
+    return file.name !== inputFile.name && file.size !== inputFile.size;
+  });
+
+  emit("on:filesUpdate", inputFiles.value);
+};
+
+const updateFile = (file: FileExtended) => {
+  inputFiles.value = inputFiles.value.map((existingFile) =>
+    existingFile.name === file.name ? file : existingFile,
+  );
+
+  emit("on:filesUpdate", inputFiles.value);
 };
 
 const {

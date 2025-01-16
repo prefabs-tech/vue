@@ -3,6 +3,10 @@ interface EmailErrorMessages {
   required?: string;
 }
 
+interface FileExtended extends File {
+  description?: string;
+}
+
 interface InputOption {
   label: string;
   value: string | number;
@@ -35,6 +39,7 @@ interface TextErrorMessages {
 
 export type {
   EmailErrorMessages,
+  FileExtended,
   InputOption,
   MonthPickerValue,
   NumberErrorMessages,
