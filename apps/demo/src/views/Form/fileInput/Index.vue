@@ -91,8 +91,8 @@
         <FileInput
           :dropzone-options="{
             accept: ['image/jpeg', 'image/png'],
-            minSize: 1000,
             maxSize: 1000000,
+            minSize: 1000,
           }"
           enable-description
           input-method="dropzone"
@@ -106,8 +106,8 @@
             &lt;FileInput
               :dropzone-options="{
                 accept: ['image/jpeg', 'image/png'],
-                minSize: 1000,
                 maxSize: 1000000,
+                minSize: 1000,
               }"
               enable-description
               input-method="dropzone"
