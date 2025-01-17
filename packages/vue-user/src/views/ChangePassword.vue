@@ -1,5 +1,5 @@
 <template>
-  <Page :title="t('user.login.title')" class="auth change-password">
+  <Page :title="t('user.changePassword.title')" class="auth change-password">
     <Errors v-if="errors.length" :errors="errors" />
 
     <slot name="instructions"></slot>

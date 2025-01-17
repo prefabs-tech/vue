@@ -145,6 +145,9 @@ nav.user-menu-dropdown > ul.dropdown {
 }
 
 nav.user-menu-dropdown.expanded > ul.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
   height: auto;
   max-height: 10rem;
   overflow-y: hidden;
