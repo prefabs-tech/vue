@@ -65,6 +65,10 @@ const menu = [
         routeName: "emailInput",
       },
       {
+        name: t("form.label.fileInput"),
+        routeName: "fileInput",
+      },
+      {
         name: t("form.label.input"),
         routeName: "input",
       },

@@ -3,6 +3,7 @@ const DatePicker = () => import("@/views/Form/datePicker/Index.vue");
 const DaysInput = () => import("@/views/Form/daysInput/Index.vue");
 const EditableContent = () => import("@/views/Form/editableContent/Index.vue");
 const Email = () => import("@/views/Form/emailInput/Index.vue");
+const FileInput = () => import("@/views/Form/fileInput/Index.vue");
 const Form = () => import("@/views/Form/Index.vue");
 const Input = () => import("@/views/Form/input/Index.vue");
 const NumberInput = () => import("@/views/Form/numberInput/Index.vue");
@@ -42,6 +43,11 @@ const routes = [
         component: Email,
         name: "emailInput",
         path: "email-input",
+      },
+      {
+        component: FileInput,
+        name: "fileInput",
+        path: "file-input",
       },
       {
         component: Form,
