@@ -97,6 +97,11 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
+  mode: {
+    default: "update",
+    type: String,
+    validator: (value: string) => ["append", "update"].includes(value),
+  },
   multiple: Boolean,
   name: {
     default: "file",
@@ -123,7 +128,35 @@ const onDrop = (
   acceptFiles: FileExtended[],
   rejectReasons: FileRejectReason[],
 ) => {
-  inputFiles.value = acceptFiles.length ? acceptFiles : [];
+  if (!props.multiple || props.mode === "update") {
+    inputFiles.value = acceptFiles.length ? acceptFiles : [];
+  } else {
+    const newFiles = [...(acceptFiles || []), ...inputFiles.value];
+
+    const uniqueFiles = newFiles.reduce(
+      (previousUniqueFiles: FileExtended[], currentFile) => {
+        const currentFileEntries = Object.entries(currentFile);
+
+        if (
+          previousUniqueFiles.find((existingFile: FileExtended) => {
+            const existingFileEntries = Object.entries(existingFile);
+            return existingFileEntries.every(
+              ([key, value], index) =>
+                key === currentFileEntries[index][0] &&
+                value === currentFileEntries[index][1],
+            );
+          })
+        ) {
+          return previousUniqueFiles;
+        } else {
+          return [...previousUniqueFiles, currentFile];
+        }
+      },
+      [],
+    );
+
+    inputFiles.value = uniqueFiles;
+  }
 
   const firstError = rejectReasons[0]?.errors[0];
   errorMessage.value =
