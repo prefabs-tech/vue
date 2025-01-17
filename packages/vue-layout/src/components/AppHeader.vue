@@ -14,7 +14,7 @@
       </slot>
       <slot name="userMenu"></slot>
       <slot name="locales">
-        <LocaleSwitcher class="locales" />
+        <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales" />
       </slot>
     </nav>
     <div class="toggle" @click="toggle">
@@ -43,6 +43,7 @@ import Logo from "./Logo.vue";
 import MainMenu from "./MainMenu.vue";
 
 defineProps({
+  noLocaleSwitcher: Boolean,
   noLogo: Boolean,
   noMainMenu: Boolean,
 });

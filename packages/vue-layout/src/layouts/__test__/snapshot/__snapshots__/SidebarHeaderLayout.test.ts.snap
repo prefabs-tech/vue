@@ -6,6 +6,7 @@ exports[`SidebarHeaderLayout > matches snapshot 1`] = `
 >
   
   <app-header-stub
+    nolocaleswitcher="false"
     nologo="true"
     nomainmenu="true"
   />

@@ -1,5 +1,5 @@
 <template>
-  <OriginalBasicLayout>
+  <OriginalBasicLayout :no-locale-switcher="noLocaleSwitcher">
     <template #header>
       <AppHeader>
         <template #logo>
@@ -42,6 +42,7 @@ import useUserStore from "../store";
 import type { MenuItem } from "@dzangolab/vue3-layout";
 
 defineProps({
+  noLocaleSwitcher: Boolean,
   showUserMenu: {
     default: true,
     required: false,

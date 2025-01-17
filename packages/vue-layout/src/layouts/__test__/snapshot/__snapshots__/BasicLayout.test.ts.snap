@@ -6,6 +6,7 @@ exports[`BasicLayout > matches snapshot 1`] = `
 >
   
   <app-header-stub
+    nolocaleswitcher="false"
     nologo="false"
     nomainmenu="false"
   />
