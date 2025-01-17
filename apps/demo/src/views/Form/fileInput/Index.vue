@@ -27,6 +27,44 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.buttonOptions") }}</h2>
+
+      <div class="section-content">
+        <FileInput
+          button-label="Choose"
+          button-label-selected="Chose"
+          :button-props="{
+            iconLeft: 'pi pi-file-arrow-up',
+            severity: 'success',
+            size: 'small',
+            variant: 'filled',
+          }"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;FileInput
+              button-label="Choose"
+              button-label-selected="Chose"
+              :button-props="{
+                iconLeft: 'pi pi-file-arrow-up',
+                severity: 'success',
+                size: 'small',
+                variant: 'filled',
+              }"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { FileInput } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.dropzone") }}</h2>
 
       <div class="section-content">
