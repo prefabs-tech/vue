@@ -29,5 +29,7 @@ const { t } = useI18n({ messages });
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 1rem;
+  padding: 0;
 }
 </style>

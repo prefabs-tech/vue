@@ -1,7 +1,7 @@
 <template>
   <div class="layout basic">
     <slot name="header">
-      <AppHeader>
+      <AppHeader :no-locale-switcher="noLocaleSwitcher">
         <template #logo>
           <slot name="logo" />
         </template>
@@ -46,4 +46,8 @@ export default {
 <script setup lang="ts">
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
+
+defineProps({
+  noLocaleSwitcher: Boolean,
+});
 </script>

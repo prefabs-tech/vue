@@ -9,7 +9,7 @@
         <slot name="afterSidebarMenu"></slot>
         <slot name="userMenu"></slot>
         <slot name="locales">
-          <LocaleSwitcher class="locales">
+          <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales">
             <template #icon>
               <img src="../assets/svg/up-chevron.svg" alt="toggle icon" />
             </template>
@@ -41,6 +41,7 @@ defineProps({
     required: true,
     type: Array as PropType<SidebarMenu[]>,
   },
+  noLocaleSwitcher: Boolean,
   noHeader: {
     default: false,
     type: Boolean,

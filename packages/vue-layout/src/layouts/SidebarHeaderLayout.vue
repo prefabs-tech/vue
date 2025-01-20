@@ -1,7 +1,12 @@
 <template>
   <div class="layout sidebar-header-layout">
     <slot name="header">
-      <AppHeader ref="appHeader" no-logo no-main-menu>
+      <AppHeader
+        ref="appHeader"
+        :no-locale-switcher="noLocaleSwitcher"
+        no-logo
+        no-main-menu
+      >
         <template #locales>
           <slot name="locales" />
         </template>
@@ -22,7 +27,7 @@
         <slot name="userMenu"></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
-            <LocaleSwitcher class="locales">
+            <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales">
               <template #icon>
                 <img src="../assets/svg/up-chevron.svg" alt="toggle icon" />
               </template>
@@ -63,6 +68,7 @@ defineProps({
     required: true,
     type: Array as PropType<SidebarMenu[]>,
   },
+  noLocaleSwitcher: Boolean,
   noSidebarHeader: {
     default: false,
     type: Boolean,
