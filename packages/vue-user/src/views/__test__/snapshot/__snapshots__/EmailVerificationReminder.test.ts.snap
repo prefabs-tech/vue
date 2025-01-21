@@ -14,7 +14,9 @@ exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
     
     
   </div>
-  <main>
+  <div
+    class="page-content"
+  >
     
     <div
       class="card"
@@ -55,7 +57,7 @@ exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
       </footer>
     </div>
     
-  </main>
+  </div>
 </div>
 `;
 
@@ -73,7 +75,9 @@ exports[`EmailVerificationReminder > matches snapshot in fr 1`] = `
     
     
   </div>
-  <main>
+  <div
+    class="page-content"
+  >
     
     <div
       class="card"
@@ -114,6 +118,6 @@ exports[`EmailVerificationReminder > matches snapshot in fr 1`] = `
       </footer>
     </div>
     
-  </main>
+  </div>
 </div>
 `;

@@ -14,7 +14,9 @@ exports[`VerifyEmail > matches snapshot in en 1`] = `
     
     
   </div>
-  <main>
+  <div
+    class="page-content"
+  >
     
     <div
       class="card"
@@ -33,7 +35,7 @@ exports[`VerifyEmail > matches snapshot in en 1`] = `
     </div>
     <!---->
     
-  </main>
+  </div>
 </div>
 `;
 
@@ -51,7 +53,9 @@ exports[`VerifyEmail > matches snapshot in fr 1`] = `
     
     
   </div>
-  <main>
+  <div
+    class="page-content"
+  >
     
     <div
       class="card"
@@ -70,6 +74,6 @@ exports[`VerifyEmail > matches snapshot in fr 1`] = `
     </div>
     <!---->
     
-  </main>
+  </div>
 </div>
 `;
