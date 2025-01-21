@@ -16,9 +16,11 @@ exports[`Page > matches snapshot 1`] = `
     
     
   </div>
-  <main>
+  <div
+    class="page-content"
+  >
     
     
-  </main>
+  </div>
 </div>
 `;

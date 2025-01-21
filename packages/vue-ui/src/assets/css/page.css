@@ -15,8 +15,9 @@
   grid-area: title;
 }
 
-.page > main {
+.page > .page-content {
   grid-area: main;
+  margin-top: 1rem;
   width: 100%;
 }
 
