@@ -37,12 +37,6 @@ const packages = [
     route: "/form",
     description: "@dzangolab/vue3-form components and utilities",
   },
-
-  {
-    name: "layout",
-    route: "/layout",
-    description: "@dzangolab/vue3-layout components and utilities",
-  },
 ];
 </script>
 
