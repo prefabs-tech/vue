@@ -7,6 +7,9 @@
         no-logo
         no-main-menu
       >
+        <template v-if="userMenuLocation === 'header'" #userMenu>
+          <slot name="userMenu"></slot>
+        </template>
         <template #locales>
           <slot name="locales" />
         </template>
@@ -24,7 +27,7 @@
 
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
-        <slot name="userMenu"></slot>
+        <slot v-if="userMenuLocation === 'sidebar'" name="userMenu"></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
             <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales">
@@ -72,6 +75,11 @@ defineProps({
   noSidebarHeader: {
     default: false,
     type: Boolean,
+  },
+  userMenuLocation: {
+    default: "sidebar",
+    type: String,
+    validator: (value: string) => ["header", "sidebar"].includes(value),
   },
 });
 
