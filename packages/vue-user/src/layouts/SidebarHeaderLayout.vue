@@ -1,5 +1,9 @@
 <template>
-  <Layout :menu="menu" :no-locale-switcher="noLocaleSwitcher">
+  <Layout
+    :menu="menu"
+    :no-locale-switcher="noLocaleSwitcher"
+    :user-menu-location="userMenuLocation"
+  >
     <template #header>
       <slot name="header"></slot>
     </template>
@@ -52,6 +56,11 @@ defineProps({
     default: true,
     required: false,
     type: Boolean,
+  },
+  userMenuLocation: {
+    default: "sidebar",
+    type: String,
+    validator: (value: string) => ["header", "sidebar"].includes(value),
   },
 });
 
@@ -110,12 +119,12 @@ const menu = computed(() => {
 </script>
 
 <style lang="css">
-.sidebar-header-layout .user-menu > ul {
+.sidebar-header-layout > .sidebar .user-menu > ul {
   flex-direction: column;
 }
 
-.sidebar-header-layout .user-menu > ul > li,
-.sidebar-header-layout .user-menu-dropdown {
+.sidebar-header-layout > .sidebar .user-menu > ul > li,
+.sidebar-header-layout > .sidebar .user-menu-dropdown {
   --_font-size: var(--font-size-min, 0.8rem);
   --_font-weight: var(--font-weight, 450);
   --dropdown-container-bg-color: #0870e5;
@@ -126,13 +135,17 @@ const menu = computed(() => {
   width: 100%;
 }
 
-.sidebar-header-layout .user-menu > ul > li:has(.router-link-exact-active) {
+.sidebar-header-layout
+  > .sidebar
+  .user-menu
+  > ul
+  > li:has(.router-link-exact-active) {
   background-color: #0870e5;
 }
 
-.sidebar-header-layout .user-menu:not(.user-menu-dropdown) > ul > li > a,
-.sidebar-header-layout .user-menu-dropdown,
-.sidebar-header-layout .user-menu-dropdown > ul.dropdown > li {
+.sidebar-header- > .sidebar .user-menu:not(.user-menu-dropdown) > ul > li > a,
+.sidebar-header-layout > .sidebar .user-menu-dropdown,
+.sidebar-header-layout > .sidebar .user-menu-dropdown > ul.dropdown > li {
   --_height: var(--nav-menu-height, 3rem);
 
   align-items: center;
@@ -141,19 +154,19 @@ const menu = computed(() => {
   width: 100%;
 }
 
-.sidebar-header-layout .user-menu-dropdown:hover {
+.sidebar-header-layout > .sidebar .user-menu-dropdown:hover {
   background-color: #0870e5;
 }
 
-.sidebar-header-layout .user-menu-dropdown.expanded > ul > li:hover {
+.sidebar-header-layout > .sidebar .user-menu-dropdown.expanded > ul > li:hover {
   --dropdown-bg-color-hover: #0870e5;
 }
 
-.sidebar-header-layout .user-menu-dropdown > .toggle {
+.sidebar-header-layout > .sidebar .user-menu-dropdown > .toggle {
   align-self: center;
 }
 
-.sidebar-header-layout .user-menu-dropdown > .dropdown {
+.sidebar-header-layout > .sidebar .user-menu-dropdown > .dropdown {
   opacity: 0;
   transform: translate3d(0, 0, 0);
   transition:
@@ -161,7 +174,7 @@ const menu = computed(() => {
     opacity 0.5s ease;
 }
 
-.sidebar-header-layout .user-menu-dropdown.expanded > .dropdown {
+.sidebar-header-layout > .sidebar .user-menu-dropdown.expanded > .dropdown {
   --dropdown-bg-color: #007aff;
   --dropdown-border: 1px solid #007aff;
 

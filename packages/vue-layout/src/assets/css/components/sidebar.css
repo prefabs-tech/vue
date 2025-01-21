@@ -1,4 +1,4 @@
-.no-sidebar > img {
+.no-sidebar {
   --_bg-color: var(--sidebar-bg-color, #007aff);
   --_border-radius: 2rem;
   --_width: 2rem;
@@ -7,6 +7,13 @@
   border-radius: 0 var(--_border-radius) var(--_border-radius) 0;
   cursor: pointer;
   margin-top: 1rem;
+  padding-block: 0.25rem;
+  width: var(--_width);
+}
+
+.no-sidebar > img {
+  --_width: var(--sidebar-toggle-icon-width, 1.5rem);
+
   width: var(--_width);
 }
 
