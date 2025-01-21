@@ -7,6 +7,16 @@
       severity="secondary"
       @click="$emit('on:reset')"
     />
+
+    <Popup>
+      <ButtonElement
+        :label="columnActionButtonLabel"
+        variant="outlined"
+        severity="secondary"
+      />
+
+      <template #content> </template>
+    </Popup>
   </div>
 </template>
 
@@ -17,14 +27,24 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+
+import type { Table } from "@tanstack/vue-table";
 
 defineProps({
+  columnActionButtonLabel: {
+    default: "Columns",
+    type: String,
+  },
   resetButtonLabel: {
     default: "Reset all",
     type: String,
   },
   showResetButton: Boolean,
+  table: {
+    required: true,
+    type: Object as () => Table<unknown>,
+  },
 });
 
 defineEmits(["on:reset"]);
