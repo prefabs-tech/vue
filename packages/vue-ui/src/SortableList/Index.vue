@@ -21,7 +21,14 @@
               </g>
             </svg>
           </span>
-          <div>{{ element.data }}</div>
+          <div>
+            <template v-if="element.render">
+              <component :is="element.render(element.data)" />
+            </template>
+            <template v-else>
+              {{ element.data }}
+            </template>
+          </div>
         </li>
       </draggable>
     </ul>
@@ -37,13 +44,14 @@ export default {
 <script setup lang="ts">
 import { VueDraggableNext as draggable } from "vue-draggable-next";
 
-import type { PropType } from "vue";
+import type { PropType, VNode } from "vue";
 
 const emits = defineEmits(["onDrag"]);
 
 type List = {
   id: number | string;
   data: string;
+  render?: (data: unknown) => VNode;
 };
 
 defineProps({
