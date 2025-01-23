@@ -14,12 +14,14 @@ exports[`Profile > matches snapshot in en 1`] = `
     
     
   </div>
-  <main>
+  <div
+    class="page-content"
+  >
     
     <account-info-stub />
     <profile-form-stub />
     
-  </main>
+  </div>
 </div>
 `;
 
@@ -37,11 +39,13 @@ exports[`Profile > matches snapshot in fr 1`] = `
     
     
   </div>
-  <main>
+  <div
+    class="page-content"
+  >
     
     <account-info-stub />
     <profile-form-stub />
     
-  </main>
+  </div>
 </div>
 `;

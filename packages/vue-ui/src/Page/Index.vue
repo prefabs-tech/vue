@@ -9,9 +9,9 @@
       <slot name="toolbar"></slot>
     </div>
 
-    <main>
+    <div class="page-content">
       <slot name="default"></slot>
-    </main>
+    </div>
   </div>
 </template>
 

@@ -14,7 +14,9 @@ exports[`SignUp > matches snapshot in en 1`] = `
     
     
   </div>
-  <main>
+  <div
+    class="page-content"
+  >
     
     <!--v-if-->
     
@@ -144,7 +146,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
       </a>
     </div>
     
-  </main>
+  </div>
 </div>
 `;
 
@@ -162,7 +164,9 @@ exports[`SignUp > matches snapshot in fr 1`] = `
     
     
   </div>
-  <main>
+  <div
+    class="page-content"
+  >
     
     <!--v-if-->
     
@@ -292,6 +296,6 @@ exports[`SignUp > matches snapshot in fr 1`] = `
       </a>
     </div>
     
-  </main>
+  </div>
 </div>
 `;
