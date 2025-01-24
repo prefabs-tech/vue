@@ -1,5 +1,5 @@
 <template>
-  <Page :title="$t('layout.title')">
+  <LayoutPage :title="$t('layout.title')">
     <div class="layout-container">
       <div
         :class="['layout', { active: activeLayout === BASIC_LAYOUT }]"
@@ -20,7 +20,7 @@
         {{ $t("layout.sidebarOnly") }}
       </div>
     </div>
-  </Page>
+  </LayoutPage>
 </template>
 
 <script lang="ts">
@@ -36,6 +36,7 @@ import {
   SIDEBAR_ONLY_LAYOUT,
 } from "./_constants/layout";
 import { activeLayout, switchLayout } from "./_store/layout-store";
+import LayoutPage from "./LayoutPage.vue";
 </script>
 
 <style lang="css" scoped>
