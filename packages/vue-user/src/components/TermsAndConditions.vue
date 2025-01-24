@@ -1,10 +1,8 @@
 <template>
   <div v-if="hasCheckbox" :class="`field ${name}`">
     <div class="input-field-checkbox">
-      <input :id="name" :name="name" type="checkbox" @change="onChange" />
-      <slot>
-        <label :for="name">{{ label }}</label>
-      </slot>
+      <Checkbox :name="name" :label="label" @update:model-value="onChange" />
+      <slot></slot>
     </div>
   </div>
   <p v-else :class="name" :aria-label="name">
@@ -21,6 +19,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { Checkbox } from "@dzangolab/vue3-form";
+
 defineProps({
   hasCheckbox: {
     default: true,
@@ -39,10 +39,8 @@ defineProps({
 
 const emit = defineEmits(["update:check"]);
 
-const onChange = (event: Event) => {
-  const value = (event.target as HTMLInputElement).checked;
-
-  emit("update:check", Boolean(value));
+const onChange = (value: boolean) => {
+  emit("update:check", value);
 };
 </script>
 <style lang="css">
@@ -50,7 +48,7 @@ const onChange = (event: Event) => {
   align-items: baseline;
   color: #525252;
   display: flex;
-  font-size: 12px;
+  font-size: 14px;
   gap: 0.5rem;
   line-height: 1.35;
 }
