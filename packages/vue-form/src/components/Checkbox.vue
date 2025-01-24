@@ -61,6 +61,7 @@ const onChange = (event: Event) => {
 .checkbox-wrapper {
   align-items: baseline;
   display: flex;
+  gap: 0.5rem;
 }
 
 .checkbox-wrapper > input[type="checkbox"] {
