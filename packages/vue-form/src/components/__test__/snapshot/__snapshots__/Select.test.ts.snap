@@ -78,12 +78,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
           name="checkbox"
           type="checkbox"
         />
-        <label
-          for="checkbox"
-        >
-          Select all
-        </label>
+        <!--v-if-->
       </div>
+       Select all 
     </li>
     
     <li

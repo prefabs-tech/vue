@@ -302,6 +302,7 @@
             :placeholder="$t('form.placeholder.languages')"
             :schema="inputSchema"
             multiple
+            name="language-picker"
           />
         </Form>
 
@@ -314,6 +315,7 @@
               :schema="inputSchema"
               label="Language"
               multiple
+              name="language-picker"
               placeholder="Select languages"
             /&gt;
           &lt;/Form&gt;
@@ -367,7 +369,7 @@ let formData = reactive({
   disabled: ref("de"),
   disabledMultiSelect: ref(["be", "de"]),
   input: ref(),
-  inputWithValidation: ref(),
+  inputWithValidation: ref([]),
   multiSelect: ref(),
   noLabelInput: ref(),
 });
