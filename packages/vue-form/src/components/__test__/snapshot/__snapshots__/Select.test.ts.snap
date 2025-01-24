@@ -70,50 +70,95 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
     <li
       class="multiselect-option"
     >
-      <input
-        type="checkbox"
-      />
-       Select all 
+      <div
+        class="checkbox-wrapper"
+      >
+        <input
+          id="checkbox"
+          name="checkbox"
+          type="checkbox"
+        />
+        <label
+          for="checkbox"
+        >
+          Select all
+        </label>
+      </div>
     </li>
     
     <li
       class="multiselect-option"
     >
-      <input
-        type="checkbox"
-      />
+      <div
+        class="checkbox-wrapper"
+      >
+        <input
+          id="checkbox"
+          name="checkbox"
+          type="checkbox"
+        />
+        <!--v-if-->
+      </div>
        BE
     </li>
     <li
       class="multiselect-option"
     >
-      <input
-        type="checkbox"
-      />
+      <div
+        class="checkbox-wrapper"
+      >
+        <input
+          id="checkbox"
+          name="checkbox"
+          type="checkbox"
+        />
+        <!--v-if-->
+      </div>
        DE
     </li>
     <li
       class="multiselect-option"
     >
-      <input
-        type="checkbox"
-      />
+      <div
+        class="checkbox-wrapper"
+      >
+        <input
+          id="checkbox"
+          name="checkbox"
+          type="checkbox"
+        />
+        <!--v-if-->
+      </div>
        FE
     </li>
     <li
       class="multiselect-option"
     >
-      <input
-        type="checkbox"
-      />
+      <div
+        class="checkbox-wrapper"
+      >
+        <input
+          id="checkbox"
+          name="checkbox"
+          type="checkbox"
+        />
+        <!--v-if-->
+      </div>
        FR
     </li>
     <li
       class="multiselect-option"
     >
-      <input
-        type="checkbox"
-      />
+      <div
+        class="checkbox-wrapper"
+      >
+        <input
+          id="checkbox"
+          name="checkbox"
+          type="checkbox"
+        />
+        <!--v-if-->
+      </div>
        RE
     </li>
     
