@@ -2,6 +2,7 @@
   <div v-if="hasCheckbox" :class="`field ${name}`">
     <div class="input-field-checkbox">
       <Checkbox :name="name" :label="label" @update:model-value="onChange" />
+
       <slot></slot>
     </div>
   </div>

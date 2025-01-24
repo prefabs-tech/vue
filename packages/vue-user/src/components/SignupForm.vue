@@ -59,7 +59,7 @@ import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { Form } from "vee-validate";
-import { ref, computed } from "vue";
+import { computed, ref } from "vue";
 import { z } from "zod";
 
 import { useTranslations } from "../index";
