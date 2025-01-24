@@ -302,7 +302,6 @@
             :placeholder="$t('form.placeholder.languages')"
             :schema="inputSchema"
             multiple
-            name="language-picker"
           />
         </Form>
 
@@ -315,7 +314,6 @@
               :schema="inputSchema"
               label="Language"
               multiple
-              name="language-picker"
               placeholder="Select languages"
             /&gt;
           &lt;/Form&gt;
