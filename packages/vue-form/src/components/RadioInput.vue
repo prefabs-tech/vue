@@ -1,29 +1,30 @@
 <template>
-  <div :class="`field switch-toggle ${name}`">
-    <Field
-      v-slot="{ field, meta }"
-      :name="name"
-      :rules="fieldSchema"
-      @change="onChange"
-    >
-      <Radio
-        v-bind="field"
-        :id="`input-field-${name}`"
-        :class="{
+  <Field
+    v-slot="{ field, meta }"
+    :name="name"
+    :rules="fieldSchema"
+    @change="onChange"
+  >
+    <Radio
+      v-bind="field"
+      :id="`input-field-${name}`"
+      :class="[
+        name,
+        {
           invalid: meta.touched && !meta.valid,
-        }"
-        :direction="direction"
-        :disabled="disabled"
-        :helper-text="helperText"
-        :label="label"
-        :model-value="modelValue"
-        :name="name"
-        :options="options"
-        tabindex="0"
-      />
-      <ErrorMessage :name="name" />
-    </Field>
-  </div>
+        },
+      ]"
+      :direction="direction"
+      :disabled="disabled"
+      :helper-text="helperText"
+      :label="label"
+      :model-value="modelValue"
+      :name="name"
+      :options="options"
+      tabindex="0"
+    />
+    <ErrorMessage :name="name" />
+  </Field>
 </template>
 
 <script lang="ts">

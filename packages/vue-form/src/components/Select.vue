@@ -34,7 +34,11 @@
     </div>
     <ul v-if="showDropdownMenu && !disabled" class="multiselect-dropdown">
       <li v-if="multiple" class="multiselect-option" @click="onSelectAll()">
-        <Checkbox :model-value="isAllSelected(options)" label="Select all" />
+        <Checkbox
+          :model-value="isAllSelected(options)"
+          @update:model-value="onMultiSelect()"
+        />
+        Select all
       </li>
       <li
         v-for="option in sortedOptions"
@@ -43,7 +47,11 @@
         :class="{ selected: isSelected(option) && !multiple }"
         @click="onSelect($event, option)"
       >
-        <Checkbox v-if="multiple" :model-value="isSelected(option)" />
+        <Checkbox
+          v-if="multiple"
+          :model-value="isSelected(option)"
+          @update:model-value="onMultiSelect()"
+        />
         {{ option.label }}
       </li>
     </ul>
@@ -160,11 +168,7 @@ const onSelect = (event: Event, option: SelectOption) => {
       selectedOptions.value.push(option);
     }
 
-    const selectedValues = selectedOptions.value?.map(
-      (selectedOption) => selectedOption.value,
-    );
-
-    emit("update:modelValue", selectedValues);
+    onMultiSelect();
   } else {
     selectedOptions.value = [option];
     showDropdownMenu.value = false;
@@ -181,6 +185,16 @@ const onSelectAll = () => {
   } else {
     selectedOptions.value = [...props.options];
   }
+
+  onMultiSelect();
+};
+
+const onMultiSelect = () => {
+  const selectedValues = selectedOptions.value?.map(
+    (selectedOption) => selectedOption.value,
+  );
+
+  emit("update:modelValue", selectedValues);
 };
 
 const toggleDropdown = () => {

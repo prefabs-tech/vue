@@ -1,5 +1,5 @@
 <template>
-  <div :class="`field switch-toggle ${name}`">
+  <div :class="`field switch-input ${name}`">
     <label v-if="label" :for="name">
       {{ label }}
     </label>
@@ -82,7 +82,7 @@ const onChange = (event: Event) => {
 </script>
 
 <style lang="css">
-.switch-toggle {
+.switch-input {
   --_switch-field-direction: var(--switch-field-direction, row);
   --_switch-field-gap: var(--form-field-gap, 0.75rem);
 
