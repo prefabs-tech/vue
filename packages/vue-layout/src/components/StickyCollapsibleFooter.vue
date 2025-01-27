@@ -1,6 +1,8 @@
 <template>
   <footer :class="`sticky-collapsible ${fixed ? 'fixed' : ''}`">
-    <slot></slot>
+    <div class="content">
+      <slot></slot>
+    </div>
   </footer>
 </template>
 

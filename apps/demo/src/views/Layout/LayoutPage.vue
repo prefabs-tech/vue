@@ -41,14 +41,14 @@ const { t } = useI18n();
 
 const menu = [
   {
-    name: t("form.label.getStarted"),
+    name: t("layout.label.getStarted"),
     routeName: "",
   },
   {
-    name: t("form.label.components"),
+    name: t("layout.label.components"),
     children: [
       {
-        name: t("form.label.stickyCollapsibleFooter"),
+        name: t("layout.label.stickyCollapsibleFooter"),
         routeName: "stickyCollapsibleFooter",
       },
     ],

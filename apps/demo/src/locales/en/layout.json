@@ -1,5 +1,11 @@
 {
   "basic": "Basic",
+  "label": {
+    "components": "Components",
+    "getStarted": "Get started",
+    "stickyCollapsibleFooter": "Sticky collapsible footer",
+    "stickyFooterContent": "This is sticky footer content."
+  },
   "sidebarHeader": "Sidebar header",
   "sidebarOnly": "Sidebar only",
   "title": "Layout library"
