@@ -60,8 +60,10 @@
 
 .sub-menu-item .link {
   --_submenu-padding-left: var(--nav-menu-padding-left, 2rem);
+  --_submenu-padding-right: var(--nav-menu-padding-right, 2rem);
 
   padding-left: var(--_submenu-padding-left);
+  padding-right: var(--_submenu-padding-right);
 }
 
 .toggle-menu {

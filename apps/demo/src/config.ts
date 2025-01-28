@@ -41,6 +41,10 @@ const config: AppConfig = {
         route: "home",
       },
       {
+        name: "Layout",
+        route: "layout",
+      },
+      {
         name: "UI",
         route: "ui",
       },
