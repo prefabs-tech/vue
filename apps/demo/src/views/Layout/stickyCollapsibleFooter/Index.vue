@@ -88,7 +88,7 @@
 
       <div class="section-content">
         <Card>
-          {{ $t("common.dummyText") }}
+          {{ $t("layout.label.bodyContent") }}
 
           <StickyCollapsibleFooter :fixed="false">
             {{ $t("layout.label.stickyFooterContent") }}
@@ -99,7 +99,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Card&gt;
-              Lorem...
+              Body content
 
               &lt;StickyCollapsibleFooter :fixed="false"&gt;
                 This is sticky footer content.
