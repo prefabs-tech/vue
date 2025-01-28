@@ -1,10 +1,18 @@
 {
   "basic": "Basic",
   "label": {
+    "cancel": "Cancel",
+    "cancelled": "Cancelled",
     "components": "Components",
+    "footerAbsolute": "Positioned at bottom of parent container",
+    "footerFixed": "Fixed at bottom of viewport",
     "getStarted": "Get started",
     "stickyCollapsibleFooter": "Sticky collapsible footer",
-    "stickyFooterContent": "This is sticky footer content."
+    "stickyFooterContent": "This is sticky footer content.",
+    "submit": "Submit"
+  },
+  "placeholder": {
+    "input": "Enter your email"
   },
   "sidebarHeader": "Sidebar header",
   "sidebarOnly": "Sidebar only",
