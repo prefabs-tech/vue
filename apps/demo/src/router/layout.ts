@@ -5,14 +5,14 @@ const routes = [
     path: "/layout",
     children: [
       {
-        component: StickyCollapsibleFooter,
-        name: "stickyCollapsibleFooter",
-        path: "sticky-collapsible-footer",
-      },
-      {
         component: Layout,
         name: "layout",
         path: "",
+      },
+      {
+        component: StickyCollapsibleFooter,
+        name: "stickyCollapsibleFooter",
+        path: "sticky-collapsible-footer",
       },
     ],
   },
