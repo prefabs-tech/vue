@@ -367,7 +367,7 @@ let formData = reactive({
   disabled: ref("de"),
   disabledMultiSelect: ref(["be", "de"]),
   input: ref(),
-  inputWithValidation: ref(),
+  inputWithValidation: ref([]),
   multiSelect: ref(),
   noLabelInput: ref(),
 });
