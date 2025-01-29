@@ -20,13 +20,13 @@ import SshPre from "simple-syntax-highlighter";
 import { ref } from "vue";
 
 defineProps({
-  showCopyButton: {
-    default: true,
-    type: Boolean,
-  },
   language: {
     default: "html-vue",
     type: String,
+  },
+  showCopyButton: {
+    default: true,
+    type: Boolean,
   },
 });
 
