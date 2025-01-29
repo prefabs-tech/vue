@@ -3,16 +3,27 @@
 exports[`Profile > matches snapshot in en 1`] = `
 <div
   class="page profile"
+  data-centered="false"
 >
-  <h1>
-    Profile 
-    <!---->
-  </h1>
   <div
-    class="toolbar"
+    class="page-header"
   >
-    
-    
+    <div
+      class="page-title-wrapper"
+    >
+      <h1>
+        Profile
+      </h1>
+      
+      <!---->
+      
+    </div>
+    <div
+      class="page-toolbar"
+    >
+      
+      
+    </div>
   </div>
   <div
     class="page-content"
@@ -28,16 +39,27 @@ exports[`Profile > matches snapshot in en 1`] = `
 exports[`Profile > matches snapshot in fr 1`] = `
 <div
   class="page profile"
+  data-centered="false"
 >
-  <h1>
-    Profil 
-    <!---->
-  </h1>
   <div
-    class="toolbar"
+    class="page-header"
   >
-    
-    
+    <div
+      class="page-title-wrapper"
+    >
+      <h1>
+        Profil
+      </h1>
+      
+      <!---->
+      
+    </div>
+    <div
+      class="page-toolbar"
+    >
+      
+      
+    </div>
   </div>
   <div
     class="page-content"
