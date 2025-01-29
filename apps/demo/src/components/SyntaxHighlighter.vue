@@ -1,5 +1,5 @@
 <template>
-  <SshPre :copy-button="copyButton" :language="language" @copied="onCopy">
+  <SshPre :copy-button="showCopyButton" :language="language" @copied="onCopy">
     <template #copy-button>
       <i v-if="!isCopied" class="icon pi pi-copy" />
       <i v-else class="icon pi pi-check" />
@@ -20,7 +20,7 @@ import SshPre from "simple-syntax-highlighter";
 import { ref } from "vue";
 
 defineProps({
-  copyButton: {
+  showCopyButton: {
     default: true,
     type: Boolean,
   },
@@ -37,7 +37,7 @@ const onCopy = () => {
 
   setTimeout(() => {
     isCopied.value = false;
-  }, 5000);
+  }, 2000);
 };
 </script>
 
