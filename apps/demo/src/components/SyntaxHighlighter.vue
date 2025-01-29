@@ -1,9 +1,5 @@
 <template>
-  <SshPre
-    :copy-button="copyButton"
-    :language="language"
-    @copied="isCopied = true"
-  >
+  <SshPre :copy-button="copyButton" :language="language" @copied="onCopy">
     <template #copy-button>
       <i v-if="!isCopied" class="icon pi pi-copy" />
       <i v-else class="icon pi pi-check" />
@@ -35,6 +31,14 @@ defineProps({
 });
 
 const isCopied = ref<boolean>(false);
+
+const onCopy = () => {
+  isCopied.value = true;
+
+  setTimeout(() => {
+    isCopied.value = false;
+  }, 5000);
+};
 </script>
 
 <style lang="css">
