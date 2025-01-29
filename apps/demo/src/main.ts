@@ -5,10 +5,10 @@ import layoutPlugin from "@dzangolab/vue3-layout";
 // import userPlugin from "@dzangolab/vue3-user";
 import Notifications from "@kyvg/vue3-notification";
 import { createPinia } from "pinia";
-import SshPre from "simple-syntax-highlighter";
 import { createApp } from "vue";
 
 import App from "./App.vue";
+import SyntaxHighlighter from "./components/SyntaxHighlighter.vue";
 import config from "./config";
 import router from "./router";
 
@@ -42,6 +42,6 @@ app.use(router);
 
 app.use(Notifications);
 
-app.component("SshPre", SshPre);
+app.component("SshPre", SyntaxHighlighter);
 
 app.mount("#app");
