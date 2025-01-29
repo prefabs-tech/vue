@@ -44,7 +44,6 @@
 
 .sub-menu-item {
   overflow: hidden;
-  max-height: 20rem;
   transition: max-height 0.5s ease-in-out;
 }
 
