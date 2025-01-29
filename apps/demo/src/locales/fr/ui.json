@@ -234,6 +234,17 @@
     }
   },
   "overlay": "Overlay",
+  "page": {
+    "title": "Page",
+    "label": {
+      "content": "Page content",
+      "edit": "Edit"
+    },
+    "usage": {
+      "basic": "Basic page",
+      "toolbar": "Page with toolbar"
+    }
+  },
   "panel": "Panel",
   "popup": {
     "content": "This is a popup",

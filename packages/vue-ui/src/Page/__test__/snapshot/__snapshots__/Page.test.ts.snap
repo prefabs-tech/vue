@@ -3,6 +3,7 @@
 exports[`Page > matches snapshot 1`] = `
 <div
   class="page"
+  data-centered="false"
 >
   <h1>
     Home 
