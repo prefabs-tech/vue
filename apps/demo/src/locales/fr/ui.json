@@ -235,14 +235,19 @@
   },
   "overlay": "Overlay",
   "page": {
-    "title": "Page",
     "label": {
       "content": "Page content",
-      "edit": "Edit"
+      "edit": "Edit",
+      "subtitle": "Page subtitle"
     },
+    "title": "Page",
     "usage": {
-      "basic": "Basic page",
-      "toolbar": "Page with toolbar"
+      "basic": "Basic",
+      "centerAligned": "With center aligned contents",
+      "subtitle": "With subtitle",
+      "subtitleSlot": "With subtitle slot",
+      "titleElement": "With title element",
+      "toolbar": "With toolbar"
     }
   },
   "panel": "Panel",
