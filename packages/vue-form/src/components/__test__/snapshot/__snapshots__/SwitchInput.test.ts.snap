@@ -2,7 +2,7 @@
 
 exports[`SwitchInput > matches snapshot 1`] = `
 <div
-  class="field switch-toggle switch"
+  class="field switch-input switch"
 >
   <label
     for="switch"

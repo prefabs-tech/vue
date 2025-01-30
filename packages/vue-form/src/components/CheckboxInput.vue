@@ -1,6 +1,6 @@
 <template>
-  <div :class="`field checkbox ${name}`">
-    <label v-if="label" :for="name">{{ label }}</label>
+  <fieldset :class="`field checkbox ${name}`">
+    <legend v-if="label">{{ label }}</legend>
     <Field
       v-slot="{ field, meta }"
       :name="name"
@@ -9,22 +9,19 @@
       @change="handleChange"
     >
       <div v-if="hasOptions" :class="`checkbox-group direction-${direction}`">
-        <span
+        <Checkbox
           v-for="(option, index) in options"
+          v-bind="field"
+          :id="`input-field-${name}-${index}`"
           :key="`${index}-${option.value}`"
-        >
-          <Checkbox
-            v-bind="field"
-            :id="`input-field-${name}-${index}`"
-            :class="{ invalid: meta.touched && !meta.valid }"
-            :disabled="disabled"
-            :label="option.label"
-            :model-value="isOptionChecked(option.value)"
-            :name="`${name}-${option.label}`"
-            :value="option.value"
-            tabindex="0"
-          />
-        </span>
+          :class="{ invalid: meta.touched && !meta.valid }"
+          :disabled="disabled"
+          :label="option.label"
+          :model-value="isOptionChecked(option.value)"
+          :name="`${name}-${option.label}`"
+          :value="option.value"
+          tabindex="0"
+        />
       </div>
       <div v-else class="single-checkbox">
         <Checkbox
@@ -41,7 +38,7 @@
     </Field>
 
     <ErrorMessage :name="name" />
-  </div>
+  </fieldset>
 </template>
 
 <script lang="ts" setup>

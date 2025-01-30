@@ -14,7 +14,7 @@
         :id="`input-field-${name}`"
         :class="{
           invalid: meta.touched && !meta.valid,
-          valid: meta.dirty && meta.valid,
+          valid: meta.dirty && meta.valid && fieldSchema,
         }"
         :disabled="disabled"
         :has-sorted-options="hasSortedOptions"

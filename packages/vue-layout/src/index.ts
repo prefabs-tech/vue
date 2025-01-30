@@ -9,6 +9,7 @@ import Copyright from "./components/Copyright.vue";
 import Logo from "./components/Logo.vue";
 import MainMenu from "./components/MainMenu.vue";
 import Sidebar from "./components/Sidebar.vue";
+import StickyCollapsibleFooter from "./components/StickyCollapsibleFooter.vue";
 import Layout from "./Layout.vue";
 import BasicLayout from "./layouts/BasicLayout.vue";
 import NullLayout from "./layouts/NullLayout.vue";
@@ -69,6 +70,7 @@ export {
   Sidebar,
   SidebarHeaderLayout,
   SidebarOnlyLayout,
+  StickyCollapsibleFooter,
   useTranslations,
 };
 

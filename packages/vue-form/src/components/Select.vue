@@ -34,7 +34,10 @@
     </div>
     <ul v-if="showDropdownMenu && !disabled" class="multiselect-dropdown">
       <li v-if="multiple" class="multiselect-option" @click="onSelectAll()">
-        <input type="checkbox" :checked="isAllSelected(options)" />
+        <Checkbox
+          :model-value="isAllSelected(options)"
+          @update:model-value="onMultiSelect()"
+        />
         Select all
       </li>
       <li
@@ -44,7 +47,11 @@
         :class="{ selected: isSelected(option) && !multiple }"
         @click="onSelect($event, option)"
       >
-        <input v-if="multiple" type="checkbox" :checked="isSelected(option)" />
+        <Checkbox
+          v-if="multiple"
+          :model-value="isSelected(option)"
+          @update:model-value="onMultiSelect()"
+        />
         {{ option.label }}
       </li>
     </ul>
@@ -60,6 +67,8 @@ export default {
 <script setup lang="ts">
 import { onClickOutside } from "@vueuse/core";
 import { computed, onMounted, ref, toRefs, watch } from "vue";
+
+import Checkbox from "./Checkbox.vue";
 
 import type { SelectOption } from "../types";
 import type { PropType, Ref } from "vue";
@@ -159,11 +168,7 @@ const onSelect = (event: Event, option: SelectOption) => {
       selectedOptions.value.push(option);
     }
 
-    const selectedValues = selectedOptions.value?.map(
-      (selectedOption) => selectedOption.value,
-    );
-
-    emit("update:modelValue", selectedValues);
+    onMultiSelect();
   } else {
     selectedOptions.value = [option];
     showDropdownMenu.value = false;
@@ -180,6 +185,16 @@ const onSelectAll = () => {
   } else {
     selectedOptions.value = [...props.options];
   }
+
+  onMultiSelect();
+};
+
+const onMultiSelect = () => {
+  const selectedValues = selectedOptions.value?.map(
+    (selectedOption) => selectedOption.value,
+  );
+
+  emit("update:modelValue", selectedValues);
 };
 
 const toggleDropdown = () => {

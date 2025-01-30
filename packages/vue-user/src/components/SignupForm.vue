@@ -20,12 +20,12 @@
     <TermsAndConditions
       v-if="termsAndConditionsConfig?.display"
       :has-checkbox="!!termsAndConditionsConfig?.showCheckbox"
+      :label="hasLabelText ? termsAndConditionsConfig?.label : undefined"
       @update:check="disableButton = !$event"
     >
-      <component
-        :is="termsAndConditionsConfig?.label"
-        v-if="termsAndConditionsConfig?.label"
-      />
+      <template v-if="termsAndConditionsConfig?.label && !hasLabelText">
+        <component :is="termsAndConditionsConfig?.label" />
+      </template>
     </TermsAndConditions>
 
     <div class="actions">
@@ -59,7 +59,7 @@ import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { Form } from "vee-validate";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { z } from "zod";
 
 import { useTranslations } from "../index";
@@ -120,6 +120,12 @@ const validationSchema = toFormValidator(
 const emit = defineEmits(["submit"]);
 
 const disableButton = ref<boolean>(true);
+
+const hasLabelText = computed(
+  () =>
+    typeof termsAndConditionsConfig?.label === "string" ||
+    termsAndConditionsConfig?.label instanceof String,
+);
 
 const onSubmit = (credentials: LoginCredentials) => {
   emit("submit", credentials);

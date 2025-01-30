@@ -6,7 +6,6 @@
   flex-direction: column;
   gap: var(--form-field-gap, 0.25em);
   justify-content: flex-start;
-  margin-bottom: var(--_input-field-margin-bottom);
 }
 
 .field input, .field textarea {
@@ -49,7 +48,6 @@
 
 .field.checkbox input[type=checkbox] {
   height: fit-content;
-  margin-right: .5em;
   width: auto;
   cursor: pointer;
   accent-color: #007aff;

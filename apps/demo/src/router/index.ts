@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 import { feature } from "@/config";
 import form from "./form";
+import layout from "./layout";
 import ui from "./ui";
 import user from "./user";
 
@@ -39,16 +40,12 @@ const router: Router = createRouter({
       path: "/",
     },
     {
-      component: Layout,
-      name: "layout",
-      path: "/layout",
-    },
-    {
       component: Sentry,
       name: "sentry",
       path: "/sentry",
     },
     ...form,
+    ...layout,
     ...ui,
     ...user,
   ],

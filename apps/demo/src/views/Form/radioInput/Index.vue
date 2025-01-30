@@ -11,51 +11,6 @@
 
       <div class="section-content">
         <RadioInput
-          v-model="formData.noLabelInput"
-          :options="basicInputOptions"
-          name="basic"
-        />
-
-        <!-- eslint-disable -->
-         <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;RadioInput
-              v-model="input"
-              :options="inputOptions"
-              name="input"
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { RadioInput } from "@dzangolab/vue3-form";
-          import { ref } from "vue";
-
-          const input = ref();
-          const inputOptions = [
-            {
-              label: "One",
-              value: 1,
-            },
-            {
-              label: "Two",
-              value: 2,
-            },
-            {
-              label: "Three",
-              value: 3,
-            },
-          ];
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("form.label.labelInput") }}</h2>
-
-      <div class="section-content">
-        <RadioInput
           v-model="formData.input"
           :label="$t('form.label.gender')"
           :options="genderOptions"
@@ -272,21 +227,6 @@ const { t } = useI18n();
 const inputSchema = z.string({
   required_error: t("form.errors.radio.required"),
 });
-
-const basicInputOptions = [
-  {
-    label: t("form.label.one"),
-    value: 1,
-  },
-  {
-    label: t("form.label.two"),
-    value: 2,
-  },
-  {
-    label: t("form.label.three"),
-    value: 3,
-  },
-];
 
 let formData = reactive({
   disabled: ref("car"),
