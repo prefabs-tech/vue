@@ -46,6 +46,14 @@
   padding: 0;
 }
 
+.demo-main .page .back {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pg0KDQo8IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPg0KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCg0KPHRpdGxlLz4NCg0KPGcgaWQ9IkNvbXBsZXRlIj4NCg0KPGcgaWQ9IkYtQ2hldnJvbiI+DQoNCjxwb2x5bGluZSBmaWxsPSJub25lIiBpZD0iTGVmdCIgcG9pbnRzPSIxNS41IDUgOC41IDEyIDE1LjUgMTkiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz4NCg0KPC9nPg0KDQo8L2c+DQoNCjwvc3ZnPg==);
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}
+
 @media screen and (min-width: 576px) {
   .demo {
     flex-direction: row;
