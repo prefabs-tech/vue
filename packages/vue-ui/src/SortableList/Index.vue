@@ -46,13 +46,13 @@ import { VueDraggableNext as draggable } from "vue-draggable-next";
 
 import type { PropType, VNode } from "vue";
 
-const emits = defineEmits(["onDrag"]);
-
 type List = {
   id: number | string;
   data: string;
   render?: (data: unknown) => VNode;
 };
+
+const emits = defineEmits(["onDrag"]);
 
 defineProps({
   list: {
