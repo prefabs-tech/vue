@@ -11,8 +11,13 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
     <div
       class="page-title-wrapper"
     >
-      <h1>
-        Login
+      <h1
+        class="title"
+      >
+        Login 
+        
+        <!---->
+        
       </h1>
       
       <!---->
@@ -141,8 +146,13 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
     <div
       class="page-title-wrapper"
     >
-      <h1>
-        Connexion
+      <h1
+        class="title"
+      >
+        Connexion 
+        
+        <!---->
+        
       </h1>
       
       <!---->

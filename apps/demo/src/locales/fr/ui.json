@@ -238,7 +238,8 @@
     "label": {
       "content": "Page content",
       "edit": "Edit",
-      "subtitle": "Page subtitle"
+      "subtitle": "Page subtitle",
+      "titleTag": "Heading tag"
     },
     "title": "Page",
     "usage": {
@@ -247,6 +248,8 @@
       "subtitle": "With subtitle",
       "subtitleSlot": "With subtitle slot",
       "titleElement": "With title element",
+      "titleTag": "With title tag",
+      "titleTagSlot": "With title tag slot",
       "toolbar": "With toolbar"
     }
   },

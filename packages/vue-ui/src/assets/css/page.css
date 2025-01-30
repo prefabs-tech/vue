@@ -29,6 +29,10 @@
   overflow-wrap: break-word;
 }
 
+.page > .page-header > .page-title-wrapper > .title > span {
+  margin-left: 0.5rem;
+}
+
 .page > .page-header > .page-toolbar {
   align-items: center;
   display: flex;
@@ -46,5 +50,9 @@
     height: fit-content;
     justify-content: flex-end;
     margin-left: auto;
+  }
+
+  .page > .page-header > .page-title-wrapper > .title >  span {
+    vertical-align: top;
   }
 }
