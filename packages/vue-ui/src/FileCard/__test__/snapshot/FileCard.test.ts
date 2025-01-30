@@ -27,11 +27,11 @@ describe("FileCard", () => {
           ConfirmationFileActions: true,
         },
       },
-      slots: {
-        default: "This is test footer.",
-      },
       props: {
         file: file,
+      },
+      slots: {
+        default: "This is test footer.",
       },
     });
 
