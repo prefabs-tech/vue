@@ -234,6 +234,25 @@
     }
   },
   "overlay": "Overlay",
+  "page": {
+    "label": {
+      "content": "Page content",
+      "edit": "Edit",
+      "subtitle": "Page subtitle",
+      "titleTag": "Heading tag"
+    },
+    "title": "Page",
+    "usage": {
+      "basic": "Basic",
+      "centerAligned": "With center aligned contents",
+      "subtitle": "With subtitle",
+      "subtitleSlot": "With subtitle slot",
+      "titleElement": "With title element",
+      "titleTag": "With title tag",
+      "titleTagSlot": "With title tag slot",
+      "toolbar": "With toolbar"
+    }
+  },
   "panel": "Panel",
   "popup": {
     "content": "This is a popup",

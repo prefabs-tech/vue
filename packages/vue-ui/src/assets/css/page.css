@@ -1,37 +1,56 @@
 .page {
-  align-items: stretch;
-  display: grid;
-  font-size: 1em;
-  grid-template-areas:
-    "title toolbar"
-    "main main";
-  grid-template-columns: 1fr auto;
-  grid-template-rows: 2rem 1fr;
-  gap: var(--page-gap, 0.5em);
-  justify-items: flex-start;
+  --_page-gap: var(--page-gap, 0.5rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--_page-gap);
 }
 
-.page > h1 {
-  grid-area: title;
+.page[data-centered="true"] {
+  justify-items: center;
+  margin: auto;
+  max-width: var(--page-max-width);
 }
 
 .page > .page-content {
-  grid-area: main;
   margin-top: 1rem;
-  width: 100%;
 }
 
-.page .back {
-  background-image: url("@/assets/svg/chevron-left.svg");
-  background-position: center left;
-  background-repeat: no-repeat;
-  background-size: var(--page-toolbar-icon-width, 1.5rem);
-  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+.page > .page-header {
+  display: grid;
+  gap: var(--_page-gap);
+  grid-template-columns: 100%;
 }
 
-.page > .toolbar {
-  align-self: center;
-  font-size: 1em;
-  grid-area: toolbar;
-  justify-self: right;
+.page > .page-header > .page-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-gap, 0.5rem);
+  overflow-wrap: break-word;
+}
+
+.page > .page-header > .page-title-wrapper > .title {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.page > .page-header > .page-toolbar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--page-gap, 0.5rem);
+  justify-content: flex-start;
+}
+
+@media (min-width: 576px) {
+  .page > .page-header {
+    grid-template-columns: repeat(2, minmax(0, auto));
+  }
+
+  .page > .page-header > .page-toolbar {
+    height: fit-content;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
 }

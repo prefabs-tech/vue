@@ -12,6 +12,7 @@ const GridContainer = () => import("@/views/UI/gridContainer/Index.vue");
 const LoadingPage = () => import("@/views/UI/loading/Index.vue");
 const Message = () => import("@/views/UI/message/Index.vue");
 const Modal = () => import("@/views/UI/modal/Index.vue");
+const Page = () => import("@/views/UI/page/Index.vue");
 const Popup = () => import("@/views/UI/popup/Index.vue");
 const SortableList = () => import("@/views/UI/sortableList/Index.vue");
 const Stepper = () => import("@/views/UI/stepper/Index.vue");
@@ -100,6 +101,11 @@ const routes = [
         component: Modal,
         name: "modal",
         path: "modal",
+      },
+      {
+        component: Page,
+        name: "page",
+        path: "page",
       },
       {
         component: LoadingPage,
