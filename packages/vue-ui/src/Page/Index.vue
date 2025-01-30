@@ -2,15 +2,17 @@
   <div class="page" :data-centered="centered">
     <div class="page-header">
       <div class="page-title-wrapper">
-        <component :is="titleElement" v-if="title" class="title">
-          {{ title }}
+        <div class="title">
+          <component :is="titleElement" v-if="title">
+            {{ title }}
+          </component>
 
           <slot name="titleTag">
             <span v-if="titleTag" class="title-tag">
               <BadgeComponent :label="titleTag" />
             </span>
           </slot>
-        </component>
+        </div>
 
         <slot name="subtitle">
           <small v-if="subTitle">{{ subTitle }}</small>

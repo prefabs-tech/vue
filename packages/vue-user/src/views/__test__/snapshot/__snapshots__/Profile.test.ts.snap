@@ -11,14 +11,16 @@ exports[`Profile > matches snapshot in en 1`] = `
     <div
       class="page-title-wrapper"
     >
-      <h1
+      <div
         class="title"
       >
-        Profile 
+        <h1>
+          Profile
+        </h1>
         
         <!---->
         
-      </h1>
+      </div>
       
       <!---->
       
@@ -52,14 +54,16 @@ exports[`Profile > matches snapshot in fr 1`] = `
     <div
       class="page-title-wrapper"
     >
-      <h1
+      <div
         class="title"
       >
-        Profil 
+        <h1>
+          Profil
+        </h1>
         
         <!---->
         
-      </h1>
+      </div>
       
       <!---->
       

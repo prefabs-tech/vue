@@ -11,14 +11,16 @@ exports[`VerifyEmail > matches snapshot in en 1`] = `
     <div
       class="page-title-wrapper"
     >
-      <h1
+      <div
         class="title"
       >
-        Email verification 
+        <h1>
+          Email verification
+        </h1>
         
         <!---->
         
-      </h1>
+      </div>
       
       <!---->
       
@@ -66,14 +68,16 @@ exports[`VerifyEmail > matches snapshot in fr 1`] = `
     <div
       class="page-title-wrapper"
     >
-      <h1
+      <div
         class="title"
       >
-        Email verification 
+        <h1>
+          Email verification
+        </h1>
         
         <!---->
         
-      </h1>
+      </div>
       
       <!---->
       

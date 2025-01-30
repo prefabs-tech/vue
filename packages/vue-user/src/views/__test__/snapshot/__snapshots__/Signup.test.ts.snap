@@ -11,14 +11,16 @@ exports[`SignUp > matches snapshot in en 1`] = `
     <div
       class="page-title-wrapper"
     >
-      <h1
+      <div
         class="title"
       >
-        Register 
+        <h1>
+          Register
+        </h1>
         
         <!---->
         
-      </h1>
+      </div>
       
       <!---->
       
@@ -177,14 +179,16 @@ exports[`SignUp > matches snapshot in fr 1`] = `
     <div
       class="page-title-wrapper"
     >
-      <h1
+      <div
         class="title"
       >
-        Inscription 
+        <h1>
+          Inscription
+        </h1>
         
         <!---->
         
-      </h1>
+      </div>
       
       <!---->
       

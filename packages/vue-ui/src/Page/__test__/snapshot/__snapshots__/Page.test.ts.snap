@@ -11,14 +11,16 @@ exports[`Page > matches snapshot 1`] = `
     <div
       class="page-title-wrapper"
     >
-      <h1
+      <div
         class="title"
       >
-        Home 
+        <h1>
+          Home
+        </h1>
         
         <!--v-if-->
         
-      </h1>
+      </div>
       
       <small>
         Welcome to the home page
