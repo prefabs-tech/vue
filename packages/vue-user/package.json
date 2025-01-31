@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-user",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Vue3 User Plugin",
   "exports": {
     ".": {
@@ -31,11 +31,11 @@
   "devDependencies": {
     "@12deg/eslint-config": "0.1.11",
     "@12deg/tsconfig": "0.1.11",
-    "@dzangolab/vue3-config": "0.10.0",
-    "@dzangolab/vue3-form": "0.10.0",
-    "@dzangolab/vue3-i18n": "0.10.0",
-    "@dzangolab/vue3-layout": "0.10.0",
-    "@dzangolab/vue3-ui": "0.10.0",
+    "@dzangolab/vue3-config": "0.10.1",
+    "@dzangolab/vue3-form": "0.10.1",
+    "@dzangolab/vue3-i18n": "0.10.1",
+    "@dzangolab/vue3-layout": "0.10.1",
+    "@dzangolab/vue3-ui": "0.10.1",
     "@iconify/vue": "4.1.0",
     "@types/node": "18.15.11",
     "@typescript-eslint/eslint-plugin": "8.14.0",
@@ -71,10 +71,10 @@
     "zod": "3.20.6"
   },
   "peerDependencies": {
-    "@dzangolab/vue3-config": "0.10.0",
-    "@dzangolab/vue3-i18n": "0.10.0",
-    "@dzangolab/vue3-layout": "0.10.0",
-    "@dzangolab/vue3-ui": "0.10.0",
+    "@dzangolab/vue3-config": "0.10.1",
+    "@dzangolab/vue3-i18n": "0.10.1",
+    "@dzangolab/vue3-layout": "0.10.1",
+    "@dzangolab/vue3-ui": "0.10.1",
     "@vee-validate/i18n": ">=4.7.1",
     "@vee-validate/rules": ">=4.7.1",
     "@vueuse/core": ">=9.4.0",
