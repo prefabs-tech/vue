@@ -3,34 +3,16 @@
 exports[`VerifyEmail > matches snapshot in en 1`] = `
 <div
   class="page auth verify-email"
-  data-centered="false"
 >
+  <h1>
+    Email verification 
+    <!---->
+  </h1>
   <div
-    class="page-header"
+    class="toolbar"
   >
-    <div
-      class="page-title-wrapper"
-    >
-      <div
-        class="title"
-      >
-        <h1>
-          Email verification
-        </h1>
-        
-        <!---->
-        
-      </div>
-      
-      <!---->
-      
-    </div>
-    <div
-      class="page-toolbar"
-    >
-      
-      
-    </div>
+    
+    
   </div>
   <div
     class="page-content"
@@ -60,34 +42,16 @@ exports[`VerifyEmail > matches snapshot in en 1`] = `
 exports[`VerifyEmail > matches snapshot in fr 1`] = `
 <div
   class="page auth verify-email"
-  data-centered="false"
 >
+  <h1>
+    Email verification 
+    <!---->
+  </h1>
   <div
-    class="page-header"
+    class="toolbar"
   >
-    <div
-      class="page-title-wrapper"
-    >
-      <div
-        class="title"
-      >
-        <h1>
-          Email verification
-        </h1>
-        
-        <!---->
-        
-      </div>
-      
-      <!---->
-      
-    </div>
-    <div
-      class="page-toolbar"
-    >
-      
-      
-    </div>
+    
+    
   </div>
   <div
     class="page-content"

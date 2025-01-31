@@ -3,34 +3,16 @@
 exports[`Login > matches snapshot in en 1`] = `
 <div
   class="page auth login"
-  data-centered="false"
 >
+  <h1>
+    Login 
+    <!---->
+  </h1>
   <div
-    class="page-header"
+    class="toolbar"
   >
-    <div
-      class="page-title-wrapper"
-    >
-      <div
-        class="title"
-      >
-        <h1>
-          Login
-        </h1>
-        
-        <!---->
-        
-      </div>
-      
-      <!---->
-      
-    </div>
-    <div
-      class="page-toolbar"
-    >
-      
-      
-    </div>
+    
+    
   </div>
   <div
     class="page-content"
@@ -144,34 +126,16 @@ exports[`Login > matches snapshot in en 1`] = `
 exports[`Login > matches snapshot in fr 1`] = `
 <div
   class="page auth login"
-  data-centered="false"
 >
+  <h1>
+    Connexion 
+    <!---->
+  </h1>
   <div
-    class="page-header"
+    class="toolbar"
   >
-    <div
-      class="page-title-wrapper"
-    >
-      <div
-        class="title"
-      >
-        <h1>
-          Connexion
-        </h1>
-        
-        <!---->
-        
-      </div>
-      
-      <!---->
-      
-    </div>
-    <div
-      class="page-toolbar"
-    >
-      
-      
-    </div>
+    
+    
   </div>
   <div
     class="page-content"
