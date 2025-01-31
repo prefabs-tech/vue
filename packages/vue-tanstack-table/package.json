@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/vue3-tanstack-table",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Vue3 Tanstack Table Component Library",
   "exports": {
     ".": {
