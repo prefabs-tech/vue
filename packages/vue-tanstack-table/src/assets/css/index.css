@@ -130,9 +130,9 @@
   margin-left: 0.5rem;
 }
 
-.table-container .table-wrapper > table tr > th .sort-state i {
-  font-size: 0.7rem !important;
-  font-weight: bold !important;
+.table-container .table-wrapper > table tr > th .sort-state .sort-icon {
+  display: inline-block;
+  font-size: 0.9rem;
 }
 
 .table-container .table-wrapper > table tr > th.sortable:active {

@@ -20,26 +20,28 @@
             : null
         "
       >
-        <div v-if="!header.isPlaceholder">
+        <template v-if="!header.isPlaceholder">
           <FlexRender
             :props="header.getContext()"
             :render="header.column.columnDef.header"
           />
-          <Icon
-            v-if="!header.column.getIsSorted() && header.column.getCanSort()"
-            icon="ri:arrow-up-down-line"
-            class="sort-icon"
-          />
-          <Icon
-            v-if="header.column.getIsSorted() && header.column.getCanSort()"
-            :icon="
-              header.column.getIsSorted() === 'asc'
-                ? 'mdi:arrow-up'
-                : 'mdi:arrow-down'
-            "
-            class="sort-icon"
-          />
-        </div>
+          <span class="sort-state">
+            <Icon
+              v-if="!header.column.getIsSorted() && header.column.getCanSort()"
+              icon="fa-solid:sort"
+              class="sort-icon"
+            />
+            <Icon
+              v-if="header.column.getIsSorted() && header.column.getCanSort()"
+              :icon="
+                header.column.getIsSorted() === 'asc'
+                  ? 'fa-solid:sort-up'
+                  : 'fa-solid:sort-down'
+              "
+              class="sort-icon"
+            />
+          </span>
+        </template>
       </th>
     </tr>
   </thead>
