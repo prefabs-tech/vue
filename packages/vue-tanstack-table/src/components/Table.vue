@@ -75,8 +75,8 @@ const table = useVueTable({
     },
     get pagination() {
       return {
-        pageIndex: 0, // Stay on the first page
-        pageSize: props.data.length, // Set page size to total data length
+        pageIndex: 0,
+        pageSize: props.data.length,
       };
     },
   },
