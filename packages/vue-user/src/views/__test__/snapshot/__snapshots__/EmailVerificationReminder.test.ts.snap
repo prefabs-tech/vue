@@ -3,16 +3,34 @@
 exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
 <div
   class="page auth verify-email-reminder"
+  data-centered="false"
 >
-  <h1>
-    Email verification 
-    <!---->
-  </h1>
   <div
-    class="toolbar"
+    class="page-header"
   >
-    
-    
+    <div
+      class="page-title-wrapper"
+    >
+      <div
+        class="title"
+      >
+        <h1>
+          Email verification
+        </h1>
+        
+        <!---->
+        
+      </div>
+      
+      <!---->
+      
+    </div>
+    <div
+      class="page-toolbar"
+    >
+      
+      
+    </div>
   </div>
   <div
     class="page-content"
@@ -64,16 +82,34 @@ exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
 exports[`EmailVerificationReminder > matches snapshot in fr 1`] = `
 <div
   class="page auth verify-email-reminder"
+  data-centered="false"
 >
-  <h1>
-    Email verification 
-    <!---->
-  </h1>
   <div
-    class="toolbar"
+    class="page-header"
   >
-    
-    
+    <div
+      class="page-title-wrapper"
+    >
+      <div
+        class="title"
+      >
+        <h1>
+          Email verification
+        </h1>
+        
+        <!---->
+        
+      </div>
+      
+      <!---->
+      
+    </div>
+    <div
+      class="page-toolbar"
+    >
+      
+      
+    </div>
   </div>
   <div
     class="page-content"
