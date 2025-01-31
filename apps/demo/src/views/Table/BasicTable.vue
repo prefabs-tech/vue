@@ -11,12 +11,20 @@
     </section>
 
     <div class="section-content">
-      <Table :columns-data="columns" :data="data.slice(5, 15)" />
+      <Table
+        :columns-data="columns"
+        :data="data.slice(0, 15)"
+        :paginated="false"
+      />
 
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         &lt;template&gt;
-          &lt;Table :columns-data="columns" :data="data" /&gt;
+          &lt;Table
+            :columns-data="columns"
+            :data="data"
+            :paginated="false"
+          /&gt;
         &lt;/template&gt;
   
         &lt;script setup lang="ts"&gt;

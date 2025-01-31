@@ -29,6 +29,7 @@ import { PropType, ref } from "vue";
 
 import TableBody from "./TableBody.vue";
 import TableHeader from "./TableHeader.vue";
+import { DEFAULT_PAGE_SIZE } from "../constants";
 
 import type { ColumnProperty } from "../types";
 import type {
@@ -45,6 +46,14 @@ const props = defineProps({
   data: {
     type: Array,
     default: () => [],
+  },
+  paginated: {
+    default: true,
+    type: Boolean,
+  },
+  rowPerPage: {
+    default: DEFAULT_PAGE_SIZE,
+    type: Number,
   },
 });
 
@@ -70,14 +79,12 @@ const sorting = ref<SortingState>([]);
 const table = useVueTable({
   columns,
   state: {
+    pagination: {
+      pageIndex: 0,
+      pageSize: !props.paginated ? props.data.length : props.rowPerPage,
+    },
     get sorting() {
       return sorting.value;
-    },
-    get pagination() {
-      return {
-        pageIndex: 0,
-        pageSize: props.data.length,
-      };
     },
   },
   onSortingChange: (updaterOrValue) => {
