@@ -12,11 +12,9 @@ describe("FileCard", () => {
       description: "This is a file",
       downloadCount: 0,
       id: 1,
-      lastDownloadedAt: new Date("2025-01-01") as unknown as number,
       originalFileName: "file.png",
       size: 4,
       uploadedBy: { givenName: "Test", lastName: "user" },
-      uploadedAt: new Date("2025-01-01") as unknown as number,
     } as IFile;
 
     const wrapper: VueWrapper = mount(FileCard, {

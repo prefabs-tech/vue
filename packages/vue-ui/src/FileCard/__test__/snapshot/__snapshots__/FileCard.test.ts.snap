@@ -81,9 +81,7 @@ exports[`FileCard > matches snapshot 1`] = `
               <span>
                 Uploaded at
               </span>
-              <span>
-                1 Jan 2025, 5:45 am
-              </span>
+              <span />
             </div>
           </div>
           <div
@@ -105,9 +103,7 @@ exports[`FileCard > matches snapshot 1`] = `
               <span>
                 Last download:
               </span>
-              <span>
-                1 Jan 2025
-              </span>
+              <span />
             </div>
           </div>
         </div>
