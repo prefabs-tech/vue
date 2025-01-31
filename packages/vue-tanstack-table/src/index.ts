@@ -4,3 +4,5 @@ import TableHeader from "./components/TableHeader.vue";
 import TanstackTable from "./components/TanstackTable.vue";
 
 export { Table, TableBody, TableHeader, TanstackTable };
+
+export type { ColumnProperty, TableColumnDefinition } from "./types";

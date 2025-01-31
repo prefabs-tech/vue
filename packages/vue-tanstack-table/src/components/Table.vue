@@ -30,18 +30,12 @@ import { PropType, ref } from "vue";
 import TableBody from "./TableBody.vue";
 import TableHeader from "./TableHeader.vue";
 
+import type { ColumnProperty } from "../types";
 import type {
   AccessorFn,
   ColumnDef,
   DisplayColumnDef,
 } from "@tanstack/vue-table";
-
-type ColumnProperty = {
-  accessorKey: string;
-  header: string;
-  size?: number;
-  sort?: boolean;
-};
 
 const props = defineProps({
   columnsData: {
@@ -60,11 +54,12 @@ const columns: ColumnDef<unknown, unknown>[] = [];
 
 props.columnsData.forEach((column) => {
   const columnDef = columnHelper.accessor(
-    column.accessorKey as string as unknown as AccessorFn<unknown>,
+    column?.accessorKey as string as unknown as AccessorFn<unknown>,
     {
       header: () => column.header,
       footer: (props: { column: { id: string | number } }) => props.column.id,
-      enableSorting: column.sort !== undefined ? column.sort : false,
+      enableSorting:
+        column.enableSorting !== undefined ? column.enableSorting : false,
     } as object as unknown as DisplayColumnDef<unknown>,
   ) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);
@@ -77,6 +72,12 @@ const table = useVueTable({
   state: {
     get sorting() {
       return sorting.value;
+    },
+    get pagination() {
+      return {
+        pageIndex: 0, // Stay on the first page
+        pageSize: props.data.length, // Set page size to total data length
+      };
     },
   },
   onSortingChange: (updaterOrValue) => {

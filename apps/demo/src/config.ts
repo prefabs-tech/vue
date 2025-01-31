@@ -57,6 +57,10 @@ const config: AppConfig = {
         route: "form",
       },
       {
+        name: "Table",
+        route: "table",
+      },
+      {
         name: "Sentry",
         route: "sentry",
       },
