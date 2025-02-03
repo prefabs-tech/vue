@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Data > matches snapshot 1`] = `
+<div
+  class="data direction-vertical"
+>
+  <span
+    class="data-label"
+  >
+    Email
+  </span>
+  <!--v-if-->
+  <span
+    class="data-value"
+  >
+    
+    john.doe@example.com
+    
+  </span>
+</div>
+`;
