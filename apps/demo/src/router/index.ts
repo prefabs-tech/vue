@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import { feature } from "@/config";
 import form from "./form";
 import layout from "./layout";
+import table from "./table";
 import ui from "./ui";
 import user from "./user";
 
@@ -46,6 +47,7 @@ const router: Router = createRouter({
     },
     ...form,
     ...layout,
+    ...table,
     ...ui,
     ...user,
   ],
