@@ -48,7 +48,6 @@
           {
             accessorKey: "age",
             header: "Age",
-            align: "right",
           },
           {
             accessorKey: "city",
@@ -107,7 +106,6 @@ const columns: Array<ColumnProperty> = [
   {
     accessorKey: "age",
     header: "Age",
-    align: "right",
   },
   {
     accessorKey: "city",

@@ -7,7 +7,7 @@
     >
       <th
         v-for="header in headerGroup.headers"
-        :key="header.id"
+        :key="`table-header-${header.id}`"
         :class="[
           activeColumnClass(header.column),
           `column-${header.id}`,

@@ -3,13 +3,13 @@
     <template v-if="table.getRowModel().rows?.length">
       <tr
         v-for="row in table.getRowModel().rows"
-        :key="row.id"
+        :key="`table-row-${row.id}`"
         :data-id="row.id"
         :data-selected="enableRowSelection ? row.getIsSelected() : undefined"
       >
         <td
           v-for="cell in row.getVisibleCells()"
-          :key="cell.id"
+          :key="`table-data-${row.id}-${cell.id}`"
           :class="[cell.column.id ? `cell-${cell.column.id}` : '']"
           :data-label="cell.column.id"
         >
