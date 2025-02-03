@@ -10,8 +10,8 @@
         <td
           v-for="cell in row.getVisibleCells()"
           :key="cell.id"
-          :data-label="cell.column.id"
           :class="[cell.column.id ? `cell-${cell.column.id}` : '']"
+          :data-label="cell.column.id"
         >
           <FlexRender
             :props="cell.getContext()"
