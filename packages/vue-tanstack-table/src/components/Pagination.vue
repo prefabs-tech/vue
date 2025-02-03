@@ -28,18 +28,24 @@
           v-if="showFirstLastButtons"
           :disabled="!(currentPage > 0)"
           class="first-page"
-          icon-left="pi pi-angle-double-left"
           size="small"
-          @click="$emit('update:page', 0)"
-        />
+          @click="$emit('update:currentPage', 0)"
+        >
+          <template #iconLeft>
+            <Icon icon="prime:angle-double-left" />
+          </template>
+        </ButtonElement>
         <ButtonElement
           v-if="showPreviousNextButtons"
           :disabled="!(currentPage > 0)"
           class="previous-page"
-          icon-left="pi pi-angle-left"
           size="small"
-          @click="$emit('update:page', currentPage - 1)"
-        />
+          @click="$emit('update:currentPage', currentPage - 1)"
+        >
+          <template #iconLeft>
+            <Icon icon="prime:angle-left" />
+          </template>
+        </ButtonElement>
       </div>
 
       <div>
@@ -50,7 +56,7 @@
             :class="`page-button ${page === currentPage + 1 ? 'active' : ''}`"
             :label="`${page}`"
             size="small"
-            @click="$emit('update:page', page - 1)"
+            @click="$emit('update:currentPage', page - 1)"
           />
         </template>
         <span v-else>{{ `${currentPage + 1} / ${lastPage}` }}</span>
@@ -61,18 +67,24 @@
           v-if="showPreviousNextButtons"
           :disabled="!(currentPage < lastPage - 1)"
           class="next-page"
-          icon-left="pi pi-angle-right"
           size="small"
-          @click="$emit('update:page', currentPage + 1)"
-        />
+          @click="$emit('update:currentPage', currentPage + 1)"
+        >
+          <template #iconLeft>
+            <Icon icon="prime:angle-right" />
+          </template>
+        </ButtonElement>
         <ButtonElement
           v-if="showFirstLastButtons"
           :disabled="!(currentPage < lastPage - 1)"
           class="last-page"
-          icon-left="pi pi-angle-double-right"
           size="small"
-          @click="$emit('update:page', lastPage - 1)"
-        />
+          @click="$emit('update:currentPage', lastPage - 1)"
+        >
+          <template #iconLeft>
+            <Icon icon="prime:angle-double-right" />
+          </template>
+        </ButtonElement>
       </div>
     </div>
 
@@ -88,6 +100,7 @@ export default {
 
 <script setup lang="ts">
 import { ButtonElement, DebouncedInput } from "@dzangolab/vue3-ui";
+import { Icon } from "@iconify/vue";
 import { ref, computed } from "vue";
 
 const props = defineProps({
@@ -141,7 +154,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:itemsPerPage", "update:page"]);
+const emit = defineEmits(["update:itemsPerPage", "update:currentPage"]);
 
 const itemsPerPage = ref(
   props.defaultItemsPerPage || props.itemsPerPageOptions[0],
@@ -168,7 +181,11 @@ const handleItemsPerPageChange = (event: Event) => {
 const handlePageInputChange = (value: string | number) => {
   const newPage = parseInt(value.toString(), 10) - 1;
   if (!isNaN(newPage) && newPage >= 0 && newPage < lastPage.value) {
-    emit("update:page", newPage);
+    emit("update:currentPage", newPage);
   }
 };
 </script>
+
+<style lang="css">
+@import "../assets/css/pagination.css";
+</style>

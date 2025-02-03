@@ -5,6 +5,18 @@
         <TableHeader :table="table" />
         <TableBody :table="table" />
       </table>
+
+      <template v-if="paginated && totalItems > 0">
+        <Pagination
+          v-bind="paginationOptions"
+          :current-page="pagination.pageIndex"
+          :default-items-per-page="pagination.pageSize"
+          :items-per-page-options="rowPerPageOptions"
+          :total-items="totalItems"
+          @update:current-page="table.setPageIndex"
+          @update:items-per-page="table.setPageSize"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -25,11 +37,16 @@ import {
   SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
-import { PropType, ref } from "vue";
+import { computed, ref } from "vue";
 
+import Pagination from "./Pagination.vue";
 import TableBody from "./TableBody.vue";
 import TableHeader from "./TableHeader.vue";
-import { DEFAULT_PAGE_SIZE } from "../constants";
+import {
+  DEFAULT_PAGE_INDEX,
+  DEFAULT_PAGE_PER_OPTIONS,
+  DEFAULT_PAGE_SIZE,
+} from "../constants";
 
 import type { ColumnProperty } from "../types";
 import type {
@@ -37,6 +54,7 @@ import type {
   ColumnDef,
   DisplayColumnDef,
 } from "@tanstack/vue-table";
+import type { PropType } from "vue";
 
 const props = defineProps({
   columnsData: {
@@ -51,9 +69,17 @@ const props = defineProps({
     default: true,
     type: Boolean,
   },
+  paginationOptions: {
+    default: () => ({}),
+    type: Object,
+  },
   rowPerPage: {
     default: DEFAULT_PAGE_SIZE,
     type: Number,
+  },
+  rowPerPageOptions: {
+    default: () => DEFAULT_PAGE_PER_OPTIONS,
+    type: Array as () => number[],
   },
 });
 
@@ -74,18 +100,27 @@ props.columnsData.forEach((column) => {
   columns.push(columnDef);
 });
 
+const pagination = ref({
+  pageIndex: DEFAULT_PAGE_INDEX,
+  pageSize: !props.paginated ? props.data.length : props.rowPerPage,
+});
 const sorting = ref<SortingState>([]);
+
+const totalItems = computed(() => table.getFilteredRowModel().rows?.length);
 
 const table = useVueTable({
   columns,
   state: {
-    pagination: {
-      pageIndex: 0,
-      pageSize: !props.paginated ? props.data.length : props.rowPerPage,
-    },
+    pagination: pagination.value,
     get sorting() {
       return sorting.value;
     },
+  },
+  onPaginationChange: (updaterOrValue) => {
+    pagination.value =
+      typeof updaterOrValue === "function"
+        ? updaterOrValue(pagination.value)
+        : updaterOrValue;
   },
   onSortingChange: (updaterOrValue) => {
     sorting.value =
