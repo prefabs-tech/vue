@@ -5,7 +5,7 @@
       <select :value="itemsPerPage" @change="handleItemsPerPageChange">
         <option
           v-for="option in itemsPerPageOptions"
-          :key="option"
+          :key="`items-per-page-option-${option}`"
           :value="option"
         >
           {{ option }}
@@ -52,7 +52,7 @@
         <template v-if="showPageButtons">
           <ButtonElement
             v-for="page in pages"
-            :key="page"
+            :key="`page-button-${page}`"
             :class="`page-button ${page === currentPage + 1 ? 'active' : ''}`"
             :label="`${page}`"
             size="small"
@@ -112,10 +112,6 @@ const props = defineProps({
     default: undefined,
     type: Number,
   },
-  totalItems: {
-    required: true,
-    type: Number,
-  },
   inputDebounceTime: {
     default: undefined,
     type: Number,
@@ -152,9 +148,13 @@ const props = defineProps({
     default: true,
     type: Boolean,
   },
+  totalItems: {
+    required: true,
+    type: Number,
+  },
 });
 
-const emit = defineEmits(["update:itemsPerPage", "update:currentPage"]);
+const emit = defineEmits(["update:currentPage", "update:itemsPerPage"]);
 
 const itemsPerPage = ref(
   props.defaultItemsPerPage || props.itemsPerPageOptions[0],
