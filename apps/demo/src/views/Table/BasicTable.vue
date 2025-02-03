@@ -29,7 +29,6 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
-          import { data } from "./data";
           import TablePage from "./TablePage.vue";
     
           import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
@@ -79,7 +78,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("table.usage.basic") }}</h2>
+      <h2>{{ $t("table.usage.pagination") }}</h2>
 
       <div class="section-content">
         <Table :columns-data="columns" :data="data" />
@@ -87,16 +86,12 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Table
-              :columns-data="columns"
-              :data="data"
-            /&gt;
+            &lt;Table :columns-data="columns" :data="data" /&gt;
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
-          import { data } from "./data";
           import TablePage from "./TablePage.vue";
     
           import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";

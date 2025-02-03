@@ -7,15 +7,17 @@
       </table>
 
       <template v-if="paginated && totalItems > 0">
-        <Pagination
-          v-bind="paginationOptions"
-          :current-page="pagination.pageIndex"
-          :default-items-per-page="pagination.pageSize"
-          :items-per-page-options="rowPerPageOptions"
-          :total-items="totalItems"
-          @update:current-page="table.setPageIndex"
-          @update:items-per-page="table.setPageSize"
-        />
+        <slot name="pagination">
+          <Pagination
+            v-bind="paginationOptions"
+            :current-page="pagination.pageIndex"
+            :default-items-per-page="pagination.pageSize"
+            :items-per-page-options="rowPerPageOptions"
+            :total-items="totalItems"
+            @update:current-page="table.setPageIndex"
+            @update:items-per-page="table.setPageSize"
+          />
+        </slot>
       </template>
     </div>
   </div>
@@ -106,35 +108,39 @@ const pagination = ref({
 });
 const sorting = ref<SortingState>([]);
 
-const totalItems = computed(() => table.getFilteredRowModel().rows?.length);
+const totalItems = computed(
+  () => table.value.getFilteredRowModel().rows?.length,
+);
 
-const table = useVueTable({
-  columns,
-  state: {
-    pagination: pagination.value,
-    get sorting() {
-      return sorting.value;
+const table = computed(() =>
+  useVueTable({
+    columns,
+    state: {
+      pagination: pagination.value,
+      get sorting() {
+        return sorting.value;
+      },
     },
-  },
-  onPaginationChange: (updaterOrValue) => {
-    pagination.value =
-      typeof updaterOrValue === "function"
-        ? updaterOrValue(pagination.value)
-        : updaterOrValue;
-  },
-  onSortingChange: (updaterOrValue) => {
-    sorting.value =
-      typeof updaterOrValue === "function"
-        ? updaterOrValue(sorting.value)
-        : updaterOrValue;
-  },
-  columnResizeMode: "onChange",
-  data: props.data,
-  getCoreRowModel: getCoreRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
-});
+    onPaginationChange: (updaterOrValue) => {
+      pagination.value =
+        typeof updaterOrValue === "function"
+          ? updaterOrValue(pagination.value)
+          : updaterOrValue;
+    },
+    onSortingChange: (updaterOrValue) => {
+      sorting.value =
+        typeof updaterOrValue === "function"
+          ? updaterOrValue(sorting.value)
+          : updaterOrValue;
+    },
+    columnResizeMode: "onChange",
+    data: props.data,
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+  }),
+);
 </script>
 
 <style lang="css">
