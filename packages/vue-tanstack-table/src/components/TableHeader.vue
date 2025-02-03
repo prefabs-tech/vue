@@ -9,8 +9,8 @@
         v-for="header in headerGroup.headers"
         :key="header.id"
         :class="[
-          `column-${header.id}`,
           activeColumnClass(header.column),
+          `column-${header.id}`,
           header.column.columnDef.enableSorting ? 'sortable' : '',
         ]"
         :colSpan="header.colSpan"
@@ -28,8 +28,8 @@
           <span class="sort-state">
             <Icon
               v-if="!header.column.getIsSorted() && header.column.getCanSort()"
-              icon="fa-solid:sort"
               class="sort-icon"
+              icon="fa-solid:sort"
             />
             <Icon
               v-if="header.column.getIsSorted() && header.column.getCanSort()"
