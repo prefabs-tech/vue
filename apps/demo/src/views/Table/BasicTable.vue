@@ -193,9 +193,9 @@ import { Table } from "@dzangolab/vue3-tanstack-table";
 import { data } from "./data";
 import TablePage from "./TablePage.vue";
 
-import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
+import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
 
-const columns: Array<ColumnProperty> = [
+const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "email",
     enableSorting: true,
@@ -206,6 +206,7 @@ const columns: Array<ColumnProperty> = [
     header: "Full name",
   },
   {
+    align: "right",
     accessorKey: "age",
     header: "Age",
   },
@@ -220,3 +221,7 @@ const sortableColumns = columns.map((column) => ({
   enableSorting: true,
 }));
 </script>
+
+<style lang="css">
+@import "../../assets/css/table/table.css";
+</style>

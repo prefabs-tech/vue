@@ -12,6 +12,12 @@
           :key="`table-data-${row.id}-${cell.id}`"
           :class="[cell.column.id ? `cell-${cell.column.id}` : '']"
           :data-label="cell.column.id"
+          :data-align="
+            getAlignValue({
+              align: cell.column.columnDef.align || 'left',
+              dataType: cell.column.columnDef.dataType,
+            })
+          "
         >
           <FlexRender
             :props="cell.getContext()"
@@ -38,6 +44,8 @@ export default {
 
 <script setup lang="ts">
 import { FlexRender } from "@tanstack/vue-table";
+
+import { getAlignValue } from "../utils";
 
 import type { Table } from "@tanstack/vue-table";
 

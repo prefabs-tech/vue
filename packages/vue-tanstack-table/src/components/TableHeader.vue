@@ -14,6 +14,12 @@
           header.column.columnDef.enableSorting ? 'sortable' : '',
         ]"
         :colSpan="header.colSpan"
+        :data-align="
+          getAlignValue({
+            align: header.column.columnDef.align || 'left',
+            dataType: header.column.columnDef.dataType,
+          })
+        "
         @click="
           header.column.getCanSort()
             ? header.column.getToggleSortingHandler()?.($event)
@@ -56,6 +62,8 @@ export default {
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import { FlexRender } from "@tanstack/vue-table";
+
+import { getAlignValue } from "../utils";
 
 import type { Column, Table } from "@tanstack/vue-table";
 
