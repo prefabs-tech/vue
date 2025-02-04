@@ -29,8 +29,6 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
-          import TablePage from "./TablePage.vue";
-    
           import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
     
           const columns: Array&lt;ColumnProperty&gt; = [
@@ -92,8 +90,6 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
-          import TablePage from "./TablePage.vue";
-    
           import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
     
           const columns: Array&lt;ColumnProperty&gt; = [
@@ -139,6 +135,49 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("table.usage.sortable") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="sortableColumns"
+          :data="data"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="sortableColumns"
+              :data="data"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;ColumnProperty&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+
+          const sortableColumns = columns.map((column) => ({
+            ...columns,
+            enableSorting: true,
+          }));
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
@@ -175,4 +214,9 @@ const columns: Array<ColumnProperty> = [
     header: "City",
   },
 ];
+
+const sortableColumns = columns.map((column) => ({
+  ...column,
+  enableSorting: true,
+}));
 </script>

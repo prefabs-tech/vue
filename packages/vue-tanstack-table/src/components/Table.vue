@@ -67,6 +67,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  initialSorting: {
+    default: () => [],
+    type: Array as PropType<SortingState>,
+  },
   paginated: {
     default: true,
     type: Boolean,
@@ -106,7 +110,8 @@ const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
 });
-const sorting = ref<SortingState>([]);
+
+const sorting = ref<SortingState>(props.initialSorting);
 
 const totalItems = computed(
   () => table.value.getFilteredRowModel().rows?.length,

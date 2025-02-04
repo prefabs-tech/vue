@@ -6,6 +6,7 @@
   "title": "Table",
   "usage": {
     "basic": "Basic",
-    "pagination": "With pagination"
+    "pagination": "With pagination",
+    "sortable": "With sortable column"
   }
 }
