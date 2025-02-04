@@ -29,9 +29,9 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
-          import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
-          const columns: Array&lt;ColumnProperty&gt; = [
+          const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
               enableSorting: true,
@@ -90,9 +90,9 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
-          import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
-          const columns: Array&lt;ColumnProperty&gt; = [
+          const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
               enableSorting: true,
@@ -159,9 +159,9 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
-          import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
-          const columns: Array&lt;ColumnProperty&gt; = [
+          const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
           ];
   
