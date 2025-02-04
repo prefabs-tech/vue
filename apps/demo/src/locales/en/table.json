@@ -5,6 +5,7 @@
   },
   "title": "Table",
   "usage": {
-    "basic": "Basic"
+    "basic": "Basic",
+    "pagination": "With pagination"
   }
 }
