@@ -2,7 +2,7 @@
   <div class="pagination">
     <div v-if="showItemsPerPageControl" class="items-per-page-control">
       <span>{{ itemsPerPageControlLabel }}</span>
-      <select :value="itemsPerPage" @change="handleItemsPerPageChange">
+      <select :value="itemsPerPage" @change="onItemsPerPageChange">
         <option
           v-for="option in itemsPerPageOptions"
           :key="`items-per-page-option-${option}`"
@@ -18,7 +18,7 @@
       <DebouncedInput
         type="number"
         :debounce-time="inputDebounceTime"
-        @update:model-value="handlePageInputChange"
+        @update:model-value="onPageInputChange"
       />
     </div>
 
@@ -168,7 +168,7 @@ const pages = computed(() =>
   Array.from({ length: lastPage.value }, (_, index) => index + 1),
 );
 
-const handleItemsPerPageChange = (event: Event) => {
+const onItemsPerPageChange = (event: Event) => {
   const newItemsPerPage = parseInt(
     (event.target as HTMLSelectElement).value,
     10,
@@ -178,7 +178,7 @@ const handleItemsPerPageChange = (event: Event) => {
   emit("update:itemsPerPage", itemsPerPage.value);
 };
 
-const handlePageInputChange = (value: string | number) => {
+const onPageInputChange = (value: string | number) => {
   const newPage = parseInt(value.toString(), 10) - 1;
   if (!isNaN(newPage) && newPage >= 0 && newPage < lastPage.value) {
     emit("update:currentPage", newPage);
