@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
+import { auth } from "./auth-provider";
+// import { login as doLogin } from "./laravel-passport";
 import {
   googleSignIn as doGoogleSignIn,
-  login as doLogin,
   logout as doLogout,
   requestPasswordReset as doRequestPasswordReset,
   resetPassword as doResetPassword,
@@ -37,7 +38,7 @@ const useUserStore = defineStore("user", () => {
   };
 
   const login = async (credentials: LoginCredentials) => {
-    const response = await doLogin(credentials);
+    const response = await auth.login(credentials);
 
     setUser(response);
   };

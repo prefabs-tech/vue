@@ -24,6 +24,7 @@ interface DzangolabVueUserConfig {
 declare module "@dzangolab/vue3-config" {
   export interface AppConfig {
     user?: DzangolabVueUserConfig;
+    authProvider?: string;
   }
 }
 

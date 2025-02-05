@@ -9,6 +9,8 @@ interface AuthTokens {
 interface LoginCredentials {
   email: string;
   password: string;
+  username?: string;
+  withRoles?: Array<string> | null;
 }
 
 interface PasswordResetPayload {
