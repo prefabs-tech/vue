@@ -5,7 +5,7 @@
     :show-user-menu="false"
   >
     <template #addon>
-      <div className="addon">
+      <div class="addon">
         <a
           target="_blank"
           rel="noopener noreferrer"
