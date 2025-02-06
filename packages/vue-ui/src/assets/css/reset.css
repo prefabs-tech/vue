@@ -49,6 +49,14 @@ a {
   text-decoration: none;
 }
 
+a[target="_blank"]::after {
+  content: url('https://api.iconify.design/tabler/external-link.svg');
+  padding-left: 0.25rem;
+  padding-right: 0;
+  padding-top: 0.1rem;
+  top: 0.1rem;
+}
+
 /* Make images easier to work with */
 img,
 picture, 
