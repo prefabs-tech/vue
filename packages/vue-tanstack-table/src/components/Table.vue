@@ -7,7 +7,7 @@
       <table :style="`width: ${table.getCenterTotalSize()}`">
         <TableHeader :table="table" />
         <TableBody :table="table" />
-        <tfoot>
+        <tfoot v-if="$slots.footer">
           <slot name="footer" />
         </tfoot>
       </table>
