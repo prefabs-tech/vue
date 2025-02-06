@@ -1,6 +1,9 @@
 <template>
   <component :is="layoutComponent">
     <slot></slot>
+    <template v-for="name in slotNames" #[name]>
+      <slot :name="name"></slot>
+    </template>
   </component>
 </template>
 
@@ -25,6 +28,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useSlots } from "vue";
 import { useRoute } from "vue-router";
 
 import type { LayoutType } from "./types";
@@ -37,6 +41,9 @@ const props = defineProps({
 });
 
 const route = useRoute();
+
+const slots = useSlots();
+const slotNames = Object.keys(slots) as string[];
 
 let layout = shallowRef(props.defaultLayout);
 

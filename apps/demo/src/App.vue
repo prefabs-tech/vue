@@ -4,6 +4,17 @@
     :default-layout="currentLayout"
     :show-user-menu="false"
   >
+    <template #addon>
+      <div class="addon">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/dzangolab/vue/blob/main/CHANGELOG.md"
+        >
+          <span>{{ $t("app.header.menu.changelog") }}</span>
+        </a>
+      </div>
+    </template>
     <router-view />
   </Layout>
   <notifications />
