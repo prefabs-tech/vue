@@ -3,13 +3,13 @@ import { ref } from "vue";
 
 import { auth } from "./auth-provider";
 // import { login as doLogin } from "./laravel-passport";
-import {
-  googleSignIn as doGoogleSignIn,
-  logout as doLogout,
-  requestPasswordReset as doRequestPasswordReset,
-  resetPassword as doResetPassword,
-  signup as doSignup,
-} from "./supertokens";
+// import {
+//   googleSignIn as doGoogleSignIn,
+//   logout as doLogout,
+//   requestPasswordReset as doRequestPasswordReset,
+//   resetPassword as doResetPassword,
+//   signup as doSignup,
+// } from "./supertokens";
 
 import type {
   LoginCredentials,
@@ -35,17 +35,17 @@ const useUserStore = defineStore("user", () => {
   };
 
   const googleSignIn = async (redirectURL: string) => {
-    await doGoogleSignIn(redirectURL);
+    await selectedAuthProvider.doGoogleSignIn(redirectURL);
   };
 
   const login = async (credentials: LoginCredentials) => {
-    const response = await selectedAuthProvider.login(credentials);
+    const response = await selectedAuthProvider.doLogin(credentials);
 
     setUser(response);
   };
 
   const logout = async () => {
-    await doLogout().then(() => {
+    await selectedAuthProvider.doLogout().then(() => {
       user.value = undefined;
 
       // FIXME [SS 17 MARCH 2023]
@@ -59,13 +59,13 @@ const useUserStore = defineStore("user", () => {
   const requestPasswordReset = async (
     payload: PasswordResetRequestPayload,
   ): Promise<boolean> => {
-    return doRequestPasswordReset(payload);
+    return selectedAuthProvider.doRequestPasswordReset(payload);
   };
 
   const resetPassword = async (
     payload: PasswordResetPayload,
   ): Promise<boolean> => {
-    return doResetPassword(payload);
+    return selectedAuthProvider.doResetPassword(payload);
   };
 
   const setUser = (userData: User | undefined) => {
@@ -75,7 +75,7 @@ const useUserStore = defineStore("user", () => {
   };
 
   const signup = async (credentials: LoginCredentials): Promise<void> => {
-    const response = await doSignup(credentials);
+    const response = await selectedAuthProvider.doSignup(credentials);
 
     setUser(response);
   };

@@ -5,7 +5,7 @@ import { inject } from "vue";
 import messages from "./locales/messages.json";
 import updateRouter from "./router";
 import userStore from "./store";
-import { initAuthProvider } from "./auth-provider"; // Import initialization function
+import initAuthProvider from "./auth-provider"; // Import initialization function
 import initSupertokens from "./supertokens";
 
 import type { DzangolabVueUserPluginOptions } from "./types";

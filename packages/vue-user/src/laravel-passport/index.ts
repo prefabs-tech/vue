@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
 import login from "./login";
+import logout from "./logout";
+import signup from "./signup";
 
-export { login };
+export { login, logout, signup };

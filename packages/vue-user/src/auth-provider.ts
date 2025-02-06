@@ -6,9 +6,8 @@ import type { AppConfig } from "@dzangolab/vue3-config";
 
 let authConfig: AppConfig | undefined;
 
-export const initAuthProvider = (config?: AppConfig) => {
+const initAuthProvider = (config?: AppConfig) => {
   authConfig = config;
-  console.log("from inside init", authConfig);
 };
 
 const getAuthProvider = () => {
@@ -22,19 +21,25 @@ const getAuthProvider = () => {
   return "supertokens"; // Default to supertokens
 };
 
-console.log("authConfig", authConfig?.authProvider);
-console.log("Selected AuthProvider", getAuthProvider());
-
 const providers = {
   "laravel-passport": {
-    login: laravelPassport.login,
+    doLogin: laravelPassport.login,
+    doLogout: laravelPassport.logout,
+    doSignup: laravelPassport.signup,
   },
   supertokens: {
-    login: supertokens.login,
-    logout: supertokens.logout,
-    signup: supertokens.signup,
+    doGoogleSignIn: supertokens.googleSignIn,
+    doLogin: supertokens.login,
+    doLogout: supertokens.logout,
+    doRequestPasswordReset: supertokens.requestPasswordReset,
+    doResetPassword: supertokens.resetPassword,
+    doSignup: supertokens.signup,
   },
 };
 
 // Export the selected provider dynamically
-export const auth = () => providers[getAuthProvider()];
+const auth = () => providers[getAuthProvider()];
+
+export default initAuthProvider;
+
+export { auth };
