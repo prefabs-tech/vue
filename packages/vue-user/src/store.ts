@@ -22,6 +22,7 @@ const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
   const user = ref<User | undefined>(undefined);
+  const selectedAuthProvider = auth();
 
   const getUser = (): User => {
     if (user.value) {
@@ -38,7 +39,7 @@ const useUserStore = defineStore("user", () => {
   };
 
   const login = async (credentials: LoginCredentials) => {
-    const response = await auth.login(credentials);
+    const response = await selectedAuthProvider.login(credentials);
 
     setUser(response);
   };

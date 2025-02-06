@@ -5,6 +5,7 @@ import { inject } from "vue";
 import messages from "./locales/messages.json";
 import updateRouter from "./router";
 import userStore from "./store";
+import { initAuthProvider } from "./auth-provider"; // Import initialization function
 import initSupertokens from "./supertokens";
 
 import type { DzangolabVueUserPluginOptions } from "./types";
@@ -22,6 +23,7 @@ const plugin: Plugin = {
     updateRouter(options.router, options.config?.user);
 
     initSupertokens(options.config);
+    initAuthProvider(options.config); // Initialize auth-provider with config
 
     const translations = options?.translations
       ? prependMessages(messages, options.translations)

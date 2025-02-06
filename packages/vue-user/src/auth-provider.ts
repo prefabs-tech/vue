@@ -1,23 +1,29 @@
 /* eslint-disable no-console */
-import { useConfig } from "@dzangolab/vue3-config";
-
 import * as laravelPassport from "./laravel-passport";
 import * as supertokens from "./supertokens";
 
-const config = useConfig();
+import type { AppConfig } from "@dzangolab/vue3-config";
 
-// Define allowed authentication provider names
-type AuthProvider = "laravel-passport" | "supertokens";
+let authConfig: AppConfig | undefined;
 
-// Ensure authProvider is one of the allowed types, defaulting to "laravel-passport"
-const authProvider: AuthProvider =
-  config?.authProvider &&
-  ["laravel-passport", "supertokens"].includes(config.authProvider)
-    ? (config?.authProvider as AuthProvider)
-    : "laravel-passport";
+export const initAuthProvider = (config?: AppConfig) => {
+  authConfig = config;
+  console.log("from inside init", authConfig);
+};
 
-console.log("config", config?.authProvider);
-console.log("authProvider", authProvider);
+const getAuthProvider = () => {
+  if (
+    authConfig?.authProvider &&
+    ["laravel-passport", "supertokens"].includes(authConfig.authProvider)
+  ) {
+    return authConfig.authProvider as "laravel-passport" | "supertokens";
+  }
+
+  return "supertokens"; // Default to supertokens
+};
+
+console.log("authConfig", authConfig?.authProvider);
+console.log("Selected AuthProvider", getAuthProvider());
 
 const providers = {
   "laravel-passport": {
@@ -30,5 +36,5 @@ const providers = {
   },
 };
 
-// Export the selected provider
-export const auth = providers[authProvider];
+// Export the selected provider dynamically
+export const auth = () => providers[getAuthProvider()];
