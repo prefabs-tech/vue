@@ -1,0 +1,18 @@
+
+.layout header .addon {
+  display: block;
+  padding: var(--layout-menu-item-padding-v, 0.625rem)
+    var(--layout-menu-item-padding-h, 1rem);
+}
+
+.layout header .addon:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 60rem) {
+  .layout header .addon {
+    display: block;
+    padding: 0;
+  }
+}
