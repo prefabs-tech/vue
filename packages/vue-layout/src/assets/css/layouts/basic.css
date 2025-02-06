@@ -29,7 +29,7 @@
 
   grid-area: header;
   height: var(--layout-header-height, 5.5rem);
-  padding-inline: var(--layout-header-padding-h, 1em);
+  padding-inline: var(--layout-header-padding-h, 1rem);
 }
 
 .layout.basic > header > nav {
@@ -43,6 +43,7 @@
   left: calc(var(--layout-basic-padding-h)*-1);
   opacity: 1;
   padding: 0;
+  padding-inline: var(--layout-header-padding-h, 1rem);
   right: calc(var(--layout-basic-padding-h)*-1);
 }
 
@@ -55,6 +56,10 @@
 
 .layout.basic > header > nav[data-expanded="true"] > .menu > ul {
   --menu-margin-left: 0;
+}
+
+.layout.basic > header > nav[data-expanded="true"] .addon {
+  font-size: var(--header-font-size);
 }
 
 .layout.basic > header > nav[data-expanded="true"] ul > li > a {
@@ -78,10 +83,11 @@
   left: 0;
 }
 
+.layout.basic > header nav .addon,
 .layout.basic > header nav.locale-switcher,
 .layout.basic > header nav.menu li>a {
-  --_menu-item-padding-h: 0.5em;
-  --_menu-item-padding-v: 0.4em;
+  --_menu-item-padding-h: 1em;
+  --_menu-item-padding-v: 0.625rem;
 
   font-size: 0.9rem;
 }
@@ -100,24 +106,30 @@
 
   .layout.basic > header {
     --header-logo-max-width: 150px;
+
+    padding-inline: var(--layout-header-padding-h, 2rem);
   }
 
   .layout.basic > header > nav {
-    gap: 0.5rem;
+    gap: var(--header-gap, 1.5rem);
   }
 
+  .layout.basic > header > nav[data-expanded="true"] {
+    padding: 0;
+  }
 
-.layout.basic > header > nav[data-expanded="true"] > .menu {
-  --_layout-nav-menu-padding-v: 1rem;
-  --_layout-nav-menu-padding-h: 1rem;
+  .layout.basic > header > nav[data-expanded="true"] > .menu {
+    --_layout-nav-menu-padding-v: 1rem;
+    --_layout-nav-menu-padding-h: 1rem;
 
-  padding: var(--_layout-nav-menu-padding-v) var(--_layout-nav-menu-padding-h);
-}
+    padding: var(--_layout-nav-menu-padding-v) var(--_layout-nav-menu-padding-h);
+  }
 
+  .layout.basic > header nav .addon,
   .layout.basic > header nav.locale-switcher,
   .layout.basic > header nav.menu li>a {
-    --_menu-item-padding-h: 1em;
-    --_menu-item-padding-v: 0.625em;
+    --_menu-item-padding-h: 1.5rem;
+    --_menu-item-padding-v: 0.625rem;
 
     font-size: 1rem;
   }

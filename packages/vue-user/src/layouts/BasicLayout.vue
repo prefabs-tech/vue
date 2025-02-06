@@ -5,6 +5,9 @@
         <template #logo>
           <Logo :route="home" />
         </template>
+        <template #addon>
+          <slot name="addon" />
+        </template>
         <template #menu>
           <MainMenu class="main-menu" :routes="routes" />
         </template>
