@@ -87,7 +87,7 @@
 .layout.basic > header nav.locale-switcher,
 .layout.basic > header nav.menu li>a {
   --_menu-item-padding-h: 1em;
-  --_menu-item-padding-v: 0.635rem;
+  --_menu-item-padding-v: 0.625rem;
 
   font-size: 0.9rem;
 }
