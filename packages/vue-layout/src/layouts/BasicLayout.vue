@@ -5,6 +5,9 @@
         <template #logo>
           <slot name="logo" />
         </template>
+        <template #addon>
+          <slot name="addon" />
+        </template>
         <template #menu>
           <slot name="menu" />
         </template>

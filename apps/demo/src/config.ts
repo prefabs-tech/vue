@@ -37,14 +37,6 @@ const config: AppConfig = {
     logo: "/vue/logo.png",
     mainMenu: [
       {
-        name: "Home",
-        route: "home",
-      },
-      {
-        name: "Layout",
-        route: "layout",
-      },
-      {
         name: "UI",
         route: "ui",
       },
@@ -57,16 +49,12 @@ const config: AppConfig = {
         route: "form",
       },
       {
+        name: "Layout",
+        route: "layout",
+      },
+      {
         name: "Table",
         route: "table",
-      },
-      {
-        name: "Sentry",
-        route: "sentry",
-      },
-      {
-        name: "About",
-        route: "about",
       },
     ],
   },

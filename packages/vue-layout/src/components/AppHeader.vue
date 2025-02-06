@@ -13,6 +13,7 @@
         />
       </slot>
       <slot name="userMenu"></slot>
+      <slot name="addon" />
       <slot name="locales">
         <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales" />
       </slot>
