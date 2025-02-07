@@ -3,7 +3,7 @@
     :class="`data ${mode === 'attr' ? 'data-attr' : 'data-stat'} direction-${direction}`"
   >
     <div class="label">
-      <slot name="label">
+      <slot name="caption">
         {{ caption }}
       </slot>
     </div>
@@ -31,7 +31,7 @@ import type { PropType } from "vue";
 
 defineProps({
   caption: {
-    type: [String, Number, Object] as PropType<string | number>,
+    type: String,
     required: true,
   },
   direction: {

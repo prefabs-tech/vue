@@ -134,6 +134,7 @@
       "email": "Email",
       "name": "Name"
     },
+    "subtitle": "The Data component is a reusable Vue component designed to display a labeled value.",
     "title": "Data",
     "usage": {
       "basic": "Basic",
