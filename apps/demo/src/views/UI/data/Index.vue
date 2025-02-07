@@ -10,12 +10,12 @@
       <h2>{{ $t("ui.data.usage.basic") }}</h2>
 
       <div class="section-content">
-        <Data :label="$t('ui.data.label.name')" :value="userData.name" />
+        <Data :caption="$t('ui.data.label.name')" :value="userData.name" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Data label="Name" value="John Doe" /&gt;
+            &lt;Data caption="Name" value="John Doe" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -27,32 +27,27 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.data.usage.displayObject") }}</h2>
+      <h2>{{ $t("ui.data.usage.statMode") }}</h2>
 
       <div class="section-content">
         <Data
-          :label="$t('ui.data.label.email')"
-          :value="userData"
-          data-key="email"
+          :caption="$t('ui.data.label.name')"
+          :value="userData.name"
+          mode="stat"
         />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Data
-              :value="userData"
-              data-key="email"
-              label="Email"
+              caption="Name"
+              mode="stat"
+              value="John Doe" 
             /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Data } from "@dzangolab/vue3-ui";
-
-          const userData = {
-            email: "john.doe@example.com",
-            name: "John Doe",
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -66,7 +61,7 @@
         <GridContainer>
           <Data
             v-for="(data, index) in structuredData"
-            :key="index"
+            :key="`${data.caption}-${index}`"
             v-bind="data"
           />
         </GridContainer>
@@ -75,7 +70,11 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;GridContainer&gt;
-              &lt;Data v-for="(data, index) in data" :key="index" v-bind="data" /&gt;
+              &lt;Data
+                v-for="(data, index) in data"
+                :key="`${data.caption}-${index}`"
+                v-bind="data"
+              /&gt;
             &lt;/GridContainer&gt;
           &lt;/template&gt;
 
@@ -84,27 +83,23 @@
 
           const data = [
             {
-              label: "Name",
+              caption: "Name",
               value: "John Doe",
             },
             {
-              label: "Age",
+              caption: "Age",
               value: 30,
             },
             {
-              label: "Email",
-              value: {
-                email: "john.doe@example.com",
-                user: "John Doe",
-              },
-              dataKey: "email",
+              caption: "Email",
+              value: "john.doe@example.com"
             },
             {
-              label: "Address",
+              caption: "Address",
               value: "123 Main St, Springfield, USA",
             },
             {
-              label: "Status",
+              caption: "Status",
               value: "Active",
             },
           ];
@@ -120,7 +115,7 @@
       <div class="section-content">
         <Data
           v-for="(data, index) in structuredData"
-          :key="index"
+          :key="`${data.caption}-${index}`"
           v-bind="data"
           direction="horizontal"
         >
@@ -132,7 +127,7 @@
           &lt;template&gt;
             &lt;Data
               v-for="(data, index) in data"
-              :key="index"
+              :key="`${data.caption}-${index}`"
               v-bind="data"
               direction="horizontal"
             &gt;
@@ -145,27 +140,23 @@
 
           const data = [
             {
-              label: "Name",
+              caption: "Name",
               value: "John Doe",
             },
             {
-              label: "Age",
+              caption: "Age",
               value: 30,
             },
             {
-              label: "Email",
-              value: {
-                email: "john.doe@example.com",
-                user: "John Doe",
-              },
-              dataKey: "email",
+              caption: "Email",
+              value: "john.doe@example.com"
             },
             {
-              label: "Address",
+              caption: "Address",
               value: "123 Main St, Springfield, USA",
             },
             {
-              label: "Status",
+              caption: "Status",
               value: "Active",
             },
           ];
@@ -184,27 +175,23 @@ import UiPage from "../UiPage.vue";
 
 const structuredData = [
   {
-    label: "Name",
+    caption: "Name",
     value: "John Doe",
   },
   {
-    label: "Age",
+    caption: "Age",
     value: 30,
   },
   {
-    label: "Email",
-    value: {
-      email: "john.doe@example.com",
-      user: "John Doe",
-    },
-    dataKey: "email",
+    caption: "Email",
+    value: "john.doe@example.com",
   },
   {
-    label: "Address",
+    caption: "Address",
     value: "123 Main St, Springfield, USA",
   },
   {
-    label: "Status",
+    caption: "Status",
     value: "Active",
   },
 ];

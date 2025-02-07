@@ -1,25 +1,35 @@
 .data {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--form-field-gap, 0.25rem);
 }
 
-.data.direction-horizontal > .data-label {
-  --_width: var(--data-label-width, 8rem);
+.data.direction-horizontal > .label {
+  --_width: var(--data-horizontal-label-width, 8rem);
 
   overflow-x: hidden;
   text-overflow: ellipsis;
   width: var(--_width);
 }
 
-.data > .data-label {
-  font-size: 0.875rem;
-  line-height: 1.5;
+.data.data-stat {
+  background-color: var(--data-stat-bg-color, transparent);
+  border: 1px solid var(--data-stat-border-color, #555);
+  border-radius: var(--data-stat-border-radius, 0.5rem);
+  padding-block: var(--data-stat-padding-v, 0.5rem);
+  padding-inline: var(--data-stat-padding-h, 0.75rem);
+  width: calc-size(calc-size(max-content, size), size + 3rem);
 }
 
-.data > .data-value {
-  font-weight: 500;
-  line-height: 1.5;
+.data.data-stat .value {
+  display: flex;
+  font-size: var(--data-stat-font-size, 2rem);
+  justify-content: flex-end;
+}
+
+.data > .label {
+  color: var(--data-label-color, #333333);
+  font-size: 0.875rem;
 }
 
 .data > .separator {

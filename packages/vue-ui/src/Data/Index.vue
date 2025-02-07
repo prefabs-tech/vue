@@ -1,14 +1,20 @@
 <template>
-  <div :class="`data direction-${direction}`">
-    <span class="data-label">{{ label }}</span>
-    <span v-if="slots.separator" class="separator">
-      <slot name="separator"></slot>
-    </span>
-    <span class="data-value">
-      <slot name="value">
-        {{ displayValue }}
+  <div
+    :class="`data ${mode === 'attr' ? 'data-attr' : 'data-stat'} direction-${direction}`"
+  >
+    <div class="label">
+      <slot name="label">
+        {{ caption }}
       </slot>
-    </span>
+    </div>
+    <div v-if="slots.separator" class="separator">
+      <slot name="separator"></slot>
+    </div>
+    <div class="value">
+      <slot name="value">
+        {{ value }}
+      </slot>
+    </div>
   </div>
 </template>
 
@@ -19,43 +25,32 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, useSlots } from "vue";
+import { useSlots } from "vue";
 
 import type { PropType } from "vue";
 
-const props = defineProps({
-  dataKey: {
-    default: undefined,
-    type: String,
+defineProps({
+  caption: {
+    type: [String, Number, Object] as PropType<string | number>,
+    required: true,
   },
   direction: {
     default: "vertical",
     type: String,
     validator: (value: string) => ["horizontal", "vertical"].includes(value),
   },
-  label: {
-    type: [String, Number, Object] as PropType<string | number>,
-    required: true,
+  mode: {
+    default: "attr",
+    type: String,
+    validator: (value: string) => ["attr", "stat"].includes(value),
   },
   value: {
     default: "",
-    type: [Object, String, Number] as PropType<string | number | object>,
+    type: [String, Number] as PropType<string | number>,
   },
 });
 
 const slots = useSlots();
-
-const displayValue = computed(() => {
-  if (
-    props.dataKey &&
-    typeof props.value === "object" &&
-    props.value !== null &&
-    props.dataKey in props.value
-  ) {
-    return props.value[props.dataKey as keyof typeof props.value];
-  }
-  return props.value;
-});
 </script>
 
 <style lang="css">
