@@ -16,9 +16,10 @@
   background-color: var(--data-stat-bg-color, transparent);
   border: 1px solid var(--data-stat-border-color, #555);
   border-radius: var(--data-stat-border-radius, 0.5rem);
+  min-width: max-content;
   padding-block: var(--data-stat-padding-v, 0.5rem);
   padding-inline: var(--data-stat-padding-h, 0.75rem);
-  width: calc-size(calc-size(max-content, size), size + 3rem);
+  width: var(--data-stat-width, 13rem);
 }
 
 .data.data-stat .value {
