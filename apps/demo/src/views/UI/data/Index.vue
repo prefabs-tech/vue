@@ -108,63 +108,6 @@
         <!-- eslint-enable -->
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("ui.data.usage.separatorSlot") }}</h2>
-
-      <div class="section-content">
-        <Data
-          v-for="(data, index) in structuredData"
-          :key="`${data.caption}-${index}`"
-          v-bind="data"
-          direction="horizontal"
-        >
-          <template #separator>:</template>
-        </Data>
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Data
-              v-for="(data, index) in data"
-              :key="`${data.caption}-${index}`"
-              v-bind="data"
-              direction="horizontal"
-            &gt;
-              &lt;template #separator&gt;:&lt;/template&gt;
-            &lt;/Data&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { Data } from "@dzangolab/vue3-ui";
-
-          const data = [
-            {
-              caption: "Name",
-              value: "John Doe",
-            },
-            {
-              caption: "Age",
-              value: 30,
-            },
-            {
-              caption: "Email",
-              value: "john.doe@example.com"
-            },
-            {
-              caption: "Address",
-              value: "123 Main St, Springfield, USA",
-            },
-            {
-              caption: "Status",
-              value: "Active",
-            },
-          ];
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
   </UiPage>
 </template>
 
