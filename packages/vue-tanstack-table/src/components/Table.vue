@@ -31,7 +31,6 @@ export default {
 
 <script setup lang="ts">
 import {
-  createColumnHelper,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
@@ -50,22 +49,21 @@ import {
   DEFAULT_PAGE_SIZE,
 } from "../constants";
 
-import type { ColumnProperty } from "../types";
-import type {
-  AccessorFn,
-  ColumnDef,
-  DisplayColumnDef,
-} from "@tanstack/vue-table";
+import type { ColumnDef } from "@tanstack/vue-table";
 import type { PropType } from "vue";
 
 const props = defineProps({
   columnsData: {
-    type: Array as PropType<ColumnProperty[]>,
+    type: Array as PropType<ColumnDef<unknown, unknown>[]>,
     default: () => [],
   },
   data: {
     type: Array,
     default: () => [],
+  },
+  initialSorting: {
+    default: () => [],
+    type: Array as PropType<SortingState>,
   },
   paginated: {
     default: true,
@@ -85,28 +83,21 @@ const props = defineProps({
   },
 });
 
-const columnHelper = createColumnHelper();
-
 const columns: ColumnDef<unknown, unknown>[] = [];
 
 props.columnsData.forEach((column) => {
-  const columnDef = columnHelper.accessor(
-    column?.accessorKey as string as unknown as AccessorFn<unknown>,
-    {
-      header: () => column.header,
-      footer: (props: { column: { id: string | number } }) => props.column.id,
-      enableSorting:
-        column.enableSorting !== undefined ? column.enableSorting : false,
-    } as object as unknown as DisplayColumnDef<unknown>,
-  ) as ColumnDef<unknown, unknown>;
-  columns.push(columnDef);
+  columns.push({
+    ...column,
+    enableSorting: column.enableSorting ?? false,
+  } as ColumnDef<unknown, unknown>);
 });
 
 const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
 });
-const sorting = ref<SortingState>([]);
+
+const sorting = ref<SortingState>(props.initialSorting);
 
 const totalItems = computed(
   () => table.value.getFilteredRowModel().rows?.length,

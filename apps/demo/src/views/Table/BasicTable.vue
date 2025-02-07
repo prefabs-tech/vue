@@ -29,11 +29,9 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
-          import TablePage from "./TablePage.vue";
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
-          import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
-    
-          const columns: Array&lt;ColumnProperty&gt; = [
+          const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
               enableSorting: true,
@@ -92,11 +90,9 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
-          import TablePage from "./TablePage.vue";
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
-          import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
-    
-          const columns: Array&lt;ColumnProperty&gt; = [
+          const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
               enableSorting: true,
@@ -139,6 +135,49 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("table.usage.sortable") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="sortableColumns"
+          :data="data"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="sortableColumns"
+              :data="data"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+
+          const sortableColumns = columns.map((column) => ({
+            ...columns,
+            enableSorting: true,
+          }));
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
@@ -154,9 +193,9 @@ import { Table } from "@dzangolab/vue3-tanstack-table";
 import { data } from "./data";
 import TablePage from "./TablePage.vue";
 
-import type { ColumnProperty } from "@dzangolab/vue3-tanstack-table";
+import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
 
-const columns: Array<ColumnProperty> = [
+const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "email",
     enableSorting: true,
@@ -167,6 +206,7 @@ const columns: Array<ColumnProperty> = [
     header: "Full name",
   },
   {
+    align: "right",
     accessorKey: "age",
     header: "Age",
   },
@@ -175,4 +215,13 @@ const columns: Array<ColumnProperty> = [
     header: "City",
   },
 ];
+
+const sortableColumns = columns.map((column) => ({
+  ...column,
+  enableSorting: true,
+}));
 </script>
+
+<style lang="css">
+@import "../../assets/css/table/table.css";
+</style>
