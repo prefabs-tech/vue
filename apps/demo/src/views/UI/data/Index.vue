@@ -169,11 +169,11 @@ const propsData = [
     type: "String",
   },
   {
-    default: "-",
-    description: "The value to display.",
+    default: "vertical",
+    description: "Specifies the direction to display the component.",
     id: 2,
-    prop: "value",
-    type: "String | Number",
+    prop: "direction",
+    type: '"horizontal" | "vertical"',
   },
   {
     default: "attr",
@@ -183,11 +183,11 @@ const propsData = [
     type: '"attr" | "stat"',
   },
   {
-    default: "vertical",
-    description: "Specifies the direction to display the component.",
+    default: "-",
+    description: "The value to display.",
     id: 4,
-    prop: "direction",
-    type: '"horizontal" | "vertical"',
+    prop: "value",
+    type: "String | Number",
   },
 ];
 
@@ -204,20 +204,20 @@ const slotsColumns = [
 
 const slotsData = [
   {
-    id: 1,
     description:
       "Content to place in the caption. Overrides the `caption` prop",
+    id: 1,
     name: "caption",
   },
   {
+    description: "Content to place between caption and value",
     id: 2,
-    description: "Content to place in the value. Overrides the `value` prop",
-    name: "value",
+    name: "separator",
   },
   {
+    description: "Content to place in the value. Overrides the `value` prop",
     id: 3,
-    description: "Content to place between caption and value",
-    name: "separator",
+    name: "value",
   },
 ];
 
