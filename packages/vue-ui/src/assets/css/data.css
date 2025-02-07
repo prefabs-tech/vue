@@ -28,7 +28,7 @@
 }
 
 .data > .label {
-  color: var(--data-label-color, #333333);
+  color: var(--data-caption-color, #333333);
   font-size: 0.875rem;
 }
 
