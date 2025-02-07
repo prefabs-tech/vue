@@ -1,5 +1,5 @@
 <template>
-  <Page :title="'asdfasdfasd'" class="auth login">
+  <Page :title="t('user.login.title')" class="auth login">
     <Errors v-if="errors.length" :errors="errors" />
 
     <slot name="instructions"></slot>

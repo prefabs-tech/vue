@@ -2,10 +2,10 @@ import { prependMessages } from "@dzangolab/vue3-i18n";
 import mitt from "mitt";
 import { inject } from "vue";
 
+import initAuthProvider from "./auth-provider"; // Import initialization function
 import messages from "./locales/messages.json";
 import updateRouter from "./router";
 import userStore from "./store";
-import initAuthProvider from "./auth-provider"; // Import initialization function
 import initSupertokens from "./supertokens";
 
 import type { DzangolabVueUserPluginOptions } from "./types";

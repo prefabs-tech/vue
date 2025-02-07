@@ -8,9 +8,11 @@ let authConfig: AppConfig | undefined;
 
 const initAuthProvider = (config?: AppConfig) => {
   authConfig = config;
+  console.log("from inside init of authprovider", authConfig);
 };
 
 const getAuthProvider = () => {
+  console.log("from inside the getAuthProvider", authConfig?.authProvider);
   if (
     authConfig?.authProvider &&
     ["laravel-passport", "supertokens"].includes(authConfig.authProvider)

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
@@ -22,7 +23,6 @@ const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
   const user = ref<User | undefined>(undefined);
-  const selectedAuthProvider = auth();
 
   const getUser = (): User => {
     if (user.value) {
@@ -35,16 +35,26 @@ const useUserStore = defineStore("user", () => {
   };
 
   const googleSignIn = async (redirectURL: string) => {
-    await selectedAuthProvider.doGoogleSignIn(redirectURL);
+    const selectedAuthProvider = auth();
+    if ("doGoogleSignIn" in selectedAuthProvider) {
+      await selectedAuthProvider.doGoogleSignIn(redirectURL);
+    }
+    throw new Error(
+      "Google signin is not supported for the selected auth provider",
+    );
   };
 
   const login = async (credentials: LoginCredentials) => {
+    const selectedAuthProvider = auth();
+
     const response = await selectedAuthProvider.doLogin(credentials);
 
     setUser(response);
   };
 
   const logout = async () => {
+    const selectedAuthProvider = auth();
+    console.log("from inside logout of store", selectedAuthProvider);
     await selectedAuthProvider.doLogout().then(() => {
       user.value = undefined;
 
@@ -59,13 +69,25 @@ const useUserStore = defineStore("user", () => {
   const requestPasswordReset = async (
     payload: PasswordResetRequestPayload,
   ): Promise<boolean> => {
-    return selectedAuthProvider.doRequestPasswordReset(payload);
+    const selectedAuthProvider = auth();
+    if ("doRequestPasswordReset" in selectedAuthProvider) {
+      return selectedAuthProvider.doRequestPasswordReset(payload);
+    }
+    throw new Error(
+      "Request password reset is not supported for the selected auth provider",
+    );
   };
 
   const resetPassword = async (
     payload: PasswordResetPayload,
   ): Promise<boolean> => {
-    return selectedAuthProvider.doResetPassword(payload);
+    const selectedAuthProvider = auth();
+    if ("doResetPassword" in selectedAuthProvider) {
+      return selectedAuthProvider.doResetPassword(payload);
+    }
+    throw new Error(
+      "Reset password is not supported for the selected auth provider",
+    );
   };
 
   const setUser = (userData: User | undefined) => {
@@ -75,9 +97,13 @@ const useUserStore = defineStore("user", () => {
   };
 
   const signup = async (credentials: LoginCredentials): Promise<void> => {
-    const response = await selectedAuthProvider.doSignup(credentials);
+    const selectedAuthProvider = auth();
+    if ("doSignup" in selectedAuthProvider) {
+      const response = await selectedAuthProvider.doSignup(credentials);
 
-    setUser(response);
+      setUser(response);
+    }
+    throw new Error("Signup is not supported for the selected auth provider");
   };
 
   return {
