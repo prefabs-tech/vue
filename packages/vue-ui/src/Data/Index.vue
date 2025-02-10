@@ -1,14 +1,15 @@
 <template>
   <div
-    :class="`data ${mode === 'attr' ? 'data-attr' : 'data-stat'} direction-${direction}`"
+    :class="[
+      'data',
+      { 'data-stat': mode === 'stat' },
+      `direction-${direction}`,
+    ]"
   >
     <div class="label">
       <slot name="caption">
         {{ caption }}
       </slot>
-    </div>
-    <div v-if="slots.separator" class="separator">
-      <slot name="separator"></slot>
     </div>
     <div class="value">
       <slot name="value">
@@ -25,8 +26,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useSlots } from "vue";
-
 import type { PropType } from "vue";
 
 defineProps({
@@ -49,8 +48,6 @@ defineProps({
     type: [String, Number] as PropType<string | number>,
   },
 });
-
-const slots = useSlots();
 </script>
 
 <style lang="css">

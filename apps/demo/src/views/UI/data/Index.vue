@@ -210,11 +210,6 @@ const slotsData = [
     name: "caption",
   },
   {
-    description: "Content to place between caption and value",
-    id: 2,
-    name: "separator",
-  },
-  {
     description: "Content to place in the value. Overrides the `value` prop",
     id: 3,
     name: "value",

@@ -2,7 +2,7 @@
 
 exports[`Data > matches snapshot 1`] = `
 <div
-  class="data data-attr direction-vertical"
+  class="data direction-vertical"
   label="Email"
 >
   <div
@@ -12,7 +12,6 @@ exports[`Data > matches snapshot 1`] = `
     
     
   </div>
-  <!--v-if-->
   <div
     class="value"
   >
