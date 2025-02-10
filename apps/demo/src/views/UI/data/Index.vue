@@ -19,7 +19,7 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Data caption="Name" value="John Doe" /&gt;
+            &lt;Data caption="Name" value="John Smith" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -35,8 +35,14 @@
 
       <div class="section-content">
         <Data
-          :caption="$t('ui.data.label.name')"
-          :value="userData.name"
+          :caption="$t('ui.data.label.visitors')"
+          :value="userData.visitors"
+          mode="stat"
+        />
+
+        <Data
+          :caption="$t('ui.data.label.revenue')"
+          :value="userData.revenue"
           mode="stat"
         />
 
@@ -44,9 +50,15 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Data
-              caption="Name"
+              caption="Visitors"
               mode="stat"
-              value="John Doe" 
+              value="3,825" 
+            /&gt;
+
+            &lt;Data
+              caption="Revenue"
+              mode="stat"
+              value="$1,030,217" 
             /&gt;
           &lt;/template&gt;
 
@@ -88,7 +100,7 @@
           const data = [
             {
               caption: "Name",
-              value: "John Doe",
+              value: "John Smith",
             },
             {
               caption: "Age",
@@ -96,7 +108,7 @@
             },
             {
               caption: "Email",
-              value: "john.doe@example.com"
+              value: "john.smith@example.com"
             },
             {
               caption: "Address",
@@ -219,7 +231,7 @@ const slotsData = [
 const structuredData = [
   {
     caption: "Name",
-    value: "John Doe",
+    value: "John Smith",
   },
   {
     caption: "Age",
@@ -227,7 +239,7 @@ const structuredData = [
   },
   {
     caption: "Email",
-    value: "john.doe@example.com",
+    value: "john.smith@example.com",
   },
   {
     caption: "Address",
@@ -240,7 +252,8 @@ const structuredData = [
 ];
 
 const userData = {
-  email: "john.doe@example.com",
-  name: "John Doe",
+  name: "John Smith",
+  revenue: "$1,030,217",
+  visitors: "3,825",
 };
 </script>

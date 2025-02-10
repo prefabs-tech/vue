@@ -1,7 +1,7 @@
 .data {
   display: flex;
   flex-direction: column;
-  gap: var(--form-field-gap, 0.25rem);
+  gap: 0.25rem;
 }
 
 .data.direction-horizontal > .label {
@@ -13,28 +13,30 @@
 }
 
 .data.data-stat {
-  background-color: var(--data-stat-bg-color, transparent);
-  border: 1px solid var(--data-stat-border-color, #555);
-  border-radius: var(--data-stat-border-radius, 0.5rem);
-  min-width: max-content;
-  padding-block: var(--data-stat-padding-v, 0.5rem);
-  padding-inline: var(--data-stat-padding-h, 0.75rem);
-  width: var(--data-stat-width, 13rem);
+  --_min-width: var(--data-stat-min-width, 13rem);
+  --_padding-v: var(--data-stat-padding-v, 0.5rem);
+  --_padding-h: var(--data-stat-padding-h, 0.75rem);
+
+  background-color: transparent;
+  border: 1px solid #555;
+  border-radius: 0.5rem;
+  min-width: var(--_min-width);
+  padding-block: var(--_padding-v);
+  padding-inline: var(--_padding-h);
+  width: max-content;
 }
 
 .data.data-stat .value {
   display: flex;
-  font-size: var(--data-stat-font-size, 2rem);
+  font-size: 2rem;
   justify-content: flex-end;
 }
 
 .data > .label {
-  color: var(--data-caption-color, #333333);
-  font-size: 0.875rem;
-}
+  --_caption-color: var(--data-caption-color, #333333);
 
-.data > .separator {
-  display: none;
+  color: var(--_caption-color);
+  font-size: 0.875rem;
 }
 
 @media screen and (min-width: 576px) {
@@ -42,9 +44,5 @@
     align-items: center;
     flex-direction: row;
     gap: 1rem;
-  }
-
-  .data > .separator {
-    display: block;
   }
 }
