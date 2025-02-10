@@ -2,7 +2,7 @@
   <div class="demo">
     <Sidebar :menu="menu" class="demo-aside" no-header />
     <div class="demo-main">
-      <Page :sub-title="subTitle" :title="title">
+      <Page class="demo-data-tables-page" :sub-title="subTitle" :title="title">
         <template #toolbar>
           <slot name="toolbar"></slot>
         </template>

@@ -1,11 +1,16 @@
 {
   "label": {
     "components": "Components",
-    "getStarted": "Get started"
+    "getStarted": "Get started",
+    "totalRecords": "Total records",
+    "users": "Users"
   },
   "title": "Table",
   "usage": {
     "basic": "Basic",
-    "pagination": "With pagination"
+    "footer": "With footer",
+    "pagination": "With pagination",
+    "sortable": "With sortable column",
+    "title": "With title"
   }
 }
