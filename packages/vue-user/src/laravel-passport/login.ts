@@ -1,43 +1,34 @@
-import type { LoginCredentials, User, UserType } from "../types";
+/* eslint-disable no-console */
+import client from "../api/axios";
+
+import type { LoginCredentials, UserType } from "../types";
 
 const login = async (
   credentials: LoginCredentials,
+  apiBaseUrl: string
 ): Promise<UserType | undefined> => {
   let user: UserType | undefined;
   let response;
 
-  const data = {
-    formFields: [
-      {
-        id: "email",
-        value: credentials.email as string,
-      },
-      {
-        id: "password",
-        value: credentials.password as string,
-      },
-    ],
-  };
+  console.log("login.ts", credentials);
 
   try {
-    await console.log(data);
+    response = await client(apiBaseUrl).post("/api/login", credentials, {
+      withCredentials: true,
+    });
+    console.log("response", response);
+    // eslint-disable-next-line
+  } catch (error) {
+    throw new Error("SOMETHING_WRONG");
+  }
 
-    response = {
-      email: "test@example.com",
-      givenName: "test",
-      id: "2",
-      lastLoginAt: 5,
-      middleNames: "middlename",
-      roles: ["admin"],
-      signedUpAt: 2,
-      surname: "surname",
-      timeJoined: 5
-    };
-
-    user = response as UserType;
+  if (response.data.status === "OK") {
+    user = response.data.user as UserType;
 
     return user;
-  } catch (error) {
+  } else if (response.data.status === "Unauthorized") {
+    throw new Error("401");
+  } else {
     throw new Error("SOMETHING_WRONG");
   }
 };

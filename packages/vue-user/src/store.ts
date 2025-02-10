@@ -18,21 +18,21 @@ const useUserStore = defineStore("user", () => {
 
   const changePassword = async (
     payload: UpdatePasswordPayload,
-    apiBaseUrl: string,
+    apiBaseUrl: string
   ) => {
     const selectedAuthProvider = auth();
 
     if ("doChangePassword" in selectedAuthProvider) {
       const response = await selectedAuthProvider.doChangePassword(
         payload,
-        apiBaseUrl,
+        apiBaseUrl
       );
 
       return response;
     }
 
     throw new Error(
-      "Change password is not supported for the selected auth provider",
+      "Change password is not supported for the selected auth provider"
     );
   };
 
@@ -54,13 +54,19 @@ const useUserStore = defineStore("user", () => {
     }
 
     throw new Error(
-      "Google signin is not supported for the selected auth provider",
+      "Google signin is not supported for the selected auth provider"
     );
   };
 
-  const login = async (credentials: LoginCredentials) => {
+  const login = async (credentials: LoginCredentials, apiBaseUrl?: string) => {
     const selectedAuthProvider = auth();
-    const response = await selectedAuthProvider.doLogin(credentials);
+
+    // eslint-disable-next-line no-console
+    console.log("store.ts", credentials);
+    const response = await selectedAuthProvider.doLogin(
+      credentials,
+      apiBaseUrl as string
+    );
 
     return response;
   };
@@ -93,7 +99,7 @@ const useUserStore = defineStore("user", () => {
     }
 
     throw new Error(
-      "Request password reset is not supported for the selected auth provider",
+      "Request password reset is not supported for the selected auth provider"
     );
   };
 
@@ -107,7 +113,7 @@ const useUserStore = defineStore("user", () => {
     }
 
     throw new Error(
-      "Reset password is not supported for the selected auth provider",
+      "Reset password is not supported for the selected auth provider"
     );
   };
 
