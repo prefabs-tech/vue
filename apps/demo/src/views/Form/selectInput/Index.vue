@@ -124,6 +124,46 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.withSearch") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.input"
+          :label="$t('form.label.language')"
+          :options="options"
+          :placeholder="$t('form.placeholder.language')"
+          enable-search
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              label="Language"
+              placeholder="Select a language"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { value: "fr", label: "French" },
+            { value: "de", label: "German" },
+            { value: "be", label: "Dutch" },
+            { value: "np", label: "Nepali" },
+            { value: "hi", label: "Hindi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.disableSort") }}</h2>
 
       <div class="section-content">
