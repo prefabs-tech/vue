@@ -105,6 +105,7 @@
     "multiCheckbox": "Multiple checkbox input",
     "multiple": "Multiple files",
     "multiSelect": "Multiselect[fr]",
+    "multiSelectSearch": "Multiselect with search",
     "nepali": "Nepali",
     "next": "Next",
     "number": "Number[fr]",
@@ -134,6 +135,7 @@
     "valid": "Show valid state[fr]",
     "vehicle": "Vehicle",
     "withI18n": "With i18n[fr]",
+    "withSearch": "With search",
     "workInProgress": "Work in progress",
     "year": "Year[fr]",
     "yearPicker": "Year picke[fr]"
@@ -147,6 +149,7 @@
     "multiSelect": "Select multiple value[fr]",
     "number": "Enter a number[fr]",
     "password": "Enter a password[fr]",
+    "search": "Search...",
     "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
     "textInput": "Enter text input[fr]",

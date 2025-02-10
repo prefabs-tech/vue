@@ -319,6 +319,7 @@ onMounted(() => {
 }
 
 .multiselect-option {
+  border-radius: var(--form-input-border-radius, 0.25em);
   cursor: pointer;
   display: flex;
   gap: 0.5em;
@@ -335,9 +336,9 @@ onMounted(() => {
 .multiselect-option:hover {
   --_multiselect-selected-bg-color: var(
     --multiselect-selected-bg-color,
-    #007bff
+    #e5e5e5
   );
-  --_multiselect-selected-color: var(--multiselect-selected-color, #fff);
+  --_multiselect-selected-color: var(--multiselect-selected-color, inherit);
 
   background-color: var(--_multiselect-selected-bg-color);
   color: var(--_multiselect-selected-color);
