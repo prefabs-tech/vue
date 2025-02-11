@@ -34,17 +34,19 @@
       <h2>{{ $t("ui.data.usage.statMode") }}</h2>
 
       <div class="section-content">
-        <Data
-          :caption="$t('ui.data.label.visitors')"
-          :value="userData.visitors"
-          mode="stat"
-        />
+        <div class="data-stat-demo">
+          <Data
+            :caption="$t('ui.data.label.visitors')"
+            :value="userData.visitors"
+            mode="stat"
+          />
 
-        <Data
-          :caption="$t('ui.data.label.revenue')"
-          :value="userData.revenue"
-          mode="stat"
-        />
+          <Data
+            :caption="$t('ui.data.label.revenue')"
+            :value="userData.revenue"
+            mode="stat"
+          />
+        </div>
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
@@ -257,3 +259,11 @@ const userData = {
   visitors: "3,825",
 };
 </script>
+
+<style lang="css">
+.demo .data-stat-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+</style>
