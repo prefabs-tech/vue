@@ -72,7 +72,15 @@ const loading = ref(false);
 const handleSubmit = async (credentials: LoginCredentials) => {
   loading.value = true;
 
-  await login(credentials)
+  // eslint-disable-next-line no-console
+  console.log("from inside Login.vue", credentials);
+
+  const finalCredentials = {
+    ...credentials,
+    withRoles: config?.user?.supportedRoles,
+  };
+
+  await login(finalCredentials, config?.apiBaseUrl)
     .then(async (response) => {
       if (response) {
         const supportedRoles = config?.user?.supportedRoles;
