@@ -51,17 +51,19 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Data
-              caption="Visitors"
-              mode="stat"
-              value="3,825" 
-            /&gt;
+            &lt;div class="data-stat-demo"&gt;
+              &lt;Data
+                caption="Visitors"
+                mode="stat"
+                value="3,825" 
+              /&gt;
 
-            &lt;Data
-              caption="Revenue"
-              mode="stat"
-              value="$1,030,217" 
-            /&gt;
+              &lt;Data
+                caption="Revenue"
+                mode="stat"
+                value="$1,030,217" 
+              /&gt;
+            &lt;/div&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
