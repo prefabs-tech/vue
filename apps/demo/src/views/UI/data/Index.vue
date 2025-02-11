@@ -34,7 +34,7 @@
       <h2>{{ $t("ui.data.usage.statMode") }}</h2>
 
       <div class="section-content">
-        <div class="data-stat-demo">
+        <div class="data-stat-group">
           <Data
             :caption="$t('ui.data.label.visitors')"
             :value="userData.visitors"
@@ -51,7 +51,7 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;div class="data-stat-demo"&gt;
+            &lt;div class="data-stat-group"&gt;
               &lt;Data
                 caption="Visitors"
                 mode="stat"
@@ -263,7 +263,7 @@ const userData = {
 </script>
 
 <style lang="css">
-.demo .data-stat-demo {
+.demo .data-stat-group {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
