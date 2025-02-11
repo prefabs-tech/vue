@@ -1,9 +1,13 @@
 <template>
   <UiPage :title="$t('ui.badge.title')" class="demo-badge">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <section>
@@ -252,7 +256,7 @@
 </template>
 
 <script setup lang="ts">
-import { BadgeComponent } from "@dzangolab/vue3-ui";
+import { BadgeComponent, ButtonElement } from "@dzangolab/vue3-ui";
 
 import UiPage from "../UiPage.vue";
 </script>

@@ -78,12 +78,12 @@ textarea {
 
 /* https: //www.tempertemper.net/blog/refining-focus-styles-with-focus-visible */
 /* For browsers that don't support :focus-visible */
-:is(button, input, select, textarea):not(input[type="radio"]):focus {
+:is(input, select, textarea):not(input[type="radio"]):focus {
   box-shadow: 0 0 0 0.25rem rgb(50 50 50 / 25%);
 }
 
 /* Remove :focus styling for browsers that do support :focus-visible */
-:is(button, input, select, textarea):focus:not(:focus-visible) {
+:is(input, select, textarea):focus:not(:focus-visible) {
   outline: none;
 }
 

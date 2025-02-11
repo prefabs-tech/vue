@@ -1,9 +1,13 @@
 <template>
   <UiPage :title="$t('ui.youtubeFacade.title')" class="demo-youtube-facade">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <section>
@@ -99,7 +103,7 @@
 </template>
 
 <script setup lang="ts">
-import { YoutubeFacade } from "@dzangolab/vue3-ui";
+import { ButtonElement, YoutubeFacade } from "@dzangolab/vue3-ui";
 
 import UiPage from "../UiPage.vue";
 </script>
