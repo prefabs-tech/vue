@@ -4,9 +4,13 @@
     class="demo-invitation-modal"
   >
     <template #toolbar>
-      <router-link :to="{ name: 'user' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/user')"
+      />
     </template>
 
     <section>
