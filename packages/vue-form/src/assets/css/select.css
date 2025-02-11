@@ -42,11 +42,13 @@
   --_padding-v: var(--form-input-padding-v, 0.65em);
   --_height: var(--form-input-height, 2.8em);
 
-  align-content: center;
+  align-items: center;
+  display: flex;
   border: 1px solid var(--_multiselect-border-color);
   border-radius: var(--_border-radius);
   cursor: pointer;
   height: var(--_height);
+  justify-content: space-between;
   padding: var(--_padding-v) var(--_padding-h);
   user-select: none;
 }
@@ -108,4 +110,14 @@
 
 .selected-options {
   display: flex;
+}
+
+.multiselect-input>.menu-trigger {
+  display: flex;
+}
+
+.multiselect-input>.menu-trigger > svg {
+  color: var(--field-icon-color, #b5b5b5);
+  cursor: pointer;
+  width: 1.5rem;
 }

@@ -20,20 +20,30 @@
           v-for="selectedOption in selectedOptions"
           :key="selectedOption.label"
           class="selected-option"
-          @click="disabled ? '' : onSelect($event, selectedOption)"
         >
           {{ selectedOption.label }}
 
-          <img
+          <svg
             v-if="multiple"
-            src="./../assets/svg/x-mark.svg"
-            class="remove-option"
-          />
+            fill="none"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+            @click.stop="!disabled ? onUnselect($event, selectedOption) : ''"
+          >
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </span>
       </span>
       <span class="menu-trigger">
         <svg
-          v-if="!multiple && selectedOptions.length"
+          v-if="!disabled && !multiple && selectedOptions.length"
           fill="none"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -276,10 +286,21 @@ const prepareComponent = () => {
   }
 };
 
-const onUnselect = () => {
-  selectedOptions.value = [];
+const onUnselect = (event: Event, option?: SelectOption) => {
+  if (multiple.value && option) {
+    const index = selectedOptions.value.findIndex(
+      (i) => i.value === option.value,
+    );
 
-  showDropdownMenu.value = false;
+    if (index > -1) {
+      selectedOptions.value.splice(index, 1);
+    }
+  } else {
+    selectedOptions.value = [];
+    showDropdownMenu.value = false;
+  }
+
+  onMultiSelect();
 };
 
 onMounted(() => {
