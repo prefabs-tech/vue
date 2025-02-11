@@ -31,6 +31,38 @@
           />
         </span>
       </span>
+      <span class="menu-trigger">
+        <svg
+          v-if="!multiple && selectedOptions.length"
+          fill="none"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          @click.stop="onUnselect"
+        >
+          <path
+            d="M6 6L18 18M18 6L6 18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <g id="Complete">
+            <g id="F-Chevron">
+              <polyline
+                id="down"
+                fill="none"
+                points="5 8.5 12 15.5 19 8.5"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g>
+          </g>
+        </svg>
+      </span>
     </div>
     <ul v-if="showDropdownMenu && !disabled" class="multiselect-dropdown">
       <li v-if="multiple" class="multiselect-option" @click="onSelectAll()">
@@ -215,6 +247,12 @@ const prepareComponent = () => {
   }
 };
 
+const onUnselect = () => {
+  selectedOptions.value = [];
+
+  showDropdownMenu.value = false;
+};
+
 onMounted(() => {
   prepareComponent();
 });
@@ -262,11 +300,13 @@ onMounted(() => {
   --_padding-v: var(--form-input-padding-v, 0.65em);
   --_height: var(--form-input-height, 2.8em);
 
-  align-content: center;
+  align-items: center;
+  display: flex;
   border: 1px solid var(--_multiselect-border-color);
   border-radius: var(--_border-radius);
   cursor: pointer;
   height: var(--_height);
+  justify-content: space-between;
   padding: var(--_padding-v) var(--_padding-h);
   user-select: none;
 }
@@ -327,5 +367,15 @@ onMounted(() => {
 
 .selected-options {
   display: flex;
+}
+
+.menu-trigger {
+  display: flex;
+}
+
+.menu-trigger > svg {
+  color: var(--field-icon-color, #b5b5b5);
+  cursor: pointer;
+  width: 1.5rem;
 }
 </style>

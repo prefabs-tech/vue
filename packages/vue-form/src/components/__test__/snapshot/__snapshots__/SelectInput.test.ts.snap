@@ -45,6 +45,33 @@ exports[`SelectInput > matches snapshot 1`] = `
         </span>
         
       </span>
+      <span
+        class="menu-trigger"
+      >
+        <!--v-if-->
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            id="Complete"
+          >
+            <g
+              id="F-Chevron"
+            >
+              <polyline
+                fill="none"
+                id="down"
+                points="5 8.5 12 15.5 19 8.5"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g>
+          </g>
+        </svg>
+      </span>
     </div>
     <!--v-if-->
   </div>
