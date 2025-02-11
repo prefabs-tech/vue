@@ -132,13 +132,17 @@
   "data": {
     "label": {
       "email": "Email",
-      "name": "Name"
+      "name": "Name",
+      "revenue": "Revenue",
+      "visitors": "Visitors"
     },
+    "subtitle": "The Data component is a reusable Vue component designed to display a labeled value.",
     "title": "Data",
     "usage": {
       "basic": "Basic",
       "displayObject": "Display value from object",
       "separatorSlot": "With separator slot",
+      "statMode": "Stat mode",
       "structuredData": "Rendering structured data"
     }
   },

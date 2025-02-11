@@ -1,8 +1,8 @@
 <template>
   <div class="account-info">
     <Data
+      :caption="t('user.profile.accountInfo.label')"
       :class="canUpdateEmail ? 'update-email' : ''"
-      :label="t('user.profile.accountInfo.label')"
     >
       <template #value>
         {{ user?.email }}

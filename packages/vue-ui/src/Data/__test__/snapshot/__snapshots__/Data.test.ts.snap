@@ -3,19 +3,21 @@
 exports[`Data > matches snapshot 1`] = `
 <div
   class="data direction-vertical"
+  label="Email"
 >
-  <span
-    class="data-label"
+  <div
+    class="label"
   >
-    Email
-  </span>
-  <!--v-if-->
-  <span
-    class="data-value"
+    
+    
+    
+  </div>
+  <div
+    class="value"
   >
     
     john.doe@example.com
     
-  </span>
+  </div>
 </div>
 `;
