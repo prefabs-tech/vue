@@ -64,7 +64,17 @@
         </svg>
       </span>
     </div>
-    <ul v-if="showDropdownMenu && !disabled" class="multiselect-dropdown">
+    <ul
+      v-if="showDropdownMenu && !disabled"
+      class="multiselect-dropdown"
+      role="list"
+    >
+      <DebouncedInput
+        v-if="enableSearch"
+        v-model="searchInput"
+        :placeholder="searchPlaceholder"
+      />
+
       <li v-if="multiple" class="multiselect-option" @click="onSelectAll()">
         <Checkbox
           :model-value="isAllSelected(options)"
@@ -97,6 +107,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { computed, onMounted, ref, toRefs, watch } from "vue";
 
@@ -110,6 +121,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  enableSearch: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -138,12 +150,17 @@ const props = defineProps({
     default: "Select value",
     type: String,
   },
+  searchPlaceholder: {
+    default: undefined,
+    type: String,
+  },
 });
 
 const emit = defineEmits(["update:modelValue"]);
 
 const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
+const searchInput: Ref<string | undefined> = ref();
 const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
 
@@ -158,14 +175,26 @@ watch(
   },
 );
 
+const filteredOptions = computed(() => {
+  if (!searchInput.value) {
+    return props.options;
+  }
+
+  return props.options.filter((option) =>
+    option.label
+      .toLowerCase()
+      .includes(String(searchInput.value).toLowerCase()),
+  );
+});
+
 const sortedOptions = computed(() => {
   if (props.hasSortedOptions) {
-    return props.options
+    return filteredOptions.value
       ?.slice()
       .sort((a, b) => a.label.localeCompare(b.label));
   }
 
-  return props.options;
+  return filteredOptions.value;
 });
 
 const getSelectedOption = (value: number | string) =>
@@ -283,12 +312,15 @@ onMounted(() => {
   background-color: #fff;
   border-top: none;
   border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
   list-style-type: none;
   margin: 0;
   max-height: 10rem;
   overflow-y: scroll;
-  padding: 0;
+  padding: 0.75rem 0.65rem;
   position: absolute;
+  row-gap: 0.3rem;
   width: 100%;
   z-index: 1000;
 }
@@ -327,6 +359,7 @@ onMounted(() => {
 }
 
 .multiselect-option {
+  border-radius: var(--form-input-border-radius, 0.25em);
   cursor: pointer;
   display: flex;
   gap: 0.5em;
@@ -343,9 +376,9 @@ onMounted(() => {
 .multiselect-option:hover {
   --_multiselect-selected-bg-color: var(
     --multiselect-selected-bg-color,
-    #007bff
+    #e5e5e5
   );
-  --_multiselect-selected-color: var(--multiselect-selected-color, #fff);
+  --_multiselect-selected-color: var(--multiselect-selected-color, inherit);
 
   background-color: var(--_multiselect-selected-bg-color);
   color: var(--_multiselect-selected-color);
