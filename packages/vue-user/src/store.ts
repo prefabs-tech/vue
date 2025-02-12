@@ -68,10 +68,10 @@ const useUserStore = defineStore("user", () => {
     return response;
   };
 
-  const logout = async () => {
+  const logout = async (apiBaseUrl?: string) => {
     const selectedAuthProvider = auth();
 
-    await selectedAuthProvider.doLogout().then(() => {
+    await selectedAuthProvider.doLogout(apiBaseUrl as string).then(() => {
       user.value = undefined;
 
       // FIXME [SS 17 MARCH 2023]
