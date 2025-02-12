@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import * as laravelPassport from "./laravel-passport";
 import * as supertokens from "./supertokens";
 
@@ -11,7 +10,6 @@ const initAuthProvider = (config?: AppConfig) => {
 };
 
 const getAuthProvider = () => {
-  console.log("from inside the getAuthProvider", authConfig?.authProvider);
   if (
     authConfig?.authProvider &&
     ["laravel-passport", "supertokens"].includes(authConfig.authProvider)
