@@ -17,7 +17,7 @@
       "min": "Title must be at least {length} character(s)[fr]",
       "required": "The field should not be empty[fr]"
     },
-    "multiSelect":  {
+    "multiselect":  {
       "invalid": "Please select atleast one valid option[fr]"
     },
     "number": {
@@ -68,7 +68,7 @@
     "daysInput": "Days input",
     "debouncedTypeahead": "With debounce time prop",
     "deliverableList": "A list of your daily deliverables",
-    "disabledMultiSelect": "Disabled multiselect[fr]",
+    "disabledMultiselect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
     "disableWeekDays": "Disable week days[fr]",
     "disableSort": "Disable alphabetical sorting",
@@ -104,8 +104,8 @@
     "multiCalendars": "Multicalendar[fr]",
     "multiCheckbox": "Multiple checkbox input",
     "multiple": "Multiple files",
-    "multiSelect": "Multiselect[fr]",
-    "multiSelectSearch": "Multiselect with search",
+    "multiselect": "Multiselect[fr]",
+    "multiselectSearch": "Multiselect with search",
     "nepali": "Nepali",
     "next": "Next",
     "number": "Number[fr]",

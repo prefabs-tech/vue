@@ -83,7 +83,7 @@ const props = defineProps({
     type: Array as PropType<SelectOption[]>,
   },
   placeholder: {
-    default: "Select value",
+    default: undefined,
     type: String,
   },
   schema: {
