@@ -32,11 +32,7 @@
         </span>
       </span>
     </div>
-    <ul
-      v-if="showDropdownMenu && !disabled"
-      class="multiselect-dropdown"
-      role="list"
-    >
+    <ul v-if="showDropdownMenu && !disabled" role="list">
       <DebouncedInput
         v-if="enableSearch"
         v-model="searchInput"
@@ -115,7 +111,7 @@ const props = defineProps({
     type: Array as PropType<SelectOption[]>,
   },
   placeholder: {
-    default: "Select value",
+    default: undefined,
     type: String,
   },
   searchPlaceholder: {

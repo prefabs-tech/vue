@@ -65,7 +65,6 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
     </span>
   </div>
   <ul
-    class="multiselect-dropdown"
     role="list"
   >
     <!--v-if-->
@@ -191,7 +190,6 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     </span>
   </div>
   <ul
-    class="multiselect-dropdown"
     role="list"
   >
     <!--v-if-->

@@ -20,7 +20,7 @@
       "min": "Title must be at least {length} character(s)",
       "required": "The field should not be empty"
     },
-    "multiSelect":  {
+    "multiselect":  {
       "invalid": "Please select atleast one valid option"
     },
     "number": {
@@ -73,7 +73,7 @@
     "deliverableList": "A list of your daily deliverables",
     "disabled": "Disabled",
     "disableWeekDays": "Disable week days",
-    "disabledMultiSelect": "Disabled multiselect",
+    "disabledMultiselect": "Disabled multiselect",
     "disableSort": "Disable alphabetical sorting",
     "dropzone": "Dropzone",
     "dropzoneOptions": "Dropzone options",
@@ -107,8 +107,8 @@
     "multiCalendars": "Multicalendar",
     "multiCheckbox": "Multiple checkbox input",
     "multiple": "Multiple files",
-    "multiSelect": "Multiselect",
-    "multiSelectSearch": "Multiselect with search",
+    "multiselect": "Multiselect",
+    "multiselectSearch": "Multiselect with search",
     "nepali": "Nepali",
     "next": "Next",
     "number": "Number",
