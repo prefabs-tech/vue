@@ -5,9 +5,13 @@
     class="demo"
   >
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <section>
@@ -153,7 +157,7 @@
 
 <script setup lang="ts">
 import { Table } from "@dzangolab/vue3-tanstack-table";
-import { Data, GridContainer } from "@dzangolab/vue3-ui";
+import { ButtonElement, Data, GridContainer } from "@dzangolab/vue3-ui";
 
 import UiPage from "../UiPage.vue";
 

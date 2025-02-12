@@ -1,9 +1,13 @@
 <template>
   <TablePage :title="$t('table.title')" class="demo data-table">
     <template #toolbar>
-      <router-link :to="{ name: 'table' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/table')"
+      />
     </template>
 
     <section>
@@ -265,6 +269,7 @@ export default {
 
 <script setup lang="ts">
 import { Table } from "@dzangolab/vue3-tanstack-table";
+import { ButtonElement } from "@dzangolab/vue3-ui";
 
 import { data } from "./data";
 import TablePage from "./TablePage.vue";

@@ -1,9 +1,13 @@
 <template>
   <UiPage :title="$t('ui.sortableList.title')" class="demo-sortable-list">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <section>
@@ -55,7 +59,7 @@
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { SortableList } from "@dzangolab/vue3-ui";
+import { ButtonElement, SortableList } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 import UiPage from "../UiPage.vue";
