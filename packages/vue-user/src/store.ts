@@ -1,15 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-import {
-  changePassword as doChangePassword,
-  googleSignIn as doGoogleSignIn,
-  login as doLogin,
-  logout as doLogout,
-  requestPasswordReset as doRequestPasswordReset,
-  resetPassword as doResetPassword,
-  signup as doSignup,
-} from "./supertokens";
+import { auth } from "./auth-provider";
 
 import type {
   LoginCredentials,
@@ -28,9 +20,19 @@ const useUserStore = defineStore("user", () => {
     payload: UpdatePasswordPayload,
     apiBaseUrl: string,
   ) => {
-    const response = await doChangePassword(payload, apiBaseUrl);
+    const selectedAuthProvider = auth();
+    if ("doChangePassword" in selectedAuthProvider) {
+      const response = await selectedAuthProvider.doChangePassword(
+        payload,
+        apiBaseUrl,
+      );
 
-    return response;
+      return response;
+    }
+
+    throw new Error(
+      "Change password is not supported for the selected auth provider",
+    );
   };
 
   const getUser = (): UserType => {
@@ -44,17 +46,32 @@ const useUserStore = defineStore("user", () => {
   };
 
   const googleSignIn = async (redirectURL: string) => {
-    await doGoogleSignIn(redirectURL);
+    const selectedAuthProvider = auth();
+
+    if ("doGoogleSignIn" in selectedAuthProvider) {
+      await selectedAuthProvider.doGoogleSignIn(redirectURL);
+    }
+
+    throw new Error(
+      "Google signin is not supported for the selected auth provider",
+    );
   };
 
-  const login = async (credentials: LoginCredentials) => {
-    const response = await doLogin(credentials);
+  const login = async (credentials: LoginCredentials, apiBaseUrl?: string) => {
+    const selectedAuthProvider = auth();
+
+    const response = await selectedAuthProvider.doLogin(
+      credentials,
+      apiBaseUrl as string,
+    );
 
     return response;
   };
 
   const logout = async () => {
-    await doLogout().then(() => {
+    const selectedAuthProvider = auth();
+
+    await selectedAuthProvider.doLogout().then(() => {
       user.value = undefined;
 
       // FIXME [SS 17 MARCH 2023]
@@ -70,15 +87,31 @@ const useUserStore = defineStore("user", () => {
   };
 
   const requestPasswordReset = async (
-    payload: PasswordResetRequestPayload
+    payload: PasswordResetRequestPayload,
   ): Promise<boolean> => {
-    return doRequestPasswordReset(payload);
+    const selectedAuthProvider = auth();
+
+    if ("doRequestPasswordReset" in selectedAuthProvider) {
+      return selectedAuthProvider.doRequestPasswordReset(payload);
+    }
+
+    throw new Error(
+      "Request password reset is not supported for the selected auth provider"
+    );
   };
 
   const resetPassword = async (
-    payload: PasswordResetPayload
+    payload: PasswordResetPayload,
   ): Promise<boolean> => {
-    return doResetPassword(payload);
+    const selectedAuthProvider = auth();
+
+    if ("doResetPassword" in selectedAuthProvider) {
+      return selectedAuthProvider.doResetPassword(payload);
+    }
+
+    throw new Error(
+      "Reset password is not supported for the selected auth provider"
+    );
   };
 
   const setUser = (userData: UserType | undefined) => {
@@ -88,9 +121,15 @@ const useUserStore = defineStore("user", () => {
   };
 
   const signup = async (credentials: LoginCredentials): Promise<void> => {
-    const response = await doSignup(credentials);
+    const selectedAuthProvider = auth();
 
-    setUser(response);
+    if ("doSignup" in selectedAuthProvider) {
+      const response = await selectedAuthProvider.doSignup(credentials);
+
+      setUser(response);
+    }
+
+    throw new Error("Signup is not supported for the selected auth provider");
   };
 
   return {
