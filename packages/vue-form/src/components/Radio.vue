@@ -79,28 +79,5 @@ const onChange = (event: Event) => {
 </script>
 
 <style lang="css">
-.field.radio.direction-horizontal {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-}
-
-.radio-button-wrapper {
-  align-items: center;
-  display: flex;
-}
-
-.radio-button-wrapper input[type="radio"] {
-  cursor: pointer;
-  outline: none;
-  transform: scale(1.5);
-}
-
-.radio-button-wrapper input[type="radio"]:disabled {
-  cursor: default;
-}
-
-.radio-button-wrapper label {
-  margin-left: 0.5rem;
-}
+@import "../assets/css/radio.css";
 </style>
