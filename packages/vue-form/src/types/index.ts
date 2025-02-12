@@ -28,6 +28,7 @@ interface PasswordErrorMessages {
 }
 
 interface SelectOption extends InputOption {
+  disabled?: boolean;
   label: string;
   value: string | number;
 }

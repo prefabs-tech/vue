@@ -93,6 +93,7 @@
         :key="option.label"
         class="multiselect-option"
         :class="{ selected: isSelected(option) && !multiple }"
+        :disabled="option.disabled"
         @click="onSelect($event, option)"
       >
         <Checkbox
