@@ -57,21 +57,21 @@ const useUserStore = defineStore("user", () => {
     );
   };
 
-  const login = async (credentials: LoginCredentials, apiBaseUrl?: string) => {
+  const login = async (credentials: LoginCredentials, apiBaseUrl: string) => {
     const selectedAuthProvider = auth();
 
     const response = await selectedAuthProvider.doLogin(
       credentials,
-      apiBaseUrl as string,
+      apiBaseUrl,
     );
 
     return response;
   };
 
-  const logout = async (apiBaseUrl?: string) => {
+  const logout = async (apiBaseUrl: string) => {
     const selectedAuthProvider = auth();
 
-    await selectedAuthProvider.doLogout(apiBaseUrl as string).then(() => {
+    await selectedAuthProvider.doLogout(apiBaseUrl).then(() => {
       user.value = undefined;
 
       // FIXME [SS 17 MARCH 2023]
