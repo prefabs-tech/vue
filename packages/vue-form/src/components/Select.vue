@@ -32,7 +32,13 @@
         </span>
       </span>
     </div>
-    <ul v-if="showDropdownMenu && !disabled" class="multiselect-dropdown">
+    <ul v-if="showDropdownMenu && !disabled" role="list">
+      <DebouncedInput
+        v-if="enableSearch"
+        v-model="searchInput"
+        :placeholder="searchPlaceholder"
+      />
+
       <li v-if="multiple" class="multiselect-option" @click="onSelectAll()">
         <Checkbox
           :model-value="isAllSelected(options)"
@@ -65,6 +71,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { computed, onMounted, ref, toRefs, watch } from "vue";
 
@@ -78,6 +85,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  enableSearch: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -103,7 +111,11 @@ const props = defineProps({
     type: Array as PropType<SelectOption[]>,
   },
   placeholder: {
-    default: "Select value",
+    default: undefined,
+    type: String,
+  },
+  searchPlaceholder: {
+    default: undefined,
     type: String,
   },
 });
@@ -112,6 +124,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
+const searchInput: Ref<string | undefined> = ref();
 const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
 
@@ -126,14 +139,26 @@ watch(
   },
 );
 
+const filteredOptions = computed(() => {
+  if (!searchInput.value) {
+    return props.options;
+  }
+
+  return props.options.filter((option) =>
+    option.label
+      .toLowerCase()
+      .includes(String(searchInput.value).toLowerCase()),
+  );
+});
+
 const sortedOptions = computed(() => {
   if (props.hasSortedOptions) {
-    return props.options
+    return filteredOptions.value
       ?.slice()
       .sort((a, b) => a.label.localeCompare(b.label));
   }
 
-  return props.options;
+  return filteredOptions.value;
 });
 
 const getSelectedOption = (value: number | string) =>
@@ -221,111 +246,5 @@ onMounted(() => {
 </script>
 
 <style lang="css">
-.multiple-mode.multiselect .selected-option {
-  --_multiselect-tag-border-radius: var(--multiselect-tag-border-radius, 2rem);
-  --_multiselect-tag-color: var(--multiselect-tag-color, rgb(215, 194, 253));
-
-  align-items: center;
-  background-color: var(--_multiselect-tag-color);
-  border-radius: var(--_multiselect-tag-border-radius);
-  display: flex;
-  gap: 0.5em;
-  margin-right: 0.25rem;
-  padding: 0.25rem 0.6rem;
-  width: max-content;
-}
-
-.multiselect {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-}
-
-.multiselect-dropdown {
-  background-color: #fff;
-  border-top: none;
-  border: 1px solid #ccc;
-  list-style-type: none;
-  margin: 0;
-  max-height: 10rem;
-  overflow-y: scroll;
-  padding: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 1000;
-}
-
-.multiselect-input {
-  --_border-radius: var(--form-input-border-radius, 0.25em);
-  --_multiselect-border-color: var(--form-input-border-color, #555);
-  --_padding-h: var(--padding-h, 0.75em);
-  --_padding-v: var(--form-input-padding-v, 0.65em);
-  --_height: var(--form-input-height, 2.8em);
-
-  align-content: center;
-  border: 1px solid var(--_multiselect-border-color);
-  border-radius: var(--_border-radius);
-  cursor: pointer;
-  height: var(--_height);
-  padding: var(--_padding-v) var(--_padding-h);
-  user-select: none;
-}
-
-.multiselect-input.disabled {
-  background: var(--form-input-bg-color-disabled);
-  border-color: var(--form-input-border-color-disabled);
-  color: var(--form-input-color-disabled);
-  cursor: default;
-}
-
-.multiselect-input:focus {
-  box-shadow: 0 0 0 0.25rem #32323240;
-}
-
-.multiselect.invalid .multiselect-input {
-  border-color: var(--color-alert-danger, #dc3545);
-}
-
-.multiselect-option {
-  cursor: pointer;
-  display: flex;
-  gap: 0.5em;
-  padding: 10px;
-}
-
-.multiselect-option input {
-  box-shadow: none;
-  height: fit-content;
-  width: auto;
-}
-
-.multiselect-option.selected,
-.multiselect-option:hover {
-  --_multiselect-selected-bg-color: var(
-    --multiselect-selected-bg-color,
-    #007bff
-  );
-  --_multiselect-selected-color: var(--multiselect-selected-color, #fff);
-
-  background-color: var(--_multiselect-selected-bg-color);
-  color: var(--_multiselect-selected-color);
-}
-
-.multiselect-placeholder {
-  --_multiselect-placeholder-color: var(--form-input-placeholder-color, #555);
-
-  color: var(--_multiselect-placeholder-color);
-}
-
-.multiselect.valid .multiselect-input {
-  border-color: var(--color-alert-success, #198754);
-}
-
-.selected-option .remove-option {
-  height: 1rem;
-}
-
-.selected-options {
-  display: flex;
-}
+@import "../assets/css/select.css";
 </style>

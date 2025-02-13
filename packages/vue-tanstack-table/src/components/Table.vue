@@ -1,9 +1,15 @@
 <template>
   <div class="table-container">
+    <span v-if="titleInfo" :data-align="titleInfo.align || 'center'">
+      {{ titleInfo.text }}
+    </span>
     <div class="table-wrapper">
       <table :style="`width: ${table.getCenterTotalSize()}`">
         <TableHeader :table="table" />
         <TableBody :table="table" />
+        <tfoot v-if="$slots.footer">
+          <slot name="footer" />
+        </tfoot>
       </table>
 
       <template v-if="paginated && totalItems > 0">
@@ -80,6 +86,10 @@ const props = defineProps({
   rowPerPageOptions: {
     default: () => DEFAULT_PAGE_PER_OPTIONS,
     type: Array as () => number[],
+  },
+  titleInfo: {
+    default: undefined,
+    type: Object as () => { text: string; align?: string },
   },
 });
 

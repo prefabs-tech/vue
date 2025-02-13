@@ -1,9 +1,13 @@
 <template>
   <UiPage :title="$t('ui.accordion.title')" class="demo">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <section>
@@ -90,6 +94,8 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import { ButtonElement } from "@dzangolab/vue3-ui";
+
 import DemoAccordion from "./DemoAccordion.vue";
 import DemoAccordionWithIcons from "./DemoAccordionWithIcons.vue";
 import UiPage from "../UiPage.vue";

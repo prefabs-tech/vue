@@ -1,9 +1,13 @@
 <template>
   <UiPage :title="t('ui.tabbed-panel.title')">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back" type="button">
-        {{ t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <TabbedPanel class="colorized shadow">
@@ -25,7 +29,7 @@ export default {
 
 <script lang="ts" setup>
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { TabbedPanel } from "@dzangolab/vue3-ui";
+import { ButtonElement, TabbedPanel } from "@dzangolab/vue3-ui";
 
 import BasicUsage from "./BasicUsage.vue";
 import Colorized from "./Colorized.vue";

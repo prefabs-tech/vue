@@ -1,21 +1,29 @@
 <template>
-  <UiPage :title="$t('ui.data.title')" class="demo">
+  <UiPage
+    :title="$t('ui.data.title')"
+    :sub-title="$t('ui.data.subtitle')"
+    class="demo"
+  >
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <section>
       <h2>{{ $t("ui.data.usage.basic") }}</h2>
 
       <div class="section-content">
-        <Data :label="$t('ui.data.label.name')" :value="userData.name" />
+        <Data :caption="$t('ui.data.label.name')" :value="userData.name" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Data label="Name" value="John Doe" /&gt;
+            &lt;Data caption="Name" value="John Smith" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -27,32 +35,43 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.data.usage.displayObject") }}</h2>
+      <h2>{{ $t("ui.data.usage.statMode") }}</h2>
 
       <div class="section-content">
-        <Data
-          :label="$t('ui.data.label.email')"
-          :value="userData"
-          data-key="email"
-        />
+        <div class="data-stat-group">
+          <Data
+            :caption="$t('ui.data.label.visitors')"
+            :value="userData.visitors"
+            mode="stat"
+          />
+
+          <Data
+            :caption="$t('ui.data.label.revenue')"
+            :value="userData.revenue"
+            mode="stat"
+          />
+        </div>
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Data
-              :value="userData"
-              data-key="email"
-              label="Email"
-            /&gt;
+            &lt;div class="data-stat-group"&gt;
+              &lt;Data
+                caption="Visitors"
+                mode="stat"
+                value="3,825" 
+              /&gt;
+
+              &lt;Data
+                caption="Revenue"
+                mode="stat"
+                value="$1,030,217" 
+              /&gt;
+            &lt;/div&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { Data } from "@dzangolab/vue3-ui";
-
-          const userData = {
-            email: "john.doe@example.com",
-            name: "John Doe",
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -66,7 +85,7 @@
         <GridContainer>
           <Data
             v-for="(data, index) in structuredData"
-            :key="index"
+            :key="`${data.caption}-${index}`"
             v-bind="data"
           />
         </GridContainer>
@@ -75,7 +94,11 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;GridContainer&gt;
-              &lt;Data v-for="(data, index) in data" :key="index" v-bind="data" /&gt;
+              &lt;Data
+                v-for="(data, index) in data"
+                :key="`${data.caption}-${index}`"
+                v-bind="data"
+              /&gt;
             &lt;/GridContainer&gt;
           &lt;/template&gt;
 
@@ -84,27 +107,23 @@
 
           const data = [
             {
-              label: "Name",
-              value: "John Doe",
+              caption: "Name",
+              value: "John Smith",
             },
             {
-              label: "Age",
+              caption: "Age",
               value: 30,
             },
             {
-              label: "Email",
-              value: {
-                email: "john.doe@example.com",
-                user: "John Doe",
-              },
-              dataKey: "email",
+              caption: "Email",
+              value: "john.smith@example.com"
             },
             {
-              label: "Address",
+              caption: "Address",
               value: "123 Main St, Springfield, USA",
             },
             {
-              label: "Status",
+              caption: "Status",
               value: "Active",
             },
           ];
@@ -115,102 +134,142 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.data.usage.separatorSlot") }}</h2>
+      <h2>{{ $t("common.properties", { value: "DataProperties" }) }}</h2>
 
-      <div class="section-content">
-        <Data
-          v-for="(data, index) in structuredData"
-          :key="index"
-          v-bind="data"
-          direction="horizontal"
-        >
-          <template #separator>:</template>
-        </Data>
+      <Table
+        :columns-data="propsColumns"
+        :data="propsData"
+        :paginated="false"
+      />
+    </section>
 
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Data
-              v-for="(data, index) in data"
-              :key="index"
-              v-bind="data"
-              direction="horizontal"
-            &gt;
-              &lt;template #separator&gt;:&lt;/template&gt;
-            &lt;/Data&gt;
-          &lt;/template&gt;
+    <section>
+      <h2>{{ $t("common.slots") }}</h2>
 
-          &lt;script setup lang="ts"&gt;
-          import { Data } from "@dzangolab/vue3-ui";
-
-          const data = [
-            {
-              label: "Name",
-              value: "John Doe",
-            },
-            {
-              label: "Age",
-              value: 30,
-            },
-            {
-              label: "Email",
-              value: {
-                email: "john.doe@example.com",
-                user: "John Doe",
-              },
-              dataKey: "email",
-            },
-            {
-              label: "Address",
-              value: "123 Main St, Springfield, USA",
-            },
-            {
-              label: "Status",
-              value: "Active",
-            },
-          ];
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
+      <Table
+        :columns-data="slotsColumns"
+        :data="slotsData"
+        :paginated="false"
+      />
     </section>
   </UiPage>
 </template>
 
 <script setup lang="ts">
-import { Data, GridContainer } from "@dzangolab/vue3-ui";
+import { Table } from "@dzangolab/vue3-tanstack-table";
+import { ButtonElement, Data, GridContainer } from "@dzangolab/vue3-ui";
 
 import UiPage from "../UiPage.vue";
 
-const structuredData = [
+const propsColumns = [
   {
-    label: "Name",
-    value: "John Doe",
+    accessorKey: "prop",
+    header: "Property",
   },
   {
-    label: "Age",
+    accessorKey: "type",
+    header: "Type",
+  },
+  {
+    accessorKey: "default",
+    header: "Default",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
+const propsData = [
+  {
+    default: "-",
+    description: "The caption displayed alongside the value.",
+    id: 1,
+    prop: "caption",
+    type: "String",
+  },
+  {
+    default: "vertical",
+    description: "Specifies the direction to display the component.",
+    id: 2,
+    prop: "direction",
+    type: '"horizontal" | "vertical"',
+  },
+  {
+    default: "attr",
+    description: "Defines which styling to apply to the component.",
+    id: 3,
+    prop: "mode",
+    type: '"attr" | "stat"',
+  },
+  {
+    default: "-",
+    description: "The value to display.",
+    id: 4,
+    prop: "value",
+    type: "String | Number",
+  },
+];
+
+const slotsColumns = [
+  {
+    accessorKey: "name",
+    header: "Name",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
+const slotsData = [
+  {
+    description:
+      "Content to place in the caption. Overrides the `caption` prop",
+    id: 1,
+    name: "caption",
+  },
+  {
+    description: "Content to place in the value. Overrides the `value` prop",
+    id: 3,
+    name: "value",
+  },
+];
+
+const structuredData = [
+  {
+    caption: "Name",
+    value: "John Smith",
+  },
+  {
+    caption: "Age",
     value: 30,
   },
   {
-    label: "Email",
-    value: {
-      email: "john.doe@example.com",
-      user: "John Doe",
-    },
-    dataKey: "email",
+    caption: "Email",
+    value: "john.smith@example.com",
   },
   {
-    label: "Address",
+    caption: "Address",
     value: "123 Main St, Springfield, USA",
   },
   {
-    label: "Status",
+    caption: "Status",
     value: "Active",
   },
 ];
 
 const userData = {
-  email: "john.doe@example.com",
-  name: "John Doe",
+  name: "John Smith",
+  revenue: "$1,030,217",
+  visitors: "3,825",
 };
 </script>
+
+<style lang="css">
+.demo .data-stat-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+</style>

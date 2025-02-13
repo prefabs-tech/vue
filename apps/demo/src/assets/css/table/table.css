@@ -57,3 +57,8 @@
 .demo-data-tables-page .column-action {
   width: 5rem;
 }
+
+.demo-data-tables-page tfoot {
+  display: flex;
+  padding: var(--table-column-padding, 0.8rem);
+}

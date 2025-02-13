@@ -1,7 +1,7 @@
 .layout > footer {
   --footer-bg-color: transparent;
   --footer-border-color: var(--border-color);
-  --footer-font-size: calc(0.75 * var(--font-size));
+  --footer-font-size: var(--font-size, 1rem);
   --footer-gap: 0.5em;
   --footer-padding-v: 1em;
 
@@ -18,8 +18,4 @@
   padding-bottom: var(--footer-padding-v);
   padding-top: var(--footer-padding-v);
   text-align: center;
-}
-
-.layout > footer .version {
-  font-size: calc(0.8 * var(--footer-font-size));
 }

@@ -17,7 +17,7 @@
       "min": "Title must be at least {length} character(s)[fr]",
       "required": "The field should not be empty[fr]"
     },
-    "multiSelect":  {
+    "multiselect":  {
       "invalid": "Please select atleast one valid option[fr]"
     },
     "number": {
@@ -68,7 +68,7 @@
     "daysInput": "Days input",
     "debouncedTypeahead": "With debounce time prop",
     "deliverableList": "A list of your daily deliverables",
-    "disabledMultiSelect": "Disabled multiselect[fr]",
+    "disabledMultiselect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
     "disableWeekDays": "Disable week days[fr]",
     "disableSort": "Disable alphabetical sorting",
@@ -104,7 +104,8 @@
     "multiCalendars": "Multicalendar[fr]",
     "multiCheckbox": "Multiple checkbox input",
     "multiple": "Multiple files",
-    "multiSelect": "Multiselect[fr]",
+    "multiselect": "Multiselect[fr]",
+    "multiselectSearch": "Multiselect with search",
     "nepali": "Nepali",
     "next": "Next",
     "number": "Number[fr]",
@@ -134,6 +135,7 @@
     "valid": "Show valid state[fr]",
     "vehicle": "Vehicle",
     "withI18n": "With i18n[fr]",
+    "withSearch": "With search",
     "workInProgress": "Work in progress",
     "year": "Year[fr]",
     "yearPicker": "Year picke[fr]"
@@ -147,6 +149,7 @@
     "multiSelect": "Select multiple value[fr]",
     "number": "Enter a number[fr]",
     "password": "Enter a password[fr]",
+    "search": "Search...",
     "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
     "textInput": "Enter text input[fr]",

@@ -1,9 +1,13 @@
 <template>
   <TablePage :title="$t('table.title')" class="demo data-table">
     <template #toolbar>
-      <router-link :to="{ name: 'table' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/table')"
+      />
     </template>
 
     <section>
@@ -178,6 +182,82 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("table.usage.title") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="columns"
+          :data="data.slice(0, 5)"
+          :title-info="{ text: $t('table.label.users'), align: 'left' }"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table 
+              :columns-data="columns"
+              :data="data"
+              :title-info="{ text: 'Users', align: 'left' }"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("table.usage.footer") }}</h2>
+
+      <div class="section-content">
+        <Table :columns-data="columns" :data="data">
+          <template #footer>
+            {{ `${$t("table.label.totalRecords")}: ${data.length ?? "0"}` }}
+          </template>
+        </Table>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table :columns-data="columns" :data="data"&gt;
+              &lt;template #footer&gt;
+                &lbrace;&lbrace; `Total records: ${data.length ?? "0"}` &rbrace;&rbrace;
+              &lt;/template&gt;
+            &lt;/Table&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
@@ -189,6 +269,7 @@ export default {
 
 <script setup lang="ts">
 import { Table } from "@dzangolab/vue3-tanstack-table";
+import { ButtonElement } from "@dzangolab/vue3-ui";
 
 import { data } from "./data";
 import TablePage from "./TablePage.vue";
