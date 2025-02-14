@@ -1,9 +1,13 @@
 <template>
   <UiPage :title="$t('ui.typography.title')">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back" type="button">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <h2>Heading level 2</h2>
@@ -62,5 +66,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import { ButtonElement } from "@dzangolab/vue3-ui";
+
 import UiPage from "../UiPage.vue";
 </script>

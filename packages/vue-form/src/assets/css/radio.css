@@ -1,0 +1,24 @@
+.radio.field.direction-horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.radio>.radio-button-wrapper {
+  align-items: baseline;
+  display: flex;
+}
+
+.radio>.radio-button-wrapper input[type="radio"] {
+  cursor: pointer;
+  outline: none;
+  transform: scale(1.5);
+}
+
+.radio>.radio-button-wrapper input[type="radio"]:disabled {
+  cursor: default;
+}
+
+.radio>.radio-button-wrapper label {
+  margin-left: 0.5rem;
+}

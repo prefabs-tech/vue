@@ -109,6 +109,7 @@
     "multiselectSearch": "Multiselect with search",
     "nepali": "Nepali",
     "next": "Next",
+    "no": "No",
     "number": "Number[fr]",
     "one": "One",
     "other": "Other",
@@ -136,10 +137,12 @@
     "valid": "Show valid state[fr]",
     "vehicle": "Vehicle",
     "withI18n": "With i18n[fr]",
+    "withOnOffLabel":  "With on off label",
     "withSearch": "With search",
     "workInProgress": "Work in progress",
     "year": "Year[fr]",
-    "yearPicker": "Year picke[fr]"
+    "yearPicker": "Year picker[fr]",
+    "yes": "Yes"
   },
   "placeholder": {
     "days": "Enter number of days",

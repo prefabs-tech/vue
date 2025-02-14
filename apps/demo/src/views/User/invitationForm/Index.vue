@@ -4,9 +4,13 @@
     class="demo-invitation-form"
   >
     <template #toolbar>
-      <router-link :to="{ name: 'user' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/user')"
+      />
     </template>
 
     <section>
@@ -207,6 +211,7 @@
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { ButtonElement } from "@dzangolab/vue3-ui";
 import { InvitationForm } from "@dzangolab/vue3-user";
 import { notify } from "@kyvg/vue3-notification";
 

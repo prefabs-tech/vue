@@ -1,9 +1,13 @@
 <template>
   <UiPage :title="$t('ui.stepper.title')" class="demo">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <section>
@@ -224,7 +228,7 @@
 
 <script setup lang="ts">
 import { TextInput, NumberInput } from "@dzangolab/vue3-form";
-import { Stepper } from "@dzangolab/vue3-ui";
+import { ButtonElement, Stepper } from "@dzangolab/vue3-ui";
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 

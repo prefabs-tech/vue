@@ -1,9 +1,13 @@
 <template>
   <UiPage :title="$t('ui.dropdown.title')" class="demo">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <section>
@@ -129,7 +133,7 @@
 </template>
 
 <script setup lang="ts">
-import { Dropdown } from "@dzangolab/vue3-ui";
+import { ButtonElement, Dropdown } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 import UiPage from "../UiPage.vue";
