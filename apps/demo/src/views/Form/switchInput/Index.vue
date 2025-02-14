@@ -91,8 +91,8 @@
         <SwitchInput
           v-model="formData.onOffLabel"
           :label="$t('form.label.switch')"
-          :on-label="$t('form.label.yes')"
           :off-label="$t('form.label.no')"
+          :on-label="$t('form.label.yes')"
         />
 
         <!-- eslint-disable -->
@@ -101,8 +101,8 @@
             &lt;SwitchInput
               v-model="input"
               :label="$t('form.label.switch')"
-              on-label="Yes"
               off-label="No"
+              on-label="Yes"
             /&gt;
           &lt;/Form&gt;
 
