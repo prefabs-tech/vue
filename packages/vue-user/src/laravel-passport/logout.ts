@@ -1,8 +1,11 @@
 import { AxiosError } from "axios";
 
+import useUserStore from ".././store";
 import client from "../api/axios";
 
 const logout = async (apiBaseUrl: string) => {
+  const userStore = useUserStore();
+
   try {
     await client(apiBaseUrl).post("/api/logout", {
       withCredentials: true,
@@ -18,6 +21,8 @@ const logout = async (apiBaseUrl: string) => {
       throw new Error("SOMETHING_WRONG");
     }
   }
+
+  userStore.removeAuthTokens();
 };
 
 export default logout;

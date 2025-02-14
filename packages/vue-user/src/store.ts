@@ -4,6 +4,7 @@ import { ref } from "vue";
 import { auth } from "./auth-provider";
 
 import type {
+  AuthTokens,
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
@@ -15,6 +16,8 @@ const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
   const user = ref<UserType | undefined>(undefined);
+  const accessToken = ref(localStorage.getItem("accessToken") || null);
+  const refreshToken = ref(localStorage.getItem("refreshToken") || null);
 
   const changePassword = async (
     payload: UpdatePasswordPayload,
@@ -85,6 +88,11 @@ const useUserStore = defineStore("user", () => {
     removeUser();
   };
 
+  const removeAuthTokens = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+  };
+
   const removeUser = () => {
     localStorage.removeItem(USER_KEY);
   };
@@ -123,6 +131,14 @@ const useUserStore = defineStore("user", () => {
     localStorage.setItem(USER_KEY, JSON.stringify(userData));
   };
 
+  const setAuthTokens = (authTokens: AuthTokens) => {
+    accessToken.value = authTokens.accessToken;
+    refreshToken.value = authTokens.refreshToken as string | null;
+
+    localStorage.setItem("accessToken", authTokens.accessToken as string);
+    localStorage.setItem("refreshToken", authTokens.refreshToken as string);
+  };
+
   const signup = async (credentials: LoginCredentials): Promise<void> => {
     const selectedAuthProvider = auth();
 
@@ -136,14 +152,18 @@ const useUserStore = defineStore("user", () => {
   };
 
   return {
+    accessToken,
     changePassword,
     googleSignIn,
     getUser,
     login,
     logout,
+    refreshToken,
+    removeAuthTokens,
     removeUser,
     resetPassword,
     requestPasswordReset,
+    setAuthTokens,
     setUser,
     signup,
     user,
