@@ -174,7 +174,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         />
         <!--v-if-->
       </div>
-       BE
+      
+      BE
+      
     </li>
     <li
       class="multiselect-option"
@@ -189,7 +191,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         />
         <!--v-if-->
       </div>
-       DE
+      
+      DE
+      
     </li>
     <li
       class="multiselect-option"
@@ -204,7 +208,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         />
         <!--v-if-->
       </div>
-       FE
+      
+      FE
+      
     </li>
     <li
       class="multiselect-option"
@@ -219,7 +225,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         />
         <!--v-if-->
       </div>
-       FR
+      
+      FR
+      
     </li>
     <li
       class="multiselect-option"
@@ -234,7 +242,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         />
         <!--v-if-->
       </div>
-       RE
+      
+      RE
+      
     </li>
     
   </ul>
@@ -315,31 +325,41 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
       class="multiselect-option"
     >
       <!--v-if-->
-       BE
+      
+      BE
+      
     </li>
     <li
       class="multiselect-option"
     >
       <!--v-if-->
-       DE
+      
+      DE
+      
     </li>
     <li
       class="multiselect-option"
     >
       <!--v-if-->
-       FE
+      
+      FE
+      
     </li>
     <li
       class="multiselect-option selected"
     >
       <!--v-if-->
-       FR
+      
+      FR
+      
     </li>
     <li
       class="multiselect-option"
     >
       <!--v-if-->
-       RE
+      
+      RE
+      
     </li>
     
   </ul>

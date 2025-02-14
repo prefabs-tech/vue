@@ -60,6 +60,7 @@
     "customColsRowsInput": "With cols and rows props",
     "customErrorMessageInput": "With custom error message",
     "customFormat": "Custom format",
+    "customLabel": "With Custom label",
     "customValidationInput": "With custom validation",
     "customStyleInput": "Custom style",
     "dailySynchro": "Select the sections that should be in the daily synchro",

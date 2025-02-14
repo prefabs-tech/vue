@@ -102,7 +102,9 @@
           :disabled="option.disabled"
           @update:model-value="onMultiSelect()"
         />
-        {{ option.label }}
+        <slot :name="option.value">
+          {{ option.label }}
+        </slot>
       </li>
     </ul>
   </div>

@@ -31,11 +31,11 @@
           import { ref } from "vue";
 
           const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -70,11 +70,11 @@
           import { ref } from "vue";
 
           const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -111,11 +111,11 @@
           const disabled = ref("de");
 
           const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -154,11 +154,11 @@
           import { ref } from "vue";
 
           const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -195,11 +195,11 @@
           import { ref } from "vue";
 
           const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -237,11 +237,11 @@
           const { t } = useI18n();
 
           const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
+            { label: t("form.label.french"), value: "fr"},
+            { label: t("form.label.german"), value: "de"},
+            { disabled: true, label: t("form.label.dutch"), value: "be", },
+            { label: t("form.label.nepali"), value: "np",  },
+            { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -278,11 +278,11 @@
           import { ref } from "vue";
 
           const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -321,11 +321,11 @@
           const disabled = ref(["be", "de"]);
 
           const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -366,11 +366,76 @@
           import { ref } from "vue";
 
           const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.customLabel") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.customLabelSelect"
+          :label="$t('form.label.language')"
+          :options="options"
+          :placeholder="$t('form.placeholder.language')"
+          multiple
+        >
+          <template
+            v-for="(option, index) in options"
+            :key="`${index}-${option.label}`"
+            #[option.value]
+          >
+            <span>
+              <i class="pi pi-user" />
+              {{ option.label }}
+            </span>
+          </template>
+        </SelectInput>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              :label="t('form.label.language')"
+              :placeholder="t('form.placeholder.language')"
+              multiple
+            &gt;
+              &lt;template
+                v-for="(option, index) in options"
+                v-slot:[option.value]
+              &gt;
+                &lt;span :key="`${index}-${option.label}`"&gt;
+                  &lt;i class="pi pi-user" /&gt;
+                  &lbrace;&lbrace; option.label &rbrace;&rbrace;
+                &lt;/span&gt;
+              &lt;/template&gt;
+            &lt;/SelectInput&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+
+          const { t } = useI18n();
+
+          const options = ref([
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -415,13 +480,13 @@
             .array()
             .min(1, { message: "Please select at least one valid option" });
 
-          const options = ref([
-          { label: t("form.label.french"), value: "fr"},
-          { label: t("form.label.german"), value: "de"},
-          { disabled: true, label: t("form.label.dutch"), value: "be", },
-          { label: t("form.label.nepali"), value: "np",  },
-          { label: t("form.label.hindi"), value: "hi" },
-          ]);
+            const options = ref([
+              { label: "French", value: "fr"},
+              { label: "German", value: "de"},
+              { disabled: true, label: "Dutch", value: "be", },
+              { label: "Nepali", value: "np",  },
+              { label: "Hindi", value: "hi" },
+            ]);
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -452,6 +517,7 @@ const inputSchema = z
   .min(1, { message: t("form.errors.multiselect.invalid") });
 
 let formData = reactive({
+  customLabelSelect: ref(),
   disabled: ref("de"),
   disabledMultiselect: ref(["be", "de"]),
   disabledSortInput: ref(),
