@@ -5,10 +5,10 @@
     </label>
     <input
       :checked="modelValue"
+      :class="['switch-input', { labeled: offLabel || onLabel }]"
       :data-on="onLabel"
       :data-off="offLabel"
       :disabled="disabled"
-      :class="['switch-input', { labeled: offLabel || onLabel }]"
       type="checkbox"
       @change="onChange"
     />
