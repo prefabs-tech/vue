@@ -413,9 +413,9 @@
             &gt;
               &lt;template
                 v-for="(option, index) in options"
-                v-slot:[option.value]
+                #[option.value]
               &gt;
-                &lt;span :key="`${index}-${option.label}`"&gt;
+                &lt;span&gt;
                   &lt;i class="pi pi-user" /&gt;
                   &lbrace;&lbrace; option.label &rbrace;&rbrace;
                 &lt;/span&gt;

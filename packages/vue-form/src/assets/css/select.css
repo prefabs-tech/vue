@@ -98,10 +98,8 @@
     --multiselect-selected-bg-color,
     #e5e5e5
   );
-  --_multiselect-selected-color: var(--multiselect-selected-color, inherit);
 
   background-color: var(--_multiselect-selected-bg-color);
-  color: var(--_multiselect-selected-color);
 }
 
 .multiselect .multiselect-placeholder {
