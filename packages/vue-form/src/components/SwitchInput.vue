@@ -16,8 +16,10 @@
         :class="{
           invalid: meta.touched && !meta.valid,
         }"
-        :model-value="modelValue"
         :disabled="disabled"
+        :model-value="modelValue"
+        :off-label="offLabel"
+        :on-label="onLabel"
         tabindex="0"
       />
       <ErrorMessage :name="name" />
@@ -58,6 +60,14 @@ const props = defineProps({
     default: "switch",
     required: false,
     type: String as PropType<string>,
+  },
+  offLabel: {
+    default: undefined,
+    type: String,
+  },
+  onLabel: {
+    default: undefined,
+    type: String,
   },
   schema: {
     default: () => {

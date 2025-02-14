@@ -85,6 +85,42 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.withOnOffLabel") }}</h2>
+
+      <div class="section-content">
+        <SwitchInput
+          v-model="formData.onOffLabel"
+          :label="$t('form.label.switch')"
+          :on-label="$t('form.label.yes')"
+          :off-label="$t('form.label.no')"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;SwitchInput
+              v-model="input"
+              :label="$t('form.label.switch')"
+              on-label="Yes"
+              off-label="No"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SwitchInput } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+
+          &lt;style&gt;
+            .switch input[type=checkbox] {
+              --_width: 5rem;
+            }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
@@ -177,5 +213,6 @@ let formData = reactive({
   input: ref(),
   inputWithValidation: ref(false),
   noLabelInput: ref(),
+  onOffLabel: ref(),
 });
 </script>
