@@ -31,11 +31,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -70,11 +70,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -111,11 +111,11 @@
           const disabled = ref("de");
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -154,11 +154,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -195,11 +195,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -237,11 +237,11 @@
           const { t } = useI18n();
 
           const options = ref([
-            { value: "fr", label: t("form.label.french") },
-            { value: "de", label: t("form.label.german") },
-            { value: "be", label: t("form.label.dutch") },
-            { value: "np", label: t("form.label.nepali") },
-            { value: "hi", label: t("form.label.hindi") },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -278,11 +278,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -321,11 +321,11 @@
           const disabled = ref(["be", "de"]);
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -366,11 +366,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -416,11 +416,11 @@
             .min(1, { message: "Please select at least one valid option" });
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+          { label: t("form.label.french"), value: "fr"},
+          { label: t("form.label.german"), value: "de"},
+          { disabled: true, label: t("form.label.dutch"), value: "be", },
+          { label: t("form.label.nepali"), value: "np",  },
+          { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -465,10 +465,10 @@ let formData = reactive({
 });
 
 const options = ref([
-  { value: "fr", label: t("form.label.french") },
-  { value: "de", label: t("form.label.german") },
-  { value: "be", label: t("form.label.dutch") },
-  { value: "np", label: t("form.label.nepali") },
-  { value: "hi", label: t("form.label.hindi") },
+  { label: t("form.label.french"), value: "fr" },
+  { label: t("form.label.german"), value: "de" },
+  { disabled: true, label: t("form.label.dutch"), value: "be" },
+  { label: t("form.label.nepali"), value: "np" },
+  { label: t("form.label.hindi"), value: "hi" },
 ]);
 </script>

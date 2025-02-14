@@ -81,6 +81,11 @@
   padding: 10px;
 }
 
+.multiselect ul>li[disabled="true"] {
+  color: var(--field-option-disabled-color, #7b7676);
+  cursor: not-allowed;
+}
+
 .multiselect>ul>li input {
   box-shadow: none;
   height: fit-content;

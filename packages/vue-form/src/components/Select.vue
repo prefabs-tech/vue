@@ -94,11 +94,12 @@
         class="multiselect-option"
         :class="{ selected: isSelected(option) && !multiple }"
         :disabled="option.disabled"
-        @click="onSelect($event, option)"
+        @click="!option.disabled ? onSelect($event, option) : ''"
       >
         <Checkbox
           v-if="multiple"
           :model-value="isSelected(option)"
+          :disabled="option.disabled"
           @update:model-value="onMultiSelect()"
         />
         {{ option.label }}
@@ -182,6 +183,10 @@ watch(
   },
 );
 
+const activeOptions = computed(() =>
+  props.options.filter((option) => !option.disabled),
+);
+
 const filteredOptions = computed(() => {
   if (!searchInput.value) {
     return props.options;
@@ -208,7 +213,7 @@ const getSelectedOption = (value: number | string) =>
   options.value?.find((option) => option.value === value);
 
 const isAllSelected = (options: SelectOption[]): boolean => {
-  if (selectedOptions.value.length != options.length) {
+  if (selectedOptions.value.length != activeOptions.value.length) {
     return false;
   }
 
@@ -251,7 +256,7 @@ const onSelectAll = () => {
   if (allSelected) {
     selectedOptions.value = [];
   } else {
-    selectedOptions.value = [...props.options];
+    selectedOptions.value = activeOptions.value;
   }
 
   onMultiSelect();
