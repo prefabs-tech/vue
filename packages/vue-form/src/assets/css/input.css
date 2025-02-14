@@ -9,7 +9,7 @@
 }
 
 .field input, .field textarea {
-  --_input-field-border-color: var(--form-input-border-color, #000);
+  --_input-field-border-color: var(--form-input-border-color, #ccc);
   --_input-field-border-radius: var(--form-input-border-radius, 0.25em);
   --_input-field-padding-h: var(--form-input-padding-h, 0.75em);
   --_input-field-padding-v: var(--form-input-padding-v, 0.65em);
@@ -25,6 +25,11 @@
 
 .field input:disabled {
   cursor: default;
+}
+
+.field input:focus-within,
+.field textarea:focus-within {
+  outline: 2px solid var(--field-outline-color, #007aff);
 }
 
 .field input[type="radio"] {
