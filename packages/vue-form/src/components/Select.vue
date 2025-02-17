@@ -43,7 +43,7 @@
       </span>
       <span class="menu-trigger">
         <svg
-          v-if="!disabled && !multiple && selectedOptions.length"
+          v-if="hasRemoveOption"
           fill="none"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -160,6 +160,10 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
+  showRemoveOption: {
+    default: true,
+    type: Boolean,
+  },
   searchPlaceholder: {
     default: undefined,
     type: String,
@@ -200,6 +204,14 @@ const filteredOptions = computed(() => {
       .includes(String(searchInput.value).toLowerCase()),
   );
 });
+
+const hasRemoveOption = computed(
+  () =>
+    props.showRemoveOption &&
+    !props.disabled &&
+    !props.multiple &&
+    selectedOptions.value.length,
+);
 
 const sortedOptions = computed(() => {
   if (props.hasSortedOptions) {
