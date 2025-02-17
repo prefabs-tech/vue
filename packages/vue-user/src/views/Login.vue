@@ -72,7 +72,7 @@ const loading = ref(false);
 const handleSubmit = async (credentials: LoginCredentials) => {
   loading.value = true;
 
-  await login(credentials)
+  await login(credentials, config.apiBaseUrl)
     .then(async (response) => {
       if (response) {
         const supportedRoles = config?.user?.supportedRoles;
