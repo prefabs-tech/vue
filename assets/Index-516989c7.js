@@ -1,0 +1,61 @@
+import{o as r,a as v,ap as h,aq as f,f as i,d,c as p,w as l,W as e,K as n,r as b,D as o,as as g,ao as q,L as t}from"./index-729398ab-b294403d.js";import{_ as $}from"./index-2f56db22.js";import{_ as A}from"./UiPage.vue_vue_type_style_index_0_lang-ae0d4afa.js";const I={name:"TestComponent"};const S=u=>(h("data-v-aeb7ff3f"),u=u(),f(),u),w={class:"test"},C=S(()=>i("p",null,"This is a test component",-1)),D=[C];function N(u,s,c,_,X,Y){return r(),v("div",w,D)}const z=$(I,[["render",N],["__scopeId","data-v-aeb7ff3f"]]),k=i("div",{title:"Sagittis a curabitur"},[i("p",null,`
+        A viverra adipiscing consequat vel non potenti ac vel consectetur
+        tristique a integer suspendisse condimentum. Id donec cum aliquet a orci
+        nec arcu ullamcorper fusce sodales pulvinar id tristique risus curae
+        suscipit suspendisse ornare eu facilisis.
+      `),e(),i("p",null,`
+        Adipiscing quis adipiscing interdum orci interdum eu tincidunt dictum
+        erat amet a ullamcorper montes vestibulum consequat tempus feugiat
+        inceptos suspendisse dis class a at hac ullamcorper.
+      `)],-1),P=i("div",{title:"Diam mus id per posuere vivamus"},[i("p",null,`
+        Libero ultrices vestibulum adipiscing enim venenatis lobortis ipsum a
+        nam scelerisque condimentum sociis ligula parturient posuere enim a.
+        Consectetur a parturient torquent natoque quisque dui eu erat adipiscing
+        gravida a augue ullamcorper parturient vivamus adipiscing adipiscing.
+        Augue ullamcorper sociis magnis scelerisque nec ultrices vestibulum
+        congue enim semper ut nam torquent curabitur vestibulum sociosqu porta
+        imperdiet in parturient magnis commodo sed gravida cubilia.
+      `),e(),i("p",null,`
+        Purus cras a a mollis faucibus nam consequat fusce dictum praesent
+        habitasse a himenaeos curabitur malesuada cras at ultricies. A
+        adipiscing viverra montes ad eros ligula mattis eu aliquam enim cubilia
+        adipiscing eu hac nisi feugiat scelerisque elementum cum parturient
+        maecenas a cum. Nisl a leo litora amet elementum nam leo adipiscing erat
+        a mollis proin adipiscing adipiscing eros pretium tristique.
+      `)],-1),T=i("div",{title:"Diam a parturient sociosque"},[i("p",null,`
+        Potenti lacus suscipit in ac adipiscing consectetur suspendisse dui
+        aliquam egestas scelerisque porttitor nullam ad a elementum dignissim
+        pulvinar.
+      `),e(),i("ul",{role:"list"},[i("li",null,"Vestibulum parturient"),e(),i("li",null,"Ullamcorper orci condimentum"),e(),i("li",null,"Sodales scelerisque ultrices")])],-1),V={title:"component"},y={name:"DemoAccordion"},a=d({...y,setup(u){return(s,c)=>(r(),p(o(g),null,{default:l(()=>[k,e(),P,e(),T,e(),i("div",V,[n(z)]),e(),b(s.$slots,"extra-pane")]),_:3}))}}),B="/vue/assets/number-1-1bb57089.svg",L="/vue/assets/number-2-90613177.svg",U="/vue/assets/number-3-57fa3366.svg",E=["icon"],G=i("p",null,`
+        A viverra adipiscing consequat vel non potenti ac vel consectetur
+        tristique a integer suspendisse condimentum. Id donec cum aliquet a orci
+        nec arcu ullamcorper fusce sodales pulvinar id tristique risus curae
+        suscipit suspendisse ornare eu facilisis.
+      `,-1),K=i("p",null,`
+        Adipiscing quis adipiscing interdum orci interdum eu tincidunt dictum
+        erat amet a ullamcorper montes vestibulum consequat tempus feugiat
+        inceptos suspendisse dis class a at hac ullamcorper.
+      `,-1),O=["icon"],W=i("p",null,`
+        Libero ultrices vestibulum adipiscing enim venenatis lobortis ipsum a
+        nam scelerisque condimentum sociis ligula parturient posuere enim a.
+        Consectetur a parturient torquent natoque quisque dui eu erat adipiscing
+        gravida a augue ullamcorper parturient vivamus adipiscing adipiscing.
+        Augue ullamcorper sociis magnis scelerisque nec ultrices vestibulum
+        congue enim semper ut nam torquent curabitur vestibulum sociosqu porta
+        imperdiet in parturient magnis commodo sed gravida cubilia.
+      `,-1),j=i("p",null,`
+        Purus cras a a mollis faucibus nam consequat fusce dictum praesent
+        habitasse a himenaeos curabitur malesuada cras at ultricies. A
+        adipiscing viverra montes ad eros ligula mattis eu aliquam enim cubilia
+        adipiscing eu hac nisi feugiat scelerisque elementum cum parturient
+        maecenas a cum. Nisl a leo litora amet elementum nam leo adipiscing erat
+        a mollis proin adipiscing adipiscing eros pretium tristique.
+      `,-1),F=["icon"],H=i("p",null,`
+        Potenti lacus suscipit in ac adipiscing consectetur suspendisse dui
+        aliquam egestas scelerisque porttitor nullam ad a elementum dignissim
+        pulvinar.
+      `,-1),J=i("ul",{role:"list"},[i("li",null,"Vestibulum parturient"),e(),i("li",null,"Ullamcorper orci condimentum"),e(),i("li",null,"Sodales scelerisque ultrices")],-1),M={name:"DemoAccordion"},m=d({...M,setup(u){return(s,c)=>(r(),p(o(g),null,{default:l(()=>[i("div",{icon:o(B),title:"Sagittis a curabitur"},[G,e(),K],8,E),e(),i("div",{icon:o(L),title:"Diam mus id per posuere vivamus"},[W,e(),j],8,O),e(),i("div",{icon:o(U),title:"Diam a parturient sociosque"},[H,e(),J],8,F)]),_:1}))}});const Q=i("div",null,[i("p",null,`
+              Adipiscing condimentum elit a cum ullamcorper nisi rutrum aptent
+              lacinia vestibulum adipiscing a a vestibulum quis malesuada
+              ullamcorper praesent netus netus mus.
+            `)],-1),R={name:"AccordionPage"},ei=d({...R,setup(u){return(s,c)=>(r(),p(A,{title:s.$t("ui.accordion.title"),class:"demo"},{toolbar:l(()=>[n(o(q),{label:s.$t("common.back"),"icon-left":"pi pi-chevron-left",size:"medium",variant:"textOnly",onClick:c[0]||(c[0]=_=>s.$router.push("/ui"))},null,8,["label"])]),default:l(()=>[e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.basic")),1),e(),n(a)]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.separate")),1),e(),n(a,{class:"separate"})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.defaultIndex")),1),e(),n(a,{"default-index":1})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.can-self-collapse")),1),e(),n(a,{"can-self-collapse":!0})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.icons.toggle")),1),e(),n(a,{class:"show-toggle-icon"})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.horizontal.basic")),1),e(),n(a,{direction:"horizontal"})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.horizontal.separate")),1),e(),n(a,{direction:"horizontal",class:"separate"})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.icons.css")),1),e(),n(a,{class:"with-icons"})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.icons.slot")),1),e(),n(m)]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.icons.css")),1),e(),n(m,{class:"horizontal"})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.icons.slot")),1),e(),n(m,{class:"horizontal show-toggle-icon"})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.icons.toggle")),1),e(),n(a,{class:"show-toggle-icon custom-toggle-icons"})]),e(),i("section",null,[i("h2",null,t(s.$t("ui.accordion.slot-without-title")),1),e(),n(a,null,{"extra-pane":l(()=>[Q]),_:1})])]),_:1},8,["title"]))}});export{ei as default};
