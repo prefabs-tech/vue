@@ -24,7 +24,7 @@ const login = async (
     console.log("response", response);
     // eslint-disable-next-line
 
-    if (response.data.status === "OK") {
+    if (response.status === 200) {
       const { access_token: accessToken, refresh_token: refreshToken } =
         response.data;
 

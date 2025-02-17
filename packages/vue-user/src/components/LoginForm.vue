@@ -39,7 +39,7 @@
         weak: t('user.login.form.password.errors.invalid'),
       }"
       :label="t('user.login.form.password.label')"
-      :options="config?.user?.password"
+      :options="{ minLength: 6 }"
     />
 
     <div class="actions">
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { AppConfig, useConfig } from "@dzangolab/vue3-config";
+// import { AppConfig, useConfig } from "@dzangolab/vue3-config";
 import { Email, Password } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
@@ -69,7 +69,7 @@ import { useTranslations } from "../index";
 
 import type { LoginCredentials } from "../types";
 
-const config = useConfig() as AppConfig;
+// const config = useConfig() as AppConfig;
 
 const messages = useTranslations();
 

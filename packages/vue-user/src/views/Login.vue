@@ -72,9 +72,6 @@ const loading = ref(false);
 const handleSubmit = async (credentials: LoginCredentials) => {
   loading.value = true;
 
-  // eslint-disable-next-line no-console
-  console.log("from inside Login.vue", credentials);
-
   const finalCredentials = {
     ...credentials,
     withRoles: config?.user?.supportedRoles,
