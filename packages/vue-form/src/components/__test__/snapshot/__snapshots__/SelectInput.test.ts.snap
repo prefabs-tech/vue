@@ -29,21 +29,68 @@ exports[`SelectInput > matches snapshot 1`] = `
           class="selected-option"
         >
           FR 
-          <img
-            class="remove-option"
-            src="/src/assets/svg/x-mark.svg"
-          />
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </span>
         <span
           class="selected-option"
         >
           FE 
-          <img
-            class="remove-option"
-            src="/src/assets/svg/x-mark.svg"
-          />
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </span>
         
+      </span>
+      <span
+        class="menu-trigger"
+      >
+        <!--v-if-->
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            id="Complete"
+          >
+            <g
+              id="F-Chevron"
+            >
+              <polyline
+                fill="none"
+                id="down"
+                points="5 8.5 12 15.5 19 8.5"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g>
+          </g>
+        </svg>
       </span>
     </div>
     <!--v-if-->

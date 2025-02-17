@@ -20,16 +20,58 @@
           v-for="selectedOption in selectedOptions"
           :key="selectedOption.label"
           class="selected-option"
-          @click="disabled ? '' : onSelect($event, selectedOption)"
         >
           {{ selectedOption.label }}
 
-          <img
+          <svg
             v-if="multiple"
-            src="./../assets/svg/x-mark.svg"
-            class="remove-option"
-          />
+            fill="none"
+            viewBox="0 0 24 24"
+            width="1rem"
+            xmlns="http://www.w3.org/2000/svg"
+            @click.stop="!disabled ? onUnselect($event, selectedOption) : ''"
+          >
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </span>
+      </span>
+      <span class="menu-trigger">
+        <svg
+          v-if="!disabled && !multiple && selectedOptions.length"
+          fill="none"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          @click.stop="onUnselect"
+        >
+          <path
+            d="M6 6L18 18M18 6L6 18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <g id="Complete">
+            <g id="F-Chevron">
+              <polyline
+                id="down"
+                fill="none"
+                points="5 8.5 12 15.5 19 8.5"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g>
+          </g>
+        </svg>
       </span>
     </div>
     <ul v-if="showDropdownMenu && !disabled" role="list">
@@ -51,14 +93,18 @@
         :key="option.label"
         class="multiselect-option"
         :class="{ selected: isSelected(option) && !multiple }"
-        @click="onSelect($event, option)"
+        :disabled="option.disabled"
+        @click="!option.disabled ? onSelect($event, option) : ''"
       >
         <Checkbox
           v-if="multiple"
           :model-value="isSelected(option)"
+          :disabled="option.disabled"
           @update:model-value="onMultiSelect()"
         />
-        {{ option.label }}
+        <slot :name="option.value">
+          {{ option.label }}
+        </slot>
       </li>
     </ul>
   </div>
@@ -139,6 +185,10 @@ watch(
   },
 );
 
+const activeOptions = computed(() =>
+  props.options.filter((option) => !option.disabled),
+);
+
 const filteredOptions = computed(() => {
   if (!searchInput.value) {
     return props.options;
@@ -165,7 +215,7 @@ const getSelectedOption = (value: number | string) =>
   options.value?.find((option) => option.value === value);
 
 const isAllSelected = (options: SelectOption[]): boolean => {
-  if (selectedOptions.value.length != options.length) {
+  if (selectedOptions.value.length != activeOptions.value.length) {
     return false;
   }
 
@@ -208,7 +258,7 @@ const onSelectAll = () => {
   if (allSelected) {
     selectedOptions.value = [];
   } else {
-    selectedOptions.value = [...props.options];
+    selectedOptions.value = activeOptions.value;
   }
 
   onMultiSelect();
@@ -238,6 +288,23 @@ const prepareComponent = () => {
   } else if (!props.modelValue) {
     selectedOptions.value = [];
   }
+};
+
+const onUnselect = (event: Event, option?: SelectOption) => {
+  if (multiple.value && option) {
+    const index = selectedOptions.value.findIndex(
+      (i) => i.value === option.value,
+    );
+
+    if (index > -1) {
+      selectedOptions.value.splice(index, 1);
+    }
+  } else {
+    selectedOptions.value = [];
+    showDropdownMenu.value = false;
+  }
+
+  onMultiSelect();
 };
 
 onMounted(() => {

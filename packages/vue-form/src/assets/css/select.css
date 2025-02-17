@@ -52,6 +52,7 @@
   color: var(--_color);
   cursor: pointer;
   height: var(--_height);
+  justify-content: space-between;
   padding: var(--_padding-v) var(--_padding-h);
   user-select: none;
 }
@@ -80,6 +81,11 @@
   padding: 10px;
 }
 
+.multiselect ul>li[disabled="true"] {
+  color: var(--field-option-disabled-color, #7b7676);
+  cursor: not-allowed;
+}
+
 .multiselect>ul>li input {
   box-shadow: none;
   height: fit-content;
@@ -92,10 +98,8 @@
     --multiselect-selected-bg-color,
     #e5e5e5
   );
-  --_multiselect-selected-color: var(--multiselect-selected-color, inherit);
 
   background-color: var(--_multiselect-selected-bg-color);
-  color: var(--_multiselect-selected-color);
 }
 
 .multiselect .multiselect-placeholder {
@@ -114,4 +118,14 @@
 
 .multiselect .selected-options {
   display: flex;
+}
+
+.multiselect .multiselect-input>.menu-trigger {
+  display: flex;
+}
+
+.multiselect .multiselect-input>.menu-trigger > svg {
+  color: var(--field-icon-color, #b5b5b5);
+  cursor: pointer;
+  width: 1.5rem;
 }
