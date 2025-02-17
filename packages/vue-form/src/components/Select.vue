@@ -18,7 +18,7 @@
       <span v-else class="selected-options">
         {{ selectedLabels }}
       </span>
-      <span class="menu-trigger">
+      <span class="action-icons">
         <svg
           v-if="hasRemoveOption"
           fill="none"
