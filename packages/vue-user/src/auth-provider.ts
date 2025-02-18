@@ -24,6 +24,7 @@ const providers = {
   "laravel-passport": {
     doLogin: laravelPassport.login,
     doLogout: laravelPassport.logout,
+    verifySessionRoles: laravelPassport.verifySessionRoles,
   },
   supertokens: {
     doChangePassword: supertokens.changePassword,
@@ -33,6 +34,7 @@ const providers = {
     doRequestPasswordReset: supertokens.requestPasswordReset,
     doResetPassword: supertokens.resetPassword,
     doSignup: supertokens.signup,
+    verifySessionRoles: supertokens.verifySessionRoles,
   },
 };
 

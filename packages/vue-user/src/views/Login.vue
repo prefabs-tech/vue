@@ -47,7 +47,8 @@ import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
-import { verifySessionRoles } from "../supertokens";
+// import { verifySessionRoles } from "../supertokens";
+import { auth } from "../auth-provider";
 
 import type { LoginCredentials } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
@@ -55,6 +56,8 @@ import type { Error as ErrorType } from "@dzangolab/vue3-ui";
 import type { Ref } from "vue";
 
 const config = useConfig() as AppConfig;
+
+const selectedAuthProvider = auth();
 
 const messages = useTranslations();
 
@@ -83,7 +86,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
         const supportedRoles = config?.user?.supportedRoles;
 
         if (
-          (supportedRoles && (await verifySessionRoles(supportedRoles))) ||
+          (supportedRoles && (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
           setUser(response);
