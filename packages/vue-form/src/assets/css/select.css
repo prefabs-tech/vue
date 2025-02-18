@@ -104,11 +104,11 @@
   white-space: nowrap;
 }
 
-.multiselect .multiselect-input>.actions {
+.multiselect .multiselect-input>.action-items {
   display: flex;
 }
 
-.multiselect .multiselect-input>.actions > svg {
+.multiselect .multiselect-input>.action-items > svg {
   color: var(--field-icon-color, #b5b5b5);
   cursor: pointer;
   min-width: 1.5rem;

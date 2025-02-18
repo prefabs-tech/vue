@@ -18,7 +18,7 @@
       <span v-else class="selected-options">
         {{ selectedLabels }}
       </span>
-      <span class="actions">
+      <span class="action-items">
         <svg
           v-if="hasRemoveOption"
           fill="none"
