@@ -1,3 +1,12 @@
+## [0.10.2](https://github.com/dzangolab/vue/compare/v0.10.1...v0.10.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* update accordion icon import logic ([#477](https://github.com/dzangolab/vue/issues/477)) ([6bdd965](https://github.com/dzangolab/vue/commit/6bdd96573d301a78b499eab46e884466c0d067b0))
+
+
+
 ## [0.10.1](https://github.com/dzangolab/vue/compare/v0.10.0...v0.10.1) (2025-01-31)
 
 
