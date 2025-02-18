@@ -27,7 +27,7 @@ exports[`SelectInput > matches snapshot 1`] = `
         FR, FE
       </span>
       <span
-        class="action-icons"
+        class="actions"
       >
         <svg
           fill="none"

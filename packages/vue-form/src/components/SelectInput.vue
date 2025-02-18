@@ -23,7 +23,7 @@
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
-        :show-remove-option="showRemoveOption"
+        :show-remove-selection="showRemoveSelection"
         tabindex="0"
         @update:model-value="onSelect"
       >
@@ -106,7 +106,7 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
-  showRemoveOption: {
+  showRemoveSelection: {
     default: true,
     type: Boolean,
   },

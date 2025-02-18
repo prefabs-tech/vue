@@ -18,7 +18,7 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
       FR, DE, BE, FE, RE
     </span>
     <span
-      class="action-icons"
+      class="actions"
     >
       <svg
         fill="none"
@@ -185,7 +185,7 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
       FR
     </span>
     <span
-      class="action-icons"
+      class="actions"
     >
       <svg
         fill="none"

@@ -18,7 +18,7 @@
       <span v-else class="selected-options">
         {{ selectedLabels }}
       </span>
-      <span class="action-icons">
+      <span class="actions">
         <svg
           v-if="hasRemoveOption"
           fill="none"
@@ -137,7 +137,7 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
-  showRemoveOption: {
+  showRemoveSelection: {
     default: true,
     type: Boolean,
   },
@@ -184,7 +184,9 @@ const filteredOptions = computed(() => {
 
 const hasRemoveOption = computed(
   () =>
-    props.showRemoveOption && !props.disabled && selectedOptions.value.length,
+    props.showRemoveSelection &&
+    !props.disabled &&
+    selectedOptions.value.length,
 );
 
 const selectedLabels = computed(() =>
