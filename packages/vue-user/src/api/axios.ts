@@ -1,7 +1,7 @@
 import axios from "axios";
 import SuperTokens from "supertokens-website";
 
-import useUserStore from ".././store";
+import useUserStore from "../store";
 
 SuperTokens.addAxiosInterceptors(axios);
 
@@ -9,20 +9,24 @@ const client = (baseURL: string) => {
   const instance = axios.create({
     baseURL,
     headers: {
-      post: {
-        "Content-Type": "application/json",
-      },
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
   });
 
   // Request interceptor: Add access token
   instance.interceptors.request.use(
     (config) => {
-      const userStore = useUserStore();
-      const token = userStore.accessToken;
+      // eslint-disable-next-line no-console
+      console.log("Request Interceptor Triggered");
 
+      const userStore = useUserStore();
+      // eslint-disable-next-line no-console
+      console.log("Access Token Before Request:", userStore?.accessToken);
+
+      const token = userStore.accessToken;
       if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+        config.headers.Authorization = `Bearer ${token}`; // Ensure correct syntax
       }
 
       return config;
@@ -46,10 +50,11 @@ const client = (baseURL: string) => {
             throw new Error("No refresh token available");
           }
 
-          const refreshResponse = await axios.post(
-            `${baseURL}/api/refresh-token`,
-            { refresh_token: refreshToken },
-          );
+          // eslint-disable-next-line no-console
+          console.log("Refreshing access token...");
+          const refreshResponse = await instance.post("/api/refresh-token", {
+            refresh_token: refreshToken,
+          });
 
           if (refreshResponse.data.status === "OK") {
             const newAccessToken = refreshResponse.data.access_token;
@@ -58,16 +63,18 @@ const client = (baseURL: string) => {
 
             // Retry original request with new token
             originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-            return axios(originalRequest);
+            return instance(originalRequest);
           }
         } catch (refreshError) {
+          // eslint-disable-next-line no-console
+          console.error("Token refresh failed:", refreshError);
           userStore.removeAuthTokens();
           return Promise.reject(refreshError);
         }
       }
 
       return Promise.reject(error);
-    }
+    },
   );
 
   return instance;

@@ -43,12 +43,12 @@ import { Errors, Page } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
+import { auth } from "../auth-provider";
 import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
 // import { verifySessionRoles } from "../supertokens";
-import { auth } from "../auth-provider";
 
 import type { LoginCredentials } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
@@ -86,7 +86,8 @@ const handleSubmit = async (credentials: LoginCredentials) => {
         const supportedRoles = config?.user?.supportedRoles;
 
         if (
-          (supportedRoles && (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
+          (supportedRoles &&
+            (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
           setUser(response);
