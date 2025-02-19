@@ -2,12 +2,13 @@
   "name": "@dzangolab/vue3-layout",
   "version": "0.10.2",
   "description": "Vue3 Layout Plugin",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/DzangolabVue3Layout.es.js",
       "require": "./dist/DzangolabVue3Layout.umd.js"
     },
-    "./dist/DzangolabVue3Layout.css": "./dist/style.css"
+    "./dist/DzangolabVue3Layout.css": "./dist/vue3-layout.css"
   },
   "main": "dist//DzangolabVue3Layout.umd.js",
   "module": "dist//DzangolabVue3Layout.es.js",
@@ -49,7 +50,7 @@
     "eslint-plugin-vue": "9.29.0",
     "prettier": "3.3.3",
     "typescript": "5.5.4",
-    "vite": "4.1.4",
+    "vite": "6.1.0",
     "vitest": "0.29.8",
     "vue": "3.2.47",
     "vue-eslint-parser": "9.4.3",

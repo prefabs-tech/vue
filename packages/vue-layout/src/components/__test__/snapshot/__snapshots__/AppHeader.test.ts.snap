@@ -66,7 +66,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
           <img
             alt="locale"
             data-v-0f7089e1=""
-            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pg0KDQo8IS0tIFVwbG9hZGVkIHRvOiBTVkcgUmVwbywgd3d3LnN2Z3JlcG8uY29tLCBHZW5lcmF0b3I6IFNWRyBSZXBvIE1peGVyIFRvb2xzIC0tPg0KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCg0KPHRpdGxlLz4NCg0KPGcgaWQ9IkNvbXBsZXRlIj4NCg0KPGcgaWQ9IkYtQ2hldnJvbiI+DQoNCjxwb2x5bGluZSBmaWxsPSJub25lIiBpZD0iRG93biIgcG9pbnRzPSI1IDguNSAxMiAxNS41IDE5IDguNSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPg0KDQo8L2c+DQoNCjwvZz4NCg0KPC9zdmc+DQo="
+            src="data:image/svg+xml,%3c?xml%20version='1.0'%20?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3ctitle/%3e%3cg%20id='Complete'%3e%3cg%20id='F-Chevron'%3e%3cpolyline%20fill='none'%20id='Down'%20points='5%208.5%2012%2015.5%2019%208.5'%20stroke='%23000000'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e"
           />
           
         </span>
