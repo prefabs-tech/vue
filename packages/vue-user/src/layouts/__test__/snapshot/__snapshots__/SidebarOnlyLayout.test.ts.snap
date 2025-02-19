@@ -41,7 +41,7 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
           <img
             alt="extend sidebar"
             class="extend"
-            src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8ZyBzdHJva2Utd2lkdGg9IjAiPgoJPC9nPgoJPGcgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCTwvZz4KCTxnPgoJCTxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOC4yOTI4OSA0LjI5Mjg5QzguNjgzNDIgMy45MDIzNyA5LjMxNjU4IDMuOTAyMzcgOS43MDcxMSA0LjI5Mjg5TDE2LjcwNzEgMTEuMjkyOUMxNy4wOTc2IDExLjY4MzQgMTcuMDk3NiAxMi4zMTY2IDE2LjcwNzEgMTIuNzA3MUw5LjcwNzExIDE5LjcwNzFDOS4zMTY1OCAyMC4wOTc2IDguNjgzNDIgMjAuMDk3NiA4LjI5Mjg5IDE5LjcwNzFDNy45MDIzNyAxOS4zMTY2IDcuOTAyMzcgMTguNjgzNCA4LjI5Mjg5IDE4LjI5MjlMMTQuNTg1OCAxMkw4LjI5Mjg5IDUuNzA3MTFDNy45MDIzNyA1LjMxNjU4IDcuOTAyMzcgNC42ODM0MiA4LjI5Mjg5IDQuMjkyODlaIiBmaWxsPSIjZmZmZmZmIj4KCQk8L3BhdGg+Cgk8L2c+Cjwvc3ZnPgo="
+            src="data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20stroke-width='0'%3e%3c/g%3e%3cg%20stroke-linecap='round'%20stroke-linejoin='round'%3e%3c/g%3e%3cg%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M8.29289%204.29289C8.68342%203.90237%209.31658%203.90237%209.70711%204.29289L16.7071%2011.2929C17.0976%2011.6834%2017.0976%2012.3166%2016.7071%2012.7071L9.70711%2019.7071C9.31658%2020.0976%208.68342%2020.0976%208.29289%2019.7071C7.90237%2019.3166%207.90237%2018.6834%208.29289%2018.2929L14.5858%2012L8.29289%205.70711C7.90237%205.31658%207.90237%204.68342%208.29289%204.29289Z'%20fill='%23ffffff'%3e%3c/path%3e%3c/g%3e%3c/svg%3e"
           />
         </transition-stub>
       </div>

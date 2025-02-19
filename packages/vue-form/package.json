@@ -9,7 +9,7 @@
       "import": "./dist/DzangolabVue3Form.es.js",
       "require": "./dist/DzangolabVue3Form.umd.js"
     },
-    "./dist/DzangolabVue3Form.css": "./dist/style.css"
+    "./dist/DzangolabVue3Form.css": "./dist/vue3-form.css"
   },
   "main": "dist//DzangolabVue3Form.umd.js",
   "module": "dist//DzangolabVue3Form.es.js",
@@ -57,7 +57,7 @@
     "prettier": "3.3.3",
     "typescript": "5.5.4",
     "vee-validate": "4.7.4",
-    "vite": "4.1.4",
+    "vite": "6.1.0",
     "vitest": "0.29.8",
     "vue": "3.2.47",
     "vue-eslint-parser": "9.4.3",

@@ -2,12 +2,13 @@
   "name": "@dzangolab/vue3-user",
   "version": "0.10.2",
   "description": "Vue3 User Plugin",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/DzangolabVue3User.es.js",
       "require": "./dist/DzangolabVue3User.umd.js"
     },
-    "./dist/DzangolabVue3User.css": "./dist/style.css"
+    "./dist/DzangolabVue3User.css": "./dist/vue3-user.css"
   },
   "main": "dist//DzangolabVue3User.umd.js",
   "module": "dist//DzangolabVue3User.es.js",
@@ -62,7 +63,7 @@
     "prettier": "3.3.3",
     "typescript": "5.5.4",
     "vee-validate": "4.7.4",
-    "vite": "4.1.4",
+    "vite": "6.1.0",
     "vitest": "0.29.8",
     "vue": "3.2.47",
     "vue-eslint-parser": "9.4.3",

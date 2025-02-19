@@ -2,12 +2,13 @@
   "name": "@dzangolab/vue3-i18n",
   "version": "0.10.2",
   "description": "Vue3 I18n Plugin",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/DzangolabVue3I18n.es.js",
       "require": "./dist/DzangolabVue3I18n.umd.js"
     },
-    "./dist/DzangolabVue3I18n.css": "./dist/style.css"
+    "./dist/DzangolabVue3I18n.css": "./dist/vue3-i18n.css"
   },
   "main": "dist//DzangolabVue3I18n.umd.js",
   "module": "dist//DzangolabVue3I18n.es.js",
@@ -51,7 +52,7 @@
     "pinia": "2.0.32",
     "prettier": "3.3.3",
     "typescript": "5.5.4",
-    "vite": "4.1.4",
+    "vite": "6.1.0",
     "vitest": "0.29.8",
     "vue": "3.2.47",
     "vue-eslint-parser": "9.4.3",

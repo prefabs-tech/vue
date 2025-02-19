@@ -2,12 +2,13 @@
   "name": "@dzangolab/vue3-tanstack-table",
   "version": "0.10.2",
   "description": "Vue3 Tanstack Table Component Library",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/DzangolabVue3TanstackTable.es.js",
       "require": "./dist/DzangolabVue3TanstackTable.umd.js"
     },
-    "./dist/DzangolabVue3TanstackTable.css": "./dist/style.css"
+    "./dist/DzangolabVue3TanstackTable.css": "./dist/vue3-tanstack-table.css"
   },
   "main": "dist//DzangolabVue3TanstackTable.umd.js",
   "module": "dist//DzangolabVue3TanstackTable.es.js",
@@ -46,7 +47,7 @@
     "eslint-plugin-vue": "9.29.0",
     "prettier": "3.3.3",
     "typescript": "5.5.4",
-    "vite": "4.1.4",
+    "vite": "6.1.0",
     "vitest": "0.29.8",
     "vue": "3.2.47",
     "vue-eslint-parser": "9.4.3",
