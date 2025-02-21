@@ -8,15 +8,6 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable-next-line import/order */
-import {
-  defineAsyncComponent,
-  computed,
-  markRaw,
-  shallowRef,
-  watch,
-} from "vue";
-
 const NullLayout = defineAsyncComponent({
   loader: () => import("./layouts/NullLayout.vue"),
   timeout: 3000,
@@ -28,7 +19,14 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useSlots } from "vue";
+import {
+  defineAsyncComponent,
+  computed,
+  markRaw,
+  shallowRef,
+  useSlots,
+  watch,
+} from "vue";
 import { useRoute } from "vue-router";
 
 import type { LayoutType } from "./types";
