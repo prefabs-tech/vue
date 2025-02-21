@@ -550,12 +550,12 @@ importers:
   packages/vue-tanstack-table:
     dependencies:
       '@tanstack/vue-table':
-        specifier: 8.7.9
-        version: 8.7.9(vue@3.2.47)
+        specifier: 8.21.2
+        version: 8.21.2(vue@3.2.47)
     devDependencies:
       '@12deg/eslint-config':
         specifier: 0.1.11
-        version: 0.1.11(mcp3oflwtmfrk2pq67ac7jrcyu)
+        version: 0.1.11(ag63cjmgqovbkjrrzjm5tcd6xm)
       '@12deg/tsconfig':
         specifier: 0.1.11
         version: 0.1.11(@types/node@18.15.11)
@@ -563,29 +563,29 @@ importers:
         specifier: 0.10.2
         version: link:../vue-ui
       '@iconify/vue':
-        specifier: 4.1.0
-        version: 4.1.0(vue@3.2.47)
+        specifier: 4.3.0
+        version: 4.3.0(vue@3.2.47)
       '@types/node':
         specifier: 18.15.11
         version: 18.15.11
       '@typescript-eslint/eslint-plugin':
-        specifier: 8.14.0
-        version: 8.14.0(@typescript-eslint/parser@8.14.0(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
+        specifier: 8.24.1
+        version: 8.24.1(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
       '@typescript-eslint/parser':
-        specifier: 8.14.0
-        version: 8.14.0(eslint@8.57.1)(typescript@5.5.4)
+        specifier: 8.24.1
+        version: 8.24.1(eslint@8.57.1)(typescript@5.5.4)
       '@vitejs/plugin-vue':
         specifier: 5.2.1
-        version: 5.2.1(vite@6.1.0(@types/node@18.15.11))(vue@3.2.47)
+        version: 5.2.1(vite@6.1.1(@types/node@18.15.11))(vue@3.2.47)
       '@vitejs/plugin-vue-jsx':
         specifier: 4.1.1
-        version: 4.1.1(vite@6.1.0(@types/node@18.15.11))(vue@3.2.47)
+        version: 4.1.1(vite@6.1.1(@types/node@18.15.11))(vue@3.2.47)
       '@vitest/coverage-istanbul':
         specifier: 3.0.6
         version: 3.0.6(vitest@3.0.6(@types/node@18.15.11)(jsdom@21.1.1))
       '@vue/test-utils':
-        specifier: 2.3.2
-        version: 2.3.2(vue@3.2.47)
+        specifier: 2.4.6
+        version: 2.4.6
       '@vueuse/core':
         specifier: 9.13.0
         version: 9.13.0(vue@3.2.47)
@@ -599,29 +599,29 @@ importers:
         specifier: 1.1.2
         version: 1.1.2(eslint-plugin-import@2.31.0)
       eslint-import-resolver-typescript:
-        specifier: 3.6.3
-        version: 3.6.3(@typescript-eslint/parser@8.14.0(eslint@8.57.1)(typescript@5.5.4))(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+        specifier: 3.8.3
+        version: 3.8.3(eslint-plugin-import@2.31.0)(eslint@8.57.1)
       eslint-plugin-import:
         specifier: 2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.14.0(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+        version: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)
       eslint-plugin-prettier:
-        specifier: 5.2.1
-        version: 5.2.1(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.3.3)
+        specifier: 5.2.3
+        version: 5.2.3(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.1)
       eslint-plugin-unicorn:
         specifier: 56.0.1
         version: 56.0.1(eslint@8.57.1)
       eslint-plugin-vue:
-        specifier: 9.29.0
-        version: 9.29.0(eslint@8.57.1)
+        specifier: 9.32.0
+        version: 9.32.0(eslint@8.57.1)
       prettier:
-        specifier: 3.3.3
-        version: 3.3.3
+        specifier: 3.5.1
+        version: 3.5.1
       typescript:
         specifier: 5.5.4
         version: 5.5.4
       vite:
-        specifier: 6.1.0
-        version: 6.1.0(@types/node@18.15.11)
+        specifier: 6.1.1
+        version: 6.1.1(@types/node@18.15.11)
       vitest:
         specifier: 3.0.6
         version: 3.0.6(@types/node@18.15.11)(jsdom@21.1.1)
@@ -2182,15 +2182,15 @@ packages:
     resolution: {integrity: sha512-IC1dpVSc2F/pmwCxOb0QzH2xnGKmyT7MofPGhNkeaoiMrLMU+Oc7xV/AxGnz40mURtCtaDchZSM3tDo9c9x6BA==}
     engines: {node: '>= 8.9.0', npm: '>= 5.5.1'}
 
-  '@tanstack/table-core@8.7.9':
-    resolution: {integrity: sha512-4RkayPMV1oS2SKDXfQbFoct1w5k+pvGpmX18tCXMofK/VDRdA2hhxfsQlMvsJ4oTX8b0CI4Y3GDKn5T425jBCw==}
+  '@tanstack/table-core@8.21.2':
+    resolution: {integrity: sha512-uvXk/U4cBiFMxt+p9/G7yUWI/UbHYbyghLCjlpWZ3mLeIZiUBSKcUnw9UnKkdRz7Z/N4UBuFLWQdJCjUe7HjvA==}
     engines: {node: '>=12'}
 
-  '@tanstack/vue-table@8.7.9':
-    resolution: {integrity: sha512-NdMwwytlthZYP1U71rWON/quuJtPS3lIQVA7nEGte6DtnVQgSB1jus921WaAqpA4UPQz+3qjfUJz5SB7Nc3xfg==}
+  '@tanstack/vue-table@8.21.2':
+    resolution: {integrity: sha512-KBgOWxha/x4m1EdhVWxOpqHb661UjqAxzPcmXR3QiA7aShZ547x19Gw0UJX9we+m+tVcPuLRZ61JsYW47QZFfQ==}
     engines: {node: '>=12'}
     peerDependencies:
-      vue: ^3.2.33
+      vue: '>=3.2'
 
   '@tootallnate/once@2.0.0':
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -7600,11 +7600,11 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@tanstack/table-core@8.7.9': {}
+  '@tanstack/table-core@8.21.2': {}
 
-  '@tanstack/vue-table@8.7.9(vue@3.2.47)':
+  '@tanstack/vue-table@8.21.2(vue@3.2.47)':
     dependencies:
-      '@tanstack/table-core': 8.7.9
+      '@tanstack/table-core': 8.21.2
       vue: 3.2.47
 
   '@tootallnate/once@2.0.0': {}
