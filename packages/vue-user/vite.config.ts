@@ -30,14 +30,20 @@ export default defineConfig(({ mode }) => {
             "@dzangolab/vue3-i18n": "DzangolabVue3I18n",
             "@dzangolab/vue3-layout": "DzangolabVue3Layout",
             "@dzangolab/vue3-ui": "DzangolabVue3UI",
+            axios: "Axios",
             pinia: "Pinia",
             vue: "Vue",
             "vue-router": "VueRouter",
             "supertokens-web-js": "SupertokensWebJs",
+            "supertokens-web-js/recipe/emailverification":
+              "SupertokensWebJsRecipeEmailverification",
             "supertokens-web-js/recipe/session":
               "SupertokensWebJsRecipeSession",
             "supertokens-web-js/recipe/thirdpartyemailpassword":
               "SupertokensWebJsRecipeThirdpartyemailpassword",
+            "supertokens-web-js/recipe/userroles":
+              "SupertokensWebJsRecipeUserroles",
+            "supertokens-website": "SupertokensWebsite",
             "@vueuse/core": "VueuseCore",
             "vee-validate": "Veevalidate",
             yup: "Yup",
