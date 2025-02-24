@@ -292,7 +292,7 @@ importers:
         version: 4.7.4
       '@vee-validate/zod':
         specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.20.6)
+        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.24.2)
       '@vitejs/plugin-vue':
         specifier: 5.2.1
         version: 5.2.1(vite@6.1.1(@types/node@22.13.4))(vue@3.2.47)
@@ -363,8 +363,8 @@ importers:
         specifier: 2.2.1
         version: 2.2.1(vue@3.2.47)
       zod:
-        specifier: 3.20.6
-        version: 3.20.6
+        specifier: 3.24.2
+        version: 3.24.2
 
   packages/vue-i18n:
     dependencies:
@@ -766,7 +766,7 @@ importers:
         version: 4.7.4
       '@vee-validate/zod':
         specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.20.6)
+        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.24.2)
       '@vitejs/plugin-vue':
         specifier: 5.2.1
         version: 5.2.1(vite@6.1.1(@types/node@22.13.4))(vue@3.2.47)
@@ -843,8 +843,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0(typescript@5.5.4)
       zod:
-        specifier: 3.20.6
-        version: 3.20.6
+        specifier: 3.24.2
+        version: 3.24.2
 
 packages:
 
@@ -5705,9 +5705,6 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@3.20.6:
-    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
-
   zod@3.24.2:
     resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
 
@@ -7771,11 +7768,6 @@ snapshots:
   '@vee-validate/i18n@4.7.4': {}
 
   '@vee-validate/rules@4.7.4': {}
-
-  '@vee-validate/zod@4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.20.6)':
-    dependencies:
-      vee-validate: 4.7.4(vue@3.2.47)
-      zod: 3.20.6
 
   '@vee-validate/zod@4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.24.2)':
     dependencies:
@@ -12076,7 +12068,5 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
-
-  zod@3.20.6: {}
 
   zod@3.24.2: {}
