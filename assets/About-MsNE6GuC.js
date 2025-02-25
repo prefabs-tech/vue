@@ -1,0 +1,1 @@
+import{_ as o,y as n,l as a,o as s}from"./index-BlV1QXMi.js";const c={name:"About"};function r(t,l,p,_,u,i){const e=n("Page");return s(),a(e,{title:t.$t("about.title")},null,8,["title"])}const m=o(c,[["render",r]]);export{m as default};
