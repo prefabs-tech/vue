@@ -1,4 +1,4 @@
-import configPlugin from "@dzangolab/vue3-config";
+import configPlugin, { sentry } from "@dzangolab/vue3-config";
 import i18nPlugin from "@dzangolab/vue3-i18n";
 import uiPlugin from "@dzangolab/vue3-ui";
 import layoutPlugin from "@dzangolab/vue3-layout";
@@ -28,6 +28,7 @@ const app = createApp(App);
 
 app.use(pinia);
 app.use(configPlugin, { config });
+app.use(sentry, { config, router });
 app.use(i18nPlugin, { config });
 app.use(uiPlugin);
 app.use(layoutPlugin, { config, translations: config.i18n.messages });
