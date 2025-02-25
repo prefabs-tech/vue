@@ -57,6 +57,7 @@ exports[`Login > matches snapshot in en 1`] = `
           placeholder="john.doe@example.com"
           tabindex="0"
           type="email"
+          value=""
         />
         <!---->
         
@@ -198,6 +199,7 @@ exports[`Login > matches snapshot in fr 1`] = `
           placeholder="john.doe@example.com"
           tabindex="0"
           type="email"
+          value=""
         />
         <!---->
         
