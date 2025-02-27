@@ -59,7 +59,7 @@
     "eslint-plugin-unicorn": "56.0.1",
     "eslint-plugin-vue": "9.32.0",
     "mitt": "3.0.1",
-    "pinia": "2.0.32",
+    "pinia": "3.0.1",
     "prettier": "3.5.1",
     "typescript": "5.5.4",
     "vee-validate": "4.15.0",
