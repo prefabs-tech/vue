@@ -24,6 +24,6 @@ export default defineConfig({
     },
   },
   server: {
-    allowedHosts: ["*.12deg.io"],
+    allowedHosts: ["*.ws1.12deg.io"],
   },
 });
