@@ -1,3 +1,12 @@
+## [0.10.3](https://github.com/dzangolab/vue/compare/v0.10.2...v0.10.3) (2025-02-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @kyvg/vue3-notification to v2.9.1 ([#505](https://github.com/dzangolab/vue/issues/505)) ([b97f449](https://github.com/dzangolab/vue/commit/b97f4491503c0354f86eb100f92c1dbb4beb7c51))
+
+
+
 ## [0.10.2](https://github.com/dzangolab/vue/compare/v0.10.1...v0.10.2) (2025-02-18)
 
 
