@@ -102,6 +102,14 @@ const menu = computed(() => {
 </script>
 
 <style lang="css">
+.sidebar-only > .sidebar .user-menu-dropdown.expanded .toggle > svg {
+  transform: rotate(-180deg);
+}
+
+.sidebar-only > .sidebar .user-menu-dropdown .toggle > svg {
+  transform: rotate(0);
+}
+
 .sidebar-only .user-menu > ul {
   flex-direction: column;
 }
@@ -157,9 +165,5 @@ const menu = computed(() => {
   opacity: 1;
   transform: translate3d(0, -152.5px, 0);
   width: 100%;
-}
-
-.sidebar-only .user-menu-dropdown > .toggle {
-  align-self: center;
 }
 </style>

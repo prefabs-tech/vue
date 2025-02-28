@@ -162,8 +162,12 @@ const menu = computed(() => {
   --dropdown-bg-color-hover: #0870e5;
 }
 
-.sidebar-header-layout > .sidebar .user-menu-dropdown > .toggle {
-  align-self: center;
+.sidebar-header-layout > .sidebar .user-menu-dropdown.expanded .toggle > svg {
+  transform: rotate(-180deg);
+}
+
+.sidebar-header-layout > .sidebar .user-menu-dropdown .toggle > svg {
+  transform: rotate(0);
 }
 
 .sidebar-header-layout > .sidebar .user-menu-dropdown > .dropdown {
