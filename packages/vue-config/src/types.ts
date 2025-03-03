@@ -18,6 +18,7 @@ interface AppConfig {
 }
 
 interface AppFeatures {
+  loginType: "email" | "username" | "emailOrUsername";
   showVersion: boolean;
 }
 

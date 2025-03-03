@@ -732,7 +732,7 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@18.15.11)
       '@dzangolab/vue3-config':
-        specifier: 0.10.1
+        specifier: ../vue-config
         version: link:../vue-config
       '@dzangolab/vue3-form':
         specifier: 0.10.1
