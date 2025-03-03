@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { AxiosError } from "axios";
 
-import useUserStore from ".././store";
+// import useUserStore from ".././store";
 import client from "../api/axios";
 
 import type { LoginCredentials, UserType } from "../types";
@@ -10,7 +10,7 @@ const login = async (
   credentials: LoginCredentials,
   apiBaseUrl: string,
 ): Promise<UserType | undefined> => {
-  const userStore = useUserStore();
+  // const userStore = useUserStore();
 
   let user: UserType | undefined;
   let response;
@@ -25,10 +25,10 @@ const login = async (
     // eslint-disable-next-line
 
     if (response.status === 200) {
-      const { access_token: accessToken, refresh_token: refreshToken } =
-        response.data;
+      // const { access_token: accessToken, refresh_token: refreshToken } =
+      //   response.data;
 
-      userStore.setAuthTokens({ accessToken, refreshToken });
+      // userStore.setAuthTokens({ accessToken, refreshToken });
 
       user = response.data.user as UserType;
 
