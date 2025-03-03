@@ -64,7 +64,7 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 const userStore = useUserStore();
-const { login, setUser } = userStore;
+const { login, removeUser, setUser } = userStore;
 
 const router = useRouter();
 
@@ -85,14 +85,16 @@ const handleSubmit = async (credentials: LoginCredentials) => {
       if (response) {
         const supportedRoles = config?.user?.supportedRoles;
 
+        setUser(response);
+
         if (
           (supportedRoles &&
             (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
-          setUser(response);
-
           router.push({ name: "home" });
+        } else {
+          removeUser();
         }
       }
     })
