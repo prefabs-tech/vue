@@ -132,7 +132,6 @@ const useUserStore = defineStore("user", () => {
   };
 
   const setAuthTokens = (authTokens: AuthTokens) => {
-    console.log("setAuthTokens", authTokens);
     accessToken.value = authTokens.accessToken;
     refreshToken.value = authTokens.refreshToken as string | null;
 
