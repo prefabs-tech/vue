@@ -63,8 +63,8 @@ importers:
         specifier: 7.0.0
         version: 7.0.0
       simple-syntax-highlighter:
-        specifier: 2.2.5
-        version: 2.2.5(vue@3.5.13(typescript@5.5.4))
+        specifier: 3.1.1
+        version: 3.1.1(vue@3.5.13(typescript@5.5.4))
       vue:
         specifier: 3.5.13
         version: 3.5.13(typescript@5.5.4)
@@ -4963,10 +4963,11 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-syntax-highlighter@2.2.5:
-    resolution: {integrity: sha512-UYcvN7fw3aD70/HLHTbP2/o55kEY9A3GYDkDMNkF1VXONCLRD2w0FWauRhXl+7G9LPodWNaAd/2Qx1r784YFrg==}
+  simple-syntax-highlighter@3.1.1:
+    resolution: {integrity: sha512-FSM31Qj6bvxHSngu5fSFNiKpLgsxIGVPMgxQZFiiNqlB19X4uUhl16iYxBCAJWev1qJOmgbXXOkskVt6AXhFxQ==}
+    engines: {node: '>=16.0.0', pnpm: '>=8.0.0'}
     peerDependencies:
-      vue: ^2.6.14 || ^3.2.0
+      vue: ^3.2.0
 
   slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
@@ -11153,7 +11154,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-syntax-highlighter@2.2.5(vue@3.5.13(typescript@5.5.4)):
+  simple-syntax-highlighter@3.1.1(vue@3.5.13(typescript@5.5.4)):
     dependencies:
       vue: 3.5.13(typescript@5.5.4)
 
