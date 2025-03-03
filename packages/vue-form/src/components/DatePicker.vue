@@ -68,15 +68,15 @@ const props = defineProps({
   },
   modelValue: {
     default: () => new Date().toDateString(),
-    type: [String, Date, Array, Object] as PropType<
-      | string
-      | string[]
-      | number
-      | number[]
+    type: [Array, Date, Number, Object, String] as PropType<
       | Date
       | Date[]
       | MonthPickerValue
       | null
+      | number
+      | number[]
+      | string
+      | string[]
       | undefined
     >,
   },
