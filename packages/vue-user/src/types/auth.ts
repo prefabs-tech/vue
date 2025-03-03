@@ -41,6 +41,12 @@ interface User extends EmailPasswordUserType {
   username?: string;
 }
 
+interface UserRole {
+  id: number;
+  role: string;
+  name: string;
+}
+
 interface UserType extends EmailPasswordUserType {
   disabled?: boolean;
   givenName: string | null;
@@ -48,7 +54,7 @@ interface UserType extends EmailPasswordUserType {
   isProfileCompleted?: boolean;
   lastLoginAt: number;
   middleNames: string | null;
-  roles: string[];
+  roles: string[] | UserRole[];
   signedUpAt: number;
   surname: string | null;
   thirdParty?: {
