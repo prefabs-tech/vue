@@ -1,0 +1,1 @@
+import{d as r,y as n,l as a,o as s,p as c,e as _}from"./index-DjJ-FZ_G.js";const l={name:"About"},m=r({...l,setup(p){const e=()=>{throw new Error("Sentry error")};return(t,i)=>{const o=n("Page");return s(),a(o,{title:t.$t("sentry.title")},{default:c(()=>[_("button",{onClick:e},"Throw error")]),_:1},8,["title"])}}});export{m as default};
