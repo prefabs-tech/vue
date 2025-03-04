@@ -1,7 +1,7 @@
 <template>
   <Form @submit="onSubmit">
     <Email
-      v-if="config.features.loginType === 'email'"
+      v-if="config?.user?.features?.loginType === 'email'"
       v-model="credentials.email"
       :error-messages="{
         invalid: t('user.login.form.email.errors.invalid'),
@@ -11,7 +11,10 @@
       :placeholder="t('user.login.form.email.placeholder')"
     />
 
-    <div v-if="config.features.loginType === 'username'" class="field username">
+    <div
+      v-if="config?.user?.features?.loginType === 'username'"
+      class="field username"
+    >
       <label for="username"> Username </label>
       <Field
         v-slot="{ field, meta }"
@@ -60,7 +63,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { AppConfig, useConfig } from "@dzangolab/vue3-config";
+import { useConfig } from "@dzangolab/vue3-config";
 import { Email, Password } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
@@ -70,7 +73,7 @@ import { useTranslations } from "../index";
 
 import type { LoginCredentials } from "../types";
 
-const config = useConfig() as AppConfig;
+const config = useConfig();
 
 const messages = useTranslations();
 

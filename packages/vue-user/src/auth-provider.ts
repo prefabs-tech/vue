@@ -12,10 +12,14 @@ const initAuthProvider = (config?: AppConfig) => {
 
 const getAuthProvider = () => {
   if (
-    authConfig?.authProvider &&
-    ["laravel-passport", "supertokens"].includes(authConfig.authProvider)
+    authConfig?.user?.features?.authProvider &&
+    ["laravel-passport", "supertokens"].includes(
+      authConfig.user.features.authProvider,
+    )
   ) {
-    return authConfig.authProvider as "laravel-passport" | "supertokens";
+    return authConfig.user.features.authProvider as
+      | "laravel-passport"
+      | "supertokens";
   }
 
   return "supertokens"; // Default to supertokens
