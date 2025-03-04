@@ -3,6 +3,20 @@
     <span v-if="titleInfo" :data-align="titleInfo.align || 'center'">
       {{ titleInfo.text }}
     </span>
+
+    <TableToolbar
+      v-if="showColumnAction || showResetButton || $slots.toolbar"
+      :column-action-button-label="columnActionButtonLabel"
+      :has-actions-row="hasActionsRow"
+      :has-selection-row="hasSelectionRow"
+      :reset-button-label="resetButtonLabel"
+      :show-column-action="showColumnAction"
+      :show-reset-button="showResetButton"
+      :table="table"
+      @on:reset="onReset"
+    >
+      <slot name="toolbar" />
+    </TableToolbar>
     <div class="table-wrapper">
       <table :style="`width: ${table.getCenterTotalSize()}`">
         <TableHeader :table="table" />
@@ -49,6 +63,7 @@ import { computed, ref } from "vue";
 import Pagination from "./Pagination.vue";
 import TableBody from "./TableBody.vue";
 import TableHeader from "./TableHeader.vue";
+import TableToolbar from "./TableToolbar.vue";
 import {
   DEFAULT_PAGE_INDEX,
   DEFAULT_PAGE_PER_OPTIONS,
@@ -59,6 +74,10 @@ import type { ColumnDef } from "@tanstack/vue-table";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  columnActionButtonLabel: {
+    default: undefined,
+    type: String,
+  },
   columnsData: {
     type: Array as PropType<ColumnDef<unknown, unknown>[]>,
     default: () => [],
@@ -67,6 +86,8 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  hasActionsRow: Boolean,
+  hasSelectionRow: Boolean,
   initialSorting: {
     default: () => [],
     type: Array as PropType<SortingState>,
@@ -79,6 +100,10 @@ const props = defineProps({
     default: () => ({}),
     type: Object,
   },
+  resetButtonLabel: {
+    default: undefined,
+    type: String,
+  },
   rowPerPage: {
     default: DEFAULT_PAGE_SIZE,
     type: Number,
@@ -87,6 +112,8 @@ const props = defineProps({
     default: () => DEFAULT_PAGE_PER_OPTIONS,
     type: Array as () => number[],
   },
+  showColumnAction: Boolean,
+  showResetButton: Boolean,
   titleInfo: {
     default: undefined,
     type: Object as () => { text: string; align?: string },
@@ -142,6 +169,14 @@ const table = computed(() =>
     getSortedRowModel: getSortedRowModel(),
   }),
 );
+
+const onReset = () => {
+  sorting.value = [];
+  pagination.value = {
+    pageIndex: DEFAULT_PAGE_INDEX,
+    pageSize: !props.paginated ? props.data.length : props.rowPerPage,
+  };
+};
 </script>
 
 <style lang="css">

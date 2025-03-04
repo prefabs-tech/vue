@@ -8,7 +8,7 @@
       @click="$emit('on:reset')"
     />
 
-    <Popup>
+    <Popup v-if="showColumnAction">
       <ButtonElement
         :label="columnActionButtonLabel"
         variant="outlined"
@@ -19,6 +19,8 @@
         <SortableList :list="items" @on-drag="onDrag" />
       </template>
     </Popup>
+
+    <slot />
   </div>
 </template>
 
@@ -53,6 +55,7 @@ const props = defineProps({
     default: "Reset all",
     type: String,
   },
+  showColumnAction: Boolean,
   showResetButton: Boolean,
   table: {
     required: true,
