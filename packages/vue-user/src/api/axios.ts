@@ -1,7 +1,7 @@
 import axios from "axios";
-// import SuperTokens from "supertokens-website";
+import SuperTokens from "supertokens-website";
 
-// SuperTokens.addAxiosInterceptors(axios);
+SuperTokens.addAxiosInterceptors(axios);
 
 const client = (baseURL: string) => {
   const instance = axios.create({
