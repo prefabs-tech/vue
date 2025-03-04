@@ -30,9 +30,6 @@ const client = (baseURL: string) => {
             withCredentials: true,
           });
 
-          // eslint-disable-next-line no-console
-          console.log("refreshResponse", refreshResponse);
-
           if (refreshResponse.status === 200) {
             return instance(originalRequest);
           }
