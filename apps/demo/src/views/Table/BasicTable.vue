@@ -28,6 +28,7 @@
               :columns-data="columns"
               :data="data"
               :paginated="false"
+              show-reset-button
             /&gt;
           &lt;/template&gt;
     
