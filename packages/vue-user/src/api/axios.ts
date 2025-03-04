@@ -1,9 +1,10 @@
+import { AppConfig } from "@dzangolab/vue3-config";
 import axios from "axios";
 import SuperTokens from "supertokens-website";
 
 SuperTokens.addAxiosInterceptors(axios);
 
-const client = (baseURL: string) => {
+const client = (baseURL: string, config?: AppConfig) => {
   const instance = axios.create({
     baseURL,
     headers: {
@@ -16,17 +17,15 @@ const client = (baseURL: string) => {
   instance.interceptors.response.use(
     (response) => response,
     async (error) => {
-      // eslint-disable-next-line no-console
-      console.log("Response Interceptor Triggered");
       const originalRequest = error.config;
 
       if (error.response?.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
 
         try {
-          // eslint-disable-next-line no-console
-          console.log("Refreshing access token...");
-          const refreshResponse = await instance.post("/api/login/refresh", {
+          const refreshRoute = config?.user?.apiRoutes?.refresh || "/api/refresh";
+
+          const refreshResponse = await instance.post(refreshRoute, {
             withCredentials: true,
           });
 
