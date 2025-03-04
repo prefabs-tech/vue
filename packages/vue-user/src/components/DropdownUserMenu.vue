@@ -106,7 +106,7 @@ nav.user-menu-dropdown > .trigger {
 }
 
 nav.user-menu-dropdown span.toggle {
-  align-self: start;
+  align-self: center;
   display: block;
   font-size: 1.5rem;
   line-height: 1.25rem;
@@ -121,10 +121,11 @@ nav.user-menu-dropdown:hover {
 }
 
 nav.user-menu-dropdown.expanded span.toggle > svg {
-  transform: rotate(-180deg);
+  transform: rotate(0);
 }
 
 nav.user-menu-dropdown span.toggle > svg {
+  transform: rotate(-180deg);
   transition: transform 0.5s ease;
 }
 

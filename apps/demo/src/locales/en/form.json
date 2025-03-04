@@ -20,7 +20,7 @@
       "min": "Title must be at least {length} character(s)",
       "required": "The field should not be empty"
     },
-    "multiSelect":  {
+    "multiselect":  {
       "invalid": "Please select atleast one valid option"
     },
     "number": {
@@ -60,6 +60,7 @@
     "customColsRowsInput": "With cols and rows props",
     "customErrorMessageInput": "With custom error message",
     "customFormat": "Custom format",
+    "customLabel": "With custom label",
     "customValidationInput": "With custom validation",
     "customStyleInput": "Custom style",
     "dailySynchro": "Select the sections that should be in the daily synchro",
@@ -73,7 +74,7 @@
     "deliverableList": "A list of your daily deliverables",
     "disabled": "Disabled",
     "disableWeekDays": "Disable week days",
-    "disabledMultiSelect": "Disabled multiselect",
+    "disabledMultiselect": "Disabled multiselect",
     "disableSort": "Disable alphabetical sorting",
     "dropzone": "Dropzone",
     "dropzoneOptions": "Dropzone options",
@@ -107,9 +108,11 @@
     "multiCalendars": "Multicalendar",
     "multiCheckbox": "Multiple checkbox input",
     "multiple": "Multiple files",
-    "multiSelect": "Multiselect",
+    "multiselect": "Multiselect",
+    "multiselectSearch": "Multiselect with search",
     "nepali": "Nepali",
     "next": "Next",
+    "no": "No",
     "number": "Number",
     "one": "One",
     "other": "Other",
@@ -137,9 +140,12 @@
     "valid": "Show valid state",
     "vehicle": "Vehicle",
     "withI18n": "With i18n",
+    "withOnOffLabel":  "With on off label",
+    "withSearch": "With search",
     "workInProgress": "Work in progress",
     "year": "Year",
-    "yearPicker": "Year picker"
+    "yearPicker": "Year picker",
+    "yes": "Yes"
   },
   "placeholder": {
     "days": "Enter number of days",
@@ -150,6 +156,7 @@
     "multiSelect": "Select multiple value",
     "number": "Enter a number",
     "password": "Enter a password",
+    "search": "Search...",
     "select": "Select a value",
     "textarea": "Enter textarea input",
     "textInput": "Enter text input",

@@ -1,9 +1,13 @@
 <template>
   <FormPage :title="$t('form.label.password')" class="demo">
     <template #toolbar>
-      <router-link :to="{ name: 'form' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/form')"
+      />
     </template>
 
     <section>
@@ -306,6 +310,7 @@ export default {
 <script setup lang="ts">
 import { Form, Password } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { ButtonElement } from "@dzangolab/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

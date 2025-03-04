@@ -3,18 +3,36 @@
 exports[`Page > matches snapshot 1`] = `
 <div
   class="page"
+  data-centered="false"
 >
-  <h1>
-    Home 
-    <small>
-      Welcome to the home page
-    </small>
-  </h1>
   <div
-    class="toolbar"
+    class="page-header"
   >
-    
-    
+    <div
+      class="page-title-wrapper"
+    >
+      <div
+        class="title"
+      >
+        <h1>
+          Home
+        </h1>
+        
+        <!--v-if-->
+        
+      </div>
+      
+      <small>
+        Welcome to the home page
+      </small>
+      
+    </div>
+    <div
+      class="page-toolbar"
+    >
+      
+      
+    </div>
   </div>
   <div
     class="page-content"

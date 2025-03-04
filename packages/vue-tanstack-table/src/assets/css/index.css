@@ -1,240 +1,200 @@
-.table-wrapper {
-  display: block;
-  max-width: 100%;
-  max-height: 60vh;
-  overflow-y: scroll;
-  position: relative;
+/* Table variables */
+
+:root {
+  --table-border: 1px solid rgb(226, 226, 226);
+  --table-header-bg: #f0f2f7ad;
+  --table-overlay-bg: rgba(255, 255, 255, 0.6);
+  --table-header-active-bg: rgb(232, 240, 255);
+  --table-row-hover-bg: #318aff0f;
+  --table-column-padding: 0.8rem;
+  --table-row-selected-bg: rgb(240, 245, 255);
+  --table-body-bg: transparent;
+  --table-stripe-color: transparent;
+  --table-actions-column-width: 4rem;
 }
 
-.table-toggle {
-  border: none;
-  outline: none;
-  background-color: #009879;
-  height: 2rem;
-  width: 2rem;
-  padding: 0;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
+/* Tanstack table class definitions */
 
-table {
-  background-color: #ffffff;
-  border-collapse: collapse;
-  font-size: 0.875em;
+.table-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  table-layout: fixed;
   position: relative;
 }
 
-tr {
-  border-bottom: 1px solid #ddd;
+.table-container > span {
+  font-weight: bold;
+  text-align: center;
+  padding: 0.2rem 0;
+  margin: 0;
+  font-size: 1rem;
 }
 
-tbody > tr:nth-child(even) {
-  background-color: #f3f3f3;
+.table-container > span[data-align="left"] {
+  text-align: left;
 }
 
-tbody > tr:last-child {
-  border-bottom: 2px solid #009879;
+.table-container > span[data-align="right"] {
+  text-align: right;
 }
 
-tbody > tr:hover {
-  color: #009879;
+.table-container .loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: var(--table-overlay-bg);
 }
 
-.toggle-wrap {
-  display: none;
+.table-container .toolbar {
+  align-items: center;
+  background: var(--table-header-bg);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding: var(--table-column-padding);
+  width: 100%;
 }
 
-th,
-td {
-  padding: 12px 15px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.table-container .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-container .table-wrapper > table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container .table-wrapper > table > tbody {
+  background: var(--table-body-bg);
+}
+
+.table-container .toolbar,
+.table-container .table-wrapper > table,
+.table-container .table-wrapper > table tr,
+.table-container .table-wrapper > table > tbody > tr > td,
+.table-container .table-wrapper > table > thead > tr > th,
+.table-container .pagination {
+  border: var(--table-border);
+}
+
+.table-container .pagination {
+  border-top: none;
+}
+
+.table-container .toolbar {
+  border-bottom: none;
+}
+
+.table-container .table-wrapper > table > tbody > tr > td,
+.table-container .table-wrapper > table > thead > tr > th {
   overflow: hidden;
 }
 
-thead {
-  background-color: #009879;
-  color: #ffffff;
-  position: sticky;
-  top: 0;
+.table-container .table-wrapper > table > thead > tr > th.filter.multiselect {
+  overflow: visible;
 }
 
-th {
-  font-size: 1rem;
-  font-weight: 600;
+.table-container .table-wrapper > table tr > td[data-align="center"] > * {
+  margin: auto;
+}
+
+.table-container .table-wrapper > table tr > th {
   text-align: left;
-  user-select: none;
 }
 
-th div {
-  display: flex;
-  align-items: center;
+.table-container .table-wrapper > table tr > td[data-align="center"],
+.table-container .table-wrapper > table tr > th[data-align="center"] {
+  text-align: center;
 }
 
-.sort-icon {
-  opacity: 0;
-  margin-left: 8px;
-  color: #e7e7e7;
-  transition: opacity 0.3s ease;
+.table-container .table-wrapper > table tr > td[data-align="right"] {
+  text-align: right;
+  padding-right: 2rem;
 }
 
-th:hover .sort-icon {
-  opacity: 1;
+.table-container .table-wrapper > table tr > th[data-align="right"] {
+  text-align: center;
 }
 
-tbody {
-  border-bottom: 0.063rem solid #f5f5f5;
+.table-container .table-wrapper > table tr > th.sortable {
+  cursor: pointer;
 }
 
-td {
-  align-items: center;
+.table-container .table-wrapper > table tr > th .sort-state {
+  margin-left: 0.5rem;
+}
+
+.table-container .table-wrapper > table tr > th .sort-state .sort-icon {
+  display: inline-block;
   font-size: 0.9rem;
 }
 
-.page-navigation-container {
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  position: sticky;
-  bottom: 0;
+.table-container .table-wrapper > table tr > th.sortable:active {
+  background: var(--table-header-active-bg);
 }
 
-.page-number-indicators {
-  font-weight: bold;
-  margin-right: 8px;
-  border-right: 2px solid #000;
-  padding-right: 8px;
+.table-container .table-wrapper > table tr > th.highlight,
+.table-container .table-wrapper > table tr > td.highlight {
+  background: var(--table-header-active-bg);
 }
 
-.go-to-page-container {
-  margin-right: 4px;
+.table-container .table-wrapper > table > tbody > tr:nth-child(even) {
+  background: var(--table-stripe-color);
 }
 
-.go-to-page-text {
-  margin-right: 4px;
+.table-container .table-wrapper > table > tbody > tr[data-selected="true"] {
+  background: var(--table-row-selected-bg) !important;
 }
 
-.page-input {
-  width: 3rem;
-  height: 25px;
+.table-container
+  .table-wrapper
+  > table
+  > tbody
+  > tr[data-selected="true"]:hover,
+.table-wrapper > table > tbody > tr:hover {
+  background: var(--table-row-hover-bg) !important;
+  transition: background var(--transition-duration) ease;
 }
 
-.page-navigation-buttons-container {
-  display: flex;
-  align-items: center;
+.table-wrapper > table .header-row {
+  background: var(--table-header-bg);
+  font-size: 1rem;
 }
 
-.page-navigation-button {
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid #808080;
-  border-radius: 50%;
-  margin-right: 4px;
+.table-wrapper > table tr.filters > th > div > input {
+  width: 100%;
+  min-width: 7rem;
+  font-weight: normal;
+  background: #ffffff;
 }
 
-.page-navigation-button:disabled {
-  cursor: not-allowed;
-  background-color: #e7e7e7;
+.table-wrapper > table tr.filters > th.multiselect > div {
+  background: #ffffff;
+  font-weight: normal;
 }
 
-.page-navigation-button:focus {
-  outline: none !important;
+.table-wrapper > table tr.filters > th.multiselect > div .input-field-select {
+  margin-top: 0;
 }
 
-.navigation-button-icon {
-  width: 18px;
-  height: 18px;
+.table-container .table-wrapper > table > tbody > tr > td,
+.table-container .table-wrapper > table > thead > tr > th {
+  padding: var(--table-column-padding);
 }
 
-@media (max-width: 600px) {
-  .toggle-wrap {
-    display: block;
-  }
+.table-container .table-wrapper > table > thead > tr > th.column-actions,
+.table-container .table-wrapper > table > thead > tr > th.column-select {
+  width: var(--table-actions-column-width);
+  max-width: var(--table-actions-column-width);
+  min-width: var(--table-actions-column-width);
+}
 
-  .toggle-icon {
-    margin: auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 1.5rem;
-    width: 1.5rem;
-    color: #fff;
-  }
-
-  table thead {
-    display: none;
-  }
-
-  table,
-  table thead.expand,
-  table tbody,
-  table th,
-  table tr,
-  table td {
-    display: block;
-    width: 100%;
-  }
-
-  table thead.expand {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-
-  thead tr {
-    margin-bottom: 1rem;
-  }
-
-  thead th {
-    border-bottom: 1px solid #fff;
-  }
-
-  thead th:last-child {
-    border: none;
-  }
-
-  tbody tr {
-    border: 1px solid #000;
-    margin-bottom: 1rem;
-  }
-
-  td {
-    font-size: 0.8rem;
-    text-align: right;
-    position: relative;
-    border-bottom: 1px solid #000;
-  }
-
-  td:last-child {
-    border: none;
-  }
-
-  td::before {
-    content: attr(data-label);
-    left: 0;
-    width: 50%;
-    float: left;
-    text-align: left;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-
-  .page-navigation-container {
-    flex-direction: column;
-  }
-
-  .page-navigation-buttons-container {
-    margin-top: 8px;
-  }
+.table-container .pagination .page-input-control input {
+  background: #ffffff;
 }

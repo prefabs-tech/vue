@@ -58,6 +58,11 @@
   width: var(--button-width, fit-content);
 }
 
+.button:focus {
+  outline: 2px solid var(--_button-color);
+  outline-offset: 2px;
+}
+
 .button.disabled {
   cursor: default;
   opacity: 0.5;
@@ -169,6 +174,7 @@
   --_button-text-color: var(--_button-color);
   background: transparent;
   border: 1px solid transparent;
+  font-weight: 400;
 }
 
 .button.textOnly:hover {

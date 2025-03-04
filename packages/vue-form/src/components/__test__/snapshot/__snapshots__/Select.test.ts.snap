@@ -15,58 +15,52 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
     <span
       class="selected-options"
     >
-      
-      <span
-        class="selected-option"
+      FR, DE, BE, FE, RE
+    </span>
+    <span
+      class="action-items"
+    >
+      <svg
+        fill="none"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        FR 
-        <img
-          class="remove-option"
-          src="/src/assets/svg/x-mark.svg"
+        <path
+          d="M6 6L18 18M18 6L6 18"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
         />
-      </span>
-      <span
-        class="selected-option"
+      </svg>
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        DE 
-        <img
-          class="remove-option"
-          src="/src/assets/svg/x-mark.svg"
-        />
-      </span>
-      <span
-        class="selected-option"
-      >
-        BE 
-        <img
-          class="remove-option"
-          src="/src/assets/svg/x-mark.svg"
-        />
-      </span>
-      <span
-        class="selected-option"
-      >
-        FE 
-        <img
-          class="remove-option"
-          src="/src/assets/svg/x-mark.svg"
-        />
-      </span>
-      <span
-        class="selected-option"
-      >
-        RE 
-        <img
-          class="remove-option"
-          src="/src/assets/svg/x-mark.svg"
-        />
-      </span>
-      
+        <g
+          id="Complete"
+        >
+          <g
+            id="F-Chevron"
+          >
+            <polyline
+              fill="none"
+              id="down"
+              points="5 8.5 12 15.5 19 8.5"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </g>
+        </g>
+      </svg>
     </span>
   </div>
   <ul
-    class="multiselect-dropdown"
+    role="list"
   >
+    <!--v-if-->
     <li
       class="multiselect-option"
     >
@@ -74,6 +68,7 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         class="checkbox-wrapper"
       >
         <input
+          checked=""
           id="checkbox"
           name="checkbox"
           type="checkbox"
@@ -90,13 +85,16 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         class="checkbox-wrapper"
       >
         <input
+          checked=""
           id="checkbox"
           name="checkbox"
           type="checkbox"
         />
         <!--v-if-->
       </div>
-       BE
+      
+      BE
+      
     </li>
     <li
       class="multiselect-option"
@@ -105,13 +103,16 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         class="checkbox-wrapper"
       >
         <input
+          checked=""
           id="checkbox"
           name="checkbox"
           type="checkbox"
         />
         <!--v-if-->
       </div>
-       DE
+      
+      DE
+      
     </li>
     <li
       class="multiselect-option"
@@ -120,13 +121,16 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         class="checkbox-wrapper"
       >
         <input
+          checked=""
           id="checkbox"
           name="checkbox"
           type="checkbox"
         />
         <!--v-if-->
       </div>
-       FE
+      
+      FE
+      
     </li>
     <li
       class="multiselect-option"
@@ -135,13 +139,16 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         class="checkbox-wrapper"
       >
         <input
+          checked=""
           id="checkbox"
           name="checkbox"
           type="checkbox"
         />
         <!--v-if-->
       </div>
-       FR
+      
+      FR
+      
     </li>
     <li
       class="multiselect-option"
@@ -150,13 +157,16 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         class="checkbox-wrapper"
       >
         <input
+          checked=""
           id="checkbox"
           name="checkbox"
           type="checkbox"
         />
         <!--v-if-->
       </div>
-       RE
+      
+      RE
+      
     </li>
     
   </ul>
@@ -178,50 +188,93 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     <span
       class="selected-options"
     >
-      
-      <span
-        class="selected-option"
+      FR
+    </span>
+    <span
+      class="action-items"
+    >
+      <svg
+        fill="none"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        FR 
-        <!--v-if-->
-      </span>
-      
+        <path
+          d="M6 6L18 18M18 6L6 18"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          id="Complete"
+        >
+          <g
+            id="F-Chevron"
+          >
+            <polyline
+              fill="none"
+              id="down"
+              points="5 8.5 12 15.5 19 8.5"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </g>
+        </g>
+      </svg>
     </span>
   </div>
   <ul
-    class="multiselect-dropdown"
+    role="list"
   >
+    <!--v-if-->
     <!--v-if-->
     
     <li
       class="multiselect-option"
     >
       <!--v-if-->
-       BE
+      
+      BE
+      
     </li>
     <li
       class="multiselect-option"
     >
       <!--v-if-->
-       DE
+      
+      DE
+      
     </li>
     <li
       class="multiselect-option"
     >
       <!--v-if-->
-       FE
+      
+      FE
+      
     </li>
     <li
       class="multiselect-option selected"
     >
       <!--v-if-->
-       FR
+      
+      FR
+      
     </li>
     <li
       class="multiselect-option"
     >
       <!--v-if-->
-       RE
+      
+      RE
+      
     </li>
     
   </ul>

@@ -151,6 +151,10 @@ const menu = [
         routeName: "loadingPage",
       },
       {
+        name: t("ui.page.title"),
+        routeName: "page",
+      },
+      {
         name: t("ui.sortableList.title"),
         routeName: "sortableList",
       },

@@ -17,14 +17,24 @@
           valid: meta.dirty && meta.valid && fieldSchema,
         }"
         :disabled="disabled"
+        :enable-search="enableSearch"
         :has-sorted-options="hasSortedOptions"
         :model-value="modelValue"
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
+        :show-remove-selection="showRemoveSelection"
         tabindex="0"
         @update:model-value="onSelect"
-      />
+      >
+        <template
+          v-for="(option, index) in options"
+          :key="`${index}-${option.label}`"
+          #[option.value]
+        >
+          <slot :name="option.value"></slot>
+        </template>
+      </MultiSelect>
       <ErrorMessage :name="name" />
     </Field>
   </div>
@@ -51,6 +61,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  enableSearch: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -81,7 +92,7 @@ const props = defineProps({
     type: Array as PropType<SelectOption[]>,
   },
   placeholder: {
-    default: "Select value",
+    default: undefined,
     type: String,
   },
   schema: {
@@ -90,6 +101,14 @@ const props = defineProps({
     },
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+  },
+  searchPlaceholder: {
+    default: undefined,
+    type: String,
+  },
+  showRemoveSelection: {
+    default: true,
+    type: Boolean,
   },
 });
 

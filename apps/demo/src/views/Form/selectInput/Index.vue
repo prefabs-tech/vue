@@ -1,9 +1,13 @@
 <template>
   <FormPage :title="$t('form.label.select')" class="demo">
     <template #toolbar>
-      <router-link :to="{ name: 'form' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/form')"
+      />
     </template>
 
     <section>
@@ -31,11 +35,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -70,11 +74,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -111,11 +115,54 @@
           const disabled = ref("de");
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.withSearch") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.selectWithSearch"
+          :label="$t('form.label.language')"
+          :options="options"
+          :placeholder="$t('form.placeholder.language')"
+          :search-placeholder="$t('form.placeholder.search')"
+          enable-search
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              enable-search
+              label="Language"
+              placeholder="Select a language"
+              search-placeholder="Search..."
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -128,7 +175,7 @@
 
       <div class="section-content">
         <SelectInput
-          v-model="formData.input"
+          v-model="formData.disabledSortInput"
           :has-sorted-options="false"
           :label="$t('form.label.language')"
           :options="options"
@@ -152,11 +199,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -169,7 +216,7 @@
 
       <div class="section-content">
         <SelectInput
-          v-model="formData.input"
+          v-model="formData.i18nSelect"
           :label="$t('form.label.language')"
           :options="options"
           :placeholder="$t('form.placeholder.language')"
@@ -194,11 +241,11 @@
           const { t } = useI18n();
 
           const options = ref([
-            { value: "fr", label: t("form.label.french") },
-            { value: "de", label: t("form.label.german") },
-            { value: "be", label: t("form.label.dutch") },
-            { value: "np", label: t("form.label.nepali") },
-            { value: "hi", label: t("form.label.hindi") },
+            { label: t("form.label.french"), value: "fr"},
+            { label: t("form.label.german"), value: "de"},
+            { disabled: true, label: t("form.label.dutch"), value: "be", },
+            { label: t("form.label.nepali"), value: "np",  },
+            { label: t("form.label.hindi"), value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -207,11 +254,11 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.multiSelect") }}</h2>
+      <h2>{{ $t("form.label.multiselect") }}</h2>
 
       <div class="section-content">
         <SelectInput
-          v-model="formData.multiSelect"
+          v-model="formData.multiselect"
           :label="$t('form.label.language')"
           :options="options"
           :placeholder="$t('form.placeholder.languages')"
@@ -235,11 +282,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -248,11 +295,11 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.disabledMultiSelect") }}</h2>
+      <h2>{{ $t("form.label.disabledMultiselect") }}</h2>
 
       <div class="section-content">
         <SelectInput
-          v-model="formData.disabledMultiSelect"
+          v-model="formData.disabledMultiselect"
           :label="$t('form.label.language')"
           :options="options"
           disabled
@@ -278,11 +325,121 @@
           const disabled = ref(["be", "de"]);
 
           const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.multiselectSearch") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.multiselectSearch"
+          :label="$t('form.label.language')"
+          :options="options"
+          :placeholder="$t('form.placeholder.languages')"
+          :search-placeholder="$t('form.placeholder.search')"
+          enable-search
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              enable-search
+              label="Language"
+              multiple
+              placeholder="Select languages"
+              search-placeholder="Search..."
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.customLabel") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.customLabelSelect"
+          :label="$t('form.label.language')"
+          :options="options"
+          :placeholder="$t('form.placeholder.language')"
+          multiple
+        >
+          <template
+            v-for="(option, index) in options"
+            :key="`${index}-${option.label}`"
+            #[option.value]
+          >
+            <span>
+              <i class="pi pi-user" />
+              {{ option.label }}
+            </span>
+          </template>
+        </SelectInput>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              :label="t('form.label.language')"
+              :placeholder="t('form.placeholder.language')"
+              multiple
+            &gt;
+              &lt;template
+                v-for="(option, index) in options"
+                #[option.value]
+              &gt;
+                &lt;span&gt;
+                  &lt;i class="pi pi-user" /&gt;
+                  &lbrace;&lbrace; option.label &rbrace;&rbrace;
+                &lt;/span&gt;
+              &lt;/template&gt;
+            &lt;/SelectInput&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+
+          const { t } = useI18n();
+
+          const options = ref([
+            { label: "French", value: "fr"},
+            { label: "German", value: "de"},
+            { disabled: true, label: "Dutch", value: "be", },
+            { label: "Nepali", value: "np",  },
+            { label: "Hindi", value: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -327,13 +484,13 @@
             .array()
             .min(1, { message: "Please select at least one valid option" });
 
-          const options = ref([
-            { value: "fr", label: "French" },
-            { value: "de", label: "German" },
-            { value: "be", label: "Dutch" },
-            { value: "np", label: "Nepali" },
-            { value: "hi", label: "Hindi" },
-          ]);
+            const options = ref([
+              { label: "French", value: "fr"},
+              { label: "German", value: "de"},
+              { disabled: true, label: "Dutch", value: "be", },
+              { label: "Nepali", value: "np",  },
+              { label: "Hindi", value: "hi" },
+            ]);
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -351,6 +508,7 @@ export default {
 <script setup lang="ts">
 import { Form, SelectInput } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { ButtonElement } from "@dzangolab/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
@@ -359,24 +517,29 @@ import FormPage from "../FormPage.vue";
 const { t } = useI18n();
 
 const inputSchema = z
-  .string({ invalid_type_error: t("form.errors.multiSelect.invalid") })
+  .string({ invalid_type_error: t("form.errors.multiselect.invalid") })
   .array()
-  .min(1, { message: t("form.errors.multiSelect.invalid") });
+  .min(1, { message: t("form.errors.multiselect.invalid") });
 
 let formData = reactive({
+  customLabelSelect: ref(),
   disabled: ref("de"),
-  disabledMultiSelect: ref(["be", "de"]),
+  disabledMultiselect: ref(["be", "de"]),
+  disabledSortInput: ref(),
+  i18nSelect: ref(),
   input: ref(),
   inputWithValidation: ref([]),
-  multiSelect: ref(),
+  multiselect: ref(),
+  multiselectSearch: ref(),
   noLabelInput: ref(),
+  selectWithSearch: ref(),
 });
 
 const options = ref([
-  { value: "fr", label: t("form.label.french") },
-  { value: "de", label: t("form.label.german") },
-  { value: "be", label: t("form.label.dutch") },
-  { value: "np", label: t("form.label.nepali") },
-  { value: "hi", label: t("form.label.hindi") },
+  { label: t("form.label.french"), value: "fr" },
+  { label: t("form.label.german"), value: "de" },
+  { disabled: true, label: t("form.label.dutch"), value: "be" },
+  { label: t("form.label.nepali"), value: "np" },
+  { label: t("form.label.hindi"), value: "hi" },
 ]);
 </script>

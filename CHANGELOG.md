@@ -1,3 +1,40 @@
+## [0.10.4](https://github.com/dzangolab/vue/compare/v0.10.3...v0.10.4) (2025-03-03)
+
+
+
+## [0.10.3](https://github.com/dzangolab/vue/compare/v0.10.2...v0.10.3) (2025-02-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @kyvg/vue3-notification to v2.9.1 ([#505](https://github.com/dzangolab/vue/issues/505)) ([b97f449](https://github.com/dzangolab/vue/commit/b97f4491503c0354f86eb100f92c1dbb4beb7c51))
+
+
+
+## [0.10.2](https://github.com/dzangolab/vue/compare/v0.10.1...v0.10.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* update accordion icon import logic ([#477](https://github.com/dzangolab/vue/issues/477)) ([6bdd965](https://github.com/dzangolab/vue/commit/6bdd96573d301a78b499eab46e884466c0d067b0))
+
+
+
+## [0.10.1](https://github.com/dzangolab/vue/compare/v0.10.0...v0.10.1) (2025-01-31)
+
+
+### Features
+
+* add append mode to file input ([3159a68](https://github.com/dzangolab/vue/commit/3159a68d8c185fdedbebf6042a6dadd8cd5a810d))
+* add basic file input demo ([4b7f1e7](https://github.com/dzangolab/vue/commit/4b7f1e7de065ab2038b92fe0c785f5e1171ff730))
+* add button options demo to file input ([b7efbc5](https://github.com/dzangolab/vue/commit/b7efbc50f1e9e256009b5f08ad02fab70bb77269))
+* add dropzone file input demo ([d6f59b3](https://github.com/dzangolab/vue/commit/d6f59b3b780dc7d108eed244f320cad2f5d150f1))
+* add file input component to form package ([4ebad91](https://github.com/dzangolab/vue/commit/4ebad91de3d6a67120db196337f897051e9f02d6))
+* add multiple and dropzone demo for file input ([4297e73](https://github.com/dzangolab/vue/commit/4297e7395b00b5b5dc5a46b3721ee9d637dfa409))
+* add selected file section to file input ([11583a8](https://github.com/dzangolab/vue/commit/11583a8c11aa48a209812e3aae619cfd782959b5))
+
+
+
 # [0.10.0](https://github.com/dzangolab/vue/compare/v0.9.4...v0.10.0) (2025-01-15)
 
 

@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StickyCollapsibleFooter > matches snapshot 1`] = `
+<footer
+  class="sticky-collapsible fixed"
+>
+  <div
+    class="content"
+  >
+    
+    This is test footer.
+    
+  </div>
+</footer>
+`;

@@ -17,7 +17,7 @@
       "min": "Title must be at least {length} character(s)[fr]",
       "required": "The field should not be empty[fr]"
     },
-    "multiSelect":  {
+    "multiselect":  {
       "invalid": "Please select atleast one valid option[fr]"
     },
     "number": {
@@ -57,6 +57,7 @@
     "customColsRowsInput": "With cols and rows props[fr]",
     "customErrorMessageInput": "With custom error message[fr]",
     "customFormat": "Custom format[fr]",
+    "customLabel": "With custom label",
     "customValidationInput": "With custom validation[fr]",
     "customStyleInput": "Custom style[fr]",
     "dailySynchro": "Select the sections that should be in the daily synchro",
@@ -68,7 +69,7 @@
     "daysInput": "Days input",
     "debouncedTypeahead": "With debounce time prop",
     "deliverableList": "A list of your daily deliverables",
-    "disabledMultiSelect": "Disabled multiselect[fr]",
+    "disabledMultiselect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
     "disableWeekDays": "Disable week days[fr]",
     "disableSort": "Disable alphabetical sorting",
@@ -104,9 +105,11 @@
     "multiCalendars": "Multicalendar[fr]",
     "multiCheckbox": "Multiple checkbox input",
     "multiple": "Multiple files",
-    "multiSelect": "Multiselect[fr]",
+    "multiselect": "Multiselect[fr]",
+    "multiselectSearch": "Multiselect with search",
     "nepali": "Nepali",
     "next": "Next",
+    "no": "No",
     "number": "Number[fr]",
     "one": "One",
     "other": "Other",
@@ -134,9 +137,12 @@
     "valid": "Show valid state[fr]",
     "vehicle": "Vehicle",
     "withI18n": "With i18n[fr]",
+    "withOnOffLabel":  "With on off label",
+    "withSearch": "With search",
     "workInProgress": "Work in progress",
     "year": "Year[fr]",
-    "yearPicker": "Year picke[fr]"
+    "yearPicker": "Year picker[fr]",
+    "yes": "Yes"
   },
   "placeholder": {
     "days": "Enter number of days",
@@ -147,6 +153,7 @@
     "multiSelect": "Select multiple value[fr]",
     "number": "Enter a number[fr]",
     "password": "Enter a password[fr]",
+    "search": "Search...",
     "select": "Select a value[fr]",
     "textarea": "Enter textarea input[fr]",
     "textInput": "Enter text input[fr]",
