@@ -4,7 +4,7 @@
       v-if="config?.user?.features?.loginType === 'username'"
       class="field username"
     >
-      <label for="username"> Username </label>
+      <label for="username"> {{ t("user.login.form.username.label") }} </label>
       <Field
         v-slot="{ field, meta }"
         :model-value="credentials.username"
@@ -17,7 +17,7 @@
             valid: meta.dirty && meta.valid,
           }"
           :disabled="false"
-          :placeholder="'Username'"
+          :placeholder="t('user.login.form.username.placeholder')"
           tabindex="0"
           type="text"
         />
