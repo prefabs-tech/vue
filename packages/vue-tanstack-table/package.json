@@ -55,8 +55,8 @@
     "vue-tsc": "1.2.0"
   },
   "peerDependencies": {
-    "@dzangolab/vue3-form": "0.10.0",
-    "@dzangolab/vue3-ui": "0.10.0",
+    "@dzangolab/vue3-form": "0.10.4",
+    "@dzangolab/vue3-ui": "0.10.4",
     "vue": ">=3.2"
   },
   "engines": {

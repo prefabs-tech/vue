@@ -18,6 +18,7 @@
           :columns-data="columns"
           :data="data.slice(0, 15)"
           :paginated="false"
+          show-reset-button
         />
 
         <!-- eslint-disable -->
