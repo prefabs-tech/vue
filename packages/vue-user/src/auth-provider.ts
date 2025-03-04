@@ -1,5 +1,6 @@
 import * as laravelPassport from "./laravel-passport";
 import * as supertokens from "./supertokens";
+import { LoginCredentials } from "./types";
 
 import type { AppConfig } from "@dzangolab/vue3-config";
 
@@ -22,8 +23,20 @@ const getAuthProvider = () => {
 
 const providers = {
   "laravel-passport": {
-    doLogin: laravelPassport.login,
-    doLogout: laravelPassport.logout,
+    doLogin: (credentials: LoginCredentials) => {
+      const path = authConfig?.user?.apiRoutes?.login || "/api/login";
+
+      return laravelPassport.login(
+        credentials,
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
+    doLogout: () => {
+      const path = authConfig?.user?.apiRoutes?.logout || "/api/logout";
+
+      return laravelPassport.logout(authConfig?.apiBaseUrl || "", path);
+    },
     verifySessionRoles: laravelPassport.verifySessionRoles,
   },
   supertokens: {

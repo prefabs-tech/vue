@@ -7,12 +7,13 @@ import type { LoginCredentials, UserType } from "../types";
 const login = async (
   credentials: LoginCredentials,
   apiBaseUrl: string,
+  path: string,
 ): Promise<UserType | undefined> => {
   let user: UserType | undefined;
   let response;
 
   try {
-    response = await client(apiBaseUrl).post("/api/login", credentials, {
+    response = await client(apiBaseUrl).post(path, credentials, {
       withCredentials: true,
     });
     if (response.status === 200) {

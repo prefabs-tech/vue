@@ -3,11 +3,11 @@ import { AxiosError } from "axios";
 import useUserStore from ".././store";
 import client from "../api/axios";
 
-const logout = async (apiBaseUrl: string) => {
+const logout = async (apiBaseUrl: string, path: string) => {
   const userStore = useUserStore();
 
   try {
-    await client(apiBaseUrl).post("/api/logout", {
+    await client(apiBaseUrl).post(path, {
       withCredentials: true,
     });
   } catch (error) {

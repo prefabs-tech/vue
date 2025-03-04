@@ -21,11 +21,11 @@ export async function verifySessionRoles(
     if (hasSupportedRoles) {
       return true;
     } else {
-      await logout("");
+      await logout();
     }
   } else {
-    await logout("");
+    await logout();
   }
 
-  return false; // Ensure the function always returns a boolean value
+  return false;
 }

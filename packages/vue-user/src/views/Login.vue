@@ -80,7 +80,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
     withRoles: config?.user?.supportedRoles,
   };
 
-  await login(finalCredentials, config?.apiBaseUrl)
+  await login(finalCredentials)
     .then(async (response) => {
       if (response) {
         const supportedRoles = config?.user?.supportedRoles;
