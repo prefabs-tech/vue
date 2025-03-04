@@ -1,16 +1,5 @@
 <template>
   <Form @submit="onSubmit">
-    <Email
-      v-if="config?.user?.features?.loginType === 'email'"
-      v-model="credentials.email"
-      :error-messages="{
-        invalid: t('user.login.form.email.errors.invalid'),
-        required: t('user.login.form.email.errors.required'),
-      }"
-      :label="t('user.login.form.email.label')"
-      :placeholder="t('user.login.form.email.placeholder')"
-    />
-
     <div
       v-if="config?.user?.features?.loginType === 'username'"
       class="field username"
@@ -35,6 +24,17 @@
         <ErrorMessage :name="'username'" />
       </Field>
     </div>
+
+    <Email
+      v-else
+      v-model="credentials.email"
+      :error-messages="{
+        invalid: t('user.login.form.email.errors.invalid'),
+        required: t('user.login.form.email.errors.required'),
+      }"
+      :label="t('user.login.form.email.label')"
+      :placeholder="t('user.login.form.email.placeholder')"
+    />
 
     <Password
       v-model="credentials.password"
