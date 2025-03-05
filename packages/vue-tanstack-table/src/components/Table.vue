@@ -79,7 +79,8 @@ const props = defineProps({
     type: String,
   },
   columnsData: {
-    type: Array as PropType<ColumnDef<unknown, unknown>[]>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: Array as PropType<ColumnDef<any>[]>,
     default: () => [],
   },
   data: {
