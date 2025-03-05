@@ -1,29 +1,12 @@
 <template>
   <Form @submit="onSubmit">
-    <div
+    <Input
       v-if="config?.user?.features?.loginType === 'username'"
-      class="field username"
-    >
-      <label for="username"> {{ t("user.login.form.username.label") }} </label>
-      <Field
-        v-slot="{ field, meta }"
-        :model-value="credentials.username"
-        :name="'username'"
-      >
-        <input
-          v-bind="field"
-          :class="{
-            invalid: meta.touched && !meta.valid,
-            valid: meta.dirty && meta.valid,
-          }"
-          :disabled="false"
-          :placeholder="t('user.login.form.username.placeholder')"
-          tabindex="0"
-          type="text"
-        />
-        <ErrorMessage :name="'username'" />
-      </Field>
-    </div>
+      :label="t('user.login.form.username.label')"
+      :model-value="credentials.username"
+      :name="'username'"
+      :placeholder="t('user.login.form.username.placeholder')"
+    />
 
     <Email
       v-else
@@ -64,10 +47,10 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
-import { Email, Password } from "@dzangolab/vue3-form";
+import { Email, Input, Password } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
-import { ErrorMessage, Field, Form } from "vee-validate";
+import { Form } from "vee-validate";
 
 import { useTranslations } from "../index";
 
