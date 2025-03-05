@@ -1,5 +1,6 @@
 {
   "label": {
+    "addRecord": "Add record",
     "components": "Components",
     "getStarted": "Get started",
     "totalRecords": "Total records",
@@ -8,6 +9,7 @@
   "title": "Table",
   "usage": {
     "basic": "Basic",
+    "customToolbar": "With custom toolbar actions",
     "footer": "with footer",
     "pagination": "With pagination",
     "sortable": "With sortable column",

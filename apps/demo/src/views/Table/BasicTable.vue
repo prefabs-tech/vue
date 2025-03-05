@@ -260,6 +260,45 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("table.usage.customToolbar") }}</h2>
+
+      <div class="section-content">
+        <Table :columns-data="columns" :data="data.splice(0, 5)">
+          <template #toolbar>
+            <ButtonElement :label="$t('table.label.addRecord')" />
+          </template>
+        </Table>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table :columns-data="columns" :data="data"&gt;
+              &lt;template #toolbar&gt;
+                &lt;ButtonElement label="Add record" /&gt;
+              &lt;/template&gt;
+            &lt;/Table&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { ButtonElement } from "@dzangolab/vue3-ui";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
