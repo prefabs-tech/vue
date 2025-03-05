@@ -33,9 +33,6 @@ const client = (baseURL: string, config?: AppConfig) => {
             return instance(originalRequest);
           }
         } catch (refreshError) {
-          // eslint-disable-next-line no-console
-          console.error("Token refresh failed:", refreshError);
-          // userStore.removeAuthTokens();
           return Promise.reject(refreshError);
         }
       }

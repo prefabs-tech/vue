@@ -91,12 +91,6 @@ const onSubmit = (credentials: LoginCredentials) => {
   emit("submit", credentials);
 };
 
-// const onUsernameInput = (event: Event) => {
-//   const value = (event.target as HTMLInputElement).value;
-
-//   emit("update:modelValue", value);
-// };
-
 defineProps({
   loading: {
     type: Boolean,

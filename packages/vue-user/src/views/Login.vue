@@ -48,7 +48,6 @@ import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
-// import { verifySessionRoles } from "../supertokens";
 
 import type { LoginCredentials } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
