@@ -21,8 +21,6 @@ const logout = async (apiBaseUrl: string, path: string) => {
       throw new Error("SOMETHING_WRONG");
     }
   }
-
-  userStore.removeAuthTokens();
 };
 
 export default logout;
