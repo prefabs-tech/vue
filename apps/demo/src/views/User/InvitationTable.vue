@@ -1,7 +1,7 @@
 <template>
   <UserPage
     :title="$t('user.label.invitationTable')"
-    class="demo-invitation-modal"
+    class="demo-invitation-table"
   >
     <template #toolbar>
       <ButtonElement

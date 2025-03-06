@@ -43,6 +43,7 @@ import {
 import { h, ref } from "vue";
 
 import InvitationModal from "./InvitationModal.vue";
+import { ROLE_ADMIN } from "../../constant";
 import { useTranslations } from "../../index";
 
 import type {
@@ -125,7 +126,7 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
         return roles.map((role, index) =>
           h(BadgeComponent, {
             label: role,
-            severity: role === "ADMIN" ? "primary" : "success",
+            severity: role === ROLE_ADMIN ? "primary" : "success",
             fullWidth: true,
             key: role + index,
           }),
@@ -134,7 +135,7 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
       const role = getValue() as string;
       return h(BadgeComponent, {
         label: role,
-        severity: role === "ADMIN" ? "primary" : "success",
+        severity: role === ROLE_ADMIN ? "primary" : "success",
         fullWidth: true,
       });
     },
