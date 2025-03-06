@@ -42,7 +42,11 @@
         @update:date="formData.expiresAt = $event"
       />
 
-      <FormActions :submit-label="submitLabel" @cancel="$emit('cancel')" />
+      <FormActions
+        :submit-label="submitLabel"
+        alignment="filled"
+        @cancel="$emit('cancel')"
+      />
     </Form>
   </div>
 </template>
@@ -202,3 +206,9 @@ const prepareComponent = () => {
 
 prepareComponent();
 </script>
+
+<style lang="css">
+.invitation-form .form-actions {
+  --form-margin-bottom: 0;
+}
+</style>
