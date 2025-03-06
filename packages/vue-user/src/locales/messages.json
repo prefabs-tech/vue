@@ -231,6 +231,7 @@
           "role": "Role",
           "status": "Status"
         },
+        "inviteUser": "Invite user",
         "status": {
           "accepted": "Accepted",
           "expired": "Expired",
@@ -469,6 +470,7 @@
           "role": "Role",
           "status": "Status"
         },
+        "inviteUser": "Invite user",
         "status": {
           "accepted": "Accepted",
           "expired": "Expired",

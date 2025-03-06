@@ -2,7 +2,27 @@
   <Table
     :columns-data="[...defaultColumns, ...columnsData]"
     :data="invitations"
-  />
+  >
+    <template v-if="showInviteAction" #toolbar>
+      <div className="table-actions">
+        <ButtonElement
+          :label="t('user.table.inviteUser')"
+          @click="showModal = true"
+        />
+
+        <InvitationModal
+          :apps="apps"
+          :expiry-mode="expiryMode"
+          :roles="roles"
+          :show="showModal"
+          :submit-label="submitLabel"
+          :title="invitationModalTitle"
+          @on:close="onCloseInvitation"
+          @submit="$emit('on:submitInvitation', $event)"
+        />
+      </div>
+    </template>
+  </Table>
 </template>
 
 <script lang="ts">
@@ -14,12 +34,22 @@ export default {
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Table } from "@dzangolab/vue3-tanstack-table";
-import { BadgeComponent, formatDateTime } from "@dzangolab/vue3-ui";
-import { h } from "vue";
+import {
+  BadgeComponent,
+  ButtonElement,
+  formatDateTime,
+} from "@dzangolab/vue3-ui";
+import { h, ref } from "vue";
 
+import InvitationModal from "./InvitationModal.vue";
 import { useTranslations } from "../../index";
 
-import type { Invitation, UserType } from "../../types";
+import type {
+  Invitation,
+  InvitationAppOption,
+  InvitationRoleOption,
+  UserType,
+} from "../../types";
 import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
 import type { PropType } from "vue";
 
@@ -28,16 +58,43 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 defineProps({
+  apps: {
+    default: () => [],
+    type: Array as PropType<Array<InvitationAppOption>>,
+  },
   columnsData: {
     default: () => [],
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type: Array as PropType<TableColumnDefinition<any>[]>,
   },
+  expiryMode: {
+    default: undefined,
+    type: String,
+    validator: (value: string) => ["calendar", "days"].includes(value),
+  },
+  invitationModalTitle: {
+    default: "",
+    type: String,
+  },
   invitations: {
     default: () => [],
     type: Array as PropType<Invitation[]>,
   },
+  roles: {
+    default: () => [],
+    type: Array as PropType<Array<InvitationRoleOption>>,
+  },
+  showInviteAction: {
+    default: true,
+    type: Boolean,
+  },
+  submitLabel: {
+    default: undefined,
+    type: String,
+  },
 });
+
+const emit = defineEmits(["on:closeInvitation", "on:submitInvitation"]);
 
 const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
@@ -118,7 +175,15 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   },
 ];
 
+const showModal = ref<boolean>(false);
+
 const isExpired = (date?: string | Date | number) => {
   return !!(date && new Date(date) < new Date());
+};
+
+const onCloseInvitation = () => {
+  showModal.value = false;
+
+  emit("on:closeInvitation");
 };
 </script>
