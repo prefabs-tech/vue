@@ -221,6 +221,22 @@
           "success": "Signed up successfully."
         },
         "title": "Register"
+      },
+      "table": {
+        "defaultColumns": {
+          "app": "App",
+          "email": "Email",
+          "expiresAt": "Expires at",
+          "invitedBy": "Invited by",
+          "role": "Role",
+          "status": "Status"
+        },
+        "status": {
+          "accepted": "Accepted",
+          "expired": "Expired",
+          "pending": "Pending",
+          "revoked": "Revoked"
+        }
       }
     }
   },
@@ -443,6 +459,22 @@
           "success": "Signed up successfully."
         },
         "title": "Inscription"
+      },
+      "table": {
+        "defaultColumns": {
+          "app": "App",
+          "email": "Email",
+          "expiresAt": "Expires at",
+          "invitedBy": "Invited by",
+          "role": "Role",
+          "status": "Status"
+        },
+        "status": {
+          "accepted": "Accepted",
+          "expired": "Expired",
+          "pending": "Pending",
+          "revoked": "Revoked"
+        }
       }
     }
   }
