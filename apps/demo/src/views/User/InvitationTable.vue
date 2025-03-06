@@ -27,7 +27,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;InvitationTable
-              :initialSorting="[{ id: 'email', desc: false }]"
+              :initial-sorting="[{ id: 'email', desc: false }]"
               :invitations="invitations"
               invitation-modal-title="Invite a user" 
             /&gt;
