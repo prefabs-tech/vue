@@ -7,8 +7,8 @@
     <TableToolbar
       v-if="showColumnAction || showResetButton || $slots.toolbar"
       :column-action-button-label="columnActionButtonLabel"
-      :has-actions-row="hasActionsRow"
-      :has-selection-row="hasSelectionRow"
+      :has-actions-column="hasActionsColumn"
+      :has-selection-column="hasSelectionColumn"
       :reset-button-label="resetButtonLabel"
       :show-column-action="showColumnAction"
       :show-reset-button="showResetButton"
@@ -50,6 +50,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
 import {
   getCoreRowModel,
   getFilteredRowModel,
@@ -58,7 +59,7 @@ import {
   SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
-import { computed, ref } from "vue";
+import { computed, h, ref } from "vue";
 
 import Pagination from "./Pagination.vue";
 import TableBody from "./TableBody.vue";
@@ -86,8 +87,8 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  hasActionsRow: Boolean,
-  hasSelectionRow: Boolean,
+  hasActionsColumn: Boolean,
+  hasSelectionColumn: Boolean,
   initialSorting: {
     default: () => [],
     type: Array as PropType<SortingState>,
@@ -133,6 +134,17 @@ const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
 });
+
+if (props.hasActionsColumn) {
+  columns.push({
+    accessorKey: "actions",
+    align: "center",
+    header: () =>
+      h(Icon, {
+        icon: "prime:cog",
+      }),
+  });
+}
 
 const sorting = ref<SortingState>(props.initialSorting);
 
