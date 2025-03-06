@@ -2,6 +2,7 @@
   <Table
     :columns-data="[...defaultColumns, ...columnsData]"
     :data="invitations"
+    :initial-sorting="initialSorting"
   >
     <template v-if="showInviteAction" #toolbar>
       <div className="table-actions">
@@ -50,7 +51,10 @@ import type {
   InvitationRoleOption,
   UserType,
 } from "../../types";
-import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+import type {
+  SortingState,
+  TableColumnDefinition,
+} from "@dzangolab/vue3-tanstack-table";
 import type { PropType } from "vue";
 
 const messages = useTranslations();
@@ -71,6 +75,10 @@ defineProps({
     default: undefined,
     type: String,
     validator: (value: string) => ["calendar", "days"].includes(value),
+  },
+  initialSorting: {
+    default: () => [],
+    type: Array as PropType<SortingState>,
   },
   invitationModalTitle: {
     default: "",
