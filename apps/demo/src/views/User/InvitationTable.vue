@@ -21,6 +21,7 @@
           :initial-sorting="[{ id: 'email', desc: false }]"
           :invitation-modal-title="$t('user.label.inviteUser')"
           :invitations="invitations"
+          :visible-columns="visibleColumns"
         />
 
         <!-- eslint-disable -->
@@ -51,4 +52,13 @@ import { InvitationTable } from "@dzangolab/vue3-user";
 
 import UserPage from "./UserPage.vue";
 import { invitations } from "../Table/data";
+
+const visibleColumns = [
+  "email",
+  "app",
+  "role",
+  "invitedBy",
+  "expiresAt",
+  "status",
+];
 </script>

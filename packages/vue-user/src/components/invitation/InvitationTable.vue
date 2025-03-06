@@ -3,6 +3,7 @@
     :columns-data="[...defaultColumns, ...columnsData]"
     :data="invitations"
     :initial-sorting="initialSorting"
+    :visible-columns="visibleColumns"
   >
     <template v-if="showInviteAction" #toolbar>
       <div className="table-actions">
@@ -100,6 +101,10 @@ defineProps({
   submitLabel: {
     default: undefined,
     type: String,
+  },
+  visibleColumns: {
+    default: () => [],
+    type: Array as PropType<string[]>,
   },
 });
 
