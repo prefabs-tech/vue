@@ -1,5 +1,13 @@
 <template>
-  <ButtonElement variant="textOnly" :icon-left="filteredItems[0].icon" />
+  <ButtonElement
+    v-if="showSingleButton"
+    :disabled="filteredItems[0].disabled"
+    :icon-left="filteredItems[0].icon"
+    :label="filteredItems[0].label"
+    rounded
+    variant="textOnly"
+    @click="$emit('action:click', props.data)"
+  />
 </template>
 
 <script lang="ts">
@@ -13,14 +21,7 @@ import { ButtonElement } from "@dzangolab/vue3-ui";
 import { computed } from "vue";
 
 import type { PropType } from "vue";
-
-type DataActionsMenuItem = {
-  disabled?: boolean | ((data: object) => boolean);
-  display?: boolean | ((data: object) => boolean);
-  label?: string;
-  icon?: string;
-  requireConfirmationModal?: boolean;
-};
+import type { DataActionsMenuItem } from "../types";
 
 const props = defineProps({
   actions: {
@@ -32,6 +33,8 @@ const props = defineProps({
     type: Object,
   },
 });
+
+defineEmits(["action:click"]);
 
 const filteredItems = computed(() =>
   props.actions
@@ -49,5 +52,10 @@ const filteredItems = computed(() =>
           ? action.disabled(props.data)
           : action.disabled,
     })),
+);
+
+const showSingleButton = computed(() =>
+  filteredItems.value.length === 1 &&
+  filteredItems.value[0].icon
 );
 </script>

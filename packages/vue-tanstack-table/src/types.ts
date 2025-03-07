@@ -42,3 +42,11 @@ export type FormatNumberType = {
   locale?: string;
   value: number;
 };
+
+export type DataActionsMenuItem = {
+  disabled?: boolean | ((data: object) => boolean);
+  display?: boolean | ((data: object) => boolean);
+  label?: string;
+  icon?: string;
+  requireConfirmationModal?: boolean;
+};

@@ -63,6 +63,7 @@ import { computed, h, ref } from "vue";
 
 import Pagination from "./Pagination.vue";
 import TableBody from "./TableBody.vue";
+import TableDataActions from "./TableDataActions.vue";
 import TableHeader from "./TableHeader.vue";
 import TableToolbar from "./TableToolbar.vue";
 import {
@@ -71,10 +72,15 @@ import {
   DEFAULT_PAGE_SIZE,
 } from "../constants";
 
+import type { DataActionsMenuItem } from "../types";
 import type { ColumnDef } from "@tanstack/vue-table";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  dataActionMenu: {
+    default: () => [],
+    type: Array as PropType<DataActionsMenuItem[]>,
+  },
   columnActionButtonLabel: {
     default: undefined,
     type: String,
@@ -140,9 +146,17 @@ if (props.hasActionsColumn) {
   columns.push({
     accessorKey: "actions",
     align: "center",
+    enableSorting: false,
     header: () =>
       h(Icon, {
         icon: "prime:cog",
+        width: "24",
+      }),
+    cell: ({ row }) =>
+      h(TableDataActions, {
+        actions: props.dataActionMenu,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: row.original as Record<string, any>,
       }),
   });
 }
