@@ -49,8 +49,8 @@ const props = defineProps({
     default: "Columns",
     type: String,
   },
-  hasActionsRow: Boolean,
-  hasSelectionRow: Boolean,
+  hasActionsColumn: Boolean,
+  hasSelectionColumn: Boolean,
   resetButtonLabel: {
     default: "Reset all",
     type: String,
@@ -91,9 +91,9 @@ const items = computed(() =>
 
 const onDrag = (sorted: List[]) => {
   props.table.setColumnOrder([
-    ...(props.hasSelectionRow ? ["select"] : []),
+    ...(props.hasSelectionColumn ? ["select"] : []),
     ...sorted.map((item: List) => String(item?.id)),
-    ...(props.hasActionsRow ? ["actions"] : []),
+    ...(props.hasActionsColumn ? ["actions"] : []),
   ]);
 };
 </script>

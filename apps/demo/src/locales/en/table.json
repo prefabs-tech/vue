@@ -12,6 +12,7 @@
     "customToolbar": "With custom toolbar actions",
     "footer": "with footer",
     "pagination": "With pagination",
+    "singleAction": "With single action button",
     "sortable": "With sortable column",
     "title": "With title"
   }
