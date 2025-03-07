@@ -6,7 +6,7 @@
     :label="filteredItems[0].label"
     rounded
     variant="textOnly"
-    @click="$emit('action:click', props.data)"
+    @click="$emit('action:click')"
   />
 </template>
 
@@ -20,8 +20,8 @@ export default {
 import { ButtonElement } from "@dzangolab/vue3-ui";
 import { computed } from "vue";
 
-import type { PropType } from "vue";
 import type { DataActionsMenuItem } from "../types";
+import type { PropType } from "vue";
 
 const props = defineProps({
   actions: {
@@ -54,8 +54,7 @@ const filteredItems = computed(() =>
     })),
 );
 
-const showSingleButton = computed(() =>
-  filteredItems.value.length === 1 &&
-  filteredItems.value[0].icon
+const showSingleButton = computed(
+  () => filteredItems.value.length === 1 && filteredItems.value[0].icon,
 );
 </script>

@@ -7,7 +7,7 @@
     <TableToolbar
       v-if="showColumnAction || showResetButton || $slots.toolbar"
       :column-action-button-label="columnActionButtonLabel"
-      :has-actions-column="hasActionsColumn"
+      :has-actions-column="Boolean(dataActionMenu.length)"
       :has-selection-column="hasSelectionColumn"
       :reset-button-label="resetButtonLabel"
       :show-column-action="showColumnAction"
@@ -94,7 +94,6 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  hasActionsColumn: Boolean,
   hasSelectionColumn: Boolean,
   initialSorting: {
     default: () => [],
@@ -128,6 +127,8 @@ const props = defineProps({
   },
 });
 
+const emit = defineEmits(["action:click"]);
+
 const columns: ColumnDef<unknown, unknown>[] = [];
 
 props.columnsData.forEach((column) => {
@@ -142,7 +143,7 @@ const pagination = ref({
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
 });
 
-if (props.hasActionsColumn) {
+if (props.dataActionMenu.length) {
   columns.push({
     accessorKey: "actions",
     align: "center",
@@ -157,6 +158,7 @@ if (props.hasActionsColumn) {
         actions: props.dataActionMenu,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         data: row.original as Record<string, any>,
+        "onAction:click": () => emit("action:click", row.original),
       }),
   });
 }

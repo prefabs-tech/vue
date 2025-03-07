@@ -299,6 +299,58 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("table.usage.singleAction") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="columns"
+          :data="data.splice(10, 15)"
+          :data-action-menu="[
+            {
+              icon: 'pi pi-eye',
+            },
+          ]"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          :paginated="false"
+          @action:click="(data) => {}"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="columns"
+              :data="data.splice(10, 15)" 
+              :dataActionMenu="[
+                {
+                  icon: 'pi pi-eye',
+                },
+              ]"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              :paginated="false"
+              @action:click="(data) => {}"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
