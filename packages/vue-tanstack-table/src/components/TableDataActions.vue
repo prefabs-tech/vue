@@ -11,7 +11,7 @@
     />
 
     <Dropdown
-      v-else-if="filteredItems.length > 1"
+      v-else-if="filteredItems.length"
       :menu="filteredItems"
       @select="onSelectAction"
     >
@@ -71,6 +71,11 @@ const props = defineProps({
       boolean | ((data: object) => boolean)
     >,
   },
+  singleActionMode: {
+    default: "button",
+    type: String,
+    validator: (value: string) => ["button", "menu"].includes(value),
+  },
 });
 
 const emit = defineEmits(["action:click", "action:select"]);
@@ -80,24 +85,25 @@ const selectedAction = ref<DataActionsMenuItem>();
 
 const filteredItems = computed(() =>
   props.actions
-    .filter((action) => {
-      const display =
-        typeof action.display === "function"
-          ? action.display(props.data)
-          : (action.display ?? true);
-      return display;
-    })
     .map((action) => ({
       ...action,
+      display:
+        typeof action.display === "function"
+          ? action.display(props.data)
+          : (action.display ?? true),
       disabled:
         typeof action.disabled === "function"
           ? action.disabled(props.data)
           : action.disabled,
-    })),
+    }))
+    .filter((action) => action.display),
 );
 
 const showSingleButton = computed(
-  () => filteredItems.value.length === 1 && filteredItems.value[0].icon,
+  () =>
+    filteredItems.value.length === 1 &&
+    filteredItems.value[0].icon &&
+    props.singleActionMode === "button",
 );
 
 const showActionsMenu = computed(() =>

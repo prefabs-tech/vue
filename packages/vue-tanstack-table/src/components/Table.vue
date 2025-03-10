@@ -127,6 +127,11 @@ const props = defineProps({
   },
   showColumnAction: Boolean,
   showResetButton: Boolean,
+  singleActionMode: {
+    default: "button",
+    type: String,
+    validator: (value: string) => ["button", "menu"].includes(value),
+  },
   titleInfo: {
     default: undefined,
     type: Object as () => { text: string; align?: string },
@@ -165,6 +170,7 @@ if (props.dataActionMenu.length) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         data: row.original as Record<string, any>,
         displayActions: props.displayActions,
+        singleActionMode: props.singleActionMode,
         "onAction:click": () => emit("action:click", row.original),
         "onAction:select": (action: DataActionsMenuItem) =>
           emit("action:select", { action: action?.label, data: row.original }),
