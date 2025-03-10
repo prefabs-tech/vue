@@ -84,7 +84,7 @@ const getBestPosition = (triggerRect: DOMRect): string => {
   );
 };
 
-const getScrollParents = (element: HTMLElement): Element[] => {
+const getScrollableParents = (element: HTMLElement): Element[] => {
   const parents: Element[] = [];
   let current = element.parentElement;
 
@@ -112,7 +112,7 @@ const togglePopup = () => {
       window.addEventListener("resize", updatePosition);
 
       if (dzangolabVueUIPopup.value) {
-        const parents = getScrollParents(dzangolabVueUIPopup.value);
+        const parents = getScrollableParents(dzangolabVueUIPopup.value);
         parents.forEach((parent) => {
           const listener = () => updatePosition();
           parent.addEventListener("scroll", listener);
