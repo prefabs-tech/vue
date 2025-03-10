@@ -47,9 +47,10 @@ const props = defineProps({
 const emit = defineEmits(["onClickOutside"]);
 
 const slots = useSlots();
+
 const dzangolabVueUIPopup = ref<HTMLElement | null>(null);
-const dzangolabVueUIPopupTrigger = ref<HTMLElement | null>(null);
 const dzangolabVueUIPopupContent = ref<HTMLElement | null>(null);
+const dzangolabVueUIPopupTrigger = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
 const popupPosition = ref<string>("bottom");
 const popupStyles = ref({ top: "0", left: "0" });
@@ -58,6 +59,30 @@ const scrollListeners = ref<{ element: Element; listener: () => void }[]>([]);
 const { width: windowWidth, height: windowHeight } = useWindowSize();
 
 const hasContent = computed(() => !!slots.content);
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", updatePosition);
+  window.removeEventListener("resize", updatePosition);
+  scrollListeners.value.forEach(({ element, listener }) => {
+    element.removeEventListener("scroll", listener);
+  });
+});
+
+const getBestPosition = (triggerRect: DOMRect): string => {
+  const positions = {
+    top: triggerRect.top,
+    bottom: windowHeight.value - triggerRect.bottom,
+    left: triggerRect.left,
+    right: windowWidth.value - triggerRect.right,
+  };
+
+  const maxSpace = Math.max(...Object.values(positions));
+  return (
+    (Object.keys(positions) as Array<keyof typeof positions>).find(
+      (key) => positions[key] === maxSpace,
+    ) || "bottom"
+  );
+};
 
 const getScrollParents = (element: HTMLElement): Element[] => {
   const parents: Element[] = [];
@@ -76,22 +101,6 @@ const getScrollParents = (element: HTMLElement): Element[] => {
   }
 
   return parents;
-};
-
-const getBestPosition = (triggerRect: DOMRect): string => {
-  const positions = {
-    top: triggerRect.top,
-    bottom: windowHeight.value - triggerRect.bottom,
-    left: triggerRect.left,
-    right: windowWidth.value - triggerRect.right,
-  };
-
-  const maxSpace = Math.max(...Object.values(positions));
-  return (
-    (Object.keys(positions) as Array<keyof typeof positions>).find(
-      (key) => positions[key] === maxSpace,
-    ) || "bottom"
-  );
 };
 
 const togglePopup = () => {
@@ -182,14 +191,6 @@ const updatePosition = () => {
 onClickOutside(dzangolabVueUIPopup, () => {
   isVisible.value = false;
   emit("onClickOutside");
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("scroll", updatePosition);
-  window.removeEventListener("resize", updatePosition);
-  scrollListeners.value.forEach(({ element, listener }) => {
-    element.removeEventListener("scroll", listener);
-  });
 });
 
 defineExpose({
