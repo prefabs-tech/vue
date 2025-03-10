@@ -146,11 +146,17 @@ const updatePosition = () => {
   switch (position) {
     case "top":
       top = triggerRect.top - contentRect.height - props.offset;
-      left = triggerRect.left;
+      left =
+        windowWidth.value - triggerRect.right < 100
+          ? triggerRect.right - contentRect.width
+          : triggerRect.left;
       break;
     case "bottom":
       top = triggerRect.bottom + props.offset;
-      left = triggerRect.left;
+      left =
+        windowWidth.value - triggerRect.right < 100
+          ? triggerRect.right - contentRect.width
+          : triggerRect.left;
       break;
     case "left":
       left = triggerRect.left - contentRect.width - props.offset;
