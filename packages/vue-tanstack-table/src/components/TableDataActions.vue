@@ -20,46 +20,25 @@
       </slot>
     </Dropdown>
 
-    <ConfirmationModal
-      v-if="showConfirmation"
-      @on:close="showConfirmation = false"
-      @on:confirm="$emit('action:select', selectedAction)"
-    >
-      <template
-        v-if="
-          $slots.confirmationHeader ||
-          selectedAction?.confirmationOptions?.header
-        "
-        #header
+    <slot name="confirmationModal">
+      <ConfirmationModal
+        v-if="showConfirmation"
+        @on:close="showConfirmation = false"
+        @on:confirm="$emit('action:select', selectedAction)"
       >
-        <slot name="confirmationHeader">
+        <template v-if="selectedAction?.confirmationOptions?.header" #header>
           <p>{{ selectedAction?.confirmationOptions.header }}</p>
-        </slot>
-      </template>
+        </template>
 
-      <template
-        v-if="
-          $slots.confirmationBody || selectedAction?.confirmationOptions?.body
-        "
-        #body
-      >
-        <slot name="confirmationBody">
+        <template v-if="selectedAction?.confirmationOptions?.body" #body>
           <p>{{ selectedAction?.confirmationOptions.body }}</p>
-        </slot>
-      </template>
+        </template>
 
-      <template
-        v-if="
-          $slots.confirmationFooter ||
-          selectedAction?.confirmationOptions?.footer
-        "
-        #footer
-      >
-        <slot name="confirmationFooter">
+        <template v-if="selectedAction?.confirmationOptions?.footer" #footer>
           <p>{{ selectedAction?.confirmationOptions.footer }}</p>
-        </slot>
-      </template>
-    </ConfirmationModal>
+        </template>
+      </ConfirmationModal>
+    </slot>
   </div>
 </template>
 
