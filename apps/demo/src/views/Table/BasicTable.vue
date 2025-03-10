@@ -394,12 +394,28 @@
               :data="data.splice(10, 15)" 
               :data-action-menu="[
                 {
-                  icon: 'pi pi-eye',
+                  label: 'View',
+                },
+                {
+                  label: 'Edit',
+                  disabled: true,
+                },
+                {
+                  label: 'Share',
+                  disabled: (rowData) => rowData.id !== 13,
+                },
+                {
+                  label: 'Delete',
+                  requireConfirmationModal: true,'
+                  confirmationOptions: {
+                    header: 'Are you sure!',
+                    body: 'You are going to delete this data.',
+                  },
                 },
               ]"
               :initial-sorting="[{ id: 'email', desc: false }]"
               :paginated="false"
-              @action:click="(data) => {}"
+              @action:select="(data) => {}"
             /&gt;
           &lt;/template&gt;
     
