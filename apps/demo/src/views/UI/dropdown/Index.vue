@@ -72,6 +72,8 @@
           import { Dropdown } from "@dzangolab/vue3-ui";
           import { ref } from "vue";
 
+          import type { DropdownMenu } from "@dzangolab/vue3-ui";
+
           const menu = ref([
             { disabled: true, label: "Change password", value: "password"  },
             { label: "Profile", value: "profile" },
@@ -79,8 +81,8 @@
 
           const showProfile = ref&lt;boolean&gt;(false);
 
-          const onSelect = (value: string | number) => {
-            if (value === menu.value[1].value) {
+          const onSelect = (item: DropdownMenu) => {
+            if (item === menu.value[1]) {
               showProfile.value = true;
             }
           };
@@ -138,6 +140,8 @@ import { ref } from "vue";
 
 import UiPage from "../UiPage.vue";
 
+import type { DropdownMenu } from "@dzangolab/vue3-ui";
+
 const menu = ref([
   { disabled: true, label: "Change password", value: "password" },
   { label: "Profile", value: "profile" },
@@ -145,8 +149,8 @@ const menu = ref([
 
 const showProfile = ref<boolean>(false);
 
-const onSelect = (value: string | number) => {
-  if (value === menu.value[1].value) {
+const onSelect = (item: DropdownMenu) => {
+  if (item === menu.value[1]) {
     showProfile.value = true;
   }
 };
