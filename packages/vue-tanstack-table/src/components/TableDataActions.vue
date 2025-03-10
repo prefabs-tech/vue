@@ -24,7 +24,7 @@
       <ConfirmationModal
         v-if="showConfirmation"
         @on:close="showConfirmation = false"
-        @on:confirm="$emit('action:select', selectedAction)"
+        @on:confirm="onConfirmAction"
       >
         <template v-if="selectedAction?.confirmationOptions?.header" #header>
           <p>{{ selectedAction?.confirmationOptions.header }}</p>
@@ -105,6 +105,12 @@ const showActionsMenu = computed(() =>
     ? props.displayActions(props.data)
     : props.displayActions,
 );
+
+const onConfirmAction = () => {
+  showConfirmation.value = false;
+
+  emit("action:select", selectedAction.value);
+};
 
 const onSelectAction = (action: DataActionsMenuItem) => {
   selectedAction.value = action;
