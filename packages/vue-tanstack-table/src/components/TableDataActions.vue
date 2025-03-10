@@ -1,5 +1,5 @@
 <template>
-  <div class="data-actions">
+  <div v-if="showActionsMenu" class="data-actions">
     <ButtonElement
       v-if="showSingleButton"
       :disabled="filteredItems[0].disabled"
@@ -26,26 +26,37 @@
       @on:confirm="$emit('action:select', selectedAction)"
     >
       <template
-        v-if="$slots.confirmationHeader || confirmationLabel?.header"
+        v-if="
+          $slots.confirmationHeader ||
+          selectedAction?.confirmationOptions?.header
+        "
         #header
       >
         <slot name="confirmationHeader">
-          <p>{{ confirmationLabel.header }}</p>
-        </slot>
-      </template>
-
-      <template v-if="$slots.confirmationBody || confirmationLabel?.body" #body>
-        <slot name="confirmationBody">
-          <p>{{ confirmationLabel.body }}</p>
+          <p>{{ selectedAction?.confirmationOptions.header }}</p>
         </slot>
       </template>
 
       <template
-        v-if="$slots.confirmationFooter || confirmationLabel?.footer"
+        v-if="
+          $slots.confirmationBody || selectedAction?.confirmationOptions?.body
+        "
+        #body
+      >
+        <slot name="confirmationBody">
+          <p>{{ selectedAction?.confirmationOptions.body }}</p>
+        </slot>
+      </template>
+
+      <template
+        v-if="
+          $slots.confirmationFooter ||
+          selectedAction?.confirmationOptions?.footer
+        "
         #footer
       >
         <slot name="confirmationFooter">
-          <p>{{ confirmationLabel.footer }}</p>
+          <p>{{ selectedAction?.confirmationOptions.footer }}</p>
         </slot>
       </template>
     </ConfirmationModal>
@@ -71,17 +82,15 @@ const props = defineProps({
     type: Array as PropType<DataActionsMenuItem[]>,
     required: true,
   },
-  confirmationLabel: {
-    default: undefined,
-    type: Object as PropType<{
-      body: string;
-      footer: string;
-      header: string;
-    }>,
-  },
   data: {
     default: () => ({}),
     type: Object,
+  },
+  displayActions: {
+    default: true,
+    type: [Boolean, Function] as PropType<
+      boolean | ((data: object) => boolean)
+    >,
   },
 });
 
@@ -112,10 +121,15 @@ const showSingleButton = computed(
   () => filteredItems.value.length === 1 && filteredItems.value[0].icon,
 );
 
+const showActionsMenu = computed(() =>
+  typeof props.displayActions === "function"
+    ? props.displayActions(props.data)
+    : props.displayActions,
+);
+
 const onSelectAction = (action: DataActionsMenuItem) => {
   selectedAction.value = action;
 
-  console.log(action);
   if (action?.requireConfirmationModal) {
     showConfirmation.value = true;
   } else {

@@ -323,7 +323,76 @@
             &lt;Table
               :columns-data="columns"
               :data="data.splice(10, 15)" 
-              :dataActionMenu="[
+              :data-action-menu="[
+                {
+                  icon: 'pi pi-eye',
+                },
+              ]"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              :paginated="false"
+              @action:click="(data) => {}"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("table.usage.builtinActions") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="columns"
+          :data="data.splice(5, 10)"
+          :data-action-menu="[
+            {
+              label: $t('table.label.view'),
+            },
+            {
+              label: $t('table.label.edit'),
+              disabled: true,
+            },
+            {
+              label: $t('table.label.share'),
+              disabled: (rowData) => rowData.id !== 13,
+            },
+            {
+              label: $t('table.label.delete'),
+              requireConfirmationModal: true,
+              confirmationOptions: {
+                header: $t('table.label.confirmation'),
+                body: $t('table.label.deleteRecordMessage'),
+              },
+            },
+          ]"
+          :display-actions="(data) => data.id !== 15"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          :paginated="false"
+          @action:select="(data) => {}"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="columns"
+              :data="data.splice(10, 15)" 
+              :data-action-menu="[
                 {
                   icon: 'pi pi-eye',
                 },

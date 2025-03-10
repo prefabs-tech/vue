@@ -2,13 +2,20 @@
   "label": {
     "addRecord": "Add record",
     "components": "Components",
+    "confirmation": "Are you sure!",
+    "delete": "Delete",
+    "deleteRecordMessage": "You are going to delete this data.",
+    "edit": "Edit",
     "getStarted": "Get started",
+    "share": "Share",
     "totalRecords": "Total records",
-    "users": "Users"
+    "users": "Users",
+    "view": "View"
   },
   "title": "Table",
   "usage": {
     "basic": "Basic",
+    "builtinActions": "With built-in actions column",
     "customToolbar": "With custom toolbar actions",
     "footer": "with footer",
     "pagination": "With pagination",
