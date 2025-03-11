@@ -6,7 +6,7 @@
     :visible-columns="visibleColumns"
     :data-action-menu="[
       {
-        label: $t('user.invitations.actions.resend'),
+        label: t('user.invitation.table.actions.resend'),
         icon: 'pi pi-replay',
         disabled: (invitation: Invitation) =>
           !!invitation.acceptedAt ||
@@ -14,12 +14,12 @@
           isExpired(invitation.expiresAt),
         requireConfirmationModal: true,
         confirmationOptions: {
-          body: $t('confirmation.confirm.resend.message'),
-          header: $t('confirmation.header'),
+          body: t('user.invitation.table.confirmation.resend.message'),
+          header: t('user.invitation.table.confirmation.header'),
         },
       },
       {
-        label: t('invitations.actions.revoke'),
+        label: t('user.invitation.table.actions.revoke'),
         icon: 'pi pi-times',
         class: 'danger',
         disabled: (invitation: Invitation) =>
@@ -28,17 +28,17 @@
           isExpired(invitation.expiresAt),
         requireConfirmationModal: true,
         confirmationOptions: {
-          body: t('confirmation.confirm.revoke.message'),
-          header: t('confirmation.header'),
+          body: t('user.invitation.table.confirmation.revoke.message'),
+          header: t('user.invitation.table.confirmation.header'),
         },
       },
       {
-        label: t('invitations.actions.delete'),
+        label: t('user.invitation.table.actions.delete'),
         icon: 'pi pi-trash',
         class: 'danger',
         requireConfirmationModal: true,
         confirmationOptions: {
-          body: t('confirmation.confirm.delete.message'),
+          body: t('user.invitation.table.confirmation.revoke.message'),
           header: t('confirmation.header'),
         },
       },
@@ -47,7 +47,7 @@
     <template v-if="showInviteAction" #toolbar>
       <div className="table-actions">
         <ButtonElement
-          :label="t('user.table.inviteUser')"
+          :label="t('user.invitation.table.inviteUser')"
           @click="showModal = true"
         />
 
@@ -153,17 +153,17 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
     accessorKey: "email",
     enableSorting: true,
-    header: t("user.table.defaultColumns.email"),
+    header: t("user.invitation.table.defaultColumns.email"),
   },
   {
     align: "center",
     accessorKey: "app",
-    header: t("user.table.defaultColumns.app"),
+    header: t("user.invitation.table.defaultColumns.app"),
     cell: ({ row }) => row.original.appId || "—",
   },
   {
     accessorKey: "role",
-    header: t("user.table.defaultColumns.role"),
+    header: t("user.invitation.table.defaultColumns.role"),
     cell: ({ getValue, row: original }) => {
       const roles = (original as unknown as { roles: string[] })?.roles;
       if (Array.isArray(roles)) {
@@ -186,7 +186,7 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   },
   {
     accessorKey: "invitedBy",
-    header: t("user.table.defaultColumns.invitedBy"),
+    header: t("user.invitation.table.defaultColumns.invitedBy"),
     cell: ({ getValue }) => {
       const invitedBy = getValue() as UserType;
       if (!invitedBy) {
@@ -201,16 +201,16 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
     align: "center",
     accessorKey: "status",
-    header: t("user.table.defaultColumns.status"),
+    header: t("user.invitation.table.defaultColumns.status"),
     cell: ({ row }) => {
       const { acceptedAt, revokedAt, expiresAt } = row.original;
       const label = acceptedAt
-        ? t("user.table.status.accepted")
+        ? t("user.invitation.table.status.accepted")
         : revokedAt
-          ? t("user.table.status.revoked")
+          ? t("user.invitation.table.status.revoked")
           : isExpired(expiresAt)
-            ? t("user.table.status.expired")
-            : t("user.table.status.pending");
+            ? t("user.invitation.table.status.expired")
+            : t("user.invitation.table.status.pending");
       const severity = acceptedAt
         ? "success"
         : revokedAt
@@ -223,7 +223,7 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   },
   {
     accessorKey: "expiresAt",
-    header: t("user.table.defaultColumns.expiresAt"),
+    header: t("user.invitation.table.defaultColumns.expiresAt"),
     cell: ({ getValue }) => formatDateTime(getValue() as string),
   },
 ];

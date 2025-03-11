@@ -50,6 +50,42 @@
         },
         "title": "Email verification"
       },
+      "invitation": {
+        "table": {
+          "actions": {
+            "delete": "Delete",
+            "resend": "Resend",
+            "revoke": "Revoke"
+          },
+          "confirmation": {
+            "header": "Confirmation",
+            "delete": {
+              "message": "Are you sure you want to delete?"
+            },
+            "resend": {
+              "message": "Are you sure you want to resend?"
+            },
+            "revoke": {
+              "message":"Are you sure you want to revoke?"
+            }
+          },
+          "defaultColumns": {
+            "app": "App",
+            "email": "Email",
+            "expiresAt": "Expires at",
+            "invitedBy": "Invited by",
+            "role": "Role",
+            "status": "Status"
+          },
+          "inviteUser": "Invite user",
+          "status": {
+            "accepted": "Accepted",
+            "expired": "Expired",
+            "pending": "Pending",
+            "revoked": "Revoked"
+          }
+        }
+      },
       "loading": "Loading...",
       "login": {
         "errors": {
@@ -221,23 +257,6 @@
           "success": "Signed up successfully."
         },
         "title": "Register"
-      },
-      "table": {
-        "defaultColumns": {
-          "app": "App",
-          "email": "Email",
-          "expiresAt": "Expires at",
-          "invitedBy": "Invited by",
-          "role": "Role",
-          "status": "Status"
-        },
-        "inviteUser": "Invite user",
-        "status": {
-          "accepted": "Accepted",
-          "expired": "Expired",
-          "pending": "Pending",
-          "revoked": "Revoked"
-        }
       }
     }
   },
@@ -291,6 +310,42 @@
           "verifyingEmail": "Verifying your email"
         },
         "title": "Email verification"
+      },
+      "invitation": {
+        "table": {
+          "actions": {
+            "delete": "Delete",
+            "resend": "Resend",
+            "revoke": "Revoke"
+          },
+          "confirmation": {
+            "header": "Confirmation",
+            "delete": {
+              "message": "Are you sure you want to delete?"
+            },
+            "resend": {
+              "message": "Are you sure you want to resend?"
+            },
+            "revoke": {
+              "message":"Are you sure you want to revoke?"
+            }
+          },
+          "defaultColumns": {
+            "app": "App",
+            "email": "Email",
+            "expiresAt": "Expires at",
+            "invitedBy": "Invited by",
+            "role": "Role",
+            "status": "Status"
+          },
+          "inviteUser": "Invite user",
+          "status": {
+            "accepted": "Accepted",
+            "expired": "Expired",
+            "pending": "Pending",
+            "revoked": "Revoked"
+          }
+        }
       },
       "loading": "Loading...[fr]",
       "login": {
