@@ -48,6 +48,7 @@ export type DataActionsMenuItem = {
   confirmationOptions?: { body?: string; footer?: string; header?: string };
   disabled?: boolean | ((data: any) => boolean);
   display?: boolean | ((data: any) => boolean);
+  key?: string;
   label?: string;
   icon?: string;
   requireConfirmationModal?: boolean;

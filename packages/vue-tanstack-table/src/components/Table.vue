@@ -184,7 +184,10 @@ if (props.dataActionMenu.length) {
         singleActionMode: props.singleActionMode,
         "onAction:click": () => emit("action:click", row.original),
         "onAction:select": (action: DataActionsMenuItem) =>
-          emit("action:select", { action: action?.label, data: row.original }),
+          emit("action:select", {
+            action: action?.key || action?.label,
+            data: row.original,
+          }),
       }),
   });
 }

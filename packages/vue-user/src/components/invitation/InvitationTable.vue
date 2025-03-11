@@ -6,43 +6,47 @@
     :visible-columns="visibleColumns"
     :data-action-menu="[
       {
-        label: t('user.invitation.table.actions.resend'),
-        icon: 'pi pi-replay',
-        disabled: (invitation: Invitation) =>
-          !!invitation.acceptedAt ||
-          !!invitation.revokedAt ||
-          isExpired(invitation.expiresAt),
-        requireConfirmationModal: true,
         confirmationOptions: {
           body: t('user.invitation.table.confirmation.resend.message'),
           header: t('user.invitation.table.confirmation.header'),
         },
-      },
-      {
-        label: t('user.invitation.table.actions.revoke'),
-        icon: 'pi pi-times',
-        class: 'danger',
         disabled: (invitation: Invitation) =>
           !!invitation.acceptedAt ||
           !!invitation.revokedAt ||
           isExpired(invitation.expiresAt),
+        icon: 'pi pi-replay',
+        key: 'resend',
+        label: t('user.invitation.table.actions.resend'),
         requireConfirmationModal: true,
+      },
+      {
+        class: 'danger',
         confirmationOptions: {
           body: t('user.invitation.table.confirmation.revoke.message'),
           header: t('user.invitation.table.confirmation.header'),
         },
+        disabled: (invitation: Invitation) =>
+          !!invitation.acceptedAt ||
+          !!invitation.revokedAt ||
+          isExpired(invitation.expiresAt),
+        icon: 'pi pi-times',
+        key: 'revoke',
+        label: t('user.invitation.table.actions.revoke'),
+        requireConfirmationModal: true,
       },
       {
-        label: t('user.invitation.table.actions.delete'),
-        icon: 'pi pi-trash',
         class: 'danger',
-        requireConfirmationModal: true,
         confirmationOptions: {
           body: t('user.invitation.table.confirmation.revoke.message'),
           header: t('confirmation.header'),
         },
+        icon: 'pi pi-trash',
+        key: 'delete',
+        label: t('user.invitation.table.actions.delete'),
+        requireConfirmationModal: true,
       },
     ]"
+    @action:select="onActionSelect"
   >
     <template v-if="showInviteAction" #toolbar>
       <div className="table-actions">
@@ -147,7 +151,13 @@ defineProps({
   },
 });
 
-const emit = defineEmits(["on:closeInvitation", "on:submitInvitation"]);
+const emit = defineEmits([
+  "action:delete",
+  "action:resend",
+  "action:revoke",
+  "on:closeInvitation",
+  "on:submitInvitation",
+]);
 
 const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
@@ -232,6 +242,20 @@ const showModal = ref<boolean>(false);
 
 const isExpired = (date?: string | Date | number) => {
   return !!(date && new Date(date) < new Date());
+};
+
+const onActionSelect = (rowData: { action: string; data: Invitation }) => {
+  switch (rowData.action) {
+    case "delete":
+      emit("action:delete", rowData.data);
+      break;
+    case "resend":
+      emit("action:resend", rowData.data);
+      break;
+    case "revoke":
+      emit("action:revoke", rowData.data);
+      break;
+  }
 };
 
 const onCloseInvitation = () => {
