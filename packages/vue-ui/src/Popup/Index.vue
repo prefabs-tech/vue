@@ -145,8 +145,10 @@ const updatePosition = () => {
 
   const isRightAligned = windowWidth.value - triggerRect.right < 100;
   const fitsBelow =
-    windowHeight.value - (triggerRect.bottom + contentRect.height) >= 0;
-  const fitsAbove = triggerRect.top - contentRect.height >= 0;
+    windowHeight.value -
+      (triggerRect.bottom + contentRect.height + props.offset) >=
+    0;
+  const fitsAbove = triggerRect.top - contentRect.height - props.offset >= 0;
 
   switch (position) {
     case "top":
