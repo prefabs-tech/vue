@@ -136,6 +136,10 @@ const props = defineProps({
     default: undefined,
     type: Object as () => { text: string; align?: string },
   },
+  visibleColumns: {
+    default: () => [],
+    type: Array as PropType<string[]>,
+  },
 });
 
 const emit = defineEmits(["action:click", "action:select"]);
@@ -143,6 +147,13 @@ const emit = defineEmits(["action:click", "action:select"]);
 const columns: ColumnDef<unknown, unknown>[] = [];
 
 props.columnsData.forEach((column) => {
+  if (
+    props.visibleColumns.length &&
+    !props.visibleColumns.includes(String(column.accessorKey))
+  ) {
+    return;
+  }
+
   columns.push({
     ...column,
     enableSorting: column.enableSorting ?? false,
@@ -192,6 +203,7 @@ const table = computed(() =>
       get sorting() {
         return sorting.value;
       },
+      columnOrder: props.visibleColumns,
     },
     onPaginationChange: (updaterOrValue) => {
       pagination.value =
