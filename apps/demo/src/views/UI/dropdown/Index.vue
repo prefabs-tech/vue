@@ -74,10 +74,15 @@
 
           import type { DropdownMenu } from "@dzangolab/vue3-ui";
 
-          const menu = ref([
-            { disabled: true, label: "Change password", value: "password"  },
-            { label: "Profile", value: "profile" },
-          ]);
+          const menu = [
+            {
+              disabled: true,
+              icon: "pi pi-lock",
+              label: "Change password",
+              value: "password",
+            },
+            { icon: "pi pi-user", label: "Profile", value: "profile" },
+          ];
 
           const showProfile = ref&lt;boolean&gt;(false);
 
@@ -114,10 +119,15 @@
           import { Dropdown } from "@dzangolab/vue3-ui";
           import { ref } from "vue";
 
-          const menu = ref([
-            { disabled: true, label: "Change password", value: "password"  },
-            { label: "Profile", value: "profile" },
-          ]);
+          const menu = [
+            {
+              disabled: true,
+              icon: "pi pi-lock",
+              label: "Change password",
+              value: "password",
+            },
+            { icon: "pi pi-user", label: "Profile", value: "profile" },
+          ];
           &lt;/script&gt;
 
           &lt;style lang="css"&gt;
@@ -143,8 +153,13 @@ import UiPage from "../UiPage.vue";
 import type { DropdownMenu } from "@dzangolab/vue3-ui";
 
 const menu = ref([
-  { disabled: true, label: "Change password", value: "password" },
-  { label: "Profile", value: "profile" },
+  {
+    disabled: true,
+    icon: "pi pi-lock",
+    label: "Change password",
+    value: "password",
+  },
+  { icon: "pi pi-user", label: "Profile", value: "profile" },
 ]);
 
 const showProfile = ref<boolean>(false);

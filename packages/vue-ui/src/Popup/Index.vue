@@ -2,6 +2,7 @@
   <div ref="dzangolabVueUIPopup" class="popup-container">
     <div
       ref="dzangolabVueUIPopupTrigger"
+      :aria-expanded="Boolean(isVisible)"
       :aria-label="ariaLabel"
       class="popup-trigger"
       @click="togglePopup"
