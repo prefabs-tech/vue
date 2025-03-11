@@ -44,9 +44,10 @@ export type FormatNumberType = {
 };
 
 export type DataActionsMenuItem = {
-  confirmationOptions: { body?: string; footer?: string; header?: string };
-  disabled?: boolean | ((data: object) => boolean);
-  display?: boolean | ((data: object) => boolean);
+  class?: string;
+  confirmationOptions?: { body?: string; footer?: string; header?: string };
+  disabled?: boolean | ((data: any) => boolean);
+  display?: boolean | ((data: any) => boolean);
   label?: string;
   icon?: string;
   requireConfirmationModal?: boolean;

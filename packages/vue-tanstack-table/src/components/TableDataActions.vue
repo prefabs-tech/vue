@@ -27,15 +27,15 @@
         @on:confirm="onConfirmAction"
       >
         <template v-if="selectedAction?.confirmationOptions?.header" #header>
-          <p>{{ selectedAction?.confirmationOptions.header }}</p>
+          <p>{{ selectedAction?.confirmationOptions?.header }}</p>
         </template>
 
         <template v-if="selectedAction?.confirmationOptions?.body" #body>
-          <p>{{ selectedAction?.confirmationOptions.body }}</p>
+          <p>{{ selectedAction?.confirmationOptions?.body }}</p>
         </template>
 
         <template v-if="selectedAction?.confirmationOptions?.footer" #footer>
-          <p>{{ selectedAction?.confirmationOptions.footer }}</p>
+          <p>{{ selectedAction?.confirmationOptions?.footer }}</p>
         </template>
       </ConfirmationModal>
     </slot>

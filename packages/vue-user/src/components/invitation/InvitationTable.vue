@@ -4,6 +4,45 @@
     :data="invitations"
     :initial-sorting="initialSorting"
     :visible-columns="visibleColumns"
+    :data-action-menu="[
+      {
+        label: $t('user.invitations.actions.resend'),
+        icon: 'pi pi-replay',
+        disabled: (invitation: Invitation) =>
+          !!invitation.acceptedAt ||
+          !!invitation.revokedAt ||
+          isExpired(invitation.expiresAt),
+        requireConfirmationModal: true,
+        confirmationOptions: {
+          body: $t('confirmation.confirm.resend.message'),
+          header: $t('confirmation.header'),
+        },
+      },
+      {
+        label: t('invitations.actions.revoke'),
+        icon: 'pi pi-times',
+        class: 'danger',
+        disabled: (invitation: Invitation) =>
+          !!invitation.acceptedAt ||
+          !!invitation.revokedAt ||
+          isExpired(invitation.expiresAt),
+        requireConfirmationModal: true,
+        confirmationOptions: {
+          body: t('confirmation.confirm.revoke.message'),
+          header: t('confirmation.header'),
+        },
+      },
+      {
+        label: t('invitations.actions.delete'),
+        icon: 'pi pi-trash',
+        class: 'danger',
+        requireConfirmationModal: true,
+        confirmationOptions: {
+          body: t('confirmation.confirm.delete.message'),
+          header: t('confirmation.header'),
+        },
+      },
+    ]"
   >
     <template v-if="showInviteAction" #toolbar>
       <div className="table-actions">
