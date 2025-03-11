@@ -143,25 +143,37 @@ const updatePosition = () => {
   let left = 0;
   const position = props.position || getBestPosition(triggerRect);
 
+  const isRightAligned = windowWidth.value - triggerRect.right < 100;
+  const fitsBelow =
+    windowHeight.value -
+      (triggerRect.bottom + contentRect.height + props.offset) >=
+    0;
+  const fitsAbove = triggerRect.top - contentRect.height - props.offset >= 0;
+
   switch (position) {
     case "top":
-      top = triggerRect.top - contentRect.height - props.offset;
-      left =
-        windowWidth.value - triggerRect.right < 100
-          ? triggerRect.right - contentRect.width
-          : triggerRect.left;
+      top = fitsAbove
+        ? triggerRect.top - contentRect.height - props.offset
+        : triggerRect.bottom + props.offset;
+      left = isRightAligned
+        ? triggerRect.right - contentRect.width
+        : triggerRect.left;
       break;
+
     case "bottom":
-      top = triggerRect.bottom + props.offset;
-      left =
-        windowWidth.value - triggerRect.right < 100
-          ? triggerRect.right - contentRect.width
-          : triggerRect.left;
+      top = fitsBelow
+        ? triggerRect.bottom + props.offset
+        : triggerRect.top - contentRect.height - props.offset;
+      left = isRightAligned
+        ? triggerRect.right - contentRect.width
+        : triggerRect.left;
       break;
+
     case "left":
       left = triggerRect.left - contentRect.width - props.offset;
       top = triggerRect.top;
       break;
+
     case "right":
       left = triggerRect.left + triggerRect.width + props.offset;
       top = triggerRect.top;
@@ -171,9 +183,7 @@ const updatePosition = () => {
   const spaceBelow = windowHeight.value - (top + contentRect.height);
   const spaceAbove = top;
 
-  if (spaceAbove < 0 || spaceBelow < 0) {
-    isVisible.value = false;
-  }
+  isVisible.value = spaceAbove >= 0 && spaceBelow >= 0;
 
   if (position === "right" || position === "left") {
     left = Math.max(0, left);

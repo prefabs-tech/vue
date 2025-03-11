@@ -108,9 +108,9 @@ const caretClass = computed(() => {
 
 const onSelect = (item: DropdownMenu) => {
   if (!item.disabled) {
-    emit("select", item.value);
+    emit("select", item);
 
-    popup.value.togglePopup();
+    popup.value.isVisible = false;
   }
 };
 </script>
