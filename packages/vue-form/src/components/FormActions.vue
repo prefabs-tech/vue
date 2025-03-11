@@ -90,6 +90,10 @@ const onSubmit = () => emit("submit");
   justify-content: space-between;
 }
 
+.form-actions.align-filled button {
+  flex: 1;
+}
+
 .form-actions.direction-horizontal {
   flex-direction: row;
 }

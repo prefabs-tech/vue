@@ -1,6 +1,6 @@
 interface DropdownMenu {
-  label: string;
-  value: string | number;
+  label?: string;
+  value?: string | number;
   disabled?: boolean;
 }
 

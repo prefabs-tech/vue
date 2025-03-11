@@ -7,8 +7,8 @@
     <TableToolbar
       v-if="showColumnAction || showResetButton || $slots.toolbar"
       :column-action-button-label="columnActionButtonLabel"
-      :has-actions-row="hasActionsRow"
-      :has-selection-row="hasSelectionRow"
+      :has-actions-column="Boolean(dataActionMenu.length)"
+      :has-selection-column="hasSelectionColumn"
       :reset-button-label="resetButtonLabel"
       :show-column-action="showColumnAction"
       :show-reset-button="showResetButton"
@@ -50,6 +50,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
 import {
   getCoreRowModel,
   getFilteredRowModel,
@@ -58,10 +59,11 @@ import {
   SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
-import { computed, ref } from "vue";
+import { computed, h, ref } from "vue";
 
 import Pagination from "./Pagination.vue";
 import TableBody from "./TableBody.vue";
+import TableDataActions from "./TableDataActions.vue";
 import TableHeader from "./TableHeader.vue";
 import TableToolbar from "./TableToolbar.vue";
 import {
@@ -70,10 +72,15 @@ import {
   DEFAULT_PAGE_SIZE,
 } from "../constants";
 
+import type { DataActionsMenuItem } from "../types";
 import type { ColumnDef } from "@tanstack/vue-table";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  dataActionMenu: {
+    default: () => [],
+    type: Array as PropType<DataActionsMenuItem[]>,
+  },
   columnActionButtonLabel: {
     default: undefined,
     type: String,
@@ -87,8 +94,13 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  hasActionsRow: Boolean,
-  hasSelectionRow: Boolean,
+  displayActions: {
+    default: true,
+    type: [Boolean, Function] as PropType<
+      boolean | ((data: object) => boolean)
+    >,
+  },
+  hasSelectionColumn: Boolean,
   initialSorting: {
     default: () => [],
     type: Array as PropType<SortingState>,
@@ -115,6 +127,11 @@ const props = defineProps({
   },
   showColumnAction: Boolean,
   showResetButton: Boolean,
+  singleActionMode: {
+    default: "button",
+    type: String,
+    validator: (value: string) => ["button", "menu"].includes(value),
+  },
   titleInfo: {
     default: undefined,
     type: Object as () => { text: string; align?: string },
@@ -124,6 +141,8 @@ const props = defineProps({
     type: Array as PropType<string[]>,
   },
 });
+
+const emit = defineEmits(["action:click", "action:select"]);
 
 const columns: ColumnDef<unknown, unknown>[] = [];
 
@@ -145,6 +164,30 @@ const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
 });
+
+if (props.dataActionMenu.length) {
+  columns.push({
+    accessorKey: "actions",
+    align: "center",
+    enableSorting: false,
+    header: () =>
+      h(Icon, {
+        icon: "prime:cog",
+        width: "24",
+      }),
+    cell: ({ row }) =>
+      h(TableDataActions, {
+        actions: props.dataActionMenu,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        data: row.original as Record<string, any>,
+        displayActions: props.displayActions,
+        singleActionMode: props.singleActionMode,
+        "onAction:click": () => emit("action:click", row.original),
+        "onAction:select": (action: DataActionsMenuItem) =>
+          emit("action:select", { action: action?.label, data: row.original }),
+      }),
+  });
+}
 
 const sorting = ref<SortingState>(props.initialSorting);
 
