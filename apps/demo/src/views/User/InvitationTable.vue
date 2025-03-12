@@ -18,6 +18,14 @@
 
       <div class="section-content">
         <InvitationTable
+          :columns-data="[
+            {
+              accessorKey: 'invitedBy',
+              maxWidth: '20rem',
+              minWidth: '20rem',
+              width: '20rem',
+            },
+          ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
           :invitation-modal-title="$t('user.label.inviteUser')"
           :invitations="invitations"
@@ -28,9 +36,16 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;InvitationTable
+              :columns-data="[{
+                accessorKey: 'invitedBy',
+                maxWidth: '20rem',
+                minWidth: '20rem',
+                width: '20rem',
+              }]"
               :initial-sorting="[{ id: 'email', desc: false }]"
               :invitations="invitations"
-              invitation-modal-title="Invite a user" 
+              :visible-columns="visibleColumns"
+              invitation-modal-title="Invite a user"
             /&gt;
           &lt;/template&gt;
 
@@ -38,6 +53,15 @@
           import { InvitationTable } from "@dzangolab/vue3-user";
 
           import { invitations } from "../Table/data";
+
+          const visibleColumns = [
+            "email",
+            "app",
+            "role",
+            "invitedBy",
+            "expiresAt",
+            "status",
+          ];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->

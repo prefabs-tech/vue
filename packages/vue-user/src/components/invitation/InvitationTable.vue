@@ -1,13 +1,13 @@
 <template>
   <Table
     v-bind="tableOptions"
-    :columns-data="[...defaultColumns, ...columnsData]"
+    :columns-data="mergedColumns"
     :data="invitations"
     :data-action-menu="actionMenuData"
     :empty-table-message="t('user.invitation.table.emptyMessage')"
     :initial-sorting="initialSorting"
     :pagination-options="{
-      pageInputLabel: t('user.invitation.table.pagination.pageControl'),
+      pageInputLabel: t('user.invitation.table.pagination.pageInputLabel'),
       itemsPerPageControlLabel: t(
         'user.invitation.table.pagination.rowsPerPage',
       ),
@@ -73,7 +73,7 @@ const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
-defineProps({
+const props = defineProps({
   apps: {
     default: () => [],
     type: Array as PropType<Array<InvitationAppOption>>,
@@ -245,13 +245,28 @@ const actionMenuData = computed(() => [
     class: "danger",
     confirmationOptions: {
       body: t("user.invitation.table.confirmation.revoke.message"),
-      header: t("confirmation.header"),
+      header: t("user.invitation.table.confirmation.header"),
     },
     icon: "pi pi-trash",
     key: "delete",
     label: t("user.invitation.table.actions.delete"),
     requireConfirmationModal: true,
   },
+]);
+
+const mergedColumns = computed(() => [
+  ...defaultColumns.map((defaultColumn) => {
+    const override = props.columnsData.find(
+      (column) => column.accessorKey === defaultColumn.accessorKey,
+    );
+    return override ? { ...defaultColumn, ...override } : defaultColumn;
+  }),
+  ...props.columnsData.filter(
+    (column) =>
+      !defaultColumns.some(
+        (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
+      ),
+  ),
 ]);
 
 const isExpired = (date?: string | Date | number) => {
