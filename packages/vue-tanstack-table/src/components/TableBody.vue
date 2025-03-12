@@ -18,6 +18,11 @@
               dataType: cell.column.columnDef.dataType,
             })
           "
+          :style="{
+            width: cell.column.columnDef.width,
+            maxWidth: cell.column.columnDef.maxWidth,
+            minWidth: cell.column.columnDef.minWidth,
+          }"
         >
           <FlexRender
             :props="cell.getContext()"

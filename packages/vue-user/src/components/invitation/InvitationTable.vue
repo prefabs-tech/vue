@@ -1,14 +1,24 @@
 <template>
   <Table
-    :columns-data="[...defaultColumns, ...columnsData]"
+    v-bind="tableOptions"
+    :columns-data="mergedColumns"
     :data="invitations"
+    :data-action-menu="actionMenuData"
+    :empty-table-message="t('user.invitation.table.emptyMessage')"
     :initial-sorting="initialSorting"
+    :pagination-options="{
+      pageInputLabel: t('user.invitation.table.pagination.pageInputLabel'),
+      itemsPerPageControlLabel: t(
+        'user.invitation.table.pagination.rowsPerPage',
+      ),
+    }"
     :visible-columns="visibleColumns"
+    @action:select="onActionSelect"
   >
     <template v-if="showInviteAction" #toolbar>
       <div className="table-actions">
         <ButtonElement
-          :label="t('user.table.inviteUser')"
+          :label="t('user.invitation.table.inviteUser')"
           @click="showModal = true"
         />
 
@@ -41,7 +51,7 @@ import {
   ButtonElement,
   formatDateTime,
 } from "@dzangolab/vue3-ui";
-import { h, ref } from "vue";
+import { computed, h, ref } from "vue";
 
 import InvitationModal from "./InvitationModal.vue";
 import { ROLE_ADMIN } from "../../constant";
@@ -63,7 +73,7 @@ const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
-defineProps({
+const props = defineProps({
   apps: {
     default: () => [],
     type: Array as PropType<Array<InvitationAppOption>>,
@@ -102,29 +112,39 @@ defineProps({
     default: undefined,
     type: String,
   },
+  tableOptions: {
+    default: () => ({}),
+    type: Object,
+  },
   visibleColumns: {
     default: () => [],
     type: Array as PropType<string[]>,
   },
 });
 
-const emit = defineEmits(["on:closeInvitation", "on:submitInvitation"]);
+const emit = defineEmits([
+  "action:delete",
+  "action:resend",
+  "action:revoke",
+  "on:closeInvitation",
+  "on:submitInvitation",
+]);
 
 const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
     accessorKey: "email",
     enableSorting: true,
-    header: t("user.table.defaultColumns.email"),
+    header: t("user.invitation.table.defaultColumns.email"),
   },
   {
     align: "center",
     accessorKey: "app",
-    header: t("user.table.defaultColumns.app"),
+    header: t("user.invitation.table.defaultColumns.app"),
     cell: ({ row }) => row.original.appId || "—",
   },
   {
     accessorKey: "role",
-    header: t("user.table.defaultColumns.role"),
+    header: t("user.invitation.table.defaultColumns.role"),
     cell: ({ getValue, row: original }) => {
       const roles = (original as unknown as { roles: string[] })?.roles;
       if (Array.isArray(roles)) {
@@ -147,7 +167,7 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   },
   {
     accessorKey: "invitedBy",
-    header: t("user.table.defaultColumns.invitedBy"),
+    header: t("user.invitation.table.defaultColumns.invitedBy"),
     cell: ({ getValue }) => {
       const invitedBy = getValue() as UserType;
       if (!invitedBy) {
@@ -162,16 +182,16 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
     align: "center",
     accessorKey: "status",
-    header: t("user.table.defaultColumns.status"),
+    header: t("user.invitation.table.defaultColumns.status"),
     cell: ({ row }) => {
       const { acceptedAt, revokedAt, expiresAt } = row.original;
       const label = acceptedAt
-        ? t("user.table.status.accepted")
+        ? t("user.invitation.table.status.accepted")
         : revokedAt
-          ? t("user.table.status.revoked")
+          ? t("user.invitation.table.status.revoked")
           : isExpired(expiresAt)
-            ? t("user.table.status.expired")
-            : t("user.table.status.pending");
+            ? t("user.invitation.table.status.expired")
+            : t("user.invitation.table.status.pending");
       const severity = acceptedAt
         ? "success"
         : revokedAt
@@ -184,15 +204,87 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   },
   {
     accessorKey: "expiresAt",
-    header: t("user.table.defaultColumns.expiresAt"),
+    header: t("user.invitation.table.defaultColumns.expiresAt"),
     cell: ({ getValue }) => formatDateTime(getValue() as string),
   },
 ];
 
 const showModal = ref<boolean>(false);
 
+const actionMenuData = computed(() => [
+  {
+    confirmationOptions: {
+      body: t("user.invitation.table.confirmation.resend.message"),
+      header: t("user.invitation.table.confirmation.header"),
+    },
+    disabled: (invitation: Invitation) =>
+      !!invitation.acceptedAt ||
+      !!invitation.revokedAt ||
+      isExpired(invitation.expiresAt),
+    icon: "pi pi-replay",
+    key: "resend",
+    label: t("user.invitation.table.actions.resend"),
+    requireConfirmationModal: true,
+  },
+  {
+    class: "danger",
+    confirmationOptions: {
+      body: t("user.invitation.table.confirmation.revoke.message"),
+      header: t("user.invitation.table.confirmation.header"),
+    },
+    disabled: (invitation: Invitation) =>
+      !!invitation.acceptedAt ||
+      !!invitation.revokedAt ||
+      isExpired(invitation.expiresAt),
+    icon: "pi pi-times",
+    key: "revoke",
+    label: t("user.invitation.table.actions.revoke"),
+    requireConfirmationModal: true,
+  },
+  {
+    class: "danger",
+    confirmationOptions: {
+      body: t("user.invitation.table.confirmation.revoke.message"),
+      header: t("user.invitation.table.confirmation.header"),
+    },
+    icon: "pi pi-trash",
+    key: "delete",
+    label: t("user.invitation.table.actions.delete"),
+    requireConfirmationModal: true,
+  },
+]);
+
+const mergedColumns = computed(() => [
+  ...defaultColumns.map((defaultColumn) => {
+    const override = props.columnsData.find(
+      (column) => column.accessorKey === defaultColumn.accessorKey,
+    );
+    return override ? { ...defaultColumn, ...override } : defaultColumn;
+  }),
+  ...props.columnsData.filter(
+    (column) =>
+      !defaultColumns.some(
+        (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
+      ),
+  ),
+]);
+
 const isExpired = (date?: string | Date | number) => {
   return !!(date && new Date(date) < new Date());
+};
+
+const onActionSelect = (rowData: { action: string; data: Invitation }) => {
+  switch (rowData.action) {
+    case "delete":
+      emit("action:delete", rowData.data);
+      break;
+    case "resend":
+      emit("action:resend", rowData.data);
+      break;
+    case "revoke":
+      emit("action:revoke", rowData.data);
+      break;
+  }
 };
 
 const onCloseInvitation = () => {
