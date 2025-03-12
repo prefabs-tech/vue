@@ -1,0 +1,1 @@
+import{y as o,z as n,e as a,o as s}from"./index-VvkgXLKV.js";const c={name:"About"};function r(t,p,l,_,u,i){const e=n("Page");return s(),a(e,{title:t.$t("about.title")},null,8,["title"])}const m=o(c,[["render",r]]);export{m as default};
