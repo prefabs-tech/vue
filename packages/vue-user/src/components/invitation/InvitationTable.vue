@@ -1,51 +1,18 @@
 <template>
   <Table
+    v-bind="tableOptions"
     :columns-data="[...defaultColumns, ...columnsData]"
     :data="invitations"
+    :data-action-menu="actionMenuData"
+    :empty-table-message="t('user.invitation.table.emptyMessage')"
     :initial-sorting="initialSorting"
+    :pagination-options="{
+      pageInputLabel: t('user.invitation.table.pagination.pageControl'),
+      itemsPerPageControlLabel: t(
+        'user.invitation.table.pagination.rowsPerPage',
+      ),
+    }"
     :visible-columns="visibleColumns"
-    :data-action-menu="[
-      {
-        confirmationOptions: {
-          body: t('user.invitation.table.confirmation.resend.message'),
-          header: t('user.invitation.table.confirmation.header'),
-        },
-        disabled: (invitation: Invitation) =>
-          !!invitation.acceptedAt ||
-          !!invitation.revokedAt ||
-          isExpired(invitation.expiresAt),
-        icon: 'pi pi-replay',
-        key: 'resend',
-        label: t('user.invitation.table.actions.resend'),
-        requireConfirmationModal: true,
-      },
-      {
-        class: 'danger',
-        confirmationOptions: {
-          body: t('user.invitation.table.confirmation.revoke.message'),
-          header: t('user.invitation.table.confirmation.header'),
-        },
-        disabled: (invitation: Invitation) =>
-          !!invitation.acceptedAt ||
-          !!invitation.revokedAt ||
-          isExpired(invitation.expiresAt),
-        icon: 'pi pi-times',
-        key: 'revoke',
-        label: t('user.invitation.table.actions.revoke'),
-        requireConfirmationModal: true,
-      },
-      {
-        class: 'danger',
-        confirmationOptions: {
-          body: t('user.invitation.table.confirmation.revoke.message'),
-          header: t('confirmation.header'),
-        },
-        icon: 'pi pi-trash',
-        key: 'delete',
-        label: t('user.invitation.table.actions.delete'),
-        requireConfirmationModal: true,
-      },
-    ]"
     @action:select="onActionSelect"
   >
     <template v-if="showInviteAction" #toolbar>
@@ -84,7 +51,7 @@ import {
   ButtonElement,
   formatDateTime,
 } from "@dzangolab/vue3-ui";
-import { h, ref } from "vue";
+import { computed, h, ref } from "vue";
 
 import InvitationModal from "./InvitationModal.vue";
 import { ROLE_ADMIN } from "../../constant";
@@ -144,6 +111,10 @@ defineProps({
   submitLabel: {
     default: undefined,
     type: String,
+  },
+  tableOptions: {
+    default: () => ({}),
+    type: Object,
   },
   visibleColumns: {
     default: () => [],
@@ -239,6 +210,49 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
 ];
 
 const showModal = ref<boolean>(false);
+
+const actionMenuData = computed(() => [
+  {
+    confirmationOptions: {
+      body: t("user.invitation.table.confirmation.resend.message"),
+      header: t("user.invitation.table.confirmation.header"),
+    },
+    disabled: (invitation: Invitation) =>
+      !!invitation.acceptedAt ||
+      !!invitation.revokedAt ||
+      isExpired(invitation.expiresAt),
+    icon: "pi pi-replay",
+    key: "resend",
+    label: t("user.invitation.table.actions.resend"),
+    requireConfirmationModal: true,
+  },
+  {
+    class: "danger",
+    confirmationOptions: {
+      body: t("user.invitation.table.confirmation.revoke.message"),
+      header: t("user.invitation.table.confirmation.header"),
+    },
+    disabled: (invitation: Invitation) =>
+      !!invitation.acceptedAt ||
+      !!invitation.revokedAt ||
+      isExpired(invitation.expiresAt),
+    icon: "pi pi-times",
+    key: "revoke",
+    label: t("user.invitation.table.actions.revoke"),
+    requireConfirmationModal: true,
+  },
+  {
+    class: "danger",
+    confirmationOptions: {
+      body: t("user.invitation.table.confirmation.revoke.message"),
+      header: t("confirmation.header"),
+    },
+    icon: "pi pi-trash",
+    key: "delete",
+    label: t("user.invitation.table.actions.delete"),
+    requireConfirmationModal: true,
+  },
+]);
 
 const isExpired = (date?: string | Date | number) => {
   return !!(date && new Date(date) < new Date());

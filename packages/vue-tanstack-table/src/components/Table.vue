@@ -20,7 +20,7 @@
     <div class="table-wrapper">
       <table :style="`width: ${table.getCenterTotalSize()}`">
         <TableHeader :table="table" />
-        <TableBody :table="table" />
+        <TableBody :empty-table-message="emptyTableMessage" :table="table" />
         <tfoot v-if="$slots.footer">
           <slot name="footer" />
         </tfoot>
@@ -99,6 +99,10 @@ const props = defineProps({
     type: [Boolean, Function] as PropType<
       boolean | ((data: object) => boolean)
     >,
+  },
+  emptyTableMessage: {
+    default: undefined,
+    type: String,
   },
   hasSelectionColumn: Boolean,
   initialSorting: {

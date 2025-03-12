@@ -77,7 +77,12 @@
             "role": "Role",
             "status": "Status"
           },
+          "emptyMessage": "Table is empty",
           "inviteUser": "Invite user",
+          "pagination": {
+            "pageInputLabel": "Go to",
+            "rowsPerPage": "Rows"
+          },
           "status": {
             "accepted": "Accepted",
             "expired": "Expired",
@@ -338,7 +343,12 @@
             "role": "Role",
             "status": "Status"
           },
+          "emptyMessage": "Table is empty",
           "inviteUser": "Invite user",
+          "pagination": {
+            "pageInputLabel": "Go to",
+            "rowsPerPage": "Rows"
+          },
           "status": {
             "accepted": "Accepted",
             "expired": "Expired",
