@@ -230,7 +230,7 @@ const updatePosition = () => {
   const spaceBelow = windowHeight.value - (top + contentRect.height);
   const spaceAbove = top;
 
-  isVisible.value = spaceAbove >= 0 && spaceBelow >= 0;
+  isVisible.value = spaceAbove > 0 && spaceBelow > 0;
 
   if (position === "right" || position === "left") {
     left = Math.max(0, left);
@@ -256,8 +256,11 @@ onMounted(() => {
   if (dzangolabVueUITooltip.value) {
     const parents = getScrollableParents(dzangolabVueUITooltip.value);
     parents.forEach((parent) => {
-      const listener = () =>
-        isTriggerClicked.value ? updatePosition() : hideTooltip();
+      const listener = () => {
+        isTriggerClicked.value = false;
+
+        hideTooltip();
+      };
       parent.addEventListener("scroll", listener);
       scrollListeners.value.push({ element: parent, listener });
     });
