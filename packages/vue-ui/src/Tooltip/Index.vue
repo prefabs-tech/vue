@@ -150,8 +150,6 @@ const updatePosition = () => {
     windowHeight.value -
       (triggerRect.bottom + contentRect.height + props.offset) >=
     0;
-  const fitsCenter = triggerRect.width > contentRect.width;
-  const fitsLeft = triggerRect.left > contentRect.width / 2;
 
   const horizontalCenter =
     triggerRect.left + triggerRect.width / 2 - contentRect.width / 2;
@@ -163,22 +161,14 @@ const updatePosition = () => {
       top = fitsAbove
         ? triggerRect.top - contentRect.height - props.offset
         : triggerRect.bottom + props.offset;
-      left = fitsCenter
-        ? horizontalCenter
-        : fitsLeft
-          ? triggerRect.left + contentRect.width
-          : triggerRect.right - contentRect.width;
+      left = horizontalCenter;
       break;
 
     case "bottom":
       top = fitsBelow
         ? triggerRect.bottom + props.offset
         : triggerRect.top - contentRect.height - props.offset;
-      left = fitsCenter
-        ? horizontalCenter
-        : fitsLeft
-          ? triggerRect.left + contentRect.width
-          : triggerRect.right - contentRect.width;
+      left = horizontalCenter;
       break;
 
     case "left":
