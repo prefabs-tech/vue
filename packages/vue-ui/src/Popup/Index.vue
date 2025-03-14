@@ -30,6 +30,8 @@ export default {
 import { onClickOutside, useWindowSize } from "@vueuse/core";
 import { computed, ref, useSlots, onBeforeUnmount, nextTick } from "vue";
 
+import { getBestPosition, getScrollableParents } from "../utils";
+
 const props = defineProps({
   ariaLabel: {
     default: "popup",
@@ -68,41 +70,6 @@ onBeforeUnmount(() => {
     element.removeEventListener("scroll", listener);
   });
 });
-
-const getBestPosition = (triggerRect: DOMRect): string => {
-  const positions = {
-    top: triggerRect.top,
-    bottom: windowHeight.value - triggerRect.bottom,
-    left: triggerRect.left,
-    right: windowWidth.value - triggerRect.right,
-  };
-
-  const maxSpace = Math.max(...Object.values(positions));
-  return (
-    (Object.keys(positions) as Array<keyof typeof positions>).find(
-      (key) => positions[key] === maxSpace,
-    ) || "bottom"
-  );
-};
-
-const getScrollableParents = (element: HTMLElement): Element[] => {
-  const parents: Element[] = [];
-  let current = element.parentElement;
-
-  while (current) {
-    const style = window.getComputedStyle(current);
-    if (
-      ["auto", "scroll"].includes(style.overflow) ||
-      ["auto", "scroll"].includes(style.overflowX) ||
-      ["auto", "scroll"].includes(style.overflowY)
-    ) {
-      parents.push(current);
-    }
-    current = current.parentElement;
-  }
-
-  return parents;
-};
 
 const togglePopup = () => {
   isVisible.value = !isVisible.value;

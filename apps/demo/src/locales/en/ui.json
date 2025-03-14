@@ -340,7 +340,7 @@
   },
   "title": "UI library",
   "tooltip": {
-    "content":"This is a tooltip",
+    "content":"Tooltip content",
     "label": {
       "button": "Click me",
       "custom": "Custom",
