@@ -206,7 +206,7 @@ const sorting = ref<SortingState>(props.initialSorting);
 
 const totalItems = computed((): number =>
   props.isServerTable
-    ? totalItems.value
+    ? props.totalRecords
     : table.value.getFilteredRowModel().rows?.length,
 );
 
