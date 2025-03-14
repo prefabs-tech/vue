@@ -26,7 +26,7 @@
         </tfoot>
       </table>
 
-      <template v-if="paginated && totalItems > 0">
+      <template v-if="(isServerTable || paginated) && totalItems > 0">
         <slot name="pagination">
           <Pagination
             v-bind="paginationOptions"
@@ -71,6 +71,7 @@ import {
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
 } from "../constants";
+import { getRequestJSON } from "../utils";
 
 import type { DataActionsMenuItem } from "../types";
 import type { ColumnDef } from "@tanstack/vue-table";
@@ -129,6 +130,7 @@ const props = defineProps({
     default: () => DEFAULT_PAGE_PER_OPTIONS,
     type: Array as () => number[],
   },
+  isServerTable: Boolean,
   showColumnAction: Boolean,
   showResetButton: Boolean,
   singleActionMode: {
@@ -140,13 +142,17 @@ const props = defineProps({
     default: undefined,
     type: Object as () => { text: string; align?: string },
   },
+  totalRecords: {
+    default: 0,
+    type: Number,
+  },
   visibleColumns: {
     default: () => [],
     type: Array as PropType<string[]>,
   },
 });
 
-const emit = defineEmits(["action:click", "action:select"]);
+const emit = defineEmits(["action:click", "action:select", "update:request"]);
 
 const columns: ColumnDef<unknown, unknown>[] = [];
 
@@ -198,8 +204,10 @@ if (props.dataActionMenu.length) {
 
 const sorting = ref<SortingState>(props.initialSorting);
 
-const totalItems = computed(
-  () => table.value.getFilteredRowModel().rows?.length,
+const totalItems = computed((): number =>
+  props.isServerTable
+    ? totalItems.value
+    : table.value.getFilteredRowModel().rows?.length,
 );
 
 const table = computed(() =>
@@ -217,12 +225,16 @@ const table = computed(() =>
         typeof updaterOrValue === "function"
           ? updaterOrValue(pagination.value)
           : updaterOrValue;
+
+      fetchData();
     },
     onSortingChange: (updaterOrValue) => {
       sorting.value =
         typeof updaterOrValue === "function"
           ? updaterOrValue(sorting.value)
           : updaterOrValue;
+
+      fetchData();
     },
     columnResizeMode: "onChange",
     data: props.data,
@@ -232,6 +244,12 @@ const table = computed(() =>
     getSortedRowModel: getSortedRowModel(),
   }),
 );
+
+const fetchData = () => {
+  const requestJSON = getRequestJSON(sorting.value, [], pagination.value);
+
+  emit("update:request", requestJSON);
+};
 
 const onReset = () => {
   sorting.value = [];
