@@ -110,6 +110,7 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<SortingState>,
   },
+  isServerTable: Boolean,
   paginated: {
     default: true,
     type: Boolean,
@@ -130,7 +131,6 @@ const props = defineProps({
     default: () => DEFAULT_PAGE_PER_OPTIONS,
     type: Array as () => number[],
   },
-  isServerTable: Boolean,
   showColumnAction: Boolean,
   showResetButton: Boolean,
   singleActionMode: {
@@ -226,7 +226,9 @@ const table = computed(() =>
           ? updaterOrValue(pagination.value)
           : updaterOrValue;
 
-      fetchData();
+      if (props.isServerTable) {
+        fetchData();
+      }
     },
     onSortingChange: (updaterOrValue) => {
       sorting.value =
@@ -234,7 +236,9 @@ const table = computed(() =>
           ? updaterOrValue(sorting.value)
           : updaterOrValue;
 
-      fetchData();
+      if (props.isServerTable) {
+        fetchData();
+      }
     },
     columnResizeMode: "onChange",
     data: props.data,
