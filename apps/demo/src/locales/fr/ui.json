@@ -340,7 +340,7 @@
   },
   "title": "Librairie de composants d'interface utilisateur",
   "tooltip": {
-    "content":"This is a tooltip",
+    "content":"Tooltip content",
     "label": {
       "button": "Click me",
       "custom": "Custom",

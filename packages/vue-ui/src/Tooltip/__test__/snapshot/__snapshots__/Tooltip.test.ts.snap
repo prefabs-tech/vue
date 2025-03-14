@@ -12,7 +12,8 @@ exports[`Tooltip > matches snapshot 1`] = `
     
   </div>
   <div
-    class="tooltip-box top"
+    class="tooltip-content"
+    style="top: 0px; left: 0px;"
   >
     
     

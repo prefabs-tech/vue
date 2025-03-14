@@ -1,15 +1,25 @@
 <template>
   <div
+    ref="dzangolabVueUITooltip"
     :aria-label="ariaLabel"
     class="tooltip-container"
     @mouseenter="showTooltip"
     @mouseleave="hideTooltip"
     @click="toggleTooltip"
   >
-    <div :class="{ clickable: clickable }" class="tooltip-trigger">
+    <div
+      ref="dzangolabVueUITooltipTrigger"
+      :class="{ clickable: clickable }"
+      class="tooltip-trigger"
+    >
       <slot />
     </div>
-    <div v-if="isVisible || showContent" :class="['tooltip-box', position]">
+    <div
+      v-if="isVisible"
+      ref="dzangolabVueUITooltipContent"
+      :class="['tooltip-content', tooltipPosition]"
+      :style="tooltipStyles"
+    >
       <slot name="content" />
     </div>
   </div>
@@ -22,9 +32,15 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, useSlots } from "vue";
-
-const slots = useSlots();
+import { useWindowSize } from "@vueuse/core";
+import {
+  computed,
+  ref,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  useSlots,
+} from "vue";
 
 const props = defineProps({
   ariaLabel: {
@@ -39,20 +55,76 @@ const props = defineProps({
     type: Number,
     default: 100,
   },
+  offset: {
+    default: 10,
+    type: Number,
+  },
   position: {
+    default: undefined,
     type: String,
-    default: "top",
     validator(value: string) {
       return ["top", "bottom", "left", "right"].includes(value);
     },
   },
 });
 
+const dzangolabVueUITooltip = ref<HTMLElement | null>(null);
+const dzangolabVueUITooltipContent = ref<HTMLElement | null>(null);
+const dzangolabVueUITooltipTrigger = ref<HTMLElement | null>(null);
 const isVisible = ref<boolean>(false);
-const showContent = ref<boolean>(false);
+const tooltipPosition = ref<string>();
+const tooltipStyles = ref({ top: "0", left: "0" });
+const scrollListeners = ref<{ element: Element; listener: () => void }[]>([]);
+const isTriggerClicked = ref<boolean>(false);
 const timerId = ref<ReturnType<typeof setTimeout> | null>(null);
 
+const slots = useSlots();
+const { width: windowWidth, height: windowHeight } = useWindowSize();
+
 const hasContentSlot = computed(() => !!slots.content);
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", hideTooltip);
+  scrollListeners.value.forEach(({ element, listener }) => {
+    element.removeEventListener("scroll", listener);
+  });
+  scrollListeners.value = [];
+});
+
+const getBestPosition = (triggerRect: DOMRect): string => {
+  const positions = {
+    top: triggerRect.top,
+    bottom: windowHeight.value - triggerRect.bottom,
+    left: triggerRect.left,
+    right: windowWidth.value - triggerRect.right,
+  };
+
+  const maxSpace = Math.max(...Object.values(positions));
+  return (
+    (Object.keys(positions) as Array<keyof typeof positions>).find(
+      (key) => positions[key] === maxSpace,
+    ) || "bottom"
+  );
+};
+
+const getScrollableParents = (element: HTMLElement): Element[] => {
+  const parents: Element[] = [];
+  let current = element.parentElement;
+
+  while (current) {
+    const style = window.getComputedStyle(current);
+    if (
+      ["auto", "scroll"].includes(style.overflow) ||
+      ["auto", "scroll"].includes(style.overflowX) ||
+      ["auto", "scroll"].includes(style.overflowY)
+    ) {
+      parents.push(current);
+    }
+    current = current.parentElement;
+  }
+
+  return parents;
+};
 
 const showTooltip = () => {
   if (hasContentSlot.value) {
@@ -62,13 +134,21 @@ const showTooltip = () => {
 
     timerId.value = setTimeout(() => {
       isVisible.value = true;
+
+      nextTick(() => updatePosition());
     }, props.delay);
   }
 };
 
 const toggleTooltip = () => {
   if (hasContentSlot.value && props.clickable) {
-    showContent.value = !showContent.value;
+    isTriggerClicked.value = !isTriggerClicked.value;
+  }
+
+  if (isTriggerClicked.value) {
+    nextTick(() => {
+      updatePosition();
+    });
   }
 };
 
@@ -77,6 +157,110 @@ const hideTooltip = () => {
     clearTimeout(timerId.value);
   }
 
-  isVisible.value = false;
+  if (!isTriggerClicked.value) {
+    isVisible.value = false;
+  }
 };
+
+const updatePosition = () => {
+  if (
+    !dzangolabVueUITooltipTrigger.value ||
+    !dzangolabVueUITooltipContent.value
+  ) {
+    return;
+  }
+
+  const triggerRect =
+    dzangolabVueUITooltipTrigger.value.getBoundingClientRect();
+  const contentRect =
+    dzangolabVueUITooltipContent.value.getBoundingClientRect();
+
+  let top = 0;
+  let left = 0;
+  const position = props.position || getBestPosition(triggerRect);
+
+  const fitsAbove = triggerRect.top - contentRect.height - props.offset >= 0;
+  const fitsBelow =
+    windowHeight.value -
+      (triggerRect.bottom + contentRect.height + props.offset) >=
+    0;
+  const fitsLeft = triggerRect.left > contentRect.width / 2;
+  const fitsRight =
+    windowWidth.value - triggerRect.right > contentRect.width / 2;
+
+  const horizontalCenter =
+    triggerRect.left + triggerRect.width / 2 - contentRect.width / 2;
+  const verticalCenter =
+    triggerRect.top + triggerRect.height / 2 - contentRect.height / 2;
+
+  switch (position) {
+    case "top":
+      top = fitsAbove
+        ? triggerRect.top - contentRect.height - props.offset
+        : triggerRect.bottom + props.offset;
+      left = !fitsRight
+        ? triggerRect.left
+        : !fitsLeft
+          ? triggerRect.right
+          : horizontalCenter;
+      break;
+
+    case "bottom":
+      top = fitsBelow
+        ? triggerRect.bottom + props.offset
+        : triggerRect.top - contentRect.height - props.offset;
+      left = !fitsRight
+        ? triggerRect.left
+        : !fitsLeft
+          ? triggerRect.right
+          : horizontalCenter;
+      break;
+
+    case "left":
+      left = triggerRect.left - contentRect.width - props.offset;
+      top = verticalCenter;
+      break;
+
+    case "right":
+      left = triggerRect.left + triggerRect.width + props.offset;
+      top = verticalCenter;
+      break;
+  }
+
+  const spaceBelow = windowHeight.value - (top + contentRect.height);
+  const spaceAbove = top;
+
+  isVisible.value = spaceAbove >= 0 && spaceBelow >= 0;
+
+  if (position === "right" || position === "left") {
+    left = Math.max(0, left);
+  } else {
+    if (left + contentRect.width > windowWidth.value) {
+      left = windowWidth.value - contentRect.width;
+    }
+    left = Math.max(0, left);
+
+    const maxTop = windowHeight.value - contentRect.height;
+    top = Math.min(Math.max(top, 0), maxTop);
+  }
+
+  tooltipStyles.value = {
+    top: `${top}px`,
+    left: `${left}px`,
+  };
+  tooltipPosition.value = position;
+};
+
+onMounted(() => {
+  window.addEventListener("resize", hideTooltip);
+  if (dzangolabVueUITooltip.value) {
+    const parents = getScrollableParents(dzangolabVueUITooltip.value);
+    parents.forEach((parent) => {
+      const listener = () =>
+        isTriggerClicked.value ? updatePosition() : hideTooltip();
+      parent.addEventListener("scroll", listener);
+      scrollListeners.value.push({ element: parent, listener });
+    });
+  }
+});
 </script>
