@@ -301,4 +301,8 @@ const onCloseInvitation = () => {
 const onUpdateRequest = (invitationRequest: TRequestJSON) => {
   emit("update:request", invitationRequest);
 };
+
+defineExpose({
+  showModal,
+});
 </script>
