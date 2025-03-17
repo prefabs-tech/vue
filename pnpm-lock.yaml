@@ -27,25 +27,25 @@ importers:
   apps/demo:
     dependencies:
       '@dzangolab/vue3-config':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../../packages/vue-config
       '@dzangolab/vue3-form':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../../packages/vue-form
       '@dzangolab/vue3-i18n':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../../packages/vue-i18n
       '@dzangolab/vue3-layout':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../../packages/vue-layout
       '@dzangolab/vue3-tanstack-table':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../../packages/vue-tanstack-table
       '@dzangolab/vue3-ui':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../../packages/vue-ui
       '@dzangolab/vue3-user':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../../packages/vue-user
       '@fortawesome/fontawesome-free':
         specifier: 6.7.2
@@ -267,7 +267,7 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.5)
       '@dzangolab/vue3-ui':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-ui
       '@types/node':
         specifier: 22.13.5
@@ -376,7 +376,7 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.5)
       '@dzangolab/vue3-config':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-config
       '@types/node':
         specifier: 22.13.5
@@ -460,13 +460,13 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.5)
       '@dzangolab/vue3-config':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-config
       '@dzangolab/vue3-i18n':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-i18n
       '@dzangolab/vue3-ui':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-ui
       '@iconify/vue':
         specifier: 4.3.0
@@ -557,10 +557,10 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.5)
       '@dzangolab/vue3-form':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-form
       '@dzangolab/vue3-ui':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-ui
       '@iconify/vue':
         specifier: 4.3.0
@@ -732,22 +732,22 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.5)
       '@dzangolab/vue3-config':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-config
       '@dzangolab/vue3-form':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-form
       '@dzangolab/vue3-i18n':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-i18n
       '@dzangolab/vue3-layout':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-layout
       '@dzangolab/vue3-tanstack-table':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-tanstack-table
       '@dzangolab/vue3-ui':
-        specifier: 0.10.4
+        specifier: 0.10.5
         version: link:../vue-ui
       '@iconify/vue':
         specifier: 4.3.0
@@ -9030,7 +9030,7 @@ snapshots:
 
   eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.31.0):
     dependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3)(eslint@9.20.1(jiti@2.4.2))
 
   eslint-import-resolver-node@0.3.9:
     dependencies:
