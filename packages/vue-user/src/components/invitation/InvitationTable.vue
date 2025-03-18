@@ -254,7 +254,7 @@ const actionMenuData = computed(() => [
   {
     class: "danger",
     confirmationOptions: {
-      body: t("user.invitation.table.confirmation.revoke.message"),
+      body: t("user.invitation.table.confirmation.delete.message"),
       header: t("user.invitation.table.confirmation.header"),
     },
     icon: "pi pi-trash",
