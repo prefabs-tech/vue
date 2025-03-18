@@ -190,6 +190,11 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     },
   },
   {
+    accessorKey: "expiresAt",
+    header: t("user.invitation.table.defaultColumns.expiresAt"),
+    cell: ({ getValue }) => formatDateTime(getValue() as string),
+  },
+  {
     align: "center",
     accessorKey: "status",
     header: t("user.invitation.table.defaultColumns.status"),
@@ -211,11 +216,6 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
             : "warning";
       return h(BadgeComponent, { label, severity });
     },
-  },
-  {
-    accessorKey: "expiresAt",
-    header: t("user.invitation.table.defaultColumns.expiresAt"),
-    cell: ({ getValue }) => formatDateTime(getValue() as string),
   },
 ];
 
