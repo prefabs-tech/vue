@@ -13,6 +13,7 @@
         'user.invitation.table.pagination.rowsPerPage',
       ),
     }"
+    :total-records="totalRecords"
     :visible-columns="visibleColumns"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
@@ -119,6 +120,10 @@ const props = defineProps({
   tableOptions: {
     default: () => ({}),
     type: Object,
+  },
+  totalRecords: {
+    default: 0,
+    type: Number,
   },
   visibleColumns: {
     default: () => [],
