@@ -51,6 +51,12 @@
         "title": "Email verification"
       },
       "invitation": {
+        "messages": {
+          "invite": {
+            "errorFetchingInvitation": "Invalid token. Please contact your administrator.",
+            "invalidInvitation": "Invitation is no longer valid"
+          }
+        },
         "table": {
           "actions": {
             "delete": "Delete",
@@ -317,6 +323,12 @@
         "title": "Email verification"
       },
       "invitation": {
+        "messages": {
+          "invite": {
+            "errorFetchingInvitation": "Invalid token. Please contact your administrator.",
+            "invalidInvitation": "Invitation is no longer valid"
+          }
+        },
         "table": {
           "actions": {
             "delete": "Delete",
