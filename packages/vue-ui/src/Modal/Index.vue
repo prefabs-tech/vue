@@ -1,7 +1,7 @@
 <template>
   <div v-show="show" class="modal">
     <div class="overlay">
-      <div ref="dzangolabVueModal" class="dialog">
+      <div ref="dzangolabVueModal" :class="['dialog', { active: show }]">
         <div class="header">
           <slot name="header">
             <span v-if="title" role="heading">{{ title }}</span>

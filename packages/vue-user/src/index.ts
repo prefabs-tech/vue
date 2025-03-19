@@ -2,6 +2,7 @@ import { prependMessages } from "@dzangolab/vue3-i18n";
 import mitt from "mitt";
 import { inject } from "vue";
 
+import client from "./api/axios";
 import messages from "./locales/messages.json";
 import updateRouter from "./router";
 import userStore from "./store";
@@ -46,7 +47,7 @@ const useTranslations = () => {
 
 export default plugin;
 
-export { userStore, useTranslations, emitter };
+export { client, userStore, useTranslations, emitter };
 
 export * from "./components";
 

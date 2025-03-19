@@ -246,6 +246,9 @@ const table = computed(() =>
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    manualFiltering: props.isServerTable,
+    manualSorting: props.isServerTable,
+    manualPagination: props.isServerTable,
   }),
 );
 

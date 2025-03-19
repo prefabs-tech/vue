@@ -6,6 +6,7 @@
       <SelectInput
         v-if="apps?.length"
         v-model="formData.appId"
+        :has-sorted-options="false"
         :options="updatedApps"
         :schema="appSchema"
         label="App"

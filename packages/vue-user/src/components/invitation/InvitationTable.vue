@@ -13,6 +13,7 @@
         'user.invitation.table.pagination.rowsPerPage',
       ),
     }"
+    :total-records="totalRecords"
     :visible-columns="visibleColumns"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
@@ -120,6 +121,10 @@ const props = defineProps({
     default: () => ({}),
     type: Object,
   },
+  totalRecords: {
+    default: 0,
+    type: Number,
+  },
   visibleColumns: {
     default: () => [],
     type: Array as PropType<string[]>,
@@ -185,6 +190,11 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     },
   },
   {
+    accessorKey: "expiresAt",
+    header: t("user.invitation.table.defaultColumns.expiresAt"),
+    cell: ({ getValue }) => formatDateTime(getValue() as string),
+  },
+  {
     align: "center",
     accessorKey: "status",
     header: t("user.invitation.table.defaultColumns.status"),
@@ -206,11 +216,6 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
             : "warning";
       return h(BadgeComponent, { label, severity });
     },
-  },
-  {
-    accessorKey: "expiresAt",
-    header: t("user.invitation.table.defaultColumns.expiresAt"),
-    cell: ({ getValue }) => formatDateTime(getValue() as string),
   },
 ];
 
@@ -249,7 +254,7 @@ const actionMenuData = computed(() => [
   {
     class: "danger",
     confirmationOptions: {
-      body: t("user.invitation.table.confirmation.revoke.message"),
+      body: t("user.invitation.table.confirmation.delete.message"),
       header: t("user.invitation.table.confirmation.header"),
     },
     icon: "pi pi-trash",

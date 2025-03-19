@@ -62,6 +62,6 @@
   z-index: 1000;
 }
 
-main:has(.modal .overlay) {
+main:has(.modal > .overlay > .dialog.active) {
   z-index: 999;
 }
