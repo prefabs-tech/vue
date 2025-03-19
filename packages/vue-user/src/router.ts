@@ -4,6 +4,7 @@ import { Router } from "vue-router";
 import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
 import useUserStore from "./store";
 import { getUser, getVerificationStatus } from "./supertokens";
+import AcceptInvitation from "./views/AcceptInvitation.vue";
 import ChangePassword from "./views/ChangePassword.vue";
 import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
 import Login from "./views/Login.vue";
@@ -22,6 +23,11 @@ import type {
 import type { RouteMeta, RouteRecordRaw } from "vue-router";
 
 const _routes = {
+  acceptInvitation: {
+    component: AcceptInvitation,
+    name: "acceptInvitation",
+    path: "/signup/token/:token?",
+  } as RouteRecordRaw,
   changePassword: {
     meta: {
       authenticated: true,
@@ -129,6 +135,8 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
     ),
   );
 
+  router.addRoute(getRoute(_routes.acceptInvitation, routes?.acceptInvitation));
+
   if (userConfig?.features?.signUp?.emailVerification) {
     router.addRoute(getRoute(_routes.verifyEmail, routes?.verifyEmail));
 
@@ -144,6 +152,7 @@ const redirectRoutes = (router: Router) => {
     const { user } = storeToRefs(userStore);
 
     const routesToRedirect = [
+      "acceptInvitation",
       "login",
       "signup",
       "resetPassword",

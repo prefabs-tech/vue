@@ -2,6 +2,10 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 import {
+  acceptInvitation as doAcceptInvitation,
+  getInvitationByToken as doGetInvitation,
+} from "./api/user";
+import {
   changePassword as doChangePassword,
   googleSignIn as doGoogleSignIn,
   login as doLogin,
@@ -12,6 +16,7 @@ import {
 } from "./supertokens";
 
 import type {
+  Invitation,
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
@@ -22,7 +27,16 @@ import type {
 const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
+  const invitation = ref<Invitation>();
   const user = ref<UserType | undefined>(undefined);
+
+  const acceptInvitation = async (
+    token: string,
+    credential: LoginCredentials,
+    apiBaseUrl: string,
+  ) => {
+    return await doAcceptInvitation(token, credential, apiBaseUrl);
+  };
 
   const changePassword = async (
     payload: UpdatePasswordPayload,
@@ -31,6 +45,13 @@ const useUserStore = defineStore("user", () => {
     const response = await doChangePassword(payload, apiBaseUrl);
 
     return response;
+  };
+
+  const getInvitationByToken = async (
+    token: string,
+    apiBaseUrl: string,
+  ) => {
+    return await doGetInvitation(token, apiBaseUrl);
   };
 
   const getUser = (): UserType => {
@@ -81,6 +102,10 @@ const useUserStore = defineStore("user", () => {
     return doResetPassword(payload);
   };
 
+  const setInvitation = (invitationData: Invitation | undefined) => {
+    invitation.value = invitationData;
+  };
+
   const setUser = (userData: UserType | undefined) => {
     user.value = userData;
 
@@ -94,14 +119,18 @@ const useUserStore = defineStore("user", () => {
   };
 
   return {
+    acceptInvitation,
     changePassword,
     googleSignIn,
+    getInvitationByToken,
     getUser,
+    invitation,
     login,
     logout,
     removeUser,
     resetPassword,
     requestPasswordReset,
+    setInvitation,
     setUser,
     signup,
     user,
