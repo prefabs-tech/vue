@@ -1,0 +1,294 @@
+<template>
+  <Table
+    v-bind="tableOptions"
+    :columns-data="mergedColumns"
+    :data="users"
+    :data-action-menu="actionMenuData"
+    :empty-table-message="t('user.table.emptyMessage')"
+    :initial-sorting="initialSorting"
+    :is-server-table="isServerTable"
+    :pagination-options="{
+      pageInputLabel: t('user.table.pagination.pageInputLabel'),
+      itemsPerPageControlLabel: t('user.table.pagination.rowsPerPage'),
+    }"
+    :total-records="totalRecords"
+    :visible-columns="visibleColumns"
+    class="table-users"
+    @action:select="onActionSelect"
+    @update:request="onUpdateRequest"
+  >
+    <template v-if="showInviteAction" #toolbar>
+      <div className="table-actions">
+        <ButtonElement
+          :label="t('user.invitation.table.inviteUser')"
+          @click="showModal = true"
+        />
+
+        <InvitationModal
+          :apps="apps"
+          :expiry-mode="expiryMode"
+          :roles="roles"
+          :show="showModal"
+          :submit-label="submitLabel"
+          :title="invitationModalTitle"
+          @on:close="onCloseInvitation"
+          @submit="$emit('on:submitInvitation', $event)"
+        />
+      </div>
+    </template>
+  </Table>
+</template>
+
+<script lang="ts">
+export default {
+  name: "InvitationTable",
+};
+</script>
+
+<script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
+import { Table } from "@dzangolab/vue3-tanstack-table";
+import { BadgeComponent, ButtonElement, formatDate } from "@dzangolab/vue3-ui";
+import { computed, h, ref } from "vue";
+
+import { ROLE_ADMIN } from "../../constant";
+import { useTranslations } from "../../index";
+import InvitationModal from "../invitation/InvitationModal.vue";
+
+import type {
+  Invitation,
+  InvitationAppOption,
+  InvitationRoleOption,
+  UserType,
+} from "../../types";
+import type {
+  DataActionsMenuItem,
+  SortingState,
+  TableColumnDefinition,
+  TRequestJSON,
+} from "@dzangolab/vue3-tanstack-table";
+import type { PropType } from "vue";
+
+const messages = useTranslations();
+
+const { t } = useI18n({ messages });
+
+const props = defineProps({
+  apps: {
+    default: () => [],
+    type: Array as PropType<Array<InvitationAppOption>>,
+  },
+  columnsData: {
+    default: () => [],
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: Array as PropType<TableColumnDefinition<any>[]>,
+  },
+  dataActionMenu: {
+    default: () => [],
+    type: [Array, Function] as PropType<
+      | DataActionsMenuItem[]
+      | ((
+          user: UserType,
+          defaultActionsMenu: DataActionsMenuItem[],
+        ) => DataActionsMenuItem[])
+    >,
+  },
+  expiryMode: {
+    default: undefined,
+    type: String,
+    validator: (value: string) => ["calendar", "days"].includes(value),
+  },
+  initialSorting: {
+    default: () => [],
+    type: Array as PropType<SortingState>,
+  },
+  invitationModalTitle: {
+    default: "",
+    type: String,
+  },
+  users: {
+    default: () => [],
+    type: Array as PropType<UserType[]>,
+  },
+  isServerTable: Boolean,
+  roles: {
+    default: () => [],
+    type: Array as PropType<Array<InvitationRoleOption>>,
+  },
+  showInviteAction: {
+    default: true,
+    type: Boolean,
+  },
+  submitLabel: {
+    default: undefined,
+    type: String,
+  },
+  tableOptions: {
+    default: () => ({}),
+    type: Object,
+  },
+  totalRecords: {
+    default: 0,
+    type: Number,
+  },
+  visibleColumns: {
+    default: () => [],
+    type: Array as PropType<string[]>,
+  },
+});
+
+const emit = defineEmits([
+  "action:disableUser",
+  "action:enableUser",
+  "on:closeInvitation",
+  "on:submitInvitation",
+  "update:request",
+]);
+
+const defaultColumns: TableColumnDefinition<UserType>[] = [
+  {
+    accessorKey: "email",
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.email"),
+  },
+  {
+    accessorKey: "name",
+    header: t("user.invitation.table.defaultColumns.app"),
+    accessorFn: (original: UserType) => {
+      return (
+        (original.givenName ? original.givenName : "") +
+          (original.middleNames ? " " + original.middleNames : "") +
+          (original.surname ? " " + original.surname : "") || "-"
+      );
+    },
+    cell: ({ getValue }) => getValue(),
+  },
+  {
+    align: "center",
+    accessorKey: "role",
+    header: t("user.invitation.table.defaultColumns.role"),
+    cell: ({ getValue, row: original }) => {
+      const roles = (original as unknown as { roles: string[] })?.roles;
+      if (Array.isArray(roles)) {
+        return roles.map((role, index) =>
+          h(BadgeComponent, {
+            label: role,
+            severity: role === ROLE_ADMIN ? "primary" : "success",
+            fullWidth: true,
+            key: role + index,
+          }),
+        );
+      }
+      const role = getValue() as string;
+      return h(BadgeComponent, {
+        label: role,
+        severity: role === ROLE_ADMIN ? "primary" : "success",
+        fullWidth: true,
+      });
+    },
+  },
+  {
+    accessorKey: "signedUpAt",
+    header: t("user.invitation.table.defaultColumns.invitedBy"),
+    cell: ({ row }: { row: { original: UserType } }) =>
+      row.original.signedUpAt ? formatDate(row.original.signedUpAt) : "-",
+  },
+  {
+    align: "center",
+    accessorKey: "status",
+    header: t("user.invitation.table.defaultColumns.status"),
+    cell: ({ row }: { row: { original: UserType } }) => {
+      return h(BadgeComponent, {
+        label: row.original.disabled
+          ? t("users.status.disabled")
+          : t("users.status.enabled"),
+        severity: row.original.disabled ? "danger" : "success",
+      });
+    },
+  },
+];
+
+const showModal = ref<boolean>(false);
+
+const actionMenuData = computed(() => {
+  const defaultActionMenu = [
+    {
+      confirmationOptions: {
+        body: t("user.table.confirmation.enableUser.message"),
+        header: t("user.table.confirmation.header"),
+      },
+      disabled: (user: UserType) => !user.disabled,
+      icon: "pi pi-check",
+      key: "enableUser",
+      label: t("user.table.actions.enableUser"),
+      requireConfirmationModal: true,
+    },
+    {
+      class: "danger",
+      confirmationOptions: {
+        body: t("user.table.confirmation.disableUser.message"),
+        header: t("user.table.confirmation.header"),
+      },
+      disabled: (user: UserType) => !!user.disabled,
+      icon: "pi pi-times",
+      key: "disableUser",
+      label: t("user.table.actions.disableUser"),
+      requireConfirmationModal: true,
+    },
+  ];
+
+  return (
+    props.dataActionMenu
+      ? typeof props.dataActionMenu === "function"
+        ? (data: UserType) =>
+            (
+              props.dataActionMenu as (
+                user: UserType,
+                defaultActionsMenu: DataActionsMenuItem[],
+              ) => DataActionsMenuItem[]
+            )(data, defaultActionMenu)
+        : props.dataActionMenu
+      : defaultActionMenu
+  ) as DataActionsMenuItem[];
+});
+
+const mergedColumns = computed(() => [
+  ...defaultColumns.map((defaultColumn) => {
+    const override = props.columnsData.find(
+      (column) => column.accessorKey === defaultColumn.accessorKey,
+    );
+    return override ? { ...defaultColumn, ...override } : defaultColumn;
+  }),
+  ...props.columnsData.filter(
+    (column) =>
+      !defaultColumns.some(
+        (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
+      ),
+  ),
+]);
+
+const onActionSelect = (rowData: { action: string; data: Invitation }) => {
+  switch (rowData.action) {
+    case "enableUser":
+      emit("action:enableUser", rowData.data);
+      break;
+    case "disableUser":
+      emit("action:disableUser", rowData.data);
+      break;
+  }
+};
+
+const onCloseInvitation = () => {
+  showModal.value = false;
+
+  emit("on:closeInvitation");
+};
+
+const onUpdateRequest = (invitationRequest: TRequestJSON) => {
+  emit("update:request", invitationRequest);
+};
+
+defineExpose({
+  showModal,
+});
+</script>
