@@ -138,6 +138,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits([
+  "action:custom",
   "action:disableUser",
   "action:enableUser",
   "on:closeInvitation",
@@ -274,6 +275,9 @@ const onActionSelect = (rowData: { action: string; data: Invitation }) => {
       break;
     case "disableUser":
       emit("action:disableUser", rowData.data);
+      break;
+    default:
+      emit("action:custom", rowData);
       break;
   }
 };
