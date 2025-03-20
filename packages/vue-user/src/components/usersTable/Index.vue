@@ -20,7 +20,7 @@
     <template v-if="showInviteAction" #toolbar>
       <div className="table-actions">
         <ButtonElement
-          :label="t('user.invitation.table.inviteUser')"
+          :label="t('user.table.inviteUser')"
           @click="showModal = true"
         />
 
@@ -41,7 +41,7 @@
 
 <script lang="ts">
 export default {
-  name: "InvitationTable",
+  name: "UsersTable",
 };
 </script>
 
@@ -106,10 +106,6 @@ const props = defineProps({
     default: "",
     type: String,
   },
-  users: {
-    default: () => [],
-    type: Array as PropType<UserType[]>,
-  },
   isServerTable: Boolean,
   roles: {
     default: () => [],
@@ -131,6 +127,10 @@ const props = defineProps({
     default: 0,
     type: Number,
   },
+  users: {
+    default: () => [],
+    type: Array as PropType<UserType[]>,
+  },
   visibleColumns: {
     default: () => [],
     type: Array as PropType<string[]>,
@@ -149,11 +149,11 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
   {
     accessorKey: "email",
     enableSorting: true,
-    header: t("user.invitation.table.defaultColumns.email"),
+    header: t("user.table.defaultColumns.email"),
   },
   {
     accessorKey: "name",
-    header: t("user.invitation.table.defaultColumns.app"),
+    header: t("user.table.defaultColumns.name"),
     accessorFn: (original: UserType) => {
       return (
         (original.givenName ? original.givenName : "") +
@@ -165,10 +165,10 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
   },
   {
     align: "center",
-    accessorKey: "role",
-    header: t("user.invitation.table.defaultColumns.role"),
-    cell: ({ getValue, row: original }) => {
-      const roles = (original as unknown as { roles: string[] })?.roles;
+    accessorKey: "roles",
+    header: t("user.table.defaultColumns.roles"),
+    cell: ({ getValue, row }) => {
+      const roles = (row.original as unknown as { roles: string[] })?.roles;
       if (Array.isArray(roles)) {
         return roles.map((role, index) =>
           h(BadgeComponent, {
@@ -189,19 +189,19 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
   },
   {
     accessorKey: "signedUpAt",
-    header: t("user.invitation.table.defaultColumns.invitedBy"),
+    header: t("user.table.defaultColumns.signedUpAt"),
     cell: ({ row }: { row: { original: UserType } }) =>
       row.original.signedUpAt ? formatDate(row.original.signedUpAt) : "-",
   },
   {
     align: "center",
     accessorKey: "status",
-    header: t("user.invitation.table.defaultColumns.status"),
+    header: t("user.table.defaultColumns.status"),
     cell: ({ row }: { row: { original: UserType } }) => {
       return h(BadgeComponent, {
         label: row.original.disabled
-          ? t("users.status.disabled")
-          : t("users.status.enabled"),
+          ? t("user.table.status.disabled")
+          : t("user.table.status.enabled"),
         severity: row.original.disabled ? "danger" : "success",
       });
     },
@@ -238,7 +238,7 @@ const actionMenuData = computed(() => {
   ];
 
   return (
-    props.dataActionMenu
+    props.dataActionMenu?.length
       ? typeof props.dataActionMenu === "function"
         ? (data: UserType) =>
             (
@@ -292,3 +292,7 @@ defineExpose({
   showModal,
 });
 </script>
+
+<style lang="css">
+@import "../../assets/css/users-table.css";
+</style>

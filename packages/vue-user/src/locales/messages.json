@@ -268,6 +268,38 @@
           "success": "Signed up successfully."
         },
         "title": "Register"
+      },
+      "table": {
+        "actions": {
+          "disableUser": "Disable user",
+          "enableUser": "Enable user"
+        },
+        "confirmation": {
+          "disableUser": {
+            "message": "Are you sure you want to disable this user?"
+          },
+          "enableUser": {
+            "message": "Are you sure you want to enable this user?"
+          },
+          "header": "Confirmation"
+        },
+        "defaultColumns": {
+          "email": "Email",
+          "name": "Name",
+          "roles": "Roles",
+          "signedUpAt": "Signed up at",
+          "status": "Status"
+        },
+        "emptyMessage": "Table is empty",
+        "inviteUser": "Invite user",
+        "pagination": {
+          "pageInputLabel": "Go to",
+          "rowsPerPage": "Rows"
+        },
+        "status": {
+          "disabled": "Disabled",
+          "enabled": "Enable"
+        }
       }
     }
   },
@@ -539,20 +571,35 @@
         "title": "Inscription"
       },
       "table": {
+        "actions": {
+          "disableUser": "Disable user",
+          "enableUser": "Enable user"
+        },
+        "confirmation": {
+          "disableUser": {
+            "message": "Are you sure you want to disable this user?"
+          },
+          "enableUser": {
+            "message": "Are you sure you want to enable this user?"
+          },
+          "header": "Confirmation"
+        },
         "defaultColumns": {
-          "app": "App",
           "email": "Email",
-          "expiresAt": "Expires at",
-          "invitedBy": "Invited by",
-          "role": "Role",
+          "name": "Name",
+          "roles": "Roles",
+          "signedUpAt": "Signed up at",
           "status": "Status"
         },
+        "emptyMessage": "Table is empty",
         "inviteUser": "Invite user",
+        "pagination": {
+          "pageInputLabel": "Go to",
+          "rowsPerPage": "Rows"
+        },
         "status": {
-          "accepted": "Accepted",
-          "expired": "Expired",
-          "pending": "Pending",
-          "revoked": "Revoked"
+          "disabled": "Disabled",
+          "enabled": "Enable"
         }
       }
     }
