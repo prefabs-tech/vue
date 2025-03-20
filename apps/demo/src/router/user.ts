@@ -4,7 +4,6 @@ const InvitationTable = () => import("@/views/User/InvitationTable.vue");
 const User = () => import("@/views/User/Index.vue");
 const UsersTable = () => import("@/views/User/UsersTable.vue");
 
-
 const routes = [
   {
     path: "/user",
