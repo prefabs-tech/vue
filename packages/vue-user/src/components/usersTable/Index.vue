@@ -83,13 +83,10 @@ const props = defineProps({
     type: Array as PropType<TableColumnDefinition<any>[]>,
   },
   dataActionMenu: {
-    default: () => [],
+    default: undefined,
     type: [Array, Function] as PropType<
       | DataActionsMenuItem[]
-      | ((
-          user: UserType,
-          defaultActionsMenu: DataActionsMenuItem[],
-        ) => DataActionsMenuItem[])
+      | ((defaultActionsMenu: DataActionsMenuItem[]) => DataActionsMenuItem[])
     >,
   },
   expiryMode: {
@@ -237,19 +234,11 @@ const actionMenuData = computed(() => {
     },
   ];
 
-  return (
-    props.dataActionMenu?.length
-      ? typeof props.dataActionMenu === "function"
-        ? (data: UserType) =>
-            (
-              props.dataActionMenu as (
-                user: UserType,
-                defaultActionsMenu: DataActionsMenuItem[],
-              ) => DataActionsMenuItem[]
-            )(data, defaultActionMenu)
-        : props.dataActionMenu
-      : defaultActionMenu
-  ) as DataActionsMenuItem[];
+  return props.dataActionMenu
+    ? typeof props.dataActionMenu === "function"
+      ? props.dataActionMenu(defaultActionMenu)
+      : props.dataActionMenu
+    : defaultActionMenu;
 });
 
 const mergedColumns = computed(() => [

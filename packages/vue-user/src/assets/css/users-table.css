@@ -1,3 +1,7 @@
+.table-users .cell-roles > .badge.multiple {
+  margin: 0.1rem !important;
+}
+
 .table-users .column-email {
   min-width: 20rem;
 }
