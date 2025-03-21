@@ -56,7 +56,6 @@ import { useTranslations } from "../../index";
 import InvitationModal from "../invitation/InvitationModal.vue";
 
 import type {
-  Invitation,
   InvitationAppOption,
   InvitationRoleOption,
   UserType,
@@ -268,7 +267,7 @@ const mergedColumns = computed(() => [
   ),
 ]);
 
-const onActionSelect = (rowData: { action: string; data: Invitation }) => {
+const onActionSelect = (rowData: { action: string; data: UserType }) => {
   switch (rowData.action) {
     case "enableUser":
       emit("action:enableUser", rowData.data);
