@@ -14,3 +14,4 @@ export { default as TermsAndConditions } from "./TermsAndConditions.vue";
 export { default as UpdateEmailForm } from "./profile/UpdateEmailForm.vue";
 export { default as UpdateEmailModal } from "./profile/UpdateEmailModal.vue";
 export { default as UserMenu } from "./UserMenu.vue";
+export { default as UsersTable } from "./usersTable/Index.vue";

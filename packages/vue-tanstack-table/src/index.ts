@@ -5,4 +5,4 @@ import TanstackTable from "./components/TanstackTable.vue";
 
 export { Table, TableBody, TableHeader, TanstackTable };
 
-export type { SortingState, TableColumnDefinition, TRequestJSON } from "./types";
+export type { DataActionsMenuItem, SortingState, TableColumnDefinition, TRequestJSON } from "./types";
