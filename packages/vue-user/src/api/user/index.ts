@@ -1,4 +1,5 @@
 import client from "../axios";
+import { ERROR_NOT_FOUND, STATUS_ERROR } from "../../constant";
 
 import type {
   Invitation,
@@ -20,10 +21,60 @@ export const acceptInvitation = async (
     },
   );
 
-  if (response.data.status === "ERROR") {
+  if (response.data.status === STATUS_ERROR) {
     throw new Error(response.data.message);
   } else {
     return response.data;
+  }
+};
+
+export const addInvitation = async (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  invitationData: any,
+  apiBaseUrl: string,
+): Promise<Invitation> => {
+  const response = await client(apiBaseUrl).post(
+    "/invitations",
+    invitationData,
+    {
+      withCredentials: true,
+    },
+  );
+
+  if (response.data.status === STATUS_ERROR) {
+    throw new Error(response.data.message);
+  } else {
+    return response.data;
+  }
+};
+
+export const disableUser = async (id: string, apiBaseUrl: string) => {
+  const response = await client(apiBaseUrl).put(
+    `users/${id}/disable`,
+    {},
+    { withCredentials: true },
+  );
+
+  if (response.status === ERROR_NOT_FOUND) {
+    throw new Error(response.data.message);
+  } else {
+    return response;
+  }
+};
+
+export const enableUser = async (id: string, apiBaseUrl: string) => {
+  const response = await client(apiBaseUrl).put(
+    `users/${id}/enable`,
+    {},
+    {
+      withCredentials: true,
+    },
+  );
+
+  if (response.status === ERROR_NOT_FOUND) {
+    throw new Error(response.data.message);
+  } else {
+    return response;
   }
 };
 
