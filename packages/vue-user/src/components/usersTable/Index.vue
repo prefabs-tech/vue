@@ -32,7 +32,7 @@
           :submit-label="submitLabel"
           :title="invitationModalTitle"
           @on:close="onCloseInvitation"
-          @submit="$emit('on:submitInvitation', $event)"
+          @submit="onSubmitInvitation"
         />
       </div>
     </template>
@@ -46,20 +46,24 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Table } from "@dzangolab/vue3-tanstack-table";
 import { BadgeComponent, ButtonElement, formatDate } from "@dzangolab/vue3-ui";
 import { computed, h, ref } from "vue";
 
-import { ROLE_ADMIN } from "../../constant";
-import { useTranslations } from "../../index";
+import { ROLE_ADMIN, STATUS_OK } from "../../constant";
+import { useTranslations, emitter } from "../../index";
+import useUserStore from "../../store";
 import InvitationModal from "../invitation/InvitationModal.vue";
 
 import type {
   InvitationAppOption,
+  InvitationPayload,
   InvitationRoleOption,
   UserType,
 } from "../../types";
+import type { AppConfig } from "@dzangolab/vue3-config";
 import type {
   DataActionsMenuItem,
   SortingState,
@@ -68,9 +72,14 @@ import type {
 } from "@dzangolab/vue3-tanstack-table";
 import type { PropType } from "vue";
 
+const config = useConfig() as AppConfig;
+
 const messages = useTranslations();
 
 const { t } = useI18n({ messages });
+
+const userStore = useUserStore();
+const { addInvitation, disableUser, enableUser } = userStore;
 
 const props = defineProps({
   apps: {
@@ -135,8 +144,7 @@ const props = defineProps({
 
 const emit = defineEmits([
   "action:custom",
-  "action:disableUser",
-  "action:enableUser",
+  "fetch:users",
   "on:closeInvitation",
   "on:submitInvitation",
   "update:request",
@@ -259,10 +267,10 @@ const mergedColumns = computed(() => [
 const onActionSelect = (rowData: { action: string; data: UserType }) => {
   switch (rowData.action) {
     case "enableUser":
-      emit("action:enableUser", rowData.data);
+      onEnableUser(rowData.data?.id);
       break;
     case "disableUser":
-      emit("action:disableUser", rowData.data);
+      onDisableUser(rowData.data?.id);
       break;
     default:
       emit("action:custom", rowData);
@@ -274,6 +282,76 @@ const onCloseInvitation = () => {
   showModal.value = false;
 
   emit("on:closeInvitation");
+};
+
+const onDisableUser = async (id: string) => {
+  await disableUser(id, config.apiBaseUrl)
+    .then(async (response) => {
+      if (response?.data?.status === STATUS_OK) {
+        emit("fetch:users");
+
+        emitter.emit("notify", {
+          text: t("users.messages.disable.success"),
+          type: "success",
+        });
+      } else {
+        emitter.emit("notify", {
+          text: t("users.messages.disable.error"),
+          type: "success",
+        });
+      }
+    })
+    .catch(() => {
+      emitter.emit("notify", {
+        text: t("users.messages.disable.error"),
+        type: "error",
+      });
+    });
+};
+
+const onEnableUser = async (id: string) => {
+  await enableUser(id, config.apiBaseUrl)
+    .then(async (response) => {
+      if (response?.data?.status === STATUS_OK) {
+        emit("fetch:users");
+
+        emitter.emit("notify", {
+          text: t("users.messages.enable.success"),
+          type: "success",
+        });
+      } else {
+        emitter.emit("notify", {
+          text: t("users.messages.enable.error"),
+          type: "success",
+        });
+      }
+    })
+    .catch(() => {
+      emitter.emit("notify", {
+        text: t("users.messages.enable.error"),
+        type: "error",
+      });
+    });
+};
+
+const onSubmitInvitation = async (formData: InvitationPayload) => {
+  await addInvitation(formData, config.apiBaseUrl)
+    .then((response) => {
+      if (response) {
+        emitter.emit("notify", {
+          text: t("invitations.messages.invite.success"),
+          type: "success",
+        });
+      }
+    })
+    .catch(() => {
+      emitter.emit("notify", {
+        text: t("invitations.messages.invite.error"),
+        type: "error",
+      });
+    });
+
+  showModal.value = false;
 };
 
 const onUpdateRequest = (invitationRequest: TRequestJSON) => {

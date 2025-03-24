@@ -3,6 +3,9 @@ import { ref } from "vue";
 
 import {
   acceptInvitation as doAcceptInvitation,
+  addInvitation as doAddInvitation,
+  disableUser as doDisableUser,
+  enableUser as doEnableUser,
   getInvitationByToken as doGetInvitation,
 } from "./api/user";
 import {
@@ -38,6 +41,14 @@ const useUserStore = defineStore("user", () => {
     return await doAcceptInvitation(token, credential, apiBaseUrl);
   };
 
+  const addInvitation = async (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    invitationData: any,
+    apiBaseUrl: string,
+  ) => {
+    return await doAddInvitation(invitationData, apiBaseUrl);
+  };
+
   const changePassword = async (
     payload: UpdatePasswordPayload,
     apiBaseUrl: string,
@@ -45,6 +56,14 @@ const useUserStore = defineStore("user", () => {
     const response = await doChangePassword(payload, apiBaseUrl);
 
     return response;
+  };
+
+  const disableUser = async (id: string, apiBaseUrl: string) => {
+    return await doDisableUser(id, apiBaseUrl);
+  };
+
+  const enableUser = async (id: string, apiBaseUrl: string) => {
+    return await doEnableUser(id, apiBaseUrl);
   };
 
   const getInvitationByToken = async (
@@ -120,7 +139,10 @@ const useUserStore = defineStore("user", () => {
 
   return {
     acceptInvitation,
+    addInvitation,
     changePassword,
+    disableUser,
+    enableUser,
     googleSignIn,
     getInvitationByToken,
     getUser,
