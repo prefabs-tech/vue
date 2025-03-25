@@ -56,6 +56,10 @@ const menu = [
     name: t("user.label.invitationTable"),
     routeName: "invitationTable",
   },
+  {
+    name: t("user.label.usersTable"),
+    routeName: "usersTable",
+  },
 ];
 </script>
 

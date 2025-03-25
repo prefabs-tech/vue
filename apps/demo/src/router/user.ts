@@ -2,6 +2,7 @@ const InvitationForm = () => import("@/views/User/invitationForm/Index.vue");
 const InvitationModal = () => import("@/views/User/InvitationModal.vue");
 const InvitationTable = () => import("@/views/User/InvitationTable.vue");
 const User = () => import("@/views/User/Index.vue");
+const UsersTable = () => import("@/views/User/UsersTable.vue");
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
         component: User,
         name: "user",
         path: "",
+      },
+      {
+        component: UsersTable,
+        name: "usersTable",
+        path: "users-table",
       },
     ],
   },
