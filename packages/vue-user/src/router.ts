@@ -12,6 +12,7 @@ import PasswordReset from "./views/PasswordReset.vue";
 import PasswordResetRequest from "./views/PasswordResetRequest.vue";
 import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowledge.vue";
 import Profile from "./views/Profile.vue";
+import Roles from "./views/Roles/Index.vue";
 import Signup from "./views/Signup.vue";
 import VerifyEmail from "./views/VerifyEmail.vue";
 
@@ -53,6 +54,14 @@ const _routes = {
     component: Profile,
     name: "profile",
     path: "/profile",
+  } as RouteRecordRaw,
+  roles: {
+    meta: {
+      authenticated: true,
+    } as RouteMeta,
+    component: Roles,
+    name: "roles",
+    path: "/roles",
   } as RouteRecordRaw,
   signup: {
     component: Signup,
@@ -120,6 +129,8 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   );
 
   router.addRoute(getRoute(_routes.profile, routes?.profile));
+
+  router.addRoute(getRoute(_routes.roles, routes?.roles));
 
   router.addRoute(
     getRoute(
