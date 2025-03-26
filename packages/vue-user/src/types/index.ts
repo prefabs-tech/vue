@@ -20,4 +20,6 @@ export type {
 
 export type { DzangolabVueUserPluginOptions } from "./plugin";
 
+export type { Role, RolePermissionsInput } from "./roles";
+
 export type { RouteOverride, RouteOverrides } from "./router";
