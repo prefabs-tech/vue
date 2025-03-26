@@ -19,6 +19,7 @@ interface RouteOverrides {
   passwordResetRequest: RouteOverride;
   passwordResetRequestAcknowledge: RouteOverride;
   profile?: RouteOverride;
+  roles?: RouteOverride;
   verifyEmail?: RouteOverride;
   verifyEmailReminder?: RouteOverride;
 }
