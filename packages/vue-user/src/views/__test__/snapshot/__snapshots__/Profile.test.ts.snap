@@ -39,6 +39,7 @@ exports[`Profile > matches snapshot in en 1`] = `
     <account-info-stub />
     <profile-form-stub />
     
+    <!---->
   </div>
 </div>
 `;
@@ -82,6 +83,7 @@ exports[`Profile > matches snapshot in fr 1`] = `
     <account-info-stub />
     <profile-form-stub />
     
+    <!---->
   </div>
 </div>
 `;

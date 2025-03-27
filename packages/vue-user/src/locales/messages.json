@@ -105,6 +105,20 @@
         },
         "title": "Email verification"
       },
+      "firstUser": {
+        "title": "Register first user",
+        "login": {
+          "messages": {
+            "error": "Automatic login failed. Redirecting to login page for manual login"
+          }
+        },
+        "signup": {
+          "messages": {
+            "error": "Error signing up first user",
+            "success": "Succefully added first user. Automatically logging in ..."
+          }
+        }
+      },
       "invitation": {
         "messages": {
           "invite": {
@@ -463,6 +477,20 @@
           "verifyingEmail": "Verifying your email"
         },
         "title": "Email verification"
+      },
+      "firstUser": {
+        "title": "Register first user",
+        "login": {
+          "messages": {
+            "error": "Automatic login failed. Redirecting to login page for manual login"
+          }
+        },
+        "signup": {
+          "messages": {
+            "error": "Error signing up first user",
+            "success": "Succefully added first user. Automatically logging in ..."
+          }
+        }
       },
       "invitation": {
         "messages": {

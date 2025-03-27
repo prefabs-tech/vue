@@ -14,6 +14,7 @@ import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowl
 import Profile from "./views/Profile.vue";
 import Roles from "./views/Roles/Index.vue";
 import Signup from "./views/Signup.vue";
+import SignupFirstUser from "./views/SignupFirstUser.vue";
 import VerifyEmail from "./views/VerifyEmail.vue";
 
 import type {
@@ -67,6 +68,11 @@ const _routes = {
     component: Signup,
     name: "signup",
     path: "/signup",
+  } as RouteRecordRaw,
+  signupFirstUser: {
+    component: SignupFirstUser,
+    name: "signupFirstUser",
+    path: "/signup-first-user",
   } as RouteRecordRaw,
   passwordReset: {
     component: PasswordReset,
@@ -122,6 +128,10 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
     router.addRoute(getRoute(_routes.signup, routes?.signup));
   }
 
+  if (routes?.signup?.disabled && !routes?.signupFirstUser?.disabled) {
+    router.addRoute(getRoute(_routes.signupFirstUser, routes?.signupFirstUser));
+  }
+
   router.addRoute(getRoute(_routes.passwordReset, routes?.passwordReset));
 
   router.addRoute(
@@ -166,6 +176,7 @@ const redirectRoutes = (router: Router) => {
       "acceptInvitation",
       "login",
       "signup",
+      "signupFirstUser",
       "resetPassword",
       "resetPasswordRequest",
     ];
