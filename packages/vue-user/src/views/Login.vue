@@ -104,6 +104,8 @@ const onError = (error: ErrorType) => {
 };
 
 const prepareComponent = async () => {
+  loading.value = true;
+
   try {
     const response = await getIsFirstUser(config.apiBaseUrl);
 
@@ -116,6 +118,8 @@ const prepareComponent = async () => {
     }
   } catch {
     // Do nothing
+  } finally {
+    loading.value = false;
   }
 };
 
