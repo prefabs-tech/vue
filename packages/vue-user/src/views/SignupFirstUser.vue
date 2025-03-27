@@ -1,0 +1,86 @@
+<template>
+  <Page
+    :loading="loading"
+    :title="t('user.firstUser.title')"
+    class="auth signup"
+    centered
+  >
+    <Card v-if="isError">
+      <p>{{ t("user.signup.errors.otherErrors") }}</p>
+    </Card>
+
+    <SignupForm v-else @submit="handleSubmit" />
+  </Page>
+</template>
+
+<script lang="ts">
+export default {
+  name: "Signup",
+};
+</script>
+
+<script setup lang="ts">
+import { useConfig } from "@dzangolab/vue3-config";
+import { useI18n } from "@dzangolab/vue3-i18n";
+import { Card, Page } from "@dzangolab/vue3-ui";
+import { storeToRefs } from "pinia";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+import SignupForm from "../components/SignupForm.vue";
+import { emitter, useTranslations } from "../index";
+import useUserStore from "../store";
+
+import type { LoginCredentials } from "../types";
+import type { AppConfig } from "@dzangolab/vue3-config";
+
+const config = useConfig() as AppConfig;
+
+const messages = useTranslations();
+
+const { t } = useI18n({ messages });
+
+const userStore = useUserStore();
+const { getIsFirstUser, signUpFirstUser } = userStore;
+const { user } = storeToRefs(userStore);
+
+const router = useRouter();
+
+const isError = ref<boolean>(false);
+const loading = ref<boolean>(true);
+
+const handleSubmit = async (credentials: LoginCredentials) => {
+  await signUpFirstUser(credentials, config.apiBaseUrl)
+    .then(() => {
+      emitter.emit("notify", {
+        text: t("user.login.message.success"),
+        type: "success",
+      });
+    })
+    .catch(() => {
+      emitter.emit("notify", {
+        text: t("user.firstUser.errors.loginFailed"),
+        type: "error",
+      });
+    });
+
+  if (user.value) {
+    router.push({ name: "home" });
+  }
+};
+
+const prepareComponent = async () => {
+  try {
+    const response = await getIsFirstUser(config.apiBaseUrl);
+    if (!response?.signUp) {
+      router.push({ name: "login" });
+    }
+  } catch (error) {
+    isError.value = true;
+  } finally {
+    loading.value = false;
+  }
+};
+
+prepareComponent();
+</script>

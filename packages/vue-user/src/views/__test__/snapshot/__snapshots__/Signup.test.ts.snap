@@ -165,6 +165,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
       </a>
     </div>
     
+    <!---->
   </div>
 </div>
 `;
@@ -334,6 +335,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
       </a>
     </div>
     
+    <!---->
   </div>
 </div>
 `;

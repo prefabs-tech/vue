@@ -14,6 +14,7 @@ import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowl
 import Profile from "./views/Profile.vue";
 import Roles from "./views/Roles/Index.vue";
 import Signup from "./views/Signup.vue";
+import SignupFirstUser from "./views/SignupFirstUser.vue";
 import VerifyEmail from "./views/VerifyEmail.vue";
 
 import type {
@@ -67,6 +68,11 @@ const _routes = {
     component: Signup,
     name: "signup",
     path: "/signup",
+  } as RouteRecordRaw,
+  signupFirstUser: {
+    component: SignupFirstUser,
+    name: "signupFirstUser",
+    path: "/signup-first-user",
   } as RouteRecordRaw,
   passwordReset: {
     component: PasswordReset,
@@ -122,6 +128,10 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
     router.addRoute(getRoute(_routes.signup, routes?.signup));
   }
 
+  if (routes?.signup?.disabled && !routes?.signupFirstUser?.disabled) {
+    router.addRoute(getRoute(_routes.signupFirstUser, routes?.signupFirstUser));
+  }
+
   router.addRoute(getRoute(_routes.passwordReset, routes?.passwordReset));
 
   router.addRoute(
@@ -157,7 +167,7 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   }
 };
 
-const redirectRoutes = (router: Router) => {
+const redirectRoutes = (router: Router, userConfig?: DzangolabVueUserConfig,) => {
   router.beforeEach((to, from, next) => {
     const userStore = useUserStore();
     const { user } = storeToRefs(userStore);
@@ -166,13 +176,20 @@ const redirectRoutes = (router: Router) => {
       "acceptInvitation",
       "login",
       "signup",
+      "signupFirstUser",
       "resetPassword",
       "resetPasswordRequest",
     ];
     const name = to.name as string;
 
+    const routes: RouteOverrides | undefined = userConfig?.routes;
+
+    const firstUserSignupEnabled = !routes?.signup?.disabled && routes?.signupFirstUser?.disabled;
+
     if (user.value && routesToRedirect.includes(name)) {
       next({ name: "profile" });
+    } else if (firstUserSignupEnabled) {
+      next({ name: "signupFirstUser" });
     } else {
       next();
     }
@@ -224,7 +241,7 @@ const updateRouter = (router: Router, userConfig?: DzangolabVueUserConfig) => {
 
   addAuthenticationGuard(router, userConfig);
 
-  redirectRoutes(router);
+  redirectRoutes(router, userConfig);
 };
 
 export default updateRouter;

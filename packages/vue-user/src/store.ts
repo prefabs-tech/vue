@@ -6,7 +6,9 @@ import {
   addInvitation as doAddInvitation,
   disableUser as doDisableUser,
   enableUser as doEnableUser,
+  getIsFirstUser as doGetIsFirstUser,
   getInvitationByToken as doGetInvitation,
+  signUpFirstUser as doSignUpFirstUser,
 } from "./api/user";
 import {
   changePassword as doChangePassword,
@@ -64,6 +66,12 @@ const useUserStore = defineStore("user", () => {
 
   const enableUser = async (id: string, apiBaseUrl: string) => {
     return await doEnableUser(id, apiBaseUrl);
+  };
+
+  const getIsFirstUser = async (
+    apiBaseUrl: string,
+  ) => {
+    return await doGetIsFirstUser(apiBaseUrl);
   };
 
   const getInvitationByToken = async (
@@ -137,6 +145,12 @@ const useUserStore = defineStore("user", () => {
     setUser(response);
   };
 
+  const signUpFirstUser = async (credentials: LoginCredentials, apiBaseUrl: string,): Promise<void> => {
+    const response = await doSignUpFirstUser(credentials, apiBaseUrl);
+
+    setUser(response);
+  };
+
   return {
     acceptInvitation,
     addInvitation,
@@ -144,6 +158,7 @@ const useUserStore = defineStore("user", () => {
     disableUser,
     enableUser,
     googleSignIn,
+    getIsFirstUser,
     getInvitationByToken,
     getUser,
     invitation,
@@ -152,6 +167,7 @@ const useUserStore = defineStore("user", () => {
     removeUser,
     resetPassword,
     requestPasswordReset,
+    signUpFirstUser,
     setInvitation,
     setUser,
     signup,
