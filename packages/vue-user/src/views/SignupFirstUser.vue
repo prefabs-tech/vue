@@ -6,7 +6,7 @@
     centered
   >
     <Card v-if="isError">
-      <p>{{ t("user.signup.errors.otherErrors") }}</p>
+      <p>{{ t("user.signup.errors.SOMETHING_WRONG") }}</p>
     </Card>
 
     <SignupForm v-else @submit="handleSubmit" />
@@ -53,19 +53,31 @@ const handleSubmit = async (credentials: LoginCredentials) => {
   await signUpFirstUser(credentials, config.apiBaseUrl)
     .then(() => {
       emitter.emit("notify", {
-        text: t("user.login.message.success"),
+        text: t("user.firstUser.signup.messages.success"),
         type: "success",
       });
     })
     .catch(() => {
       emitter.emit("notify", {
-        text: t("user.firstUser.errors.loginFailed"),
+        text: t("user.firstUser.signup.messages.error"),
         type: "error",
       });
     });
 
   if (user.value) {
+    emitter.emit("notify", {
+      text: t("user.login.messages.success"),
+      type: "success",
+    });
+
     router.push({ name: "home" });
+  } else {
+    emitter.emit("notify", {
+      text: t("user.firstUser.login.messages.error"),
+      type: "error",
+    });
+
+    router.push({ name: "login" });
   }
 };
 
