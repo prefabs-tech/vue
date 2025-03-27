@@ -130,7 +130,7 @@ export const signUpFirstUser = async (
   if (response.data.status === STATUS_ERROR) {
     throw new Error(response.data.message);
   } else {
-    return response.data;
+    return response.data?.user;
   }
 };
 

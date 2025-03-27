@@ -2,8 +2,8 @@
   <Page
     :loading="loading"
     :title="t('user.firstUser.title')"
-    class="auth signup"
     centered
+    class="auth signup"
   >
     <Card v-if="isError">
       <p>{{ t("user.signup.errors.SOMETHING_WRONG") }}</p>
@@ -15,7 +15,7 @@
 
 <script lang="ts">
 export default {
-  name: "Signup",
+  name: "SignupFirstUser",
 };
 </script>
 
@@ -37,14 +37,13 @@ import type { AppConfig } from "@dzangolab/vue3-config";
 const config = useConfig() as AppConfig;
 
 const messages = useTranslations();
-
 const { t } = useI18n({ messages });
+
+const router = useRouter();
 
 const userStore = useUserStore();
 const { getIsFirstUser, signUpFirstUser } = userStore;
 const { user } = storeToRefs(userStore);
-
-const router = useRouter();
 
 const isError = ref<boolean>(false);
 const loading = ref<boolean>(true);
@@ -84,6 +83,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
 const prepareComponent = async () => {
   try {
     const response = await getIsFirstUser(config.apiBaseUrl);
+
     if (!response?.signUp) {
       router.push({ name: "login" });
     }

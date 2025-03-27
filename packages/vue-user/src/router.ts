@@ -167,7 +167,7 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   }
 };
 
-const redirectRoutes = (router: Router, userConfig?: DzangolabVueUserConfig,) => {
+const redirectRoutes = (router: Router) => {
   router.beforeEach((to, from, next) => {
     const userStore = useUserStore();
     const { user } = storeToRefs(userStore);
@@ -182,14 +182,8 @@ const redirectRoutes = (router: Router, userConfig?: DzangolabVueUserConfig,) =>
     ];
     const name = to.name as string;
 
-    const routes: RouteOverrides | undefined = userConfig?.routes;
-
-    const firstUserSignupEnabled = routes?.signup?.disabled && !routes?.signupFirstUser?.disabled;
-
     if (user.value && routesToRedirect.includes(name)) {
       next({ name: "profile" });
-    } else if (name === "login" && firstUserSignupEnabled) {
-      next({ name: "signupFirstUser" });
     } else {
       next();
     }
@@ -241,7 +235,7 @@ const updateRouter = (router: Router, userConfig?: DzangolabVueUserConfig) => {
 
   addAuthenticationGuard(router, userConfig);
 
-  redirectRoutes(router, userConfig);
+  redirectRoutes(router);
 };
 
 export default updateRouter;
