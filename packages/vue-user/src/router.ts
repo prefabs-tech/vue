@@ -184,11 +184,11 @@ const redirectRoutes = (router: Router, userConfig?: DzangolabVueUserConfig,) =>
 
     const routes: RouteOverrides | undefined = userConfig?.routes;
 
-    const firstUserSignupEnabled = !routes?.signup?.disabled && routes?.signupFirstUser?.disabled;
+    const firstUserSignupEnabled = routes?.signup?.disabled && !routes?.signupFirstUser?.disabled;
 
     if (user.value && routesToRedirect.includes(name)) {
       next({ name: "profile" });
-    } else if (firstUserSignupEnabled) {
+    } else if (name === "login" && firstUserSignupEnabled) {
       next({ name: "signupFirstUser" });
     } else {
       next();
