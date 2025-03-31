@@ -12,7 +12,9 @@ import PasswordReset from "./views/PasswordReset.vue";
 import PasswordResetRequest from "./views/PasswordResetRequest.vue";
 import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowledge.vue";
 import Profile from "./views/Profile.vue";
+import Roles from "./views/Roles/Index.vue";
 import Signup from "./views/Signup.vue";
+import SignupFirstUser from "./views/SignupFirstUser.vue";
 import VerifyEmail from "./views/VerifyEmail.vue";
 
 import type {
@@ -54,10 +56,23 @@ const _routes = {
     name: "profile",
     path: "/profile",
   } as RouteRecordRaw,
+  roles: {
+    meta: {
+      authenticated: true,
+    } as RouteMeta,
+    component: Roles,
+    name: "roles",
+    path: "/roles",
+  } as RouteRecordRaw,
   signup: {
     component: Signup,
     name: "signup",
     path: "/signup",
+  } as RouteRecordRaw,
+  signupFirstUser: {
+    component: SignupFirstUser,
+    name: "signupFirstUser",
+    path: "/signup-first-user",
   } as RouteRecordRaw,
   passwordReset: {
     component: PasswordReset,
@@ -113,6 +128,10 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
     router.addRoute(getRoute(_routes.signup, routes?.signup));
   }
 
+  if (routes?.signup?.disabled && !routes?.signupFirstUser?.disabled) {
+    router.addRoute(getRoute(_routes.signupFirstUser, routes?.signupFirstUser));
+  }
+
   router.addRoute(getRoute(_routes.passwordReset, routes?.passwordReset));
 
   router.addRoute(
@@ -120,6 +139,8 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   );
 
   router.addRoute(getRoute(_routes.profile, routes?.profile));
+
+  router.addRoute(getRoute(_routes.roles, routes?.roles));
 
   router.addRoute(
     getRoute(
@@ -155,6 +176,7 @@ const redirectRoutes = (router: Router) => {
       "acceptInvitation",
       "login",
       "signup",
+      "signupFirstUser",
       "resetPassword",
       "resetPasswordRequest",
     ];

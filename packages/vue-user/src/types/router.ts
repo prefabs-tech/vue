@@ -15,10 +15,12 @@ interface RouteOverrides {
   home?: string;
   login: RouteOverride;
   signup: RouteOverride & { disabled?: boolean };
+  signupFirstUser: RouteOverride & { disabled?: boolean };
   passwordReset: RouteOverride;
   passwordResetRequest: RouteOverride;
   passwordResetRequestAcknowledge: RouteOverride;
   profile?: RouteOverride;
+  roles?: RouteOverride;
   verifyEmail?: RouteOverride;
   verifyEmailReminder?: RouteOverride;
 }

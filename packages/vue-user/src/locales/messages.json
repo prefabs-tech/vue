@@ -1,5 +1,60 @@
 {
   "en": {
+    "roles": {
+      "form": {
+        "actions": {
+          "cancel": "Cancel",
+          "create": "Create",
+          "update": "Update"
+        },
+        "label": {
+          "add": "Add a role",
+          "permissions": "Permissions",
+          "role": "Role",
+          "update": "Update permissions"
+        },
+        "messages": {
+          "add": {
+            "error": "Something went wrong",
+            "roleAlreadyExists": "Unable to create role as it already exists",
+            "success": "Role created successfully"
+          },
+          "invalidRole": "Invalid role",
+          "update": {
+            "error": "Something went wrong",
+            "success": "Role permissions updated successfully"
+          }
+        },
+        "placeholder": {
+          "permissions": "Select permissions"
+        }
+      },
+      "table": {
+        "actions": {
+          "addRole": "Add",
+          "deleteRole": "Delete",
+          "updatePermissions": "Update permissions"
+        },
+        "columns": {
+          "permissions": "Permissions",
+          "roles": "Roles"
+        },
+        "confirmation": {
+          "deleteRole": {
+            "header": "Confirm delete",
+            "message": "Are you sure you want to delete?"
+          }
+        },
+        "emptyMessage": "No results",
+        "messages": {
+          "delete": {
+            "error": "Something went wrong",
+            "success": "Role deleted successfully"
+          }
+        }
+      },
+      "title": "Roles"
+    },    
     "user": {
       "changePassword": {
         "form": {
@@ -49,6 +104,20 @@
           "verifyingEmail": "Verifying your email"
         },
         "title": "Email verification"
+      },
+      "firstUser": {
+        "title": "Register first user",
+        "login": {
+          "messages": {
+            "error": "Automatic login failed. Redirecting to login page for manual login"
+          }
+        },
+        "signup": {
+          "messages": {
+            "error": "Error signing up first user",
+            "success": "Succefully added first user. Automatically logging in ..."
+          }
+        }
       },
       "invitation": {
         "messages": {
@@ -304,6 +373,61 @@
     }
   },
   "fr": {
+    "roles": {
+      "form": {
+        "actions": {
+          "cancel": "Cancel",
+          "create": "Create",
+          "update": "Update"
+        },
+        "label": {
+          "add": "Add a role",
+          "permissions": "Permissions",
+          "role": "Role",
+          "update": "Update permissions"
+        },
+        "messages": {
+          "add": {
+            "error": "Something went wrong",
+            "roleAlreadyExists": "Unable to create role as it already exists",
+            "success": "Role created successfully"
+          },
+          "invalidRole": "Invalid role",
+          "update": {
+            "error": "Something went wrong",
+            "success": "Role permissions updated successfully"
+          }
+        },
+        "placeholder": {
+          "permissions": "Select permissions"
+        }
+      },
+      "table": {
+        "actions": {
+          "addRole": "Add",
+          "deleteRole": "Delete",
+          "updatePermissions": "Update permissions"
+        },
+        "columns": {
+          "permissions": "Permissions",
+          "roles": "Roles"
+        },
+        "confirmation": {
+          "deleteRole": {
+            "header": "Confirm delete",
+            "message": "Are you sure you want to delete?"
+          }
+        },
+        "emptyMessage": "No results",
+        "messages": {
+          "delete": {
+            "error": "Something went wrong",
+            "success": "Role deleted successfully"
+          }
+        }
+      },
+      "title": "Roles"
+    },    
     "user": {
       "changePassword": {
         "form": {
@@ -353,6 +477,20 @@
           "verifyingEmail": "Verifying your email"
         },
         "title": "Email verification"
+      },
+      "firstUser": {
+        "title": "Register first user",
+        "login": {
+          "messages": {
+            "error": "Automatic login failed. Redirecting to login page for manual login"
+          }
+        },
+        "signup": {
+          "messages": {
+            "error": "Error signing up first user",
+            "success": "Succefully added first user. Automatically logging in ..."
+          }
+        }
       },
       "invitation": {
         "messages": {
