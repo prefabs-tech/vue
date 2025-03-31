@@ -228,7 +228,11 @@
       <div class="section-content">
         <Table :columns-data="columns" :data="data">
           <template #footer>
-            {{ `${$t("table.label.totalRecords")}: ${data.length ?? "0"}` }}
+            <tr>
+              <td>
+                {{ `${$t("table.label.totalRecords")}: ${data.length ?? "0"}` }}
+              </td>
+            </tr>
           </template>
         </Table>
 
@@ -237,7 +241,11 @@
           &lt;template&gt;
             &lt;Table :columns-data="columns" :data="data"&gt;
               &lt;template #footer&gt;
-                &lbrace;&lbrace; `Total records: ${data.length ?? "0"}` &rbrace;&rbrace;
+                &lt;tr&gt;
+                  &lt;td&gt;
+                    &lbrace;&lbrace; `Total records: ${data.length ?? "0"}` &rbrace;&rbrace;
+                  &lt;/td&gt;
+                &lt;/tr&gt;
               &lt;/template&gt;
             &lt;/Table&gt;
           &lt;/template&gt;
@@ -279,14 +287,21 @@
           &lt;template&gt;
             &lt;Table :columns-data="columns" :data="data"&gt;
               &lt;template #toolbar&gt;
-                &lt;ButtonElement label="Add record" /&gt;
+                &lt;span v-if="showDate"&gt;
+                  &lbrace;&lbrace; formatDateTime(Date()) &rbrace;&rbrace;
+                &lt;/span&gt;
+                &lt;ButtonElement 
+                  label="Add record"
+                  @click="showDate = !showDate"
+                /&gt;
               &lt;/template&gt;
             &lt;/Table&gt;
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
-          import { ButtonElement } from "@dzangolab/vue3-ui";
+          import { ButtonElement, formatDateTime } from "@dzangolab/vue3-ui";
+          import { ref } from "vue";
 
           import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
@@ -296,7 +311,9 @@
   
           const data = [
             ...
-          ]
+          ];
+
+          const showDate = ref&lt;boolean&gt;(false);
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
