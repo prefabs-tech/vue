@@ -183,7 +183,7 @@ if (props.dataActionMenu.length) {
     header: () =>
       h(Icon, {
         icon: "prime:cog",
-        width: "24",
+        width: "22",
       }),
     cell: ({ row }) =>
       h(TableDataActions, {

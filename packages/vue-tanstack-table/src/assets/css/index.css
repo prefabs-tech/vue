@@ -116,6 +116,11 @@
 .table-container .table-wrapper > table tr > td[data-align="center"] > svg,
 .table-container .table-wrapper > table tr > th[data-align="center"] > svg {
   display: inline-flex;
+  width: 100%;
+}
+
+.table-container .table-wrapper > table tr > td .dropdown-menu-trigger > svg {
+  max-width: max-content;
 }
 
 .table-container .table-wrapper > table tr > td[data-align="right"] {

@@ -266,7 +266,11 @@
       <div class="section-content">
         <Table :columns-data="columns" :data="data.slice(0, 5)">
           <template #toolbar>
-            <ButtonElement :label="$t('table.label.addRecord')" />
+            <span v-if="showDate">{{ formatDateTime(Date()) }}</span>
+            <ButtonElement
+              :label="$t('table.label.clickMe')"
+              @click="showDate = !showDate"
+            />
           </template>
         </Table>
 
@@ -589,7 +593,8 @@ export default {
 
 <script setup lang="ts">
 import { Table } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement, formatDateTime } from "@dzangolab/vue3-ui";
+import { ref } from "vue";
 
 import { data } from "./data";
 import TablePage from "./TablePage.vue";
@@ -615,6 +620,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     header: "City",
   },
 ];
+
+const showDate = ref<boolean>(false);
 
 const sortableColumns = columns.map((column) => ({
   ...column,
