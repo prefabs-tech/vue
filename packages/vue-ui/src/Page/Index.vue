@@ -26,6 +26,8 @@
 
     <div class="page-content">
       <slot name="default"></slot>
+
+      <LoadingPage :loading="loading" />
     </div>
   </div>
 </template>
@@ -38,11 +40,13 @@ export default {
 
 <script setup lang="ts">
 import BadgeComponent from "../Badge/Index.vue";
+import LoadingPage from "../LoadingPage/Index.vue";
 
 import type { PropType } from "vue";
 
 defineProps({
   centered: Boolean,
+  loading: Boolean,
   subTitle: {
     default: undefined,
     required: false,

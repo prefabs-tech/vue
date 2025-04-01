@@ -1,9 +1,13 @@
 <template>
   <UiPage :title="$t('ui.dropdown.title')" class="demo">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/ui')"
+      />
     </template>
 
     <section>
@@ -68,15 +72,22 @@
           import { Dropdown } from "@dzangolab/vue3-ui";
           import { ref } from "vue";
 
-          const menu = ref([
-            { disabled: true, label: "Change password", value: "password"  },
-            { label: "Profile", value: "profile" },
-          ]);
+          import type { DropdownMenu } from "@dzangolab/vue3-ui";
+
+          const menu = [
+            {
+              disabled: true,
+              icon: "pi pi-lock",
+              label: "Change password",
+              value: "password",
+            },
+            { icon: "pi pi-user", label: "Profile", value: "profile" },
+          ];
 
           const showProfile = ref&lt;boolean&gt;(false);
 
-          const onSelect = (value: string | number) => {
-            if (value === menu.value[1].value) {
+          const onSelect = (item: DropdownMenu) => {
+            if (item === menu.value[1]) {
               showProfile.value = true;
             }
           };
@@ -108,10 +119,15 @@
           import { Dropdown } from "@dzangolab/vue3-ui";
           import { ref } from "vue";
 
-          const menu = ref([
-            { disabled: true, label: "Change password", value: "password"  },
-            { label: "Profile", value: "profile" },
-          ]);
+          const menu = [
+            {
+              disabled: true,
+              icon: "pi pi-lock",
+              label: "Change password",
+              value: "password",
+            },
+            { icon: "pi pi-user", label: "Profile", value: "profile" },
+          ];
           &lt;/script&gt;
 
           &lt;style lang="css"&gt;
@@ -129,20 +145,27 @@
 </template>
 
 <script setup lang="ts">
-import { Dropdown } from "@dzangolab/vue3-ui";
+import { ButtonElement, Dropdown } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 import UiPage from "../UiPage.vue";
 
+import type { DropdownMenu } from "@dzangolab/vue3-ui";
+
 const menu = ref([
-  { disabled: true, label: "Change password", value: "password" },
-  { label: "Profile", value: "profile" },
+  {
+    disabled: true,
+    icon: "pi pi-lock",
+    label: "Change password",
+    value: "password",
+  },
+  { icon: "pi pi-user", label: "Profile", value: "profile" },
 ]);
 
 const showProfile = ref<boolean>(false);
 
-const onSelect = (value: string | number) => {
-  if (value === menu.value[1].value) {
+const onSelect = (item: DropdownMenu) => {
+  if (item === menu.value[1]) {
     showProfile.value = true;
   }
 };

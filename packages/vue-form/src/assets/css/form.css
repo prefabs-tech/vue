@@ -13,7 +13,7 @@ form {
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  gap: var(--form-gap, 0.75em);
+  gap: var(--form-gap, 2rem);
   justify-content: flex-start;
 }
 
@@ -45,10 +45,14 @@ form .field.typeahead {
 
 form input {
   border-radius: var(---form-input-border-radius, 0.25em);
-  border: 1px solid var(--form-input-border-color, #000);
+  border: 1px solid var(--form-input-border-color, #ccc);
   font-size: 1rem;
   padding: var(--form-input-padding-v, 0.5em) var(--form-input-padding-h, 0.5em);
   width: 100%;
+}
+
+form input:focus {
+  outline: 2px solid var(--form-input-focus-color, #007aff);
 }
 
 form input:disabled {

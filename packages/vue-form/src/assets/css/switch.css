@@ -1,0 +1,60 @@
+.switch input[type="checkbox"] {
+  --_switch-unchecked-bg-color: var(--switch-unchecked-bg-color, #ccc);
+  --_width: var(--switch-width, 3.75rem);
+
+  appearance: none;
+  background-color: var(--_switch-unchecked-bg-color);
+  border-radius: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  height: 2.18rem;
+  justify-content: center;
+  padding-inline: 0.25rem;
+  position: relative;
+  width: var(--_width);
+}
+
+.switch input[type="checkbox"].labeled {
+  --_width: var(--switch-width, 5rem);
+}
+
+.switch input:after {
+  content: attr(data-off);
+  font-weight: 500;
+  padding-inline: 0.5rem;
+  text-align: end;
+}
+
+.switch input:before {
+  background-color: #fff;
+  border-radius: 50%;
+  bottom: 0.25rem;
+  content: "";
+  height: 1.6rem;
+  left: 0.25rem;
+  position: absolute;
+  transition:
+    transform 0.3s,
+    background-color 0.3s;
+  width: 1.6rem;
+}
+
+.switch input:checked:after {
+  content: attr(data-on);
+  text-align: start;
+}
+
+.switch input:checked:before {
+  content: "";
+  transform: translate(calc(var(--_width) - 2.25rem));
+}
+
+.switch input:checked {
+  --_switch-checked-bg-color: var(--switch-checked-bg-color, #007aff);
+
+  background-color: var(--_switch-checked-bg-color);
+}
+
+.switch input:disabled {
+  opacity: 40%;
+}

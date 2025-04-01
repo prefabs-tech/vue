@@ -58,10 +58,8 @@ const emit = defineEmits(["update:modelValue"]);
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;
 
-  useDebouncedValue(value, props.debounceTime).then((debouncedValue) => {
-    if (debouncedValue.value) {
-      emit("update:modelValue", value);
-    }
+  useDebouncedValue(value, props.debounceTime).then(() => {
+    emit("update:modelValue", value);
   });
 };
 </script>

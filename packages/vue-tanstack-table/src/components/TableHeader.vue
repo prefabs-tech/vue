@@ -20,6 +20,11 @@
             dataType: header.column.columnDef.dataType,
           })
         "
+        :style="{
+          width: header.column.columnDef.width,
+          maxWidth: header.column.columnDef.maxWidth,
+          minWidth: header.column.columnDef.minWidth,
+        }"
         @click="
           header.column.getCanSort()
             ? header.column.getToggleSortingHandler()?.($event)

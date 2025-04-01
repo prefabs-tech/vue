@@ -1,20 +1,19 @@
 {
   "name": "@dzangolab/vue3-tanstack-table",
-  "version": "0.10.1",
+  "version": "0.10.10",
   "description": "Vue3 Tanstack Table Component Library",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/DzangolabVue3TanstackTable.es.js",
       "require": "./dist/DzangolabVue3TanstackTable.umd.js"
     },
-    "./dist/DzangolabVue3TanstackTable.css": "./dist/style.css"
+    "./dist/DzangolabVue3TanstackTable.css": "./dist/vue3-tanstack-table.css"
   },
   "main": "dist//DzangolabVue3TanstackTable.umd.js",
   "module": "dist//DzangolabVue3TanstackTable.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue",
@@ -23,39 +22,41 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "@tanstack/vue-table": "8.7.9"
+    "@tanstack/vue-table": "8.21.2"
   },
   "devDependencies": {
     "@12deg/eslint-config": "0.1.11",
     "@12deg/tsconfig": "0.1.11",
-    "@dzangolab/vue3-form": "0.10.1",
-    "@dzangolab/vue3-ui": "0.10.1",
-    "@iconify/vue": "4.1.0",
-    "@types/node": "18.15.11",
-    "@typescript-eslint/eslint-plugin": "8.14.0",
-    "@typescript-eslint/parser": "8.14.0",
-    "@vitejs/plugin-vue": "4.2.1",
-    "@vitejs/plugin-vue-jsx": "3.0.1",
-    "@vitest/coverage-istanbul": "0.29.8",
-    "@vue/test-utils": "2.3.2",
-    "@vueuse/core": "9.13.0",
+    "@dzangolab/vue3-form": "0.10.10",
+    "@dzangolab/vue3-ui": "0.10.10",
+    "@iconify/vue": "4.3.0",
+    "@types/node": "22.13.5",
+    "@typescript-eslint/eslint-plugin": "8.24.1",
+    "@typescript-eslint/parser": "8.24.1",
+    "@vitejs/plugin-vue": "5.2.1",
+    "@vitejs/plugin-vue-jsx": "4.1.1",
+    "@vitest/coverage-istanbul": "3.0.6",
+    "@vue/test-utils": "2.4.6",
+    "@vueuse/core": "12.7.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-import-resolver-alias": "1.1.2",
-    "eslint-import-resolver-typescript": "3.6.3",
+    "eslint-import-resolver-typescript": "3.8.3",
     "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-prettier": "5.2.3",
     "eslint-plugin-unicorn": "56.0.1",
-    "eslint-plugin-vue": "9.29.0",
-    "prettier": "3.3.3",
+    "eslint-plugin-vue": "9.32.0",
+    "prettier": "3.5.2",
     "typescript": "5.5.4",
-    "vite": "4.1.4",
-    "vitest": "0.29.8",
-    "vue": "3.2.47",
+    "vite": "6.1.1",
+    "vitest": "3.0.6",
+    "vue": "3.5.13",
     "vue-eslint-parser": "9.4.3",
     "vue-tsc": "1.2.0"
   },
   "peerDependencies": {
+    "@dzangolab/vue3-form": "0.10.10",
+    "@dzangolab/vue3-ui": "0.10.10",
     "vue": ">=3.2"
   },
   "engines": {

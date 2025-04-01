@@ -80,20 +80,22 @@ const menu = computed(() => {
   if (!user.value) {
     menuItems = menuItems?.filter((item: MenuItem) => {
       const route = allRoutes.find((r) => {
-        if (r.name === item.route) {
+        if (r.name === item.route && !r.meta?.authenticated) {
           return true;
         }
 
         if (item.children?.length) {
           return (item.children as MenuItem[]).some((child: MenuItem) => {
-            return allRoutes.some((cr) => cr.name === child.route);
+            return allRoutes.some(
+              (cr) => cr.name === child.route && !cr.meta?.authenticated,
+            );
           });
         }
 
         return false;
       });
 
-      return route && !route.meta?.authenticated;
+      return !!route;
     }) as MenuItem[];
   }
 
@@ -162,8 +164,12 @@ const menu = computed(() => {
   --dropdown-bg-color-hover: #0870e5;
 }
 
-.sidebar-header-layout > .sidebar .user-menu-dropdown > .toggle {
-  align-self: center;
+.sidebar-header-layout > .sidebar .user-menu-dropdown.expanded .toggle > svg {
+  transform: rotate(-180deg);
+}
+
+.sidebar-header-layout > .sidebar .user-menu-dropdown .toggle > svg {
+  transform: rotate(0);
 }
 
 .sidebar-header-layout > .sidebar .user-menu-dropdown > .dropdown {

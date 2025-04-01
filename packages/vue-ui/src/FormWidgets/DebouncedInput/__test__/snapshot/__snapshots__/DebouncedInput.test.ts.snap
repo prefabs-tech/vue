@@ -8,6 +8,7 @@ exports[`DebouncedInput > matches snapshot 1`] = `
     aria-label="input"
     placeholder="Search..."
     type="text"
+    value=""
   />
 </div>
 `;

@@ -1,9 +1,13 @@
 <template>
   <FormPage :title="$t('form.label.switch')" class="demo">
     <template #toolbar>
-      <router-link :to="{ name: 'form' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/form')"
+      />
     </template>
 
     <section>
@@ -75,6 +79,42 @@
 
           const disabled = ref(true);
           &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.withOnOffLabel") }}</h2>
+
+      <div class="section-content">
+        <SwitchInput
+          v-model="formData.onOffLabel"
+          :label="$t('form.label.switch')"
+          :off-label="$t('form.label.no')"
+          :on-label="$t('form.label.yes')"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;SwitchInput
+              v-model="input"
+              :label="$t('form.label.switch')"
+              off-label="No"
+              on-label="Yes"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SwitchInput } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+
+          &lt;style&gt;
+            .switch input[type=checkbox] {
+              --_width: 5rem;
+            }
+          &lt;/style&gt;
         </SshPre>
         <!-- eslint-enable -->
       </div>
@@ -156,6 +196,7 @@ export default {
 <script setup lang="ts">
 import { Form, SwitchInput } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { ButtonElement } from "@dzangolab/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
@@ -172,5 +213,6 @@ let formData = reactive({
   input: ref(),
   inputWithValidation: ref(false),
   noLabelInput: ref(),
+  onOffLabel: ref(),
 });
 </script>

@@ -4,9 +4,13 @@
     class="demo sticky-collapsible-footer"
   >
     <template #toolbar>
-      <router-link :to="{ name: 'layout' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
+      <ButtonElement
+        :label="$t('common.back')"
+        icon-left="pi pi-chevron-left"
+        size="medium"
+        variant="textOnly"
+        @click="$router.push('/layout')"
+      />
     </template>
 
     <section>

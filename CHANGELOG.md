@@ -1,3 +1,58 @@
+## [0.10.10](https://github.com/dzangolab/vue/compare/v0.10.9...v0.10.10) (2025-03-31)
+
+
+### Features
+
+* redirect user to profile page on incomplete profile ([#587](https://github.com/dzangolab/vue/issues/587)) ([8303247](https://github.com/dzangolab/vue/commit/8303247a6012435aea6cdae81ffdba9cf1fe555c))
+
+
+
+## [0.10.9](https://github.com/dzangolab/vue/compare/v0.10.8...v0.10.9) (2025-03-27)
+
+
+
+## [0.10.8](https://github.com/dzangolab/vue/compare/v0.10.7...v0.10.8) (2025-03-24)
+
+
+
+## [0.10.7](https://github.com/dzangolab/vue/compare/v0.10.6...v0.10.7) (2025-03-21)
+
+
+
+## [0.10.7](https://github.com/dzangolab/vue/compare/v0.10.6...v0.10.7) (2025-03-21)
+
+
+
+## [0.10.6](https://github.com/dzangolab/vue/compare/v0.10.5...v0.10.6) (2025-03-19)
+
+
+
+## [0.10.5](https://github.com/dzangolab/vue/compare/v0.10.4...v0.10.5) (2025-03-17)
+
+
+
+## [0.10.4](https://github.com/dzangolab/vue/compare/v0.10.3...v0.10.4) (2025-03-03)
+
+
+
+## [0.10.3](https://github.com/dzangolab/vue/compare/v0.10.2...v0.10.3) (2025-02-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @kyvg/vue3-notification to v2.9.1 ([#505](https://github.com/dzangolab/vue/issues/505)) ([b97f449](https://github.com/dzangolab/vue/commit/b97f4491503c0354f86eb100f92c1dbb4beb7c51))
+
+
+
+## [0.10.2](https://github.com/dzangolab/vue/compare/v0.10.1...v0.10.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* update accordion icon import logic ([#477](https://github.com/dzangolab/vue/issues/477)) ([6bdd965](https://github.com/dzangolab/vue/commit/6bdd96573d301a78b499eab46e884466c0d067b0))
+
+
+
 ## [0.10.1](https://github.com/dzangolab/vue/compare/v0.10.0...v0.10.1) (2025-01-31)
 
 

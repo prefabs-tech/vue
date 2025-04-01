@@ -5,8 +5,10 @@
     </label>
     <input
       :checked="modelValue"
+      :class="['switch-input', { labeled: offLabel || onLabel }]"
+      :data-on="onLabel"
+      :data-off="offLabel"
       :disabled="disabled"
-      class="switch-input"
       type="checkbox"
       @change="onChange"
     />
@@ -36,6 +38,14 @@ defineProps({
     default: false,
     type: Boolean,
   },
+  offLabel: {
+    default: undefined,
+    type: String,
+  },
+  onLabel: {
+    default: undefined,
+    type: String,
+  },
 });
 
 const emit = defineEmits(["update:modelValue"]);
@@ -48,43 +58,5 @@ const onChange = (event: Event) => {
 </script>
 
 <style lang="css">
-.switch input[type="checkbox"] {
-  --_switch-unchecked-bg-color: var(--switch-unchecked-bg-color, #ccc);
-
-  appearance: none;
-  background-color: var(--_switch-unchecked-bg-color);
-  border-radius: 1.25rem;
-  cursor: pointer;
-  height: 2.18rem;
-  position: relative;
-  width: 3.75rem;
-}
-
-.switch input:before {
-  background-color: #fff;
-  border-radius: 50%;
-  bottom: 0.25rem;
-  content: "";
-  height: 1.6rem;
-  left: 0.25rem;
-  position: absolute;
-  transition:
-    transform 0.3s,
-    background-color 0.3s;
-  width: 1.6rem;
-}
-
-.switch input:checked:before {
-  transform: translate(24px);
-}
-
-.switch input:checked {
-  --_switch-checked-bg-color: var(--switch-checked-bg-color, #007aff);
-
-  background-color: var(--_switch-checked-bg-color);
-}
-
-.switch input:disabled {
-  opacity: 40%;
-}
+@import "../assets/css/switch.css";
 </style>

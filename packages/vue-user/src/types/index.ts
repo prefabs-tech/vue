@@ -12,11 +12,14 @@ export type {
 export type { DzangolabVueUserConfig } from "./config";
 
 export type {
+  Invitation,
   InvitationAppOption,
   InvitationPayload,
   InvitationRoleOption,
 } from "./invitation";
 
 export type { DzangolabVueUserPluginOptions } from "./plugin";
+
+export type { Role, RolePermissionsInput } from "./roles";
 
 export type { RouteOverride, RouteOverrides } from "./router";

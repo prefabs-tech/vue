@@ -2,8 +2,18 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 import {
+  acceptInvitation as doAcceptInvitation,
+  addInvitation as doAddInvitation,
+  disableUser as doDisableUser,
+  enableUser as doEnableUser,
+  getIsFirstUser as doGetIsFirstUser,
+  getInvitationByToken as doGetInvitation,
+  signUpFirstUser as doSignUpFirstUser,
+} from "./api/user";
+import {
   changePassword as doChangePassword,
   googleSignIn as doGoogleSignIn,
+  isProfileCompleted,
   login as doLogin,
   logout as doLogout,
   requestPasswordReset as doRequestPasswordReset,
@@ -12,6 +22,7 @@ import {
 } from "./supertokens";
 
 import type {
+  Invitation,
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
@@ -22,7 +33,24 @@ import type {
 const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
+  const invitation = ref<Invitation>();
   const user = ref<UserType | undefined>(undefined);
+
+  const acceptInvitation = async (
+    token: string,
+    credential: LoginCredentials,
+    apiBaseUrl: string,
+  ) => {
+    return await doAcceptInvitation(token, credential, apiBaseUrl);
+  };
+
+  const addInvitation = async (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    invitationData: any,
+    apiBaseUrl: string,
+  ) => {
+    return await doAddInvitation(invitationData, apiBaseUrl);
+  };
 
   const changePassword = async (
     payload: UpdatePasswordPayload,
@@ -31,6 +59,27 @@ const useUserStore = defineStore("user", () => {
     const response = await doChangePassword(payload, apiBaseUrl);
 
     return response;
+  };
+
+  const disableUser = async (id: string, apiBaseUrl: string) => {
+    return await doDisableUser(id, apiBaseUrl);
+  };
+
+  const enableUser = async (id: string, apiBaseUrl: string) => {
+    return await doEnableUser(id, apiBaseUrl);
+  };
+
+  const getIsFirstUser = async (
+    apiBaseUrl: string,
+  ) => {
+    return await doGetIsFirstUser(apiBaseUrl);
+  };
+
+  const getInvitationByToken = async (
+    token: string,
+    apiBaseUrl: string,
+  ) => {
+    return await doGetInvitation(token, apiBaseUrl);
   };
 
   const getUser = (): UserType => {
@@ -81,10 +130,18 @@ const useUserStore = defineStore("user", () => {
     return doResetPassword(payload);
   };
 
-  const setUser = (userData: UserType | undefined) => {
+  const setInvitation = (invitationData: Invitation | undefined) => {
+    invitation.value = invitationData;
+  };
+
+  const setUser = async (userData: UserType | undefined) => {
     user.value = userData;
 
-    localStorage.setItem(USER_KEY, JSON.stringify(userData));
+    if (user.value) {
+      user.value.isProfileCompleted = await isProfileCompleted();
+    }
+
+    localStorage.setItem(USER_KEY, JSON.stringify(user.value));
   };
 
   const signup = async (credentials: LoginCredentials): Promise<void> => {
@@ -93,15 +150,30 @@ const useUserStore = defineStore("user", () => {
     setUser(response);
   };
 
+  const signUpFirstUser = async (credentials: LoginCredentials, apiBaseUrl: string,): Promise<void> => {
+    const response = await doSignUpFirstUser(credentials, apiBaseUrl);
+
+    setUser(response);
+  };
+
   return {
+    acceptInvitation,
+    addInvitation,
     changePassword,
+    disableUser,
+    enableUser,
     googleSignIn,
+    getIsFirstUser,
+    getInvitationByToken,
     getUser,
+    invitation,
     login,
     logout,
     removeUser,
     resetPassword,
     requestPasswordReset,
+    signUpFirstUser,
+    setInvitation,
     setUser,
     signup,
     user,
