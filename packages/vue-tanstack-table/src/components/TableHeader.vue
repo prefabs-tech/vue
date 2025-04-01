@@ -36,7 +36,7 @@
             :props="header.getContext()"
             :render="header.column.columnDef.header"
           />
-          <span class="sort-state">
+          <span v-if="header.column.columnDef.enableSorting" class="sort-state">
             <Icon
               v-if="!header.column.getIsSorted() && header.column.getCanSort()"
               class="sort-icon"

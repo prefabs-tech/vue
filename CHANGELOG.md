@@ -1,3 +1,12 @@
+## [0.10.10](https://github.com/dzangolab/vue/compare/v0.10.9...v0.10.10) (2025-03-31)
+
+
+### Features
+
+* redirect user to profile page on incomplete profile ([#587](https://github.com/dzangolab/vue/issues/587)) ([8303247](https://github.com/dzangolab/vue/commit/8303247a6012435aea6cdae81ffdba9cf1fe555c))
+
+
+
 ## [0.10.9](https://github.com/dzangolab/vue/compare/v0.10.8...v0.10.9) (2025-03-27)
 
 
