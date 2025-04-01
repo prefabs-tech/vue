@@ -200,6 +200,11 @@
   min-width: var(--table-actions-column-width);
 }
 
+.table-container tbody td.cell-select .checkbox-wrapper:not(:has(label)),
+.table-container thead th.column-select .checkbox-wrapper:not(:has(label)) {
+  display: block;
+}
+
 .table-container .pagination .page-input-control input {
   background: #ffffff;
 }
