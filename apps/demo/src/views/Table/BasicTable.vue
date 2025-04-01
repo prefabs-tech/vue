@@ -186,6 +186,46 @@
     </section>
 
     <section>
+      <h2>{{ $t("table.usage.rowSelection") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="columns"
+          :data="data.slice(0, 5)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          enable-row-selection
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="columns"
+              :data="data"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              enable-row-selection
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("table.usage.title") }}</h2>
 
       <div class="section-content">
