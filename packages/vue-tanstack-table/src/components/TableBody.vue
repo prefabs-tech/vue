@@ -24,7 +24,21 @@
             minWidth: cell.column.columnDef.minWidth,
           }"
         >
+          <Tooltip
+            v-if="cell.column.columnDef.tooltip"
+            v-bind="cell.column.columnDef.tooltipOptions"
+          >
+            <FlexRender
+              :props="cell.getContext()"
+              :render="cell.column.columnDef.cell"
+            />
+
+            <template #content>
+              {{ getTooltipContent(cell) }}
+            </template>
+          </Tooltip>
           <FlexRender
+            v-else
             :props="cell.getContext()"
             :render="cell.column.columnDef.cell"
           />
@@ -48,11 +62,12 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { Tooltip } from "@dzangolab/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
 import { getAlignValue } from "../utils";
 
-import type { Table } from "@tanstack/vue-table";
+import type { Cell, Table } from "@tanstack/vue-table";
 
 defineProps({
   emptyTableMessage: {
@@ -65,4 +80,16 @@ defineProps({
     type: Object as () => Table<unknown>,
   },
 });
+
+const getTooltipContent = (cell: Cell<unknown, unknown>) => {
+  const tooltip = cell.column.columnDef.tooltip;
+
+  if (typeof tooltip === "string") {
+    return tooltip;
+  } else if (typeof tooltip === "function") {
+    return tooltip(cell);
+  }
+
+  return cell.getValue() as string;
+};
 </script>
