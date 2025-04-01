@@ -50,6 +50,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { Checkbox } from "@dzangolab/vue3-form";
 import { Icon } from "@iconify/vue";
 import {
   getCoreRowModel,
@@ -90,6 +91,10 @@ const props = defineProps({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type: Array as PropType<ColumnDef<any>[]>,
     default: () => [],
+  },
+  enableRowSelection: {
+    default: false,
+    type: Boolean,
   },
   data: {
     type: Array,
@@ -152,55 +157,21 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["action:click", "action:select", "update:request"]);
+const emit = defineEmits([
+  "action:click",
+  "action:select",
+  "change:rowSelection",
+  "update:request",
+]);
 
 const columns: ColumnDef<unknown, unknown>[] = [];
-
-props.columnsData.forEach((column) => {
-  if (
-    props.visibleColumns.length &&
-    !props.visibleColumns.includes(String(column.accessorKey))
-  ) {
-    return;
-  }
-
-  columns.push({
-    ...column,
-    enableSorting: column.enableSorting ?? false,
-  } as ColumnDef<unknown, unknown>);
-});
 
 const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
 });
 
-if (props.dataActionMenu.length) {
-  columns.push({
-    accessorKey: "actions",
-    align: "center",
-    enableSorting: false,
-    header: () =>
-      h(Icon, {
-        icon: "prime:cog",
-        width: "24",
-      }),
-    cell: ({ row }) =>
-      h(TableDataActions, {
-        actions: props.dataActionMenu,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        data: row.original as Record<string, any>,
-        displayActions: props.displayActions,
-        singleActionMode: props.singleActionMode,
-        "onAction:click": () => emit("action:click", row.original),
-        "onAction:select": (action: DataActionsMenuItem) =>
-          emit("action:select", {
-            action: action?.key || action?.label,
-            data: row.original,
-          }),
-      }),
-  });
-}
+const rowSelection = ref({});
 
 const sorting = ref<SortingState>(props.initialSorting);
 
@@ -210,11 +181,16 @@ const totalItems = computed((): number =>
     : table.value.getFilteredRowModel().rows?.length,
 );
 
+const selectedRows = computed(() =>
+  table.value.getSelectedRowModel().rows.map((row) => row.original),
+);
+
 const table = computed(() =>
   useVueTable({
     columns,
     state: {
       pagination: pagination.value,
+      rowSelection: rowSelection.value,
       get sorting() {
         return sorting.value;
       },
@@ -229,6 +205,14 @@ const table = computed(() =>
       if (props.isServerTable) {
         fetchData();
       }
+    },
+    onRowSelectionChange: (updaterOrValue) => {
+      rowSelection.value =
+        typeof updaterOrValue === "function"
+          ? updaterOrValue(rowSelection.value)
+          : updaterOrValue;
+
+      emit("change:rowSelection", selectedRows.value);
     },
     onSortingChange: (updaterOrValue) => {
       sorting.value =
@@ -265,6 +249,72 @@ const onReset = () => {
     pageSize: !props.paginated ? props.data.length : props.rowPerPage,
   };
 };
+
+const prepareComponent = () => {
+  if (props.enableRowSelection) {
+    columns.push({
+      accessorKey: "select",
+      header: ({ table }) =>
+        h(Checkbox, {
+          "aria-label": "Select all",
+          modelValue: table.getIsAllPageRowsSelected(),
+          "onUpdate:modelValue": () =>
+            table.toggleAllPageRowsSelected(!table.getIsAllPageRowsSelected()),
+        }),
+      cell: ({ row }) =>
+        h(Checkbox, {
+          "aria-label": "Select row",
+          modelValue: row.getIsSelected(),
+          "onUpdate:modelValue": () => row.toggleSelected(!row.getIsSelected()),
+        }),
+      align: "center",
+      enableSorting: false,
+    });
+  }
+
+  props.columnsData.forEach((column) => {
+    if (
+      props.visibleColumns.length &&
+      !props.visibleColumns.includes(String(column.accessorKey))
+    ) {
+      return;
+    }
+
+    columns.push({
+      ...column,
+      enableSorting: column.enableSorting ?? false,
+    } as ColumnDef<unknown, unknown>);
+  });
+
+  if (props.dataActionMenu.length) {
+    columns.push({
+      accessorKey: "actions",
+      align: "center",
+      enableSorting: false,
+      header: () =>
+        h(Icon, {
+          icon: "prime:cog",
+          width: "24",
+        }),
+      cell: ({ row }) =>
+        h(TableDataActions, {
+          actions: props.dataActionMenu,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          data: row.original as Record<string, any>,
+          displayActions: props.displayActions,
+          singleActionMode: props.singleActionMode,
+          "onAction:click": () => emit("action:click", row.original),
+          "onAction:select": (action: DataActionsMenuItem) =>
+            emit("action:select", {
+              action: action?.key || action?.label,
+              data: row.original,
+            }),
+        }),
+    });
+  }
+};
+
+prepareComponent();
 </script>
 
 <style lang="css">

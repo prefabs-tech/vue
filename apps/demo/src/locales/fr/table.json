@@ -20,6 +20,7 @@
     "filteredActions": "With actions menu items filtered based on row data logic",
     "footer": "with footer",
     "pagination": "With pagination",
+    "rowSelection": "With row selection",
     "singleAction": "With single action button",
     "singleActionMenu": "With single action menu",
     "sortable": "With sortable column",
