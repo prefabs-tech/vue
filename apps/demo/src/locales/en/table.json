@@ -25,6 +25,7 @@
     "singleAction": "With single action button",
     "singleActionMenu": "With single action menu",
     "sortable": "With sortable column",
-    "title": "With title"
+    "title": "With title",
+    "tooltip": "With tooltip cell"
   }
 }

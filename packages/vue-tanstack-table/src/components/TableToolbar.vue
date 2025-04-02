@@ -8,7 +8,7 @@
       @click="$emit('on:reset')"
     />
 
-    <Popup position="bottom" v-if="showColumnAction">
+    <Popup v-if="showColumnAction" position="bottom">
       <ButtonElement
         :label="columnActionButtonLabel"
         variant="outlined"
