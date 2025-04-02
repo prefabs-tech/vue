@@ -14,6 +14,7 @@
       :show-reset-button="showResetButton"
       :table="table"
       @on:reset="onReset"
+      @on:drag="columnOrder = $event"
     >
       <slot name="toolbar" />
     </TableToolbar>
@@ -164,6 +165,8 @@ const emit = defineEmits([
   "update:request",
 ]);
 
+const columnOrder = ref();
+
 const columns: ColumnDef<unknown, unknown>[] = [];
 
 const pagination = ref({
@@ -194,7 +197,7 @@ const table = computed(() =>
       get sorting() {
         return sorting.value;
       },
-      columnOrder: props.visibleColumns,
+      columnOrder: columnOrder.value || props.visibleColumns,
     },
     onPaginationChange: (updaterOrValue) => {
       pagination.value =

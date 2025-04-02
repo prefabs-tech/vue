@@ -8,7 +8,7 @@
       @click="$emit('on:reset')"
     />
 
-    <Popup v-if="showColumnAction">
+    <Popup position="bottom" v-if="showColumnAction">
       <ButtonElement
         :label="columnActionButtonLabel"
         variant="outlined"
@@ -35,12 +35,12 @@ import { Checkbox } from "@dzangolab/vue3-form";
 import { ButtonElement, Popup, SortableList } from "@dzangolab/vue3-ui";
 import { computed, h } from "vue";
 
-import type { Table } from "@tanstack/vue-table";
+import type { Column, Table } from "@tanstack/vue-table";
 import type { VNode } from "vue";
 
 type List = {
   id: number | string;
-  data: string;
+  data: Column<unknown, unknown>;
   render?: (data: unknown) => VNode;
 };
 
@@ -63,7 +63,7 @@ const props = defineProps({
   },
 });
 
-defineEmits(["on:reset"]);
+const emit = defineEmits(["on:drag", "on:reset"]);
 
 const items = computed(() =>
   props.table
@@ -90,10 +90,12 @@ const items = computed(() =>
 );
 
 const onDrag = (sorted: List[]) => {
-  props.table.setColumnOrder([
+  const sortedColumn = [
     ...(props.hasSelectionColumn ? ["select"] : []),
-    ...sorted.map((item: List) => String(item?.id)),
+    ...sorted.map((item: List) => String(item?.data?.id)),
     ...(props.hasActionsColumn ? ["actions"] : []),
-  ]);
+  ];
+
+  emit("on:drag", sortedColumn);
 };
 </script>
