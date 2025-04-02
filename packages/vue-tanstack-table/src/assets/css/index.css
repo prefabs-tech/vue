@@ -96,6 +96,11 @@
   overflow: hidden;
 }
 
+.table-container .table-wrapper > table > tbody > tr > td > .tooltip-container {
+  height: 100%;
+  width: 100%;
+}
+
 .table-container .table-wrapper > table > thead > tr > th.filter.multiselect {
   overflow: visible;
 }

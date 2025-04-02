@@ -226,6 +226,56 @@
     </section>
 
     <section>
+      <h2>{{ $t("table.usage.tooltip") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="columnsWithTooltip"
+          :data="data.slice(0, 5)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          enable-row-selection
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="columnsWithTooltip"
+              :data="data"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              enable-row-selection
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ];
+
+          const tooltipPositions = ["right", "top", "bottom", "left"];
+
+          const columnsWithTooltip = columns.map((column, index) => ({
+            ...column,
+            tooltip: true,
+            tooltipOptions: {
+              position: tooltipPositions[index],
+            },
+          }));
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("table.usage.title") }}</h2>
 
       <div class="section-content">
@@ -661,6 +711,16 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
 const sortableColumns = columns.map((column) => ({
   ...column,
   enableSorting: true,
+}));
+
+const tooltipPositions = ["right", "top", "bottom", "left"];
+
+const columnsWithTooltip = columns.map((column, index) => ({
+  ...column,
+  tooltip: true,
+  tooltipOptions: {
+    position: tooltipPositions[index],
+  },
 }));
 </script>
 
