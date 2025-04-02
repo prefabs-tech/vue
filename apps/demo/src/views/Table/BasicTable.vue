@@ -713,7 +713,7 @@ const sortableColumns = columns.map((column) => ({
   enableSorting: true,
 }));
 
-const tooltipPositions = ["right", "left", "top", "bottom"];
+const tooltipPositions = ["right", "top", "bottom", "left"];
 
 const columnsWithTooltip = columns.map((column, index) => ({
   ...column,
