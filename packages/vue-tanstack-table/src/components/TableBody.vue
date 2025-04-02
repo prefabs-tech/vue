@@ -34,7 +34,14 @@
             />
 
             <template #content>
-              {{ getTooltipContent(cell) }}
+              <component
+                :is="getTooltipContent(cell)"
+                v-if="typeof cell.column.columnDef.tooltip === 'function'"
+              />
+
+              <template v-else>
+                {{ getTooltipContent(cell) }}
+              </template>
             </template>
           </Tooltip>
           <FlexRender
