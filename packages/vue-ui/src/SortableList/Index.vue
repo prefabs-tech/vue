@@ -48,7 +48,7 @@ import type { PropType, VNode } from "vue";
 
 type List = {
   id: number | string;
-  data: string;
+  data: string | unknown;
   render?: (data: unknown) => VNode;
 };
 
