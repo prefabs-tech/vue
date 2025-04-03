@@ -8,12 +8,13 @@
       v-if="showColumnAction || showResetButton || $slots.toolbar"
       :column-action-button-label="columnActionButtonLabel"
       :has-actions-column="Boolean(dataActionMenu.length)"
-      :has-selection-column="hasSelectionColumn"
+      :has-selection-column="enableRowSelection"
       :reset-button-label="resetButtonLabel"
       :show-column-action="showColumnAction"
       :show-reset-button="showResetButton"
       :table="table"
       @on:reset="onReset"
+      @on:drag="columnOrder = $event"
     >
       <slot name="toolbar" />
     </TableToolbar>
@@ -110,7 +111,6 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
-  hasSelectionColumn: Boolean,
   initialSorting: {
     default: () => [],
     type: Array as PropType<SortingState>,
@@ -164,6 +164,8 @@ const emit = defineEmits([
   "update:request",
 ]);
 
+const columnOrder = ref([]);
+
 const columns: ColumnDef<unknown, unknown>[] = [];
 
 const pagination = ref({
@@ -189,12 +191,14 @@ const table = computed(() =>
   useVueTable({
     columns,
     state: {
+      columnOrder: columnOrder.value?.length
+        ? columnOrder.value
+        : props.visibleColumns,
       pagination: pagination.value,
       rowSelection: rowSelection.value,
       get sorting() {
         return sorting.value;
       },
-      columnOrder: props.visibleColumns,
     },
     onPaginationChange: (updaterOrValue) => {
       pagination.value =
@@ -243,6 +247,7 @@ const fetchData = () => {
 };
 
 const onReset = () => {
+  columnOrder.value = [];
   sorting.value = [];
   pagination.value = {
     pageIndex: DEFAULT_PAGE_INDEX,

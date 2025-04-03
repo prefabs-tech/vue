@@ -16,6 +16,7 @@
   "usage": {
     "basic": "Basic",
     "builtinActions": "With built-in actions column",
+    "columnAction": "With column action",
     "customToolbar": "With custom toolbar actions",
     "filteredActions": "With actions menu items filtered based on row data logic",
     "footer": "with footer",
