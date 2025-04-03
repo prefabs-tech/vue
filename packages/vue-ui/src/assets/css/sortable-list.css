@@ -5,7 +5,7 @@
   justify-content: flex-start;
 }
 
-.sortable-list li div {
+.sortable-list li > div {
   align-items: center;
   border-left: 1px solid #ececec;
   display: flex;
