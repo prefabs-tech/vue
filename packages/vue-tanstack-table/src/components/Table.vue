@@ -19,7 +19,11 @@
     </TableToolbar>
     <div class="table-wrapper">
       <table :style="`width: ${table.getCenterTotalSize()}`">
-        <TableHeader :table="table" />
+        <TableHeader
+          :input-debounce-time="inputDebounceTime"
+          :is-filter-row-visible="isFilterRowVisible"
+          :table="table"
+        />
         <TableBody :empty-table-message="emptyTableMessage" :table="table" />
         <tfoot v-if="$slots.footer">
           <slot name="footer" />
@@ -115,6 +119,10 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<SortingState>,
   },
+  inputDebounceTime: {
+    default: undefined,
+    type: Number,
+  },
   isServerTable: Boolean,
   paginated: {
     default: true,
@@ -174,6 +182,10 @@ const pagination = ref({
 const rowSelection = ref({});
 
 const sorting = ref<SortingState>(props.initialSorting);
+
+const isFilterRowVisible = computed(() => {
+  return props.columnsData.some((column) => column.enableColumnFilter);
+});
 
 const totalItems = computed((): number =>
   props.isServerTable
@@ -268,6 +280,7 @@ const prepareComponent = () => {
           "onUpdate:modelValue": () => row.toggleSelected(!row.getIsSelected()),
         }),
       align: "center",
+      enableColumnFilter: false,
       enableSorting: false,
     });
   }
@@ -282,6 +295,7 @@ const prepareComponent = () => {
 
     columns.push({
       ...column,
+      enableColumnFilter: column.enableColumnFilter ?? false,
       enableSorting: column.enableSorting ?? false,
     } as ColumnDef<unknown, unknown>);
   });
@@ -290,6 +304,7 @@ const prepareComponent = () => {
     columns.push({
       accessorKey: "actions",
       align: "center",
+      enableColumnFilter: false,
       enableSorting: false,
       header: () =>
         h(Icon, {

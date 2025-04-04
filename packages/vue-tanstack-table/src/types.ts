@@ -1,4 +1,4 @@
-import type { Cell, Column } from "@tanstack/vue-table";
+import type { Cell, Column, RowData } from "@tanstack/vue-table";
 import type { VNode } from "vue";
 
 declare module "@tanstack/vue-table" {
@@ -21,7 +21,18 @@ declare module "@tanstack/vue-table" {
   interface ColumnFilter {
     filterFn?: TFilterFn;
   }
+
+  interface ColumnMeta<TData extends RowData, TValue> {
+    serverFilterFn?: TFilterFn;
+    filterVariant?: TFilterVariant;
+    filterOptions?: FilterOption[];
+  }
 }
+
+type FilterOption = {
+  value: string;
+  label: string;
+};
 
 type TFilterRequest =
   | TSingleFilter
