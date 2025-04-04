@@ -61,7 +61,6 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
 import { computed, h, ref } from "vue";
@@ -79,7 +78,11 @@ import {
 import { getRequestJSON } from "../utils";
 
 import type { DataActionsMenuItem } from "../types";
-import type { ColumnDef } from "@tanstack/vue-table";
+import type {
+  ColumnDef,
+  ColumnFiltersState,
+  SortingState,
+} from "@tanstack/vue-table";
 import type { PropType } from "vue";
 
 const props = defineProps({
@@ -115,6 +118,10 @@ const props = defineProps({
     type: String,
   },
   hasSelectionColumn: Boolean,
+  initialFilters: {
+    default: () => [],
+    type: Array as PropType<ColumnFiltersState>,
+  },
   initialSorting: {
     default: () => [],
     type: Array as PropType<SortingState>,
@@ -174,6 +181,8 @@ const emit = defineEmits([
 
 const columns: ColumnDef<unknown, unknown>[] = [];
 
+const columnFilters = ref<ColumnFiltersState>(props.initialFilters);
+
 const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
@@ -201,12 +210,23 @@ const table = computed(() =>
   useVueTable({
     columns,
     state: {
+      columnFilters: columnFilters.value,
       pagination: pagination.value,
       rowSelection: rowSelection.value,
       get sorting() {
         return sorting.value;
       },
       columnOrder: props.visibleColumns,
+    },
+    onColumnFiltersChange: (updaterOrValue) => {
+      columnFilters.value =
+        typeof updaterOrValue === "function"
+          ? updaterOrValue(columnFilters.value)
+          : updaterOrValue;
+
+      if (props.isServerTable) {
+        fetchData();
+      }
     },
     onPaginationChange: (updaterOrValue) => {
       pagination.value =
@@ -249,13 +269,18 @@ const table = computed(() =>
 );
 
 const fetchData = () => {
-  const requestJSON = getRequestJSON(sorting.value, [], pagination.value);
+  const requestJSON = getRequestJSON(
+    sorting.value,
+    columnFilters.value,
+    pagination.value,
+  );
 
   emit("update:request", requestJSON);
 };
 
 const onReset = () => {
-  sorting.value = [];
+  columnFilters.value = props.initialFilters;
+  sorting.value = props.initialSorting;
   pagination.value = {
     pageIndex: DEFAULT_PAGE_INDEX,
     pageSize: !props.paginated ? props.data.length : props.rowPerPage,
