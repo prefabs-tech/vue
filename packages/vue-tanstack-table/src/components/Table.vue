@@ -224,6 +224,12 @@ const table = computed(() =>
           ? updaterOrValue(columnFilters.value)
           : updaterOrValue;
 
+      if (!Array.isArray(columnFilters.value)) {
+        columnFilters.value = [];
+      }
+
+      pagination.value.pageIndex = DEFAULT_PAGE_INDEX;
+
       if (props.isServerTable) {
         fetchData();
       }

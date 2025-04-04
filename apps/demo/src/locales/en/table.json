@@ -8,6 +8,7 @@
     "edit": "Edit",
     "getStarted": "Get started",
     "share": "Share",
+    "tableFilters": "Table filters",
     "totalRecords": "Total records",
     "users": "Users",
     "view": "View"
@@ -17,6 +18,7 @@
     "basic": "Basic",
     "builtinActions": "With built-in actions column",
     "customToolbar": "With custom toolbar actions",
+    "filterableColumn": "With filterable column",
     "filteredActions": "With actions menu items filtered based on row data logic",
     "footer": "with footer",
     "pagination": "With pagination",

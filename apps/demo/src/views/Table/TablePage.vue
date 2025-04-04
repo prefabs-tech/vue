@@ -51,6 +51,10 @@ const menu = [
         name: t("table.title"),
         routeName: "basicTable",
       },
+      {
+        name: t("table.label.tableFilters"),
+        routeName: "tableFilters",
+      },
     ],
   },
 ];
