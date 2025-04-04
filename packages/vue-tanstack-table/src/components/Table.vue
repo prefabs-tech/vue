@@ -20,7 +20,11 @@
     </TableToolbar>
     <div class="table-wrapper">
       <table :style="`width: ${table.getCenterTotalSize()}`">
-        <TableHeader :table="table" />
+        <TableHeader
+          :input-debounce-time="inputDebounceTime"
+          :is-filter-row-visible="isFilterRowVisible"
+          :table="table"
+        />
         <TableBody :empty-table-message="emptyTableMessage" :table="table" />
         <tfoot v-if="$slots.footer">
           <slot name="footer" />
@@ -58,7 +62,6 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
 import { computed, h, ref } from "vue";
@@ -76,7 +79,11 @@ import {
 import { getRequestJSON } from "../utils";
 
 import type { DataActionsMenuItem } from "../types";
-import type { ColumnDef } from "@tanstack/vue-table";
+import type {
+  ColumnDef,
+  ColumnFiltersState,
+  SortingState,
+} from "@tanstack/vue-table";
 import type { PropType } from "vue";
 
 const props = defineProps({
@@ -111,9 +118,17 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
+  initialFilters: {
+    default: () => [],
+    type: Array as PropType<ColumnFiltersState>,
+  },
   initialSorting: {
     default: () => [],
     type: Array as PropType<SortingState>,
+  },
+  inputDebounceTime: {
+    default: undefined,
+    type: Number,
   },
   isServerTable: Boolean,
   paginated: {
@@ -168,6 +183,8 @@ const columnOrder = ref([]);
 
 const columns: ColumnDef<unknown, unknown>[] = [];
 
+const columnFilters = ref<ColumnFiltersState>(props.initialFilters);
+
 const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
@@ -176,6 +193,10 @@ const pagination = ref({
 const rowSelection = ref({});
 
 const sorting = ref<SortingState>(props.initialSorting);
+
+const isFilterRowVisible = computed(() => {
+  return props.columnsData.some((column) => column.enableColumnFilter);
+});
 
 const totalItems = computed((): number =>
   props.isServerTable
@@ -191,6 +212,7 @@ const table = computed(() =>
   useVueTable({
     columns,
     state: {
+      columnFilters: columnFilters.value,
       columnOrder: columnOrder.value?.length
         ? columnOrder.value
         : props.visibleColumns,
@@ -199,6 +221,22 @@ const table = computed(() =>
       get sorting() {
         return sorting.value;
       },
+    },
+    onColumnFiltersChange: (updaterOrValue) => {
+      columnFilters.value =
+        typeof updaterOrValue === "function"
+          ? updaterOrValue(columnFilters.value)
+          : updaterOrValue;
+
+      if (!Array.isArray(columnFilters.value)) {
+        columnFilters.value = [];
+      }
+
+      pagination.value.pageIndex = DEFAULT_PAGE_INDEX;
+
+      if (props.isServerTable) {
+        fetchData();
+      }
     },
     onPaginationChange: (updaterOrValue) => {
       pagination.value =
@@ -241,18 +279,23 @@ const table = computed(() =>
 );
 
 const fetchData = () => {
-  const requestJSON = getRequestJSON(sorting.value, [], pagination.value);
+  const requestJSON = getRequestJSON(
+    sorting.value,
+    columnFilters.value,
+    pagination.value,
+  );
 
   emit("update:request", requestJSON);
 };
 
 const onReset = () => {
+  columnFilters.value = props.initialFilters;
   columnOrder.value = [];
-  sorting.value = props.initialSorting || [];
   pagination.value = {
     pageIndex: DEFAULT_PAGE_INDEX,
     pageSize: !props.paginated ? props.data.length : props.rowPerPage,
   };
+  sorting.value = props.initialSorting;
 };
 
 const prepareComponent = () => {
@@ -273,6 +316,7 @@ const prepareComponent = () => {
           "onUpdate:modelValue": () => row.toggleSelected(!row.getIsSelected()),
         }),
       align: "center",
+      enableColumnFilter: false,
       enableSorting: false,
     });
   }
@@ -285,8 +329,22 @@ const prepareComponent = () => {
       return;
     }
 
+    if (column.meta?.filterVariant === "multiselect") {
+      column.filterFn = (row, columnId, filterValue) => {
+        if (!filterValue || filterValue.length === 0) {
+          return row;
+        }
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return filterValue.some((value: any) =>
+          row.getValue<unknown[]>(columnId)?.includes(value),
+        );
+      };
+    }
+
     columns.push({
       ...column,
+      enableColumnFilter: column.enableColumnFilter ?? false,
       enableSorting: column.enableSorting ?? false,
     } as ColumnDef<unknown, unknown>);
   });
@@ -295,6 +353,7 @@ const prepareComponent = () => {
     columns.push({
       accessorKey: "actions",
       align: "center",
+      enableColumnFilter: false,
       enableSorting: false,
       header: () =>
         h(Icon, {

@@ -55,6 +55,63 @@
         </template>
       </th>
     </tr>
+
+    <tr v-if="isFilterRowVisible" class="header-row filters">
+      <th
+        v-for="column in table.getVisibleLeafColumns()"
+        :key="`table-filter-${column.id}`"
+        :class="[
+          activeColumnClass(column),
+          column.id ? `column-${column.id}` : '',
+          column.columnDef.className || '',
+          column.getCanFilter()
+            ? `filter ${column.columnDef.meta?.filterVariant}`
+            : '',
+        ]"
+        :data-align="
+          getAlignValue({
+            align: column.columnDef.align || 'left',
+            dataType: column.columnDef.dataType,
+          })
+        "
+        :style="{
+          width: column.columnDef.width,
+          maxWidth: column.columnDef.maxWidth,
+          minWidth: column.columnDef.minWidth,
+        }"
+      >
+        <template v-if="column.getCanFilter()">
+          <template v-if="column.columnDef.customFilterComponent">
+            <component :is="column.columnDef.customFilterComponent(column)" />
+          </template>
+          <template
+            v-else-if="column.columnDef.meta?.filterVariant === 'multiselect'"
+          >
+            <SelectInput
+              :model-value="getColumnFilterValue(column)"
+              :options="column.columnDef.meta?.filterOptions || []"
+              :placeholder="column.columnDef.filterPlaceholder"
+              :name="`multiselect-filter-${column.columnDef.accessorKey}`"
+              multiple
+              @update:model-value="column.setFilterValue($event)"
+            />
+          </template>
+          <template v-else>
+            <DebouncedInput
+              :id="`input-filter-${column.id}`"
+              :debounce-time="inputDebounceTime"
+              :model-value="
+                typeof getColumnFilterValue(column) === 'string'
+                  ? String(getColumnFilterValue(column))
+                  : ''
+              "
+              :placeholder="column.columnDef.filterPlaceholder"
+              @update:model-value="column.setFilterValue($event)"
+            />
+          </template>
+        </template>
+      </th>
+    </tr>
   </thead>
 </template>
 
@@ -65,6 +122,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { SelectInput } from "@dzangolab/vue3-form";
+import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
 import { FlexRender } from "@tanstack/vue-table";
 
@@ -73,6 +132,14 @@ import { getAlignValue } from "../utils";
 import type { Column, Table } from "@tanstack/vue-table";
 
 defineProps({
+  inputDebounceTime: {
+    default: undefined,
+    type: Number,
+  },
+  isFilterRowVisible: {
+    default: false,
+    type: Boolean,
+  },
   table: {
     required: true,
     type: Object as () => Table<unknown>,
@@ -80,8 +147,14 @@ defineProps({
 });
 
 const activeColumnClass = (column: Column<unknown, unknown>) => {
-  return column.getIsSorted() === "asc" || column.getIsSorted() === "desc"
+  return column.getIsSorted() === "asc" ||
+    column.getIsSorted() === "desc" ||
+    column.getIsFiltered()
     ? "highlight"
     : "";
+};
+
+const getColumnFilterValue = (column: Column<unknown, unknown>) => {
+  return column.getFilterValue() as string | string[];
 };
 </script>
