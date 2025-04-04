@@ -30,8 +30,8 @@ declare module "@tanstack/vue-table" {
 }
 
 type FilterOption = {
-  value: string;
   label: string;
+  value: string;
 };
 
 type TFilterRequest =
