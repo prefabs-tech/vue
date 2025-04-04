@@ -18,7 +18,6 @@
           :columns-data="columns"
           :data="data.slice(0, 15)"
           :paginated="false"
-          show-reset-button
         />
 
         <!-- eslint-disable -->
@@ -28,7 +27,6 @@
               :columns-data="columns"
               :data="data"
               :paginated="false"
-              show-reset-button
             /&gt;
           &lt;/template&gt;
     
@@ -40,7 +38,6 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
-              enableSorting: true,
               header: "Email",
             },
             {
@@ -150,6 +147,7 @@
           :columns-data="sortableColumns"
           :data="data"
           :initial-sorting="[{ id: 'email', desc: false }]"
+          show-reset-button
         />
 
         <!-- eslint-disable -->
@@ -159,6 +157,7 @@
               :columns-data="sortableColumns"
               :data="data"
               :initial-sorting="[{ id: 'email', desc: false }]"
+              show-reset-button
             /&gt;
           &lt;/template&gt;
     
@@ -238,12 +237,62 @@
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
+            &lt;template&gt;
+              &lt;Table
+                :columns-data="columnsWithTooltip"
+                :data="data"
+                :initial-sorting="[{ id: 'email', desc: false }]"
+                enable-row-selection
+              /&gt;
+            &lt;/template&gt;
+      
+            &lt;script setup lang="ts"&gt;
+            import { Table } from "@dzangolab/vue3-tanstack-table";
+      
+            import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+      
+            const columns: Array&lt;TableColumnDefinition&gt; = [
+              ...
+            ];
+    
+            const data = [
+              ...
+            ];
+  
+            const tooltipPositions = ["right", "top", "bottom", "left"];
+  
+            const columnsWithTooltip = columns.map((column, index) => ({
+              ...column,
+              tooltip: true,
+              tooltipOptions: {
+                position: tooltipPositions[index],
+              },
+            }));
+            &lt;/script&gt;
+          </SshPre>
+          <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("table.usage.columnAction") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="columns"
+          :data="data.slice(0, 5)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          show-column-action
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
-              :columns-data="columnsWithTooltip"
+              :columns-data="columns"
               :data="data"
               :initial-sorting="[{ id: 'email', desc: false }]"
-              enable-row-selection
+              show-column-action
             /&gt;
           &lt;/template&gt;
     
@@ -258,17 +307,7 @@
   
           const data = [
             ...
-          ];
-
-          const tooltipPositions = ["right", "top", "bottom", "left"];
-
-          const columnsWithTooltip = columns.map((column, index) => ({
-            ...column,
-            tooltip: true,
-            tooltipOptions: {
-              position: tooltipPositions[index],
-            },
-          }));
+          ]
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -319,7 +358,11 @@
       <div class="section-content">
         <Table :columns-data="columns" :data="data">
           <template #footer>
-            {{ `${$t("table.label.totalRecords")}: ${data.length ?? "0"}` }}
+            <tr>
+              <td>
+                {{ `${$t("table.label.totalRecords")}: ${data.length ?? "0"}` }}
+              </td>
+            </tr>
           </template>
         </Table>
 
@@ -328,7 +371,11 @@
           &lt;template&gt;
             &lt;Table :columns-data="columns" :data="data"&gt;
               &lt;template #footer&gt;
-                &lbrace;&lbrace; `Total records: ${data.length ?? "0"}` &rbrace;&rbrace;
+                &lt;tr&gt;
+                  &lt;td&gt;
+                    &lbrace;&lbrace; `Total records: ${data.length ?? "0"}` &rbrace;&rbrace;
+                  &lt;/td&gt;
+                &lt;/tr&gt;
               &lt;/template&gt;
             &lt;/Table&gt;
           &lt;/template&gt;
@@ -357,7 +404,11 @@
       <div class="section-content">
         <Table :columns-data="columns" :data="data.slice(0, 5)">
           <template #toolbar>
-            <ButtonElement :label="$t('table.label.addRecord')" />
+            <span v-if="showDate">{{ formatDateTime(Date()) }}</span>
+            <ButtonElement
+              :label="$t('table.label.clickMe')"
+              @click="showDate = !showDate"
+            />
           </template>
         </Table>
 
@@ -366,14 +417,21 @@
           &lt;template&gt;
             &lt;Table :columns-data="columns" :data="data"&gt;
               &lt;template #toolbar&gt;
-                &lt;ButtonElement label="Add record" /&gt;
+                &lt;span v-if="showDate"&gt;
+                  &lbrace;&lbrace; formatDateTime(Date()) &rbrace;&rbrace;
+                &lt;/span&gt;
+                &lt;ButtonElement 
+                  label="Add record"
+                  @click="showDate = !showDate"
+                /&gt;
               &lt;/template&gt;
             &lt;/Table&gt;
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
-          import { ButtonElement } from "@dzangolab/vue3-ui";
+          import { ButtonElement, formatDateTime } from "@dzangolab/vue3-ui";
+          import { ref } from "vue";
 
           import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
@@ -383,7 +441,9 @@
   
           const data = [
             ...
-          ]
+          ];
+
+          const showDate = ref&lt;boolean&gt;(false);
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -680,7 +740,8 @@ export default {
 
 <script setup lang="ts">
 import { Table } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement, formatDateTime } from "@dzangolab/vue3-ui";
+import { ref } from "vue";
 
 import { data } from "./data";
 import TablePage from "./TablePage.vue";
@@ -690,7 +751,6 @@ import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "email",
-    enableSorting: true,
     header: "Email",
   },
   {
@@ -707,6 +767,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     header: "City",
   },
 ];
+
+const showDate = ref<boolean>(false);
 
 const sortableColumns = columns.map((column) => ({
   ...column,

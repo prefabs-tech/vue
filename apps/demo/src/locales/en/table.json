@@ -1,6 +1,6 @@
 {
   "label": {
-    "addRecord": "Add record",
+    "clickMe": "Click me",
     "components": "Components",
     "confirmation": "Are you sure!",
     "delete": "Delete",
@@ -17,10 +17,11 @@
   "usage": {
     "basic": "Basic",
     "builtinActions": "With built-in actions column",
+    "columnAction": "With column action",
     "customToolbar": "With custom toolbar actions",
     "filterableColumn": "With filterable column",
     "filteredActions": "With actions menu items filtered based on row data logic",
-    "footer": "with footer",
+    "footer": "With footer",
     "pagination": "With pagination",
     "rowSelection": "With row selection",
     "singleAction": "With single action button",

@@ -8,12 +8,13 @@
       v-if="showColumnAction || showResetButton || $slots.toolbar"
       :column-action-button-label="columnActionButtonLabel"
       :has-actions-column="Boolean(dataActionMenu.length)"
-      :has-selection-column="hasSelectionColumn"
+      :has-selection-column="enableRowSelection"
       :reset-button-label="resetButtonLabel"
       :show-column-action="showColumnAction"
       :show-reset-button="showResetButton"
       :table="table"
       @on:reset="onReset"
+      @on:drag="columnOrder = $event"
     >
       <slot name="toolbar" />
     </TableToolbar>
@@ -117,7 +118,6 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
-  hasSelectionColumn: Boolean,
   initialFilters: {
     default: () => [],
     type: Array as PropType<ColumnFiltersState>,
@@ -179,6 +179,8 @@ const emit = defineEmits([
   "update:request",
 ]);
 
+const columnOrder = ref([]);
+
 const columns: ColumnDef<unknown, unknown>[] = [];
 
 const columnFilters = ref<ColumnFiltersState>(props.initialFilters);
@@ -211,12 +213,14 @@ const table = computed(() =>
     columns,
     state: {
       columnFilters: columnFilters.value,
+      columnOrder: columnOrder.value?.length
+        ? columnOrder.value
+        : props.visibleColumns,
       pagination: pagination.value,
       rowSelection: rowSelection.value,
       get sorting() {
         return sorting.value;
       },
-      columnOrder: props.visibleColumns,
     },
     onColumnFiltersChange: (updaterOrValue) => {
       columnFilters.value =
@@ -286,11 +290,12 @@ const fetchData = () => {
 
 const onReset = () => {
   columnFilters.value = props.initialFilters;
-  sorting.value = props.initialSorting;
+  columnOrder.value = [];
   pagination.value = {
     pageIndex: DEFAULT_PAGE_INDEX,
     pageSize: !props.paginated ? props.data.length : props.rowPerPage,
   };
+  sorting.value = props.initialSorting;
 };
 
 const prepareComponent = () => {

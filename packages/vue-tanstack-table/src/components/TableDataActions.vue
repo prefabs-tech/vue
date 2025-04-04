@@ -16,7 +16,7 @@
       @select="onSelectAction"
     >
       <slot name="trigger">
-        <Icon icon="prime:cog" width="24" />
+        <Icon icon="prime:cog" width="22" />
       </slot>
     </Dropdown>
 
