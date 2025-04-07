@@ -152,26 +152,14 @@
               accessorKey: "quantity",
               header: () => "Quantity",
               enableSorting: true,
-              dataType: "number",
-              numberOptions: {
-                locale: "en-IN",
-              },
             },
             {
               accessorKey: "amount",
               header: "Amount",
-              dataType: "currency",
-              numberOptions: {
-                locale: "en-US",
-                formatOptions: {
-                  currency: "EUR",
-                },
-              },
             },
             {
               accessorKey: "date",
               header: "Date",
-              dataType: "date",
               enableColumnFilter: true,
               filterFn: "inDateRangeFilter",
               customFilterComponent: (column) => {
@@ -342,26 +330,14 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
     accessorKey: "quantity",
     header: () => "Quantity",
     enableSorting: true,
-    dataType: "number",
-    numberOptions: {
-      locale: "en-IN",
-    },
   },
   {
     accessorKey: "amount",
     header: "Amount",
-    dataType: "currency",
-    numberOptions: {
-      locale: "en-US",
-      formatOptions: {
-        currency: "EUR",
-      },
-    },
   },
   {
     accessorKey: "date",
     header: "Date",
-    dataType: "date",
     enableColumnFilter: true,
     filterFn: "inDateRangeFilter",
     customFilterComponent: (column) => {
