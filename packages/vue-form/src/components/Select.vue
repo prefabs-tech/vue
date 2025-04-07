@@ -96,7 +96,7 @@ export default {
 <script setup lang="ts">
 import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
-import { computed, onMounted, ref, toRefs, watch } from "vue";
+import { computed, onMounted, ref, toRaw, toRefs, watch } from "vue";
 
 import Checkbox from "./Checkbox.vue";
 
@@ -212,7 +212,7 @@ const isAllSelected = (options: SelectOption[]): boolean => {
   }
 
   return selectedOptions.value.every((selectedOption) =>
-    options.includes(selectedOption),
+    options.includes(toRaw(selectedOption)),
   );
 };
 
