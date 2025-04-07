@@ -158,6 +158,10 @@ const props = defineProps({
     type: String,
     validator: (value: string) => ["button", "menu"].includes(value),
   },
+  tableOptions: {
+    default: () => ({}),
+    type: Object,
+  },
   titleInfo: {
     default: undefined,
     type: Object as () => { text: string; align?: string },
@@ -275,6 +279,7 @@ const table = computed(() =>
     manualFiltering: props.isServerTable,
     manualSorting: props.isServerTable,
     manualPagination: props.isServerTable,
+    ...props.tableOptions,
   }),
 );
 
