@@ -107,8 +107,8 @@
           :paginated="false"
           :table-options="{
             filterFns: {
-              inDateRangeFilter: inDateRangeFilter,
               customEqualStringFilter: customEqualStringFilter,
+              inDateRangeFilter: inDateRangeFilter,
             },
           }"
           class="custom-static-filter-table"
@@ -124,8 +124,8 @@
               :paginated="false"
               :table-options="{
                 filterFns: {
-                  inDateRangeFilter: inDateRangeFilter,
                   customEqualStringFilter: customEqualStringFilter,
+                  inDateRangeFilter: inDateRangeFilter,
                 },
               }"
               class="custom-static-filter-table"
@@ -143,15 +143,15 @@
           const customFilterColumns: Array&lt;TableColumnDefinition&lt;unknown, unknown&gt;&gt; = [
             {
               accessorKey: "description",
-              header: "Description",
               enableColumnFilter: true,
               filterFn: "customEqualStringFilter",
               filterPlaceholder: t("table.label.matchDescription"),
+              header: "Description",
             },
             {
               accessorKey: "quantity",
-              header: () => "Quantity",
               enableSorting: true,
+              header: () => "Quantity",
             },
             {
               accessorKey: "amount",
@@ -159,9 +159,6 @@
             },
             {
               accessorKey: "date",
-              header: "Date",
-              enableColumnFilter: true,
-              filterFn: "inDateRangeFilter",
               customFilterComponent: (column) => {
                 return h("div", {
                   class: "filter-date",
@@ -179,6 +176,9 @@
                   }),
                 ]);
               },
+              enableColumnFilter: true,
+              header: "Date",
+              filterFn: "inDateRangeFilter",
             },
           ];
   
@@ -223,9 +223,9 @@
               columnId,
               value: [Date, Date],
             ) => {
-              const startDate = new Date(value[0]);
-              const endDate = new Date(value[1]);
               const columnDate = row.getValue(columnId) ? new Date(row.getValue(columnId) as Date) : null;
+              const endDate = new Date(value[1]);
+              const startDate = new Date(value[0]);
 
               if (!startDate || !endDate) {
                 return true;
@@ -275,43 +275,43 @@ const { t } = useI18n();
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "email",
-    enableSorting: true,
-    header: "Email",
     enableColumnFilter: true,
+    enableSorting: true,
     filterPlaceholder: "Search by email...",
+    header: "Email",
   },
   {
     accessorKey: "name",
     header: "Full name",
   },
   {
-    align: "right",
     accessorKey: "age",
+    align: "right",
     header: "Age",
   },
   {
     accessorKey: "city",
-    header: "City",
     enableColumnFilter: true,
     filterPlaceholder: "Select city",
+    header: "City",
     meta: {
       filterVariant: "multiselect",
       filterOptions: [
         {
-          value: "Atlanta",
           label: "Atlanta",
+          value: "Atlanta",
         },
         {
-          value: "Chicago",
           label: "Chicago",
+          value: "Chicago",
         },
         {
-          value: "Boston",
           label: "Boston",
+          value: "Boston",
         },
         {
-          value: "Denver",
           label: "Denver",
+          value: "Denver",
         },
       ],
     },
@@ -321,15 +321,15 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
 const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "description",
-    header: "Description",
     enableColumnFilter: true,
     filterFn: "customEqualStringFilter",
     filterPlaceholder: t("table.label.matchDescription"),
+    header: "Description",
   },
   {
     accessorKey: "quantity",
-    header: () => "Quantity",
     enableSorting: true,
+    header: "Quantity",
   },
   {
     accessorKey: "amount",
@@ -337,9 +337,6 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   },
   {
     accessorKey: "date",
-    header: "Date",
-    enableColumnFilter: true,
-    filterFn: "inDateRangeFilter",
     customFilterComponent: (column) => {
       return h(
         "div",
@@ -361,6 +358,9 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
         ],
       );
     },
+    enableColumnFilter: true,
+    filterFn: "inDateRangeFilter",
+    header: "Date",
   },
 ];
 
@@ -387,11 +387,11 @@ const inDateRangeFilter: FilterFunction<unknown> = (
     return true;
   }
 
-  const startDate = new Date(value[0]);
-  const endDate = new Date(value[1]);
   const columnDate = row.getValue(columnId)
     ? new Date(row.getValue(columnId) as Date)
     : null;
+  const endDate = new Date(value[1]);
+  const startDate = new Date(value[0]);
 
   if (
     columnDate &&
