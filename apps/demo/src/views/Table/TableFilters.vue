@@ -133,7 +133,6 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
           import { useI18n } from "@dzangolab/vue3-i18n";
           import { Table } from "@dzangolab/vue3-tanstack-table";
           import { h, ref } from "vue";
@@ -349,6 +348,60 @@
         <!-- eslint-enable -->
       </div>
     </section>
+    <section>
+      <h2>{{ $t("table.usage.equalServerFilter") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="equalFilterColumns"
+          :data="data.slice(10, 15)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          is-server-table
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="equalFilterColumns"
+              :data="data.slice(10, 15)"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              is-server-table
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { h, ref } from "vue";
+
+          const equalFilterColumns = [
+            ...columns.map((columnData) => {
+              if (columnData.accessorKey === "email") {
+                return {
+                  ...columnData,
+                  meta: {
+                    serverFilterFn: "equals",
+                  }
+                };
+              } else if (columnData.accessorKey === "city") {
+                return {
+                  accessorKey: "city",
+                  header: "City",
+                };
+              }
+
+              return columnData;
+            })
+          ];
+  
+          const data = [
+            ...
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
@@ -521,6 +574,26 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
         class: "pi pi-cog",
       }),
   },
+];
+
+const equalFilterColumns = [
+  ...columns.map((columnData) => {
+    if (columnData.accessorKey === "email") {
+      return {
+        ...columnData,
+        meta: {
+          serverFilterFn: "equals",
+        },
+      };
+    } else if (columnData.accessorKey === "city") {
+      return {
+        accessorKey: "city",
+        header: "City",
+      };
+    }
+
+    return columnData;
+  }),
 ];
 
 const dateRange = ref([]);

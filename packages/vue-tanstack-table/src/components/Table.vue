@@ -247,6 +247,16 @@ const table = computed(() =>
       pagination.value.pageIndex = DEFAULT_PAGE_INDEX;
 
       if (props.isServerTable) {
+        columnFilters.value = props.columnsData
+          .filter((column) => column.enableColumnFilter)
+          .map((column) => ({
+            id: column.accessorKey,
+            value: columnFilters.value.find(
+              (filter) => filter.id === column.accessorKey,
+            )?.value,
+            filterFn: column?.meta?.serverFilterFn,
+          })) as ColumnFiltersState;
+
         fetchData();
       }
     },
