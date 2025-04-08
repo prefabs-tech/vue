@@ -133,7 +133,6 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
           import { useI18n } from "@dzangolab/vue3-i18n";
           import { Table } from "@dzangolab/vue3-tanstack-table";
           import { h, ref } from "vue";
@@ -277,6 +276,132 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("table.usage.customFilter") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="customColumns"
+          :data="data.slice(10, 15)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          is-server-table
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="customColumns"
+              :data="data.slice(10, 15)"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              is-server-table
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { DatePicker } from "@dzangolab/vue3-form";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { DebouncedInput } from "@dzangolab/vue3-ui";
+          import { h, ref } from "vue";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const { t } = useI18n();
+
+          const customColumns = [
+            ...columns.map((columnData) => {
+              if (columnData.accessorKey === "email") {
+                return {
+                  ...columnData,
+                  customFilterComponent: (column) => {
+                    return h(DebouncedInput, {
+                      debounceTime: 200,
+                      modelValue: column.getFilterValue() as string,
+                      placeholder: t('table.label.customFilter'),
+                      "onUpdate:modelValue": (value) => {
+                        column.setFilterValue(value);
+                      },
+                    });
+                  },
+                  meta: {
+                    serverFilterFn: "contains",
+                  }
+                };
+              } else if (columnData.accessorKey === "city") {
+                return {
+                  accessorKey: "city",
+                  header: "City",
+                };
+              }
+
+              return columnData;
+            })
+          ];
+  
+          const data = [
+            ...
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
+      <h2>{{ $t("table.usage.equalServerFilter") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="equalFilterColumns"
+          :data="data.slice(10, 15)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          is-server-table
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="equalFilterColumns"
+              :data="data.slice(10, 15)"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              is-server-table
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { h, ref } from "vue";
+
+          const equalFilterColumns = [
+            ...columns.map((columnData) => {
+              if (columnData.accessorKey === "email") {
+                return {
+                  ...columnData,
+                  meta: {
+                    serverFilterFn: "equals",
+                  }
+                };
+              } else if (columnData.accessorKey === "city") {
+                return {
+                  accessorKey: "city",
+                  header: "City",
+                };
+              }
+
+              return columnData;
+            })
+          ];
+  
+          const data = [
+            ...
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
@@ -290,7 +415,7 @@ export default {
 import { DatePicker } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Table } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement, DebouncedInput } from "@dzangolab/vue3-ui";
 import { h, ref } from "vue";
 
 import { data, formatDemoData } from "./data";
@@ -347,6 +472,36 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
       ],
     },
   },
+];
+
+const customColumns = [
+  ...columns.map((columnData) => {
+    if (columnData.accessorKey === "email") {
+      return {
+        ...columnData,
+        customFilterComponent: (column) => {
+          return h(DebouncedInput, {
+            debounceTime: 200,
+            modelValue: column.getFilterValue() as string,
+            placeholder: t("table.label.customFilter"),
+            "onUpdate:modelValue": (value) => {
+              column.setFilterValue(value);
+            },
+          });
+        },
+        meta: {
+          serverFilterFn: "contains",
+        },
+      };
+    } else if (columnData.accessorKey === "city") {
+      return {
+        accessorKey: "city",
+        header: "City",
+      };
+    }
+
+    return columnData;
+  }),
 ];
 
 const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
@@ -419,6 +574,26 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
         class: "pi pi-cog",
       }),
   },
+];
+
+const equalFilterColumns = [
+  ...columns.map((columnData) => {
+    if (columnData.accessorKey === "email") {
+      return {
+        ...columnData,
+        meta: {
+          serverFilterFn: "equals",
+        },
+      };
+    } else if (columnData.accessorKey === "city") {
+      return {
+        accessorKey: "city",
+        header: "City",
+      };
+    }
+
+    return columnData;
+  }),
 ];
 
 const dateRange = ref([]);
