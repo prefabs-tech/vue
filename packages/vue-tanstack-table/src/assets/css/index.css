@@ -65,6 +65,10 @@
   overflow-x: auto;
 }
 
+.table-container .table-wrapper:has(thead>tr.filters) {
+  overflow-x: visible;
+}
+
 .table-container .table-wrapper > table {
   min-width: 100%;
   border-collapse: collapse;
@@ -101,7 +105,7 @@
   width: 100%;
 }
 
-.table-container .table-wrapper > table > thead > tr > th.filter.multiselect {
+.table-container .table-wrapper > table > thead > tr > th.filter {
   overflow: visible;
 }
 

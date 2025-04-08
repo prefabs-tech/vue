@@ -1,6 +1,7 @@
 import {
   CellAlignmentType,
   CellDataType,
+  FormatNumberType,
   TFilterFn as TFilterFunction,
   TRequestJSON,
   TSortDirection,
@@ -11,6 +12,20 @@ import type {
   PaginationState,
   SortingState,
 } from "@tanstack/vue-table";
+
+export const formatNumber = ({
+  value,
+  locale = "en-GB",
+  formatOptions,
+}: FormatNumberType) => {
+  if (typeof value !== "number" || isNaN(value)) {
+    return value;
+  }
+  const formatter = new Intl.NumberFormat(locale, formatOptions);
+
+  return formatter.format(value);
+};
+
 
 const getFilterOperator = (
   filterFunction: TFilterFunction,

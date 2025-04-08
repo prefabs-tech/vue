@@ -25,7 +25,11 @@
           :is-filter-row-visible="isFilterRowVisible"
           :table="table"
         />
-        <TableBody :empty-table-message="emptyTableMessage" :table="table" />
+        <TableBody
+          :custom-formatters="customFormatters"
+          :empty-table-message="emptyTableMessage"
+          :table="table"
+        />
         <tfoot v-if="$slots.footer">
           <slot name="footer" />
         </tfoot>
@@ -100,6 +104,10 @@ const props = defineProps({
     type: Array as PropType<ColumnDef<any>[]>,
     default: () => [],
   },
+  customFormatters: {
+    default: () => ({}),
+    type: Object as () => Record<string, (value: unknown) => unknown>,
+  },
   enableRowSelection: {
     default: false,
     type: Boolean,
@@ -157,6 +165,10 @@ const props = defineProps({
     default: "button",
     type: String,
     validator: (value: string) => ["button", "menu"].includes(value),
+  },
+  tableOptions: {
+    default: () => ({}),
+    type: Object,
   },
   titleInfo: {
     default: undefined,
@@ -275,6 +287,7 @@ const table = computed(() =>
     manualFiltering: props.isServerTable,
     manualSorting: props.isServerTable,
     manualPagination: props.isServerTable,
+    ...props.tableOptions,
   }),
 );
 

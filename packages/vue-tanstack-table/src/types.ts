@@ -72,7 +72,12 @@ export type CellDataType =
   | string
   | "text";
 
-export type { ColumnDef as TableColumnDefinition, SortingState } from "@tanstack/vue-table";
+export type {
+  ColumnDef as TableColumnDefinition,
+  FilterFn as FilterFunction,
+  FilterFns as FilterFunctions,
+  SortingState,
+} from "@tanstack/vue-table";
 
 export type FormatDateType = {
   date: Date | string | number;

@@ -95,69 +95,371 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("table.usage.customStaticFilter") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="customFilterColumns"
+          :data="formatDemoData"
+          :initial-sorting="[{ id: 'quantity', desc: true }]"
+          :paginated="false"
+          :table-options="{
+            filterFns: {
+              customEqualStringFilter: customEqualStringFilter,
+              inDateRangeFilter: inDateRangeFilter,
+            },
+          }"
+          class="custom-static-filter-table"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="customFilterColumns"
+              :data="data"
+              :initial-sorting="[{ id: 'quantity', desc: true }]"
+              :paginated="false"
+              :table-options="{
+                filterFns: {
+                  customEqualStringFilter: customEqualStringFilter,
+                  inDateRangeFilter: inDateRangeFilter,
+                },
+              }"
+              class="custom-static-filter-table"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { DatePicker } from "@dzangolab/vue3-form";
+          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { h, ref } from "vue";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const { t } = useI18n();
+
+          const customFilterColumns: Array&lt;TableColumnDefinition&lt;unknown, unknown&gt;&gt; = [
+          {
+            accessorKey: "description",
+            enableColumnFilter: true,
+            filterFn: "customEqualStringFilter",
+            filterPlaceholder: t("table.label.matchDescription"),
+            header: "Description",
+          },
+          {
+            accessorKey: "quantity",
+            dataType: "number",
+            enableSorting: true,
+            header: "Quantity",
+            numberOptions: {
+              locale: "en-IN",
+            },
+          },
+          {
+            accessorKey: "amount",
+            dataType: "currency",
+            header: "Amount",
+            numberOptions: {
+              locale: "en-US",
+              formatOptions: {
+                currency: "EUR",
+              },
+            },
+          },
+          {
+            accessorKey: "date",
+            customFilterComponent: (column) => {
+              return h(
+                "div",
+                {
+                  class: "filter-date",
+                },
+                [
+                  h(DatePicker, {
+                    modelValue: dateRange.value,
+                    multiCalendars: true,
+                    name: "date-range",
+                    placeholder: t("table.label.dateRange"),
+                    range: true,
+                    "onUpdate:modelValue": (value) => {
+                      dateRange.value = value;
+                      column.setFilterValue(value);
+                    },
+                  }),
+                ],
+              );
+            },
+            dataType: "date",
+            enableColumnFilter: true,
+            filterFn: "inDateRangeFilter",
+            header: "Date",
+          },
+          {
+            accessorKey: "action",
+            cell: () =>
+              h(ButtonElement, {
+                iconLeft: "pi pi-eye",
+                rounded: true,
+                variant: "textOnly",
+              }),
+            dataType: "other",
+            header: () => h("i", {
+              class: "pi pi-cog"
+            }),
+          },
+          ];
+  
+          const data = [
+            {
+              id: 1001,
+              amount: 1_234_567.89,
+              quantity: 420,
+              date: null,
+              datetime: null,
+              description: "Purchase of equipment",
+            },
+            {
+              id: 1002,
+              amount: 987_654.32,
+              quantity: 175,
+              date: new Date("2023-12-01T12:30:00"),
+              datetime: "2023-12-01T11:00:00",
+              description: "Office rent payment",
+            },
+            ...
+          ];
+
+          const dateRange = ref([]);
+
+          const customEqualStringFilter: FilterFunction&lt;any&gt; = (
+            row,
+            columnId,
+            value: string,
+          ) => {
+            if (value.includes(row.getValue(columnId) as string)) {
+              return true;
+            }
+
+            return false;
+          };
+
+          const inDateRangeFilter: FilterFunction&lt;any&gt; = (
+              row,
+              columnId,
+              value: [Date, Date],
+            ) => {
+              if (!value || !value[0] || !value[1]) {
+                return true;
+              }
+
+              const columnDate = row.getValue(columnId)
+                ? new Date(row.getValue(columnId) as Date)
+                : null;
+              const endDate = new Date(value[1]);
+              const startDate = new Date(value[0]);
+
+              if (
+                columnDate &&
+                startDate.getTime() <= columnDate.getTime() &&
+                columnDate.getTime() < endDate.getTime()
+              ) {
+                return true;
+              } else {
+                return false;
+              }
+            };
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
 <script lang="ts">
 export default {
-  name: "SortableTable",
+  name: "TableFilters",
 };
 </script>
 
 <script setup lang="ts">
+import { DatePicker } from "@dzangolab/vue3-form";
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { Table } from "@dzangolab/vue3-tanstack-table";
 import { ButtonElement } from "@dzangolab/vue3-ui";
+import { h, ref } from "vue";
 
-import { data } from "./data";
+import { data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
 
-import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+import type {
+  FilterFunction,
+  TableColumnDefinition,
+} from "@dzangolab/vue3-tanstack-table";
+
+const { t } = useI18n();
 
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "email",
-    enableSorting: true,
-    header: "Email",
     enableColumnFilter: true,
+    enableSorting: true,
     filterPlaceholder: "Search by email...",
+    header: "Email",
   },
   {
     accessorKey: "name",
     header: "Full name",
   },
   {
-    align: "right",
     accessorKey: "age",
+    align: "right",
     header: "Age",
   },
   {
     accessorKey: "city",
-    header: "City",
     enableColumnFilter: true,
     filterPlaceholder: "Select city",
+    header: "City",
     meta: {
       filterVariant: "multiselect",
       filterOptions: [
         {
-          value: "Atlanta",
           label: "Atlanta",
+          value: "Atlanta",
         },
         {
-          value: "Chicago",
           label: "Chicago",
+          value: "Chicago",
         },
         {
-          value: "Boston",
           label: "Boston",
+          value: "Boston",
         },
         {
-          value: "Denver",
           label: "Denver",
+          value: "Denver",
         },
       ],
     },
   },
 ];
+
+const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
+  {
+    accessorKey: "description",
+    enableColumnFilter: true,
+    filterFn: "customEqualStringFilter",
+    filterPlaceholder: t("table.label.matchDescription"),
+    header: "Description",
+  },
+  {
+    accessorKey: "quantity",
+    dataType: "number",
+    enableSorting: true,
+    header: "Quantity",
+    numberOptions: {
+      locale: "en-IN",
+    },
+  },
+  {
+    accessorKey: "amount",
+    dataType: "currency",
+    header: "Amount",
+    numberOptions: {
+      locale: "en-US",
+      formatOptions: {
+        currency: "EUR",
+      },
+    },
+  },
+  {
+    accessorKey: "date",
+    customFilterComponent: (column) => {
+      return h(
+        "div",
+        {
+          class: "filter-date",
+        },
+        [
+          h(DatePicker, {
+            modelValue: dateRange.value,
+            multiCalendars: true,
+            name: "date-range",
+            placeholder: t("table.label.dateRange"),
+            range: true,
+            "onUpdate:modelValue": (value) => {
+              dateRange.value = value;
+              column.setFilterValue(value);
+            },
+          }),
+        ],
+      );
+    },
+    dataType: "date",
+    enableColumnFilter: true,
+    filterFn: "inDateRangeFilter",
+    header: "Date",
+  },
+  {
+    accessorKey: "action",
+    cell: () =>
+      h(ButtonElement, {
+        iconLeft: "pi pi-eye",
+        rounded: true,
+        variant: "textOnly",
+      }),
+    dataType: "other",
+    header: () =>
+      h("i", {
+        class: "pi pi-cog",
+      }),
+  },
+];
+
+const dateRange = ref([]);
+
+const customEqualStringFilter: FilterFunction<unknown> = (
+  row,
+  columnId,
+  value: string,
+) => {
+  if (value.includes(row.getValue(columnId) as string)) {
+    return true;
+  }
+
+  return false;
+};
+
+const inDateRangeFilter: FilterFunction<unknown> = (
+  row,
+  columnId,
+  value: [Date, Date],
+) => {
+  if (!value || !value[0] || !value[1]) {
+    return true;
+  }
+
+  const columnDate = row.getValue(columnId)
+    ? new Date(row.getValue(columnId) as Date)
+    : null;
+  const endDate = new Date(value[1]);
+  const startDate = new Date(value[0]);
+
+  if (
+    columnDate &&
+    startDate.getTime() <= columnDate.getTime() &&
+    columnDate.getTime() < endDate.getTime()
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
 </script>
 
 <style lang="css">
