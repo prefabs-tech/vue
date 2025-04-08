@@ -140,69 +140,98 @@
 
           import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
+          const { t } = useI18n();
+
           const customFilterColumns: Array&lt;TableColumnDefinition&lt;unknown, unknown&gt;&gt; = [
-            {
-              accessorKey: "description",
-              enableColumnFilter: true,
-              filterFn: "customEqualStringFilter",
-              filterPlaceholder: t("table.label.matchDescription"),
-              header: "Description",
+          {
+            accessorKey: "description",
+            enableColumnFilter: true,
+            filterFn: "customEqualStringFilter",
+            filterPlaceholder: t("table.label.matchDescription"),
+            header: "Description",
+          },
+          {
+            accessorKey: "quantity",
+            dataType: "number",
+            enableSorting: true,
+            header: "Quantity",
+            numberOptions: {
+              locale: "en-IN",
             },
-            {
-              accessorKey: "quantity",
-              enableSorting: true,
-              header: () => "Quantity",
+          },
+          {
+            accessorKey: "amount",
+            dataType: "currency",
+            header: "Amount",
+            numberOptions: {
+              locale: "en-US",
+              formatOptions: {
+                currency: "EUR",
+              },
             },
-            {
-              accessorKey: "amount",
-              header: "Amount",
-            },
-            {
-              accessorKey: "date",
-              customFilterComponent: (column) => {
-                return h("div", {
+          },
+          {
+            accessorKey: "date",
+            customFilterComponent: (column) => {
+              return h(
+                "div",
+                {
                   class: "filter-date",
-                }, [
+                },
+                [
                   h(DatePicker, {
                     modelValue: dateRange.value,
                     multiCalendars: true,
                     name: "date-range",
-                    placeholder: t("table.placeholder.startDate"),
+                    placeholder: t("table.label.dateRange"),
                     range: true,
-                    'onUpdate:modelValue': (value) => {
+                    "onUpdate:modelValue": (value) => {
                       dateRange.value = value;
                       column.setFilterValue(value);
                     },
                   }),
-                ]);
-              },
-              enableColumnFilter: true,
-              header: "Date",
-              filterFn: "inDateRangeFilter",
+                ],
+              );
             },
+            dataType: "date",
+            enableColumnFilter: true,
+            filterFn: "inDateRangeFilter",
+            header: "Date",
+          },
+          {
+            accessorKey: "action",
+            cell: () =>
+              h(ButtonElement, {
+                iconLeft: "pi pi-eye",
+                rounded: true,
+                variant: "textOnly",
+              }),
+            dataType: "other",
+            header: () => h("i", {
+              class: "pi pi-cog"
+            }),
+          },
           ];
   
           const data = [
-          {
-            id: 1001,
-            amount: 1_234_567.89,
-            quantity: 420,
-            date: null,
-            datetime: null,
-            description: "Purchase of equipment",
-          },
-          {
-            id: 1002,
-            amount: 987_654.32,
-            quantity: 175,
-            date: new Date("2023-12-01T12:30:00"),
-            datetime: "2023-12-01T11:00:00",
-            description: "Office rent payment",
-          },
+            {
+              id: 1001,
+              amount: 1_234_567.89,
+              quantity: 420,
+              date: null,
+              datetime: null,
+              description: "Purchase of equipment",
+            },
+            {
+              id: 1002,
+              amount: 987_654.32,
+              quantity: 175,
+              date: new Date("2023-12-01T12:30:00"),
+              datetime: "2023-12-01T11:00:00",
+              description: "Office rent payment",
+            },
             ...
-          ]
-
-          const { t } = useI18n();
+          ];
 
           const dateRange = ref([]);
 
@@ -223,13 +252,15 @@
               columnId,
               value: [Date, Date],
             ) => {
-              const columnDate = row.getValue(columnId) ? new Date(row.getValue(columnId) as Date) : null;
-              const endDate = new Date(value[1]);
-              const startDate = new Date(value[0]);
-
-              if (!startDate || !endDate) {
+              if (!value || !value[0] || !value[1]) {
                 return true;
               }
+
+              const columnDate = row.getValue(columnId)
+                ? new Date(row.getValue(columnId) as Date)
+                : null;
+              const endDate = new Date(value[1]);
+              const startDate = new Date(value[0]);
 
               if (
                 columnDate &&
@@ -328,12 +359,23 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   },
   {
     accessorKey: "quantity",
+    dataType: "number",
     enableSorting: true,
     header: "Quantity",
+    numberOptions: {
+      locale: "en-IN",
+    },
   },
   {
     accessorKey: "amount",
+    dataType: "currency",
     header: "Amount",
+    numberOptions: {
+      locale: "en-US",
+      formatOptions: {
+        currency: "EUR",
+      },
+    },
   },
   {
     accessorKey: "date",
@@ -358,9 +400,24 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
         ],
       );
     },
+    dataType: "date",
     enableColumnFilter: true,
     filterFn: "inDateRangeFilter",
     header: "Date",
+  },
+  {
+    accessorKey: "action",
+    cell: () =>
+      h(ButtonElement, {
+        iconLeft: "pi pi-eye",
+        rounded: true,
+        variant: "textOnly",
+      }),
+    dataType: "other",
+    header: () =>
+      h("i", {
+        class: "pi pi-cog",
+      }),
   },
 ];
 

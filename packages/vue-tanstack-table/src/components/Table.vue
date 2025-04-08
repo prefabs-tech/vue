@@ -25,7 +25,11 @@
           :is-filter-row-visible="isFilterRowVisible"
           :table="table"
         />
-        <TableBody :empty-table-message="emptyTableMessage" :table="table" />
+        <TableBody
+          :custom-formatters="customFormatters"
+          :empty-table-message="emptyTableMessage"
+          :table="table"
+        />
         <tfoot v-if="$slots.footer">
           <slot name="footer" />
         </tfoot>
@@ -99,6 +103,10 @@ const props = defineProps({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type: Array as PropType<ColumnDef<any>[]>,
     default: () => [],
+  },
+  customFormatters: {
+    default: () => ({}),
+    type: Object as () => Record<string, (value: unknown) => unknown>,
   },
   enableRowSelection: {
     default: false,
