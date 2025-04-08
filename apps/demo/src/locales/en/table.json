@@ -24,6 +24,7 @@
     "customFilter": "With custom filter component and server filterFn",
     "customToolbar": "With custom toolbar actions",
     "customStaticFilter": "With custom filter component and static filterFn",
+    "equalServerFilter": "With equal server filterFn",
     "filterableColumn": "With filterable column",
     "filteredActions": "With actions menu items filtered based on row data logic",
     "footer": "With footer",
