@@ -16,7 +16,7 @@
         :colSpan="header.colSpan"
         :data-align="
           getAlignValue({
-            align: header.column.columnDef.align || 'left',
+            align: header.column.columnDef.align,
             dataType: header.column.columnDef.dataType,
           })
         "
@@ -70,7 +70,7 @@
         ]"
         :data-align="
           getAlignValue({
-            align: column.columnDef.align || 'left',
+            align: column.columnDef.align,
             dataType: column.columnDef.dataType,
           })
         "
