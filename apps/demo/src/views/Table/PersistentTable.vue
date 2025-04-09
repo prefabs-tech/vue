@@ -20,6 +20,7 @@
           :data="data"
           :initial-sorting="[{ id: 'email', desc: true }]"
           persist-state
+          show-column-action
         />
 
         <!-- eslint-disable -->

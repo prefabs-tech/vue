@@ -88,8 +88,8 @@ import type { StorageType } from "@dzangolab/vue3-ui";
 import type {
   ColumnDef,
   ColumnFiltersState,
+  ColumnOrderState,
   SortingState,
-  VisibilityState,
 } from "@tanstack/vue-table";
 import type { PropType } from "vue";
 
@@ -205,13 +205,11 @@ const emit = defineEmits([
   "update:request",
 ]);
 
-const columnOrder = ref([]);
-
 const columns: ColumnDef<unknown, unknown>[] = [];
 
 const columnFilters = ref<ColumnFiltersState>(props.initialFilters);
 
-const columnVisibility = ref<VisibilityState>({});
+const columnOrder = ref<ColumnOrderState>([]);
 
 const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
@@ -229,7 +227,7 @@ const isFilterRowVisible = computed(() => {
 const persistentState = computed((): PersistentTableState => {
   return {
     columnFilters: columnFilters.value,
-    columnVisibility: columnVisibility.value,
+    columnOrder: columnOrder.value,
     pagination: pagination.value,
     sorting: sorting.value,
   };
@@ -330,7 +328,7 @@ const table = computed(() =>
   }),
 );
 
-watch([columnFilters, columnVisibility, pagination, sorting], () => {
+watch([columnFilters, columnOrder, pagination, sorting], () => {
   if (props.persistState && props.id) {
     saveTableState(props.id as string, persistentState.value, storage.value);
   }
@@ -447,7 +445,7 @@ const setPersistState = () => {
 
   if (savedState) {
     columnFilters.value = savedState.columnFilters;
-    columnVisibility.value = savedState.columnVisibility;
+    columnOrder.value = savedState.columnOrder as ColumnOrderState;
     sorting.value = savedState.sorting;
 
     if (props.rowPerPageOptions.includes(savedState.pagination.pageSize)) {

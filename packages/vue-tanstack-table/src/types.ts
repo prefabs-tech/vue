@@ -2,6 +2,7 @@ import type {
   Cell,
   Column,
   ColumnFiltersState,
+  ColumnOrderState,
   PaginationState,
   RowData,
   SortingState,
@@ -112,7 +113,8 @@ export type DataActionsMenuItem = {
 
 export interface PersistentTableState {
   columnFilters: ColumnFiltersState;
-  columnVisibility: VisibilityState;
+  columnVisibility?: VisibilityState;
+  columnOrder?: ColumnOrderState;
   sorting: SortingState;
   pagination: PaginationState;
 }
