@@ -43,18 +43,18 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
-              enableSorting: true,
-              header: "Email",
               enableColumnFilter: true,
+              enableSorting: true,
               filterPlaceholder: "Search by email...",
+              header: "Email",
             },
             {
               accessorKey: "name",
               header: "Full name",
             },
             {
-              align: "right",
               accessorKey: "age",
+              align: "right",
               header: "Age",
             },
             {

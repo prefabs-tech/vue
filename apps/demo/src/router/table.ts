@@ -1,7 +1,7 @@
 const Table = () => import("@/views/Table/Index.vue");
 const BasicTable = () => import("@/views/Table/BasicTable.vue");
-const TableFilters = () => import("@/views/Table/TableFilters.vue");
 const PersistentTable = () => import("@/views/Table/PersistentTable.vue");
+const TableFilters = () => import("@/views/Table/TableFilters.vue");
 
 const routes = [
   {

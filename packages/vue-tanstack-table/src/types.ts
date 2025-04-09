@@ -113,10 +113,10 @@ export type DataActionsMenuItem = {
 
 export interface PersistentTableState {
   columnFilters: ColumnFiltersState;
-  columnVisibility?: VisibilityState;
   columnOrder?: ColumnOrderState;
-  sorting: SortingState;
+  columnVisibility?: VisibilityState;
   pagination: PaginationState;
+  sorting: SortingState;
 }
 
 export type TFilterFn =
