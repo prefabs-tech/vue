@@ -97,6 +97,7 @@ export default {
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Table } from "@dzangolab/vue3-tanstack-table";
+import { ButtonElement } from "@dzangolab/vue3-ui";
 
 import { data } from "./data";
 import TablePage from "./TablePage.vue";
