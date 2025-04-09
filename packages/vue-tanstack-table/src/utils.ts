@@ -1,12 +1,16 @@
-import {
+import { TABLE_STATE_PREFIX } from "./constants";
+import { getStorage } from "@dzangolab/vue3-ui";
+
+import type {
   CellAlignmentType,
   CellDataType,
   FormatNumberType,
+  PersistentTableState,
   TFilterFn as TFilterFunction,
   TRequestJSON,
   TSortDirection,
 } from "./types";
-
+import type { StorageType } from "@dzangolab/vue3-ui";
 import type { 
   ColumnFiltersState,
   PaginationState,
@@ -206,4 +210,45 @@ export const getRequestJSON = (
     sort: getSort(),
     offset: getOffset(),
   };
+};
+
+export const getSavedTableState = (
+  id: string,
+  storage: Storage,
+): PersistentTableState | null => {
+  try {
+    const savedState = storage.getItem(`${TABLE_STATE_PREFIX}-${id}`);
+
+    return savedState && JSON.parse(savedState);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("[Dz table] Could not restore table state", error);
+  }
+
+  return null;
+};
+
+export const saveTableState = (
+  id: string,
+  value: PersistentTableState,
+  storage: Storage,
+) => {
+  try {
+    storage.setItem(`${TABLE_STATE_PREFIX}-${id}`, JSON.stringify(value));
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("[Dz table] Could not store table state", error);
+  }
+};
+
+export const clearSavedTableStates = (
+  storageType: StorageType = "localStorage",
+) => {
+  const storage = getStorage(storageType);
+
+  Object.keys(storage).forEach((key) => {
+    if (key.startsWith(TABLE_STATE_PREFIX)) {
+      storage.removeItem(key);
+    }
+  });
 };

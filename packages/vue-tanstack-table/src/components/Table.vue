@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container">
+  <div :id="id" class="table-container">
     <span v-if="titleInfo" :data-align="titleInfo.align || 'center'">
       {{ titleInfo.text }}
     </span>
@@ -60,6 +60,7 @@ export default {
 
 <script setup lang="ts">
 import { Checkbox } from "@dzangolab/vue3-form";
+import { getStorage } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
 import {
   getCoreRowModel,
@@ -68,7 +69,7 @@ import {
   getSortedRowModel,
   useVueTable,
 } from "@tanstack/vue-table";
-import { computed, h, ref } from "vue";
+import { computed, h, ref, watch } from "vue";
 
 import Pagination from "./Pagination.vue";
 import TableBody from "./TableBody.vue";
@@ -80,13 +81,15 @@ import {
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
 } from "../constants";
-import { getRequestJSON } from "../utils";
+import { getRequestJSON, getSavedTableState, saveTableState } from "../utils";
 
-import type { DataActionsMenuItem } from "../types";
+import type { DataActionsMenuItem, PersistentTableState } from "../types";
+import type { StorageType } from "@dzangolab/vue3-ui";
 import type {
   ColumnDef,
   ColumnFiltersState,
   SortingState,
+  VisibilityState,
 } from "@tanstack/vue-table";
 import type { PropType } from "vue";
 
@@ -126,6 +129,10 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
+  id: {
+    default: undefined,
+    type: String,
+  },
   initialFilters: {
     default: () => [],
     type: Array as PropType<ColumnFiltersState>,
@@ -146,6 +153,13 @@ const props = defineProps({
   paginationOptions: {
     default: () => ({}),
     type: Object,
+  },
+  persistState: Boolean,
+  persistStateStorage: {
+    default: "localStorage",
+    type: String,
+    validator: (value: string) =>
+      ["localStorage", "sessionStorage"].includes(value),
   },
   resetButtonLabel: {
     default: undefined,
@@ -197,6 +211,8 @@ const columns: ColumnDef<unknown, unknown>[] = [];
 
 const columnFilters = ref<ColumnFiltersState>(props.initialFilters);
 
+const columnVisibility = ref<VisibilityState>({});
+
 const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
@@ -209,6 +225,19 @@ const sorting = ref<SortingState>(props.initialSorting);
 const isFilterRowVisible = computed(() => {
   return props.columnsData.some((column) => column.enableColumnFilter);
 });
+
+const persistentState = computed((): PersistentTableState => {
+  return {
+    columnFilters: columnFilters.value,
+    columnVisibility: columnVisibility.value,
+    pagination: pagination.value,
+    sorting: sorting.value,
+  };
+});
+
+const storage = computed(() =>
+  getStorage(props.persistStateStorage as StorageType),
+);
 
 const totalItems = computed((): number =>
   props.isServerTable
@@ -300,6 +329,12 @@ const table = computed(() =>
     ...props.tableOptions,
   }),
 );
+
+watch([columnFilters, columnVisibility, pagination, sorting], () => {
+  if (props.persistState && props.id) {
+    saveTableState(props.id as string, persistentState.value, storage.value);
+  }
+});
 
 const fetchData = () => {
   const requestJSON = getRequestJSON(
@@ -399,6 +434,28 @@ const prepareComponent = () => {
         }),
     });
   }
+
+  setPersistState();
+};
+
+const setPersistState = () => {
+  if (!props.persistState || !props.id) {
+    return;
+  }
+
+  const savedState = getSavedTableState(props.id, storage.value);
+
+  if (savedState) {
+    columnFilters.value = savedState.columnFilters;
+    columnVisibility.value = savedState.columnVisibility;
+    sorting.value = savedState.sorting;
+
+    if (props.rowPerPageOptions.includes(savedState.pagination.pageSize)) {
+      pagination.value = savedState.pagination;
+    }
+  }
+
+  saveTableState(props.id as string, persistentState.value, storage.value);
 };
 
 prepareComponent();

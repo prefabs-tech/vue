@@ -1,4 +1,12 @@
-import type { Cell, Column, RowData } from "@tanstack/vue-table";
+import type {
+  Cell,
+  Column,
+  ColumnFiltersState,
+  PaginationState,
+  RowData,
+  SortingState,
+  VisibilityState
+} from "@tanstack/vue-table";
 import type { VNode } from "vue";
 
 declare module "@tanstack/vue-table" {
@@ -37,11 +45,11 @@ type FilterOption = {
 type TFilterRequest =
   | TSingleFilter
   | {
-      AND: TFilterRequest[];
-    }
+    AND: TFilterRequest[];
+  }
   | {
-      OR: TFilterRequest[];
-    }
+    OR: TFilterRequest[];
+  }
   | null;
 
 type TLimit = number | null;
@@ -101,6 +109,13 @@ export type DataActionsMenuItem = {
   icon?: string;
   requireConfirmationModal?: boolean;
 };
+
+export interface PersistentTableState {
+  columnFilters: ColumnFiltersState;
+  columnVisibility: VisibilityState;
+  sorting: SortingState;
+  pagination: PaginationState;
+}
 
 export type TFilterFn =
   | "contains"

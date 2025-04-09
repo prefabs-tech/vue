@@ -55,6 +55,10 @@ const menu = [
         name: t("table.label.tableFilters"),
         routeName: "tableFilters",
       },
+      {
+        name: t("table.label.persistentTable"),
+        routeName: "persistentTable",
+      },
     ],
   },
 ];
