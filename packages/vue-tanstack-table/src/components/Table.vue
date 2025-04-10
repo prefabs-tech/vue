@@ -90,6 +90,7 @@ import type {
   ColumnFiltersState,
   ColumnOrderState,
   SortingState,
+  VisibilityState,
 } from "@tanstack/vue-table";
 import type { PropType } from "vue";
 
@@ -211,6 +212,8 @@ const columnFilters = ref<ColumnFiltersState>(props.initialFilters);
 
 const columnOrder = ref<ColumnOrderState>([]);
 
+const columnVisibility = ref<VisibilityState>({});
+
 const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
   pageSize: !props.paginated ? props.data.length : props.rowPerPage,
@@ -228,6 +231,7 @@ const persistentState = computed((): PersistentTableState => {
   return {
     columnFilters: columnFilters.value,
     columnOrder: columnOrder.value,
+    columnVisibility: columnVisibility.value,
     pagination: pagination.value,
     sorting: sorting.value,
   };
@@ -255,6 +259,7 @@ const table = computed(() =>
       columnOrder: columnOrder.value?.length
         ? columnOrder.value
         : props.visibleColumns,
+      columnVisibility: columnVisibility.value,
       pagination: pagination.value,
       rowSelection: rowSelection.value,
       get sorting() {
@@ -286,6 +291,12 @@ const table = computed(() =>
 
         fetchData();
       }
+    },
+    onColumnVisibilityChange: (updaterOrValue) => {
+      columnVisibility.value =
+        typeof updaterOrValue === "function"
+          ? updaterOrValue(columnVisibility.value)
+          : updaterOrValue;
     },
     onPaginationChange: (updaterOrValue) => {
       pagination.value =
@@ -328,11 +339,14 @@ const table = computed(() =>
   }),
 );
 
-watch([columnFilters, columnOrder, pagination, sorting], () => {
-  if (props.persistState && props.id) {
-    saveTableState(props.id as string, persistentState.value, storage.value);
-  }
-});
+watch(
+  [columnFilters, columnOrder, columnVisibility, pagination, sorting],
+  () => {
+    if (props.persistState && props.id) {
+      saveTableState(props.id as string, persistentState.value, storage.value);
+    }
+  },
+);
 
 const fetchData = () => {
   const requestJSON = getRequestJSON(
@@ -347,6 +361,7 @@ const fetchData = () => {
 const onReset = () => {
   columnFilters.value = props.initialFilters;
   columnOrder.value = [];
+  columnVisibility.value = {};
   pagination.value = {
     pageIndex: DEFAULT_PAGE_INDEX,
     pageSize: !props.paginated ? props.data.length : props.rowPerPage,
@@ -450,6 +465,7 @@ const setPersistState = () => {
   if (savedState) {
     columnFilters.value = savedState.columnFilters;
     columnOrder.value = savedState.columnOrder as ColumnOrderState;
+    columnVisibility.value = savedState.columnVisibility as VisibilityState;
     sorting.value = savedState.sorting;
 
     if (props.rowPerPageOptions.includes(savedState.pagination.pageSize)) {
