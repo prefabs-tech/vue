@@ -13,6 +13,7 @@
     <section>
       <h2>{{ $t("table.usage.persistentState") }}</h2>
 
+      <p>{{ $t("table.usage.persistentInstruction") }}</p>
       <div class="section-content">
         <Table
           id="persistent-state"
