@@ -399,6 +399,119 @@
     </section>
 
     <section>
+      <h2>{{ $t("table.usage.customVerticalBorder") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :column-action-button-label="$t('table.label.order')"
+          :columns-data="columns"
+          :data="data"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          :visible-columns="['email', 'name', 'age', 'city']"
+          class="vertical"
+          show-column-action
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :column-action-button-label="$t('table.label.columnAction')"
+              :columns-data="columns"
+              :data="data"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              :visible-columns="['email', 'name', 'age', 'city']"
+              class="vertical"
+              show-column-action
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+
+          &lt;style lang="css"&gt;
+          .table-container.vertical .table-wrapper > table > tbody > tr,
+          .table-container.vertical .table-wrapper > table > tbody > tr > td,
+          .table-container.vertical .table-wrapper > table > thead tr > th {
+            border: none;
+          }
+
+          .table-container.vertical .table-wrapper > table > tbody > tr > td,
+          .table-container.vertical .table-wrapper > table > thead tr > th {
+            border-left: var(--table-border);
+            border-right: var(--table-border);
+          }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("table.usage.customHorizontalBorder") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :column-action-button-label="$t('table.label.order')"
+          :columns-data="columns"
+          :data="data"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          :visible-columns="['email', 'name', 'age', 'city']"
+          class="horizontal"
+          show-column-action
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :column-action-button-label="$t('table.label.columnAction')"
+              :columns-data="columns"
+              :data="data"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              :visible-columns="['email', 'name', 'age', 'city']"
+              class="vertical"
+              show-column-action
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+
+          &lt;style lang="css"&gt;
+          .table-container.horizontal .table-wrapper > table > tbody > tr > td,
+          .table-container.horizontal .table-wrapper > table > thead tr > th {
+            border: none;
+          }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("table.usage.customToolbar") }}</h2>
 
       <div class="section-content">
