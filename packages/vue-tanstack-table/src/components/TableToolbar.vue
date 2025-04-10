@@ -83,6 +83,7 @@ const items = computed(() =>
         return h(Checkbox, {
           label: header,
           modelValue: data.getIsVisible(),
+          name: data.columnDef.accessorKey,
           "onUpdate:modelValue": () => data.toggleVisibility(),
         });
       },
