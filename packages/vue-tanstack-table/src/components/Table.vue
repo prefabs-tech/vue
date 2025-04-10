@@ -433,6 +433,10 @@ const prepareComponent = () => {
     });
   }
 
+  if (props.persistState && !props.id) {
+    throw new Error('Id is required when prop "persistState" is true');
+  }
+
   setPersistState();
 };
 
