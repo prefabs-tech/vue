@@ -73,6 +73,11 @@
   padding: var(--table-column-padding, 0.8rem);
 }
 
+.table-container.horizontal .table-wrapper > table > tbody > tr > td,
+.table-container.horizontal .table-wrapper > table > thead tr > th {
+  border: none;
+}
+
 .table-container.vertical .table-wrapper > table > tbody > tr,
 .table-container.vertical .table-wrapper > table > tbody > tr > td,
 .table-container.vertical .table-wrapper > table > thead tr > th {
@@ -83,9 +88,4 @@
 .table-container.vertical .table-wrapper > table > thead tr > th {
   border-left: var(--table-border);
   border-right: var(--table-border);
-}
-
-.table-container.horizontal .table-wrapper > table > tbody > tr > td,
-.table-container.horizontal .table-wrapper > table > thead tr > th {
-  border: none;
 }
