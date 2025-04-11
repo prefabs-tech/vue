@@ -842,6 +842,96 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("table.usage.centeredAlignedTable") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="centerAlignedTableColumns"
+          :data="data.slice(10, 15)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          class="center-aligned-content-table"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="centerAlignedTableColumns"
+              :data="data.slice(10, 15)"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              class="center-aligned-content-table"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ];
+
+          const centerAlignedTableColumns = columns.map((column) => {
+            if (column.accessorKey === "name") {
+              return {
+                ...column,
+                align: "center",
+                cell: ({ row: { original } }) => h(
+                  "div",
+                  {
+                    class: "cell-name",
+                  },
+                  original.name
+                ),
+                header: "Name"
+              };
+            }
+
+            return column;
+          });
+          &lt;/script&gt;
+
+          &lt;style lang="css"&gt;
+          .demo-data-tables-page
+            .table-wrapper
+            > table
+            > tbody
+            > tr
+            > td
+            > .cell-name {
+            background-color: #ccc;
+            width: 300px;
+          }
+
+          .table-container.center-aligned-content-table .column-name {
+            max-width: 30rem;
+            min-width: 30rem;
+            width: 30rem;
+          }
+
+          .table-container.center-aligned-content-table .column-age {
+            max-width: 6rem;
+            min-width: 6rem;
+            width: 6rem;
+          }
+
+          .table-container.center-aligned-content-table .column-city {
+            max-width: 8rem;
+            min-width: 8rem;
+            width: 8rem;
+          }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
@@ -854,7 +944,7 @@ export default {
 <script setup lang="ts">
 import { Table } from "@dzangolab/vue3-tanstack-table";
 import { ButtonElement, formatDateTime } from "@dzangolab/vue3-ui";
-import { ref } from "vue";
+import { ref, h } from "vue";
 
 import { data } from "./data";
 import TablePage from "./TablePage.vue";
@@ -897,6 +987,26 @@ const columnsWithTooltip = columns.map((column, index) => ({
     position: tooltipPositions[index],
   },
 }));
+
+const centerAlignedTableColumns = columns.map((column) => {
+  if (column.accessorKey === "name") {
+    return {
+      ...column,
+      align: "center",
+      cell: ({ row: { original } }) =>
+        h(
+          "div",
+          {
+            class: "cell-name",
+          },
+          original.name,
+        ),
+      header: "Name",
+    };
+  }
+
+  return column;
+});
 </script>
 
 <style lang="css">
