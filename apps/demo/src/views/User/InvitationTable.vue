@@ -29,7 +29,6 @@
           :initial-sorting="[{ id: 'email', desc: false }]"
           :invitation-modal-title="$t('user.label.inviteUser')"
           :invitations="invitations"
-          :is-loading="true"
           :visible-columns="visibleColumns"
         />
 

@@ -15,7 +15,7 @@
       :empty-table-message="t('roles.table.emptyMessage')"
       :paginated="false"
       class="table-roles"
-      is-loading
+      :is-loading="isLoading"
       is-server-table
       @action:select="onActionSelect"
     />
@@ -60,6 +60,10 @@ const config = useConfig() as AppConfig;
 
 const messages = useTranslations();
 const { t } = useI18n({ messages });
+
+defineProps({
+  isLoading: Boolean,
+});
 
 const rolesStore = useRolesStore();
 const { createRole, deleteRole, getRoles, updateRolePermissions } = rolesStore;

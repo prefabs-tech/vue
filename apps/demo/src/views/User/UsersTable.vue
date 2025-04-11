@@ -17,7 +17,6 @@
         <UsersTable
           :initial-sorting="[{ id: 'email', desc: false }]"
           :invitation-modal-title="$t('user.label.inviteUser')"
-          :is-loading="true"
           :users="allUsers"
           :visible-columns="visibleColumns"
         />
