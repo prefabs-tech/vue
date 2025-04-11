@@ -15,6 +15,7 @@
       :empty-table-message="t('roles.table.emptyMessage')"
       :paginated="false"
       class="table-roles"
+      is-loading
       is-server-table
       @action:select="onActionSelect"
     />
