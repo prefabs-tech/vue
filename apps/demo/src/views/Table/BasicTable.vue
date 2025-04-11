@@ -275,6 +275,64 @@
     </section>
 
     <section>
+      <h2>{{ $t("table.usage.columnAlignment") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="alignmentColumns"
+          :data="data.slice(0, 5)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          enable-row-selection
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="alignmentColumns"
+              :data="data"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              enable-row-selection
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const alignmentColumns = [
+            {
+              accessorKey: "email",
+              align: "left",
+              header: "Email",
+            },
+            {
+              accessorKey: "name",
+              header: "Full name",
+            },
+            {
+              accessorKey: "age",
+              align: "right",
+              header: "Age",
+            },
+            {
+              accessorKey: "city",
+              align: "center",
+              header: "City",
+            },
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("table.usage.columnAction") }}</h2>
 
       <div class="section-content">
@@ -842,6 +900,177 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("table.usage.customCellDataFormatting") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="customFormattedTableColumns"
+          :custom-formatters="{
+            currency: (value) => `$${value}`,
+            number: (value) => `~${value}`,
+          }"
+          :data="formatDemoData"
+          :initial-sorting="[{ id: 'quantity', desc: true }]"
+          :paginated="false"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="columns"
+              :custom-formatters="{
+                currency: (value) => `$${value}`,
+                number: (value) => `~${value}`,
+              }"
+              :data="formatDemoData"
+              :initial-sorting="[{ id: 'quantity', desc: true }]"
+              :paginated="false"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            {
+              accessorKey: "description",
+              header: "Description",
+            },
+            {
+              accessorKey: "quantity",
+              dataType: "number",
+              enableSorting: true,
+              header: () => "Quantity",
+            },
+            {
+              accessorKey: "amount",
+              dataType: "currency",
+              header: "Amount",
+            },
+            {
+              accessorKey: "date",
+              dataType: "date",
+              header: "Date",
+            },
+            {
+              id: "action",
+              cell: () => 
+                h(ButtonElement, {
+                  iconLeft: "pi pi-eye",
+                  variant: "textOnly",
+                  rounded: true,
+                }),
+              dataType: "other",
+              header: () => 
+                h("i", {
+                  class: "pi pi-cog",
+                }),
+            },
+          ];
+  
+          const data = [
+            ...
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("table.usage.centeredAlignedTable") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="centerAlignedTableColumns"
+          :data="data.slice(10, 15)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          class="center-aligned-content-table"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="centerAlignedTableColumns"
+              :data="data.slice(10, 15)"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              class="center-aligned-content-table"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ];
+
+          const centerAlignedTableColumns = columns.map((column) => {
+            if (column.accessorKey === "name") {
+              return {
+                ...column,
+                align: "center",
+                cell: ({ row: { original } }) => h(
+                  "div",
+                  {
+                    class: "cell-name",
+                  },
+                  original.name
+                ),
+                header: "Name"
+              };
+            }
+
+            return column;
+          });
+          &lt;/script&gt;
+
+          &lt;style lang="css"&gt;
+          .demo-data-tables-page
+            .table-wrapper
+            > table
+            > tbody
+            > tr
+            > td
+            > .cell-name {
+            background-color: #ccc;
+            width: 300px;
+          }
+
+          .table-container.center-aligned-content-table .column-name {
+            max-width: 30rem;
+            min-width: 30rem;
+            width: 30rem;
+          }
+
+          .table-container.center-aligned-content-table .column-age {
+            max-width: 6rem;
+            min-width: 6rem;
+            width: 6rem;
+          }
+
+          .table-container.center-aligned-content-table .column-city {
+            max-width: 8rem;
+            min-width: 8rem;
+            width: 8rem;
+          }
+          &lt;/style&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </TablePage>
 </template>
 
@@ -854,12 +1083,34 @@ export default {
 <script setup lang="ts">
 import { Table } from "@dzangolab/vue3-tanstack-table";
 import { ButtonElement, formatDateTime } from "@dzangolab/vue3-ui";
-import { ref } from "vue";
+import { ref, h } from "vue";
 
-import { data } from "./data";
+import { data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
 
 import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+
+const alignmentColumns = [
+  {
+    accessorKey: "email",
+    align: "left",
+    header: "Email",
+  },
+  {
+    accessorKey: "name",
+    header: "Full name",
+  },
+  {
+    accessorKey: "age",
+    align: "right",
+    header: "Age",
+  },
+  {
+    accessorKey: "city",
+    align: "center",
+    header: "City",
+  },
+];
 
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
@@ -890,6 +1141,26 @@ const sortableColumns = columns.map((column) => ({
 
 const tooltipPositions = ["right", "top", "bottom", "left"];
 
+const centerAlignedTableColumns = columns.map((column) => {
+  if (column.accessorKey === "name") {
+    return {
+      ...column,
+      align: "center",
+      cell: ({ row: { original } }) =>
+        h(
+          "div",
+          {
+            class: "cell-name",
+          },
+          original.name,
+        ),
+      header: "Name",
+    };
+  }
+
+  return column;
+});
+
 const columnsWithTooltip = columns.map((column, index) => ({
   ...column,
   tooltip: true,
@@ -897,6 +1168,43 @@ const columnsWithTooltip = columns.map((column, index) => ({
     position: tooltipPositions[index],
   },
 }));
+
+const customFormattedTableColumns = [
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+  {
+    accessorKey: "quantity",
+    dataType: "number",
+    enableSorting: true,
+    header: () => "Quantity",
+  },
+  {
+    accessorKey: "amount",
+    dataType: "currency",
+    header: "Amount",
+  },
+  {
+    accessorKey: "date",
+    dataType: "date",
+    header: "Date",
+  },
+  {
+    id: "action",
+    cell: () =>
+      h(ButtonElement, {
+        iconLeft: "pi pi-eye",
+        variant: "textOnly",
+        rounded: true,
+      }),
+    dataType: "other",
+    header: () =>
+      h("i", {
+        class: "pi pi-cog",
+      }),
+  },
+];
 </script>
 
 <style lang="css">
