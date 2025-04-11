@@ -157,10 +157,6 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
     header: t("user.table.defaultColumns.email"),
   },
   {
-    accessorKey: "name",
-    enableColumnFilter: true,
-    filterPlaceholder: "",
-    header: t("user.table.defaultColumns.name"),
     accessorFn: (original: UserType) => {
       return (
         (original.givenName ? original.givenName : "") +
@@ -168,7 +164,11 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
           (original.surname ? " " + original.surname : "") || "-"
       );
     },
+    accessorKey: "name",
     cell: ({ getValue }) => getValue(),
+    enableColumnFilter: true,
+    filterPlaceholder: "",
+    header: t("user.table.defaultColumns.name"),
   },
   {
     align: "center",
