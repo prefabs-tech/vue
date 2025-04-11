@@ -275,6 +275,64 @@
     </section>
 
     <section>
+      <h2>{{ $t("table.usage.columnAlignment") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="alignmentColumns"
+          :data="data.slice(0, 5)"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          enable-row-selection
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="alignmentColumns"
+              :data="data"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              enable-row-selection
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+    
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const alignmentColumns = [
+            {
+              accessorKey: "email",
+              align: "left",
+              header: "Email",
+            },
+            {
+              accessorKey: "name",
+              header: "Full name",
+            },
+            {
+              accessorKey: "age",
+              align: "right",
+              header: "Age",
+            },
+            {
+              accessorKey: "city",
+              align: "center",
+              header: "City",
+            },
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("table.usage.columnAction") }}</h2>
 
       <div class="section-content">
@@ -1031,6 +1089,28 @@ import { data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
 
 import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+
+const alignmentColumns = [
+  {
+    accessorKey: "email",
+    align: "left",
+    header: "Email",
+  },
+  {
+    accessorKey: "name",
+    header: "Full name",
+  },
+  {
+    accessorKey: "age",
+    align: "right",
+    header: "Age",
+  },
+  {
+    accessorKey: "city",
+    align: "center",
+    header: "City",
+  },
+];
 
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
