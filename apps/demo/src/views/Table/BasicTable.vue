@@ -844,6 +844,87 @@
     </section>
 
     <section>
+      <h2>{{ $t("table.usage.customCellDataFormatting") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="customFormattedTableColumns"
+          :custom-formatters="{
+            currency: (value) => `$${value}`,
+            number: (value) => `~${value}`,
+          }"
+          :data="formatDemoData"
+          :initial-sorting="[{ id: 'quantity', desc: true }]"
+          :paginated="false"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="columns"
+              :custom-formatters="{
+                currency: (value) => `$${value}`,
+                number: (value) => `~${value}`,
+              }"
+              :data="formatDemoData"
+              :initial-sorting="[{ id: 'quantity', desc: true }]"
+              :paginated="false"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            {
+              accessorKey: "description",
+              header: "Description",
+            },
+            {
+              accessorKey: "quantity",
+              dataType: "number",
+              enableSorting: true,
+              header: () => "Quantity",
+            },
+            {
+              accessorKey: "amount",
+              dataType: "currency",
+              header: "Amount",
+            },
+            {
+              accessorKey: "date",
+              dataType: "date",
+              header: "Date",
+            },
+            {
+              id: "action",
+              cell: () => 
+                h(ButtonElement, {
+                  iconLeft: "pi pi-eye",
+                  variant: "textOnly",
+                  rounded: true,
+                }),
+              dataType: "other",
+              header: () => 
+                h("i", {
+                  class: "pi pi-cog",
+                }),
+            },
+          ];
+  
+          const data = [
+            ...
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("table.usage.centeredAlignedTable") }}</h2>
 
       <div class="section-content">
@@ -946,7 +1027,7 @@ import { Table } from "@dzangolab/vue3-tanstack-table";
 import { ButtonElement, formatDateTime } from "@dzangolab/vue3-ui";
 import { ref, h } from "vue";
 
-import { data } from "./data";
+import { data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
 
 import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
@@ -980,14 +1061,6 @@ const sortableColumns = columns.map((column) => ({
 
 const tooltipPositions = ["right", "top", "bottom", "left"];
 
-const columnsWithTooltip = columns.map((column, index) => ({
-  ...column,
-  tooltip: true,
-  tooltipOptions: {
-    position: tooltipPositions[index],
-  },
-}));
-
 const centerAlignedTableColumns = columns.map((column) => {
   if (column.accessorKey === "name") {
     return {
@@ -1007,6 +1080,51 @@ const centerAlignedTableColumns = columns.map((column) => {
 
   return column;
 });
+
+const columnsWithTooltip = columns.map((column, index) => ({
+  ...column,
+  tooltip: true,
+  tooltipOptions: {
+    position: tooltipPositions[index],
+  },
+}));
+
+const customFormattedTableColumns = [
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+  {
+    accessorKey: "quantity",
+    dataType: "number",
+    enableSorting: true,
+    header: () => "Quantity",
+  },
+  {
+    accessorKey: "amount",
+    dataType: "currency",
+    header: "Amount",
+  },
+  {
+    accessorKey: "date",
+    dataType: "date",
+    header: "Date",
+  },
+  {
+    id: "action",
+    cell: () =>
+      h(ButtonElement, {
+        iconLeft: "pi pi-eye",
+        variant: "textOnly",
+        rounded: true,
+      }),
+    dataType: "other",
+    header: () =>
+      h("i", {
+        class: "pi pi-cog",
+      }),
+  },
+];
 </script>
 
 <style lang="css">

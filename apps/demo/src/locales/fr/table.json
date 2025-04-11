@@ -25,6 +25,7 @@
     "builtinActions": "With built-in actions column",
     "centeredAlignedTable": "With centered aligned content",
     "columnAction": "With column action",
+    "customCellDataFormatting": "With custom cell data formatter",
     "customFilter": "With custom filter component and server filterFn",
     "customHorizontalBorder": "With custom style for horizontal border",
     "customToolbar": "With custom toolbar actions",
