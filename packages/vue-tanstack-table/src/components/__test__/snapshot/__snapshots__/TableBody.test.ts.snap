@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableBody > matches snapshot 1`] = `
+<tbody>
+  <tr>
+    <td>
+      No results.
+    </td>
+  </tr>
+</tbody>
+`;
