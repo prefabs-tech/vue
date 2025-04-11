@@ -6,6 +6,7 @@
     :data-action-menu="actionMenuData"
     :empty-table-message="t('user.table.emptyMessage')"
     :initial-sorting="initialSorting"
+    :is-loading="isLoading"
     :is-server-table="isServerTable"
     :pagination-options="{
       pageInputLabel: t('user.table.pagination.pageInputLabel'),
@@ -111,6 +112,7 @@ const props = defineProps({
     default: "",
     type: String,
   },
+  isLoading: Boolean,
   isServerTable: Boolean,
   roles: {
     default: () => [],

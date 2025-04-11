@@ -1,5 +1,9 @@
 <template>
   <div :id="id" class="table-container">
+    <div v-if="isLoading" class="loading-overlay">
+      <LoadingIcon class="loading-icon" />
+    </div>
+
     <span v-if="titleInfo" :data-align="titleInfo.align || 'center'">
       {{ titleInfo.text }}
     </span>
@@ -60,7 +64,7 @@ export default {
 
 <script setup lang="ts">
 import { Checkbox } from "@dzangolab/vue3-form";
-import { getStorage } from "@dzangolab/vue3-ui";
+import { getStorage, LoadingIcon } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
 import {
   getCoreRowModel,
@@ -146,6 +150,7 @@ const props = defineProps({
     default: undefined,
     type: Number,
   },
+  isLoading: Boolean,
   isServerTable: Boolean,
   paginated: {
     default: true,
