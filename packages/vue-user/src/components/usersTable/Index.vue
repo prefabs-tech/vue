@@ -158,6 +158,8 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
   },
   {
     accessorKey: "name",
+    enableColumnFilter: true,
+    filterPlaceholder: "",
     header: t("user.table.defaultColumns.name"),
     accessorFn: (original: UserType) => {
       return (
