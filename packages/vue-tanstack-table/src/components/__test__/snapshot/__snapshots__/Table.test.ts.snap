@@ -1,0 +1,128 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Pagination > matches snapshot 1`] = `
+<div
+  class="table-container"
+>
+  <span
+    data-align="center"
+  >
+    Test Title
+  </span>
+  <table-toolbar-stub
+    columnactionbuttonlabel="Columns"
+    hasactionscolumn="false"
+    hasselectioncolumn="false"
+    resetbuttonlabel="Reset all"
+    showcolumnaction="true"
+    showresetbutton="true"
+    table="[object Object]"
+  />
+  <div
+    class="table-wrapper"
+  >
+    <table
+      style="width: 0px;"
+    >
+      <table-header-stub
+        isfilterrowvisible="false"
+        table="[object Object]"
+      />
+      <table-body-stub
+        customformatters="[object Object]"
+        emptytablemessage="No results."
+        enablerowselection="false"
+        table="[object Object]"
+      />
+      <tfoot>
+        
+        <div
+          class="footer"
+        >
+          Footer
+        </div>
+        
+      </tfoot>
+    </table>
+    
+    <pagination-stub
+      currentpage="0"
+      defaultitemsperpage="10"
+      itemsperpagecontrollabel="Items per page"
+      itemsperpageoptions="10,20,30"
+      pageinputlabel="Go to page:"
+      showfirstlastbuttons="true"
+      showitemsperpagecontrol="true"
+      showpagebuttons="false"
+      showpageinput="false"
+      showpreviousnextbuttons="true"
+      totalitems="20"
+    />
+    
+  </div>
+</div>
+`;
+
+exports[`Table > matches snapshot 1`] = `
+<div
+  class="table-container"
+>
+  <!--v-if-->
+  <span
+    data-align="center"
+  >
+    Test Title
+  </span>
+  <table-toolbar-stub
+    columnactionbuttonlabel="Columns"
+    hasactionscolumn="false"
+    hasselectioncolumn="false"
+    resetbuttonlabel="Reset all"
+    showcolumnaction="true"
+    showresetbutton="true"
+    table="[object Object]"
+  />
+  <div
+    class="table-wrapper"
+  >
+    <table
+      style="width: 0px;"
+    >
+      <table-header-stub
+        isfilterrowvisible="false"
+        table="[object Object]"
+      />
+      <table-body-stub
+        customformatters="[object Object]"
+        emptytablemessage="No results."
+        enablerowselection="false"
+        table="[object Object]"
+      />
+      <tfoot>
+        
+        <div
+          class="footer"
+        >
+          Footer
+        </div>
+        
+      </tfoot>
+    </table>
+    
+    <pagination-stub
+      currentpage="0"
+      defaultitemsperpage="10"
+      itemsperpagecontrollabel="Items per page"
+      itemsperpageoptions="10,20,30"
+      pageinputlabel="Go to page:"
+      showfirstlastbuttons="true"
+      showitemsperpagecontrol="true"
+      showpagebuttons="false"
+      showpageinput="false"
+      showpreviousnextbuttons="true"
+      totalitems="20"
+    />
+    
+  </div>
+</div>
+`;

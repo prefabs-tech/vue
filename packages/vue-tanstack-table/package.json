@@ -19,6 +19,10 @@
     "lint": "eslint . --ext .vue",
     "lint:fix": "eslint . --ext .vue --fix",
     "sort-package": "npx sort-package-json",
+    "test": "vitest --environment jsdom run --coverage",
+    "test:component": "vitest --environment jsdom run component/",
+    "test:snapshot": "vitest --environment jsdom run snapshot/",
+    "test:unit": "vitest --environment jsdom run unit/",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
