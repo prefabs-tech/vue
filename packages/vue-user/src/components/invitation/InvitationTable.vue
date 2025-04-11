@@ -143,7 +143,9 @@ const emit = defineEmits([
 const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
     accessorKey: "email",
+    enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "",
     header: t("user.invitation.table.defaultColumns.email"),
   },
   {
