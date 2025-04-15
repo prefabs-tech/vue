@@ -32,4 +32,8 @@ const { t } = useI18n({ messages });
   margin-top: 1rem;
   padding: 0;
 }
+
+.profile .account-info {
+  margin-bottom: 1rem;
+}
 </style>

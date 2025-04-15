@@ -3,8 +3,19 @@ import { ref } from "vue";
 
 import { auth } from "./auth-provider";
 
+import {
+  acceptInvitation as doAcceptInvitation,
+  addInvitation as doAddInvitation,
+  disableUser as doDisableUser,
+  enableUser as doEnableUser,
+  getIsFirstUser as doGetIsFirstUser,
+  getInvitationByToken as doGetInvitation,
+  signUpFirstUser as doSignUpFirstUser,
+} from "./api/user";
+
 import type {
   AuthTokens,
+  Invitation,
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
@@ -15,9 +26,26 @@ import type {
 const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
+  const invitation = ref<Invitation>();
   const user = ref<UserType | undefined>(undefined);
   const accessToken = ref(localStorage.getItem("accessToken") || null);
   const refreshToken = ref(localStorage.getItem("refreshToken") || null);
+
+  const acceptInvitation = async (
+    token: string,
+    credential: LoginCredentials,
+    apiBaseUrl: string,
+  ) => {
+    return await doAcceptInvitation(token, credential, apiBaseUrl);
+  };
+
+  const addInvitation = async (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    invitationData: any,
+    apiBaseUrl: string,
+  ) => {
+    return await doAddInvitation(invitationData, apiBaseUrl);
+  };
 
   const changePassword = async (
     payload: UpdatePasswordPayload,
@@ -37,6 +65,27 @@ const useUserStore = defineStore("user", () => {
     throw new Error(
       "Change password is not supported for the selected auth provider"
     );
+  };
+
+  const disableUser = async (id: string, apiBaseUrl: string) => {
+    return await doDisableUser(id, apiBaseUrl);
+  };
+
+  const enableUser = async (id: string, apiBaseUrl: string) => {
+    return await doEnableUser(id, apiBaseUrl);
+  };
+
+  const getIsFirstUser = async (
+    apiBaseUrl: string,
+  ) => {
+    return await doGetIsFirstUser(apiBaseUrl);
+  };
+
+  const getInvitationByToken = async (
+    token: string,
+    apiBaseUrl: string,
+  ) => {
+    return await doGetInvitation(token, apiBaseUrl);
   };
 
   const getUser = (): UserType => {
@@ -120,10 +169,20 @@ const useUserStore = defineStore("user", () => {
     );
   };
 
-  const setUser = (userData: UserType | undefined) => {
+  const setInvitation = (invitationData: Invitation | undefined) => {
+    invitation.value = invitationData;
+  };
+
+  const setUser = async (userData: UserType | undefined) => {
+    const selectedAuthProvider = auth();
+
     user.value = userData;
 
-    localStorage.setItem(USER_KEY, JSON.stringify(userData));
+    if (user.value && "isProfileCompleted" in selectedAuthProvider) {
+      user.value.isProfileCompleted = await selectedAuthProvider.isProfileCompleted();
+    }
+
+    localStorage.setItem(USER_KEY, JSON.stringify(user.value));
   };
 
   const setAuthTokens = (authTokens: AuthTokens) => {
@@ -146,11 +205,24 @@ const useUserStore = defineStore("user", () => {
     throw new Error("Signup is not supported for the selected auth provider");
   };
 
+  const signUpFirstUser = async (credentials: LoginCredentials, apiBaseUrl: string,): Promise<void> => {
+    const response = await doSignUpFirstUser(credentials, apiBaseUrl);
+
+    setUser(response);
+  };
+
   return {
     accessToken,
+    acceptInvitation,
+    addInvitation,
     changePassword,
+    disableUser,
+    enableUser,
     googleSignIn,
+    getIsFirstUser,
+    getInvitationByToken,
     getUser,
+    invitation,
     login,
     logout,
     refreshToken,
@@ -159,6 +231,8 @@ const useUserStore = defineStore("user", () => {
     resetPassword,
     requestPasswordReset,
     setAuthTokens,
+    signUpFirstUser,
+    setInvitation,
     setUser,
     signup,
     user,

@@ -51,6 +51,8 @@ export default plugin;
 
 export { client, userStore, useTranslations, emitter };
 
+export * from "./api/roles";
+
 export * from "./components";
 
 export * from "./layouts";
@@ -63,6 +65,8 @@ export type {
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
+  Role,
+  RolePermissionsInput,
   RouteOverride,
   RouteOverrides,
   User,

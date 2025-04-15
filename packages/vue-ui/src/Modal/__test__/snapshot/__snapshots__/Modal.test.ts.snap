@@ -8,7 +8,7 @@ exports[`Modal > matches snapshot 1`] = `
     class="overlay"
   >
     <div
-      class="dialog"
+      class="dialog active"
     >
       <div
         class="header"

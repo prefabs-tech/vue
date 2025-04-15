@@ -51,6 +51,7 @@ const providers = {
     doRequestPasswordReset: supertokens.requestPasswordReset,
     doResetPassword: supertokens.resetPassword,
     doSignup: supertokens.signup,
+    isProfileCompleted: supertokens.isProfileCompleted,
     verifySessionRoles: supertokens.verifySessionRoles,
   },
 };

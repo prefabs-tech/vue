@@ -4,6 +4,7 @@ import { Router } from "vue-router";
 import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
 import useUserStore from "./store";
 import { getUser, getVerificationStatus } from "./supertokens";
+import AcceptInvitation from "./views/AcceptInvitation.vue";
 import ChangePassword from "./views/ChangePassword.vue";
 import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
 import Login from "./views/Login.vue";
@@ -11,7 +12,9 @@ import PasswordReset from "./views/PasswordReset.vue";
 import PasswordResetRequest from "./views/PasswordResetRequest.vue";
 import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowledge.vue";
 import Profile from "./views/Profile.vue";
+import Roles from "./views/Roles/Index.vue";
 import Signup from "./views/Signup.vue";
+import SignupFirstUser from "./views/SignupFirstUser.vue";
 import VerifyEmail from "./views/VerifyEmail.vue";
 
 import type {
@@ -22,6 +25,11 @@ import type {
 import type { RouteMeta, RouteRecordRaw } from "vue-router";
 
 const _routes = {
+  acceptInvitation: {
+    component: AcceptInvitation,
+    name: "acceptInvitation",
+    path: "/signup/token/:token?",
+  } as RouteRecordRaw,
   changePassword: {
     meta: {
       authenticated: true,
@@ -48,10 +56,23 @@ const _routes = {
     name: "profile",
     path: "/profile",
   } as RouteRecordRaw,
+  roles: {
+    meta: {
+      authenticated: true,
+    } as RouteMeta,
+    component: Roles,
+    name: "roles",
+    path: "/roles",
+  } as RouteRecordRaw,
   signup: {
     component: Signup,
     name: "signup",
     path: "/signup",
+  } as RouteRecordRaw,
+  signupFirstUser: {
+    component: SignupFirstUser,
+    name: "signupFirstUser",
+    path: "/signup-first-user",
   } as RouteRecordRaw,
   passwordReset: {
     component: PasswordReset,
@@ -107,6 +128,10 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
     router.addRoute(getRoute(_routes.signup, routes?.signup));
   }
 
+  if (routes?.signup?.disabled && !routes?.signupFirstUser?.disabled) {
+    router.addRoute(getRoute(_routes.signupFirstUser, routes?.signupFirstUser));
+  }
+
   router.addRoute(getRoute(_routes.passwordReset, routes?.passwordReset));
 
   router.addRoute(
@@ -114,6 +139,8 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   );
 
   router.addRoute(getRoute(_routes.profile, routes?.profile));
+
+  router.addRoute(getRoute(_routes.roles, routes?.roles));
 
   router.addRoute(
     getRoute(
@@ -128,6 +155,8 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
       routes?.changePassword,
     ),
   );
+
+  router.addRoute(getRoute(_routes.acceptInvitation, routes?.acceptInvitation));
 
   if (userConfig?.features?.signUp?.emailVerification) {
     router.addRoute(getRoute(_routes.verifyEmail, routes?.verifyEmail));
@@ -144,8 +173,10 @@ const redirectRoutes = (router: Router) => {
     const { user } = storeToRefs(userStore);
 
     const routesToRedirect = [
+      "acceptInvitation",
       "login",
       "signup",
+      "signupFirstUser",
       "resetPassword",
       "resetPasswordRequest",
     ];
@@ -195,6 +226,13 @@ const addAuthenticationGuard = (
       } else if (isEmailVerified && routesToRedirect.includes(name)) {
         router.push({ name: "home" });
       }
+    }
+
+    const isProfileCompleted = !!user.value?.isProfileCompleted;
+    const profileCompletionEnabled = user.value?.isProfileCompleted !== undefined;
+
+    if (meta.authenticated && profileCompletionEnabled && !isProfileCompleted && name !== "profile") {
+      router.push({ name: "profile" });
     }
   });
 };

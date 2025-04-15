@@ -1,13 +1,14 @@
 <template>
   <Form :validation-schema="validationSchema" @submit="onSubmit">
     <Email
-      v-model="credentials.email"
+      v-model="signupCredentials.email"
+      :disabled="!!(token && invitation?.email)"
       :label="t('user.signup.form.email.label')"
       :placeholder="t('user.signup.form.email.placeholder')"
     />
 
     <Password
-      v-model="credentials.password"
+      v-model="signupCredentials.password"
       :label="t('user.signup.form.password.label')"
       name="password"
     />
@@ -58,28 +59,40 @@ import {
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
+import { storeToRefs } from "pinia";
 import { Form } from "vee-validate";
-import { computed, ref } from "vue";
+import { computed, reactive, ref } from "vue";
+import { useRoute } from "vue-router";
 import { z } from "zod";
 
 import { useTranslations } from "../index";
 import TermsAndConditions from "./TermsAndConditions.vue";
+import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
+
+const emit = defineEmits(["submit"]);
 
 const config = useConfig();
 
 const messages = useTranslations();
 
+const route = useRoute();
+
 const { t } = useI18n({ messages });
+
+const token = route.params?.token as string;
+
+const userStore = useUserStore();
+const { invitation } = storeToRefs(userStore);
 
 const termsAndConditionsConfig =
   config.user?.features?.signUp?.termsAndConditions;
 
-let credentials = {
-  email: undefined,
+const signupCredentials = reactive({
+  email: token ? invitation.value?.email : undefined,
   password: undefined,
-} as Partial<LoginCredentials>;
+}) as Partial<LoginCredentials>;
 
 const validationSchema = toFormValidator(
   z
@@ -116,8 +129,6 @@ const validationSchema = toFormValidator(
       },
     ),
 );
-
-const emit = defineEmits(["submit"]);
 
 const disableButton = ref<boolean>(true);
 

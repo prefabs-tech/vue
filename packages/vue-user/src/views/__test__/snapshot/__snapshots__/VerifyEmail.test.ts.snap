@@ -53,6 +53,7 @@ exports[`VerifyEmail > matches snapshot in en 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -110,6 +111,7 @@ exports[`VerifyEmail > matches snapshot in fr 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;

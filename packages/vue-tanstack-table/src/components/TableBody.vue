@@ -14,15 +14,34 @@
           :data-label="cell.column.id"
           :data-align="
             getAlignValue({
-              align: cell.column.columnDef.align || 'left',
+              align: cell.column.columnDef.align,
               dataType: cell.column.columnDef.dataType,
             })
           "
+          :style="{
+            width: cell.column.columnDef.width,
+            maxWidth: cell.column.columnDef.maxWidth,
+            minWidth: cell.column.columnDef.minWidth,
+          }"
         >
-          <FlexRender
-            :props="cell.getContext()"
-            :render="cell.column.columnDef.cell"
-          />
+          <Tooltip
+            v-if="cell.column.columnDef.tooltip"
+            v-bind="cell.column.columnDef.tooltipOptions"
+          >
+            <FlexRender v-bind="getFormattedValueContext(cell)" />
+
+            <template #content>
+              <component
+                :is="getTooltipContent(cell)"
+                v-if="typeof cell.column.columnDef.tooltip === 'function'"
+              />
+
+              <template v-else>
+                {{ getTooltipContent(cell) }}
+              </template>
+            </template>
+          </Tooltip>
+          <FlexRender v-else v-bind="getFormattedValueContext(cell)" />
         </td>
       </tr>
     </template>
@@ -43,13 +62,18 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { formatDate, formatDateTime, Tooltip } from "@dzangolab/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
-import { getAlignValue } from "../utils";
+import { formatNumber, getAlignValue } from "../utils";
 
-import type { Table } from "@tanstack/vue-table";
+import type { Cell, NoInfer, Table } from "@tanstack/vue-table";
 
-defineProps({
+const props = defineProps({
+  customFormatters: {
+    default: () => ({}),
+    type: Object as () => Record<string, (value: unknown) => unknown>,
+  },
   emptyTableMessage: {
     default: "No results.",
     type: String,
@@ -60,4 +84,77 @@ defineProps({
     type: Object as () => Table<unknown>,
   },
 });
+
+const getFormattedValueContext = (cell: Cell<unknown, unknown>) => {
+  const cellContext = cell.getContext();
+  const dateOptions = cell.column.columnDef.dateOptions;
+  const numberOptions = cell.column.columnDef.numberOptions;
+  const renderValue = cell.column.columnDef.cell;
+
+  const getFormattedValue = (): NoInfer<never> => {
+    const defaultCustomFormatters: Record<
+      string,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (value: any) => NoInfer<never>
+    > = {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      number: (value: any) =>
+        formatNumber({
+          value: Number(value),
+          locale: numberOptions?.locale,
+          formatOptions: numberOptions?.formatOptions,
+        }) as NoInfer<never>,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      date: (value: any) =>
+        formatDate(
+          value,
+          dateOptions?.locale,
+          dateOptions?.formatOptions,
+        ) as NoInfer<never>,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      datetime: (value: any) =>
+        formatDateTime(
+          value,
+          dateOptions?.locale,
+          dateOptions?.formatOptions,
+        ) as NoInfer<never>,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      currency: (value: any) =>
+        formatNumber({
+          value: Number(value),
+          locale: numberOptions?.locale,
+          formatOptions: {
+            style: "currency",
+            currency: "USD",
+            ...(numberOptions?.formatOptions && numberOptions.formatOptions),
+          },
+        }) as NoInfer<never>,
+      ...props.customFormatters,
+    };
+
+    const dataType: string = cell.column.columnDef.dataType || "text";
+
+    return (
+      defaultCustomFormatters?.[dataType]?.(cellContext.getValue()) ||
+      renderValue
+    );
+  };
+
+  return {
+    props: cellContext,
+    render: getFormattedValue(),
+  };
+};
+
+const getTooltipContent = (cell: Cell<unknown, unknown>) => {
+  const tooltip = cell.column.columnDef.tooltip;
+
+  if (typeof tooltip === "string") {
+    return tooltip;
+  } else if (typeof tooltip === "function") {
+    return tooltip(cell);
+  }
+
+  return cell.getValue() as string;
+};
 </script>

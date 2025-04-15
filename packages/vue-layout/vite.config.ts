@@ -27,6 +27,7 @@ export default defineConfig(({ mode }) => {
             "@dzangolab/vue3-config": "DzangolabVue3Config",
             "@dzangolab/vue3-i18n": "DzangolabVue3I18n",
             "@dzangolab/vue3-ui": "DzangolabVue3UI",
+            "@vueuse/core": 'VueuseCore',
             vue: "Vue",
             "vue-router": "VueRouter",
           },

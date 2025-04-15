@@ -1,16 +1,49 @@
 {
   "label": {
+    "clickMe": "Click me",
     "components": "Components",
+    "confirmation": "Are you sure!",
+    "customFilter": "Custom filter...",
+    "dateRange": "Date range",
+    "delete": "Delete",
+    "deleteRecordMessage": "You are going to delete this data.",
+    "edit": "Edit",
     "getStarted": "Get started",
+    "matchDescription": "Match description...",
+    "order": "Order",
+    "persistentTable": "Persistent table",
+    "searchByEmail": "Search by email...",
+    "share": "Share",
+    "tableFilters": "Table filters",
     "totalRecords": "Total records",
-    "users": "Users"
+    "users": "Users",
+    "view": "View"
   },
   "title": "Table",
   "usage": {
     "basic": "Basic",
+    "builtinActions": "With built-in actions column",
+    "centeredAlignedTable": "With centered aligned content",
+    "columnAction": "With column action",
+    "columnAlignment": "With cell content alignments",
+    "customCellDataFormatting": "With custom cell data formatter",
+    "customFilter": "With custom filter component and server filterFn",
+    "customHorizontalBorder": "With custom style for horizontal border",
+    "customToolbar": "With custom toolbar actions",
+    "customStaticFilter": "With custom filter component and static filterFn",
+    "customVerticalBorder": "With custom style for vertical border",
+    "equalServerFilter": "With equal server filterFn",
+    "filterableColumn": "With filterable column",
+    "filteredActions": "With actions menu items filtered based on row data logic",
     "footer": "With footer",
     "pagination": "With pagination",
+    "persistentInstruction": "Use the id and persistState props to make the table remember states such as sorting, filtering, and visible columns, even after a page refresh.",
+    "persistentState": "With persistent state",
+    "rowSelection": "With row selection",
+    "singleAction": "With single action button",
+    "singleActionMenu": "With single action menu",
     "sortable": "With sortable column",
-    "title": "With title"
+    "title": "With title",
+    "tooltip": "With tooltip cell"
   }
 }

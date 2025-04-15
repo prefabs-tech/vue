@@ -11,14 +11,16 @@ exports[`Typeahead > matches snapshot 1`] = `
   </label>
   
   <div
-    class="debounce-input"
+    class="field debounce-input"
     id="input-field-"
     tabindex="0"
   >
     <input
       aria-label="input"
+      class="input-field"
       placeholder="Placeholder"
       type="text"
+      value=""
     />
   </div>
   <!--v-if-->

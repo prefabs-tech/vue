@@ -23,9 +23,18 @@
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
+        :show-remove-selection="showRemoveSelection"
         tabindex="0"
         @update:model-value="onSelect"
-      />
+      >
+        <template
+          v-for="(option, index) in options"
+          :key="`${index}-${option.label}`"
+          #[option.value]
+        >
+          <slot :name="option.value"></slot>
+        </template>
+      </MultiSelect>
       <ErrorMessage :name="name" />
     </Field>
   </div>
@@ -96,6 +105,10 @@ const props = defineProps({
   searchPlaceholder: {
     default: undefined,
     type: String,
+  },
+  showRemoveSelection: {
+    default: true,
+    type: Boolean,
   },
 });
 

@@ -1,11 +1,12 @@
 <template>
-  <div class="debounce-input">
+  <div class="field debounce-input">
     <input
       :aria-label="ariaLabel ?? placeholder"
       :disabled="disabled"
       :placeholder="placeholder"
       :type="type"
       :value="modelValue"
+      class="input-field"
       @input="onInput"
     />
   </div>

@@ -3,7 +3,7 @@ import i18Plugin, { useLocaleStore } from "@dzangolab/vue3-i18n";
 import { LoadingButton, LoadingIcon } from "@dzangolab/vue3-ui";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { createPinia } from "pinia";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 import appConfig from "../../../components/__test__/config";
 import Login from "../../Login.vue";
@@ -17,6 +17,10 @@ describe("Login with signup disabled", () => {
   const { setLocale } = useLocaleStore(appConfig.slug);
 
   const locales = ["en", "fr"];
+
+  vi.mock("@/api/user", () => ({
+    getIsFirstUser: vi.fn(() => Promise.resolve({ signUp: true })),
+  }));
 
   const config = {
     ...appConfig,

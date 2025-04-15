@@ -44,4 +44,8 @@ const client = (baseURL: string, config?: AppConfig) => {
   return instance;
 };
 
+export const encodeURIParameter = <T>(argument: T) => {
+  return !argument ? undefined : JSON.stringify(argument);
+};
+
 export default client;

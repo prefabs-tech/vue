@@ -63,7 +63,7 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 const userStore = useUserStore();
-const { login, removeUser, setUser } = userStore;
+const { getIsFirstUser, login, removeUser, setUser } = userStore;
 
 const router = useRouter();
 
@@ -112,6 +112,28 @@ const handleSubmit = async (credentials: LoginCredentials) => {
 const onError = (error: ErrorType) => {
   errors.value = [error];
 };
+
+const prepareComponent = async () => {
+  loading.value = true;
+
+  try {
+    const response = await getIsFirstUser(config.apiBaseUrl);
+
+    const userRoutes = config?.user?.routes;
+    const firstUserSignupEnabled =
+      userRoutes?.signup?.disabled && !userRoutes?.signupFirstUser?.disabled;
+
+    if (response?.signUp && firstUserSignupEnabled) {
+      router.push({ name: "signupFirstUser" });
+    }
+  } catch {
+    // Do nothing
+  } finally {
+    loading.value = false;
+  }
+};
+
+prepareComponent();
 </script>
 
 <style lang="css">

@@ -11,6 +11,7 @@
   --table-body-bg: transparent;
   --table-stripe-color: transparent;
   --table-actions-column-width: 4rem;
+  --table-loading-icon-color: black;
 }
 
 /* Tanstack table class definitions */
@@ -39,13 +40,21 @@
 }
 
 .table-container .loading-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
+  align-items: center;
   background: var(--table-overlay-bg);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.table-container .loading-overlay > .loading {
+  color: var(--table-loading-icon-color, #ffffff);
+  font-size: 0.5rem;
 }
 
 .table-container .toolbar {
@@ -63,6 +72,10 @@
 .table-container .table-wrapper {
   width: 100%;
   overflow-x: auto;
+}
+
+.table-container .table-wrapper:has(thead>tr.filters) {
+  overflow-x: visible;
 }
 
 .table-container .table-wrapper > table {
@@ -96,7 +109,12 @@
   overflow: hidden;
 }
 
-.table-container .table-wrapper > table > thead > tr > th.filter.multiselect {
+.table-container .table-wrapper > table > tbody > tr > td > .tooltip-container {
+  height: 100%;
+  width: 100%;
+}
+
+.table-container .table-wrapper > table > thead > tr > th.filter {
   overflow: visible;
 }
 
@@ -111,6 +129,16 @@
 .table-container .table-wrapper > table tr > td[data-align="center"],
 .table-container .table-wrapper > table tr > th[data-align="center"] {
   text-align: center;
+}
+
+.table-container .table-wrapper > table tr > td[data-align="center"] > svg,
+.table-container .table-wrapper > table tr > th[data-align="center"] > svg {
+  display: inline-flex;
+  width: 100%;
+}
+
+.table-container .table-wrapper > table tr > td .dropdown-menu-trigger > svg {
+  max-width: max-content;
 }
 
 .table-container .table-wrapper > table tr > td[data-align="right"] {
@@ -193,6 +221,11 @@
   width: var(--table-actions-column-width);
   max-width: var(--table-actions-column-width);
   min-width: var(--table-actions-column-width);
+}
+
+.table-container tbody td.cell-select .checkbox-wrapper:not(:has(label)),
+.table-container thead th.column-select .checkbox-wrapper:not(:has(label)) {
+  display: block;
 }
 
 .table-container .pagination .page-input-control input {

@@ -60,6 +60,7 @@
     "customColsRowsInput": "With cols and rows props",
     "customErrorMessageInput": "With custom error message",
     "customFormat": "Custom format",
+    "customLabel": "With custom label",
     "customValidationInput": "With custom validation",
     "customStyleInput": "Custom style",
     "dailySynchro": "Select the sections that should be in the daily synchro",
@@ -111,6 +112,7 @@
     "multiselectSearch": "Multiselect with search",
     "nepali": "Nepali",
     "next": "Next",
+    "no": "No",
     "number": "Number",
     "one": "One",
     "other": "Other",
@@ -138,10 +140,12 @@
     "valid": "Show valid state",
     "vehicle": "Vehicle",
     "withI18n": "With i18n",
+    "withOnOffLabel":  "With on off label",
     "withSearch": "With search",
     "workInProgress": "Work in progress",
     "year": "Year",
-    "yearPicker": "Year picker"
+    "yearPicker": "Year picker",
+    "yes": "Yes"
   },
   "placeholder": {
     "days": "Enter number of days",

@@ -16,20 +16,39 @@
         {{ placeholder }}
       </span>
       <span v-else class="selected-options">
-        <span
-          v-for="selectedOption in selectedOptions"
-          :key="selectedOption.label"
-          class="selected-option"
-          @click="disabled ? '' : onSelect($event, selectedOption)"
+        {{ selectedLabels }}
+      </span>
+      <span class="action-items">
+        <svg
+          v-if="hasRemoveOption"
+          fill="none"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          @click.stop="onUnselect"
         >
-          {{ selectedOption.label }}
-
-          <img
-            v-if="multiple"
-            src="./../assets/svg/x-mark.svg"
-            class="remove-option"
+          <path
+            d="M6 6L18 18M18 6L6 18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
           />
-        </span>
+        </svg>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <g id="Complete">
+            <g id="F-Chevron">
+              <polyline
+                id="down"
+                fill="none"
+                points="5 8.5 12 15.5 19 8.5"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g>
+          </g>
+        </svg>
       </span>
     </div>
     <ul v-if="showDropdownMenu && !disabled" role="list">
@@ -51,14 +70,18 @@
         :key="option.label"
         class="multiselect-option"
         :class="{ selected: isSelected(option) && !multiple }"
-        @click="onSelect($event, option)"
+        :disabled="option.disabled"
+        @click="!option.disabled ? onSelect($event, option) : ''"
       >
         <Checkbox
           v-if="multiple"
           :model-value="isSelected(option)"
+          :disabled="option.disabled"
           @update:model-value="onMultiSelect()"
         />
-        {{ option.label }}
+        <slot :name="option.value">
+          {{ option.label }}
+        </slot>
       </li>
     </ul>
   </div>
@@ -73,7 +96,7 @@ export default {
 <script setup lang="ts">
 import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
-import { computed, onMounted, ref, toRefs, watch } from "vue";
+import { computed, onMounted, ref, toRaw, toRefs, watch } from "vue";
 
 import Checkbox from "./Checkbox.vue";
 
@@ -114,6 +137,10 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
+  showRemoveSelection: {
+    default: true,
+    type: Boolean,
+  },
   searchPlaceholder: {
     default: undefined,
     type: String,
@@ -139,6 +166,10 @@ watch(
   },
 );
 
+const activeOptions = computed(() =>
+  props.options.filter((option) => !option.disabled),
+);
+
 const filteredOptions = computed(() => {
   if (!searchInput.value) {
     return props.options;
@@ -150,6 +181,17 @@ const filteredOptions = computed(() => {
       .includes(String(searchInput.value).toLowerCase()),
   );
 });
+
+const hasRemoveOption = computed(
+  () =>
+    props.showRemoveSelection &&
+    !props.disabled &&
+    selectedOptions.value.length,
+);
+
+const selectedLabels = computed(() =>
+  selectedOptions.value.map((option) => option.label).join(", "),
+);
 
 const sortedOptions = computed(() => {
   if (props.hasSortedOptions) {
@@ -165,12 +207,12 @@ const getSelectedOption = (value: number | string) =>
   options.value?.find((option) => option.value === value);
 
 const isAllSelected = (options: SelectOption[]): boolean => {
-  if (selectedOptions.value.length != options.length) {
+  if (selectedOptions.value.length != activeOptions.value.length) {
     return false;
   }
 
   return selectedOptions.value.every((selectedOption) =>
-    options.includes(selectedOption),
+    options.includes(toRaw(selectedOption)),
   );
 };
 
@@ -208,7 +250,7 @@ const onSelectAll = () => {
   if (allSelected) {
     selectedOptions.value = [];
   } else {
-    selectedOptions.value = [...props.options];
+    selectedOptions.value = activeOptions.value;
   }
 
   onMultiSelect();
@@ -238,6 +280,23 @@ const prepareComponent = () => {
   } else if (!props.modelValue) {
     selectedOptions.value = [];
   }
+};
+
+const onUnselect = (event: Event, option?: SelectOption) => {
+  if (multiple.value && option) {
+    const index = selectedOptions.value.findIndex(
+      (i) => i.value === option.value,
+    );
+
+    if (index > -1) {
+      selectedOptions.value.splice(index, 1);
+    }
+  } else {
+    selectedOptions.value = [];
+    showDropdownMenu.value = false;
+  }
+
+  onMultiSelect();
 };
 
 onMounted(() => {
