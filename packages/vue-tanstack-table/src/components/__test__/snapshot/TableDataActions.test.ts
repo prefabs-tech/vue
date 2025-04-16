@@ -32,8 +32,8 @@ describe("TableDataActions", () => {
           },
           {
             confirmationOptions: {
-              header: 'Are you sure!',
               body: 'You are going to delete this data.',
+              header: 'Are you sure!',
             },
             label: 'Delete',
             requireConfirmationModal: true,

@@ -8,10 +8,10 @@ describe("Table", () => {
     const wrapper = mount(Table, {
       global: {
         stubs: {
-          TableToolbar: true,
-          TableHeader: true,
-          TableBody: true,
           Pagination: true,
+          TableBody: true,
+          TableHeader: true,
+          TableToolbar: true,
         },
       },
       props: {

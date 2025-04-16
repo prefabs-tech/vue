@@ -13,8 +13,8 @@ describe("Pagination", () => {
       },
       props: {
         currentPage: 1,
-        showPageInput: true,
         showPageButtons: true,
+        showPageInput: true,
         totalItems: 20,
       },
     });
