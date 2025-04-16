@@ -23,7 +23,7 @@ const client = (baseURL: string, config?: AppConfig) => {
         originalRequest._retry = true;
 
         try {
-          const refreshRoute = config?.user?.apiRoutes?.refresh || "/api/refresh";
+          const refreshRoute = config?.user?.apiRoutes?.refresh || "/api/login/refresh";
 
           const refreshResponse = await instance.post(refreshRoute, {
             withCredentials: true,
