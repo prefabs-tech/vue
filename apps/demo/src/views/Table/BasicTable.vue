@@ -902,6 +902,93 @@
     </section>
 
     <section>
+      <h2>{{ $t("table.usage.cellDataFormatting") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="formattedTableColumns"
+          :data="formatDemoData"
+          :initial-sorting="[{ id: 'quantity', desc: true }]"
+          :paginated="false"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="columns"
+              :data="data"
+              :initial-sorting="[{ id: 'quantity', desc: true }]"
+              :paginated="false"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@dzangolab/vue3-tanstack-table";
+
+          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            {
+              accessorKey: "description",
+              header: "Description",
+            },
+            {
+              accessorKey: "quantity",
+              dataType: "number",
+              enableSorting: true,
+              header: () => "Quantity",
+              numberOptions: {
+                locale: "en-IN",
+              }
+            },
+            {
+              accessorKey: "amount",
+              dataType: "currency",
+              header: "Amount",
+              numberOptions: {
+                formatOptions: {
+                  currency: "EUR",
+                },
+                locale: "en-US",
+              },
+            },
+            {
+              accessorKey: "date",
+              dataType: "date",
+              header: "Date",
+            },
+            {
+              accessorKey: "datetime",
+              header: "Datetime",
+              dataType: "datetime",
+            },
+            {
+              id: "action",
+              cell: () =>
+                h(ButtonElement, {
+                  iconLeft: "pi pi-eye",
+                  variant: "textOnly",
+                  rounded: true,
+                }),
+              dataType: "other",
+              header: () =>
+                h("i", {
+                  class: "pi pi-cog",
+                }),
+            },
+          ];
+  
+          const data = [
+            ...
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("table.usage.customCellDataFormatting") }}</h2>
 
       <div class="section-content">
@@ -1189,6 +1276,57 @@ const customFormattedTableColumns = [
     accessorKey: "date",
     dataType: "date",
     header: "Date",
+  },
+  {
+    id: "action",
+    cell: () =>
+      h(ButtonElement, {
+        iconLeft: "pi pi-eye",
+        variant: "textOnly",
+        rounded: true,
+      }),
+    dataType: "other",
+    header: () =>
+      h("i", {
+        class: "pi pi-cog",
+      }),
+  },
+];
+
+const formattedTableColumns = [
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+  {
+    accessorKey: "quantity",
+    dataType: "number",
+    enableSorting: true,
+    header: () => "Quantity",
+    numberOptions: {
+      locale: "en-IN",
+    },
+  },
+  {
+    accessorKey: "amount",
+    dataType: "currency",
+    header: "Amount",
+    numberOptions: {
+      formatOptions: {
+        currency: "EUR",
+      },
+      locale: "en-US",
+    },
+  },
+  {
+    accessorKey: "date",
+    dataType: "date",
+    header: "Date",
+  },
+  {
+    accessorKey: "datetime",
+    header: "Datetime",
+    dataType: "datetime",
   },
   {
     id: "action",

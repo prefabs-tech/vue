@@ -141,7 +141,7 @@
     
           const { t } = useI18n();
 
-          const customFilterColumns: Array&lt;TableColumnDefinition&lt;unknown, unknown&gt;&gt; = [
+          const customFilterColumns: Array&lt;TableColumnDefinition&gt; = [
           {
             accessorKey: "description",
             enableColumnFilter: true,
