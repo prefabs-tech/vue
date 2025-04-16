@@ -1,11 +1,11 @@
+import { authConfig } from "../auth-provider";
 import { API_PATH_REFRESH } from "../constant";
-import { AppConfig } from "@dzangolab/vue3-config";
 import axios from "axios";
 import SuperTokens from "supertokens-website";
 
 SuperTokens.addAxiosInterceptors(axios);
 
-const client = (baseURL: string, config?: AppConfig) => {
+const client = (baseURL: string) => {
   const instance = axios.create({
     baseURL,
     headers: {
@@ -19,13 +19,16 @@ const client = (baseURL: string, config?: AppConfig) => {
     (response) => response,
     async (error) => {
       const originalRequest = error.config;
+      const refreshRoute = authConfig?.user?.apiRoutes?.refresh || API_PATH_REFRESH;
 
-      if (error.response?.status === 401 && !originalRequest._retry) {
+      if (
+        error.response?.status === 401 &&
+        !originalRequest._retry &&
+        !originalRequest.url.includes(refreshRoute)
+      ) {
         originalRequest._retry = true;
 
         try {
-          const refreshRoute = config?.user?.apiRoutes?.refresh || API_PATH_REFRESH;
-
           const refreshResponse = await instance.post(refreshRoute, {
             withCredentials: true,
           });

@@ -62,4 +62,4 @@ const auth = () => providers[getAuthProvider()];
 
 export default initAuthProvider;
 
-export { auth };
+export { auth, authConfig };
