@@ -2,12 +2,13 @@ import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import { mockedTable } from "../table";
-import TableBody from "../../TableBody.vue";
+import TableHeader from "../../TableHeader.vue";
 
-describe("TableBody", () => {
+describe("TableHeader", () => {
   it("matches snapshot", () => {
-    const wrapper = mount(TableBody, {
+    const wrapper = mount(TableHeader, {
       props: {
+        isFilterRowVisible: true,
         table: mockedTable,
       },
     });

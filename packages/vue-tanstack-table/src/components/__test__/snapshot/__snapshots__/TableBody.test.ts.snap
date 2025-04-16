@@ -2,10 +2,124 @@
 
 exports[`TableBody > matches snapshot 1`] = `
 <tbody>
-  <tr>
-    <td>
-      No results.
+  
+  <tr
+    data-id="0"
+  >
+    
+    <td
+      class="cell-name"
+      data-align="left"
+      data-label="name"
+    >
+      John Doe
     </td>
+    <td
+      class="cell-age"
+      data-align="left"
+      data-label="age"
+    >
+      <div
+        aria-label="tooltip"
+        class="tooltip-container"
+      >
+        <div
+          class="tooltip-trigger"
+        >
+          
+          30
+          
+        </div>
+        <!---->
+      </div>
+    </td>
+    <td
+      class="cell-country"
+      data-align="left"
+      data-label="country"
+    >
+      USA
+    </td>
+    
   </tr>
+  <tr
+    data-id="1"
+  >
+    
+    <td
+      class="cell-name"
+      data-align="left"
+      data-label="name"
+    >
+      Jane Smith
+    </td>
+    <td
+      class="cell-age"
+      data-align="left"
+      data-label="age"
+    >
+      <div
+        aria-label="tooltip"
+        class="tooltip-container"
+      >
+        <div
+          class="tooltip-trigger"
+        >
+          
+          25
+          
+        </div>
+        <!---->
+      </div>
+    </td>
+    <td
+      class="cell-country"
+      data-align="left"
+      data-label="country"
+    >
+      Canada
+    </td>
+    
+  </tr>
+  <tr
+    data-id="2"
+  >
+    
+    <td
+      class="cell-name"
+      data-align="left"
+      data-label="name"
+    >
+      Alice Johnson
+    </td>
+    <td
+      class="cell-age"
+      data-align="left"
+      data-label="age"
+    >
+      <div
+        aria-label="tooltip"
+        class="tooltip-container"
+      >
+        <div
+          class="tooltip-trigger"
+        >
+          
+          28
+          
+        </div>
+        <!---->
+      </div>
+    </td>
+    <td
+      class="cell-country"
+      data-align="left"
+      data-label="country"
+    >
+      UK
+    </td>
+    
+  </tr>
+  
 </tbody>
 `;
