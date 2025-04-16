@@ -1,3 +1,4 @@
+import { API_PATH_REFRESH } from "../constant";
 import { AppConfig } from "@dzangolab/vue3-config";
 import axios from "axios";
 import SuperTokens from "supertokens-website";
@@ -23,7 +24,7 @@ const client = (baseURL: string, config?: AppConfig) => {
         originalRequest._retry = true;
 
         try {
-          const refreshRoute = config?.user?.apiRoutes?.refresh || "/api/login/refresh";
+          const refreshRoute = config?.user?.apiRoutes?.refresh || API_PATH_REFRESH;
 
           const refreshResponse = await instance.post(refreshRoute, {
             withCredentials: true,
