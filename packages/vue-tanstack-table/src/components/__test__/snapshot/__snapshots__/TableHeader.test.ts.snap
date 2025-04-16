@@ -1,0 +1,107 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableHeader > matches snapshot 1`] = `
+<thead>
+  
+  <tr
+    class="header-row"
+  >
+    
+    <th
+      class="column-name"
+      colspan="1"
+      data-align="left"
+    >
+      
+      Name
+      <!--v-if-->
+      
+    </th>
+    <th
+      class="column-age"
+      colspan="1"
+      data-align="left"
+    >
+      
+      Age
+      <!--v-if-->
+      
+    </th>
+    <th
+      class="column-country"
+      colspan="1"
+      data-align="left"
+    >
+      
+      Country
+      <!--v-if-->
+      
+    </th>
+    
+  </tr>
+  
+  <tr
+    class="header-row filters"
+  >
+    
+    <th
+      class="column-name filter undefined"
+      data-align="left"
+    >
+      
+      <div
+        class="field debounce-input"
+        id="input-filter-name"
+      >
+        <input
+          aria-label="input"
+          class="input-field"
+          placeholder="Search..."
+          type="text"
+          value=""
+        />
+      </div>
+      
+    </th>
+    <th
+      class="column-age filter undefined"
+      data-align="left"
+    >
+      
+      <div
+        class="field debounce-input"
+        id="input-filter-age"
+      >
+        <input
+          aria-label="input"
+          class="input-field"
+          placeholder="Search..."
+          type="text"
+          value=""
+        />
+      </div>
+      
+    </th>
+    <th
+      class="column-country filter undefined"
+      data-align="left"
+    >
+      
+      <div
+        class="field debounce-input"
+        id="input-filter-country"
+      >
+        <input
+          aria-label="input"
+          class="input-field"
+          placeholder="Search..."
+          type="text"
+          value=""
+        />
+      </div>
+      
+    </th>
+    
+  </tr>
+</thead>
+`;

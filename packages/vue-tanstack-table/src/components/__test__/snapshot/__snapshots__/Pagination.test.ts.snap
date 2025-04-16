@@ -1,0 +1,239 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Pagination > matches snapshot 1`] = `
+<div
+  class="pagination"
+>
+  <div
+    class="items-per-page-control"
+  >
+    <span>
+      Items per page
+    </span>
+    <select
+      value="5"
+    >
+      
+      <option
+        value="5"
+      >
+        5
+      </option>
+      <option
+        value="10"
+      >
+        10
+      </option>
+      <option
+        value="20"
+      >
+        20
+      </option>
+      <option
+        value="30"
+      >
+        30
+      </option>
+      
+    </select>
+  </div>
+  <div
+    class="page-input-control"
+  >
+    <span>
+      Go to page:
+    </span>
+    <div
+      class="field debounce-input"
+    >
+      <input
+        aria-label="input"
+        class="input-field"
+        placeholder="Search..."
+        type="number"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="pagination-buttons-wrapper"
+  >
+    <div>
+      <button
+        aria-label="button"
+        class="button primary small filled icon-only first-page"
+        role="button"
+      >
+        <span
+          class="icon-left"
+        >
+          
+          <svg
+            aria-hidden="true"
+            height="1em"
+            role="img"
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          />
+          
+        </span>
+        <!---->
+        <!---->
+        <!---->
+      </button>
+      <button
+        aria-label="button"
+        class="button primary small filled icon-only previous-page"
+        role="button"
+      >
+        <span
+          class="icon-left"
+        >
+          
+          <svg
+            aria-hidden="true"
+            height="1em"
+            role="img"
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          />
+          
+        </span>
+        <!---->
+        <!---->
+        <!---->
+      </button>
+    </div>
+    <div>
+      
+      <button
+        aria-label="button"
+        class="button primary small filled page-button"
+        role="button"
+      >
+        <!---->
+        <div
+          class="label"
+        >
+          
+          <span>
+            1
+          </span>
+          
+        </div>
+        <!---->
+        <!---->
+      </button>
+      <button
+        aria-label="button"
+        class="button primary small filled page-button active"
+        role="button"
+      >
+        <!---->
+        <div
+          class="label"
+        >
+          
+          <span>
+            2
+          </span>
+          
+        </div>
+        <!---->
+        <!---->
+      </button>
+      <button
+        aria-label="button"
+        class="button primary small filled page-button"
+        role="button"
+      >
+        <!---->
+        <div
+          class="label"
+        >
+          
+          <span>
+            3
+          </span>
+          
+        </div>
+        <!---->
+        <!---->
+      </button>
+      <button
+        aria-label="button"
+        class="button primary small filled page-button"
+        role="button"
+      >
+        <!---->
+        <div
+          class="label"
+        >
+          
+          <span>
+            4
+          </span>
+          
+        </div>
+        <!---->
+        <!---->
+      </button>
+      
+    </div>
+    <div>
+      <button
+        aria-label="button"
+        class="button primary small filled icon-only next-page"
+        role="button"
+      >
+        <span
+          class="icon-left"
+        >
+          
+          <svg
+            aria-hidden="true"
+            height="1em"
+            role="img"
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          />
+          
+        </span>
+        <!---->
+        <!---->
+        <!---->
+      </button>
+      <button
+        aria-label="button"
+        class="button primary small filled icon-only last-page"
+        role="button"
+      >
+        <span
+          class="icon-left"
+        >
+          
+          <svg
+            aria-hidden="true"
+            height="1em"
+            role="img"
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          />
+          
+        </span>
+        <!---->
+        <!---->
+        <!---->
+      </button>
+    </div>
+  </div>
+</div>
+`;

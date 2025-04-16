@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableDataActions > matches snapshot 1`] = `
+<div
+  class="data-actions"
+>
+  <dropdown-stub
+    menu="[object Object],[object Object],[object Object],[object Object]"
+  />
+  
+  <confirmation-modal-stub
+    disablebody="false"
+    disableheader="false"
+    divider="false"
+  />
+  
+</div>
+`;

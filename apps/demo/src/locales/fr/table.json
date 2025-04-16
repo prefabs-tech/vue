@@ -23,6 +23,7 @@
   "usage": {
     "basic": "Basic",
     "builtinActions": "With built-in actions column",
+    "cellDataFormatting": "With cell data formatter",
     "centeredAlignedTable": "With centered aligned content",
     "columnAction": "With column action",
     "columnAlignment": "With cell content alignments",

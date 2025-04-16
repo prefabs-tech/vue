@@ -1,0 +1,59 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableToolbar > matches snapshot 1`] = `
+<div
+  class="toolbar"
+>
+  <button
+    aria-label="button"
+    class="button secondary medium outlined"
+    role="button"
+  >
+    <!---->
+    <div
+      class="label"
+    >
+      
+      <span>
+        Reset all
+      </span>
+      
+    </div>
+    <!---->
+    <!---->
+  </button>
+  <div
+    class="popup-container"
+  >
+    <div
+      aria-expanded="false"
+      aria-label="popup"
+      class="popup-trigger"
+    >
+      
+      <button
+        aria-label="button"
+        class="button secondary medium outlined"
+        role="button"
+      >
+        <!---->
+        <div
+          class="label"
+        >
+          
+          <span>
+            Columns
+          </span>
+          
+        </div>
+        <!---->
+        <!---->
+      </button>
+      
+    </div>
+    <!---->
+  </div>
+  
+  
+</div>
+`;
