@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
+import { auth } from "./auth-provider";
+
 import {
   acceptInvitation as doAcceptInvitation,
   addInvitation as doAddInvitation,
@@ -10,18 +12,9 @@ import {
   getInvitationByToken as doGetInvitation,
   signUpFirstUser as doSignUpFirstUser,
 } from "./api/user";
-import {
-  changePassword as doChangePassword,
-  googleSignIn as doGoogleSignIn,
-  isProfileCompleted,
-  login as doLogin,
-  logout as doLogout,
-  requestPasswordReset as doRequestPasswordReset,
-  resetPassword as doResetPassword,
-  signup as doSignup,
-} from "./supertokens";
 
 import type {
+  AuthTokens,
   Invitation,
   LoginCredentials,
   PasswordResetPayload,
@@ -35,6 +28,8 @@ const USER_KEY = "user";
 const useUserStore = defineStore("user", () => {
   const invitation = ref<Invitation>();
   const user = ref<UserType | undefined>(undefined);
+  const accessToken = ref(localStorage.getItem("accessToken") || null);
+  const refreshToken = ref(localStorage.getItem("refreshToken") || null);
 
   const acceptInvitation = async (
     token: string,
@@ -54,11 +49,22 @@ const useUserStore = defineStore("user", () => {
 
   const changePassword = async (
     payload: UpdatePasswordPayload,
-    apiBaseUrl: string,
+    apiBaseUrl: string
   ) => {
-    const response = await doChangePassword(payload, apiBaseUrl);
+    const selectedAuthProvider = auth();
 
-    return response;
+    if ("doChangePassword" in selectedAuthProvider) {
+      const response = await selectedAuthProvider.doChangePassword(
+        payload,
+        apiBaseUrl
+      );
+
+      return response;
+    }
+
+    throw new Error(
+      "Change password is not supported for the selected auth provider"
+    );
   };
 
   const disableUser = async (id: string, apiBaseUrl: string) => {
@@ -93,17 +99,29 @@ const useUserStore = defineStore("user", () => {
   };
 
   const googleSignIn = async (redirectURL: string) => {
-    await doGoogleSignIn(redirectURL);
+    const selectedAuthProvider = auth();
+
+    if ("doGoogleSignIn" in selectedAuthProvider) {
+      await selectedAuthProvider.doGoogleSignIn(redirectURL);
+    }
+
+    throw new Error(
+      "Google signin is not supported for the selected auth provider"
+    );
   };
 
   const login = async (credentials: LoginCredentials) => {
-    const response = await doLogin(credentials);
+    const selectedAuthProvider = auth();
+
+    const response = await selectedAuthProvider.doLogin(credentials);
 
     return response;
   };
 
   const logout = async () => {
-    await doLogout().then(() => {
+    const selectedAuthProvider = auth();
+
+    await selectedAuthProvider.doLogout().then(() => {
       user.value = undefined;
 
       // FIXME [SS 17 MARCH 2023]
@@ -114,6 +132,11 @@ const useUserStore = defineStore("user", () => {
     removeUser();
   };
 
+  const removeAuthTokens = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+  };
+
   const removeUser = () => {
     localStorage.removeItem(USER_KEY);
   };
@@ -121,13 +144,29 @@ const useUserStore = defineStore("user", () => {
   const requestPasswordReset = async (
     payload: PasswordResetRequestPayload
   ): Promise<boolean> => {
-    return doRequestPasswordReset(payload);
+    const selectedAuthProvider = auth();
+
+    if ("doRequestPasswordReset" in selectedAuthProvider) {
+      return selectedAuthProvider.doRequestPasswordReset(payload);
+    }
+
+    throw new Error(
+      "Request password reset is not supported for the selected auth provider"
+    );
   };
 
   const resetPassword = async (
     payload: PasswordResetPayload
   ): Promise<boolean> => {
-    return doResetPassword(payload);
+    const selectedAuthProvider = auth();
+
+    if ("doResetPassword" in selectedAuthProvider) {
+      return selectedAuthProvider.doResetPassword(payload);
+    }
+
+    throw new Error(
+      "Reset password is not supported for the selected auth provider"
+    );
   };
 
   const setInvitation = (invitationData: Invitation | undefined) => {
@@ -135,19 +174,35 @@ const useUserStore = defineStore("user", () => {
   };
 
   const setUser = async (userData: UserType | undefined) => {
+    const selectedAuthProvider = auth();
+
     user.value = userData;
 
-    if (user.value) {
-      user.value.isProfileCompleted = await isProfileCompleted();
+    if (user.value && "isProfileCompleted" in selectedAuthProvider) {
+      user.value.isProfileCompleted = await selectedAuthProvider.isProfileCompleted();
     }
 
     localStorage.setItem(USER_KEY, JSON.stringify(user.value));
   };
 
-  const signup = async (credentials: LoginCredentials): Promise<void> => {
-    const response = await doSignup(credentials);
+  const setAuthTokens = (authTokens: AuthTokens) => {
+    accessToken.value = authTokens.accessToken;
+    refreshToken.value = authTokens.refreshToken as string | null;
 
-    setUser(response);
+    localStorage.setItem("accessToken", authTokens.accessToken as string);
+    localStorage.setItem("refreshToken", authTokens.refreshToken as string);
+  };
+
+  const signup = async (credentials: LoginCredentials): Promise<void> => {
+    const selectedAuthProvider = auth();
+
+    if ("doSignup" in selectedAuthProvider) {
+      const response = await selectedAuthProvider.doSignup(credentials);
+
+      setUser(response);
+    }
+
+    throw new Error("Signup is not supported for the selected auth provider");
   };
 
   const signUpFirstUser = async (credentials: LoginCredentials, apiBaseUrl: string,): Promise<void> => {
@@ -157,6 +212,7 @@ const useUserStore = defineStore("user", () => {
   };
 
   return {
+    accessToken,
     acceptInvitation,
     addInvitation,
     changePassword,
@@ -169,9 +225,12 @@ const useUserStore = defineStore("user", () => {
     invitation,
     login,
     logout,
+    refreshToken,
+    removeAuthTokens,
     removeUser,
     resetPassword,
     requestPasswordReset,
+    setAuthTokens,
     signUpFirstUser,
     setInvitation,
     setUser,

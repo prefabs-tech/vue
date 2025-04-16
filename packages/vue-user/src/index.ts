@@ -3,6 +3,7 @@ import mitt from "mitt";
 import { inject } from "vue";
 
 import client from "./api/axios";
+import initAuthProvider from "./auth-provider";
 import messages from "./locales/messages.json";
 import updateRouter from "./router";
 import userStore from "./store";
@@ -23,6 +24,7 @@ const plugin: Plugin = {
     updateRouter(options.router, options.config?.user);
 
     initSupertokens(options.config);
+    initAuthProvider(options.config);
 
     const translations = options?.translations
       ? prependMessages(messages, options.translations)

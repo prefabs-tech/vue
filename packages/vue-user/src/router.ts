@@ -3,7 +3,7 @@ import { Router } from "vue-router";
 
 import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
 import useUserStore from "./store";
-import { getUser, getVerificationStatus } from "./supertokens";
+import { getVerificationStatus } from "./supertokens";
 import AcceptInvitation from "./views/AcceptInvitation.vue";
 import ChangePassword from "./views/ChangePassword.vue";
 import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
@@ -205,6 +205,7 @@ const addAuthenticationGuard = (
     const name = to.name as string;
     const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
     const { user } = storeToRefs(userStore);
+    const { getUser } = userStore;
 
     if (!user.value) {
       user.value = await getUser();
