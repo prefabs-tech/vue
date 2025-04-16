@@ -43,8 +43,13 @@
 }
 
 .sub-menu-item {
-  overflow: hidden;
+  --_gap: var(--nav-menu-gap, 0.25rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--_gap);
   max-height: 100dvh;
+  overflow: hidden;
   transition: max-height 0.5s ease-in-out;
 }
 

@@ -42,6 +42,11 @@ const packages = [
     route: "/layout",
     description: "@dzangolab/vue3-layout components and utilities",
   },
+  {
+    name: "table",
+    route: "/table",
+    description: "@dzangolab/vue3-tanstack-table components and utilities",
+  },
 ];
 </script>
 
