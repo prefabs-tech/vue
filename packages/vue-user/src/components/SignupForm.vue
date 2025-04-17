@@ -7,6 +7,15 @@
       :placeholder="t('user.signup.form.email.placeholder')"
     />
 
+    <Input
+      v-if="config?.user?.features?.loginType === LOGIN_TYPE_USERNAME"
+      v-model="signupCredentials.username"
+      :label="t('user.signup.form.username.label')"
+      :placeholder="t('user.signup.form.username.placeholder')"
+      name="username"
+      type="text"
+    />
+
     <Password
       v-model="signupCredentials.password"
       :label="t('user.signup.form.password.label')"
@@ -53,6 +62,7 @@ import { useConfig } from "@dzangolab/vue3-config";
 import {
   Email,
   emailSchema,
+  Input,
   Password,
   passwordSchema,
 } from "@dzangolab/vue3-form";
@@ -61,10 +71,11 @@ import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { storeToRefs } from "pinia";
 import { Form } from "vee-validate";
-import { computed, reactive, ref } from "vue";
+import { computed, onMounted, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 import { z } from "zod";
 
+import { LOGIN_TYPE_USERNAME } from "../constant";
 import { useTranslations } from "../index";
 import TermsAndConditions from "./TermsAndConditions.vue";
 import useUserStore from "../store";
@@ -94,40 +105,41 @@ const signupCredentials = reactive({
   password: undefined,
 }) as Partial<LoginCredentials>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let fieldSchema: Record<string, any> = {
+  email: emailSchema(
+    {
+      invalid: t("user.signup.form.email.errors.invalid"),
+      required: t("user.signup.form.email.errors.required"),
+    },
+    config?.user?.options?.email,
+  ),
+  password: passwordSchema(
+    {
+      required: t("user.signup.form.password.errors.required"),
+      weak: t("user.signup.form.password.errors.weak"),
+    },
+    config?.user?.options?.password,
+  ),
+  confirmation: passwordSchema(
+    {
+      required: t("user.signup.form.password.errors.required"),
+      weak: t("user.signup.form.password.errors.weak"),
+    },
+    { minLength: 0 },
+  ),
+};
+
 const validationSchema = toFormValidator(
-  z
-    .object({
-      email: emailSchema(
-        {
-          invalid: t("user.signup.form.email.errors.invalid"),
-          required: t("user.signup.form.email.errors.required"),
-        },
-        config?.user?.options?.email,
-      ),
-      password: passwordSchema(
-        {
-          required: t("user.signup.form.password.errors.required"),
-          weak: t("user.signup.form.password.errors.weak"),
-        },
-        config?.user?.options?.password,
-      ),
-      confirmation: passwordSchema(
-        {
-          required: t("user.signup.form.password.errors.required"),
-          weak: t("user.signup.form.password.errors.weak"),
-        },
-        { minLength: 0 },
-      ),
-    })
-    .refine(
-      (data) => {
-        return data.password === data.confirmation;
-      },
-      {
-        message: t("user.signup.form.confirmation.errors.match"),
-        path: ["confirmation"],
-      },
-    ),
+  z.object(fieldSchema).refine(
+    (data) => {
+      return data.password === data.confirmation;
+    },
+    {
+      message: t("user.signup.form.confirmation.errors.match"),
+      path: ["confirmation"],
+    },
+  ),
 );
 
 const disableButton = ref<boolean>(true);
@@ -141,4 +153,17 @@ const hasLabelText = computed(
 const onSubmit = (credentials: LoginCredentials) => {
   emit("submit", credentials);
 };
+
+onMounted(() => {
+  if (config?.user?.features?.loginType === LOGIN_TYPE_USERNAME) {
+    fieldSchema.username = z
+      .string({
+        invalid_type_error: t("user.signup.form.username.errors.invalid"),
+        required_error: t("user.signup.form.username.errors.required"),
+      })
+      .min(1, {
+        message: t("user.signup.form.username.errors.required"),
+      });
+  }
+});
 </script>

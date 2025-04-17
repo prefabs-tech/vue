@@ -1,7 +1,7 @@
 <template>
   <Form @submit="onSubmit">
     <Input
-      v-if="config?.user?.features?.loginType === 'username'"
+      v-if="config?.user?.features?.loginType === LOGIN_TYPE_USERNAME"
       :label="t('user.login.form.username.label')"
       :model-value="credentials.username"
       :name="'username'"
@@ -52,6 +52,7 @@ import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
 import { Form } from "vee-validate";
 
+import { LOGIN_TYPE_USERNAME } from "../constant";
 import { useTranslations } from "../index";
 
 import type { LoginCredentials } from "../types";
