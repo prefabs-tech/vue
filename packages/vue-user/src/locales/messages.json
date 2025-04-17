@@ -335,6 +335,14 @@
               "weak": "Your password should be at least 8 characters long"
             },
             "label": "Your password"
+          },
+          "username": {
+            "errors": {
+              "invalid": "Please provide a valid username",
+              "required": "Your username is required"
+            },
+            "label": "Your username",
+            "placeholder": "Username"
           }
         },
         "links": {
@@ -705,6 +713,14 @@
               "weak": "Votre mot de passe doit avoir au moins 8 caractères"
             },
             "label": "Votre mot de passe"
+          },
+          "username": {
+            "errors": {
+              "invalid": "Please provide a valid username",
+              "required": "Your username is required"
+            },
+            "label": "Your username",
+            "placeholder": "Username"
           }
         },
         "links": {

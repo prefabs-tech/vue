@@ -1,4 +1,8 @@
-import { API_PATH_LOGIN, API_PATH_LOGOUT } from "./constant";
+import {
+  API_PATH_LOGIN,
+  API_PATH_LOGOUT,
+  API_PATH_SIGNUP,
+} from "./constant";
 import * as laravelPassport from "./laravel-passport";
 import * as supertokens from "./supertokens";
 import { LoginCredentials } from "./types";
@@ -41,6 +45,15 @@ const providers = {
       const path = authConfig?.user?.apiRoutes?.logout || API_PATH_LOGOUT;
 
       return laravelPassport.logout(authConfig?.apiBaseUrl || "", path);
+    },
+    doSignup: (credentials: LoginCredentials) => {
+      const path = authConfig?.user?.apiRoutes?.signup || API_PATH_SIGNUP;
+
+      return laravelPassport.signup(
+        credentials,
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
     },
     verifySessionRoles: laravelPassport.verifySessionRoles,
   },
