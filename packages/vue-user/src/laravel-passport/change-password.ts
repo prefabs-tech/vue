@@ -2,10 +2,10 @@ import { AxiosError } from "axios";
 
 import client from "../api/axios";
 
-import type { UpdatePasswordPayload, UserType } from "../types";
+import type { ChangePasswordPayload, UserType } from "../types";
 
 const changePassword = async (
-  payload: UpdatePasswordPayload,
+  payload: ChangePasswordPayload,
   apiBaseUrl: string,
   path: string,
 ): Promise<UserType | undefined> => {

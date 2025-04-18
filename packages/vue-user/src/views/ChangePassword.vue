@@ -25,7 +25,7 @@ import ChangePasswordForm from "../components/ChangePasswordForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
 
-import type { UpdatePasswordPayload } from "../types";
+import type { ChangePasswordPayload } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
 import type { Error as ErrorType } from "@dzangolab/vue3-ui";
 import type { Ref } from "vue";
@@ -45,7 +45,7 @@ const errors = ref([]) as Ref<ErrorType[]>;
 
 const loading = ref(false);
 
-const handleSubmit = async (payload: UpdatePasswordPayload) => {
+const handleSubmit = async (payload: ChangePasswordPayload) => {
   loading.value = true;
 
   await changePassword(payload, config?.apiBaseUrl)
