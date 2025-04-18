@@ -6,7 +6,7 @@ import {
 } from "./constant";
 import * as laravelPassport from "./laravel-passport";
 import * as supertokens from "./supertokens";
-import { LoginCredentials, ChangePasswordPayload } from "./types";
+import { ChangePasswordPayload, LoginCredentials } from "./types";
 
 import type { AppConfig } from "@dzangolab/vue3-config";
 
