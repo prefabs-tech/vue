@@ -17,7 +17,7 @@ const changePassword = async (
       withCredentials: true,
     });
     if (response.status === 200) {
-      user = response.data.user as UserType;
+      user = response.data as UserType;
 
       return user;
     }
