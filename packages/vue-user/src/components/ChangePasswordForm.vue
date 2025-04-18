@@ -54,7 +54,7 @@ import { z } from "zod";
 
 import { useTranslations } from "../index";
 
-import type { UpdatePasswordPayload } from "../types";
+import type { ChangePasswordPayload } from "../types";
 import type { StrongPasswordOptions } from "@dzangolab/vue3-form";
 import type { PropType } from "vue";
 
@@ -104,7 +104,7 @@ let payload = {
   confirmPassword: undefined,
   currentPassword: undefined,
   newPassword: undefined,
-} as Partial<UpdatePasswordPayload>;
+} as Partial<ChangePasswordPayload>;
 
 const onSubmit = () => {
   emit("submit", payload);

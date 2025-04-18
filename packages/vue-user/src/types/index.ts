@@ -1,9 +1,9 @@
 export type {
   AuthTokens,
+  ChangePasswordPayload,
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
-  UpdatePasswordPayload,
   UpdateProfileInputType,
   User,
   UserType,

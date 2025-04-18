@@ -23,7 +23,7 @@ interface PasswordResetRequestPayload {
   url: string | null | undefined;
 }
 
-interface UpdatePasswordPayload {
+interface ChangePasswordPayload {
   confirmPassword: string;
   currentPassword: string;
   newPassword: string;
@@ -65,10 +65,10 @@ interface UserType extends EmailPasswordUserType {
 
 export type {
   AuthTokens,
+  ChangePasswordPayload,
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
-  UpdatePasswordPayload,
   UpdateProfileInputType,
   User,
   UserType,

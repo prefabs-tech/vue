@@ -1,11 +1,12 @@
 import {
+  API_PATH_CHANGE_PASSWORD,
   API_PATH_LOGIN,
   API_PATH_LOGOUT,
   API_PATH_SIGNUP,
 } from "./constant";
 import * as laravelPassport from "./laravel-passport";
 import * as supertokens from "./supertokens";
-import { LoginCredentials } from "./types";
+import { ChangePasswordPayload, LoginCredentials } from "./types";
 
 import type { AppConfig } from "@dzangolab/vue3-config";
 
@@ -32,6 +33,16 @@ const getAuthProvider = () => {
 
 const providers = {
   "laravel-passport": {
+    doChangePassword: (payload: ChangePasswordPayload) => {
+      const path =
+        authConfig?.user?.apiRoutes?.changePassword || API_PATH_CHANGE_PASSWORD;
+
+      return laravelPassport.changePassword(
+        payload,
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
     doLogin: (credentials: LoginCredentials) => {
       const path = authConfig?.user?.apiRoutes?.login || API_PATH_LOGIN;
 
