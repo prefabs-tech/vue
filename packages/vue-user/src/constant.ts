@@ -1,3 +1,4 @@
+const API_PATH_CHANGE_PASSWORD = "/api/user/change-password";
 const API_PATH_LOGIN = "/api/login";
 const API_PATH_LOGOUT = "/api/logout";
 const API_PATH_PASSWORD_RESET_REQUEST = "/api/reset-password-request";
@@ -27,6 +28,7 @@ const STATUS_OK = "OK";
 const SUPERTOKENS_API_BASE_PATH_DEFAULT = "/auth";
 
 export {
+  API_PATH_CHANGE_PASSWORD,
   API_PATH_LOGIN,
   API_PATH_LOGOUT,
   API_PATH_PASSWORD_RESET_REQUEST,

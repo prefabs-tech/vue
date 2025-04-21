@@ -19,7 +19,7 @@ import type {
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
-  UpdatePasswordPayload,
+  ChangePasswordPayload,
   UserType,
 } from "./types";
 
@@ -48,7 +48,7 @@ const useUserStore = defineStore("user", () => {
   };
 
   const changePassword = async (
-    payload: UpdatePasswordPayload,
+    payload: ChangePasswordPayload,
     apiBaseUrl: string
   ) => {
     const selectedAuthProvider = auth();

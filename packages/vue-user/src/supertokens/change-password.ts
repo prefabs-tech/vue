@@ -1,9 +1,9 @@
 import client from "../api/axios";
 
-import type { UpdatePasswordPayload } from "../types";
+import type { ChangePasswordPayload } from "../types";
 
 const changePassword = async (
-  payload: UpdatePasswordPayload,
+  payload: ChangePasswordPayload,
   apiBaseUrl: string,
 ): Promise<boolean | undefined> => {
   let success = false;
