@@ -2,12 +2,18 @@ import {
   API_PATH_CHANGE_PASSWORD,
   API_PATH_LOGIN,
   API_PATH_LOGOUT,
+  API_PATH_PASSWORD_RESET,
   API_PATH_PASSWORD_RESET_REQUEST,
   API_PATH_SIGNUP,
 } from "./constant";
 import * as laravelPassport from "./laravel-passport";
 import * as supertokens from "./supertokens";
-import { ChangePasswordPayload, LoginCredentials, PasswordResetRequestPayload } from "./types";
+import {
+  ChangePasswordPayload,
+  LoginCredentials,
+  PasswordResetPayload,
+  PasswordResetRequestPayload
+} from "./types";
 
 import type { AppConfig } from "@dzangolab/vue3-config";
 
@@ -62,6 +68,15 @@ const providers = {
       const path = authConfig?.user?.apiRoutes?.passwordResetRequest || API_PATH_PASSWORD_RESET_REQUEST;
 
       return laravelPassport.requestPasswordReset(
+        credentials,
+        authConfig?.apiBaseUrl || "",
+        path
+      );
+    },
+    doResetPassword: (credentials: PasswordResetPayload) => {
+      const path = authConfig?.user?.apiRoutes?.passwordResetRequest || API_PATH_PASSWORD_RESET;
+
+      return laravelPassport.resetPassword(
         credentials,
         authConfig?.apiBaseUrl || "",
         path
