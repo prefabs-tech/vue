@@ -272,3 +272,7 @@ const onUpdateRequest = (fileRequest: TRequestJSON) => {
   emit("update:request", fileRequest);
 };
 </script>
+
+<style lang="css">
+@import "../../assets/css/files-table.css";
+</style>

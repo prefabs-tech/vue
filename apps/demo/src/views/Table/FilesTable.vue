@@ -61,6 +61,12 @@
           edit-description
           share-file
           view-file
+          @action:archive="() => {}"
+          @action:delete="() => {}"
+          @action:download="() => {}"
+          @action:edit="() => {}"
+          @action:share="() => {}"
+          @action:view="() => {}"
         />
 
         <!-- eslint-disable -->
@@ -115,6 +121,12 @@
               edit-description
               share-file
               view-file
+              @action:archive="() => {}"
+              @action:delete="() => {}"
+              @action:download="() => {}"
+              @action:edit="() => {}"
+              @action:share="() => {}"
+              @action:view="() => {}"
             /&gt;
           &lt;/template&gt;
     
