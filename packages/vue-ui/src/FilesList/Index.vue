@@ -21,13 +21,17 @@
       @on:download="emitAction('download', file)"
       @on:share="emitAction('share', file)"
       @on:view="emitAction('view', file)"
-    />
+    >
+      <template v-if="$slots.thumbnail" #thumbnail>
+        <slot name="thumbnail"></slot>
+      </template>
+    </FileCard>
   </div>
 </template>
 
 <script lang="ts">
 export default {
-  name: "FileList",
+  name: "FilesList",
 };
 </script>
 
@@ -123,3 +127,7 @@ const emitAction = (action: string, file: IFile) => {
   }
 };
 </script>
+
+<style lang="css">
+@import "../assets/css/files-list.css";
+</style>

@@ -178,6 +178,9 @@
       "visibilityDetail": "With visibility detail"
     }
   },
+  "filesList": {
+    "title": "Files List"
+  },
   "getStarted": "Get started",
   "gridContainer": {
     "usage": {

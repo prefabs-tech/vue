@@ -14,6 +14,7 @@ import Divider from "./Divider/Index.vue";
 import Dropdown from "./Dropdown/Index.vue";
 import Errors from "./Errors/Index.vue";
 import FileCard from "./FileCard/Index.vue";
+import FilesList from "./FilesList/Index.vue";
 import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
 import GridContainer from "./GridContainer/Index.vue";
 import LoadingPage from "./LoadingPage/Index.vue";
@@ -54,6 +55,7 @@ export {
   DebouncedInput,
   Errors,
   FileCard,
+  FilesList,
   GridContainer,
   GoogleSignInButton,
   LoadingButton,
