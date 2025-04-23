@@ -103,10 +103,10 @@ const emit = defineEmits([
 const defaultColumns: TableColumnDefinition<IFile>[] = [
   {
     accessorKey: "originalFileName",
-    header: props.messages?.originalFileNameHeader || "File",
-    filterPlaceholder: props.messages?.searchPlaceholder || "File name example",
     enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: props.messages?.searchPlaceholder || "File name example",
+    header: props.messages?.originalFileNameHeader || "File",
   },
   {
     accessorKey: "description",
@@ -119,7 +119,6 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
   },
   {
     id: "uploadedBy",
-    header: props.messages?.uploadedByHeader || "Uploaded by",
     cell: ({ row: { original } }) => {
       if (!original.uploadedBy) {
         return h("code", {}, "—");
@@ -133,24 +132,22 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return original.uploadedBy.email;
     },
+    header: props.messages?.uploadedByHeader || "Uploaded by",
   },
   {
     accessorKey: "uploadedAt",
-    header: props.messages?.uploadedAtHeader || "Uploaded at",
     cell: ({ getValue }) => {
       return formatDateTime(getValue() as number);
     },
+    header: props.messages?.uploadedAtHeader || "Uploaded at",
   },
   {
-    align: "right",
     accessorKey: "downloadCount",
+    align: "right",
     header: props.messages?.downloadCountHeader || "Download count",
   },
   {
     accessorKey: "lastDownloadedAt",
-    header: props.messages?.lastDownloadedAtHeader || "Last downloaded at",
-    enableColumnFilter: false,
-    enableSorting: false,
     cell: ({ getValue }) => {
       if (getValue()) {
         return formatDateTime(getValue() as number);
@@ -158,6 +155,9 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return h("code", {}, "—");
     },
+    enableColumnFilter: false,
+    enableSorting: false,
+    header: props.messages?.lastDownloadedAtHeader || "Last downloaded at",
   },
 ];
 
