@@ -1,5 +1,6 @@
 const Table = () => import("@/views/Table/Index.vue");
 const BasicTable = () => import("@/views/Table/BasicTable.vue");
+const FilesTable = () => import("@/views/Table/FilesTable.vue");
 const PersistentTable = () => import("@/views/Table/PersistentTable.vue");
 const TableFilters = () => import("@/views/Table/TableFilters.vue");
 
@@ -16,6 +17,11 @@ const routes = [
         component: BasicTable,
         name: "basicTable",
         path: "basic",
+      },
+      {
+        component: FilesTable,
+        name: "filesTable",
+        path: "files",
       },
       {
         component: PersistentTable,

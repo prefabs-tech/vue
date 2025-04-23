@@ -72,4 +72,10 @@ export {
   YoutubeFacade,
 };
 
-export type { DropdownMenu, Error, FileMessages, IFile } from "./types";
+export type {
+  DropdownMenu,
+  Error,
+  FileMessages,
+  IFile,
+  TableMessages
+} from "./types";

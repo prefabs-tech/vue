@@ -400,7 +400,7 @@ const prepareComponent = () => {
   props.columnsData.forEach((column) => {
     if (
       props.visibleColumns.length &&
-      !props.visibleColumns.includes(String(column.accessorKey))
+      !props.visibleColumns.includes(String(column.accessorKey ?? column.id))
     ) {
       return;
     }

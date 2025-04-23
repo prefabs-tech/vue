@@ -33,7 +33,10 @@
             <template #content>
               <component
                 :is="getTooltipContent(cell)"
-                v-if="typeof cell.column.columnDef.tooltip === 'function'"
+                v-if="
+                  typeof cell.column.columnDef.tooltip === 'function' &&
+                  typeof getTooltipContent(cell) !== 'string'
+                "
               />
 
               <template v-else>
