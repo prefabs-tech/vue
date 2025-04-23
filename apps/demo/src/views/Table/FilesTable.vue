@@ -144,7 +144,7 @@
 
 <script lang="ts">
 export default {
-  name: "PersistentTable",
+  name: "FilesTable",
 };
 </script>
 
