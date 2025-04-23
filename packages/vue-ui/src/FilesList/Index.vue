@@ -87,7 +87,7 @@ defineProps({
     type: Boolean,
   },
   viewButtonProps: {
-    default: () => {},
+    default: undefined,
     type: Object,
   },
   fileDetailVisibility: {

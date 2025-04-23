@@ -310,7 +310,9 @@ const props = defineProps({
     type: Boolean,
   },
   viewButtonProps: {
-    default: () => {},
+    default: () => ({
+      severity: "secondary",
+    }),
     type: Object,
   },
   visibilityDetail: {

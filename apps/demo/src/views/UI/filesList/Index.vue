@@ -12,12 +12,24 @@
 
     <section>
       <div class="section-content">
-        <FilesList :files="files" />
+        <FilesList
+          :action-buttons-visibility="{
+            download: true,
+            view: true,
+          }"
+          :files="files"
+        />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;FilesList :files="files" /&gt;
+            &lt;FilesList
+              :action-buttons-visibility="{
+                download: true,
+                view: true,
+              }"
+              :files="files"
+            /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -27,36 +39,36 @@
 
           const files = [
             {
+              downloadCount: 5,
               id: 1,
+              lastDownloadedAt: Date.now(),
               originalFileName: "file1.png",
+              uploadedAt: Date.now(),
               uploadedBy: { givenName: "Manish", lastName: "Aryal" },
-              uploadedAt: Date.now(),
-              downloadCount: 5,
-              lastDownloadedAt: Date.now(),
             },
             {
+              downloadCount: 5,
               id: 2,
+              lastDownloadedAt: Date.now(),
               originalFileName: "document.pdf",
+              uploadedAt: Date.now(),
               uploadedBy: { givenName: "Gaurav", lastName: "Sapkota" },
-              uploadedAt: Date.now(),
-              downloadCount: 5,
-              lastDownloadedAt: Date.now(),
             },
             {
+              downloadCount: 5,
               id: 3,
-              originalFileName: "photo.jpeg",
-              uploadedBy: { givenName: "Deepak", lastName: "Aryal" },
-              uploadedAt: Date.now(),
-              downloadCount: 5,
               lastDownloadedAt: Date.now(),
+              originalFileName: "photo.jpeg",
+              uploadedAt: Date.now(),
+              uploadedBy: { givenName: "Deepak", lastName: "Aryal" },
             },
             {
-              id: 4,
-              originalFileName: "manish.png",
-              uploadedBy: { givenName: "Lamdiki", lastName: "Sherpa" },
-              uploadedAt: Date.now(),
               downloadCount: 5,
+              id: 4,
               lastDownloadedAt: Date.now(),
+              originalFileName: "manish.png",
+              uploadedAt: Date.now(),
+              uploadedBy: { givenName: "Lamdiki", lastName: "Sherpa" },
             },
           ] as IFile[];
           &lt;/script&gt;

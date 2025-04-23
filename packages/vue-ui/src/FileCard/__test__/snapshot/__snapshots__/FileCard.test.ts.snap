@@ -258,7 +258,7 @@ exports[`FileCard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="button"
-        class="button primary small filled"
+        class="button secondary small filled"
         role="button"
       >
         <span
