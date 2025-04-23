@@ -30,3 +30,9 @@ export interface IFile {
   downloadCount?: number;
   lastDownloadedAt?: number;
 }
+
+export type TableMessages = {
+  searchPlaceholder?: string;
+  tableEmpty?: string;
+  fileSizeHeader?: string;
+} & FileMessages;

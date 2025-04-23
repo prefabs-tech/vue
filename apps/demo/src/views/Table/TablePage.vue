@@ -59,6 +59,10 @@ const menu = [
         name: t("table.label.persistentTable"),
         routeName: "persistentTable",
       },
+      {
+        name: t("table.label.filesTable"),
+        routeName: "filesTable",
+      },
     ],
   },
 ];
