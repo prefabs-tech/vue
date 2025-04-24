@@ -3,7 +3,7 @@ import client, { encodeURIParameter } from "./axios";
 
 import type { Invitation } from "../types";
 
-export const acceptInvitation = async (
+const acceptInvitation = async (
   token: string,
   apiBaseUrl: string
 ): Promise<Invitation> => {
@@ -22,7 +22,7 @@ export const acceptInvitation = async (
   }
 };
 
-export const createInvitation = async (
+const createInvitation = async (
   data: Partial<Invitation>,
   apiBaseUrl: string
 ): Promise<Invitation> => {
@@ -37,7 +37,7 @@ export const createInvitation = async (
   }
 };
 
-export const deleteInvitation = async (
+const deleteInvitation = async (
   id: number,
   apiBaseUrl: string
 ): Promise<void> => {
@@ -50,9 +50,7 @@ export const deleteInvitation = async (
   }
 };
 
-export const getAllInvitations = async (
-  apiBaseUrl: string
-): Promise<Invitation[]> => {
+const getAllInvitations = async (apiBaseUrl: string): Promise<Invitation[]> => {
   const response = await client(apiBaseUrl).get("/invitations", {
     withCredentials: true,
   });
@@ -60,7 +58,7 @@ export const getAllInvitations = async (
   return response.data;
 };
 
-export const getInvitationById = async (
+const getInvitationById = async (
   id: number,
   apiBaseUrl: string
 ): Promise<Invitation> => {
@@ -71,7 +69,7 @@ export const getInvitationById = async (
   return response.data;
 };
 
-export const getInvitationByToken = async (
+const getInvitationByToken = async (
   token: string,
   apiBaseUrl: string
 ): Promise<Invitation> => {
@@ -85,7 +83,7 @@ export const getInvitationByToken = async (
   return response.data;
 };
 
-export const revokeInvitation = async (
+const revokeInvitation = async (
   id: number,
   apiBaseUrl: string
 ): Promise<Invitation> => {
@@ -102,4 +100,14 @@ export const revokeInvitation = async (
   } else {
     return response.data;
   }
+};
+
+export {
+  acceptInvitation,
+  createInvitation,
+  deleteInvitation,
+  getAllInvitations,
+  getInvitationById,
+  getInvitationByToken,
+  revokeInvitation,
 };
