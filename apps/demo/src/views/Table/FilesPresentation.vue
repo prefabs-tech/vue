@@ -15,14 +15,6 @@
 
       <div class="section-content">
         <FilesPresentation
-          :action-buttons-visibility="{
-            archive: false,
-            delete: false,
-            download: true,
-            edit: true,
-            share: false,
-            view: true,
-          }"
           :files="files"
           :visible-file-details="[
             'originalFileName',
@@ -47,14 +39,6 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;FilesPresentation
-              :action-buttons-visibility="{
-                archive: false,
-                delete: false,
-                download: true,
-                edit: true,
-                share: false,
-                view: true,
-              }"
               :files="files"
               :visible-file-details="[
                 'originalFileName',
