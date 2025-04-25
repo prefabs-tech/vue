@@ -145,12 +145,7 @@ export const updateUserProfile = async (
 ): Promise<{ data: UserType }> => {
   let path = `me`;
 
-  if (
-    authConfig?.user &&
-    authConfig?.user?.features &&
-    authConfig?.user?.features?.authProvider &&
-    authConfig?.user?.features?.authProvider === "laravel-passport"
-  ) {
+  if (authConfig?.user?.features?.authProvider === "laravel-passport") {
     path = API_PATH_UPDATE_PROFILE;
   }
 
