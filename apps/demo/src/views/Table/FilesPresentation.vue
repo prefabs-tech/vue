@@ -149,11 +149,8 @@
             'lastDownloadedAt',
             'actions',
           ]"
-          @action:archive="() => {}"
-          @action:delete="() => {}"
           @action:download="() => {}"
           @action:edit="() => {}"
-          @action:share="() => {}"
           @action:view="() => {}"
         />
 
@@ -180,11 +177,8 @@
                 'lastDownloadedAt',
                 'actions',
               ]"
-              @action:archive="() => {}"
-              @action:delete="() => {}"
               @action:download="() => {}"
               @action:edit="() => {}"
-              @action:share="() => {}"
               @action:view="() => {}"
             /&gt;
           &lt;/template&gt;
@@ -201,6 +195,7 @@
               id: 1,
               lastDownloadedAt: Date.now(),
               originalFileName: "file1.png",
+              size: 100,
               uploadedAt: Date.now(),
               uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             },
@@ -261,6 +256,7 @@ const files = [
     id: 1,
     lastDownloadedAt: Date.now(),
     originalFileName: "file1.png",
+    size: 100,
     uploadedAt: Date.now(),
     uploadedBy: { givenName: "Manish", lastName: "Aryal" },
   },
