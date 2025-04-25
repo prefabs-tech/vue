@@ -2,6 +2,7 @@ const API_PATH_CHANGE_EMAIL = "/api/user/change-email-username";
 const API_PATH_CHANGE_PASSWORD = "/api/user/change-password";
 const API_PATH_LOGIN = "/api/login";
 const API_PATH_LOGOUT = "/api/logout";
+const API_PATH_ME = "/api/me";
 const API_PATH_REFRESH = "/api/login/refresh";
 const API_PATH_SIGNUP = "/api/signup";
 const API_PATH_UPDATE_PROFILE = "/api/profile";
@@ -33,6 +34,7 @@ export {
   API_PATH_CHANGE_PASSWORD,
   API_PATH_LOGIN,
   API_PATH_LOGOUT,
+  API_PATH_ME,
   API_PATH_REFRESH,
   API_PATH_SIGNUP,
   API_PATH_UPDATE_PROFILE,
