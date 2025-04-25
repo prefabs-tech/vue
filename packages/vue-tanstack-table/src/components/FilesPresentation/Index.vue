@@ -62,19 +62,6 @@ const props = defineProps({
     }),
     type: Object,
   },
-  visibleFileDetails: {
-    default: () => [
-      "actions",
-      "description",
-      "downloadCount",
-      "lastDownloadedAt",
-      "originalFileName",
-      "size",
-      "uploadedAt",
-      "uploadedBy",
-    ],
-    type: Array as PropType<string[]>,
-  },
   files: {
     default: () => [],
     type: Array as PropType<IFile[]>,
@@ -95,6 +82,19 @@ const props = defineProps({
   tableProps: {
     default: () => {},
     type: Object,
+  },
+  visibleFileDetails: {
+    default: () => [
+      "actions",
+      "description",
+      "downloadCount",
+      "lastDownloadedAt",
+      "originalFileName",
+      "size",
+      "uploadedAt",
+      "uploadedBy",
+    ],
+    type: Array as PropType<string[]>,
   },
 });
 
