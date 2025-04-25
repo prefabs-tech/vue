@@ -2,9 +2,10 @@
   <FilesList
     v-if="presentation === 'list'"
     v-bind="listProps"
+    :action-buttons-visibility="actionButtonsVisibility"
     :files="files"
     :messages="messages"
-    :file-detail-visibility="fileDetailVisibility"
+    :file-detail-visibility="listVisibleFileDetails"
     @action:archive="emitAction('archive', $event)"
     @action:delete="emitAction('delete', $event)"
     @action:download="emitAction('download', $event)"
@@ -16,9 +17,15 @@
   <FilesTable
     v-else
     v-bind="tableProps"
+    :archive-file="actionButtonsVisibility.archive"
+    :delete-file="actionButtonsVisibility.delete"
+    :download-file="actionButtonsVisibility.download"
+    :edit-description="actionButtonsVisibility.edit"
     :files="files"
     :messages="messages"
-    :visible-columns="visibleColumns"
+    :share-file="actionButtonsVisibility.share"
+    :view-file="actionButtonsVisibility.view"
+    :visible-columns="visibleFileDetails"
     @action:archive="emitAction('archive', $event)"
     @action:delete="emitAction('delete', $event)"
     @action:download="emitAction('download', $event)"
@@ -44,18 +51,29 @@ import type { IFile, TableMessages } from "@dzangolab/vue3-ui";
 import type { PropType } from "vue";
 
 const props = defineProps({
-  fileDetailVisibility: {
+  actionButtonsVisibility: {
     default: () => ({
-      actions: true,
-      description: true,
-      downloadCount: true,
-      lastDownloadedAt: true,
-      originalFileName: true,
-      size: true,
-      uploadedAt: true,
-      uploadedBy: true,
+      archive: true,
+      delete: true,
+      download: true,
+      edit: true,
+      share: true,
+      view: true,
     }),
     type: Object,
+  },
+  visibleFileDetails: {
+    default: () => [
+      "actions",
+      "description",
+      "downloadCount",
+      "lastDownloadedAt",
+      "originalFileName",
+      "size",
+      "uploadedAt",
+      "uploadedBy",
+    ],
+    type: Array as PropType<string[]>,
   },
   files: {
     default: () => [],
@@ -89,12 +107,21 @@ const emit = defineEmits([
   "action:view",
 ]);
 
-const visibleColumns = computed(() => {
-  return Object.keys(props.fileDetailVisibility).length
-    ? Object.entries(props.fileDetailVisibility)
-        .filter(([, value]) => value)
-        .map(([key]) => key)
-    : [];
+const listVisibleFileDetails = computed(() => {
+  const fileDetails = [
+    "actions",
+    "description",
+    "downloadCount",
+    "lastDownloadedAt",
+    "originalFileName",
+    "size",
+    "uploadedAt",
+    "uploadedBy",
+  ];
+
+  return Object.fromEntries(
+    fileDetails.map((key) => [key, props.visibleFileDetails.includes(key)]),
+  );
 });
 
 const emitAction = (action: string, file: IFile) => {

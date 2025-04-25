@@ -55,7 +55,12 @@
 .file-card .description-wrapper-details {
   align-items: center;
   display: flex;
+  gap: 1rem ;
   margin-top: 0.5rem;
+}
+
+.file-card .description-wrapper-details > button {
+  width: max-content;
 }
 
 .file-card .file-upload-download-details-wrapper {

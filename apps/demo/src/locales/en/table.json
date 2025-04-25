@@ -9,6 +9,7 @@
     "deleteRecordMessage": "You are going to delete this data.",
     "edit": "Edit",
     "filesTable": "Files table",
+    "filesPresentation": "Files presentation",
     "getStarted": "Get started",
     "matchDescription": "Match description...",
     "order": "Order",
@@ -39,6 +40,7 @@
     "filterableColumn": "With filterable column",
     "filteredActions": "With actions menu items filtered based on row data logic",
     "footer": "With footer",
+    "listMode": "List presentation mode",
     "pagination": "With pagination",
     "persistentInstruction": "Use the id and persistState props to make the table remember states such as sorting, filtering, and visible columns, even after a page refresh.",
     "persistentState": "With persistent state",
@@ -46,6 +48,7 @@
     "singleAction": "With single action button",
     "singleActionMenu": "With single action menu",
     "sortable": "With sortable column",
+    "tableMode": "Table presentation mode",
     "title": "With title",
     "tooltip": "With tooltip cell"
   }

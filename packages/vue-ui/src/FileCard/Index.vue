@@ -40,11 +40,13 @@
               v-if="allowEditDescription"
               v-bind="editDescriptionButtonProps"
               size="small"
+              variant="outlined"
               @click="$emit('click:editDescription')"
             >
               <template #iconLeft>
                 <svg
                   fill="none"
+                  width="20"
                   viewBox="0 -0.5 25 25"
                   xmlns="http://www.w3.org/2000/svg"
                 >
