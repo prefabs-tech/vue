@@ -1,6 +1,7 @@
 const API_PATH_CHANGE_PASSWORD = "/api/user/change-password";
 const API_PATH_LOGIN = "/api/login";
 const API_PATH_LOGOUT = "/api/logout";
+const API_PATH_PASSWORD_RESET = "/api/reset-password";
 const API_PATH_PASSWORD_RESET_REQUEST = "/api/reset-password-request";
 const API_PATH_REFRESH = "/api/login/refresh";
 const API_PATH_SIGNUP = "/api/signup";
@@ -31,6 +32,7 @@ export {
   API_PATH_CHANGE_PASSWORD,
   API_PATH_LOGIN,
   API_PATH_LOGOUT,
+  API_PATH_PASSWORD_RESET,
   API_PATH_PASSWORD_RESET_REQUEST,
   API_PATH_REFRESH,
   API_PATH_SIGNUP,
