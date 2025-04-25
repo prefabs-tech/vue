@@ -30,7 +30,6 @@ import { computed, ref } from "vue";
 import { getMe } from "../../api/user";
 import { emitter, useTranslations } from "../../index";
 import useUserStore from "../../store";
-import { changeEmail } from "../../supertokens";
 
 type UpdateEmailFormData = {
   email: string;
@@ -64,7 +63,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
   loading.value = true;
 
   try {
-    const response = await changeEmail(data.email, config.apiBaseUrl);
+    const response = await userStore.changeEmail(data.email, config.apiBaseUrl);
     switch (response?.status) {
       case "OK": {
         const userInfo = await getMe(config.apiBaseUrl);
