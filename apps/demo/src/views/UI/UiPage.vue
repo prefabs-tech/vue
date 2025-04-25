@@ -69,6 +69,10 @@ const menu = [
         name: t("ui.fileCard.title"),
         routeName: "fileCard",
       },
+      {
+        name: t("ui.filesList.title"),
+        routeName: "filesList",
+      },
     ],
   },
   {

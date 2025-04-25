@@ -1,7 +1,7 @@
 <template>
   <Card class="file-card">
     <div class="file-thumbnail-details-wrapper">
-      <div v-if="showThumbnail" class="file-thumbnail">
+      <div v-if="showThumbnail || $slots.thumbnail" class="file-thumbnail">
         <slot name="thumbnail">
           <svg
             fill="none"
@@ -310,7 +310,9 @@ const props = defineProps({
     type: Boolean,
   },
   viewButtonProps: {
-    default: () => {},
+    default: () => ({
+      severity: "secondary",
+    }),
     type: Object,
   },
   visibilityDetail: {

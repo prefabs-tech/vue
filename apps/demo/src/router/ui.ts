@@ -8,6 +8,7 @@ const Data = () => import("@/views/UI/data/Index.vue");
 const Divider = () => import("@/views/UI/divider/Index.vue");
 const Dropdown = () => import("@/views/UI/dropdown/Index.vue");
 const FileCard = () => import("@/views/UI/fileCard/Index.vue");
+const FilesList = () => import("@/views/UI/filesList/Index.vue")
 const GridContainer = () => import("@/views/UI/gridContainer/Index.vue");
 const LoadingPage = () => import("@/views/UI/loading/Index.vue");
 const Message = () => import("@/views/UI/message/Index.vue");
@@ -76,6 +77,11 @@ const routes = [
         component: FileCard,
         name: "fileCard",
         path: "file-card",
+      },
+      {
+        component: FilesList,
+        name: "filesList",
+        path: "files-list",
       },
       {
         component: GridContainer,
