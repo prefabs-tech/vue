@@ -2,7 +2,7 @@ import client from "../api/axios";
 
 const changeEmail = async (email: string, apiBaseUrl: string, path: string) => {
   try {
-    const response = await client(apiBaseUrl).post(
+    const response = await client(apiBaseUrl).put(
       path,
       { email },
       {
@@ -10,7 +10,7 @@ const changeEmail = async (email: string, apiBaseUrl: string, path: string) => {
       },
     );
 
-    return response.data;
+    return response.statusText;
     /*eslint-disable-next-line @typescript-eslint/no-explicit-any */
   } catch (err: any) {
     if (err.response) {

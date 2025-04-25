@@ -10,7 +10,7 @@ const changeEmail = async (email: string, apiBaseUrl: string) => {
       },
     );
 
-    return response.data;
+    return response.data.status;
     /*eslint-disable-next-line @typescript-eslint/no-explicit-any */
   } catch (err: any) {
     if (err.response) {
