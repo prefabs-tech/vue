@@ -15,7 +15,7 @@
       :show-thumbnail="showThumbnail"
       :view-button-props="viewButtonProps"
       :visibility-detail="fileDetailVisibility"
-      @click:edit-description="emitAction('editDescription', file)"
+      @click:edit-description="emitAction('edit', file)"
       @on:archive="emitAction('archive', file)"
       @on:delete="emitAction('delete', file)"
       @on:download="emitAction('download', file)"
@@ -106,12 +106,12 @@ defineProps({
 });
 
 const emit = defineEmits([
-  "on:editDescription",
-  "on:archive",
-  "on:delete",
-  "on:download",
-  "on:share",
-  "on:view",
+  "action:archive",
+  "action:delete",
+  "action:download",
+  "action:edit",
+  "action:share",
+  "action:view",
 ]);
 
 const emitAction = (action: string, file: IFile) => {
@@ -119,10 +119,10 @@ const emitAction = (action: string, file: IFile) => {
     case "archive":
     case "delete":
     case "download":
-    case "editDescription":
+    case "edit":
     case "share":
     case "view":
-      emit(`on:${action}`, file);
+      emit(`action:${action}`, file);
       break;
   }
 };
