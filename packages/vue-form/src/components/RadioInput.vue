@@ -1,6 +1,7 @@
 <template>
   <Field
     v-slot="{ field, meta }"
+    :model-value="modelValue"
     :name="name"
     :rules="fieldSchema"
     @change="onChange"
