@@ -70,7 +70,7 @@ const onSubmit = () => emit("submit");
 .form-actions {
   display: flex;
   gap: var(--form-field-gap, 0.5em);
-  margin-bottom: var(--form-margin-bottom, 2rem);
+  margin-bottom: var(--form-margin-bottom, 0);
   width: 100%;
 }
 

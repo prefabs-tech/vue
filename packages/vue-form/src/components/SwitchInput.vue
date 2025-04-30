@@ -5,6 +5,7 @@
     </label>
     <Field
       v-slot="{ field, meta }"
+      v-bind="{ modelValue }"
       :name="name"
       :rules="fieldSchema"
       type="checkbox"
