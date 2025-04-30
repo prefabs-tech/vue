@@ -198,6 +198,10 @@ const {
   onDrop,
   ...props.dropzoneOptions,
 });
+
+defineExpose({
+  inputFiles,
+});
 </script>
 
 <style lang="css">
