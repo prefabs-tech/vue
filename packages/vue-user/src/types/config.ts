@@ -12,6 +12,8 @@ interface DzangolabVueUserConfig {
     changePassword?: string;
     login?: string;
     logout?: string;
+    passwordReset?: string;
+    passwordResetRequest?: string,
     refresh?: string;
     signup?: string;
   };

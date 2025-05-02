@@ -63,6 +63,10 @@ const menu = [
         name: t("table.label.filesTable"),
         routeName: "filesTable",
       },
+      {
+        name: t("table.label.filesPresentation"),
+        routeName: "filesPresentation",
+      },
     ],
   },
 ];

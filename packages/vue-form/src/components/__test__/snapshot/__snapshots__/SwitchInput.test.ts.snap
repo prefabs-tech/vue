@@ -11,7 +11,7 @@ exports[`SwitchInput > matches snapshot 1`] = `
   </label>
   
   <div
-    checked="true"
+    checked="false"
     class="switch"
     id="input-field-switch"
     name="switch"

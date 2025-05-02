@@ -458,6 +458,10 @@ const prepareComponent = () => {
   }
 
   setPersistState();
+
+  if (props.isServerTable) {
+    fetchData();
+  }
 };
 
 const setPersistState = () => {
