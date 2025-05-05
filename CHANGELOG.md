@@ -1,3 +1,15 @@
+## [0.10.11](https://github.com/dzangolab/vue/compare/v0.10.10...v0.10.11) (2025-05-05)
+
+
+### Features
+
+* add API path for change password functionality ([#610](https://github.com/dzangolab/vue/issues/610)) ([12485c8](https://github.com/dzangolab/vue/commit/12485c8198b43727c6af42c81d9d186de280b813))
+* add email column filter in invitation table ([#602](https://github.com/dzangolab/vue/issues/602)) ([67fd3cd](https://github.com/dzangolab/vue/commit/67fd3cd556659779c3affa3f1621bd50ce3ff7d9))
+* add support of laravel passport authentication in vue-user ([#484](https://github.com/dzangolab/vue/issues/484)) ([2f4e1b5](https://github.com/dzangolab/vue/commit/2f4e1b5f7ebf3885a4d4ea3c2fd398babe9c487e))
+* add support to sign up to laravel api ([#609](https://github.com/dzangolab/vue/issues/609)) ([d026344](https://github.com/dzangolab/vue/commit/d0263442f3fca11ad2edfc66e26cbed884d50b49))
+
+
+
 ## [0.10.10](https://github.com/dzangolab/vue/compare/v0.10.9...v0.10.10) (2025-03-31)
 
 
