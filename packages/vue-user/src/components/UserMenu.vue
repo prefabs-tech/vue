@@ -4,7 +4,11 @@
     class="user-menu"
     :user="user"
     @logout="handleLogout"
-  />
+  >
+    <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
+      <slot name="userMenuTrigger"></slot>
+    </template>
+  </DropdownUserMenu>
   <SignInUpMenu v-else class="user-menu" />
 </template>
 

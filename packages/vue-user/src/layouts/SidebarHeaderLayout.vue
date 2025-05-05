@@ -13,7 +13,11 @@
     </template>
 
     <template #userMenu>
-      <UserMenu v-if="showUserMenu" />
+      <UserMenu v-if="showUserMenu">
+        <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
+          <slot name="userMenuTrigger"></slot>
+        </template>
+      </UserMenu>
     </template>
 
     <template #afterNavLinks>
@@ -129,6 +133,10 @@ const menu = computed(() => {
 .sidebar-header-layout > .sidebar .user-menu-dropdown {
   --_font-size: var(--font-size-min, 0.8rem);
   --_font-weight: var(--font-weight, 450);
+  --_layout-sidebar-separator-color: var(
+    --layout-sidebar-separator-color,
+    #dbdbdb
+  );
   --dropdown-container-bg-color: #0870e5;
   --menu-highlight-color: #0870e5;
 
@@ -145,6 +153,11 @@ const menu = computed(() => {
   background-color: #0870e5;
 }
 
+.sidebar-header-layout .footer {
+  background-color: var(--sidebar-bg-color, #007aff);
+  z-index: 99;
+}
+
 .sidebar-header- > .sidebar .user-menu:not(.user-menu-dropdown) > ul > li > a,
 .sidebar-header-layout > .sidebar .user-menu-dropdown,
 .sidebar-header-layout > .sidebar .user-menu-dropdown > ul.dropdown > li {
@@ -153,6 +166,15 @@ const menu = computed(() => {
   align-items: center;
   display: flex;
   height: var(--_height);
+  width: 100%;
+}
+
+.sidebar-header-layout > .sidebar .user-menu-dropdown {
+  border-top: 1px solid var(--_layout-sidebar-separator-color);
+}
+
+.sidebar-header-layout > .sidebar .user-menu-dropdown > .trigger {
+  background-color: var(--sidebar-bg-color, #007aff);
   width: 100%;
 }
 
@@ -178,6 +200,7 @@ const menu = computed(() => {
   transition:
     transform 0.3s ease,
     opacity 0.5s ease;
+  width: 100%;
 }
 
 .sidebar-header-layout > .sidebar .user-menu-dropdown.expanded > .dropdown {
@@ -186,7 +209,7 @@ const menu = computed(() => {
 
   box-shadow: 0 -2px 10px 2px #0870e5;
   opacity: 1;
-  transform: translate3d(0, -152.5px, 0);
+  transform: translate3d(0, -161.5px, 0);
   width: 100%;
 }
 </style>

@@ -1,7 +1,11 @@
 <template>
   <Layout :menu="menu" :no-locale-switcher="noLocaleSwitcher">
     <template #userMenu>
-      <UserMenu v-if="showUserMenu" />
+      <UserMenu v-if="showUserMenu">
+        <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
+          <slot name="userMenuTrigger"></slot>
+        </template>
+      </UserMenu>
     </template>
 
     <template #afterNavLinks>
@@ -102,6 +106,11 @@ const menu = computed(() => {
 </script>
 
 <style lang="css">
+.sidebar-only .footer {
+  background-color: var(--sidebar-bg-color, #007aff);
+  z-index: 99;
+}
+
 .sidebar-only > .sidebar .user-menu-dropdown.expanded .toggle > svg {
   transform: rotate(-180deg);
 }
@@ -118,11 +127,24 @@ const menu = computed(() => {
 .sidebar-only .user-menu-dropdown {
   --_font-size: var(--font-size-min, 0.8rem);
   --_font-weight: var(--font-weight, 450);
+  --_layout-sidebar-separator-color: var(
+    --layout-sidebar-separator-color,
+    #dbdbdb
+  );
   --dropdown-container-bg-color: #0870e5;
   --menu-highlight-color: #0870e5;
 
   font-size: var(--_font-size);
   font-weight: var(--_font-weight);
+  width: 100%;
+}
+
+.sidebar-only > .sidebar .user-menu-dropdown {
+  border-top: 1px solid var(--_layout-sidebar-separator-color);
+}
+
+.sidebar-only > .sidebar .user-menu-dropdown > .trigger {
+  background-color: var(--sidebar-bg-color, #007aff);
   width: 100%;
 }
 
@@ -155,6 +177,7 @@ const menu = computed(() => {
   transition:
     transform 0.3s ease,
     opacity 0.5s ease;
+  width: 100%;
 }
 
 .sidebar-only .user-menu-dropdown.expanded > .dropdown {
@@ -163,7 +186,7 @@ const menu = computed(() => {
 
   box-shadow: 0 -2px 10px 2px #0870e5;
   opacity: 1;
-  transform: translate3d(0, -152.5px, 0);
+  transform: translate3d(0, -161.5px, 0);
   width: 100%;
 }
 </style>

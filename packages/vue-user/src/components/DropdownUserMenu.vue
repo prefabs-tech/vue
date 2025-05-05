@@ -6,9 +6,11 @@
     @click="toggle"
   >
     <div class="trigger">
-      <span class="email">
-        {{ user?.email }}
-      </span>
+      <slot name="userMenuTrigger">
+        <span class="email">
+          {{ user?.email }}
+        </span>
+      </slot>
       <span class="toggle">
         <svg
           aria-label="open user menu"
@@ -103,6 +105,7 @@ nav.user-menu-dropdown > .trigger {
   gap: 0;
   justify-content: space-between;
   padding: var(--_padding-v) var(--_padding-h);
+  z-index: 99;
 }
 
 nav.user-menu-dropdown span.toggle {
@@ -130,29 +133,28 @@ nav.user-menu-dropdown span.toggle > svg {
 }
 
 nav.user-menu-dropdown > ul.dropdown {
-  background-color: var(--dropdown-bg-color, #fff);
-  border: var(--dropdown-border, 1px solid grey);
   border-radius: var(--dropdown-border-radius, 5px);
   inset: 0px auto auto 0px;
   list-style: none;
   max-height: 0;
-  padding: 0.15rem 0;
-  padding-inline-start: 0;
   position: absolute;
   transform: translate3d(0, 48.5px, 0px);
-  transition: max-height 0.4s ease;
-  visibility: hidden;
-  z-index: var(--dropdown-z-index, 9999);
+  transition:
+    border 0.4s ease,
+    max-height 0.4s ease-out;
+  width: max-content;
+  z-index: var(--dropdown-z-index, 2);
 }
 
 nav.user-menu-dropdown.expanded > ul.dropdown {
+  background-color: var(--dropdown-bg-color, #fff);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   height: auto;
   max-height: 10rem;
-  overflow-y: hidden;
-  visibility: visible;
+  padding: 0.15rem 0;
+  padding-inline-start: 0;
 }
 
 nav.user-menu-dropdown > ul.dropdown > li {

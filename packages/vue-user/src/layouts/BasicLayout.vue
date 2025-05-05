@@ -12,7 +12,11 @@
           <MainMenu class="main-menu" :routes="routes" />
         </template>
         <template #userMenu>
-          <UserMenu v-if="showUserMenu" />
+          <UserMenu v-if="showUserMenu">
+            <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
+              <slot name="userMenuTrigger"></slot>
+            </template>
+          </UserMenu>
         </template>
       </AppHeader>
     </template>
@@ -85,3 +89,14 @@ const routes = computed(() => {
   return layoutConfig?.mainMenu as MenuItem[];
 });
 </script>
+
+<style>
+.layout.basic nav.user-menu-dropdown > ul.dropdown {
+  border: var(--dropdown-border, 1px solid transparent);
+  overflow-y: hidden;
+}
+
+.layout.basic nav.user-menu-dropdown.expanded > ul.dropdown {
+  border-color: grey;
+}
+</style>
