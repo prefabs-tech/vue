@@ -6,9 +6,11 @@
     @click="toggle"
   >
     <div class="trigger">
-      <span class="email">
-        {{ user?.email }}
-      </span>
+      <slot name="userMenuTrigger">
+        <span class="email">
+          {{ user?.email }}
+        </span>
+      </slot>
       <span class="toggle">
         <svg
           aria-label="open user menu"
@@ -153,6 +155,7 @@ nav.user-menu-dropdown.expanded > ul.dropdown {
   max-height: 10rem;
   overflow-y: hidden;
   visibility: visible;
+  width: max-content;
 }
 
 nav.user-menu-dropdown > ul.dropdown > li {

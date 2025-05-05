@@ -12,7 +12,11 @@
           <MainMenu class="main-menu" :routes="routes" />
         </template>
         <template #userMenu>
-          <UserMenu v-if="showUserMenu" />
+          <UserMenu v-if="showUserMenu">
+            <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
+              <slot name="userMenuTrigger"></slot>
+            </template>
+          </UserMenu>
         </template>
       </AppHeader>
     </template>
