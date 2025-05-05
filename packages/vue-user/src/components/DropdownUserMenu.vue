@@ -139,7 +139,9 @@ nav.user-menu-dropdown > ul.dropdown {
   max-height: 0;
   position: absolute;
   transform: translate3d(0, 48.5px, 0px);
-  transition: max-height 0.4s ease;
+  transition:
+    border 0.4s ease,
+    max-height 0.4s ease-out;
   width: max-content;
   z-index: var(--dropdown-z-index, 2);
 }
