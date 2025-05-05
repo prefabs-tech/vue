@@ -89,3 +89,14 @@ const routes = computed(() => {
   return layoutConfig?.mainMenu as MenuItem[];
 });
 </script>
+
+<style>
+.layout.basic nav.user-menu-dropdown > ul.dropdown {
+  border: var(--dropdown-border, 1px solid transparent);
+  overflow-y: hidden;
+}
+
+.layout.basic nav.user-menu-dropdown.expanded > ul.dropdown {
+  border-color: grey;
+}
+</style>
