@@ -29,16 +29,53 @@
     </div>
     <ul class="dropdown">
       <li>
-        <router-link :to="{ name: 'changePassword' }">
+        <router-link class="user-menu-link" :to="{ name: 'changePassword' }">
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 10.25h-.25V8a4.75 4.75 0 0 0-9.5 0v2.25H7A2.75 2.75 0 0 0 4.25 13v5A2.75 2.75 0 0 0 7 20.75h10A2.75 2.75 0 0 0 19.75 18v-5A2.75 2.75 0 0 0 17 10.25M8.75 8a3.25 3.25 0 0 1 6.5 0v2.25h-6.5Zm9.5 10A1.25 1.25 0 0 1 17 19.25H7A1.25 1.25 0 0 1 5.75 18v-5A1.25 1.25 0 0 1 7 11.75h10A1.25 1.25 0 0 1 18.25 13Z"
+              fill="currentColor"
+            />
+          </svg>
           {{ $t("app.header.menu.changePassword") }}
         </router-link>
       </li>
       <li>
         <router-link :to="{ name: 'profile' }">
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 12.25a3.75 3.75 0 1 1 3.75-3.75A3.75 3.75 0 0 1 12 12.25m0-6a2.25 2.25 0 1 0 2.25 2.25A2.25 2.25 0 0 0 12 6.25m7 13a.76.76 0 0 1-.75-.75c0-1.95-1.06-3.25-6.25-3.25s-6.25 1.3-6.25 3.25a.75.75 0 0 1-1.5 0c0-4.75 5.43-4.75 7.75-4.75s7.75 0 7.75 4.75a.76.76 0 0 1-.75.75"
+              fill="currentColor"
+            />
+          </svg>
           {{ $t("app.header.menu.profile") }}
         </router-link>
       </li>
       <li class="option" @click="$emit('logout')">
+        <svg
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 21A9 9 0 0 1 5.64 5.64a.74.74 0 0 1 1.06 0a.75.75 0 0 1 0 1.06a7.5 7.5 0 1 0 10.6 10.6a7.48 7.48 0 0 0 0-10.6a.75.75 0 0 1 0-1.06a.74.74 0 0 1 1.06 0A9 9 0 0 1 12 21"
+            fill="currentColor"
+          />
+          <path
+            d="M12 12.75a.76.76 0 0 1-.75-.75V4a.75.75 0 0 1 1.5 0v8a.76.76 0 0 1-.75.75"
+            fill="currentColor"
+          />
+        </svg>
         {{ $t("app.header.menu.logout") }}
       </li>
     </ul>
@@ -170,9 +207,13 @@ nav.user-menu > ul > li:has(.router-link-exact-active) {
 nav.user-menu-dropdown > ul.dropdown > li > a,
 nav.user-menu-dropdown > ul.dropdown > li:not(:has(a)) {
   color: inherit;
-  display: block;
+  display: flex;
   padding: 0.7rem 1.25rem;
   text-decoration: none;
   width: 100%;
+}
+
+nav.user-menu-dropdown > ul.dropdown > li svg {
+  margin-right: 0.5rem;
 }
 </style>

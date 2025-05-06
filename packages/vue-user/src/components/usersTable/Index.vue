@@ -155,6 +155,7 @@ const emit = defineEmits([
 const defaultColumns: TableColumnDefinition<UserType>[] = [
   {
     accessorKey: "email",
+    enableColumnFilter: true,
     enableSorting: true,
     header: t("user.table.defaultColumns.email"),
   },
