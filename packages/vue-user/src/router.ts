@@ -214,11 +214,10 @@ const addAuthenticationGuard = (
       router.push({ name: "login" }); // using next inside async function is not allowed
     }
 
-    if (EmailVerificationEnabled && user.value) {
+    if (meta.authenticated && EmailVerificationEnabled && user.value) {
       const isEmailVerified = await getVerificationStatus();
 
       if (
-        meta.authenticated &&
         !isEmailVerified &&
         !routesToRedirect.includes(name)
       ) {

@@ -1,0 +1,24 @@
+.email-verification button.resend-email {
+  text-align: center;
+}
+
+.email-verification-reminder .resend-email {
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.email-verification-reminder .resend-email a {
+  color: #007aff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.email-verification-reminder .resend-email a:hover {
+  text-decoration: underline;
+}
+
+.email-verification[data-centered=true] {
+  align-items: flex-start;
+  max-width: var(--dz-page-max-width);
+  margin: auto;
+}

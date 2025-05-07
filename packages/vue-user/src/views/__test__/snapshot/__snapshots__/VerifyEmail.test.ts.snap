@@ -15,7 +15,7 @@ exports[`VerifyEmail > matches snapshot in en 1`] = `
         class="title"
       >
         <h1>
-          Email verification
+          Please verify your email address
         </h1>
         
         <!---->
@@ -73,7 +73,7 @@ exports[`VerifyEmail > matches snapshot in fr 1`] = `
         class="title"
       >
         <h1>
-          Email verification
+          Please verify your email address
         </h1>
         
         <!---->

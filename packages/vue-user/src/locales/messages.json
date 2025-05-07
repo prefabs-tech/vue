@@ -87,7 +87,7 @@
       },
       "emailVerification": {
         "button": {
-          "label": "Resend email"
+          "label": "Resend"
         },
         "messages": {
           "resend": {
@@ -95,15 +95,16 @@
             "error": "Something went wrong. Please try again",
             "success": "Email resent successfully."
           },
+          "resendEmailInfo": "Not received yet?",
           "verify": {
             "alreadyVerified": "Email is already verified",
             "invalidToken": "The token is invalid",
             "success": "Email verified successfully"
           }, 
-          "verifyEmail": "Please check your email for verification",
+          "verifyEmail": "We've sent you an email with a link to verify your email address. Please check your inbox.",
           "verifyingEmail": "Verifying your email"
         },
-        "title": "Email verification"
+        "title": "Please verify your email address"
       },
       "firstUser": {
         "title": "Register first user",
@@ -476,23 +477,24 @@
       },
       "emailVerification": {
         "button": {
-          "label": "Resend email"
+          "label": "Resend"
         },
         "messages": {
           "resend": {
             "alreadyVerified": "Email is already verified. Please try refreshing the page.",
             "error": "Something went wrong. Please try again",
-            "success": "Email resent successfully"
+            "success": "Email resent successfully."
           },
+          "resendEmailInfo": "Not received yet?",
           "verify": {
             "alreadyVerified": "Email is already verified",
             "invalidToken": "The token is invalid",
             "success": "Email verified successfully"
           }, 
-          "verifyEmail": "Please check your email for verification",
+          "verifyEmail": "We've sent you an email with a link to verify your email address. Please check your inbox.",
           "verifyingEmail": "Verifying your email"
         },
-        "title": "Email verification"
+        "title": "Please verify your email address"
       },
       "firstUser": {
         "title": "Register first user",
