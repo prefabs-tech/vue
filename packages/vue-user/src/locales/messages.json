@@ -54,7 +54,7 @@
         }
       },
       "title": "Roles"
-    },    
+    },
     "user": {
       "changePassword": {
         "form": {
@@ -99,7 +99,7 @@
             "alreadyVerified": "Email is already verified",
             "invalidToken": "The token is invalid",
             "success": "Email verified successfully"
-          }, 
+          },
           "verifyEmail": "Please check your email for verification",
           "verifyingEmail": "Verifying your email"
         },
@@ -141,7 +141,7 @@
               "message": "Are you sure you want to resend?"
             },
             "revoke": {
-              "message":"Are you sure you want to revoke?"
+              "message": "Are you sure you want to revoke?"
             }
           },
           "defaultColumns": {
@@ -386,6 +386,63 @@
           "enabled": "Enable"
         }
       }
+    },
+    "invitations": {
+      "title": "Invitations",
+      "form": {
+        "actions": {
+          "cancel": "Cancel",
+          "create": "Create",
+          "update": "Update"
+        },
+        "label": {
+          "add": "Add invitation",
+          "email": "Email",
+          "role": "Role",
+          "update": "Update invitation"
+        },
+        "messages": {
+          "add": {
+            "error": "Something went wrong",
+            "success": "Invitation created successfully"
+          },
+          "invalidEmail": "Please provide a valid email address",
+          "invalidRole": "Invalid role",
+          "update": {
+            "error": "Something went wrong",
+            "success": "Invitation updated successfully"
+          }
+        },
+        "placeholder": {
+          "role": "Select role"
+        }
+      },
+      "table": {
+        "actions": {
+          "addInvitation": "Add invitation",
+          "deleteInvitation": "Delete",
+          "updateInvitation": "Update"
+        },
+        "columns": {
+          "email": "Email",
+          "role": "Role",
+          "status": "Status",
+          "expiresAt": "Expires at"
+        },
+        "confirmation": {
+          "deleteInvitation": {
+            "header": "Confirm delete",
+            "message": "Are you sure you want to delete this invitation?"
+          }
+        },
+        "emptyMessage": "No invitations found",
+        "messages": {
+          "delete": {
+            "error": "Something went wrong",
+            "success": "Invitation deleted successfully"
+          }
+        }
+      }
     }
   },
   "fr": {
@@ -443,7 +500,7 @@
         }
       },
       "title": "Roles"
-    },    
+    },
     "user": {
       "changePassword": {
         "form": {
@@ -488,7 +545,7 @@
             "alreadyVerified": "Email is already verified",
             "invalidToken": "The token is invalid",
             "success": "Email verified successfully"
-          }, 
+          },
           "verifyEmail": "Please check your email for verification",
           "verifyingEmail": "Verifying your email"
         },
@@ -530,7 +587,7 @@
               "message": "Are you sure you want to resend?"
             },
             "revoke": {
-              "message":"Are you sure you want to revoke?"
+              "message": "Are you sure you want to revoke?"
             }
           },
           "defaultColumns": {
@@ -683,7 +740,7 @@
             "success": "Profile updated successfully"
           }
         },
-      "title": "Profil"
+        "title": "Profil"
       },
       "signup": {
         "errors": {
@@ -762,6 +819,63 @@
         "status": {
           "disabled": "Disabled",
           "enabled": "Enable"
+        }
+      }
+    },
+    "invitations": {
+      "title": "Invitations",
+      "form": {
+        "actions": {
+          "cancel": "Annuler",
+          "create": "Créer",
+          "update": "Mettre à jour"
+        },
+        "label": {
+          "add": "Ajouter une invitation",
+          "email": "Email",
+          "role": "Rôle",
+          "update": "Mettre à jour l'invitation"
+        },
+        "messages": {
+          "add": {
+            "error": "Une erreur s'est produite",
+            "success": "Invitation créée avec succès"
+          },
+          "invalidEmail": "Veuillez fournir une adresse email valide",
+          "invalidRole": "Rôle invalide",
+          "update": {
+            "error": "Une erreur s'est produite",
+            "success": "Invitation mise à jour avec succès"
+          }
+        },
+        "placeholder": {
+          "role": "Sélectionner un rôle"
+        }
+      },
+      "table": {
+        "actions": {
+          "addInvitation": "Ajouter une invitation",
+          "deleteInvitation": "Supprimer",
+          "updateInvitation": "Mettre à jour"
+        },
+        "columns": {
+          "email": "Email",
+          "role": "Rôle",
+          "status": "Statut",
+          "expiresAt": "Expire le"
+        },
+        "confirmation": {
+          "deleteInvitation": {
+            "header": "Confirmer la suppression",
+            "message": "Êtes-vous sûr de vouloir supprimer cette invitation ?"
+          }
+        },
+        "emptyMessage": "Aucune invitation trouvée",
+        "messages": {
+          "delete": {
+            "error": "Une erreur s'est produite",
+            "success": "Invitation supprimée avec succès"
+          }
         }
       }
     }
