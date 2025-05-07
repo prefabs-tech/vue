@@ -3,7 +3,6 @@ import { Router } from "vue-router";
 
 import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
 import useUserStore from "./store";
-import { getVerificationStatus } from "./supertokens";
 import AcceptInvitation from "./views/AcceptInvitation.vue";
 import ChangePassword from "./views/ChangePassword.vue";
 import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
@@ -205,7 +204,7 @@ const addAuthenticationGuard = (
     const name = to.name as string;
     const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
     const { user } = storeToRefs(userStore);
-    const { getUser } = userStore;
+    const { getUser, getVerificationStatus } = userStore;
 
     if (!user.value) {
       user.value = await getUser();
@@ -232,7 +231,12 @@ const addAuthenticationGuard = (
     const isProfileCompleted = !!user.value?.isProfileCompleted;
     const profileCompletionEnabled = user.value?.isProfileCompleted !== undefined;
 
-    if (meta.authenticated && profileCompletionEnabled && !isProfileCompleted && name !== "profile") {
+    if (
+      meta.authenticated &&
+      profileCompletionEnabled &&
+      !isProfileCompleted &&
+      !["profile", "verifyEmail", "verifyEmailReminder"].includes(name)
+    ) {
       router.push({ name: "profile" });
     }
   });

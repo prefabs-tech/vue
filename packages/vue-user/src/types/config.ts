@@ -9,6 +9,7 @@ import type {
 interface DzangolabVueUserConfig {
   apiRoutes?: {
     changePassword?: string;
+    getVerificationStatus?: string;
     login?: string;
     logout?: string;
     passwordReset?: string;

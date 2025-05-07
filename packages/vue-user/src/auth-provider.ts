@@ -1,5 +1,6 @@
 import {
   API_PATH_CHANGE_PASSWORD,
+  API_PATH_GET_VERIFICATION_STATUS,
   API_PATH_LOGIN,
   API_PATH_LOGOUT,
   API_PATH_PASSWORD_RESET,
@@ -50,6 +51,15 @@ const providers = {
         path,
       );
     },
+    doGetVerificationStatus: () => {
+      const path =
+        authConfig?.user?.apiRoutes?.getVerificationStatus || API_PATH_GET_VERIFICATION_STATUS;
+
+      return laravelPassport.getVerificationStatus(
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
     doLogin: (credentials: LoginCredentials) => {
       const path = authConfig?.user?.apiRoutes?.login || API_PATH_LOGIN;
 
@@ -95,6 +105,7 @@ const providers = {
   },
   supertokens: {
     doChangePassword: supertokens.changePassword,
+    doGetVerificationStatus: supertokens.getVerificationStatus,
     doGoogleSignIn: supertokens.googleSignIn,
     doLogin: supertokens.login,
     doLogout: supertokens.logout,

@@ -5,9 +5,11 @@ import logout from "./logout";
 import requestPasswordReset from "./request-password-reset";
 import resetPassword from "./reset-password";
 import signup from "./signup";
+import { getVerificationStatus } from "./verify-email";
 
 export {
   changePassword,
+  getVerificationStatus,
   login,
   logout,
   requestPasswordReset,
