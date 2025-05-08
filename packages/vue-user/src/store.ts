@@ -98,6 +98,14 @@ const useUserStore = defineStore("user", () => {
     return data ? JSON.parse(data) : undefined;
   };
 
+  const getVerificationStatus = async () => {
+    const selectedAuthProvider = auth();
+
+    const response = await selectedAuthProvider.doGetVerificationStatus();
+
+    return response;
+  };
+
   const googleSignIn = async (redirectURL: string) => {
     const selectedAuthProvider = auth();
 
@@ -222,6 +230,7 @@ const useUserStore = defineStore("user", () => {
     getIsFirstUser,
     getInvitationByToken,
     getUser,
+    getVerificationStatus,
     invitation,
     login,
     logout,

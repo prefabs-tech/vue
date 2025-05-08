@@ -2,8 +2,8 @@
 
 exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
 <div
-  class="page auth verify-email-reminder"
-  data-centered="false"
+  class="page email-verification-reminder"
+  data-centered="true"
 >
   <div
     class="page-header"
@@ -15,7 +15,7 @@ exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
         class="title"
       >
         <h1>
-          Email verification
+          Please verify your email address
         </h1>
         
         <!---->
@@ -36,44 +36,19 @@ exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
     class="page-content"
   >
     
-    <div
-      class="card"
+    <p>
+      We've sent you an email with a link to verify your email address. Please check your inbox.
+    </p>
+    <p
+      class="resend-email"
     >
-      <!---->
-      <div
-        class="card-body"
+      Not received yet? 
+      <routerlink
+        to="#"
       >
-        
-        <p>
-          Please check your email for verification
-        </p>
-        
-      </div>
-      <footer
-        class="card-footer"
-      >
-        
-        <button
-          aria-label="button"
-          class="button primary medium filled"
-          role="button"
-        >
-          <!---->
-          <div
-            class="label"
-          >
-            
-            <span>
-              Resend email
-            </span>
-            
-          </div>
-          <!---->
-          <!---->
-        </button>
-        
-      </footer>
-    </div>
+        Resend
+      </routerlink>
+    </p>
     
     <!---->
   </div>
@@ -82,8 +57,8 @@ exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
 
 exports[`EmailVerificationReminder > matches snapshot in fr 1`] = `
 <div
-  class="page auth verify-email-reminder"
-  data-centered="false"
+  class="page email-verification-reminder"
+  data-centered="true"
 >
   <div
     class="page-header"
@@ -95,7 +70,7 @@ exports[`EmailVerificationReminder > matches snapshot in fr 1`] = `
         class="title"
       >
         <h1>
-          Email verification
+          Please verify your email address
         </h1>
         
         <!---->
@@ -116,44 +91,19 @@ exports[`EmailVerificationReminder > matches snapshot in fr 1`] = `
     class="page-content"
   >
     
-    <div
-      class="card"
+    <p>
+      We've sent you an email with a link to verify your email address. Please check your inbox.
+    </p>
+    <p
+      class="resend-email"
     >
-      <!---->
-      <div
-        class="card-body"
+      Not received yet? 
+      <routerlink
+        to="#"
       >
-        
-        <p>
-          Please check your email for verification
-        </p>
-        
-      </div>
-      <footer
-        class="card-footer"
-      >
-        
-        <button
-          aria-label="button"
-          class="button primary medium filled"
-          role="button"
-        >
-          <!---->
-          <div
-            class="label"
-          >
-            
-            <span>
-              Resend email
-            </span>
-            
-          </div>
-          <!---->
-          <!---->
-        </button>
-        
-      </footer>
-    </div>
+        Resend
+      </routerlink>
+    </p>
     
     <!---->
   </div>
