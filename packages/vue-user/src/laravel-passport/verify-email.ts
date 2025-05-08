@@ -23,7 +23,7 @@ const sendVerificationEmail = async (
   try {
     const response = await client(apiBaseUrl).post(path);
 
-    if (response) {
+    if (response.data) {
       return EMAIL_VERIFICATION.OK;
     } else {
       return EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR;
