@@ -5,7 +5,7 @@ import logout from "./logout";
 import requestPasswordReset from "./request-password-reset";
 import resetPassword from "./reset-password";
 import signup from "./signup";
-import { getVerificationStatus } from "./verify-email";
+import { getVerificationStatus, sendVerificationEmail } from "./verify-email";
 
 export {
   changePassword,
@@ -14,6 +14,7 @@ export {
   logout,
   requestPasswordReset,
   resetPassword,
+  sendVerificationEmail,
   signup,
   verifySessionRoles
 };

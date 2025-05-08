@@ -5,6 +5,7 @@ const API_PATH_LOGOUT = "/api/logout";
 const API_PATH_PASSWORD_RESET = "/api/reset-password";
 const API_PATH_PASSWORD_RESET_REQUEST = "/api/reset-password-request";
 const API_PATH_REFRESH = "/api/login/refresh";
+const API_PATH_SEND_VERIFICATION_EMAIL = "/api/email/send-verification";
 const API_PATH_SIGNUP = "/api/signup";
 const API_PATH_UPDATE_PROFILE = "/api/profile";
 
@@ -38,6 +39,7 @@ export {
   API_PATH_PASSWORD_RESET,
   API_PATH_PASSWORD_RESET_REQUEST,
   API_PATH_REFRESH,
+  API_PATH_SEND_VERIFICATION_EMAIL,
   API_PATH_SIGNUP,
   API_PATH_UPDATE_PROFILE,
   EMAIL_VERIFICATION,

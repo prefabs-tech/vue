@@ -1,5 +1,6 @@
 import i18Plugin, { useLocaleStore } from "@dzangolab/vue3-i18n";
 import { mount} from "@vue/test-utils";
+import { createPinia } from "pinia";
 import { describe, it, expect } from "vitest";
 
 import appConfig from "../../../components/__test__/config";
@@ -10,6 +11,8 @@ import type { VueWrapper } from "@vue/test-utils";
 describe("EmailVerificationReminder", () => {
   const { setLocale } = useLocaleStore(appConfig.slug);
 
+  const pinia = createPinia();
+
   const locales = ["en", "fr"];
 
   for (const locale of locales) {
@@ -18,6 +21,7 @@ describe("EmailVerificationReminder", () => {
     const wrapper: VueWrapper = mount(EmailVerificationReminder, {
       global: {
         plugins: [
+          pinia,
           [
             i18Plugin,
             {
