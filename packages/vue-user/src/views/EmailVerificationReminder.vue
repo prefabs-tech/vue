@@ -27,14 +27,17 @@ import { Page } from "@dzangolab/vue3-ui";
 
 import { EMAIL_VERIFICATION } from "../constant";
 import { useTranslations, emitter } from "../index";
-import { resendVerificationEmail } from "../supertokens";
+import useUserStore from "../store";
 
 const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
+const userStore = useUserStore();
+const { sendVerificationEmail } = userStore;
+
 const handleResend = () => {
-  resendVerificationEmail()
+  sendVerificationEmail()
     .then((status) => {
       if (status === EMAIL_VERIFICATION.OK) {
         emitter.emit("notify", {

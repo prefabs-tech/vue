@@ -1,4 +1,7 @@
 import client from "../api/axios";
+import { EMAIL_VERIFICATION } from "../constant";
+
+type emailVerificationStatus = "OK" | "EMAIL_ALREADY_VERIFIED_ERROR";
 
 const getVerificationStatus = async (
   apiBaseUrl: string,
@@ -13,4 +16,21 @@ const getVerificationStatus = async (
   }
 };
 
-export { getVerificationStatus};
+const sendVerificationEmail = async (
+  apiBaseUrl: string,
+  path: string,
+): Promise<emailVerificationStatus> => {
+  try {
+    const response = await client(apiBaseUrl).post(path);
+
+    if (response) {
+      return EMAIL_VERIFICATION.OK;
+    } else {
+      return EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR;
+    }
+  } catch (error) {
+    throw new Error("SOMETHING_WRONG");
+  }
+};
+
+export { getVerificationStatus, sendVerificationEmail };

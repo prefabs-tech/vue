@@ -177,6 +177,18 @@ const useUserStore = defineStore("user", () => {
     );
   };
 
+  const sendVerificationEmail = async () => {
+    const selectedAuthProvider = auth();
+    
+    if ("doSendVerificationEmail" in selectedAuthProvider) {
+      return selectedAuthProvider.doSendVerificationEmail();
+    }
+
+    throw new Error(
+      "Send verification email is not supported for the selected auth provider"
+    );
+  };
+
   const setInvitation = (invitationData: Invitation | undefined) => {
     invitation.value = invitationData;
   };
@@ -239,6 +251,7 @@ const useUserStore = defineStore("user", () => {
     removeUser,
     resetPassword,
     requestPasswordReset,
+    sendVerificationEmail,
     setAuthTokens,
     signUpFirstUser,
     setInvitation,
