@@ -33,4 +33,22 @@ const sendVerificationEmail = async (
   }
 };
 
-export { getVerificationStatus, sendVerificationEmail };
+const verifyEmail = async (
+  token: string,
+  apiBaseUrl: string,
+  path: string,
+) => {
+  try {
+    const response = await client(apiBaseUrl).post(path, { token });
+
+    if (response.data) {
+      return { status: EMAIL_VERIFICATION.OK };
+    } else {
+      return { status: EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR };
+    }
+  } catch (error) {
+    throw new Error("SOMETHING_WRONG");
+  }
+};
+
+export { getVerificationStatus, sendVerificationEmail, verifyEmail };

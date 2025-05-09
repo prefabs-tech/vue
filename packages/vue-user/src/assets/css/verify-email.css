@@ -19,6 +19,6 @@
 
 .email-verification[data-centered=true] {
   align-items: flex-start;
-  max-width: var(--dz-page-max-width);
+  max-width: var(--page-max-width);
   margin: auto;
 }

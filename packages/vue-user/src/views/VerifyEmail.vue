@@ -1,22 +1,11 @@
 <template>
-  <Page :title="t('user.emailVerification.title')" class="auth verify-email">
-    <Card>
-      <p>{{ message }}</p>
-
-      <template
-        v-if="
-          status === EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR
-        "
-        #footer
-      >
-        <ButtonElement
-          :label="t('user.emailVerification.button.label')"
-          @click="handleResend"
-        />
-      </template>
-    </Card>
-
-    <LoadingPage :loading="loading" />
+  <Page
+    :loading="loading"
+    :title="t('user.emailVerification.verifyEmail')"
+    centered
+    class="email-verification"
+  >
+    <p>{{ message }}</p>
   </Page>
 </template>
 
@@ -28,19 +17,21 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, Card, LoadingPage, Page } from "@dzangolab/vue3-ui";
+import { Page } from "@dzangolab/vue3-ui";
 import { computed, onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 
 import { EMAIL_VERIFICATION } from "../constant";
 import { useTranslations, emitter } from "../index";
 import useUserStore from "../store";
-import { resendVerificationEmail, verifyEmail } from "../supertokens";
+
+const route = useRoute();
 
 const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
-const { user } = useUserStore();
+const { user, verifyEmail } = useUserStore();
 
 const loading = ref<boolean>(false);
 const status = ref<string>();
@@ -56,9 +47,6 @@ const message = computed(() => {
     case EMAIL_VERIFICATION.OK:
       message = t("user.emailVerification.messages.verify.success");
       break;
-    case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
-      message = t("user.emailVerification.messages.resend.alreadyVerified");
-      break;
     case EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR:
       message = t("user.emailVerification.messages.verify.invalidToken");
       break;
@@ -73,7 +61,14 @@ onMounted(() => {
   if (user) {
     loading.value = true;
 
-    verifyEmail()
+    const token =
+      typeof route.query.token === "string"
+        ? route.query.token
+        : typeof route.params.token === "string"
+          ? route.params.token
+          : undefined;
+
+    verifyEmail(token)
       .then((response) => {
         status.value = response.status;
 
@@ -81,13 +76,6 @@ onMounted(() => {
           emitter.emit("notify", {
             text: t("user.emailVerification.messages.verify.success"),
             type: "success",
-          });
-        } else if (
-          status.value === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR
-        ) {
-          emitter.emit("notify", {
-            text: t("user.emailVerification.messages.verify.alreadyVerified"),
-            type: "info",
           });
         } else {
           emitter.emit("notify", {
@@ -107,29 +95,8 @@ onMounted(() => {
       });
   }
 });
-
-const handleResend = () => {
-  resendVerificationEmail()
-    .then((verificationStatus) => {
-      if (verificationStatus === EMAIL_VERIFICATION.OK) {
-        emitter.emit("notify", {
-          text: t("user.emailVerification.messages.resend.success"),
-          type: "success",
-        });
-      } else if (
-        verificationStatus === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR
-      ) {
-        emitter.emit("notify", {
-          text: t("user.emailVerification.messages.resend.alreadyVerified"),
-          type: "info",
-        });
-      }
-    })
-    .catch(() => {
-      emitter.emit("notify", {
-        text: t("user.emailVerification.messages.resend.error"),
-        type: "error",
-      });
-    });
-};
 </script>
+
+<style lang="css">
+@import "../assets/css/verify-email.css";
+</style>

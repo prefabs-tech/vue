@@ -2,8 +2,8 @@
 
 exports[`VerifyEmail > matches snapshot in en 1`] = `
 <div
-  class="page auth verify-email"
-  data-centered="false"
+  class="page email-verification"
+  data-centered="true"
 >
   <div
     class="page-header"
@@ -15,7 +15,7 @@ exports[`VerifyEmail > matches snapshot in en 1`] = `
         class="title"
       >
         <h1>
-          Please verify your email address
+          Verifying your email address.
         </h1>
         
         <!---->
@@ -36,22 +36,9 @@ exports[`VerifyEmail > matches snapshot in en 1`] = `
     class="page-content"
   >
     
-    <div
-      class="card"
-    >
-      <!---->
-      <div
-        class="card-body"
-      >
-        
-        <p>
-          Something went wrong. Please try again
-        </p>
-        
-      </div>
-      <!---->
-    </div>
-    <!---->
+    <p>
+      Something went wrong. Please try again
+    </p>
     
     <!---->
   </div>
@@ -60,8 +47,8 @@ exports[`VerifyEmail > matches snapshot in en 1`] = `
 
 exports[`VerifyEmail > matches snapshot in fr 1`] = `
 <div
-  class="page auth verify-email"
-  data-centered="false"
+  class="page email-verification"
+  data-centered="true"
 >
   <div
     class="page-header"
@@ -73,7 +60,7 @@ exports[`VerifyEmail > matches snapshot in fr 1`] = `
         class="title"
       >
         <h1>
-          Please verify your email address
+          Verifying your email address.
         </h1>
         
         <!---->
@@ -94,22 +81,9 @@ exports[`VerifyEmail > matches snapshot in fr 1`] = `
     class="page-content"
   >
     
-    <div
-      class="card"
-    >
-      <!---->
-      <div
-        class="card-body"
-      >
-        
-        <p>
-          Something went wrong. Please try again
-        </p>
-        
-      </div>
-      <!---->
-    </div>
-    <!---->
+    <p>
+      Something went wrong. Please try again
+    </p>
     
     <!---->
   </div>
