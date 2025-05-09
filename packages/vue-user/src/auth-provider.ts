@@ -131,7 +131,7 @@ const providers = {
     doLogout: supertokens.logout,
     doRequestPasswordReset: supertokens.requestPasswordReset,
     doResetPassword: supertokens.resetPassword,
-    doSendEmailVerification: supertokens.resendVerificationEmail,
+    doSendVerificationEmail: supertokens.resendVerificationEmail,
     doSignup: supertokens.signup,
     doVerifyEmail: supertokens.verifyEmail,
     isProfileCompleted: supertokens.isProfileCompleted,
