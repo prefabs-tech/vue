@@ -7,6 +7,7 @@ import {
   API_PATH_PASSWORD_RESET_REQUEST,
   API_PATH_SEND_VERIFICATION_EMAIL,
   API_PATH_SIGNUP,
+  API_PATH_VERIFY_EMAIL,
 } from "./constant";
 import * as laravelPassport from "./laravel-passport";
 import * as supertokens from "./supertokens";
@@ -111,6 +112,15 @@ const providers = {
         path,
       );
     },
+    doVerifyEmail: (token: string) => {
+      const path = authConfig?.user?.apiRoutes?.verifyEmail || API_PATH_VERIFY_EMAIL;
+
+      return laravelPassport.verifyEmail(
+        token,
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
     verifySessionRoles: laravelPassport.verifySessionRoles,
   },
   supertokens: {
@@ -121,8 +131,9 @@ const providers = {
     doLogout: supertokens.logout,
     doRequestPasswordReset: supertokens.requestPasswordReset,
     doResetPassword: supertokens.resetPassword,
-    doSendEmailVerification: supertokens.resendVerificationEmail,
+    doSendVerificationEmail: supertokens.resendVerificationEmail,
     doSignup: supertokens.signup,
+    doVerifyEmail: supertokens.verifyEmail,
     isProfileCompleted: supertokens.isProfileCompleted,
     verifySessionRoles: supertokens.verifySessionRoles,
   },

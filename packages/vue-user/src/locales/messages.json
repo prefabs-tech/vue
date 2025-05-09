@@ -102,9 +102,10 @@
             "success": "Email verified successfully"
           }, 
           "verifyEmail": "We've sent you an email with a link to verify your email address. Please check your inbox.",
-          "verifyingEmail": "Verifying your email"
+          "verifyingEmail": "Verifying email"
         },
-        "title": "Please verify your email address"
+        "title": "Please verify your email address",
+        "verifyEmail": "Verifying your email address."
       },
       "firstUser": {
         "title": "Register first user",
@@ -492,9 +493,10 @@
             "success": "Email verified successfully"
           }, 
           "verifyEmail": "We've sent you an email with a link to verify your email address. Please check your inbox.",
-          "verifyingEmail": "Verifying your email"
+          "verifyingEmail": "Verifying email"
         },
-        "title": "Please verify your email address"
+        "title": "Please verify your email address",
+        "verifyEmail": "Verifying your email address."
       },
       "firstUser": {
         "title": "Register first user",

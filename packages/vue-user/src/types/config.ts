@@ -17,6 +17,7 @@ interface DzangolabVueUserConfig {
     refresh?: string;
     sendVerificationEmail?: string;
     signup?: string;
+    verifyEmail?: string;
   };
   features?: {
     authProvider?: string;

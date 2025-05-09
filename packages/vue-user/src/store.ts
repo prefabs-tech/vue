@@ -231,6 +231,18 @@ const useUserStore = defineStore("user", () => {
     setUser(response);
   };
 
+  const verifyEmail = async (token?: string) => {
+    const selectedAuthProvider = auth();
+    
+    if ("doVerifyEmail" in selectedAuthProvider) {
+      return await selectedAuthProvider.doVerifyEmail(token || "");
+    }
+
+    throw new Error(
+      "Verify email is not supported for the selected auth provider"
+    );
+  };
+
   return {
     accessToken,
     acceptInvitation,
@@ -258,6 +270,7 @@ const useUserStore = defineStore("user", () => {
     setUser,
     signup,
     user,
+    verifyEmail,
   };
 });
 
