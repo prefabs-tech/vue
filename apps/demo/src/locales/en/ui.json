@@ -319,8 +319,8 @@
     "usage": {
       "basic": "Basic",
       "disableTabState": {
-        "title": "State persistence disabled",
-        "subtitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing :persist-state='false' prop to the component"
+        "subtitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing :persist-state='false' prop to the component",
+        "title": "State persistence disabled"
       }
     }
   },
