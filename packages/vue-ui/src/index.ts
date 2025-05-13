@@ -26,6 +26,7 @@ import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import SortableList from "./SortableList/Index.vue";
 import Stepper from "./Stepper/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
+import TabView from "./TabView/Index.vue";
 import Tooltip from "./Tooltip/Index.vue";
 import YoutubeFacade from "./YoutubeFacade/Index.vue";
 
@@ -70,6 +71,7 @@ export {
   Stepper,
   SubPane,
   TabbedPanel,
+  TabView,
   Tooltip,
   YoutubeFacade,
 };

@@ -1,0 +1,44 @@
+.tabbed-panel {
+  --tab-active-border: 1px solid var(--dz-primary-color);
+  --tab-hover-border: 1px solid var(--dz-primary-color);
+}
+
+.tabbed-panel > div[role="tabpanel"] {
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.tabbed-panel > div > button {
+  align-items: center;
+  background: none;
+  border: none;
+  border:  var(--tab-border, 1px solid transparent);
+  cursor: pointer;
+  display: flex;
+  outline: 0;
+  padding: var(--tab-padding, 1rem);
+  transition: border-color 200ms ease;
+  width: 100%;
+}
+
+.tabbed-panel > div > button:focus-visible {
+  outline: var(--tab-focus-outline, 1px solid #1c4786);
+  outline-offset: -1px;
+}
+
+.tabbed-panel > div > button span {
+  color: var(--dz-secondary-color);
+  width: max-content;
+}
+
+.tabbed-panel > div > button img {
+  height: var(--tab-icon-height, 16px);
+  margin: var(--tab-icon-margin, 0 5px 0 0);
+  object-fit: contain;
+  width: var(--tab-icon-width, 16px);
+}
+
+.tabbed-panel > div > button.active > span {
+  color: var(--dz-primary-color);
+  font-weight: 500;
+}
