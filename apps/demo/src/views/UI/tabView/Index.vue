@@ -33,7 +33,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabVIew } from "@dzangolab/vue3-ui";
+          import { TabView } from "@dzangolab/vue3-ui";
 
           const tabs = [
             { children: "Description", key: "1", label: "Description" },
@@ -78,7 +78,145 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabVIew } from "@dzangolab/vue3-ui";
+          import { TabView } from "@dzangolab/vue3-ui";
+
+          const tabs = [
+            { children: "Description", key: "1", label: "Description" },
+            { children: "Reviews", closable: true, key: "2", label: "Reviews" },
+            {
+              children: "Specifications",
+              closable: true,
+              key: "3",
+              label: "Specifications",
+            },
+            { children: "Pricing", closable: true, key: "4", label: "Pricing",  },
+            { children: "Installation Instructions", key: "5", label: "Installation",  },
+            { children: "Certifications", key: "6", label: "Certifications" },
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.tabView.usage.positionBottom") }}</h2>
+
+      <div class="section-content">
+        <TabView
+          id="tab-view-bottom"
+          :tabs="tabs"
+          :visible-tabs="['1', '5', '6']"
+          active-key="1"
+          position="bottom"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;TabView
+              id="tab-view-bottom"
+              :tabs="tabs"    
+              :visible-tabs="['1', '5', '6']"
+              active-key="1"
+              position="bottom"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { TabView } from "@dzangolab/vue3-ui";
+
+          const tabs = [
+            { children: "Description", key: "1", label: "Description" },
+            { children: "Reviews", closable: true, key: "2", label: "Reviews" },
+            {
+              children: "Specifications",
+              closable: true,
+              key: "3",
+              label: "Specifications",
+            },
+            { children: "Pricing", closable: true, key: "4", label: "Pricing",  },
+            { children: "Installation Instructions", key: "5", label: "Installation",  },
+            { children: "Certifications", key: "6", label: "Certifications" },
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.tabView.usage.positionLeft") }}</h2>
+
+      <div class="section-content">
+        <TabView
+          id="tab-view-left"
+          :tabs="tabs"
+          :visible-tabs="['1', '5', '6']"
+          active-key="1"
+          position="left"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;TabView
+              id="tab-view-left"
+              :tabs="tabs"    
+              :visible-tabs="['1', '5', '6']"
+              active-key="1"
+              position="left"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { TabView } from "@dzangolab/vue3-ui";
+
+          const tabs = [
+            { children: "Description", key: "1", label: "Description" },
+            { children: "Reviews", closable: true, key: "2", label: "Reviews" },
+            {
+              children: "Specifications",
+              closable: true,
+              key: "3",
+              label: "Specifications",
+            },
+            { children: "Pricing", closable: true, key: "4", label: "Pricing",  },
+            { children: "Installation Instructions", key: "5", label: "Installation",  },
+            { children: "Certifications", key: "6", label: "Certifications" },
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.tabView.usage.positionRight") }}</h2>
+
+      <div class="section-content">
+        <TabView
+          id="tab-view-right"
+          :tabs="tabs"
+          :visible-tabs="['1', '5', '6']"
+          active-key="1"
+          position="right"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;TabView
+              id="tab-view-right"
+              :tabs="tabs"    
+              :visible-tabs="['1', '5', '6']"
+              active-key="1"
+              position="right"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { TabView } from "@dzangolab/vue3-ui";
 
           const tabs = [
             { children: "Description", key: "1", label: "Description" },
