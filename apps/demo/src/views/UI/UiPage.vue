@@ -133,6 +133,10 @@ const menu = [
         name: t("ui.tabbed-panel.title"),
         routeName: "tabbedPanel",
       },
+      {
+        name: t("ui.tabView.title"),
+        routeName: "tabView",
+      },
     ],
   },
   {
