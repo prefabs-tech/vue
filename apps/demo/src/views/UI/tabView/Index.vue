@@ -115,8 +115,8 @@ const tabs = [
     key: "3",
     label: "Specifications",
   },
-  { children: "Pricing", closable: true, key: "4", label: "Pricing",  },
-  { children: "Installation Instructions", key: "5", label: "Installation",  },
+  { children: "Pricing", closable: true, key: "4", label: "Pricing" },
+  { children: "Installation Instructions", key: "5", label: "Installation" },
   { children: "Certifications", key: "6", label: "Certifications" },
 ];
 </script>
