@@ -349,10 +349,68 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("common.properties", { value: "TabViewProperties" }) }}</h2>
+      <div class="section-content">
+        <Table
+          :columns-data="propsColumns"
+          :data="propsData"
+          :paginated="false"
+        />
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("common.slots") }}</h2>
+      <div class="section-content">
+        <Table
+          :columns-data="slotColumns"
+          :data="[
+            {
+              description:
+                'Content for the tab, matched using the key attribute on each element',
+              id: 1,
+              name: 'default',
+            },
+          ]"
+          :paginated="false"
+        />
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("common.events") }}</h2>
+      <div class="section-content">
+        <Table
+          :columns-data="eventColumns"
+          :data="eventData"
+          :paginated="false"
+        />
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("common.type") }}</h2>
+      <div class="section-content">
+        <!-- eslint-disable -->
+          <SshPre language="html-vue">
+            type Tab = {
+              children?: VNode | string;
+              closable?: boolean;
+              icon?: string;
+              key: string;
+              label: string;
+            };
+          </SshPre>
+          <!-- eslint-enable -->
+      </div>
+    </section>
   </UiPage>
 </template>
 
 <script setup lang="ts">
+import { Table } from "@dzangolab/vue3-tanstack-table";
 import { ButtonElement, TabView } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
@@ -360,6 +418,123 @@ import UiPage from "../UiPage.vue";
 
 const activeKey = ref<string>("1");
 const visibleTabs = ref<string[]>(["1"]);
+
+const eventColumns = [
+  {
+    accessorKey: "name",
+    header: "Name",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
+const eventData = [
+  {
+    description: "Triggers on active key change",
+    id: 1,
+    name: "update:activeKey",
+  },
+  {
+    description: "Triggers on visible tabs change",
+    id: 1,
+    name: "update:visibleTabs",
+  },
+];
+
+const propsColumns = [
+  {
+    accessorKey: "prop",
+    header: "Property",
+  },
+  {
+    accessorKey: "type",
+    header: "Type",
+  },
+  {
+    accessorKey: "default",
+    header: "Default",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
+const propsData = [
+  {
+    default: "-",
+    description: "Active key of TabView.",
+    id: 1,
+    prop: "activeKey",
+    type: "string",
+  },
+  {
+    default: "-",
+    description:
+      "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
+    id: 2,
+    prop: "id",
+    type: "string",
+  },
+  {
+    default: "true",
+    description:
+      "If true, tab state is saved either in localStorage or sessionStorage.",
+    id: 3,
+    prop: "persistState",
+    type: "boolean",
+  },
+  {
+    default: "localStorage",
+    description: "Storage to save tab state.",
+    id: 4,
+    prop: "persistStateStorage",
+    type: '"localStorage" | "sessionStorage"',
+  },
+  {
+    default: "top",
+    description: "Position of the tab panel header relative to its content.",
+    id: 5,
+    prop: "position",
+    type: '"top" | "left" | "bottom" | "right"',
+  },
+  {
+    default: "-",
+    description: "Array of tab object.",
+    id: 6,
+    prop: "tabs",
+    type: "Tab[]",
+  },
+  {
+    default: "-",
+    description: "Array of visible tabs.",
+    id: 7,
+    prop: "visibleTabs",
+    type: "string[]",
+  },
+];
+
+const slotColumns = [
+  {
+    accessorKey: "name",
+    header: "Name",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
+const tabList = [
+  { key: "description", label: "Description" },
+  { key: "review", label: "Reviews" },
+  { key: "specifications", label: "Specifications" },
+  { key: "pricing", label: "Pricing" },
+  { key: "installation", label: "Installation" },
+  { key: "certifications", label: "Certifications" },
+];
 
 const tabs = [
   { children: "Description", key: "1", label: "Description" },
@@ -373,15 +548,6 @@ const tabs = [
   { children: "Pricing", closable: true, key: "4", label: "Pricing" },
   { children: "Installation Instructions", key: "5", label: "Installation" },
   { children: "Certifications", key: "6", label: "Certifications" },
-];
-
-const tabList = [
-  { key: "description", label: "Description" },
-  { key: "review", label: "Reviews" },
-  { key: "specifications", label: "Specifications" },
-  { key: "pricing", label: "Pricing" },
-  { key: "installation", label: "Installation" },
-  { key: "certifications", label: "Certifications" },
 ];
 
 const addTab = (key: string) => {
