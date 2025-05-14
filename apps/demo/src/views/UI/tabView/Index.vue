@@ -302,6 +302,53 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("ui.tabView.usage.withSlot") }}</h2>
+
+      <div class="section-content">
+        <TabView
+          id="tab-view-slot"
+          :tabs="tabList"
+          :visible-tabs="['description', 'installation', 'certifications']"
+          active-key="description"
+        >
+          <p key="description">Description</p>
+          <p key="installation">Installation</p>
+          <p key="certifications">Certifications</p>
+        </TabView>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;TabView
+              id="tab-view-slot"
+              :tabs="tabList"    
+              :visible-tabs="['description', 'installation', 'certifications']"
+              active-key="['description']"
+            /&gt;
+              &lt;p key="description"&gt;Description&lt;/p&gt;
+              &lt;p key="installation"&gt;Installation&lt;/p&gt;
+              &lt;p key="certifications"&gt;Certifications&lt;/p&gt;
+            &lt;/TabView&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { TabView } from "@dzangolab/vue3-ui";
+
+          const tabList = [
+            { key: "description", label: "Description" },
+            { key: "review", label: "Reviews" },
+            { key: "specifications", label: "Specifications" },
+            { key: "pricing", label: "Pricing" },
+            { key: "installation", label: "Installation" },
+            { key: "certifications", label: "Certifications" },
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </UiPage>
 </template>
 
@@ -326,6 +373,15 @@ const tabs = [
   { children: "Pricing", closable: true, key: "4", label: "Pricing" },
   { children: "Installation Instructions", key: "5", label: "Installation" },
   { children: "Certifications", key: "6", label: "Certifications" },
+];
+
+const tabList = [
+  { key: "description", label: "Description" },
+  { key: "review", label: "Reviews" },
+  { key: "specifications", label: "Specifications" },
+  { key: "pricing", label: "Pricing" },
+  { key: "installation", label: "Installation" },
+  { key: "certifications", label: "Certifications" },
 ];
 
 const addTab = (key: string) => {

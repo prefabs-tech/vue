@@ -325,7 +325,8 @@
       },
       "positionBottom": "Bottom tabs",
       "positionLeft": "Left tabs",
-      "positionRight": "Right tabs"
+      "positionRight": "Right tabs",
+      "withSlot": "With slot for custom content"
     }
   },
   "tabbed-panel": {
