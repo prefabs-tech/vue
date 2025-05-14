@@ -42,7 +42,7 @@
             "name",
             "roles",
             "signedUpAt",
-            "status",
+            "disabled",
           ];
           &lt;/script&gt;
         </SshPre>
@@ -59,5 +59,5 @@ import { UsersTable } from "@dzangolab/vue3-user";
 import { allUsers } from "./data";
 import UserPage from "./UserPage.vue";
 
-const visibleColumns = ["email", "name", "roles", "signedUpAt", "status"];
+const visibleColumns = ["email", "name", "roles", "signedUpAt", "disabled"];
 </script>

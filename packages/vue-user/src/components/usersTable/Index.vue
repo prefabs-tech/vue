@@ -176,7 +176,6 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
   {
     align: "center",
     accessorKey: "roles",
-    header: t("user.table.defaultColumns.roles"),
     cell: ({ getValue, row }) => {
       const roles = (row.original as unknown as { roles: string[] })?.roles;
       if (Array.isArray(roles)) {
@@ -196,17 +195,19 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
         fullWidth: true,
       });
     },
+    enableSorting: true,
+    header: t("user.table.defaultColumns.roles"),
   },
   {
     accessorKey: "signedUpAt",
     header: t("user.table.defaultColumns.signedUpAt"),
     cell: ({ row }: { row: { original: UserType } }) =>
       row.original.signedUpAt ? formatDate(row.original.signedUpAt) : "-",
+    enableSorting: true,
   },
   {
     align: "center",
-    accessorKey: "status",
-    header: t("user.table.defaultColumns.status"),
+    accessorKey: "disabled",
     cell: ({ row }: { row: { original: UserType } }) => {
       return h(BadgeComponent, {
         label: row.original.disabled
@@ -215,6 +216,8 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
         severity: row.original.disabled ? "danger" : "success",
       });
     },
+    enableSorting: true,
+    header: t("user.table.defaultColumns.status"),
   },
 ];
 
