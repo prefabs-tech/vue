@@ -19,7 +19,7 @@
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
-          @click="handleTabClose(item.key)"
+          @click.stop="handleTabClose(item.key)"
         >
           <path
             d="m13.06 12l4.42-4.42a.75.75 0 1 0-1.06-1.06L12 10.94L7.58 6.52a.75.75 0 0 0-1.06 1.06L10.94 12l-4.42 4.42a.75.75 0 0 0 0 1.06a.75.75 0 0 0 1.06 0L12 13.06l4.42 4.42a.75.75 0 0 0 1.06 0a.75.75 0 0 0 0-1.06Z"
@@ -85,7 +85,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:activeTab", "update:visibleTabs"]);
+const emit = defineEmits(["update:activeKey", "update:visibleTabs"]);
 
 const slots = useSlots();
 
@@ -171,14 +171,17 @@ const handleTabClose = (key: string) => {
     newActiveTab = newVisibleTabs[0];
   }
 
-  activeTab.value = newActiveTab;
+  if (!newVisibleTabs.includes(activeTab.value)) {
+    setActiveTab(newActiveTab);
+  }
+
   visibleTabs.value = newVisibleTabs;
   emit("update:visibleTabs", newVisibleTabs);
 };
 
 const setActiveTab = (key: string) => {
   activeTab.value = key;
-  emit("update:activeTab", key);
+  emit("update:activeKey", key);
 };
 </script>
 

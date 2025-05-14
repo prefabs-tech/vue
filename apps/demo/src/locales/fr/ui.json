@@ -318,6 +318,7 @@
     "title": "Tab view",
     "usage": {
       "basic": "Basic",
+      "closableTab": "Closable tabs",
       "disableTabState": {
         "subtitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing :persist-state='false' prop to the component",
         "title": "State persistence disabled"
