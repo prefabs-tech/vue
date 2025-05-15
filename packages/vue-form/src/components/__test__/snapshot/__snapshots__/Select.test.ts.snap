@@ -75,7 +75,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         />
         <!--v-if-->
       </div>
-       Select all 
+      <span>
+        Select all
+      </span>
     </li>
     
     <li
@@ -93,7 +95,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         <!--v-if-->
       </div>
       
-      BE
+      <span>
+        BE
+      </span>
       
     </li>
     <li
@@ -111,7 +115,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         <!--v-if-->
       </div>
       
-      DE
+      <span>
+        DE
+      </span>
       
     </li>
     <li
@@ -129,7 +135,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         <!--v-if-->
       </div>
       
-      FE
+      <span>
+        FE
+      </span>
       
     </li>
     <li
@@ -147,7 +155,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         <!--v-if-->
       </div>
       
-      FR
+      <span>
+        FR
+      </span>
       
     </li>
     <li
@@ -165,7 +175,9 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
         <!--v-if-->
       </div>
       
-      RE
+      <span>
+        RE
+      </span>
       
     </li>
     
@@ -241,7 +253,9 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     >
       <!--v-if-->
       
-      BE
+      <span>
+        BE
+      </span>
       
     </li>
     <li
@@ -249,7 +263,9 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     >
       <!--v-if-->
       
-      DE
+      <span>
+        DE
+      </span>
       
     </li>
     <li
@@ -257,7 +273,9 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     >
       <!--v-if-->
       
-      FE
+      <span>
+        FE
+      </span>
       
     </li>
     <li
@@ -265,7 +283,9 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     >
       <!--v-if-->
       
-      FR
+      <span>
+        FR
+      </span>
       
     </li>
     <li
@@ -273,7 +293,9 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     >
       <!--v-if-->
       
-      RE
+      <span>
+        RE
+      </span>
       
     </li>
     

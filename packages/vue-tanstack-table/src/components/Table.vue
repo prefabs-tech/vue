@@ -411,10 +411,13 @@ const prepareComponent = () => {
           return row;
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return filterValue.some((value: any) =>
-          row.getValue<unknown[]>(columnId)?.includes(value),
-        );
+        return filterValue.some((value: string | boolean) => {
+          if (typeof value === "boolean") {
+            return row.getValue(columnId) === value;
+          } else {
+            return row.getValue<unknown[]>(columnId)?.includes(value);
+          }
+        });
       };
     }
 
