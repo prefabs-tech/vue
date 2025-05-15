@@ -383,6 +383,11 @@
           "pageInputLabel": "Go to",
           "rowsPerPage": "Rows"
         },
+        "role": {
+          "admin": "ADMIN",
+          "superadmin": "SUPERADMIN",
+          "user": "USER"
+        },
         "status": {
           "disabled": "Disabled",
           "enabled": "Enabled"
@@ -762,6 +767,11 @@
         "pagination": {
           "pageInputLabel": "Go to",
           "rowsPerPage": "Rows"
+        },
+        "role": {
+          "admin": "ADMIN",
+          "superadmin": "SUPERADMIN",
+          "user": "USER"
         },
         "status": {
           "disabled": "Disabled",

@@ -53,7 +53,12 @@ import { Table } from "@dzangolab/vue3-tanstack-table";
 import { BadgeComponent, ButtonElement, formatDate } from "@dzangolab/vue3-ui";
 import { computed, h, ref } from "vue";
 
-import { ROLE_ADMIN, STATUS_OK } from "../../constant";
+import {
+  ROLE_ADMIN,
+  ROLE_SUPERADMIN,
+  ROLE_USER,
+  STATUS_OK,
+} from "../../constant";
 import { useTranslations, emitter } from "../../index";
 import useUserStore from "../../store";
 import InvitationModal from "../invitation/InvitationModal.vue";
@@ -196,8 +201,26 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
         fullWidth: true,
       });
     },
+    enableColumnFilter: true,
     enableSorting: true,
     header: t("user.table.defaultColumns.roles"),
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          value: ROLE_ADMIN,
+          label: t("user.table.role.admin"),
+        },
+        {
+          value: ROLE_SUPERADMIN,
+          label: t("user.table.role.superadmin"),
+        },
+        {
+          value: ROLE_USER,
+          label: t("user.table.role.user"),
+        },
+      ],
+    },
   },
   {
     accessorKey: "signedUpAt",
