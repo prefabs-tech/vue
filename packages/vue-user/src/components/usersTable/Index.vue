@@ -217,8 +217,22 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
         severity: row.original.disabled ? "danger" : "success",
       });
     },
+    enableColumnFilter: true,
     enableSorting: true,
     header: t("user.table.defaultColumns.status"),
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          value: false,
+          label: t("user.table.status.enabled"),
+        },
+        {
+          value: true,
+          label: t("user.table.status.disabled"),
+        },
+      ],
+    },
   },
 ];
 

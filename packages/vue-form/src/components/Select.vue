@@ -63,7 +63,7 @@
           :model-value="isAllSelected(options)"
           @update:model-value="onMultiSelect()"
         />
-        Select all
+        <span>Select all</span>
       </li>
       <li
         v-for="option in sortedOptions"
@@ -80,7 +80,7 @@
           @update:model-value="onMultiSelect()"
         />
         <slot :name="option.value">
-          {{ option.label }}
+          <span>{{ option.label }}</span>
         </slot>
       </li>
     </ul>

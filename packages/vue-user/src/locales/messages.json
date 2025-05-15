@@ -385,7 +385,7 @@
         },
         "status": {
           "disabled": "Disabled",
-          "enabled": "Enable"
+          "enabled": "Enabled"
         }
       }
     }
@@ -765,7 +765,7 @@
         },
         "status": {
           "disabled": "Disabled",
-          "enabled": "Enable"
+          "enabled": "Enabled"
         }
       }
     }
