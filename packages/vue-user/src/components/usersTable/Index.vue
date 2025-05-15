@@ -227,7 +227,12 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
     header: t("user.table.defaultColumns.signedUpAt"),
     cell: ({ row }: { row: { original: UserType } }) =>
       row.original.signedUpAt ? formatDate(row.original.signedUpAt) : "-",
+    enableColumnFilter: true,
     enableSorting: true,
+    meta: {
+      filterVariant: "dateRange",
+      serverFilterFn: "between",
+    },
   },
   {
     align: "center",

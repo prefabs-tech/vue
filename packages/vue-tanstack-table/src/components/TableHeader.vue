@@ -96,6 +96,16 @@
               @update:model-value="column.setFilterValue($event)"
             />
           </template>
+          <template
+            v-else-if="column.columnDef.meta?.filterVariant === 'dateRange'"
+          >
+            <DatePicker
+              :model-value="getColumnFilterValue(column)"
+              name="`date-range-${column.columnDef.accessorKey}`"
+              range
+              @update:model-value="column.setFilterValue($event)"
+            />
+          </template>
           <template v-else>
             <DebouncedInput
               :id="`input-filter-${column.id}`"
@@ -122,7 +132,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { SelectInput } from "@dzangolab/vue3-form";
+import { DatePicker, SelectInput } from "@dzangolab/vue3-form";
 import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
 import { FlexRender } from "@tanstack/vue-table";

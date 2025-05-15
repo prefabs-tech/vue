@@ -67,7 +67,7 @@ const props = defineProps({
     type: String as PropType<string>,
   },
   modelValue: {
-    default: () => new Date().toDateString(),
+    default: undefined,
     type: [Array, Date, Number, Object, String] as PropType<
       | Date
       | Date[]
