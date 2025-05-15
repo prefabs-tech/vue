@@ -383,9 +383,14 @@
           "pageInputLabel": "Go to",
           "rowsPerPage": "Rows"
         },
+        "role": {
+          "admin": "ADMIN",
+          "superadmin": "SUPERADMIN",
+          "user": "USER"
+        },
         "status": {
           "disabled": "Disabled",
-          "enabled": "Enable"
+          "enabled": "Enabled"
         }
       }
     }
@@ -763,9 +768,14 @@
           "pageInputLabel": "Go to",
           "rowsPerPage": "Rows"
         },
+        "role": {
+          "admin": "ADMIN",
+          "superadmin": "SUPERADMIN",
+          "user": "USER"
+        },
         "status": {
           "disabled": "Disabled",
-          "enabled": "Enable"
+          "enabled": "Enabled"
         }
       }
     }

@@ -53,7 +53,12 @@ import { Table } from "@dzangolab/vue3-tanstack-table";
 import { BadgeComponent, ButtonElement, formatDate } from "@dzangolab/vue3-ui";
 import { computed, h, ref } from "vue";
 
-import { ROLE_ADMIN, STATUS_OK } from "../../constant";
+import {
+  ROLE_ADMIN,
+  ROLE_SUPERADMIN,
+  ROLE_USER,
+  STATUS_OK,
+} from "../../constant";
 import { useTranslations, emitter } from "../../index";
 import useUserStore from "../../store";
 import InvitationModal from "../invitation/InvitationModal.vue";
@@ -170,13 +175,13 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
     accessorKey: "name",
     cell: ({ getValue }) => getValue(),
     enableColumnFilter: true,
+    enableSorting: true,
     filterPlaceholder: "",
     header: t("user.table.defaultColumns.name"),
   },
   {
     align: "center",
     accessorKey: "roles",
-    header: t("user.table.defaultColumns.roles"),
     cell: ({ getValue, row }) => {
       const roles = (row.original as unknown as { roles: string[] })?.roles;
       if (Array.isArray(roles)) {
@@ -196,17 +201,37 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
         fullWidth: true,
       });
     },
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.table.defaultColumns.roles"),
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          value: ROLE_ADMIN,
+          label: t("user.table.role.admin"),
+        },
+        {
+          value: ROLE_SUPERADMIN,
+          label: t("user.table.role.superadmin"),
+        },
+        {
+          value: ROLE_USER,
+          label: t("user.table.role.user"),
+        },
+      ],
+    },
   },
   {
     accessorKey: "signedUpAt",
     header: t("user.table.defaultColumns.signedUpAt"),
     cell: ({ row }: { row: { original: UserType } }) =>
       row.original.signedUpAt ? formatDate(row.original.signedUpAt) : "-",
+    enableSorting: true,
   },
   {
     align: "center",
-    accessorKey: "status",
-    header: t("user.table.defaultColumns.status"),
+    accessorKey: "disabled",
     cell: ({ row }: { row: { original: UserType } }) => {
       return h(BadgeComponent, {
         label: row.original.disabled
@@ -214,6 +239,22 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
           : t("user.table.status.enabled"),
         severity: row.original.disabled ? "danger" : "success",
       });
+    },
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.table.defaultColumns.status"),
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          value: false,
+          label: t("user.table.status.enabled"),
+        },
+        {
+          value: true,
+          label: t("user.table.status.disabled"),
+        },
+      ],
     },
   },
 ];

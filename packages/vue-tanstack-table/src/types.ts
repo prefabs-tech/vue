@@ -40,7 +40,7 @@ declare module "@tanstack/vue-table" {
 
 type FilterOption = {
   label: string;
-  value: string;
+  value: string | boolean;
 };
 
 type TFilterRequest =
