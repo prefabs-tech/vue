@@ -12,7 +12,7 @@ type TOrientation = "horizontal" | "vertical";
 type TPosition = "top" | "left" | "bottom" | "right";
 
 type Tab = {
-  children?: VNode;
+  children?: VNode | string;
   closable?: boolean;
   icon?: string;
   key: string;
