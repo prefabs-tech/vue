@@ -419,6 +419,18 @@ const prepareComponent = () => {
           }
         });
       };
+    } else if (column.meta?.filterVariant === "dateRange") {
+      column.filterFn = (row, columnId, filterValue) => {
+        if (filterValue?.length) {
+          const endDate = filterValue[1].setHours(23, 59, 59, 999);
+          const rowData = new Date(row.getValue<string | Date>(columnId));
+          const startDate = filterValue[0].setHours(0, 0, 0, 0);
+
+          return rowData >= startDate && rowData <= endDate;
+        }
+
+        return true;
+      };
     }
 
     columns.push({
