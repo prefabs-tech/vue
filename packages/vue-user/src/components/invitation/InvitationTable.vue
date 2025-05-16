@@ -65,7 +65,6 @@ import type {
   Invitation,
   InvitationAppOption,
   InvitationRoleOption,
-  UserType,
 } from "../../types";
 import type {
   SortingState,
@@ -183,19 +182,21 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     },
   },
   {
+    accessorFn: (original: Invitation) => {
+      return (
+        (original?.invitedBy?.givenName ? original?.invitedBy?.givenName : "") +
+          (original?.invitedBy?.middleNames
+            ? " " + original?.invitedBy?.middleNames
+            : "") +
+          (original?.invitedBy?.surname
+            ? " " + original?.invitedBy?.surname
+            : "") || "-"
+      );
+    },
     accessorKey: "invitedBy",
+    cell: ({ getValue }) => getValue(),
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.invitedBy"),
-    cell: ({ getValue }) => {
-      const invitedBy = getValue() as UserType;
-      if (!invitedBy) {
-        return "—";
-      }
-
-      return invitedBy.givenName || invitedBy.surname
-        ? `${invitedBy.givenName} ${invitedBy.surname}`
-        : invitedBy.email;
-    },
   },
   {
     accessorKey: "expiresAt",
