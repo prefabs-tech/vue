@@ -103,7 +103,9 @@
               :model-value="getColumnFilterValue(column)"
               name="`date-range-${column.columnDef.accessorKey}`"
               range
-              @update:model-value="column.setFilterValue($event)"
+              @update:model-value="
+                column.setFilterValue(getFormattedDateRange($event))
+              "
             />
           </template>
           <template v-else>
@@ -166,5 +168,23 @@ const activeColumnClass = (column: Column<unknown, unknown>) => {
 
 const getColumnFilterValue = (column: Column<unknown, unknown>) => {
   return column.getFilterValue() as string | string[];
+};
+
+const getFormattedDateRange = (dateRange: Date[]) => {
+  if (!dateRange?.length) {
+    return null;
+  }
+
+  return (dateRange as Date[])
+    .map((date, index) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+
+      const time = index === 0 ? "00:00:00" : "23:59:59";
+
+      return `${year}-${month}-${day} ${time}`;
+    })
+    .filter((date) => date !== null);
 };
 </script>
