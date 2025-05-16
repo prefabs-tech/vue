@@ -70,6 +70,7 @@ import type {
 import type {
   SortingState,
   TableColumnDefinition,
+  TableRow,
   TRequestJSON,
 } from "@dzangolab/vue3-tanstack-table";
 import type { PropType } from "vue";
@@ -152,12 +153,14 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   },
   {
     align: "center",
-    accessorKey: "app",
+    accessorKey: "appId",
+    enableSorting: true,
     header: t("user.invitation.table.defaultColumns.app"),
     cell: ({ row }) => row.original.appId || "—",
   },
   {
     accessorKey: "role",
+    enableSorting: true,
     header: t("user.invitation.table.defaultColumns.role"),
     cell: ({ getValue, row: original }) => {
       const roles = (original as unknown as { roles: string[] })?.roles;
@@ -181,6 +184,7 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   },
   {
     accessorKey: "invitedBy",
+    enableSorting: true,
     header: t("user.invitation.table.defaultColumns.invitedBy"),
     cell: ({ getValue }) => {
       const invitedBy = getValue() as UserType;
@@ -195,22 +199,18 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   },
   {
     accessorKey: "expiresAt",
+    enableSorting: true,
     header: t("user.invitation.table.defaultColumns.expiresAt"),
     cell: ({ getValue }) => formatDateTime(getValue() as string),
   },
   {
     align: "center",
     accessorKey: "status",
+    enableSorting: !props.isServerTable,
     header: t("user.invitation.table.defaultColumns.status"),
     cell: ({ row }) => {
       const { acceptedAt, revokedAt, expiresAt } = row.original;
-      const label = acceptedAt
-        ? t("user.invitation.table.status.accepted")
-        : revokedAt
-          ? t("user.invitation.table.status.revoked")
-          : isExpired(expiresAt)
-            ? t("user.invitation.table.status.expired")
-            : t("user.invitation.table.status.pending");
+      const label = getStatusLabel(row);
       const severity = acceptedAt
         ? "success"
         : revokedAt
@@ -219,6 +219,9 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
             ? "secondary"
             : "warning";
       return h(BadgeComponent, { label, severity });
+    },
+    sortingFn: (rowA, rowB, columnId) => {
+      return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));
     },
   },
 ];
@@ -285,6 +288,17 @@ const mergedColumns = computed(() => [
 
 const isExpired = (date?: string | Date | number) => {
   return !!(date && new Date(date) < new Date());
+};
+
+const getStatusLabel = (row: TableRow<Invitation>) => {
+  const { acceptedAt, revokedAt, expiresAt } = row.original;
+  return acceptedAt
+    ? t("user.invitation.table.status.accepted")
+    : revokedAt
+      ? t("user.invitation.table.status.revoked")
+      : isExpired(expiresAt)
+        ? t("user.invitation.table.status.expired")
+        : t("user.invitation.table.status.pending");
 };
 
 const onActionSelect = (rowData: { action: string; data: Invitation }) => {
