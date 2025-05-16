@@ -367,13 +367,16 @@ const isExpired = (date?: string | Date | number) => {
 
 const getStatusLabel = (row: TableRow<Invitation>) => {
   const { acceptedAt, revokedAt, expiresAt } = row.original;
-  return acceptedAt
-    ? t("user.invitation.table.status.accepted")
-    : revokedAt
-      ? t("user.invitation.table.status.revoked")
-      : isExpired(expiresAt)
-        ? t("user.invitation.table.status.expired")
-        : t("user.invitation.table.status.pending");
+
+  if (acceptedAt) {
+    return t("user.invitation.table.status.accepted");
+  } else if (revokedAt) {
+    return t("user.invitation.table.status.revoked");
+  } else if (isExpired(expiresAt)) {
+    return t("user.invitation.table.status.expired");
+  }
+
+  return t("user.invitation.table.status.pending");
 };
 
 const onActionSelect = (rowData: { action: string; data: Invitation }) => {
