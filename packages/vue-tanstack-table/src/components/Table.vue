@@ -120,6 +120,10 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  enableSortingRemoval: {
+    default: false,
+    type: Boolean,
+  },
   data: {
     type: Array,
     default: () => [],
@@ -333,6 +337,7 @@ const table = computed(() =>
     },
     columnResizeMode: "onChange",
     data: props.data,
+    enableSortingRemoval: props.enableSortingRemoval,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
