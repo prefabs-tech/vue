@@ -16,6 +16,7 @@
     }"
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
+    class="table-invitations"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
   >
@@ -167,6 +168,7 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     header: t("user.invitation.table.defaultColumns.app"),
   },
   {
+    align: "center",
     accessorKey: "role",
     cell: ({ getValue, row: original }) => {
       const roles = (original as unknown as { roles: string[] })?.roles;
@@ -249,14 +251,14 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
         return true;
       }
 
-      let status = "Pending";
+      let status = INVITATION_STATUS_PENDING;
 
       if (acceptedAt) {
-        status = "Accepted";
+        status = INVITATION_STATUS_ACCEPTED;
       } else if (revokedAt) {
-        status = "Revoked";
+        status = INVITATION_STATUS_REVOKED;
       } else if (isExpired(expiresAt)) {
-        status = "Expired";
+        status = INVITATION_STATUS_EXPIRED;
       }
 
       return filterValue.includes(status);
