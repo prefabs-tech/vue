@@ -10,6 +10,8 @@
       />
     </template>
 
+    <Message :message="t('ui.tabbed-panel.depreciation-message')" />
+
     <TabbedPanel class="colorized shadow">
       <BasicUsage :title="t('ui.tabbed-panel.basic-usage')" />
       <Colorized :title="t('ui.tabbed-panel.with-color')" />
@@ -29,7 +31,7 @@ export default {
 
 <script lang="ts" setup>
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, TabbedPanel } from "@dzangolab/vue3-ui";
+import { ButtonElement, Message, TabbedPanel } from "@dzangolab/vue3-ui";
 
 import BasicUsage from "./BasicUsage.vue";
 import Colorized from "./Colorized.vue";
@@ -44,8 +46,13 @@ const { t } = useI18n();
 section {
   margin: var(--accordion-sections, 1rem 0);
 }
+
 .sub-pane {
   padding: var(--accordion-subpane, 1rem);
   border: 1px solid var(--tabbedpanel-subpane-border-color, black);
+}
+
+.tabbed-panel.colorized {
+  margin-block: 1rem;
 }
 </style>

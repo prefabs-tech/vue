@@ -341,6 +341,7 @@
         "title": "Tab 2[fr]"
       }
     },
+    "depreciation-message": "{'@'}deprecated: Use TabView component from the ui package instead",
     "no-title": "Les descendants sans prop `title` seront ignorés",
     "position": {
       "bottom": "Au-dessous",
