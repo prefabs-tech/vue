@@ -2,7 +2,7 @@
   <div class="demo">
     <Sidebar :menu="menu" class="demo-aside" no-header />
     <div class="demo-main">
-      <Page :sub-title="subTitle" :title="title">
+      <Page :sub-title="subtitle" :title="title">
         <template #toolbar>
           <slot name="toolbar"></slot>
         </template>
@@ -25,7 +25,7 @@ import { Sidebar } from "@dzangolab/vue3-layout";
 import type { PropType } from "vue";
 
 defineProps({
-  subTitle: {
+  subtitle: {
     default: undefined,
     required: false,
     type: String as PropType<string>,

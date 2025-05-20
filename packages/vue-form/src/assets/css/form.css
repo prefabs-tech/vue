@@ -51,7 +51,7 @@ form input {
   width: 100%;
 }
 
-form input:focus {
+form input:not(input[type="checkbox"]):focus {
   outline: 2px solid var(--form-input-focus-color, #007aff);
 }
 

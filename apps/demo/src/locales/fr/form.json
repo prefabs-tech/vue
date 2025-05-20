@@ -161,5 +161,8 @@
     "username": "Enter username[fr]"
   },
   "submittedValue": "Submitted value[fr]",
+  "subtitle": {
+    "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts."
+  },
   "title": "Form library[fr]"
 }
