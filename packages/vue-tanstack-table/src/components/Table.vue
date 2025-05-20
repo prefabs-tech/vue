@@ -116,14 +116,6 @@ const props = defineProps({
     default: () => ({}),
     type: Object as () => Record<string, (value: unknown) => unknown>,
   },
-  enableRowSelection: {
-    default: false,
-    type: Boolean,
-  },
-  enableSortingRemoval: {
-    default: false,
-    type: Boolean,
-  },
   data: {
     type: Array,
     default: () => [],
@@ -137,6 +129,14 @@ const props = defineProps({
   emptyTableMessage: {
     default: undefined,
     type: String,
+  },
+  enableRowSelection: {
+    default: false,
+    type: Boolean,
+  },
+  enableSortingRemoval: {
+    default: false,
+    type: Boolean,
   },
   id: {
     default: undefined,
