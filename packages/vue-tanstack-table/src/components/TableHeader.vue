@@ -101,6 +101,7 @@
           >
             <DatePicker
               :model-value="getColumnFilterValue(column)"
+              :placeholder="column.columnDef.filterPlaceholder"
               name="`date-range-${column.columnDef.accessorKey}`"
               range
               @update:model-value="

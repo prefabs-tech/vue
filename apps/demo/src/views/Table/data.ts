@@ -1,3 +1,26 @@
+const city = [
+  { label: "Atlanta", value: "Atlanta" },
+  { label: "Austin", value: "Austin" },
+  { label: "Boston", value: "Boston" },
+  { label: "Charlotte", value: "Charlotte" },
+  { label: "Chicago", value: "Chicago" },
+  { label: "Dallas-Fort Worth", value: "Dallas-Fort Worth" },
+  { label: "Denver", value: "Denver" },
+  { label: "Detroit", value: "Detroit" },
+  { label: "Houston", value: "Houston" },
+  { label: "Los Angeles", value: "Los Angeles" },
+  { label: "Miami Beach", value: "Miami Beach" },
+  { label: "Minneapolis", value: "Minneapolis" },
+  { label: "Nashville", value: "Nashville" },
+  { label: "New York", value: "New York" },
+  { label: "Philadelphia", value: "Philadelphia" },
+  { label: "Phoenix", value: "Phoenix" },
+  { label: "Portland", value: "Portland" },
+  { label: "San Diego", value: "San Diego" },
+  { label: "San Francisco Bay Area", value: "San Francisco Bay Area" },
+  { label: "Seattle", value: "Seattle" },
+];
+
 const data = [
   {
     id: 1,
@@ -74,6 +97,7 @@ const data = [
     name: "Ryan Alexander Cooper",
     email: "ryan.cooper@example.com",
     age: 34,
+    disabled: true,
     city: "Boston",
   },
   {
@@ -81,6 +105,7 @@ const data = [
     name: "Emily Davis",
     email: "emily.d@example.com",
     age: 33,
+    disabled: true,
     city: "Phoenix",
   },
   {
@@ -88,6 +113,7 @@ const data = [
     name: "Daniel William White",
     email: "daniel.white@example.com",
     age: 28,
+    disabled: true,
     city: "Philadelphia",
   },
   {
@@ -95,6 +121,7 @@ const data = [
     name: "Ava Rose Moore",
     email: "ava.m@example.com",
     age: 24,
+    disabled: false,
     city: "Austin",
   },
   {
@@ -102,6 +129,7 @@ const data = [
     name: "Nicholas Harrison",
     email: "nicholas.h@example.com",
     age: 27,
+    disabled: false,
     city: "San Diego",
   },
   {
@@ -550,4 +578,9 @@ const invitations = [
   },
 ];
 
-export { data, formatDemoData, invitations };
+export {
+  city,
+  data,
+  formatDemoData,
+  invitations
+};
