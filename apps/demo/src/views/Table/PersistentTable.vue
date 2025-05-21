@@ -51,15 +51,18 @@
             },
             {
               accessorKey: "name",
+              enableSorting: true,
               header: "Full name",
             },
             {
               accessorKey: "age",
               align: "right",
+              enableSorting: true,
               header: "Age",
             },
             {
               accessorKey: "city",
+              enableSorting: true,
               header: "City",
             },
           ];
@@ -117,15 +120,18 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   },
   {
     accessorKey: "name",
+    enableSorting: true,
     header: "Full name",
   },
   {
     accessorKey: "age",
     align: "right",
+    enableSorting: true,
     header: "Age",
   },
   {
     accessorKey: "city",
+    enableSorting: true,
     header: "City",
   },
 ];

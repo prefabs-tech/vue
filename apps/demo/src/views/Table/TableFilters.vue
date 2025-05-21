@@ -37,17 +37,20 @@
             },
             {
               accessorKey: "name",
+              enableSorting: true,
               header: "Full name",
             },
             {
               align: "right",
               accessorKey: "age",
+              enableSorting: true,
               header: "Age",
             },
             {
               accessorKey: "city",
               header: "City",
               enableColumnFilter: true,
+              enableSorting: true,
               filterPlaceholder: "Select city",
               meta: {
                 filterVariant: "multiselect",
@@ -145,6 +148,7 @@
           {
             accessorKey: "description",
             enableColumnFilter: true,
+            enableSorting: true,
             filterFn: "customEqualStringFilter",
             filterPlaceholder: t("table.label.matchDescription"),
             header: "Description",
@@ -161,6 +165,7 @@
           {
             accessorKey: "amount",
             dataType: "currency",
+            enableSorting: true,
             header: "Amount",
             numberOptions: {
               locale: "en-US",
@@ -194,6 +199,7 @@
             },
             dataType: "date",
             enableColumnFilter: true,
+            enableSorting: true,
             filterFn: "inDateRangeFilter",
             header: "Date",
           },
@@ -332,6 +338,7 @@
               } else if (columnData.accessorKey === "city") {
                 return {
                   accessorKey: "city",
+                  enableSorting: true,
                   header: "City",
                 };
               }
@@ -386,6 +393,7 @@
               } else if (columnData.accessorKey === "city") {
                 return {
                   accessorKey: "city",
+                  enableSorting: true,
                   header: "City",
                 };
               }
@@ -438,16 +446,19 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   },
   {
     accessorKey: "name",
+    enableSorting: true,
     header: "Full name",
   },
   {
     accessorKey: "age",
     align: "right",
+    enableSorting: true,
     header: "Age",
   },
   {
     accessorKey: "city",
     enableColumnFilter: true,
+    enableSorting: true,
     filterPlaceholder: "Select city",
     header: "City",
     meta: {
@@ -496,6 +507,7 @@ const customColumns = [
     } else if (columnData.accessorKey === "city") {
       return {
         accessorKey: "city",
+        enableSorting: true,
         header: "City",
       };
     }
@@ -508,6 +520,7 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "description",
     enableColumnFilter: true,
+    enableSorting: true,
     filterFn: "customEqualStringFilter",
     filterPlaceholder: t("table.label.matchDescription"),
     header: "Description",
@@ -524,6 +537,7 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "amount",
     dataType: "currency",
+    enableSorting: true,
     header: "Amount",
     numberOptions: {
       locale: "en-US",
@@ -557,6 +571,7 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
     },
     dataType: "date",
     enableColumnFilter: true,
+    enableSorting: true,
     filterFn: "inDateRangeFilter",
     header: "Date",
   },
@@ -588,6 +603,7 @@ const equalFilterColumns = [
     } else if (columnData.accessorKey === "city") {
       return {
         accessorKey: "city",
+        enableSorting: true,
         header: "City",
       };
     }

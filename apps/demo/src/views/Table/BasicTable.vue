@@ -38,19 +38,23 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
+              enableSorting: true,
               header: "Email",
             },
             {
               accessorKey: "name",
+              enableSorting: true,
               header: "Full name",
             },
             {
               accessorKey: "age",
+              enableSorting: true,
               header: "Age",
               align: "right",
             },
             {
               accessorKey: "city",
+              enableSorting: true,
               header: "City",
             },
           ];
@@ -103,15 +107,18 @@
             },
             {
               accessorKey: "name",
+              enableSorting: true,
               header: "Full name",
             },
             {
               accessorKey: "age",
+              enableSorting: true,
               header: "Age",
               align: "right",
             },
             {
               accessorKey: "city",
+              enableSorting: true,
               header: "City",
             },
           ];
@@ -305,20 +312,24 @@
             {
               accessorKey: "email",
               align: "left",
+              enableSorting: true,
               header: "Email",
             },
             {
               accessorKey: "name",
+              enableSorting: true,
               header: "Full name",
             },
             {
               accessorKey: "age",
               align: "right",
+              enableSorting: true,
               header: "Age",
             },
             {
               accessorKey: "city",
               align: "center",
+              enableSorting: true,
               header: "City",
             },
           ];
@@ -931,6 +942,7 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "description",
+              enableSorting: true,
               header: "Description",
             },
             {
@@ -945,6 +957,7 @@
             {
               accessorKey: "amount",
               dataType: "currency",
+              enableSorting: true,
               header: "Amount",
               numberOptions: {
                 formatOptions: {
@@ -956,10 +969,12 @@
             {
               accessorKey: "date",
               dataType: "date",
+              enableSorting: true,
               header: "Date",
             },
             {
               accessorKey: "datetime",
+              enableSorting: true,
               header: "Datetime",
               dataType: "datetime",
             },
@@ -1026,6 +1041,7 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "description",
+              enableSorting: true,
               header: "Description",
             },
             {
@@ -1037,11 +1053,13 @@
             {
               accessorKey: "amount",
               dataType: "currency",
+              enableSorting: true,
               header: "Amount",
             },
             {
               accessorKey: "date",
               dataType: "date",
+              enableSorting: true,
               header: "Date",
             },
             {
@@ -1181,20 +1199,24 @@ const alignmentColumns = [
   {
     accessorKey: "email",
     align: "left",
+    enableSorting: true,
     header: "Email",
   },
   {
     accessorKey: "name",
+    enableSorting: true,
     header: "Full name",
   },
   {
     accessorKey: "age",
     align: "right",
+    enableSorting: true,
     header: "Age",
   },
   {
     accessorKey: "city",
     align: "center",
+    enableSorting: true,
     header: "City",
   },
 ];
@@ -1202,19 +1224,23 @@ const alignmentColumns = [
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "email",
+    enableSorting: true,
     header: "Email",
   },
   {
     accessorKey: "name",
+    enableSorting: true,
     header: "Full name",
   },
   {
     align: "right",
     accessorKey: "age",
+    enableSorting: true,
     header: "Age",
   },
   {
     accessorKey: "city",
+    enableSorting: true,
     header: "City",
   },
 ];
@@ -1259,6 +1285,7 @@ const columnsWithTooltip = columns.map((column, index) => ({
 const customFormattedTableColumns = [
   {
     accessorKey: "description",
+    enableSorting: true,
     header: "Description",
   },
   {
@@ -1270,11 +1297,13 @@ const customFormattedTableColumns = [
   {
     accessorKey: "amount",
     dataType: "currency",
+    enableSorting: true,
     header: "Amount",
   },
   {
     accessorKey: "date",
     dataType: "date",
+    enableSorting: true,
     header: "Date",
   },
   {
@@ -1296,6 +1325,7 @@ const customFormattedTableColumns = [
 const formattedTableColumns = [
   {
     accessorKey: "description",
+    enableSorting: true,
     header: "Description",
   },
   {
@@ -1310,6 +1340,7 @@ const formattedTableColumns = [
   {
     accessorKey: "amount",
     dataType: "currency",
+    enableSorting: true,
     header: "Amount",
     numberOptions: {
       formatOptions: {
@@ -1321,10 +1352,12 @@ const formattedTableColumns = [
   {
     accessorKey: "date",
     dataType: "date",
+    enableSorting: true,
     header: "Date",
   },
   {
     accessorKey: "datetime",
+    enableSorting: true,
     header: "Datetime",
     dataType: "datetime",
   },
