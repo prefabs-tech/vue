@@ -25,53 +25,43 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
+          import { city } from "./data";
+
           import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
-              enableSorting: true,
-              header: "Email",
               enableColumnFilter: true,
+              enableSorting: true,
               filterPlaceholder: "Search by email...",
+              header: "Email",
             },
             {
               accessorKey: "name",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Full name",
             },
             {
-              align: "right",
               accessorKey: "age",
+              align: "right",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Age",
             },
             {
               accessorKey: "city",
-              header: "City",
               enableColumnFilter: true,
               enableSorting: true,
-              filterPlaceholder: "Select city",
+              filterPlaceholder: t("table.placeholder.city"),
+              header: "City",
               meta: {
                 filterVariant: "multiselect",
-                filterOptions: [
-                  {
-                    value: "Atlanta",
-                    label: "Atlanta",
-                  },
-                  {
-                    value: "Chicago",
-                    label: "Chicago",
-                  },
-                  {
-                    value: "Boston",
-                    label: "Boston",
-                  },
-                  {
-                    value: "Denver",
-                    label: "Denver",
-                  },
-                ],
+                filterOptions: city,
               },
             },
           ];
@@ -144,78 +134,86 @@
     
           const { t } = useI18n();
 
-          const customFilterColumns: Array&lt;TableColumnDefinition&gt; = [
-          {
-            accessorKey: "description",
-            enableColumnFilter: true,
-            enableSorting: true,
-            filterFn: "customEqualStringFilter",
-            filterPlaceholder: t("table.label.matchDescription"),
-            header: "Description",
-          },
-          {
-            accessorKey: "quantity",
-            dataType: "number",
-            enableSorting: true,
-            header: "Quantity",
-            numberOptions: {
-              locale: "en-IN",
+          const customFilterColumns = [
+            {
+              accessorKey: "description",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterFn: "customEqualStringFilter",
+              filterPlaceholder: t("table.label.matchDescription"),
+              header: "Description",
             },
-          },
-          {
-            accessorKey: "amount",
-            dataType: "currency",
-            enableSorting: true,
-            header: "Amount",
-            numberOptions: {
-              locale: "en-US",
-              formatOptions: {
-                currency: "EUR",
+            {
+              accessorKey: "quantity",
+              dataType: "number",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
+              header: "Quantity",
+              numberOptions: {
+                locale: "en-IN",
               },
             },
-          },
-          {
-            accessorKey: "date",
-            customFilterComponent: (column) => {
-              return h(
-                "div",
-                {
-                  class: "filter-date",
+            {
+              accessorKey: "amount",
+              dataType: "currency",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
+              header: "Amount",
+              numberOptions: {
+                formatOptions: {
+                  currency: "EUR",
                 },
-                [
-                  h(DatePicker, {
-                    modelValue: dateRange.value,
-                    multiCalendars: true,
-                    name: "date-range",
-                    placeholder: t("table.label.dateRange"),
-                    range: true,
-                    "onUpdate:modelValue": (value) => {
-                      dateRange.value = value;
-                      column.setFilterValue(value);
-                    },
-                  }),
-                ],
-              );
+                locale: "en-US",
+              },
             },
-            dataType: "date",
-            enableColumnFilter: true,
-            enableSorting: true,
-            filterFn: "inDateRangeFilter",
-            header: "Date",
-          },
-          {
-            accessorKey: "action",
-            cell: () =>
-              h(ButtonElement, {
-                iconLeft: "pi pi-eye",
-                rounded: true,
-                variant: "textOnly",
-              }),
-            dataType: "other",
-            header: () => h("i", {
-              class: "pi pi-cog"
-            }),
-          },
+            {
+              accessorKey: "date",
+              customFilterComponent: (column) => {
+                return h(
+                  "div",
+                  {
+                    class: "filter-date",
+                  },
+                  [
+                    h(DatePicker, {
+                      modelValue: dateRange.value,
+                      multiCalendars: true,
+                      name: "date-range",
+                      placeholder: t("table.label.dateRange"),
+                      range: true,
+                      "onUpdate:modelValue": (value) => {
+                        dateRange.value = value;
+                        column.setFilterValue(value);
+                      },
+                    }),
+                  ],
+                );
+              },
+              dataType: "date",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterFn: "inDateRangeFilter",
+              filterPlaceholder: t("table.placeholder.dateRange"),
+              header: "Date",
+            },
+            {
+              accessorKey: "action",
+              cell: () =>
+                h(ButtonElement, {
+                  iconLeft: "pi pi-eye",
+                  rounded: true,
+                  variant: "textOnly",
+                }),
+              dataType: "other",
+              header: () =>
+                h("i", {
+                  class: "pi pi-cog",
+                }),
+            },
           ];
   
           const data = [
@@ -325,7 +323,7 @@
                     return h(DebouncedInput, {
                       debounceTime: 200,
                       modelValue: column.getFilterValue() as string,
-                      placeholder: t('table.label.customFilter'),
+                      placeholder: t("table.label.customFilter"),
                       "onUpdate:modelValue": (value) => {
                         column.setFilterValue(value);
                       },
@@ -333,18 +331,19 @@
                   },
                   meta: {
                     serverFilterFn: "contains",
-                  }
+                  },
                 };
-              } else if (columnData.accessorKey === "city") {
+              } else if (columnData.accessorKey === "age") {
                 return {
-                  accessorKey: "city",
-                  enableSorting: true,
-                  header: "City",
-                };
+                  ...columnData,
+                  meta: {
+                    serverFilterFn: "equals",
+                  }
+                }
               }
 
               return columnData;
-            })
+            }),
           ];
   
           const data = [
@@ -383,23 +382,20 @@
 
           const equalFilterColumns = [
             ...columns.map((columnData) => {
-              if (columnData.accessorKey === "email") {
+              if (
+                columnData.accessorKey === "email" ||
+                columnData.accessorKey === "age"
+              ) {
                 return {
                   ...columnData,
                   meta: {
                     serverFilterFn: "equals",
-                  }
-                };
-              } else if (columnData.accessorKey === "city") {
-                return {
-                  accessorKey: "city",
-                  enableSorting: true,
-                  header: "City",
+                  },
                 };
               }
 
               return columnData;
-            })
+            }),
           ];
   
           const data = [
@@ -426,7 +422,7 @@ import { Table } from "@dzangolab/vue3-tanstack-table";
 import { ButtonElement, DebouncedInput } from "@dzangolab/vue3-ui";
 import { h, ref } from "vue";
 
-import { data, formatDemoData } from "./data";
+import { city, data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
 
 import type {
@@ -446,41 +442,29 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   },
   {
     accessorKey: "name",
+    enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Full name",
   },
   {
     accessorKey: "age",
     align: "right",
+    enableColumnFilter: true,
     enableSorting: true,
+    filterFn: "weakEquals",
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Age",
   },
   {
     accessorKey: "city",
     enableColumnFilter: true,
     enableSorting: true,
-    filterPlaceholder: "Select city",
+    filterPlaceholder: t("table.placeholder.city"),
     header: "City",
     meta: {
       filterVariant: "multiselect",
-      filterOptions: [
-        {
-          label: "Atlanta",
-          value: "Atlanta",
-        },
-        {
-          label: "Chicago",
-          value: "Chicago",
-        },
-        {
-          label: "Boston",
-          value: "Boston",
-        },
-        {
-          label: "Denver",
-          value: "Denver",
-        },
-      ],
+      filterOptions: city,
     },
   },
 ];
@@ -504,11 +488,12 @@ const customColumns = [
           serverFilterFn: "contains",
         },
       };
-    } else if (columnData.accessorKey === "city") {
+    } else if (columnData.accessorKey === "age") {
       return {
-        accessorKey: "city",
-        enableSorting: true,
-        header: "City",
+        ...columnData,
+        meta: {
+          serverFilterFn: "equals",
+        },
       };
     }
 
@@ -528,7 +513,10 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "quantity",
     dataType: "number",
+    enableColumnFilter: true,
     enableSorting: true,
+    filterFn: "weakEquals",
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Quantity",
     numberOptions: {
       locale: "en-IN",
@@ -537,13 +525,16 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "amount",
     dataType: "currency",
+    enableColumnFilter: true,
     enableSorting: true,
+    filterFn: "weakEquals",
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Amount",
     numberOptions: {
-      locale: "en-US",
       formatOptions: {
         currency: "EUR",
       },
+      locale: "en-US",
     },
   },
   {
@@ -573,6 +564,7 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
     enableColumnFilter: true,
     enableSorting: true,
     filterFn: "inDateRangeFilter",
+    filterPlaceholder: t("table.placeholder.dateRange"),
     header: "Date",
   },
   {
@@ -593,18 +585,15 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
 
 const equalFilterColumns = [
   ...columns.map((columnData) => {
-    if (columnData.accessorKey === "email") {
+    if (
+      columnData.accessorKey === "email" ||
+      columnData.accessorKey === "age"
+    ) {
       return {
         ...columnData,
         meta: {
           serverFilterFn: "equals",
         },
-      };
-    } else if (columnData.accessorKey === "city") {
-      return {
-        accessorKey: "city",
-        enableSorting: true,
-        header: "City",
       };
     }
 

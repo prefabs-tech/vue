@@ -197,7 +197,7 @@
 
 .table-wrapper > table tr.filters > th > div > input {
   width: 100%;
-  min-width: 7rem;
+  min-width: fit-content;
   font-weight: normal;
   background: #ffffff;
 }
