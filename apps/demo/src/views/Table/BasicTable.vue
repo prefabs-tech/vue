@@ -38,24 +38,37 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Email",
             },
             {
               accessorKey: "name",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Full name",
             },
             {
-              accessorKey: "age",
-              enableSorting: true,
-              header: "Age",
               align: "right",
+              accessorKey: "age",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
+              header: "Age",
             },
             {
               accessorKey: "city",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.city"),
               header: "City",
+              meta: {
+                filterVariant: "multiselect",
+                filterOptions: city,
+              },
             },
           ];
   
@@ -102,24 +115,37 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Email",
             },
             {
               accessorKey: "name",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Full name",
             },
             {
-              accessorKey: "age",
-              enableSorting: true,
-              header: "Age",
               align: "right",
+              accessorKey: "age",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
+              header: "Age",
             },
             {
               accessorKey: "city",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.city"),
               header: "City",
+              meta: {
+                filterVariant: "multiselect",
+                filterOptions: city,
+              },
             },
           ];
   
@@ -312,25 +338,38 @@
             {
               accessorKey: "email",
               align: "left",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Email",
             },
             {
               accessorKey: "name",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Full name",
             },
             {
               accessorKey: "age",
               align: "right",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Age",
             },
             {
               accessorKey: "city",
               align: "center",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.city"),
               header: "City",
+              meta: {
+                filterVariant: "multiselect",
+                filterOptions: city,
+              },
             },
           ];
   
@@ -942,22 +981,30 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "description",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Description",
             },
             {
               accessorKey: "quantity",
               dataType: "number",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
               header: () => "Quantity",
               numberOptions: {
                 locale: "en-IN",
-              }
+              },
             },
             {
               accessorKey: "amount",
               dataType: "currency",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Amount",
               numberOptions: {
                 formatOptions: {
@@ -969,14 +1016,24 @@
             {
               accessorKey: "date",
               dataType: "date",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.dateRange"),
               header: "Date",
+              meta: {
+                filterVariant: "dateRange",
+              },
             },
             {
               accessorKey: "datetime",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.dateRange"),
               header: "Datetime",
               dataType: "datetime",
+              meta: {
+                filterVariant: "dateRange",
+              },
             },
             {
               id: "action",
@@ -1041,37 +1098,50 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "description",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Description",
             },
             {
               accessorKey: "quantity",
               dataType: "number",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
               header: () => "Quantity",
             },
             {
               accessorKey: "amount",
               dataType: "currency",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterFn: "weakEquals",
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Amount",
             },
             {
               accessorKey: "date",
               dataType: "date",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.dateRange"),
               header: "Date",
+              meta: {
+                filterVariant: "dateRange",
+              },
             },
             {
               id: "action",
-              cell: () => 
+              cell: () =>
                 h(ButtonElement, {
                   iconLeft: "pi pi-eye",
                   variant: "textOnly",
                   rounded: true,
                 }),
               dataType: "other",
-              header: () => 
+              header: () =>
                 h("i", {
                   class: "pi pi-cog",
                 }),
@@ -1122,24 +1192,38 @@
             ...
           ];
 
-          const centerAlignedTableColumns = columns.map((column) => {
-            if (column.accessorKey === "name") {
-              return {
-                ...column,
-                align: "center",
-                cell: ({ row: { original } }) => h(
-                  "div",
+          const centerAlignedTableColumns = [
+            ...columns,
+            {
+              accessorKey: "disabled",
+              align: "center",
+              cell: ({ row }) => {
+                return h(BadgeComponent, {
+                  label: row.original?.disabled
+                    ? "Disabled"
+                    : "Enabled",
+                  severity: row.original?.disabled ? "danger" : "success",
+                });
+              },
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.status"),
+              header: "Status",
+              meta: {
+                filterVariant: "multiselect",
+                filterOptions: [
                   {
-                    class: "cell-name",
+                    label: "Enabled",
+                    value: false,
                   },
-                  original.name
-                ),
-                header: "Name"
-              };
-            }
-
-            return column;
-          });
+                  {
+                    label: "Disabled",
+                    value: true,
+                  },
+                ],
+              },
+            },
+          ];
           &lt;/script&gt;
 
           &lt;style lang="css"&gt;
@@ -1294,7 +1378,9 @@ const centerAlignedTableColumns = [
     align: "center",
     cell: ({ row }) => {
       return h(BadgeComponent, {
-        label: row.original?.disabled ? "Disabled" : "Enabled",
+        label: row.original?.disabled
+          ? t("table.label.enabled")
+          : t("table.label.enabled"),
         severity: row.original?.disabled ? "danger" : "success",
       });
     },
@@ -1306,11 +1392,11 @@ const centerAlignedTableColumns = [
       filterVariant: "multiselect",
       filterOptions: [
         {
-          label: "Enabled",
+          label: t("table.label.enabled"),
           value: false,
         },
         {
-          label: "Disabled",
+          label: t("table.label.disabled"),
           value: true,
         },
       ],
