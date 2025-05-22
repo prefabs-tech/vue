@@ -33,6 +33,8 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
+          import { city } from "./data";
+
           import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
