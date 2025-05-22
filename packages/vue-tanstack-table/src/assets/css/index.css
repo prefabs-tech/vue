@@ -160,7 +160,7 @@
 
 .table-container .table-wrapper > table tr > th .sort-state .sort-icon {
   display: inline-block;
-  font-size: 0.9rem;
+  vertical-align: text-bottom;
 }
 
 .table-container .table-wrapper > table tr > th.sortable:active {
