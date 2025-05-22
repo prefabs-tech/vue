@@ -164,10 +164,10 @@
               filterPlaceholder: t("table.placeholder.search"),
               header: "Amount",
               numberOptions: {
-                locale: "en-US",
                 formatOptions: {
                   currency: "EUR",
                 },
+                locale: "en-US",
               },
             },
             {
@@ -531,10 +531,10 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
     filterPlaceholder: t("table.placeholder.search"),
     header: "Amount",
     numberOptions: {
-      locale: "en-US",
       formatOptions: {
         currency: "EUR",
       },
+      locale: "en-US",
     },
   },
   {
