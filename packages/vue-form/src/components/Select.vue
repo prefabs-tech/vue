@@ -249,19 +249,35 @@ const onKeyDown = (event: KeyboardEvent) => {
     if (event.key === "ArrowDown") {
       event.preventDefault();
 
-      focusedOptionIndex.value =
-        focusedOptionIndex.value < sortedOptions.value.length - 1
-          ? focusedOptionIndex.value + 1
-          : 0;
+      const nextIndex = (startIndex: number): number => {
+        const total = sortedOptions.value.length;
+        let index = (startIndex + 1) % total;
+
+        while (sortedOptions.value[index]?.disabled && index !== startIndex) {
+          index = (index + 1) % total;
+        }
+
+        return index;
+      };
+
+      focusedOptionIndex.value = nextIndex(focusedOptionIndex.value);
 
       enableOptionNavigation.value = true;
     } else if (event.key === "ArrowUp") {
       event.preventDefault();
 
-      focusedOptionIndex.value =
-        focusedOptionIndex.value > 0
-          ? focusedOptionIndex.value - 1
-          : sortedOptions.value.length - 1;
+      const prevIndex = (startIndex: number): number => {
+        const total = sortedOptions.value.length;
+        let index = (startIndex - 1 + total) % total;
+
+        while (sortedOptions.value[index]?.disabled && index !== startIndex) {
+          index = (index - 1 + total) % total;
+        }
+
+        return index;
+      };
+
+      focusedOptionIndex.value = prevIndex(focusedOptionIndex.value);
 
       enableOptionNavigation.value = true;
     }
@@ -281,6 +297,7 @@ const onKeyDown = (event: KeyboardEvent) => {
     const highlightedOption = sortedOptions.value[focusedOptionIndex.value];
     if (enableOptionNavigation.value && !highlightedOption?.disabled) {
       onSelect(event, highlightedOption);
+      enableOptionNavigation.value = false;
     }
   }
 };
