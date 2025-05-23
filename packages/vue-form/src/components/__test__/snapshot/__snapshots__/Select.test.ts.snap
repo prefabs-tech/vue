@@ -23,6 +23,7 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
     >
       <svg
         fill="none"
+        tabindex="0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -209,6 +210,7 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     >
       <svg
         fill="none"
+        tabindex="0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
