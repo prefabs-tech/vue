@@ -53,7 +53,11 @@
         </svg>
       </span>
     </div>
-    <ul v-if="showDropdownMenu && !disabled" role="list">
+    <ul
+      v-if="showDropdownMenu && !disabled"
+      role="list"
+      @mouseenter="enableOptionNavigation = false"
+    >
       <DebouncedInput
         v-if="enableSearch"
         v-model="searchInput"
@@ -70,11 +74,14 @@
       <li
         v-for="(option, index) in sortedOptions"
         :key="option.label"
-        class="multiselect-option"
-        :class="{
-          selected: isSelected(option) && !multiple,
-          focused: focusedOptionIndex === index && enableOptionNavigation,
-        }"
+        :ref="setOptionReference(index)"
+        :class="[
+          {
+            selected: isSelected(option) && !multiple,
+            focused: focusedOptionIndex === index && enableOptionNavigation,
+          },
+          'multiselect-option',
+        ]"
         :disabled="option.disabled"
         @click="!option.disabled ? onSelect($event, option) : ''"
       >
@@ -101,12 +108,12 @@ export default {
 <script setup lang="ts">
 import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
-import { computed, onMounted, ref, toRaw, toRefs, watch } from "vue";
+import { computed, nextTick, onMounted, ref, toRaw, toRefs, watch } from "vue";
 
 import Checkbox from "./Checkbox.vue";
 
 import type { SelectOption } from "../types";
-import type { PropType, Ref } from "vue";
+import type { ComponentPublicInstance, PropType, Ref } from "vue";
 
 const props = defineProps({
   disabled: {
@@ -158,6 +165,7 @@ const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
 const focusedOptionIndex = ref(-1);
 const enableOptionNavigation = ref(false);
+const dzangolabVueFormSelectOptions = ref<(HTMLElement | null)[]>([]);
 const searchInput: Ref<string | undefined> = ref();
 const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
@@ -257,6 +265,12 @@ const onKeyDown = (event: KeyboardEvent) => {
 
       enableOptionNavigation.value = true;
     }
+
+    nextTick(() => {
+      const element =
+        dzangolabVueFormSelectOptions.value[focusedOptionIndex.value];
+      element?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    });
   }
 
   if (toggleKeys.includes(event.key)) {
@@ -348,6 +362,11 @@ const onUnselect = (event: Event, option?: SelectOption) => {
 
   onMultiSelect();
 };
+
+const setOptionReference =
+  (index: number) => (element: Element | ComponentPublicInstance | null) => {
+    dzangolabVueFormSelectOptions.value[index] = element as HTMLElement | null;
+  };
 
 onMounted(() => {
   prepareComponent();
