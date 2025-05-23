@@ -3,6 +3,8 @@
     ref="dzangolabVueFormSelect"
     :class="{ 'multiple-mode': multiple }"
     class="multiselect"
+    tabindex="0"
+    @keydown="onKeyDown"
   >
     <label v-if="label" for="multiselect">
       {{ label }}
@@ -66,10 +68,13 @@
         <span>Select all</span>
       </li>
       <li
-        v-for="option in sortedOptions"
+        v-for="(option, index) in sortedOptions"
         :key="option.label"
         class="multiselect-option"
-        :class="{ selected: isSelected(option) && !multiple }"
+        :class="{
+          selected: isSelected(option) && !multiple,
+          focused: focusedOptionIndex === index && enableOptionNavigation,
+        }"
         :disabled="option.disabled"
         @click="!option.disabled ? onSelect($event, option) : ''"
       >
@@ -151,6 +156,8 @@ const emit = defineEmits(["update:modelValue"]);
 
 const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
+const focusedOptionIndex = ref(-1);
+const enableOptionNavigation = ref(false);
 const searchInput: Ref<string | undefined> = ref();
 const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
@@ -220,6 +227,49 @@ const isSelected = (option: SelectOption): boolean =>
   selectedOptions.value.some(
     (selectedOption) => selectedOption.value === option.value,
   );
+
+const onKeyDown = (event: KeyboardEvent) => {
+  if (props.disabled) {
+    return;
+  }
+
+  const toggleKeys = ["Enter", " "];
+
+  if (!showDropdownMenu.value) {
+    toggleKeys.push("ArrowUp", "ArrowDown");
+  } else {
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+
+      focusedOptionIndex.value =
+        focusedOptionIndex.value < sortedOptions.value.length - 1
+          ? focusedOptionIndex.value + 1
+          : 0;
+
+      enableOptionNavigation.value = true;
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+
+      focusedOptionIndex.value =
+        focusedOptionIndex.value > 0
+          ? focusedOptionIndex.value - 1
+          : sortedOptions.value.length - 1;
+
+      enableOptionNavigation.value = true;
+    }
+  }
+
+  if (toggleKeys.includes(event.key)) {
+    event.preventDefault();
+
+    toggleDropdown();
+
+    const highlightedOption = sortedOptions.value[focusedOptionIndex.value];
+    if (enableOptionNavigation.value && !highlightedOption?.disabled) {
+      onSelect(event, highlightedOption);
+    }
+  }
+};
 
 const onSelect = (event: Event, option: SelectOption) => {
   event.stopPropagation();
