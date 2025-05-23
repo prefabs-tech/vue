@@ -65,7 +65,6 @@
         v-if="enableSearch"
         v-model="searchInput"
         :placeholder="searchPlaceholder"
-        tabindex="0"
       />
 
       <li v-if="multiple" class="multiselect-option" @click="onSelectAll()">
