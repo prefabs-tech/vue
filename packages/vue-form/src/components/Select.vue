@@ -92,8 +92,8 @@
         :ref="setOptionReference(index)"
         :class="[
           {
-            selected: isSelected(option) && !multiple,
             focused: focusedOptionIndex === index && enableOptionNavigation,
+            selected: isSelected(option) && !multiple,
           },
           'multiselect-option',
         ]"
@@ -178,13 +178,13 @@ const emit = defineEmits(["update:modelValue"]);
 
 const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
-const focusedOptionIndex = ref(0);
-const enableOptionNavigation = ref(false);
 const dzangolabVueSelectAll = ref();
 const dzangolabVueFormSelectOptions = ref<(HTMLElement | null)[]>([]);
+const enableOptionNavigation = ref(false);
+const focusedOptionIndex = ref(0);
 const searchInput: Ref<string | undefined> = ref();
-const selectedOptions: Ref<SelectOption[]> = ref([]);
 const selectAllIndex = -1;
+const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
 
 onClickOutside(dzangolabVueFormSelect, (event) => {
