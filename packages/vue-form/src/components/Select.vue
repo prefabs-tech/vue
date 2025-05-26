@@ -60,6 +60,7 @@
       v-if="showDropdownMenu && !disabled"
       role="list"
       @mouseenter="enableOptionNavigation = false"
+      @keydown.tab.stop.prevent="toggleDropdown"
     >
       <DebouncedInput
         v-if="enableSearch"
@@ -252,6 +253,66 @@ const isSelected = (option: SelectOption): boolean =>
     (selectedOption) => selectedOption.value === option.value,
   );
 
+const nextIndex = (startIndex: number): number => {
+  const total = sortedOptions.value.length;
+  let index = (startIndex + 1) % total;
+
+  while (sortedOptions.value[index]?.disabled && index !== startIndex) {
+    index = (index + 1) % total;
+  }
+
+  return index;
+};
+
+const onArrowDown = (event: KeyboardEvent) => {
+  event.preventDefault();
+
+  const firstActiveIndex = sortedOptions.value.findIndex(
+    (option) => !option.disabled,
+  );
+
+  if (
+    props.multiple &&
+    nextIndex(focusedOptionIndex.value) === firstActiveIndex &&
+    focusedOptionIndex.value !== selectAllIndex
+  ) {
+    focusedOptionIndex.value = selectAllIndex;
+  } else {
+    focusedOptionIndex.value =
+      focusedOptionIndex.value === selectAllIndex
+        ? firstActiveIndex
+        : nextIndex(focusedOptionIndex.value);
+  }
+
+  enableOptionNavigation.value = true;
+};
+
+const onArrowUp = (event: KeyboardEvent) => {
+  event.preventDefault();
+
+  const reversedIndex = sortedOptions.value
+    .slice()
+    .reverse()
+    .findIndex((option) => !option.disabled);
+  const total = sortedOptions.value.length;
+  const lastActiveIndex = total - 1 - reversedIndex;
+
+  if (
+    props.multiple &&
+    previousIndex(focusedOptionIndex.value) === lastActiveIndex &&
+    focusedOptionIndex.value !== selectAllIndex
+  ) {
+    focusedOptionIndex.value = selectAllIndex;
+  } else {
+    focusedOptionIndex.value =
+      focusedOptionIndex.value === selectAllIndex
+        ? lastActiveIndex
+        : previousIndex(focusedOptionIndex.value);
+  }
+
+  enableOptionNavigation.value = true;
+};
+
 const onKeyDown = (event: KeyboardEvent) => {
   if (props.disabled) {
     return;
@@ -263,72 +324,9 @@ const onKeyDown = (event: KeyboardEvent) => {
     toggleKeys.push("ArrowUp", "ArrowDown");
   } else {
     if (event.key === "ArrowDown") {
-      event.preventDefault();
-
-      const nextIndex = (startIndex: number): number => {
-        const total = sortedOptions.value.length;
-        let index = (startIndex + 1) % total;
-
-        while (sortedOptions.value[index]?.disabled && index !== startIndex) {
-          index = (index + 1) % total;
-        }
-
-        return index;
-      };
-
-      const firstActiveIndex = sortedOptions.value.findIndex(
-        (option) => !option.disabled,
-      );
-
-      if (
-        props.multiple &&
-        nextIndex(focusedOptionIndex.value) === firstActiveIndex &&
-        focusedOptionIndex.value !== selectAllIndex
-      ) {
-        focusedOptionIndex.value = selectAllIndex;
-      } else {
-        focusedOptionIndex.value =
-          focusedOptionIndex.value === selectAllIndex
-            ? firstActiveIndex
-            : nextIndex(focusedOptionIndex.value);
-      }
-
-      enableOptionNavigation.value = true;
+      onArrowDown(event);
     } else if (event.key === "ArrowUp") {
-      event.preventDefault();
-
-      const total = sortedOptions.value.length;
-      const prevIndex = (startIndex: number): number => {
-        let index = (startIndex - 1 + total) % total;
-
-        while (sortedOptions.value[index]?.disabled && index !== startIndex) {
-          index = (index - 1 + total) % total;
-        }
-
-        return index;
-      };
-
-      const reversedIndex = sortedOptions.value
-        .slice()
-        .reverse()
-        .findIndex((option) => !option.disabled);
-
-      const lastActiveIndex = total - 1 - reversedIndex;
-
-      if (
-        props.multiple &&
-        prevIndex(focusedOptionIndex.value) === lastActiveIndex &&
-        focusedOptionIndex.value !== selectAllIndex
-      ) {
-        focusedOptionIndex.value = selectAllIndex;
-      } else {
-        focusedOptionIndex.value =
-          focusedOptionIndex.value === selectAllIndex
-            ? lastActiveIndex
-            : prevIndex(focusedOptionIndex.value);
-      }
-
-      enableOptionNavigation.value = true;
+      onArrowUp(event);
     }
 
     nextTick(() => {
@@ -342,27 +340,7 @@ const onKeyDown = (event: KeyboardEvent) => {
   }
 
   if (toggleKeys.includes(event.key)) {
-    event.preventDefault();
-
-    if (!(showDropdownMenu.value && props.multiple)) {
-      toggleDropdown();
-    }
-
-    const highlightedOption = sortedOptions.value[focusedOptionIndex.value];
-    if (
-      enableOptionNavigation.value &&
-      highlightedOption &&
-      !highlightedOption.disabled
-    ) {
-      onSelect(event, highlightedOption);
-      enableOptionNavigation.value = false;
-    }
-
-    if (enableOptionNavigation.value && focusedOptionIndex.value === -1) {
-      onSelectAll();
-      toggleDropdown();
-      enableOptionNavigation.value = false;
-    }
+    onToggleKeyDown(event);
   }
 };
 
@@ -401,30 +379,34 @@ const onSelectAll = () => {
   onMultiSelect();
 };
 
+const onToggleKeyDown = (event: KeyboardEvent) => {
+  event.preventDefault();
+
+  if (!(showDropdownMenu.value && props.multiple)) {
+    toggleDropdown();
+  }
+
+  const highlightedOption = sortedOptions.value[focusedOptionIndex.value];
+
+  if (enableOptionNavigation.value) {
+    if (highlightedOption && !highlightedOption.disabled) {
+      onSelect(event, highlightedOption);
+      enableOptionNavigation.value = false;
+    } else if (focusedOptionIndex.value === selectAllIndex) {
+      onSelectAll();
+      toggleDropdown();
+    }
+
+    enableOptionNavigation.value = false;
+  }
+};
+
 const onMultiSelect = () => {
   const selectedValues = selectedOptions.value?.map(
     (selectedOption) => selectedOption.value,
   );
 
   emit("update:modelValue", selectedValues);
-};
-
-const toggleDropdown = () => {
-  showDropdownMenu.value = !showDropdownMenu.value;
-};
-
-const prepareComponent = () => {
-  if (multiple.value && Array.isArray(props.modelValue)) {
-    selectedOptions.value = props.modelValue.map((value) => {
-      return getSelectedOption(value as string | number);
-    }) as SelectOption[];
-  } else if (props.modelValue && !Array.isArray(props.modelValue)) {
-    selectedOptions.value = [
-      getSelectedOption(props.modelValue),
-    ] as SelectOption[];
-  } else if (!props.modelValue) {
-    selectedOptions.value = [];
-  }
 };
 
 const onUnselect = (event: Event, option?: SelectOption) => {
@@ -444,10 +426,39 @@ const onUnselect = (event: Event, option?: SelectOption) => {
   onMultiSelect();
 };
 
+const prepareComponent = () => {
+  if (multiple.value && Array.isArray(props.modelValue)) {
+    selectedOptions.value = props.modelValue.map((value) => {
+      return getSelectedOption(value as string | number);
+    }) as SelectOption[];
+  } else if (props.modelValue && !Array.isArray(props.modelValue)) {
+    selectedOptions.value = [
+      getSelectedOption(props.modelValue),
+    ] as SelectOption[];
+  } else if (!props.modelValue) {
+    selectedOptions.value = [];
+  }
+};
+
+const previousIndex = (startIndex: number): number => {
+  const total = sortedOptions.value.length;
+  let index = (startIndex - 1 + total) % total;
+
+  while (sortedOptions.value[index]?.disabled && index !== startIndex) {
+    index = (index - 1 + total) % total;
+  }
+
+  return index;
+};
+
 const setOptionReference =
   (index: number) => (element: Element | ComponentPublicInstance | null) => {
     dzangolabVueFormSelectOptions.value[index] = element as HTMLElement | null;
   };
+
+const toggleDropdown = () => {
+  showDropdownMenu.value = !showDropdownMenu.value;
+};
 
 onMounted(() => {
   prepareComponent();
