@@ -60,6 +60,7 @@
 }
 
 .multiselect>ul>li {
+  background-color: var(--_multiselect-selected-bg-color);
   border-radius: var(--form-input-border-radius, 0.25em);
   cursor: pointer;
   display: flex;
@@ -92,13 +93,15 @@
     --multiselect-selected-bg-color,
     #e5e5e5
   );
-
-  background-color: var(--_multiselect-selected-bg-color);
 }
 
 .multiselect>ul>li.focused {
-  background-color: #f0f0f0;
-  outline: 2px solid #0066cc;
+  --_multiselect-selected-bg-color: var(
+    --multiselect-selected-bg-color,
+    #e5e5e5
+  );
+
+  opacity: 0.8;
 }
 
 .multiselect .multiselect-placeholder {

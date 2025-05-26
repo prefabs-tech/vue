@@ -67,7 +67,18 @@
         :placeholder="searchPlaceholder"
       />
 
-      <li v-if="multiple" class="multiselect-option" @click="onSelectAll()">
+      <li
+        v-if="multiple"
+        ref="dzangolabVueSelectAll"
+        :class="[
+          {
+            focused:
+              focusedOptionIndex === selectAllIndex && enableOptionNavigation,
+          },
+          'multiselect-option',
+        ]"
+        @click="onSelectAll()"
+      >
         <Checkbox
           :model-value="isAllSelected(options)"
           @update:model-value="onMultiSelect()"
@@ -166,11 +177,13 @@ const emit = defineEmits(["update:modelValue"]);
 
 const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
-const focusedOptionIndex = ref(-1);
+const focusedOptionIndex = ref(0);
 const enableOptionNavigation = ref(false);
+const dzangolabVueSelectAll = ref();
 const dzangolabVueFormSelectOptions = ref<(HTMLElement | null)[]>([]);
 const searchInput: Ref<string | undefined> = ref();
 const selectedOptions: Ref<SelectOption[]> = ref([]);
+const selectAllIndex = -1;
 const showDropdownMenu: Ref<boolean> = ref(false);
 
 onClickOutside(dzangolabVueFormSelect, (event) => {
@@ -263,14 +276,29 @@ const onKeyDown = (event: KeyboardEvent) => {
         return index;
       };
 
-      focusedOptionIndex.value = nextIndex(focusedOptionIndex.value);
+      const firstActiveIndex = sortedOptions.value.findIndex(
+        (option) => !option.disabled,
+      );
+
+      if (
+        props.multiple &&
+        nextIndex(focusedOptionIndex.value) === firstActiveIndex &&
+        focusedOptionIndex.value !== selectAllIndex
+      ) {
+        focusedOptionIndex.value = selectAllIndex;
+      } else {
+        focusedOptionIndex.value =
+          focusedOptionIndex.value === selectAllIndex
+            ? firstActiveIndex
+            : nextIndex(focusedOptionIndex.value);
+      }
 
       enableOptionNavigation.value = true;
     } else if (event.key === "ArrowUp") {
       event.preventDefault();
 
+      const total = sortedOptions.value.length;
       const prevIndex = (startIndex: number): number => {
-        const total = sortedOptions.value.length;
         let index = (startIndex - 1 + total) % total;
 
         while (sortedOptions.value[index]?.disabled && index !== startIndex) {
@@ -280,14 +308,35 @@ const onKeyDown = (event: KeyboardEvent) => {
         return index;
       };
 
-      focusedOptionIndex.value = prevIndex(focusedOptionIndex.value);
+      const reversedIndex = sortedOptions.value
+        .slice()
+        .reverse()
+        .findIndex((option) => !option.disabled);
+
+      const lastActiveIndex = total - 1 - reversedIndex;
+
+      if (
+        props.multiple &&
+        prevIndex(focusedOptionIndex.value) === lastActiveIndex &&
+        focusedOptionIndex.value !== selectAllIndex
+      ) {
+        focusedOptionIndex.value = selectAllIndex;
+      } else {
+        focusedOptionIndex.value =
+          focusedOptionIndex.value === selectAllIndex
+            ? lastActiveIndex
+            : prevIndex(focusedOptionIndex.value);
+      }
 
       enableOptionNavigation.value = true;
     }
 
     nextTick(() => {
-      const element =
-        dzangolabVueFormSelectOptions.value[focusedOptionIndex.value];
+      let element =
+        focusedOptionIndex.value === selectAllIndex
+          ? dzangolabVueSelectAll.value
+          : dzangolabVueFormSelectOptions.value[focusedOptionIndex.value];
+
       element?.scrollIntoView({ block: "nearest", behavior: "smooth" });
     });
   }
@@ -295,11 +344,23 @@ const onKeyDown = (event: KeyboardEvent) => {
   if (toggleKeys.includes(event.key)) {
     event.preventDefault();
 
-    toggleDropdown();
+    if (!(showDropdownMenu.value && props.multiple)) {
+      toggleDropdown();
+    }
 
     const highlightedOption = sortedOptions.value[focusedOptionIndex.value];
-    if (enableOptionNavigation.value && !highlightedOption?.disabled) {
+    if (
+      enableOptionNavigation.value &&
+      highlightedOption &&
+      !highlightedOption.disabled
+    ) {
       onSelect(event, highlightedOption);
+      enableOptionNavigation.value = false;
+    }
+
+    if (enableOptionNavigation.value && focusedOptionIndex.value === -1) {
+      onSelectAll();
+      toggleDropdown();
       enableOptionNavigation.value = false;
     }
   }
