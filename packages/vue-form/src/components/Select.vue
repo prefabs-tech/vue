@@ -69,7 +69,7 @@
       />
 
       <li
-        v-if="multiple"
+        v-if="multiple && !searchInput"
         ref="dzangolabVueSelectAll"
         :class="[
           {
@@ -422,6 +422,8 @@ const onUnselect = (event: Event, option?: SelectOption) => {
     selectedOptions.value = [];
     showDropdownMenu.value = false;
   }
+
+  searchInput.value = undefined;
 
   onMultiSelect();
 };
