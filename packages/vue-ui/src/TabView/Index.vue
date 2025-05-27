@@ -94,15 +94,35 @@ const initialized = ref(false);
 const visibleTabs = ref([...props.visibleTabs]);
 
 const activeTabComponent = computed(() => {
-  const filteredSlots = slots?.default
-    ? slots.default().filter((slot) => {
-        return slot?.props?.key;
-      })
-    : [];
+  const filteredSlots = slots?.default?.() ?? [];
+
+  const validSlots = filteredSlots.flatMap((slot) => {
+    if (Array.isArray(slot?.children) && !slot?.props?.key) {
+      return slot.children.filter(
+        (child) =>
+          typeof child === "object" &&
+          child !== null &&
+          "props" in child &&
+          child.props?.key,
+      );
+    }
+
+    if (slot?.props?.key) {
+      return [slot];
+    }
+
+    return [];
+  });
 
   return (
     filteredTabs.value.find((tab) => tab.key === activeTab.value)?.children ||
-    filteredSlots.find((slot) => slot?.props?.key === activeTab.value)
+    validSlots.find(
+      (slot) =>
+        typeof slot === "object" &&
+        slot !== null &&
+        "props" in slot &&
+        slot.props?.key === activeTab.value,
+    )
   );
 });
 
