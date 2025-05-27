@@ -210,8 +210,14 @@ const addAuthenticationGuard = (
       user.value = await getUser();
     }
 
+    const isSocialLoggedIn = user.value?.thirdParty && userConfig?.socialLogins?.includes(user.value?.thirdParty?.id);
+
     if (meta.authenticated && !user.value) {
       router.push({ name: "login" }); // using next inside async function is not allowed
+    }
+
+    if (isSocialLoggedIn && name === "changePassword") {
+      router.push({ name: "home" });
     }
 
     if (meta.authenticated && EmailVerificationEnabled && user.value) {

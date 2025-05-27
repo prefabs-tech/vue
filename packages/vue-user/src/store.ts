@@ -110,7 +110,7 @@ const useUserStore = defineStore("user", () => {
     const selectedAuthProvider = auth();
 
     if ("doGoogleSignIn" in selectedAuthProvider) {
-      await selectedAuthProvider.doGoogleSignIn(redirectURL);
+      return await selectedAuthProvider.doGoogleSignIn(redirectURL);
     }
 
     throw new Error(
