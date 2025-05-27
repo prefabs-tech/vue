@@ -324,7 +324,7 @@
               :tabs="tabList"    
               :visible-tabs="['description', 'installation', 'certifications']"
               active-key="['description']"
-            /&gt;
+            &gt;
               &lt;p v-for="tab in tabList" :key="tab.key"&gt;&lbrace;&lbrace; tab.label &rbrace;&rbrace;&lt;/p&gt;
             &lt;/TabView&gt;
           &lt;/template&gt;
