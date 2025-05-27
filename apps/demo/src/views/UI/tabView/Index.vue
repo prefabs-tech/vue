@@ -313,9 +313,7 @@
           :visible-tabs="['description', 'installation', 'certifications']"
           active-key="description"
         >
-          <p key="description">Description</p>
-          <p key="installation">Installation</p>
-          <p key="certifications">Certifications</p>
+          <p v-for="tab in tabList" :key="tab.key">{{ tab.label }}</p>
         </TabView>
 
         <!-- eslint-disable -->
@@ -327,9 +325,7 @@
               :visible-tabs="['description', 'installation', 'certifications']"
               active-key="['description']"
             /&gt;
-              &lt;p key="description"&gt;Description&lt;/p&gt;
-              &lt;p key="installation"&gt;Installation&lt;/p&gt;
-              &lt;p key="certifications"&gt;Certifications&lt;/p&gt;
+              &lt;p v-for="tab in tabList" :key="tab.key"&gt;&lbrace;&lbrace; tab.label &rbrace;&rbrace;&lt;/p&gt;
             &lt;/TabView&gt;
           &lt;/template&gt;
 
