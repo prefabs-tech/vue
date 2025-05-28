@@ -1212,7 +1212,7 @@
               filterPlaceholder: t("table.placeholder.status"),
               header: "Status",
               meta: {
-                filterVariant: "multiselect",
+                filterVariant: "select",
                 filterOptions: [
                   {
                     label: "Enabled",
