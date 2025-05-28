@@ -11,7 +11,7 @@
 
 .popup-trigger {
   cursor: pointer;
-  width: fit-content;
+  width: 100%;
 }
 
 .popup-content {

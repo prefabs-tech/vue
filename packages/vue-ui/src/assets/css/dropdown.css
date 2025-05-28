@@ -1,8 +1,19 @@
+.dropdown-menu {
+  width: var(--dropdown-menu-width, fit-content);
+}
+
 .dropdown-menu-trigger {
-  display: flex;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
   padding: 0.65rem;
   transition: all var(--transition-duration) ease 0s;
+}
+
+.dropdown-menu .dropdown-menu-trigger > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .dropdown-menu-trigger .dropdown-icon {
@@ -10,6 +21,7 @@
   transition: transform 0.3s ease;
   transform-origin: center;
   margin-left: 0.5rem;
+  min-width: fit-content;
 }
 
 .popup-content:has(.dropdown-menu) {
