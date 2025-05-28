@@ -74,8 +74,8 @@ const props = defineProps({
   modelValue: {
     default: () => null,
     required: false,
-    type: [Number, String, Array] as PropType<
-      number | string | (number | string)[]
+    type: [Boolean, Number, String, Array] as PropType<
+      boolean | number | string | (number | string)[]
     >,
   },
   multiple: {

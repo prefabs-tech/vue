@@ -1212,7 +1212,7 @@
               filterPlaceholder: t("table.placeholder.status"),
               header: "Status",
               meta: {
-                filterVariant: "multiselect",
+                filterVariant: "select",
                 filterOptions: [
                   {
                     label: "Enabled",
@@ -1381,7 +1381,7 @@ const centerAlignedTableColumns = [
     cell: ({ row }) => {
       return h(BadgeComponent, {
         label: row.original?.disabled
-          ? t("table.label.enabled")
+          ? t("table.label.disabled")
           : t("table.label.enabled"),
         severity: row.original?.disabled ? "danger" : "success",
       });
@@ -1391,7 +1391,7 @@ const centerAlignedTableColumns = [
     filterPlaceholder: t("table.placeholder.status"),
     header: "Status",
     meta: {
-      filterVariant: "multiselect",
+      filterVariant: "select",
       filterOptions: [
         {
           label: t("table.label.enabled"),

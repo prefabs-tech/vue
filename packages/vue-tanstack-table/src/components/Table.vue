@@ -424,6 +424,14 @@ const prepareComponent = () => {
           }
         });
       };
+    } else if (column.meta?.filterVariant === "select") {
+      column.filterFn = (row, columnId, filterValue) => {
+        if (filterValue === undefined || filterValue.length === 0) {
+          return true;
+        }
+
+        return filterValue === row.getValue(columnId);
+      };
     } else if (column.meta?.filterVariant === "dateRange") {
       column.filterFn = (row, columnId, filterValue) => {
         if (filterValue?.length) {

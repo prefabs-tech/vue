@@ -148,8 +148,8 @@ const props = defineProps({
   modelValue: {
     default: () => [],
     required: false,
-    type: [Number, String, Array] as PropType<
-      number | string | (number | string)[]
+    type: [Boolean, Number, String, Array] as PropType<
+      boolean | number | string | (number | string)[]
     >,
   },
   multiple: {
@@ -235,7 +235,7 @@ const sortedOptions = computed(() => {
   return filteredOptions.value;
 });
 
-const getSelectedOption = (value: number | string) =>
+const getSelectedOption = (value: number | string | boolean) =>
   options.value?.find((option) => option.value === value);
 
 const isAllSelected = (options: SelectOption[]): boolean => {
@@ -437,7 +437,7 @@ const prepareComponent = () => {
     selectedOptions.value = [
       getSelectedOption(props.modelValue),
     ] as SelectOption[];
-  } else if (!props.modelValue) {
+  } else if (props.modelValue === undefined) {
     selectedOptions.value = [];
   }
 };

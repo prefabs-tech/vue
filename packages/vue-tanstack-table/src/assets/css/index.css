@@ -202,7 +202,8 @@
   background: #ffffff;
 }
 
-.table-wrapper > table tr.filters > th.multiselect > div {
+.table-wrapper > table tr.filters > th.multiselect > div,
+.table-wrapper > table tr.filters > th.select > div {
   background: #ffffff;
   font-weight: normal;
 }

@@ -119,14 +119,17 @@
             <component :is="column.columnDef.customFilterComponent(column)" />
           </template>
           <template
-            v-else-if="column.columnDef.meta?.filterVariant === 'multiselect'"
+            v-else-if="
+              column.columnDef.meta?.filterVariant === 'multiselect' ||
+              column.columnDef.meta?.filterVariant === 'select'
+            "
           >
             <SelectInput
               :model-value="getColumnFilterValue(column)"
               :options="column.columnDef.meta?.filterOptions || []"
               :placeholder="column.columnDef.filterPlaceholder"
               :name="`multiselect-filter-${column.columnDef.accessorKey}`"
-              multiple
+              :multiple="column.columnDef.meta?.filterVariant === 'multiselect'"
               @update:model-value="column.setFilterValue($event)"
             />
           </template>
