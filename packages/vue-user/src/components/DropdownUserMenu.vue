@@ -28,7 +28,7 @@
       </span>
     </div>
     <ul class="dropdown">
-      <li>
+      <li v-if="!isSocialLoggedIn">
         <router-link class="user-menu-link" :to="{ name: 'changePassword' }">
           <svg
             height="24"
@@ -89,22 +89,31 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useConfig } from "@dzangolab/vue3-config";
 import { onClickOutside } from "@vueuse/core";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
-import type { User } from "../types";
+import type { UserType } from "../types";
 import type { PropType } from "vue";
 
 const expanded = ref(false);
 
 defineEmits(["logout"]);
 
-defineProps({
+const props = defineProps({
   user: {
     required: true,
-    type: Object as PropType<User>,
+    type: Object as PropType<UserType>,
   },
 });
+
+const config = useConfig();
+
+const isSocialLoggedIn = computed(
+  () =>
+    props.user?.thirdParty &&
+    config?.user?.socialLogins?.includes(props.user?.thirdParty?.id),
+);
 
 const toggle = () => {
   expanded.value = !expanded.value;
@@ -174,6 +183,7 @@ nav.user-menu-dropdown > ul.dropdown {
   inset: 0px auto auto 0px;
   list-style: none;
   max-height: 0;
+  min-width: 160px;
   position: absolute;
   transform: translate3d(0, 48.5px, 0px);
   transition:
