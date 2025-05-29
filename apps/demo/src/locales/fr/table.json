@@ -28,6 +28,8 @@
     "city": "Select city",
     "date": "Select date",
     "dateRange": "Select date range",
+    "max": "Max",
+    "min": "Min",
     "search": "Search",
     "status": "Select status"
   },

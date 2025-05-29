@@ -146,10 +146,6 @@
   padding-right: 2rem;
 }
 
-.table-container .table-wrapper > table tr > th[data-align="right"] {
-  text-align: center;
-}
-
 .table-container .table-wrapper > table tr > th.sortable {
   cursor: pointer;
 }

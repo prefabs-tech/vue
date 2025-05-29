@@ -57,9 +57,11 @@
               accessorKey: "age",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Age",
+              meta: {
+                filterVariant: "range",
+              },
             },
             {
               accessorKey: "city",
@@ -1347,7 +1349,7 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     accessorKey: "age",
     enableColumnFilter: true,
     enableSorting: true,
-    filterPlaceholder: t("table.placeholder.search"),
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Age",
     meta: {
       filterVariant: "range",
