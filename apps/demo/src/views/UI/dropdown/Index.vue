@@ -92,6 +92,12 @@
             }
           };
           &lt;/script&gt;
+
+          &lt;style lang="css"&gt;
+          .dropdown-menu {
+            --_width: fit-content;
+          }
+          &lt;/style&gt;
         </SshPre>
         <!-- eslint-enable -->
       </div>
@@ -102,7 +108,16 @@
 
       <div class="section-content">
         <Dropdown :menu="menu">
-          <div class="trigger">...</div>
+          <svg
+            height="24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="12" cy="12" r="1.75" fill="currentColor" />
+            <circle cx="19" cy="12" r="1.75" fill="currentColor" />
+            <circle cx="5" cy="12" r="1.75" fill="currentColor" />
+          </svg>
         </Dropdown>
 
         <!-- eslint-disable -->
@@ -111,7 +126,7 @@
             &lt;Dropdown 
               :menu="menu"
             &gt;
-              &lt;div class="trigger"&gt;...&lt;/div&gt;
+              &lt;img src="/ellipsis-h.svg" /&gt;
             &lt;/Dropdown&gt;
           &lt;/template&gt;
 
@@ -131,10 +146,8 @@
           &lt;/script&gt;
 
           &lt;style lang="css"&gt;
-          .trigger {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 0.2rem;
+          .dropdown-menu {
+            --_width: fit-content;
           }
           &lt;/style&gt;
         </SshPre>
@@ -172,14 +185,7 @@ const onSelect = (item: DropdownMenu) => {
 </script>
 
 <style lang="css">
-.dropdown .label {
-  font-weight: 600;
-  margin-right: 1rem;
-}
-
-.dropdown .trigger {
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.2rem;
+.demo .section-content .dropdown-menu {
+  --_width: fit-content;
 }
 </style>

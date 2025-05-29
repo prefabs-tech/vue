@@ -1,5 +1,7 @@
 .dropdown-menu {
-  width: var(--dropdown-menu-width, fit-content);
+  --_width: var(--dropdown-menu-width, 100%);
+
+  width: var(--_width);
 }
 
 .dropdown-menu-trigger {
