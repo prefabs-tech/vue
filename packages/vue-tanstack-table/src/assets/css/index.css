@@ -208,6 +208,10 @@
   font-weight: normal;
 }
 
+.table-wrapper > table tr.filters > th:last-child .multiselect > ul {
+  right: 0;
+}
+
 .table-wrapper > table tr.filters > th.multiselect > div .input-field-select {
   margin-top: 0;
 }
