@@ -195,6 +195,12 @@
   font-size: 1rem;
 }
 
+
+.table-wrapper > table tr.filters > th.range {
+  display: flex;
+  gap: 0.25rem;
+}
+
 .table-wrapper > table tr.filters > th > div > input {
   width: 100%;
   min-width: fit-content;

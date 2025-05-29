@@ -1347,9 +1347,11 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     accessorKey: "age",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
     filterPlaceholder: t("table.placeholder.search"),
     header: "Age",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "city",
