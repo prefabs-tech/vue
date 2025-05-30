@@ -259,6 +259,7 @@ const updateRangeFilter = (
   value: number | undefined,
 ): void => {
   const filterValue = column.getFilterValue();
+
   const currentFilter: (number | undefined)[] = Array.isArray(filterValue)
     ? [...filterValue]
     : [undefined, undefined];
@@ -268,6 +269,7 @@ const updateRangeFilter = (
   const isFilterActive = currentFilter.some(
     (filterInput) => filterInput !== undefined,
   );
+
   column.setFilterValue(isFilterActive ? currentFilter : []);
 };
 </script>
