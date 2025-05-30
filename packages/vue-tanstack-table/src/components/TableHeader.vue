@@ -146,6 +146,35 @@
               "
             />
           </template>
+          <template
+            v-else-if="column.columnDef.meta?.filterVariant === 'range'"
+          >
+            <div class="number-range-filter">
+              <NumberInput
+                :model-value="
+                  Array.isArray(getColumnFilterValue(column))
+                    ? Number(getColumnFilterValue(column)[0])
+                    : undefined
+                "
+                :placeholder="column.columnDef.filterPlaceholder?.split(',')[0]"
+                name="`range-${column.columnDef.accessorKey}-start`"
+                @update:model-value="updateRangeFilter(column, 0, $event)"
+              />
+              <NumberInput
+                :model-value="
+                  Array.isArray(getColumnFilterValue(column))
+                    ? Number(getColumnFilterValue(column)[1])
+                    : undefined
+                "
+                :placeholder="
+                  column.columnDef.filterPlaceholder?.split(',')[1] ??
+                  column.columnDef.filterPlaceholder
+                "
+                name="`range-${column.columnDef.accessorKey}-end`"
+                @update:model-value="updateRangeFilter(column, 1, $event)"
+              />
+            </div>
+          </template>
           <template v-else>
             <DebouncedInput
               :id="`input-filter-${column.id}`"
@@ -172,7 +201,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DatePicker, SelectInput } from "@dzangolab/vue3-form";
+import { DatePicker, NumberInput, SelectInput } from "@dzangolab/vue3-form";
 import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
@@ -222,5 +251,25 @@ const getFormattedDateRange = (dateRange: Date[]) => {
       return `${year}-${month}-${day} ${time}`;
     })
     .filter((date) => date !== null);
+};
+
+const updateRangeFilter = (
+  column: Column<unknown, unknown>,
+  index: number,
+  value: number | undefined,
+): void => {
+  const filterValue = column.getFilterValue();
+
+  const currentFilter: (number | undefined)[] = Array.isArray(filterValue)
+    ? [...filterValue]
+    : [undefined, undefined];
+
+  currentFilter[index] = value !== undefined ? Number(value) : undefined;
+
+  const isFilterActive = currentFilter.some(
+    (filterInput) => filterInput !== undefined,
+  );
+
+  column.setFilterValue(isFilterActive ? currentFilter : []);
 };
 </script>

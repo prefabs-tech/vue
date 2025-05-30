@@ -49,9 +49,11 @@
               align: "right",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Age",
+              meta: {
+                filterVariant: "range",
+              },
             },
             {
               accessorKey: "city",
@@ -148,9 +150,11 @@
               dataType: "number",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
-              header: "Quantity",
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
+              header: () => "Quantity",
+              meta: {
+                filterVariant: "range",
+              },
               numberOptions: {
                 locale: "en-IN",
               },
@@ -160,9 +164,11 @@
               dataType: "currency",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Amount",
+              meta: {
+                filterVariant: "range",
+              },
               numberOptions: {
                 formatOptions: {
                   currency: "EUR",
@@ -337,8 +343,9 @@
                 return {
                   ...columnData,
                   meta: {
-                    serverFilterFn: "equals",
-                  }
+                    filterVariant: "range",
+                    serverFilterFn: "between",
+                  },
                 }
               }
 
@@ -382,14 +389,19 @@
 
           const equalFilterColumns = [
             ...columns.map((columnData) => {
-              if (
-                columnData.accessorKey === "email" ||
-                columnData.accessorKey === "age"
-              ) {
+              if (columnData.accessorKey === "email") {
                 return {
                   ...columnData,
                   meta: {
                     serverFilterFn: "equals",
+                  },
+                };
+              } else if (columnData.accessorKey === "age") {
+                return {
+                  ...columnData,
+                  meta: {
+                    filterVariant: "range",
+                    serverFilterFn: "between",
                   },
                 };
               }
@@ -452,9 +464,11 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     align: "right",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
-    filterPlaceholder: t("table.placeholder.search"),
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Age",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "city",
@@ -492,7 +506,8 @@ const customColumns = [
       return {
         ...columnData,
         meta: {
-          serverFilterFn: "equals",
+          filterVariant: "range",
+          serverFilterFn: "between",
         },
       };
     }
@@ -515,9 +530,11 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
     dataType: "number",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
-    filterPlaceholder: t("table.placeholder.search"),
-    header: "Quantity",
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
+    header: () => "Quantity",
+    meta: {
+      filterVariant: "range",
+    },
     numberOptions: {
       locale: "en-IN",
     },
@@ -527,9 +544,11 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
     dataType: "currency",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
-    filterPlaceholder: t("table.placeholder.search"),
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Amount",
+    meta: {
+      filterVariant: "range",
+    },
     numberOptions: {
       formatOptions: {
         currency: "EUR",
@@ -585,14 +604,19 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
 
 const equalFilterColumns = [
   ...columns.map((columnData) => {
-    if (
-      columnData.accessorKey === "email" ||
-      columnData.accessorKey === "age"
-    ) {
+    if (columnData.accessorKey === "email") {
       return {
         ...columnData,
         meta: {
           serverFilterFn: "equals",
+        },
+      };
+    } else if (columnData.accessorKey === "age") {
+      return {
+        ...columnData,
+        meta: {
+          filterVariant: "range",
+          serverFilterFn: "between",
         },
       };
     }
