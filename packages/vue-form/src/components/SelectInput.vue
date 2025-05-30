@@ -136,8 +136,13 @@ if (Object.keys(props.schema).length) {
   const min = props.minSelection ?? 0;
   const currentLength = activeOptions.value.length;
 
-  const minValue = Math.min(min, max, currentLength);
-  const maxValue = Math.max(minValue, max);
+  const minValue =
+    min > currentLength
+      ? currentLength
+      : props.maxSelection && max < min
+        ? max
+        : min;
+  const maxValue = props.maxSelection ? Math.max(min, max) : undefined;
 
   const arraySchema = z.array(z.string()).refine(
     (value) => {
@@ -148,7 +153,9 @@ if (Object.keys(props.schema).length) {
     },
     {
       message: `Please select ${
-        minValue !== maxValue ? `between ${minValue} and ${maxValue}` : minValue
+        minValue !== maxValue
+          ? `between ${minValue} and ${maxValue ?? "available"}`
+          : minValue
       } options`,
     },
   );
