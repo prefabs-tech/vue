@@ -150,9 +150,11 @@
               dataType: "number",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
-              header: "Quantity",
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
+              header: () => "Quantity",
+              meta: {
+                filterVariant: "range",
+              },
               numberOptions: {
                 locale: "en-IN",
               },
@@ -162,9 +164,11 @@
               dataType: "currency",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Amount",
+              meta: {
+                filterVariant: "range",
+              },
               numberOptions: {
                 formatOptions: {
                   currency: "EUR",
@@ -526,9 +530,11 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
     dataType: "number",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
-    filterPlaceholder: t("table.placeholder.search"),
-    header: "Quantity",
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
+    header: () => "Quantity",
+    meta: {
+      filterVariant: "range",
+    },
     numberOptions: {
       locale: "en-IN",
     },
@@ -538,9 +544,11 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
     dataType: "currency",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
-    filterPlaceholder: t("table.placeholder.search"),
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Amount",
+    meta: {
+      filterVariant: "range",
+    },
     numberOptions: {
       formatOptions: {
         currency: "EUR",

@@ -999,9 +999,11 @@
               dataType: "number",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: () => "Quantity",
+              meta: {
+                filterVariant: "range",
+              },
               numberOptions: {
                 locale: "en-IN",
               },
@@ -1011,9 +1013,11 @@
               dataType: "currency",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Amount",
+              meta: {
+                filterVariant: "range",
+              },
               numberOptions: {
                 formatOptions: {
                   currency: "EUR",
@@ -1116,18 +1120,22 @@
               dataType: "number",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: () => "Quantity",
+              meta: {
+                filterVariant: "range",
+              },
             },
             {
               accessorKey: "amount",
               dataType: "currency",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: "weakEquals",
-              filterPlaceholder: t("table.placeholder.search"),
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Amount",
+              meta: {
+                filterVariant: "range",
+              },
             },
             {
               accessorKey: "date",
@@ -1437,18 +1445,22 @@ const customFormattedTableColumns = [
     dataType: "number",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
-    filterPlaceholder: t("table.placeholder.search"),
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: () => "Quantity",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "amount",
     dataType: "currency",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
-    filterPlaceholder: t("table.placeholder.search"),
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Amount",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "date",
@@ -1490,9 +1502,11 @@ const formattedTableColumns = [
     dataType: "number",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
-    filterPlaceholder: t("table.placeholder.search"),
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: () => "Quantity",
+    meta: {
+      filterVariant: "range",
+    },
     numberOptions: {
       locale: "en-IN",
     },
@@ -1502,9 +1516,11 @@ const formattedTableColumns = [
     dataType: "currency",
     enableColumnFilter: true,
     enableSorting: true,
-    filterFn: "weakEquals",
-    filterPlaceholder: t("table.placeholder.search"),
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Amount",
+    meta: {
+      filterVariant: "range",
+    },
     numberOptions: {
       formatOptions: {
         currency: "EUR",

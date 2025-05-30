@@ -19,9 +19,9 @@
 .demo-data-tables-page .column-quantity,
 .demo-data-tables-page .column-date,
 .demo-data-tables-page .column-amount {
-  max-width: 10rem;
-  min-width: 10rem;
-  width: 10rem;
+  max-width: 12rem;
+  min-width: 12rem;
+  width: 12rem;
 }
 
 .demo-data-tables-page .column-datetime {

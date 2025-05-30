@@ -149,29 +149,31 @@
           <template
             v-else-if="column.columnDef.meta?.filterVariant === 'range'"
           >
-            <NumberInput
-              :model-value="
-                Array.isArray(getColumnFilterValue(column))
-                  ? Number(getColumnFilterValue(column)[0])
-                  : undefined
-              "
-              :placeholder="column.columnDef.filterPlaceholder?.split(',')[0]"
-              name="`range-${column.columnDef.accessorKey}-start`"
-              @update:model-value="updateRangeFilter(column, 0, $event)"
-            />
-            <NumberInput
-              :model-value="
-                Array.isArray(getColumnFilterValue(column))
-                  ? Number(getColumnFilterValue(column)[1])
-                  : undefined
-              "
-              :placeholder="
-                column.columnDef.filterPlaceholder?.split(',')[1] ??
-                column.columnDef.filterPlaceholder
-              "
-              name="`range-${column.columnDef.accessorKey}-end`"
-              @update:model-value="updateRangeFilter(column, 1, $event)"
-            />
+            <div class="number-range-filter">
+              <NumberInput
+                :model-value="
+                  Array.isArray(getColumnFilterValue(column))
+                    ? Number(getColumnFilterValue(column)[0])
+                    : undefined
+                "
+                :placeholder="column.columnDef.filterPlaceholder?.split(',')[0]"
+                name="`range-${column.columnDef.accessorKey}-start`"
+                @update:model-value="updateRangeFilter(column, 0, $event)"
+              />
+              <NumberInput
+                :model-value="
+                  Array.isArray(getColumnFilterValue(column))
+                    ? Number(getColumnFilterValue(column)[1])
+                    : undefined
+                "
+                :placeholder="
+                  column.columnDef.filterPlaceholder?.split(',')[1] ??
+                  column.columnDef.filterPlaceholder
+                "
+                name="`range-${column.columnDef.accessorKey}-end`"
+                @update:model-value="updateRangeFilter(column, 1, $event)"
+              />
+            </div>
           </template>
           <template v-else>
             <DebouncedInput
