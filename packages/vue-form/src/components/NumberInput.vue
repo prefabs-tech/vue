@@ -103,6 +103,6 @@ const fieldSchema = toFieldValidator(
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;
 
-  emit("update:modelValue", Number(value));
+  emit("update:modelValue", value ? Number(value) : undefined);
 };
 </script>
