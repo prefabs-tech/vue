@@ -344,7 +344,6 @@
                   ...columnData,
                   meta: {
                     filterVariant: "range",
-                    serverFilterFn: "between",
                   },
                 }
               }
@@ -401,7 +400,6 @@
                   ...columnData,
                   meta: {
                     filterVariant: "range",
-                    serverFilterFn: "between",
                   },
                 };
               }
