@@ -132,9 +132,9 @@ const activeOptions = computed(() =>
 if (Object.keys(props.schema).length) {
   fieldSchema = toFieldValidator(props.schema);
 } else if ((props.maxSelection || props.minSelection) && props.multiple) {
+  const currentLength = activeOptions.value.length;
   const max = props.maxSelection ?? 0;
   const min = props.minSelection ?? 0;
-  const currentLength = activeOptions.value.length;
 
   const minValue =
     min > currentLength
