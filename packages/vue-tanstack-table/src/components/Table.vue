@@ -290,13 +290,43 @@ const table = computed(() =>
       if (props.isServerTable) {
         columnFilters.value = props.columnsData
           .filter((column) => column.enableColumnFilter)
-          .map((column) => ({
-            id: column.accessorKey,
-            value: columnFilters.value.find(
-              (filter) => filter.id === column.accessorKey,
-            )?.value,
-            filterFn: column?.meta?.serverFilterFn,
-          })) as ColumnFiltersState;
+          .map((column) => {
+            if (column.meta?.filterVariant === "range") {
+              const rangeFilterValue = columnFilters.value.find(
+                (filter) => filter.id === column.accessorKey,
+              )?.value as number[];
+
+              const [min, max] = rangeFilterValue;
+
+              const filterFn =
+                column.meta?.serverFilterFn ||
+                (typeof min === "number" &&
+                typeof max === "number" &&
+                min <= max
+                  ? "between"
+                  : typeof min === "number" && !max
+                    ? "greaterThanOrEqual"
+                    : typeof max === "number"
+                      ? "lessThanOrEqual"
+                      : null);
+
+              if (filterFn) {
+                return {
+                  filterFn,
+                  id: column.accessorKey,
+                  value: rangeFilterValue,
+                };
+              }
+            } else {
+              return {
+                filterFn: column?.meta?.serverFilterFn,
+                id: column.accessorKey,
+                value: columnFilters.value.find(
+                  (filter) => filter.id === column.accessorKey,
+                )?.value,
+              };
+            }
+          }) as ColumnFiltersState;
 
         fetchData();
       }

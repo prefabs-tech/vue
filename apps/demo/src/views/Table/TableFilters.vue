@@ -507,7 +507,6 @@ const customColumns = [
         ...columnData,
         meta: {
           filterVariant: "range",
-          serverFilterFn: "between",
         },
       };
     }
@@ -616,7 +615,6 @@ const equalFilterColumns = [
         ...columnData,
         meta: {
           filterVariant: "range",
-          serverFilterFn: "between",
         },
       };
     }
