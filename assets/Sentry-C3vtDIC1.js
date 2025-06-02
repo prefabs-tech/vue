@@ -1,1 +1,0 @@
-import{d as r,K as n,f as a,o as s,i as c,g as _}from"./index-CSsCuN9S.js";const l={name:"About"},f=r({...l,setup(i){const e=()=>{throw new Error("Sentry error")};return(t,p)=>{const o=n("Page");return s(),a(o,{title:t.$t("sentry.title")},{default:c(()=>[_("button",{onClick:e},"Throw error")]),_:1},8,["title"])}}});export{f as default};
