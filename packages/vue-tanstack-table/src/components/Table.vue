@@ -319,11 +319,11 @@ const table = computed(() =>
               }
             } else {
               return {
+                filterFn: column?.meta?.serverFilterFn,
                 id: column.accessorKey,
                 value: columnFilters.value.find(
                   (filter) => filter.id === column.accessorKey,
                 )?.value,
-                filterFn: column?.meta?.serverFilterFn,
               };
             }
           }) as ColumnFiltersState;
