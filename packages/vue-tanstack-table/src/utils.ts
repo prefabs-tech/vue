@@ -136,7 +136,7 @@ export const getRequestJSON = (
         return {
           key: updatedFilterState[0].id,
           ...getFilterOperator(updatedFilterState[0].filterFn || "in"),
-          value: updatedFilterState[0].value.join(","),
+          value: updatedFilterState[0].value.filter((value) => value !== undefined).join(","),
         };
       }
 
@@ -153,7 +153,7 @@ export const getRequestJSON = (
           return {
             key: filter.id,
             ...getFilterOperator(filter.filterFn || "in"),
-            value: filter.value.join(","),
+            value: filter.value.filter((value) => value !== undefined).join(","),
           };
         }
 
