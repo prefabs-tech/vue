@@ -300,9 +300,11 @@ const table = computed(() =>
 
               const filterFn =
                 column.meta?.serverFilterFn ||
-                (typeof min === "number" && typeof max === "number"
+                (typeof min === "number" &&
+                typeof max === "number" &&
+                min <= max
                   ? "between"
-                  : typeof min === "number"
+                  : typeof min === "number" && !max
                     ? "greaterThanOrEqual"
                     : typeof max === "number"
                       ? "lessThanOrEqual"
@@ -310,9 +312,9 @@ const table = computed(() =>
 
               if (filterFn) {
                 return {
+                  filterFn,
                   id: column.accessorKey,
                   value: rangeFilterValue,
-                  filterFn,
                 };
               }
             } else {
