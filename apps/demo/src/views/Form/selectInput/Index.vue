@@ -453,7 +453,7 @@
       <div class="section-content">
         <Form>
           <SelectInput
-            v-model="formData.inputWithValidation"
+            v-model="formData.inputWithMinMax"
             :label="$t('form.label.language')"
             :max-selection="3"
             :min-selection="2"
@@ -566,6 +566,7 @@ let formData = reactive({
   disabledSortInput: ref(),
   i18nSelect: ref(),
   input: ref(),
+  inputWithMinMax: ref([]),
   inputWithValidation: ref([]),
   multiselect: ref(),
   multiselectSearch: ref(),
