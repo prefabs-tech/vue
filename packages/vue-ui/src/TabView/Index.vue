@@ -32,7 +32,14 @@
       <template v-if="typeof activeTabComponent === 'string'">
         {{ activeTabComponent }}
       </template>
-      <component :is="activeTabComponent" v-else />
+      <template v-else>
+        <component
+          :is="slotComponent"
+          v-for="(slotComponent, index) in validSlots"
+          v-show="slotComponent === activeTabComponent"
+          :key="`slot-component-${index}`"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -98,29 +105,9 @@ const visibleTabs = ref(
 );
 
 const activeTabComponent = computed(() => {
-  const filteredSlots = slots?.default?.() ?? [];
-
-  const validSlots = filteredSlots.flatMap((slot) => {
-    if (Array.isArray(slot?.children) && !slot?.props?.key) {
-      return slot.children.filter(
-        (child) =>
-          typeof child === "object" &&
-          child !== null &&
-          "props" in child &&
-          child.props?.key,
-      );
-    }
-
-    if (slot?.props?.key) {
-      return [slot];
-    }
-
-    return [];
-  });
-
   return (
     filteredTabs.value.find((tab) => tab.key === activeTab.value)?.children ||
-    validSlots.find(
+    validSlots.value.find(
       (slot) =>
         typeof slot === "object" &&
         slot !== null &&
@@ -139,6 +126,28 @@ const filteredTabs = computed(() =>
 );
 
 const storage = computed(() => getStorage(props.persistStateStorage));
+
+const validSlots = computed(() => {
+  const filteredSlots = slots?.default?.() ?? [];
+
+  return filteredSlots.flatMap((slot) => {
+    if (Array.isArray(slot?.children) && !slot?.props?.key) {
+      return slot.children.filter(
+        (child) =>
+          typeof child === "object" &&
+          child !== null &&
+          "props" in child &&
+          child.props?.key,
+      );
+    }
+
+    if (slot?.props?.key) {
+      return [slot];
+    }
+
+    return [];
+  });
+});
 
 onMounted(() => {
   if (props.persistState && props.id) {
