@@ -1,0 +1,1 @@
+import{_ as o,K as n,f as a,o as s}from"./index-CHigbUgk.js";const c={name:"About"};function r(t,p,_,l,u,f){const e=n("Page");return s(),a(e,{title:t.$t("about.title")},null,8,["title"])}const m=o(c,[["render",r]]);export{m as default};
