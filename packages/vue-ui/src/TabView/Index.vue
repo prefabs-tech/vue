@@ -9,7 +9,7 @@
         :class="{ active: isActive(item.key) }"
         role="tab"
         tabindex="0"
-        @click="setActiveTab(item.key)"
+        @click="onClickTab(item.key)"
       >
         <img v-if="item?.icon" :src="item?.icon" class="icon" />
         <span :title="item.label">{{ item.label }}</span>
@@ -60,6 +60,7 @@ import type { Tab } from "./types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  allowControl: Boolean,
   activeKey: {
     type: String,
     required: true,
@@ -92,7 +93,11 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:activeKey", "update:visibleTabs"]);
+const emit = defineEmits([
+  "beforeTabChange",
+  "update:activeKey",
+  "update:visibleTabs",
+]);
 
 const slots = useSlots();
 
@@ -213,6 +218,22 @@ const handleTabClose = (key: string) => {
 
   visibleTabs.value = newVisibleTabs;
   emit("update:visibleTabs", newVisibleTabs);
+};
+
+const onClickTab = (key: string) => {
+  if (isActive(key)) {
+    return;
+  }
+
+  const proceed = () => setActiveTab(key);
+
+  if (!props.allowControl) {
+    proceed();
+
+    return;
+  }
+
+  emit("beforeTabChange", key, proceed);
 };
 
 const setActiveTab = (key: string) => {
