@@ -14,22 +14,12 @@
       <h2>{{ $t("ui.tabView.usage.basic") }}</h2>
 
       <div class="section-content">
-        <TabView
-          id="tab-view"
-          :tabs="tabs"
-          :visible-tabs="['1', '5', '6']"
-          active-key="1"
-        />
+        <TabView id="tab-view" :tabs="tabs" active-key="1" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;TabView
-              id="tab-view"
-              :tabs="tabs"    
-              :visible-tabs="['1', '5', '6']"
-              active-key="1"
-            /&gt;
+            &lt;TabView id="tab-view" :tabs="tabs" active-key="1" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;

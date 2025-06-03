@@ -80,8 +80,8 @@ const props = defineProps({
     required: true,
   },
   visibleTabs: {
+    default: () => [],
     type: Array as PropType<string[]>,
-    required: true,
   },
 });
 
@@ -91,7 +91,11 @@ const slots = useSlots();
 
 const activeTab = ref(props.activeKey);
 const initialized = ref(false);
-const visibleTabs = ref([...props.visibleTabs]);
+const visibleTabs = ref(
+  props.visibleTabs?.length
+    ? props.visibleTabs
+    : props.tabs.map((tab) => tab.key),
+);
 
 const activeTabComponent = computed(() => {
   const filteredSlots = slots?.default?.() ?? [];
@@ -142,7 +146,10 @@ onMounted(() => {
     if (storedState) {
       const parsedState = JSON.parse(storedState);
       activeTab.value = parsedState.activeTab || props.activeKey;
-      visibleTabs.value = parsedState.visibleTabs || props.visibleTabs;
+
+      if (parsedState.visibleTabs) {
+        visibleTabs.value = parsedState.visibleTabs;
+      }
     }
   }
   initialized.value = true;
