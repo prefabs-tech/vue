@@ -471,7 +471,7 @@ const propsData = [
   },
   {
     default: "false",
-    description: "enable event emitting before tab actually change.",
+    description: "Enable event emitting before tab actually change.",
     id: 3,
     prop: "interceptTabChange",
     type: "boolean",
