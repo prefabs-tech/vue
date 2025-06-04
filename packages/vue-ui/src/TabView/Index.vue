@@ -225,15 +225,13 @@ const onClickTab = (key: string) => {
     return;
   }
 
-  const proceed = () => setActiveTab(key);
-
   if (!props.allowControl) {
-    proceed();
+    setActiveTab(key);
 
     return;
   }
 
-  emit("beforeTabChange", key, proceed);
+  emit("beforeTabChange", key);
 };
 
 const setActiveTab = (key: string) => {
