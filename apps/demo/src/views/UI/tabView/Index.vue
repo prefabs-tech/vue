@@ -343,8 +343,8 @@
         <TabView
           id="tab-view-interception"
           v-model:active-key="interceptionActiveKey"
-          :visible-tabs="['1', '5', '6']"
           :tabs="tabs"
+          :visible-tabs="['1', '5', '6']"
           intercept-tab-change
           @before-tab-change="beforeTabChange"
         />
@@ -360,8 +360,8 @@
             &lt;TabView
               id="tab-view-interception"
               v-model:active-key="activeKey"
-              :visible-tabs="['1', '5', '6']"
               :tabs="tabs"
+              :visible-tabs="['1', '5', '6']"
               intercept-tab-change
               @before-tab-change="beforeTabChange"
             /&gt;
