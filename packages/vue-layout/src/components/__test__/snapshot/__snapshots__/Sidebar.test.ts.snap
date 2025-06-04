@@ -10,9 +10,7 @@ exports[`Sidebar > matches snapshot  1`] = `
     <div
       class="logo"
     >
-      <logo-stub
-        route="home"
-      />
+      <logo-stub />
     </div>
     <div
       class="title"
