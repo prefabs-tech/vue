@@ -28,13 +28,13 @@
     />
 
     <TermsAndConditions
-      v-if="termsAndConditionsConfig?.display"
-      :has-checkbox="!!termsAndConditionsConfig?.showCheckbox"
-      :label="hasLabelText ? termsAndConditionsConfig?.label : undefined"
+      v-if="termsAndConditions?.display"
+      :has-checkbox="!!termsAndConditions?.showCheckbox"
+      :label="hasLabelText ? termsAndConditions?.label : undefined"
       @update:check="disableButton = !$event"
     >
-      <template v-if="termsAndConditionsConfig?.label && !hasLabelText">
-        <component :is="termsAndConditionsConfig?.label" />
+      <template v-if="termsAndConditions?.label && !hasLabelText">
+        <component :is="termsAndConditions?.label" />
       </template>
     </TermsAndConditions>
 
@@ -42,8 +42,8 @@
       <LoadingButton
         :disabled="
           disableButton &&
-          termsAndConditionsConfig?.display &&
-          termsAndConditionsConfig?.showCheckbox
+          termsAndConditions?.display &&
+          termsAndConditions?.showCheckbox
         "
         :label="t('user.signup.form.actions.submit')"
       />
@@ -81,6 +81,18 @@ import TermsAndConditions from "./TermsAndConditions.vue";
 import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
+import type { DefineComponent, PropType, VNode } from "vue";
+
+const props = defineProps({
+  termsAndConditions: {
+    default: () => ({}),
+    type: Object as PropType<{
+      display?: boolean;
+      label?: string | VNode | DefineComponent;
+      showCheckbox?: boolean;
+    }>,
+  },
+});
 
 const emit = defineEmits(["submit"]);
 
@@ -96,9 +108,6 @@ const token = route.params?.token as string;
 
 const userStore = useUserStore();
 const { invitation } = storeToRefs(userStore);
-
-const termsAndConditionsConfig =
-  config.user?.features?.signUp?.termsAndConditions;
 
 const signupCredentials = reactive({
   email: token ? invitation.value?.email : undefined,
@@ -146,8 +155,8 @@ const disableButton = ref<boolean>(true);
 
 const hasLabelText = computed(
   () =>
-    typeof termsAndConditionsConfig?.label === "string" ||
-    termsAndConditionsConfig?.label instanceof String,
+    typeof props.termsAndConditions?.label === "string" ||
+    props.termsAndConditions?.label instanceof String,
 );
 
 const onSubmit = (credentials: LoginCredentials) => {

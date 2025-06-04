@@ -4,7 +4,10 @@
 
     <slot name="instructions"></slot>
 
-    <SignupForm @submit="handleSubmit" />
+    <SignupForm
+      :terms-and-conditions="termsAndConditions"
+      @submit="handleSubmit"
+    />
 
     <div class="links">
       <router-link :to="{ name: 'login' }" class="login">
@@ -36,7 +39,18 @@ import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
 import type { Error as ErrorType } from "@dzangolab/vue3-ui";
-import type { Ref } from "vue";
+import type { DefineComponent, PropType, Ref, VNode } from "vue";
+
+defineProps({
+  termsAndConditions: {
+    default: () => ({}),
+    type: Object as PropType<{
+      display?: boolean;
+      label?: string | VNode | DefineComponent;
+      showCheckbox?: boolean;
+    }>,
+  },
+});
 
 const messages = useTranslations();
 

@@ -24,11 +24,6 @@ interface DzangolabVueUserConfig {
     loginType?: "email" | "username";
     signUp?: {
       emailVerification?: boolean;
-      termsAndConditions?: {
-        display?: boolean;
-        label: DefineComponent | string;
-        showCheckbox?: boolean;
-      };
     };
     updateEmail?: boolean;
   };
