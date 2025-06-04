@@ -323,6 +323,7 @@
         "subtitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing :persist-state='false' prop to the component",
         "title": "State persistence disabled"
       },
+      "interceptTabChange": "With interception before tab change",
       "positionBottom": "Bottom tabs",
       "positionLeft": "Left tabs",
       "positionRight": "Right tabs",

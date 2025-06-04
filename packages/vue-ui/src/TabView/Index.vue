@@ -60,7 +60,6 @@ import type { Tab } from "./types";
 import type { PropType } from "vue";
 
 const props = defineProps({
-  interceptTabChange: Boolean,
   activeKey: {
     type: String,
     required: true,
@@ -69,6 +68,7 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  interceptTabChange: Boolean,
   persistState: {
     type: Boolean,
     default: true,
