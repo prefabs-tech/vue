@@ -1,7 +1,15 @@
 <template>
-  <router-link :to="{ name: route }" class="logo">
-    <img :src="logo" alt="dzango" />
-  </router-link>
+  <div class="logo">
+    <slot>
+      <router-link :to="{ name: logoRoute }">
+        <img v-if="logoSource" :alt="logoAlt" :src="logoSource" />
+        <span v-else class="logo-default">
+          <span>{{ logoAlt[0] }}</span>
+          <span>{{ logoAlt }}</span>
+        </span>
+      </router-link>
+    </slot>
+  </div>
 </template>
 
 <script lang="ts">
@@ -12,18 +20,45 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
+import { computed } from "vue";
 
 import type { PropType } from "vue";
 
-defineProps({
+const props = defineProps({
+  alt: {
+    default: undefined,
+    type: String,
+  },
   route: {
-    default: "home",
+    default: undefined,
     type: String as PropType<string>,
+  },
+  src: {
+    default: undefined,
+    type: String,
   },
 });
 
-const { layout: layoutConfig } = useConfig();
+const { appName, appTitle, layout: layoutConfig } = useConfig();
 
-const logo =
-  layoutConfig && layoutConfig?.logo ? layoutConfig.logo : "/logo.png";
+const parseAppName = computed(() => {
+  if (!appName) {
+    return;
+  }
+
+  return appName.replace("@", "").replace("/", " ");
+});
+
+const logoAlt =
+  props.alt ||
+  layoutConfig?.logoAlt ||
+  parseAppName.value ||
+  appTitle ||
+  "My App";
+const logoSource = props.src || layoutConfig?.logo;
+const logoRoute = props.route || layoutConfig?.logoRoute || "home";
 </script>
+
+<style lang="css">
+@import "../assets/css/components/logo.css";
+</style>

@@ -3,14 +3,24 @@
 exports[`AppHeader Snapshot > matches snapshot 1`] = `
 <header>
   
-  <a
+  <div
     class="logo"
   >
-    <img
-      alt="dzango"
-      src="/logo.png"
-    />
-  </a>
+    
+    <a>
+      <span
+        class="logo-default"
+      >
+        <span>
+          T
+        </span>
+        <span>
+          Test app
+        </span>
+      </span>
+    </a>
+    
+  </div>
   
   <nav
     data-expanded="false"
