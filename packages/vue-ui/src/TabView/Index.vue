@@ -60,7 +60,7 @@ import type { Tab } from "./types";
 import type { PropType } from "vue";
 
 const props = defineProps({
-  allowControl: Boolean,
+  interceptTabChange: Boolean,
   activeKey: {
     type: String,
     required: true,
@@ -225,7 +225,7 @@ const onClickTab = (key: string) => {
     return;
   }
 
-  if (!props.allowControl) {
+  if (!props.interceptTabChange) {
     setActiveTab(key);
 
     return;

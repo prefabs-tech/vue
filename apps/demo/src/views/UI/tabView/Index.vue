@@ -418,13 +418,18 @@ const eventColumns = [
 
 const eventData = [
   {
-    description: "Triggers on active key change",
+    description: "Triggers before tab actually change",
     id: 1,
+    name: "beforeTabChange",
+  },
+  {
+    description: "Triggers on active key change",
+    id: 2,
     name: "update:activeKey",
   },
   {
     description: "Triggers on visible tabs change",
-    id: 1,
+    id: 3,
     name: "update:visibleTabs",
   },
 ];
@@ -465,38 +470,45 @@ const propsData = [
     type: "string",
   },
   {
+    default: "false",
+    description: "enable event emitting before tab actually change.",
+    id: 3,
+    prop: "interceptTabChange",
+    type: "boolean",
+  },
+  {
     default: "true",
     description:
       "If true, tab state is saved either in localStorage or sessionStorage.",
-    id: 3,
+    id: 4,
     prop: "persistState",
     type: "boolean",
   },
   {
     default: "localStorage",
+    id: 5,
     description: "Storage to save tab state.",
-    id: 4,
     prop: "persistStateStorage",
     type: '"localStorage" | "sessionStorage"',
   },
   {
     default: "top",
+    id: 6,
     description: "Position of the tab panel header relative to its content.",
-    id: 5,
     prop: "position",
     type: '"top" | "left" | "bottom" | "right"',
   },
   {
     default: "-",
+    id: 7,
     description: "Array of tab object.",
-    id: 6,
     prop: "tabs",
     type: "Tab[]",
   },
   {
     default: "-",
     description: "Array of visible tabs.",
-    id: 7,
+    id: 8,
     prop: "visibleTabs",
     type: "string[]",
   },
