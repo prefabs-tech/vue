@@ -251,7 +251,7 @@ const setHashTab = () => {
   }
 
   nextTick(() => {
-    const element = document.getElementById(`#${hash}`);
+    const element = document.getElementById(hash);
     element?.scrollIntoView({ behavior: "smooth" });
 
     const shouldUpdateTab =
