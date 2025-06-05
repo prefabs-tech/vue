@@ -27,16 +27,19 @@
       name="confirmation"
     />
 
-    <TermsAndConditions
-      v-if="termsAndConditionsConfig?.display"
-      :has-checkbox="!!termsAndConditionsConfig?.showCheckbox"
-      :label="hasLabelText ? termsAndConditionsConfig?.label : undefined"
-      @update:check="disableButton = !$event"
+    <slot
+      v-if="termsAndConditionsConfig?.display || $slots.termsAndConditions"
+      name="termsAndConditions"
     >
-      <template v-if="termsAndConditionsConfig?.label && !hasLabelText">
-        <component :is="termsAndConditionsConfig?.label" />
-      </template>
-    </TermsAndConditions>
+      <TermsAndConditions
+        :has-checkbox="!!termsAndConditionsConfig?.showCheckbox"
+        :label="hasLabelText ? termsAndConditionsConfig?.label : undefined"
+        :route="termsAndConditionsConfig?.route"
+        @update:check="disableButton = !$event"
+      >
+        <slot v-if="$slots.termsLabel" name="termsLabel" />
+      </TermsAndConditions>
+    </slot>
 
     <div class="actions">
       <LoadingButton
@@ -71,7 +74,7 @@ import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { storeToRefs } from "pinia";
 import { Form } from "vee-validate";
-import { computed, onMounted, reactive, ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 import { z } from "zod";
 
@@ -144,11 +147,7 @@ const validationSchema = toFormValidator(
 
 const disableButton = ref<boolean>(true);
 
-const hasLabelText = computed(
-  () =>
-    typeof termsAndConditionsConfig?.label === "string" ||
-    termsAndConditionsConfig?.label instanceof String,
-);
+const hasLabelText = typeof termsAndConditionsConfig?.label === "string";
 
 const onSubmit = (credentials: LoginCredentials) => {
   emit("submit", credentials);
