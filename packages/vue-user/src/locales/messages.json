@@ -338,6 +338,11 @@
             },
             "label": "Your password"
           },
+          "termsAndConditions": {
+            "infix": "Terms and conditions",
+            "prefix": "I agree to the",
+            "suffix": "as set out by the user agreement"
+          },
           "username": {
             "errors": {
               "invalid": "Please provide a valid username",
@@ -722,6 +727,11 @@
               "weak": "Votre mot de passe doit avoir au moins 8 caractères"
             },
             "label": "Votre mot de passe"
+          },
+          "termsAndConditions": {
+            "infix": "Terms and conditions",
+            "prefix": "I agree to the",
+            "suffix": "as set out by the user agreement"
           },
           "username": {
             "errors": {
