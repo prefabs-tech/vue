@@ -274,6 +274,11 @@ const setHashTab = () => {
     }
   });
 };
+
+defineExpose({
+  setActiveTab,
+  closeTab,
+});
 </script>
 
 <style lang="css">
