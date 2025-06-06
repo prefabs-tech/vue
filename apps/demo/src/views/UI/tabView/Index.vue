@@ -411,6 +411,80 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.tabView.usage.interceptTabClose") }}</h2>
+
+      <div class="section-content">
+        <TabView
+          id="tab-view-interception-close"
+          ref="dzangolabVueTabView"
+          :active-key="1"
+          :tabs="tabs"
+          intercept-tab-close
+          @before-tab-close="beforeTabClose"
+        />
+
+        <ConfirmationModal
+          v-if="showCloseConfirmation"
+          @on:close="showCloseConfirmation = false"
+          @on:confirm="onConfirmClose"
+        />
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;TabView
+              id="tab-view-interception-close"
+              ref="dzangolabVueTabView"
+              :active-key="1"
+              :tabs="tabs"
+              intercept-tab-close
+              @before-tab-change="beforeTabClose"
+            /&gt;
+
+            &lt;ConfirmationModal
+              v-if="showConfirmation"
+              @on:close="showConfirmation = false"
+              @on:confirm="onConfirmChange"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ConfirmationModal, TabView } from "@dzangolab/vue3-ui";
+          import { ref } from "vue";
+
+          const closingKey = ref&lt;string&gt;();
+          const dzangolabVueTabView = ref();
+          const showConfirmation = ref&lt;boolean&gt;(false);
+
+          const tabs = [
+            { children: "Description", key: "1", label: "Description" },
+            { children: "Reviews", closable: true, key: "2", label: "Reviews" },
+            {
+              children: "Specifications",
+              closable: true,
+              key: "3",
+              label: "Specifications",
+            },
+            { children: "Pricing", closable: true, key: "4", label: "Pricing",  },
+            { children: "Installation Instructions", key: "5", label: "Installation",  },
+            { children: "Certifications", key: "6", label: "Certifications" },
+          ];
+
+          const beforeTabClose = (key: string) => {
+            showConfirmation.value = true;
+            closingKey.value = key;
+          };
+
+          const onConfirm = () => {
+            dzangolabVueTabView.value?.closeTab(closingKey.value);
+            showConfirmation.value = false;
+          };
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.tabView.usage.shareableTab") }}</h2>
       <div class="section-content">
         <SshPre language="html-vue">
@@ -486,8 +560,11 @@ import { ref } from "vue";
 import UiPage from "../UiPage.vue";
 
 const activeKey = ref<string>("1");
+const closingKey = ref<string>();
+const dzangolabVueTabView = ref();
 const interceptionActiveKey = ref<string>("1");
 const nextTabKey = ref<string>();
+const showCloseConfirmation = ref<boolean>(false);
 const showConfirmation = ref<boolean>(false);
 const visibleTabs = ref<string[]>(["1"]);
 
@@ -509,13 +586,18 @@ const eventData = [
     name: "beforeTabChange",
   },
   {
-    description: "Triggers on active key change",
+    description: "Triggers before tab actually close",
     id: 2,
+    name: "beforeTabClose",
+  },
+  {
+    description: "Triggers on active key change",
+    id: 3,
     name: "update:activeKey",
   },
   {
     description: "Triggers on visible tabs change",
-    id: 3,
+    id: 4,
     name: "update:visibleTabs",
   },
 ];
@@ -563,38 +645,45 @@ const propsData = [
     type: "boolean",
   },
   {
+    default: "false",
+    description: "Enable event emitting before tab actually change.",
+    id: 4,
+    prop: "interceptTabClose",
+    type: "boolean",
+  },
+  {
     default: "true",
     description:
       "If true, tab state is saved either in localStorage or sessionStorage.",
-    id: 4,
+    id: 5,
     prop: "persistState",
     type: "boolean",
   },
   {
     default: "localStorage",
-    id: 5,
     description: "Storage to save tab state.",
+    id: 6,
     prop: "persistStateStorage",
     type: '"localStorage" | "sessionStorage"',
   },
   {
     default: "top",
-    id: 6,
     description: "Position of the tab panel header relative to its content.",
+    id: 7,
     prop: "position",
     type: '"top" | "left" | "bottom" | "right"',
   },
   {
     default: "-",
-    id: 7,
     description: "Array of tab object.",
+    id: 8,
     prop: "tabs",
     type: "Tab[]",
   },
   {
     default: "-",
     description: "Array of visible tabs.",
-    id: 8,
+    id: 9,
     prop: "visibleTabs",
     type: "string[]",
   },
@@ -647,9 +736,19 @@ const beforeTabChange = (key: string) => {
   nextTabKey.value = key;
 };
 
+const beforeTabClose = (key: string) => {
+  showCloseConfirmation.value = true;
+  closingKey.value = key;
+};
+
 const onConfirmChange = () => {
   interceptionActiveKey.value = nextTabKey.value || interceptionActiveKey.value;
   showConfirmation.value = false;
+};
+
+const onConfirmClose = () => {
+  dzangolabVueTabView.value?.closeTab(closingKey.value);
+  showCloseConfirmation.value = false;
 };
 </script>
 

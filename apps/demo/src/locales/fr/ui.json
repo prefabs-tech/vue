@@ -324,6 +324,7 @@
         "title": "State persistence disabled"
       },
       "interceptTabChange": "With interception before tab change",
+      "interceptTabClose": "With interception before tab close",
       "positionBottom": "Bottom tabs",
       "positionLeft": "Left tabs",
       "positionRight": "Right tabs",

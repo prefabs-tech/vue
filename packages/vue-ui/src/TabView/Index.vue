@@ -70,6 +70,7 @@ const props = defineProps({
     default: "",
   },
   interceptTabChange: Boolean,
+  interceptTabClose: Boolean,
   persistState: {
     type: Boolean,
     default: true,
@@ -96,6 +97,7 @@ const props = defineProps({
 
 const emit = defineEmits([
   "beforeTabChange",
+  "beforeTabClose",
   "update:activeKey",
   "update:visibleTabs",
 ]);
@@ -205,7 +207,7 @@ watch([visibleTabs, activeTab], () => {
 
 const isActive = (key: string) => activeTab.value === key;
 
-const handleTabClose = (key: string) => {
+const closeTab = (key: string) => {
   const tabIndex = visibleTabs.value.findIndex((tab) => tab === key);
   const newVisibleTabs = visibleTabs.value.filter((tab) => tab !== key);
 
@@ -222,6 +224,16 @@ const handleTabClose = (key: string) => {
 
   visibleTabs.value = newVisibleTabs;
   emit("update:visibleTabs", newVisibleTabs);
+};
+
+const handleTabClose = (key: string) => {
+  if (!props.interceptTabClose) {
+    closeTab(key);
+
+    return;
+  }
+
+  emit("beforeTabClose", key);
 };
 
 const onClickTab = (key: string) => {
@@ -262,6 +274,11 @@ const setHashTab = () => {
     }
   });
 };
+
+defineExpose({
+  closeTab,
+  setActiveTab,
+});
 </script>
 
 <style lang="css">
