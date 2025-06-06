@@ -1,8 +1,9 @@
 <template>
-  <div :class="['tabbed-panel', position]">
+  <div :id="id" :class="['tabbed-panel', position]">
     <div :aria-orientation="ariaOrientation" role="tablist">
       <button
         v-for="(item, index) in filteredTabs"
+        :id="item.key"
         :key="index"
         :aria-label="item.label"
         :aria-selected="isActive(item.key)"
@@ -51,7 +52,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, watch, onMounted, useSlots } from "vue";
+import { computed, nextTick, onMounted, ref, useSlots, watch } from "vue";
 
 import { getOrientation } from "./utils";
 import { getStorage } from "../utils";
@@ -167,6 +168,9 @@ onMounted(() => {
     }
   }
   initialized.value = true;
+
+  setHashTab();
+  window.addEventListener("hashchange", setHashTab);
 });
 
 watch(
@@ -237,6 +241,26 @@ const onClickTab = (key: string) => {
 const setActiveTab = (key: string) => {
   activeTab.value = key;
   emit("update:activeKey", key);
+};
+
+const setHashTab = () => {
+  const hash = window.location.hash?.split("#").pop();
+
+  if (!hash || hash?.includes("/")) {
+    return;
+  }
+
+  nextTick(() => {
+    const element = document.getElementById(hash);
+    element?.scrollIntoView({ behavior: "smooth" });
+
+    const shouldUpdateTab =
+      hash && hash !== activeTab.value && visibleTabs.value.includes(hash);
+
+    if (shouldUpdateTab) {
+      setActiveTab(hash);
+    }
+  });
 };
 </script>
 
