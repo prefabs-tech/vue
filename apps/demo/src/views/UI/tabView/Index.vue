@@ -564,8 +564,8 @@ const closingKey = ref<string>();
 const dzangolabVueTabView = ref();
 const interceptionActiveKey = ref<string>("1");
 const nextTabKey = ref<string>();
-const showConfirmation = ref<boolean>(false);
 const showCloseConfirmation = ref<boolean>(false);
+const showConfirmation = ref<boolean>(false);
 const visibleTabs = ref<string[]>(["1"]);
 
 const eventColumns = [

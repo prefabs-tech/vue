@@ -276,8 +276,8 @@ const setHashTab = () => {
 };
 
 defineExpose({
-  setActiveTab,
   closeTab,
+  setActiveTab,
 });
 </script>
 
