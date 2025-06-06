@@ -411,6 +411,15 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.tabView.usage.shareableTab") }}</h2>
+      <div class="section-content">
+        <SshPre language="html-vue">
+          &lbrace;url&rbrace;/ui/tab-view#&lbrace;tab_key&rbrace;
+        </SshPre>
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("common.properties", { value: "TabViewProperties" }) }}</h2>
       <div class="section-content">
         <Table
