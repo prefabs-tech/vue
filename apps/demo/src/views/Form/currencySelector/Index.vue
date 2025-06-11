@@ -38,11 +38,11 @@
 
           const input = ref();
           const options = [
-            { label: "Australian Dollar", shortName: "AUD", symbol: "$", value: "AUD" },
-            { label: "British Pound", shortName: "GBP", symbol: "£", value: "GBP" },
-            { label: "Euro", shortName: "EUR", symbol: "€", value: "EUR" },
-            { label: "Japanese Yen", shortName: "JPY", symbol: "¥", value: "JPY" },
-            { label: "US Dollar", shortName: "USD", symbol: "$", value: "USD" }
+            { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+            { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+            { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+            { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+            { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
           ] as CurrencyOption[];
           &lt;/script&gt;
         </SshPre>
@@ -72,10 +72,10 @@ let formData = reactive({
 });
 
 const options = [
-  { label: "Australian Dollar", shortName: "AUD", symbol: "$", value: "AUD" },
-  { label: "British Pound", shortName: "GBP", symbol: "£", value: "GBP" },
-  { label: "Euro", shortName: "EUR", symbol: "€", value: "EUR" },
-  { label: "Japanese Yen", shortName: "JPY", symbol: "¥", value: "JPY" },
-  { label: "US Dollar", shortName: "USD", symbol: "$", value: "USD" },
+  { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+  { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+  { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+  { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+  { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
 ] as CurrencyOption[];
 </script>

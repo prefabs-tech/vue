@@ -84,7 +84,7 @@ defineProps({
   },
   optionLabelOrder: {
     type: Array as PropType<Array<keyof CurrencyOption>>,
-    default: () => ["shortName", "label", "symbol"],
+    default: () => ["code", "label", "symbol"],
   },
   options: {
     required: true,

@@ -1,5 +1,5 @@
 interface CurrencyOption extends SelectOption {
-  shortName?: string;
+  code?: string;
   symbol?: string;
 }
 

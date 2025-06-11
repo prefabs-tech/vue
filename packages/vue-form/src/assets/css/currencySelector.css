@@ -5,7 +5,7 @@
   width: 100%;
 }
 
-.currency-selector .currency-label .shortName {
+.currency-selector .currency-label .code {
   color: var(--dz-secondary-color, #475569);
   font-size: 0.9rem;
 }
