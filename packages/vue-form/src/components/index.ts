@@ -1,5 +1,6 @@
 export { default as Checkbox } from "./Checkbox.vue";
 export { default as CheckboxInput } from "./CheckboxInput.vue";
+export { default as CurrencySelector } from "./CurrencySelector.vue";
 export { default as DatePicker } from "./DatePicker.vue";
 export { default as DaysInput } from "./DaysInput.vue";
 export { default as EditableContent } from "./EditableContent.vue";

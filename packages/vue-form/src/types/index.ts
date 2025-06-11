@@ -1,3 +1,8 @@
+interface CurrencyOption extends SelectOption {
+  code?: string;
+  symbol?: string;
+}
+
 interface EmailErrorMessages {
   invalid?: string;
   required?: string;
@@ -39,6 +44,7 @@ interface TextErrorMessages {
 }
 
 export type {
+  CurrencyOption,
   EmailErrorMessages,
   FileExtended,
   InputOption,
