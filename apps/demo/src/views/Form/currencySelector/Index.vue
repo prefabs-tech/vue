@@ -37,6 +37,7 @@
           import type { CurrencyOption } from "@dzangolab/vue3-form";
 
           const input = ref();
+
           const options = [
             { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
             { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
