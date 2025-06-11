@@ -5,6 +5,7 @@ export * from "./components";
 export * from "./schemas";
 
 export type {
+  CurrencyOption,
   EmailErrorMessages,
   IsEmailOptions,
   IsIntOptions,
