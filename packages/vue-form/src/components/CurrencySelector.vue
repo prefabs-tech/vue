@@ -8,6 +8,7 @@
       :multiple="multiple"
       :name="name"
       :options="options"
+      :placeholder="placeholder"
       :schema="schema"
       @update:model-value="$emit('update:modelValue', $event)"
     >
@@ -16,24 +17,26 @@
         :key="`${index}-${option.label}`"
         #[option.value]
       >
-        <span
-          v-if="option?.[optionLabelOrder[0]]"
-          :class="[option?.[optionLabelOrder[0]], 'primary-currency-label']"
-        >
-          {{ option?.[optionLabelOrder[0]] }}&nbsp;
-        </span>
-        <span
-          v-if="option?.[optionLabelOrder[1]]"
-          :class="[option?.[optionLabelOrder[1]], 'secondary-currency-label']"
-        >
-          {{ option?.[optionLabelOrder[1]] }}&nbsp;
-        </span>
-        <span
-          v-if="option?.[optionLabelOrder[2]]"
-          :class="[option?.[optionLabelOrder[2]], 'tertiary-currency-label']"
-        >
-          {{ option?.[optionLabelOrder[2]] }}
-        </span>
+        <div class="currency-label">
+          <span
+            v-if="option?.[optionLabelOrder[0]]"
+            :class="[optionLabelOrder[0], 'primary-currency-label']"
+          >
+            {{ option?.[optionLabelOrder[0]] }}
+          </span>
+          <span
+            v-if="option?.[optionLabelOrder[1]]"
+            :class="[optionLabelOrder[1], 'secondary-currency-label']"
+          >
+            {{ option?.[optionLabelOrder[1]] }}
+          </span>
+          <span
+            v-if="option?.[optionLabelOrder[2]]"
+            :class="[optionLabelOrder[2], 'tertiary-currency-label']"
+          >
+            {{ option?.[optionLabelOrder[2]] }}
+          </span>
+        </div>
       </template>
     </SelectInput>
   </div>
@@ -87,6 +90,10 @@ defineProps({
     required: true,
     type: Array as PropType<CurrencyOption[]>,
   },
+  placeholder: {
+    default: undefined,
+    type: String,
+  },
   schema: {
     default: () => {
       return {};
@@ -102,3 +109,7 @@ defineProps({
 
 defineEmits(["update:modelValue"]);
 </script>
+
+<style lang="css">
+@import "../assets/css/currencySelector.css";
+</style>
