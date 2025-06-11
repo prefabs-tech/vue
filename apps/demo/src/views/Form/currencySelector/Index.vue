@@ -68,7 +68,7 @@ import FormPage from "../FormPage.vue";
 
 import type { CurrencyOption } from "@dzangolab/vue3-form";
 
-let formData = reactive({
+const formData = reactive({
   basic: ref(),
 });
 
