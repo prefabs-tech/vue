@@ -63,9 +63,10 @@
       @keydown.tab.stop.prevent="toggleDropdown"
     >
       <DebouncedInput
-        v-if="enableSearch"
+        v-if="enableSearch || enableCustomSearch"
         v-model="searchInput"
         :placeholder="searchPlaceholder"
+        @update:model-value="$emit('update:searchInput', $event)"
       />
 
       <li
@@ -135,6 +136,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  enableCustomSearch: Boolean,
   enableSearch: Boolean,
   hasSortedOptions: {
     default: true,
@@ -174,7 +176,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
 const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
@@ -203,7 +205,7 @@ const activeOptions = computed(() =>
 );
 
 const filteredOptions = computed(() => {
-  if (!searchInput.value) {
+  if (!searchInput.value || props.enableCustomSearch) {
     return props.options;
   }
 
@@ -424,6 +426,7 @@ const onUnselect = (event: Event, option?: SelectOption) => {
   }
 
   searchInput.value = undefined;
+  emit("update:searchInput", searchInput.value);
 
   onMultiSelect();
 };

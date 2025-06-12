@@ -17,6 +17,7 @@
           valid: meta.dirty && meta.valid && fieldSchema,
         }"
         :disabled="disabled"
+        :enable-custom-search="enableCustomSearch"
         :enable-search="enableSearch"
         :has-sorted-options="hasSortedOptions"
         :model-value="modelValue"
@@ -26,6 +27,7 @@
         :show-remove-selection="showRemoveSelection"
         tabindex="0"
         @update:model-value="onSelect"
+        @update:search-input="$emit('update:searchInput', $event)"
       >
         <template
           v-for="(option, index) in options"
@@ -62,6 +64,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  enableCustomSearch: Boolean,
   enableSearch: Boolean,
   hasSortedOptions: {
     default: true,
@@ -121,7 +124,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
 let fieldSchema: object;
 
