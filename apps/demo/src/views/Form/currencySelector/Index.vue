@@ -41,7 +41,7 @@
           const options = [
             { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
             { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-            { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+            { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
             { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
             { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
           ] as CurrencyOption[];
@@ -86,7 +86,54 @@
           const options = [
             { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
             { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-            { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+            { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
+            { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+            { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+          ] as CurrencyOption[];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.selectLabelOrder") }}</h2>
+
+      <div class="section-content">
+        <CurrencySelector
+          v-model="formData.selectWithOrder"
+          :option-label-order="['symbol', 'label', 'code']"
+          :options="options"
+          :placeholder="$t('form.placeholder.currency')"
+          :search-placeholder="$t('form.placeholder.search')"
+          enable-search
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;CurrencySelector
+              v-model="input"
+              :option-label-order="['symbol', 'label', 'code']"
+              :options="options"
+              enable-search
+              placeholder="Select a currency"
+              search-placeholder="Select..."
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { CurrencySelector } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          import type { CurrencyOption } from "@dzangolab/vue3-form";
+
+          const input = ref();
+
+          const options = [
+            { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+            { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+            { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
             { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
             { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
           ] as CurrencyOption[];
@@ -116,6 +163,7 @@
               v-model="input"
               :options="options"
               enable-search
+              multiple
               placeholder="Select a currency"
               search-placeholder="Select..."
             /&gt;
@@ -132,7 +180,7 @@
           const options = [
             { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
             { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-            { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+            { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
             { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
             { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
           ] as CurrencyOption[];
@@ -162,13 +210,14 @@ import type { CurrencyOption } from "@dzangolab/vue3-form";
 const formData = reactive({
   basic: undefined,
   multiselect: undefined,
+  selectWithOrder: undefined,
   selectWithSearch: undefined,
 });
 
 const options = [
   { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
   { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-  { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+  { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
   { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
   { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
 ] as CurrencyOption[];
