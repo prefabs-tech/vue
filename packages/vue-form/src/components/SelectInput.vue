@@ -18,6 +18,7 @@
         }"
         :disabled="disabled"
         :enable-search="enableSearch"
+        :enable-custom-search="enableCustomSearch"
         :has-sorted-options="hasSortedOptions"
         :model-value="modelValue"
         :multiple="multiple"
@@ -26,6 +27,7 @@
         :show-remove-selection="showRemoveSelection"
         tabindex="0"
         @update:model-value="onSelect"
+        @update:search-input="$emit('update:searchInput', $event)"
       >
         <template
           v-for="(option, index) in options"
@@ -63,6 +65,7 @@ const props = defineProps({
     type: Boolean,
   },
   enableSearch: Boolean,
+  enableCustomSearch: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -121,7 +124,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
 let fieldSchema: object;
 
