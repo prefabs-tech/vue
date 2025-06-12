@@ -17,8 +17,8 @@
           valid: meta.dirty && meta.valid && fieldSchema,
         }"
         :disabled="disabled"
-        :enable-search="enableSearch"
         :enable-custom-search="enableCustomSearch"
+        :enable-search="enableSearch"
         :has-sorted-options="hasSortedOptions"
         :model-value="modelValue"
         :multiple="multiple"
@@ -64,8 +64,8 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
-  enableSearch: Boolean,
   enableCustomSearch: Boolean,
+  enableSearch: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,

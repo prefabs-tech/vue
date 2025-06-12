@@ -136,8 +136,8 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
-  enableSearch: Boolean,
   enableCustomSearch: Boolean,
+  enableSearch: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
