@@ -6,6 +6,9 @@
     "checkbox": {
       "min": "Please select at least {min} options"
     },
+    "currencySelector": {
+      "invalid": "Please select at least one valid option"
+    },
     "daysInput": {
       "invalid": "Please provide number of days within a year"
     },
@@ -126,6 +129,7 @@
     "size": "Size",
     "select": "Select",
     "selection": "Selection",
+    "selectLabelOrder": "Option label order",
     "solutions": "Solutions",
     "submit": "Submit",
     "summary": "Summary",
@@ -144,6 +148,7 @@
     "withI18n": "With i18n",
     "withOnOffLabel":  "With on off label",
     "withSearch": "With search",
+    "withSelectOptions": "With select input options",
     "workInProgress": "Work in progress",
     "year": "Year",
     "yearPicker": "Year picker",

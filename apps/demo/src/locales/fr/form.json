@@ -3,6 +3,12 @@
     "submit": "Submit[fr]"
   },
   "errors": {
+    "checkbox": {
+      "min": "Please select at least {min} options"
+    },
+    "currencySelector": {
+      "invalid": "Please select at least one valid option"
+    },
     "daysInput": {
       "invalid": "Please provide number of days within a year"
     },
@@ -123,6 +129,7 @@
     "size": "Size",
     "select": "Select[fr]",
     "selection": "Selection",
+    "selectLabelOrder": "Option label order",
     "solutions": "Solutions",
     "submit": "Submit",
     "summary": "Summary",
@@ -141,6 +148,7 @@
     "withI18n": "With i18n[fr]",
     "withOnOffLabel":  "With on off label",
     "withSearch": "With search",
+    "withSelectOptions": "With select input options",
     "workInProgress": "Work in progress",
     "year": "Year[fr]",
     "yearPicker": "Year picker[fr]",

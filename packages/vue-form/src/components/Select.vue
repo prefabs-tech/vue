@@ -66,6 +66,7 @@
         v-if="enableSearch || enableCustomSearch"
         v-model="searchInput"
         :placeholder="searchPlaceholder"
+        class="multiselect-search"
         @update:model-value="$emit('update:searchInput', $event)"
       />
 
@@ -237,8 +238,12 @@ const sortedOptions = computed(() => {
   return filteredOptions.value;
 });
 
-const getSelectedOption = (value: number | string | boolean) =>
-  options.value?.find((option) => option.value === value);
+const getSelectedOption = (value: number | string | boolean) => {
+  return (
+    options.value?.find((option) => option.value === value) ||
+    selectedOptions.value.find((option) => option.value === value)
+  );
+};
 
 const isAllSelected = (options: SelectOption[]): boolean => {
   if (selectedOptions.value.length != activeOptions.value.length) {
@@ -250,10 +255,11 @@ const isAllSelected = (options: SelectOption[]): boolean => {
   );
 };
 
-const isSelected = (option: SelectOption): boolean =>
-  selectedOptions.value.some(
+const isSelected = (option: SelectOption): boolean => {
+  return selectedOptions.value.some(
     (selectedOption) => selectedOption.value === option.value,
   );
+};
 
 const nextIndex = (startIndex: number): number => {
   const total = sortedOptions.value.length;
