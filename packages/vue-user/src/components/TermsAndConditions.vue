@@ -31,7 +31,7 @@ export default {
 import { Checkbox } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { defineComponent, h } from "vue";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
 
 import { useTranslations } from "../index";
 
@@ -59,7 +59,18 @@ const emit = defineEmits(["update:check"]);
 
 const messages = useTranslations();
 
+const router = useRouter();
+
 const { t } = useI18n({ messages });
+
+const isInternalRoute = () => {
+  return router
+    .getRoutes()
+    .some(
+      (routeData) =>
+        routeData.name === props.route || routeData.path === props.route,
+    );
+};
 
 // eslint-disable-next-line vue/one-component-per-file
 const TermsText = defineComponent({
@@ -68,9 +79,13 @@ const TermsText = defineComponent({
     return () =>
       h("div", { class: "terms-and-conditions" }, [
         t("user.signup.form.termsAndConditions.prefix") + " ",
-        h(RouterLink, { to: props.route }, () =>
-          t("user.signup.form.termsAndConditions.infix"),
-        ),
+        isInternalRoute()
+          ? h(RouterLink, { to: props.route }, () =>
+              t("user.signup.form.termsAndConditions.infix"),
+            )
+          : h("a", { href: props.route, target: "_blank" }, [
+              t("user.signup.form.termsAndConditions.infix"),
+            ]),
         " " + t("user.signup.form.termsAndConditions.suffix"),
       ]);
   },
