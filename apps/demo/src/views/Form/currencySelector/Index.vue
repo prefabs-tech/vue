@@ -248,41 +248,55 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.withSearch") }}</h2>
+      <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
       <div class="section-content">
-        <CurrencySelector
-          v-model="formData.selectWithSearch"
-          :options="options"
-          :placeholder="$t('form.placeholder.currency')"
-          :search-placeholder="$t('form.placeholder.search')"
-          enable-search
-        />
+        <Form>
+          <CurrencySelector
+            v-model="formData.validationInput"
+            :options="options"
+            :placeholder="$t('form.placeholder.currency')"
+            :schema="inputSchema"
+            enable-search
+            multiple
+          />
+        </Form>
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;CurrencySelector
-              v-model="input"
-              :options="options"
-              enable-search
-              placeholder="Select a currency"
-              search-placeholder="Select..."
-            /&gt;
+            &lt;Form&gt;
+              &lt;CurrencySelector
+                v-model="input"
+                :options="options"
+                :schema="inputSchema"
+                enable-search
+                multiple
+                placeholder="Select a currency"
+              /&gt;
+            &lt;/Form&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CurrencySelector } from "@dzangolab/vue3-form";
+          import { CurrencySelector, Form } from "@dzangolab/vue3-form";
           import { ref } from "vue";
+          import { z } from "zod";
 
           import type { CurrencyOption } from "@dzangolab/vue3-form";
 
           const input = ref();
 
+          const inputSchema = z.preprocess(
+            (value) => (value === null || value === undefined ? [] : value),
+            z
+              .array(z.string())
+              .min(1, { message: "Please select at least one valid option" })
+          );
+
           const options = [
             { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
             { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-            { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+            { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
             { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
             { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
           ] as CurrencyOption[];
@@ -302,12 +316,16 @@ export default {
 
 <script setup lang="ts">
 import { CurrencySelector, Form } from "@dzangolab/vue3-form";
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { ButtonElement } from "@dzangolab/vue3-ui";
 import { reactive } from "vue";
+import { z } from "zod";
 
 import FormPage from "../FormPage.vue";
 
 import type { CurrencyOption } from "@dzangolab/vue3-form";
+
+const { t } = useI18n();
 
 const formData = reactive({
   basic: undefined,
@@ -315,7 +333,15 @@ const formData = reactive({
   selectOptionsInput: undefined,
   selectWithOrder: undefined,
   selectWithSearch: undefined,
+  validationInput: undefined,
 });
+
+const inputSchema = z.preprocess(
+  (value) => (value === null || value === undefined ? [] : value),
+  z
+    .array(z.string())
+    .min(1, { message: t("form.errors.currencySelector.invalid") }),
+);
 
 const options = [
   { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },

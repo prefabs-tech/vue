@@ -3,6 +3,12 @@
     "submit": "Submit[fr]"
   },
   "errors": {
+    "checkbox": {
+      "min": "Please select at least {min} options"
+    },
+    "currencySelector": {
+      "invalid": "Please select at least one valid option"
+    },
     "daysInput": {
       "invalid": "Please provide number of days within a year"
     },
