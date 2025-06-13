@@ -9,7 +9,8 @@ const schema = (
   options: IsIntOptions | undefined,
 ) => {
   return z
-    .string({
+    .coerce
+    .number({
       required_error: errorMessages.required,
       invalid_type_error: errorMessages.invalid,
     })

@@ -97,7 +97,7 @@
 
       <div class="section-content">
         <NumberInput
-          v-model="formData.input"
+          v-model="formData.i18nInput"
           :label="$t('form.label.number')"
           :placeholder="$t('form.placeholder.number')"
         />
@@ -292,6 +292,7 @@ const validationOptions = {
 let formData = reactive({
   customValidationInput: ref(),
   disabled: ref(100),
+  i18nInput: ref(),
   input: ref(),
   inputWithValidation: ref(),
   noLabelInput: ref(),
