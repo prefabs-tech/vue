@@ -66,6 +66,7 @@
         v-if="enableSearch || enableCustomSearch"
         v-model="searchInput"
         :placeholder="searchPlaceholder"
+        class="multiselect-search"
         @update:model-value="$emit('update:searchInput', $event)"
       />
 

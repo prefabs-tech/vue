@@ -59,7 +59,6 @@
           v-model="formData.selectWithSearch"
           :options="options"
           :placeholder="$t('form.placeholder.currency')"
-          :search-placeholder="$t('form.placeholder.search')"
           enable-search
         />
 
@@ -71,7 +70,6 @@
               :options="options"
               enable-search
               placeholder="Select a currency"
-              search-placeholder="Select..."
             /&gt;
           &lt;/template&gt;
 
@@ -105,7 +103,6 @@
           :option-label-order="['symbol', 'label', 'code']"
           :options="options"
           :placeholder="$t('form.placeholder.currency')"
-          :search-placeholder="$t('form.placeholder.search')"
           enable-search
         />
 
@@ -118,7 +115,6 @@
               :options="options"
               enable-search
               placeholder="Select a currency"
-              search-placeholder="Select..."
             /&gt;
           &lt;/template&gt;
 
@@ -151,7 +147,6 @@
           v-model="formData.multiselect"
           :options="options"
           :placeholder="$t('form.placeholder.currency')"
-          :search-placeholder="$t('form.placeholder.search')"
           enable-search
           multiple
         />
@@ -165,12 +160,74 @@
               enable-search
               multiple
               placeholder="Select a currency"
-              search-placeholder="Select..."
             /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { CurrencySelector } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          import type { CurrencyOption } from "@dzangolab/vue3-form";
+
+          const input = ref();
+
+          const options = [
+            { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+            { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+            { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
+            { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+            { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+          ] as CurrencyOption[];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.withSelectOptions") }}</h2>
+
+      <div class="section-content">
+        <Form>
+          <CurrencySelector
+            v-model="formData.selectOptionsInput"
+            :options="options"
+            :placeholder="$t('form.placeholder.currency')"
+            :selection-options="{
+              hasSortedOptions: false,
+              showRemoveSelection: true,
+              searchPlaceholder: $t('form.placeholder.search'),
+              maxSelection: 3,
+              minSelection: 2,
+            }"
+            enable-search
+            multiple
+          />
+        </Form>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Form&gt;
+              &lt;CurrencySelector
+                v-model="input"
+                :options="options"
+                :selection-options="{
+                  hasSortedOptions: false,
+                  showRemoveSelection: true,
+                  searchPlaceholder: $t('form.placeholder.search'),
+                  maxSelection: 3,
+                  minSelection: 2,
+                }"
+                enable-search
+                multiple
+                placeholder="Select a currency"
+              /&gt;
+            &lt;/Form&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { CurrencySelector, Form } from "@dzangolab/vue3-form";
           import { ref } from "vue";
 
           import type { CurrencyOption } from "@dzangolab/vue3-form";
@@ -199,7 +256,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { CurrencySelector } from "@dzangolab/vue3-form";
+import { CurrencySelector, Form } from "@dzangolab/vue3-form";
 import { ButtonElement } from "@dzangolab/vue3-ui";
 import { reactive } from "vue";
 
@@ -210,6 +267,7 @@ import type { CurrencyOption } from "@dzangolab/vue3-form";
 const formData = reactive({
   basic: undefined,
   multiselect: undefined,
+  selectOptionsInput: undefined,
   selectWithOrder: undefined,
   selectWithSearch: undefined,
 });

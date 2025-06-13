@@ -24,6 +24,7 @@
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
+        :search-placeholder="searchPlaceholder"
         :show-remove-selection="showRemoveSelection"
         tabindex="0"
         @update:model-value="onSelect"
