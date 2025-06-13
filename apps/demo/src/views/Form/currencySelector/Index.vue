@@ -195,10 +195,10 @@
             :placeholder="$t('form.placeholder.currency')"
             :selection-options="{
               hasSortedOptions: false,
-              showRemoveSelection: true,
-              searchPlaceholder: $t('form.placeholder.search'),
               maxSelection: 3,
               minSelection: 2,
+              searchPlaceholder: $t('form.placeholder.search'),
+              showRemoveSelection: true,
             }"
             enable-search
             multiple
@@ -214,10 +214,10 @@
                 :options="options"
                 :selection-options="{
                   hasSortedOptions: false,
-                  showRemoveSelection: true,
-                  searchPlaceholder: $t('form.placeholder.search'),
                   maxSelection: 3,
                   minSelection: 2,
+                  searchPlaceholder: $t('form.placeholder.search'),
+                  showRemoveSelection: true,
                 }"
                 enable-search
                 multiple
