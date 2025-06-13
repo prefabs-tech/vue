@@ -27,7 +27,7 @@
   cursor: default;
 }
 
-.field input:not(input[type="checkbox"]):focus-within,
+.field input:not(input[type="checkbox"], input.valid, input.invalid):focus-within,
 .field textarea:focus-within {
   outline: 2px solid var(--field-outline-color, #007aff);
 }
