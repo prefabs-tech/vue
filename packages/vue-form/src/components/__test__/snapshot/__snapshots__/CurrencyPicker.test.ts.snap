@@ -1,22 +1,22 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SelectInput > matches snapshot 1`] = `
+exports[`CurrencyPicker > matches snapshot 1`] = `
 <div
   class="currency-selector"
 >
   <div
-    class="field currency-selector"
+    class="field currency-picker"
   >
     <label
-      for="currency-selector"
+      for="currency-picker"
     >
-      Currency Selector
+      Currency Picker
     </label>
     
     <div
       class="multiple-mode multiselect"
-      id="input-field-currency-selector"
-      name="currency-selector"
+      id="input-field-currency-picker"
+      name="currency-picker"
       tabindex="0"
       value="AUD,GBP"
     >
