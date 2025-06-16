@@ -6,7 +6,7 @@
     "checkbox": {
       "min": "Please select at least {min} options"
     },
-    "currencySelector": {
+    "currencyPicker": {
       "invalid": "Please select at least one valid option"
     },
     "daysInput": {
@@ -60,7 +60,7 @@
     "checkbox": "Checkbox input",
     "consequences": "Consequences",
     "contentElement": "Content element",
-    "currencySelector": "Currency selector",
+    "currencyPicker": "Currency picker",
     "customColsRowsInput": "With cols and rows props[fr]",
     "customErrorMessageInput": "With custom error message[fr]",
     "customFormat": "Custom format[fr]",
