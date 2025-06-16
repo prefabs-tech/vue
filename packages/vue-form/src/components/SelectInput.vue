@@ -24,6 +24,7 @@
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
+        :search-placeholder="searchPlaceholder"
         :show-remove-selection="showRemoveSelection"
         tabindex="0"
         @update:model-value="onSelect"
@@ -147,20 +148,23 @@ if (Object.keys(props.schema).length) {
         : min;
   const maxValue = props.maxSelection ? Math.max(min, max) : undefined;
 
-  const arraySchema = z.array(z.string()).refine(
-    (value) => {
-      return (
-        (!maxValue || value.length <= maxValue) &&
-        (!minValue || value.length >= minValue)
-      );
-    },
-    {
-      message: `Please select ${
-        minValue !== maxValue
-          ? `between ${minValue} and ${maxValue ?? "available"}`
-          : minValue
-      } options`,
-    },
+  const arraySchema = z.preprocess(
+    (value) => (value === null || value === undefined ? [] : value),
+    z.array(z.string()).refine(
+      (value) => {
+        return (
+          (!maxValue || value.length <= maxValue) &&
+          (!minValue || value.length >= minValue)
+        );
+      },
+      {
+        message: `Please select ${
+          minValue !== maxValue
+            ? `between ${minValue} and ${maxValue ?? "available"}`
+            : minValue
+        } options`,
+      },
+    ),
   );
 
   fieldSchema = toFieldValidator(arraySchema);

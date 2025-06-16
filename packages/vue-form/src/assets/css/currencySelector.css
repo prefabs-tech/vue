@@ -17,3 +17,7 @@
 .currency-selector .currency-label .tertiary-currency-label {
   margin-left: auto;
 }
+
+.currency-selector li[disabled=true] .currency-label .code {
+  opacity: 0.6;
+}
