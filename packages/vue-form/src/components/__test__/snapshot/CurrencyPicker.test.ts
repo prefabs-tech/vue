@@ -1,11 +1,11 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import CurrencySelector from "../../CurrencySelector.vue";
+import CurrencyPicker from "../../CurrencyPicker.vue";
 
 import type { CurrencyOption } from "../../../types";
 
-describe("SelectInput", () => {
+describe("CurrencyPicker", () => {
     const options = [
         { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
         { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
@@ -15,12 +15,12 @@ describe("SelectInput", () => {
     ] as CurrencyOption[];
 
     it("matches snapshot", async () => {
-        const wrapper = mount(CurrencySelector, {
+        const wrapper = mount(CurrencyPicker, {
             props: {
-                label: "Currency Selector",
+                label: "Currency Picker",
                 modelValue: ["AUD", "GBP"],
                 multiple: true,
-                name: "currency-selector",
+                name: "currency-picker",
                 options: options,
                 placeholder: "Select a currency",
             },

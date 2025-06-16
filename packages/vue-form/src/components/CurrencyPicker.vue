@@ -48,7 +48,7 @@
 
 <script lang="ts">
 export default {
-  name: "CurrencySelector",
+  name: "CurrencyPicker",
 };
 </script>
 
