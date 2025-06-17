@@ -14,12 +14,21 @@
       class="multiselect-input"
       @click="toggleDropdown"
     >
-      <span v-if="!selectedOptions.length" class="multiselect-placeholder">
-        {{ placeholder }}
-      </span>
-      <span v-else class="selected-options">
-        {{ selectedLabels }}
-      </span>
+      <DebouncedInput
+        v-if="(enableSearch || enableCustomSearch) && !selectedOptions.length"
+        v-model="searchInput"
+        :placeholder="searchPlaceholder"
+        class="multiselect-search"
+        @update:model-value="$emit('update:searchInput', $event)"
+      />
+      <template v-else>
+        <span v-if="!selectedOptions.length" class="multiselect-placeholder">
+          {{ placeholder }}
+        </span>
+        <span v-else class="selected-options">
+          {{ selectedLabels }}
+        </span>
+      </template>
       <span class="action-items">
         <svg
           v-if="hasRemoveOption"
@@ -62,14 +71,6 @@
       @mouseenter="enableOptionNavigation = false"
       @keydown.tab.stop.prevent="toggleDropdown"
     >
-      <DebouncedInput
-        v-if="enableSearch || enableCustomSearch"
-        v-model="searchInput"
-        :placeholder="searchPlaceholder"
-        class="multiselect-search"
-        @update:model-value="$emit('update:searchInput', $event)"
-      />
-
       <li
         v-if="multiple && !searchInput"
         ref="dzangolabVueSelectAll"

@@ -24,11 +24,13 @@ exports[`CurrencyPicker > matches snapshot 1`] = `
       <div
         class="multiselect-input"
       >
+        
         <span
           class="multiselect-placeholder"
         >
           Select a currency
         </span>
+        
         <span
           class="action-items"
         >

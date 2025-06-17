@@ -13,11 +13,13 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
   <div
     class="multiselect-input"
   >
+    
     <span
       class="selected-options"
     >
       FR, DE, BE, FE, RE
     </span>
+    
     <span
       class="action-items"
     >
@@ -62,7 +64,6 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
   <ul
     role="list"
   >
-    <!--v-if-->
     <li
       class="multiselect-option"
     >
@@ -200,11 +201,13 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
   <div
     class="multiselect-input"
   >
+    
     <span
       class="selected-options"
     >
       FR
     </span>
+    
     <span
       class="action-items"
     >
@@ -249,7 +252,6 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
   <ul
     role="list"
   >
-    <!--v-if-->
     <!--v-if-->
     
     <li

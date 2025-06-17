@@ -43,6 +43,18 @@
   user-select: none;
 }
 
+.multiselect .multiselect-input:has(.multiselect-search) {
+  --_padding-h: 0;
+}
+
+.multiselect .multiselect-input > .multiselect-search > input {
+  border-color: transparent;
+}
+
+.multiselect .multiselect-input > .multiselect-search > input:focus-within {
+  outline: none;
+}
+
 .multiselect>.multiselect-input.disabled {
   --_bg-color: var(--form-input-bg-color-disabled, #f7f7f7);
   --_border-color: var(--form-input-border-color-disabled, #ccc);
@@ -122,6 +134,8 @@
 
 .multiselect .multiselect-input>.action-items {
   display: flex;
+  position: absolute;
+  right: 0.75rem;
 }
 
 .multiselect .multiselect-input>.action-items > svg {

@@ -64,3 +64,9 @@ const onInput = (event: Event) => {
   });
 };
 </script>
+
+<style lang="css">
+.debounce-input {
+  width: 100%;
+}
+</style>
