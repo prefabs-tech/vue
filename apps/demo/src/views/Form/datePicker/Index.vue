@@ -14,14 +14,12 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
-        <DatePicker v-model="formData.noLabelInput" />
+        <DatePicker v-model="formData.noLabelInput" placeholder="MM/dd/yyyy" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;DatePicker 
-              v-model="input"
-            /&gt;
+            &lt;DatePicker v-model="input" placeholder="MM/dd/yyyy" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -39,6 +37,7 @@
         <DatePicker
           v-model="formData.arrivalDate"
           :label="$t('form.label.arrivalDate')"
+          placeholder="MM/dd/yyyy"
         />
 
         <!-- eslint-disable -->
@@ -47,6 +46,7 @@
             &lt;DatePicker 
               v-model="arrivalDate"
               label="Arrival date"
+              placeholder="MM/dd/yyyy"
             /&gt;
           &lt;/template&gt;
   
@@ -305,6 +305,7 @@
           :label="$t('form.label.month')"
           format="MMM"
           month-picker
+          placeholder="MMM"
         />
 
         <!-- eslint-disable -->
@@ -315,6 +316,7 @@
               format="MMM"
               label="Month"
               month-picker
+              placeholder="MMM"
             /&gt;
           &lt;/template&gt;
   
@@ -399,6 +401,7 @@
           v-model="formData.time"
           :label="$t('form.label.appointmentTime')"
           time-picker
+          placeholder="HH:mm"
         />
 
         <!-- eslint-disable -->
@@ -408,6 +411,7 @@
               v-model="appointmentTime"
               label="Appointment time"
               time-picker
+              placeholder="HH:mm"
             /&gt;
           &lt;/template&gt;
   
@@ -428,6 +432,7 @@
             v-model="formData.joinedDate"
             :label="$t('form.label.joinedDate')"
             :schema="inputSchema"
+            placeholder="MM/dd/yyyy"
           />
         </Form>
 
@@ -438,6 +443,7 @@
               v-model="joinedDate"
               :schema="inputSchema"
               label="Joined date"
+              placeholder="MM/dd/yyyy"
             /&gt;
           &lt;/Form&gt;
   

@@ -3,7 +3,6 @@
 exports[`DatePicker > matches snapshot 1`] = `
 <div
   class="date-picker"
-  placeholder="Placeholder"
 >
   <label
     for="date-picker"
@@ -16,7 +15,7 @@ exports[`DatePicker > matches snapshot 1`] = `
     alwaysclearable="false"
     arialabels="[object Object]"
     arrownavigation="false"
-    autoapply="false"
+    autoapply="true"
     autocomplete="off"
     autoposition="true"
     canceltext="Cancel"
