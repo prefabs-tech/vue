@@ -400,8 +400,8 @@
         <DatePicker
           v-model="formData.time"
           :label="$t('form.label.appointmentTime')"
-          time-picker
           placeholder="HH:mm"
+          time-picker
         />
 
         <!-- eslint-disable -->
@@ -410,8 +410,8 @@
             &lt;DatePicker 
               v-model="appointmentTime"
               label="Appointment time"
-              time-picker
               placeholder="HH:mm"
+              time-picker
             /&gt;
           &lt;/template&gt;
   
