@@ -15,7 +15,10 @@
       @click="toggleDropdown"
     >
       <DebouncedInput
-        v-if="(enableSearch || enableCustomSearch) && !selectedOptions.length"
+        v-if="
+          (enableSearch || enableCustomSearch) &&
+          (!selectedOptions.length || (showDropdownMenu && !disabled))
+        "
         v-model="searchInput"
         :placeholder="searchPlaceholder"
         class="multiselect-search"
