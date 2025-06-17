@@ -34,12 +34,17 @@
         {{ activeTabComponent }}
       </template>
       <template v-else>
-        <component
-          :is="slotComponent"
-          v-for="(slotComponent, index) in validSlots"
-          v-show="slotComponent === activeTabComponent"
-          :key="`slot-component-${index}`"
-        />
+        <template v-if="!lazy">
+          <component
+            :is="slotComponent"
+            v-for="(slotComponent, index) in validSlots"
+            v-show="slotComponent === activeTabComponent"
+            :key="`slot-component-${index}`"
+          />
+        </template>
+        <template v-else>
+          <component :is="activeTabComponent" v-if="activeTabComponent" />
+        </template>
       </template>
     </div>
   </div>
@@ -72,6 +77,10 @@ const props = defineProps({
   },
   interceptTabChange: Boolean,
   interceptTabClose: Boolean,
+  lazy: {
+    default: true,
+    type: Boolean,
+  },
   persistState: {
     type: Boolean,
     default: true,
