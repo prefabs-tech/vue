@@ -19,6 +19,7 @@
           (enableSearch || enableCustomSearch) &&
           (!selectedOptions.length || (showDropdownMenu && !disabled))
         "
+        ref="dzangolabVueSearchInput"
         v-model="searchInput"
         :placeholder="searchPlaceholder"
         class="multiselect-search"
@@ -185,6 +186,7 @@ const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
 const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
+const dzangolabVueSearchInput = ref();
 const dzangolabVueSelectAll = ref();
 const dzangolabVueFormSelectOptions = ref<(HTMLElement | null)[]>([]);
 const enableOptionNavigation = ref(false);
@@ -471,8 +473,17 @@ const setOptionReference =
     dzangolabVueFormSelectOptions.value[index] = element as HTMLElement | null;
   };
 
-const toggleDropdown = () => {
+const toggleDropdown = async () => {
   showDropdownMenu.value = !showDropdownMenu.value;
+
+  if (showDropdownMenu.value) {
+    await nextTick();
+    (
+      dzangolabVueSearchInput.value?.$el?.querySelector(
+        "input",
+      ) as HTMLInputElement | null
+    )?.focus();
+  }
 };
 
 onMounted(() => {
