@@ -69,4 +69,10 @@ const onInput = (event: Event) => {
 .debounce-input {
   width: 100%;
 }
+
+.debounce-input > input {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 </style>

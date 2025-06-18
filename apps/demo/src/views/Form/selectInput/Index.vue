@@ -136,7 +136,6 @@
           :label="$t('form.label.language')"
           :options="options"
           :placeholder="$t('form.placeholder.language')"
-          :search-placeholder="$t('form.placeholder.search')"
           enable-search
         />
 
@@ -149,7 +148,6 @@
               enable-search
               label="Language"
               placeholder="Select a language"
-              search-placeholder="Search..."
             /&gt;
           &lt;/template&gt;
 
@@ -346,7 +344,6 @@
           :label="$t('form.label.language')"
           :options="options"
           :placeholder="$t('form.placeholder.languages')"
-          :search-placeholder="$t('form.placeholder.search')"
           enable-search
           multiple
         />
@@ -361,7 +358,6 @@
               label="Language"
               multiple
               placeholder="Select languages"
-              search-placeholder="Search..."
             /&gt;
           &lt;/template&gt;
 

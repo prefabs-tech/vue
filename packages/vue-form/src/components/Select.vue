@@ -21,7 +21,7 @@
         "
         ref="dzangolabVueSearchInput"
         v-model="searchInput"
-        :placeholder="searchPlaceholder"
+        :placeholder="placeholder"
         class="multiselect-search"
         @update:model-value="$emit('update:searchInput', $event)"
       />
@@ -175,10 +175,6 @@ const props = defineProps({
   showRemoveSelection: {
     default: true,
     type: Boolean,
-  },
-  searchPlaceholder: {
-    default: undefined,
-    type: String,
   },
 });
 
