@@ -212,12 +212,18 @@ const filteredOptions = computed(() => {
   );
 });
 
-const hasRemoveOption = computed(
-  () =>
-    props.showRemoveSelection &&
-    !props.disabled &&
-    selectedOptions.value.length,
-);
+const hasRemoveOption = computed(() => {
+  if (
+    (props.enableSearch || props.enableCustomSearch) &&
+    showDropdownMenu.value
+  ) {
+    return false;
+  }
+
+  return (
+    props.showRemoveSelection && !props.disabled && selectedOptions.value.length
+  );
+});
 
 const selectedLabels = computed(() =>
   selectedOptions.value.map((option) => option.label).join(", "),
@@ -236,7 +242,11 @@ const sortedOptions = computed(() => {
 watch(
   () => filteredOptions.value,
   (newOptions) => {
-    if (!multiple.value && newOptions.length === 1) {
+    if (
+      !multiple.value &&
+      newOptions.length === 1 &&
+      searchInput.value?.length === 1
+    ) {
       selectedOptions.value = [newOptions[0]];
       showDropdownMenu.value = false;
     }
