@@ -506,7 +506,7 @@ const setOptionReference =
     dzangolabVueFormSelectOptions.value[index] = element as HTMLElement | null;
   };
 
-const toggleDropdown = async () => {
+const toggleDropdown = () => {
   showDropdownMenu.value = !showDropdownMenu.value;
 
   if (showDropdownMenu.value) {
