@@ -200,13 +200,6 @@ onClickOutside(dzangolabVueFormSelect, (event) => {
   showDropdownMenu.value = false;
 });
 
-watch(
-  () => props.modelValue,
-  () => {
-    prepareComponent();
-  },
-);
-
 const activeOptions = computed(() =>
   props.options.filter((option) => !option.disabled),
 );
@@ -243,6 +236,23 @@ const sortedOptions = computed(() => {
 
   return filteredOptions.value;
 });
+
+watch(
+  () => filteredOptions.value,
+  (newOptions) => {
+    if (!multiple.value && newOptions.length === 1) {
+      selectedOptions.value = [newOptions[0]];
+      showDropdownMenu.value = false;
+    }
+  },
+);
+
+watch(
+  () => props.modelValue,
+  () => {
+    prepareComponent();
+  },
+);
 
 const focusSearchInput = async () => {
   if (!(props.enableSearch || props.enableCustomSearch)) {
