@@ -21,11 +21,13 @@ exports[`SelectInput > matches snapshot 1`] = `
     <div
       class="multiselect-input"
     >
+      
       <span
         class="selected-options"
       >
         FR, FE
       </span>
+      
       <span
         class="action-items"
       >

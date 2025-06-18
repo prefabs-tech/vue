@@ -197,7 +197,6 @@
               hasSortedOptions: false,
               maxSelection: 3,
               minSelection: 2,
-              searchPlaceholder: $t('form.placeholder.search'),
               showRemoveSelection: true,
             }"
             enable-search
@@ -216,7 +215,6 @@
                   hasSortedOptions: false,
                   maxSelection: 3,
                   minSelection: 2,
-                  searchPlaceholder: $t('form.placeholder.search'),
                   showRemoveSelection: true,
                 }"
                 enable-search

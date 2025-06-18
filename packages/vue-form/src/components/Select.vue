@@ -14,12 +14,25 @@
       class="multiselect-input"
       @click="toggleDropdown"
     >
-      <span v-if="!selectedOptions.length" class="multiselect-placeholder">
-        {{ placeholder }}
-      </span>
-      <span v-else class="selected-options">
-        {{ selectedLabels }}
-      </span>
+      <DebouncedInput
+        v-if="
+          (enableSearch || enableCustomSearch) &&
+          (!selectedOptions.length || (showDropdownMenu && !disabled))
+        "
+        ref="dzangolabVueSearchInput"
+        v-model="searchInput"
+        :placeholder="placeholder"
+        class="multiselect-search"
+        @update:model-value="$emit('update:searchInput', $event)"
+      />
+      <template v-else>
+        <span v-if="!selectedOptions.length" class="multiselect-placeholder">
+          {{ placeholder }}
+        </span>
+        <span v-else class="selected-options">
+          {{ selectedLabels }}
+        </span>
+      </template>
       <span class="action-items">
         <svg
           v-if="hasRemoveOption"
@@ -62,14 +75,6 @@
       @mouseenter="enableOptionNavigation = false"
       @keydown.tab.stop.prevent="toggleDropdown"
     >
-      <DebouncedInput
-        v-if="enableSearch || enableCustomSearch"
-        v-model="searchInput"
-        :placeholder="searchPlaceholder"
-        class="multiselect-search"
-        @update:model-value="$emit('update:searchInput', $event)"
-      />
-
       <li
         v-if="multiple && !searchInput"
         ref="dzangolabVueSelectAll"
@@ -171,16 +176,13 @@ const props = defineProps({
     default: true,
     type: Boolean,
   },
-  searchPlaceholder: {
-    default: undefined,
-    type: String,
-  },
 });
 
 const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
 const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
+const dzangolabVueSearchInput = ref();
 const dzangolabVueSelectAll = ref();
 const dzangolabVueFormSelectOptions = ref<(HTMLElement | null)[]>([]);
 const enableOptionNavigation = ref(false);
@@ -193,13 +195,6 @@ const showDropdownMenu: Ref<boolean> = ref(false);
 onClickOutside(dzangolabVueFormSelect, (event) => {
   showDropdownMenu.value = false;
 });
-
-watch(
-  () => props.modelValue,
-  () => {
-    prepareComponent();
-  },
-);
 
 const activeOptions = computed(() =>
   props.options.filter((option) => !option.disabled),
@@ -217,12 +212,18 @@ const filteredOptions = computed(() => {
   );
 });
 
-const hasRemoveOption = computed(
-  () =>
-    props.showRemoveSelection &&
-    !props.disabled &&
-    selectedOptions.value.length,
-);
+const hasRemoveOption = computed(() => {
+  if (
+    (props.enableSearch || props.enableCustomSearch) &&
+    showDropdownMenu.value
+  ) {
+    return false;
+  }
+
+  return (
+    props.showRemoveSelection && !props.disabled && selectedOptions.value.length
+  );
+});
 
 const selectedLabels = computed(() =>
   selectedOptions.value.map((option) => option.label).join(", "),
@@ -237,6 +238,40 @@ const sortedOptions = computed(() => {
 
   return filteredOptions.value;
 });
+
+watch(
+  () => filteredOptions.value,
+  (newOptions) => {
+    if (
+      !multiple.value &&
+      newOptions.length === 1 &&
+      searchInput.value?.length === 1
+    ) {
+      selectedOptions.value = [newOptions[0]];
+      showDropdownMenu.value = false;
+    }
+  },
+);
+
+watch(
+  () => props.modelValue,
+  () => {
+    prepareComponent();
+  },
+);
+
+const focusSearchInput = async () => {
+  if (!(props.enableSearch || props.enableCustomSearch)) {
+    return;
+  }
+
+  await nextTick();
+  (
+    dzangolabVueSearchInput.value?.$el?.querySelector(
+      "input",
+    ) as HTMLInputElement | null
+  )?.focus();
+};
 
 const getSelectedOption = (value: number | string | boolean) => {
   return (
@@ -281,6 +316,7 @@ const onArrowDown = (event: KeyboardEvent) => {
 
   if (
     props.multiple &&
+    !searchInput.value &&
     nextIndex(focusedOptionIndex.value) === firstActiveIndex &&
     focusedOptionIndex.value !== selectAllIndex
   ) {
@@ -307,6 +343,7 @@ const onArrowUp = (event: KeyboardEvent) => {
 
   if (
     props.multiple &&
+    !searchInput.value &&
     previousIndex(focusedOptionIndex.value) === lastActiveIndex &&
     focusedOptionIndex.value !== selectAllIndex
   ) {
@@ -414,6 +451,10 @@ const onMultiSelect = () => {
     (selectedOption) => selectedOption.value,
   );
 
+  if (showDropdownMenu.value) {
+    focusSearchInput();
+  }
+
   emit("update:modelValue", selectedValues);
 };
 
@@ -469,6 +510,10 @@ const setOptionReference =
 
 const toggleDropdown = () => {
   showDropdownMenu.value = !showDropdownMenu.value;
+
+  if (showDropdownMenu.value) {
+    focusSearchInput();
+  }
 };
 
 onMounted(() => {

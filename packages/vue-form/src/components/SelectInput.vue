@@ -24,7 +24,6 @@
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
-        :search-placeholder="searchPlaceholder"
         :show-remove-selection="showRemoveSelection"
         tabindex="0"
         @update:model-value="onSelect"
@@ -114,10 +113,6 @@ const props = defineProps({
     },
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
-  },
-  searchPlaceholder: {
-    default: undefined,
-    type: String,
   },
   showRemoveSelection: {
     default: true,
