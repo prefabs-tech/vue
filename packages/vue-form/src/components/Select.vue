@@ -316,6 +316,7 @@ const onArrowDown = (event: KeyboardEvent) => {
 
   if (
     props.multiple &&
+    !searchInput.value &&
     nextIndex(focusedOptionIndex.value) === firstActiveIndex &&
     focusedOptionIndex.value !== selectAllIndex
   ) {
@@ -342,6 +343,7 @@ const onArrowUp = (event: KeyboardEvent) => {
 
   if (
     props.multiple &&
+    !searchInput.value &&
     previousIndex(focusedOptionIndex.value) === lastActiveIndex &&
     focusedOptionIndex.value !== selectAllIndex
   ) {
