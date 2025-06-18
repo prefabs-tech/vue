@@ -244,6 +244,19 @@ const sortedOptions = computed(() => {
   return filteredOptions.value;
 });
 
+const focusSearchInput = async () => {
+  if (!(props.enableSearch || props.enableCustomSearch)) {
+    return;
+  }
+
+  await nextTick();
+  (
+    dzangolabVueSearchInput.value?.$el?.querySelector(
+      "input",
+    ) as HTMLInputElement | null
+  )?.focus();
+};
+
 const getSelectedOption = (value: number | string | boolean) => {
   return (
     options.value?.find((option) => option.value === value) ||
@@ -420,6 +433,10 @@ const onMultiSelect = () => {
     (selectedOption) => selectedOption.value,
   );
 
+  if (showDropdownMenu.value) {
+    focusSearchInput();
+  }
+
   emit("update:modelValue", selectedValues);
 };
 
@@ -477,12 +494,7 @@ const toggleDropdown = async () => {
   showDropdownMenu.value = !showDropdownMenu.value;
 
   if (showDropdownMenu.value) {
-    await nextTick();
-    (
-      dzangolabVueSearchInput.value?.$el?.querySelector(
-        "input",
-      ) as HTMLInputElement | null
-    )?.focus();
+    focusSearchInput();
   }
 };
 
