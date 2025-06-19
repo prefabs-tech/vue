@@ -3,7 +3,6 @@
     <SelectInput
       v-bind="selectionOptions"
       :disabled="disabled"
-      :enable-custom-search="enableSearch"
       :label="label"
       :model-value="modelValue"
       :multiple="multiple"
@@ -11,6 +10,7 @@
       :options="filteredOptions"
       :placeholder="placeholder"
       :schema="schema"
+      enable-custom-search
       @update:model-value="$emit('update:modelValue', $event)"
       @update:search-input="onSearchInput"
     >
@@ -66,7 +66,6 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
-  enableSearch: Boolean,
   label: {
     default: "",
     required: false,
@@ -120,7 +119,7 @@ const searchInput = ref<string>();
 const filteredOptions = computed(() => {
   const query = String(searchInput.value).toLowerCase();
 
-  if (!searchInput.value || !props.enableSearch) {
+  if (!searchInput.value) {
     return props.options;
   }
 
