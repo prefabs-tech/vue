@@ -169,7 +169,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.withLabelValueKey") }}</h2>
+      <h2>{{ $t("form.label.withLabelValueKeys") }}</h2>
 
       <div class="section-content">
         <SelectInput
@@ -330,6 +330,51 @@
             { disabled: true, label: "Dutch", value: "be", },
             { label: "Nepali", value: "np",  },
             { label: "Hindi", value: "hi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.multiselectWithKeys") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.multiselectKeysInput"
+          :label="$t('form.label.language')"
+          :options="languageOptions"
+          :placeholder="$t('form.placeholder.language')"
+          label-key="language"
+          multiple
+          value-key="code"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              label="Language"
+              label-key="language"
+              placeholder="Select a language"
+              multiple
+              value-key="code"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { language: "French", code: "fr"},
+            { language: "German", code: "de"},
+            { disabled: true, language: "Dutch", code: "be", },
+            { language: "Nepali", code: "np",  },
+            { language: "Hindi", code: "hi" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -525,6 +570,7 @@ let formData = reactive({
   inputWithValidation: ref([]),
   labelValueKeyInput: ref(),
   multiselect: ref(),
+  multiselectKeysInput: ref([]),
   noLabelInput: ref(),
 });
 

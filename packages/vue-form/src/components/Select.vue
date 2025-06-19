@@ -85,7 +85,7 @@
         @click="onSelectAll()"
       >
         <Checkbox
-          :model-value="isAllSelected(options)"
+          :model-value="isAllSelected"
           @update:model-value="onMultiSelect()"
         />
         <span>Select all</span>
@@ -127,7 +127,7 @@ export default {
 <script setup lang="ts">
 import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
-import { computed, nextTick, onMounted, ref, toRaw, toRefs, watch } from "vue";
+import { computed, nextTick, onMounted, ref, toRefs, watch } from "vue";
 
 import Checkbox from "./Checkbox.vue";
 
@@ -201,7 +201,7 @@ onClickOutside(dzangolabVueFormSelect, (event) => {
 });
 
 const activeOptions = computed(() =>
-  props.options.filter((option) => !option.disabled),
+  normalizedOptions.value?.filter((option) => !option.disabled),
 );
 
 const filteredOptions = computed(() => {
@@ -210,7 +210,7 @@ const filteredOptions = computed(() => {
   }
 
   return normalizedOptions.value?.filter((option) =>
-    option.label
+    String(option.label)
       .toLowerCase()
       .includes(String(searchInput.value).toLowerCase()),
   );
@@ -226,22 +226,33 @@ const hasRemoveOption = computed(() => {
   );
 });
 
-const normalizedOptions = computed(() =>
-  props.options.map((option) => {
-    return {
-      ...option,
-      label:
-        (props.labelKey
+const isAllSelected = computed((): boolean => {
+  if (selectedOptions.value.length != activeOptions.value.length) {
+    return false;
+  }
+
+  return selectedOptions.value.every((selectedOption) =>
+    normalizedOptions.value.some(
+      (option) => option.value === selectedOption.value,
+    ),
+  );
+});
+
+const normalizedOptions = computed(
+  () =>
+    props.options.map((option) => {
+      return {
+        ...option,
+        label: (props.labelKey
           ? option[props.labelKey as keyof SelectOption]
           : option.label
-        )?.toString() || "",
-      value:
-        (props.valueKey
+        )?.toString(),
+        value: (props.valueKey
           ? option[props.valueKey as keyof SelectOption]
           : option.value
-        )?.toString() || "",
-    };
-  }),
+        )?.toString(),
+      };
+    }) as SelectOption[],
 );
 
 const selectedLabels = computed(() =>
@@ -252,7 +263,7 @@ const sortedOptions = computed(() => {
   if (props.hasSortedOptions) {
     return filteredOptions.value
       ?.slice()
-      .sort((a, b) => a?.label.localeCompare(b?.label));
+      .sort((a, b) => String(a.label).localeCompare(String(b.label)));
   }
 
   return filteredOptions.value;
@@ -278,16 +289,6 @@ const getSelectedOption = (value: number | string | boolean) => {
   return (
     options.value?.find((option) => option.value === value) ||
     selectedOptions.value.find((option) => option.value === value)
-  );
-};
-
-const isAllSelected = (options: SelectOption[]): boolean => {
-  if (selectedOptions.value.length != activeOptions.value.length) {
-    return false;
-  }
-
-  return selectedOptions.value.every((selectedOption) =>
-    options.includes(toRaw(selectedOption)),
   );
 };
 
@@ -414,7 +415,7 @@ const onSelect = (event: Event, option: SelectOption) => {
 };
 
 const onSelectAll = () => {
-  const allSelected = isAllSelected(props.options);
+  const allSelected = isAllSelected.value;
 
   if (allSelected) {
     selectedOptions.value = [];
