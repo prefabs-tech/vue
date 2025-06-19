@@ -19,11 +19,13 @@
         :disabled="disabled"
         :enable-custom-search="enableCustomSearch"
         :has-sorted-options="hasSortedOptions"
+        :label-key="labelKey"
         :model-value="modelValue"
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
         :show-remove-selection="showRemoveSelection"
+        :value-key="valueKey"
         tabindex="0"
         @update:model-value="onSelect"
         @update:search-input="$emit('update:searchInput', $event)"
@@ -73,6 +75,10 @@ const props = defineProps({
     required: false,
     type: String as PropType<string>,
   },
+  labelKey: {
+    default: undefined,
+    type: String,
+  },
   maxSelection: {
     default: undefined,
     type: Number as PropType<number | undefined>,
@@ -115,6 +121,10 @@ const props = defineProps({
   showRemoveSelection: {
     default: true,
     type: Boolean,
+  },
+  valueKey: {
+    default: undefined,
+    type: String,
   },
 });
 

@@ -169,6 +169,49 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.withLabelValueKeys") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.labelValueKeyInput"
+          :label="$t('form.label.language')"
+          :options="languageOptions"
+          :placeholder="$t('form.placeholder.language')"
+          label-key="language"
+          value-key="code"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              label="Language"
+              label-key="language"
+              placeholder="Select a language"
+              value-key="code"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { code: "fr", language: t("form.label.french") },
+            { code: "de", language: t("form.label.german") },
+            { code: "be", disabled: true, language: t("form.label.dutch") },
+            { code: "np", language: t("form.label.nepali") },
+            { code: "hi", language: t("form.label.hindi") },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
@@ -287,6 +330,51 @@
             { disabled: true, label: "Dutch", value: "be", },
             { label: "Nepali", value: "np",  },
             { label: "Hindi", value: "hi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.multiselectWithKeys") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.multiselectKeysInput"
+          :label="$t('form.label.language')"
+          :options="languageOptions"
+          :placeholder="$t('form.placeholder.language')"
+          label-key="language"
+          multiple
+          value-key="code"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              label="Language"
+              label-key="language"
+              placeholder="Select a language"
+              multiple
+              value-key="code"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { code: "fr", language: t("form.label.french") },
+            { code: "de", language: t("form.label.german") },
+            { code: "be", disabled: true, language: t("form.label.dutch") },
+            { code: "np", language: t("form.label.nepali") },
+            { code: "hi", language: t("form.label.hindi") },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -480,7 +568,9 @@ let formData = reactive({
   input: ref(),
   inputWithMinMax: ref([]),
   inputWithValidation: ref([]),
+  labelValueKeyInput: ref(),
   multiselect: ref(),
+  multiselectKeysInput: ref([]),
   noLabelInput: ref(),
 });
 
@@ -490,5 +580,13 @@ const options = ref([
   { disabled: true, label: t("form.label.dutch"), value: "be" },
   { label: t("form.label.nepali"), value: "np" },
   { label: t("form.label.hindi"), value: "hi" },
+]);
+
+const languageOptions = ref([
+  { code: "fr", language: t("form.label.french") },
+  { code: "de", language: t("form.label.german") },
+  { code: "be", disabled: true, language: t("form.label.dutch") },
+  { code: "np", language: t("form.label.nepali") },
+  { code: "hi", language: t("form.label.hindi") },
 ]);
 </script>
