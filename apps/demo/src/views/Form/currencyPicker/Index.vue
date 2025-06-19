@@ -52,49 +52,6 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.withSearch") }}</h2>
-
-      <div class="section-content">
-        <CurrencyPicker
-          v-model="formData.selectWithSearch"
-          :options="options"
-          :placeholder="$t('form.placeholder.currency')"
-          enable-search
-        />
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;CurrencyPicker
-              v-model="input"
-              :options="options"
-              enable-search
-              placeholder="Select a currency"
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { CurrencyPicker } from "@dzangolab/vue3-form";
-          import { ref } from "vue";
-
-          import type { CurrencyOption } from "@dzangolab/vue3-form";
-
-          const input = ref();
-
-          const options = [
-            { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
-            { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-            { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
-            { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
-            { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
-          ] as CurrencyOption[];
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
       <h2>{{ $t("form.label.selectLabelOrder") }}</h2>
 
       <div class="section-content">
@@ -103,7 +60,6 @@
           :option-label-order="['symbol', 'label', 'code']"
           :options="options"
           :placeholder="$t('form.placeholder.currency')"
-          enable-search
         />
 
         <!-- eslint-disable -->
@@ -113,7 +69,6 @@
               v-model="input"
               :option-label-order="['symbol', 'label', 'code']"
               :options="options"
-              enable-search
               placeholder="Select a currency"
             /&gt;
           &lt;/template&gt;
@@ -147,7 +102,6 @@
           v-model="formData.multiselect"
           :options="options"
           :placeholder="$t('form.placeholder.currency')"
-          enable-search
           multiple
         />
 
@@ -157,7 +111,6 @@
             &lt;CurrencyPicker
               v-model="input"
               :options="options"
-              enable-search
               multiple
               placeholder="Select a currency"
             /&gt;
@@ -199,7 +152,6 @@
               minSelection: 2,
               showRemoveSelection: true,
             }"
-            enable-search
             multiple
           />
         </Form>
@@ -217,7 +169,6 @@
                   minSelection: 2,
                   showRemoveSelection: true,
                 }"
-                enable-search
                 multiple
                 placeholder="Select a currency"
               /&gt;
@@ -255,7 +206,6 @@
             :options="options"
             :placeholder="$t('form.placeholder.currency')"
             :schema="inputSchema"
-            enable-search
             multiple
           />
         </Form>
@@ -268,7 +218,6 @@
                 v-model="input"
                 :options="options"
                 :schema="inputSchema"
-                enable-search
                 multiple
                 placeholder="Select a currency"
               /&gt;

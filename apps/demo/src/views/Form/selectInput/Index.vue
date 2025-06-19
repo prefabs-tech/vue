@@ -128,47 +128,6 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.withSearch") }}</h2>
-
-      <div class="section-content">
-        <SelectInput
-          v-model="formData.selectWithSearch"
-          :label="$t('form.label.language')"
-          :options="options"
-          :placeholder="$t('form.placeholder.language')"
-          enable-search
-        />
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;SelectInput 
-              v-model="input"
-              :options="options"
-              enable-search
-              label="Language"
-              placeholder="Select a language"
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
-          import { ref } from "vue";
-
-          const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
-          ]);
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
       <h2>{{ $t("form.label.disableSort") }}</h2>
 
       <div class="section-content">
@@ -321,49 +280,6 @@
           import { ref } from "vue";
 
           const disabled = ref(["be", "de"]);
-
-          const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
-          ]);
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("form.label.multiselectSearch") }}</h2>
-
-      <div class="section-content">
-        <SelectInput
-          v-model="formData.multiselectSearch"
-          :label="$t('form.label.language')"
-          :options="options"
-          :placeholder="$t('form.placeholder.languages')"
-          enable-search
-          multiple
-        />
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;SelectInput 
-              v-model="input"
-              :options="options"
-              enable-search
-              label="Language"
-              multiple
-              placeholder="Select languages"
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
-          import { ref } from "vue";
 
           const options = ref([
             { label: "French", value: "fr"},
@@ -565,9 +481,7 @@ let formData = reactive({
   inputWithMinMax: ref([]),
   inputWithValidation: ref([]),
   multiselect: ref(),
-  multiselectSearch: ref(),
   noLabelInput: ref(),
-  selectWithSearch: ref(),
 });
 
 const options = ref([
