@@ -15,10 +15,7 @@
       @click="toggleDropdown"
     >
       <DebouncedInput
-        v-if="
-          (enableSearch || enableCustomSearch) &&
-          (!selectedOptions.length || (showDropdownMenu && !disabled))
-        "
+        v-if="!selectedOptions.length || (showDropdownMenu && !disabled)"
         ref="dzangolabVueSearchInput"
         v-model="searchInput"
         :placeholder="placeholder"
@@ -143,7 +140,6 @@ const props = defineProps({
     type: Boolean,
   },
   enableCustomSearch: Boolean,
-  enableSearch: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -213,10 +209,7 @@ const filteredOptions = computed(() => {
 });
 
 const hasRemoveOption = computed(() => {
-  if (
-    (props.enableSearch || props.enableCustomSearch) &&
-    showDropdownMenu.value
-  ) {
+  if (showDropdownMenu.value) {
     return false;
   }
 
@@ -240,20 +233,6 @@ const sortedOptions = computed(() => {
 });
 
 watch(
-  () => filteredOptions.value,
-  (newOptions) => {
-    if (
-      !multiple.value &&
-      newOptions.length === 1 &&
-      searchInput.value?.length === 1
-    ) {
-      selectedOptions.value = [newOptions[0]];
-      showDropdownMenu.value = false;
-    }
-  },
-);
-
-watch(
   () => props.modelValue,
   () => {
     prepareComponent();
@@ -261,10 +240,6 @@ watch(
 );
 
 const focusSearchInput = async () => {
-  if (!(props.enableSearch || props.enableCustomSearch)) {
-    return;
-  }
-
   await nextTick();
   (
     dzangolabVueSearchInput.value?.$el?.querySelector(
