@@ -153,6 +153,10 @@ const props = defineProps({
     required: false,
     type: String as PropType<string>,
   },
+  labelKey: {
+    default: undefined,
+    type: String,
+  },
   modelValue: {
     default: () => [],
     required: false,
@@ -175,6 +179,10 @@ const props = defineProps({
   showRemoveSelection: {
     default: true,
     type: Boolean,
+  },
+  valueKey: {
+    default: undefined,
+    type: String,
   },
 });
 
@@ -202,10 +210,10 @@ const activeOptions = computed(() =>
 
 const filteredOptions = computed(() => {
   if (!searchInput.value || props.enableCustomSearch) {
-    return props.options;
+    return normalizedOptions.value;
   }
 
-  return props.options.filter((option) =>
+  return normalizedOptions.value?.filter((option) =>
     option.label
       .toLowerCase()
       .includes(String(searchInput.value).toLowerCase()),
@@ -225,6 +233,24 @@ const hasRemoveOption = computed(() => {
   );
 });
 
+const normalizedOptions = computed(() =>
+  props.options.map((option) => {
+    return {
+      ...option,
+      label:
+        (props.labelKey
+          ? option[props.labelKey as keyof SelectOption]
+          : option.label
+        )?.toString() || "",
+      value:
+        (props.valueKey
+          ? option[props.valueKey as keyof SelectOption]
+          : option.value
+        )?.toString() || "",
+    };
+  }),
+);
+
 const selectedLabels = computed(() =>
   selectedOptions.value.map((option) => option.label).join(", "),
 );
@@ -233,7 +259,7 @@ const sortedOptions = computed(() => {
   if (props.hasSortedOptions) {
     return filteredOptions.value
       ?.slice()
-      .sort((a, b) => a.label.localeCompare(b.label));
+      .sort((a, b) => a?.label.localeCompare(b?.label));
   }
 
   return filteredOptions.value;

@@ -32,11 +32,11 @@ interface PasswordErrorMessages {
   weak?: string;
 }
 
-interface SelectOption extends InputOption {
+interface SelectOption extends Record<string, unknown> {
   disabled?: boolean;
-  label: string;
-  value: string | number;
-}
+  label?: string;
+  value?: string | number;
+};
 
 interface TextErrorMessages {
   invalid?: string;
