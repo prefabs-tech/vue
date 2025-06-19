@@ -18,7 +18,6 @@
         }"
         :disabled="disabled"
         :enable-custom-search="enableCustomSearch"
-        :enable-search="enableSearch"
         :has-sorted-options="hasSortedOptions"
         :label-key="labelKey"
         :model-value="modelValue"
@@ -67,7 +66,6 @@ const props = defineProps({
     type: Boolean,
   },
   enableCustomSearch: Boolean,
-  enableSearch: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
