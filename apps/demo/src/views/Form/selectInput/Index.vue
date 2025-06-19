@@ -199,11 +199,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { language: "French", code: "fr"},
-            { language: "German", code: "de"},
-            { disabled: true, language: "Dutch", code: "be", },
-            { language: "Nepali", code: "np",  },
-            { language: "Hindi", code: "hi" },
+            { code: "fr", language: t("form.label.french") },
+            { code: "de", language: t("form.label.german") },
+            { code: "be", disabled: true, language: t("form.label.dutch") },
+            { code: "np", language: t("form.label.nepali") },
+            { code: "hi", language: t("form.label.hindi") },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -370,11 +370,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { language: "French", code: "fr"},
-            { language: "German", code: "de"},
-            { disabled: true, language: "Dutch", code: "be", },
-            { language: "Nepali", code: "np",  },
-            { language: "Hindi", code: "hi" },
+            { code: "fr", language: t("form.label.french") },
+            { code: "de", language: t("form.label.german") },
+            { code: "be", disabled: true, language: t("form.label.dutch") },
+            { code: "np", language: t("form.label.nepali") },
+            { code: "hi", language: t("form.label.hindi") },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -583,10 +583,10 @@ const options = ref([
 ]);
 
 const languageOptions = ref([
-  { language: t("form.label.french"), code: "fr" },
-  { language: t("form.label.german"), code: "de" },
-  { disabled: true, language: t("form.label.dutch"), code: "be" },
-  { language: t("form.label.nepali"), code: "np" },
-  { language: t("form.label.hindi"), code: "hi" },
+  { code: "fr", language: t("form.label.french") },
+  { code: "de", language: t("form.label.german") },
+  { code: "be", disabled: true, language: t("form.label.dutch") },
+  { code: "np", language: t("form.label.nepali") },
+  { code: "hi", language: t("form.label.hindi") },
 ]);
 </script>
