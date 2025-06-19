@@ -146,6 +146,7 @@
     "valid": "Show valid state",
     "vehicle": "Vehicle",
     "withI18n": "With i18n",
+    "withLabelValueKey": "With label and value keys",
     "withOnOffLabel":  "With on off label",
     "withSearch": "With search",
     "withSelectOptions": "With select input options",

@@ -169,6 +169,49 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.withLabelValueKey") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.labelValueKeyInput"
+          :label="$t('form.label.language')"
+          :options="languageOptions"
+          :placeholder="$t('form.placeholder.language')"
+          label-key="language"
+          value-key="code"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              label="Language"
+              label-key="language"
+              placeholder="Select a language"
+              value-key="code"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { language: "French", code: "fr"},
+            { language: "German", code: "de"},
+            { disabled: true, language: "Dutch", code: "be", },
+            { language: "Nepali", code: "np",  },
+            { language: "Hindi", code: "hi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.withI18n") }}</h2>
 
       <div class="section-content">
@@ -480,6 +523,7 @@ let formData = reactive({
   input: ref(),
   inputWithMinMax: ref([]),
   inputWithValidation: ref([]),
+  labelValueKeyInput: ref(),
   multiselect: ref(),
   noLabelInput: ref(),
 });
@@ -490,5 +534,13 @@ const options = ref([
   { disabled: true, label: t("form.label.dutch"), value: "be" },
   { label: t("form.label.nepali"), value: "np" },
   { label: t("form.label.hindi"), value: "hi" },
+]);
+
+const languageOptions = ref([
+  { language: t("form.label.french"), code: "fr" },
+  { language: t("form.label.german"), code: "de" },
+  { disabled: true, language: t("form.label.dutch"), code: "be" },
+  { language: t("form.label.nepali"), code: "np" },
+  { language: t("form.label.hindi"), code: "hi" },
 ]);
 </script>
