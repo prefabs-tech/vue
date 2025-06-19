@@ -279,7 +279,6 @@ const formData = reactive({
   multiselect: undefined,
   selectOptionsInput: undefined,
   selectWithOrder: undefined,
-  selectWithSearch: undefined,
   validationInput: undefined,
 });
 
