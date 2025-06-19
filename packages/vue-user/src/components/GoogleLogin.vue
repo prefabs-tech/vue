@@ -1,6 +1,6 @@
 <template>
   <GoogleSignInButton
-    :label="t('user.login.social.google')"
+    :title="t('user.login.social.google')"
     :loading="loading"
     @click="onGoogleSignIn"
   />
