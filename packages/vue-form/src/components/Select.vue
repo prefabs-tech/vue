@@ -217,6 +217,7 @@ const showDropdownMenu: Ref<boolean> = ref(false);
 
 onClickOutside(dzangolabVueFormSelect, (event) => {
   showDropdownMenu.value = false;
+  searchInput.value = undefined;
 });
 
 const activeOptions = computed(() =>
@@ -428,6 +429,7 @@ const onSelect = (event: Event, option: SelectOption) => {
   } else {
     selectedOptions.value = [option];
     showDropdownMenu.value = false;
+    searchInput.value = undefined;
 
     emit("update:modelValue", option.value);
   }
