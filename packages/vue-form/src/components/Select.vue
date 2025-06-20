@@ -27,7 +27,7 @@
           {{ placeholder }}
         </span>
         <template v-else>
-          <slot name="renderSelection">
+          <slot name="selection">
             <span class="selected-options">
               {{ selectedLabels }}
             </span>
@@ -77,7 +77,7 @@
           { visible: selectedOptions.length },
         ]"
       >
-        <slot name="renderSelection">
+        <slot name="selection">
           <span class="selected-options">
             {{ selectedLabels }}
           </span>

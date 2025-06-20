@@ -43,8 +43,8 @@
         </slot>
       </template>
 
-      <template v-if="$slots.renderSelection" #render-selection>
-        <slot name="renderSelection" />
+      <template v-if="$slots.selection" #selection>
+        <slot name="selection" />
       </template>
     </SelectInput>
   </div>
