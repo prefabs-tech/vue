@@ -26,9 +26,13 @@
         <span v-if="!selectedOptions.length" class="multiselect-placeholder">
           {{ placeholder }}
         </span>
-        <span v-else class="selected-options">
-          {{ selectedLabels }}
-        </span>
+        <template v-else>
+          <slot name="selection">
+            <span class="selected-options">
+              {{ selectedLabels }}
+            </span>
+          </slot>
+        </template>
       </template>
       <span class="action-items">
         <svg
@@ -66,55 +70,70 @@
         </svg>
       </span>
     </div>
-    <ul
-      v-if="showDropdownMenu && !disabled"
-      role="list"
-      @mouseenter="enableOptionNavigation = false"
-      @keydown.tab.stop.prevent="toggleDropdown"
-    >
-      <li
-        v-if="multiple && !searchInput"
-        ref="dzangolabVueSelectAll"
+    <div v-if="showDropdownMenu && !disabled" class="multiselect-options">
+      <div
         :class="[
-          {
-            focused:
-              focusedOptionIndex === selectAllIndex && enableOptionNavigation,
-          },
-          'multiselect-option',
+          'selected-options-wrapper',
+          { visible: selectedOptions.length },
         ]"
-        @click="onSelectAll()"
       >
-        <Checkbox
-          :model-value="isAllSelected"
-          @update:model-value="onMultiSelect()"
-        />
-        <span>Select all</span>
-      </li>
-      <li
-        v-for="(option, index) in sortedOptions"
-        :key="option.label"
-        :ref="setOptionReference(index)"
-        :class="[
-          {
-            focused: focusedOptionIndex === index && enableOptionNavigation,
-            selected: isSelected(option) && !multiple,
-          },
-          'multiselect-option',
-        ]"
-        :disabled="option.disabled"
-        @click="!option.disabled ? onSelect($event, option) : ''"
-      >
-        <Checkbox
-          v-if="multiple"
-          :model-value="isSelected(option)"
-          :disabled="option.disabled"
-          @update:model-value="onMultiSelect()"
-        />
-        <slot :name="option.value">
-          <span>{{ option.label }}</span>
+        <slot name="selection">
+          <span class="selected-options">
+            {{ selectedLabels }}
+          </span>
         </slot>
-      </li>
-    </ul>
+        <Divider />
+      </div>
+
+      <ul
+        role="list"
+        @mouseenter="enableOptionNavigation = false"
+        @keydown.tab.stop.prevent="toggleDropdown"
+      >
+        <li
+          v-if="multiple && !searchInput"
+          ref="dzangolabVueSelectAll"
+          :class="[
+            {
+              focused:
+                focusedOptionIndex === selectAllIndex && enableOptionNavigation,
+            },
+            'multiselect-option',
+          ]"
+          @click="onSelectAll()"
+        >
+          <Checkbox
+            :model-value="isAllSelected"
+            @update:model-value="onMultiSelect()"
+          />
+          <span>Select all</span>
+        </li>
+        <li
+          v-for="(option, index) in sortedOptions"
+          :key="option.label"
+          :ref="setOptionReference(index)"
+          :class="[
+            {
+              focused: focusedOptionIndex === index && enableOptionNavigation,
+              selected: isSelected(option) && !multiple,
+            },
+            'multiselect-option',
+          ]"
+          :disabled="option.disabled"
+          @click="!option.disabled ? onSelect($event, option) : ''"
+        >
+          <Checkbox
+            v-if="multiple"
+            :model-value="isSelected(option)"
+            :disabled="option.disabled"
+            @update:model-value="onMultiSelect()"
+          />
+          <slot :name="option.value">
+            <span>{{ option.label }}</span>
+          </slot>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -125,7 +144,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DebouncedInput } from "@dzangolab/vue3-ui";
+import { DebouncedInput, Divider } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { computed, nextTick, onMounted, ref, toRefs, watch } from "vue";
 
@@ -198,6 +217,7 @@ const showDropdownMenu: Ref<boolean> = ref(false);
 
 onClickOutside(dzangolabVueFormSelect, (event) => {
   showDropdownMenu.value = false;
+  searchInput.value = undefined;
 });
 
 const activeOptions = computed(() =>
@@ -217,10 +237,6 @@ const filteredOptions = computed(() => {
 });
 
 const hasRemoveOption = computed(() => {
-  if (showDropdownMenu.value) {
-    return false;
-  }
-
   return (
     props.showRemoveSelection && !props.disabled && selectedOptions.value.length
   );
@@ -365,7 +381,11 @@ const onKeyDown = (event: KeyboardEvent) => {
     return;
   }
 
-  const toggleKeys = ["Enter", " "];
+  let toggleKeys = ["Enter", " "];
+
+  if (searchInput.value) {
+    toggleKeys = toggleKeys.filter((key) => key.trim());
+  }
 
   if (!showDropdownMenu.value) {
     toggleKeys.push("ArrowUp", "ArrowDown");
@@ -409,6 +429,7 @@ const onSelect = (event: Event, option: SelectOption) => {
   } else {
     selectedOptions.value = [option];
     showDropdownMenu.value = false;
+    searchInput.value = undefined;
 
     emit("update:modelValue", option.value);
   }
@@ -471,7 +492,6 @@ const onUnselect = (event: Event, option?: SelectOption) => {
     }
   } else {
     selectedOptions.value = [];
-    showDropdownMenu.value = false;
   }
 
   searchInput.value = undefined;

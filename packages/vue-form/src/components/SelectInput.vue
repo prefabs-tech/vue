@@ -37,6 +37,10 @@
         >
           <slot :name="option.value"></slot>
         </template>
+
+        <template v-if="$slots.selection" #selection>
+          <slot name="selection" />
+        </template>
       </MultiSelect>
       <ErrorMessage :name="name" />
     </Field>
