@@ -45,3 +45,7 @@ defineProps({
   },
 });
 </script>
+
+<style lang="css">
+@import "../assets/css/social-button.css";
+</style>
