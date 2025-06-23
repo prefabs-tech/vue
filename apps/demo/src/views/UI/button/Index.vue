@@ -480,10 +480,38 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("common.properties", { value: "ButtonProperties" }) }}</h2>
+      <Table
+        :columns-data="propsColumns"
+        :data="propsData"
+        :paginated="false"
+      />
+    </section>
+
+    <section>
+      <h2>{{ $t("common.slots") }}</h2>
+      <Table
+        :columns-data="slotsColumns"
+        :data="slotsData"
+        :paginated="false"
+      />
+    </section>
+
+    <section>
+      <h2>{{ $t("common.events") }}</h2>
+      <Table
+        :columns-data="eventsColumns"
+        :data="eventsData"
+        :paginated="false"
+      />
+    </section>
   </UiPage>
 </template>
 
 <script setup lang="ts">
+import { Table } from "@dzangolab/vue3-tanstack-table";
 import { ButtonElement } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
@@ -491,6 +519,125 @@ import UiPage from "../UiPage.vue";
 
 const currentTime = ref(undefined as unknown as Date);
 const loading = ref(false);
+
+const eventsColumns = [
+  { accessorKey: "name", header: "Name" },
+  { accessorKey: "payload", header: "Payload" },
+  { accessorKey: "description", header: "Description" },
+];
+
+const eventsData = [
+  {
+    name: "click",
+    payload: "none",
+    description: "Emitted when the button is clicked.",
+  },
+];
+
+const propsColumns = [
+  { accessorKey: "prop", header: "Property" },
+  { accessorKey: "type", header: "Type" },
+  { accessorKey: "default", header: "Default" },
+  { accessorKey: "description", header: "Description" },
+];
+
+const propsData = [
+  {
+    prop: "ariaLabel",
+    type: "String",
+    default: `"button"`,
+    description: "Accessible label for the button element.",
+  },
+  {
+    prop: "disabled",
+    type: "Boolean",
+    default: "false",
+    description: "If true, the button will be disabled and non-interactive.",
+  },
+  {
+    prop: "iconLeft",
+    type: "String | Boolean",
+    default: "null",
+    description: "Icon to be displayed on the left side of the button.",
+  },
+  {
+    prop: "iconRight",
+    type: "String | Boolean",
+    default: "null",
+    description: "Icon to be displayed on the right side of the button.",
+  },
+  {
+    prop: "label",
+    type: "String",
+    default: "null",
+    description: "Text label to display inside the button.",
+  },
+  {
+    prop: "loading",
+    type: "Boolean",
+    default: "false",
+    description:
+      "If true, indicates that the button is in a loading state and disables user interaction.",
+  },
+  {
+    prop: "rounded",
+    type: "Boolean",
+    default: "false",
+    description: "Applies rounded styling to the button.",
+  },
+  {
+    prop: "severity",
+    type: `"primary" | "secondary" | "alternate" | "success" | "danger" | "warning"`,
+    default: `"primary"`,
+    description: "Defines the button color style.",
+  },
+  {
+    prop: "size",
+    type: `"small" | "medium" | "large"`,
+    default: `"medium"`,
+    description: "Defines the size of the button.",
+  },
+  {
+    prop: "to",
+    type: "String",
+    default: "null",
+    description: "If set, the button renders as a link pointing to this URL.",
+  },
+  {
+    prop: "title",
+    type: "String",
+    default: "null",
+    description: "HTML title attribute.",
+  },
+  {
+    prop: "variant",
+    type: `"outlined" | "filled" | "textOnly"`,
+    default: `"filled"`,
+    description: "Defines the visual variant of the button.",
+  },
+];
+
+const slotsColumns = [
+  { accessorKey: "name", header: "Name" },
+  { accessorKey: "description", header: "Description" },
+];
+
+const slotsData = [
+  {
+    name: "iconLeft",
+    description:
+      "Slot for custom left icon content. Overrides `iconLeft` prop.",
+  },
+  {
+    name: "iconRight",
+    description:
+      "Slot for custom right icon content. Overrides `iconRight` prop.",
+  },
+  {
+    name: "label",
+    description: "Slot for custom button content. Overrides `label` prop.",
+  },
+];
 
 const onClick = () => {
   currentTime.value = new Date();
