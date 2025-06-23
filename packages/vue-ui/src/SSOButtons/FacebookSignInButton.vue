@@ -40,8 +40,8 @@ defineProps({
     required: true,
   },
   loading: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
 });
 </script>

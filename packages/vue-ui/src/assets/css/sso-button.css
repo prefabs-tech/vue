@@ -1,10 +1,14 @@
 .sso-button {
+  align-items: center;
   background-image: none;
   border-radius: 6px;
   border: 1px solid #dadce0;
   box-sizing: border-box;
   color: #3c4043;
   cursor: pointer;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   height: 40px;
@@ -16,12 +20,8 @@
   text-align: center;
   transition: all 0.218s ease-in-out;
   vertical-align: middle;
-  width: 100%;
   white-space: nowrap;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex: 1;
+  width: 100%;
 }
 
 .sso-button.light.center {
@@ -47,13 +47,13 @@
 }
 
 .sso-button > img {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  display: flex;
-  justify-content: center;
   align-items: center;
   background-color: #ffffff;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  display: flex;
   height: 36px;
+  justify-content: center;
   min-width: 36px;
   width: 36px;
 }

@@ -1,7 +1,7 @@
 <template>
   <button
-    :disabled="disabled || loading"
     :class="['sso-button', variant, borderType, { center: alignCenter }]"
+    :disabled="disabled || loading"
     @click="$emit('click')"
   >
     <img :src="imageSource" :alt="alternativeText" />

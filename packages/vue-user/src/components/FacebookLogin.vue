@@ -1,10 +1,10 @@
 <template>
   <FacebookSignInButton
-    :title="t('user.login.social.facebook')"
-    :loading="loading"
     :base-button-options="{
       variant: 'dark',
     }"
+    :loading="loading"
+    :title="t('user.login.social.facebook')"
     @click="onFacebookSignIn"
   />
 </template>
