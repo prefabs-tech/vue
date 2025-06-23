@@ -23,12 +23,14 @@
 
     <div class="social-logins">
       <GoogleLogin
-        v-if="config.user?.socialLogins?.includes('google')"
+        v-if="config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_GOOGLE)"
         @error="onError"
       />
 
       <FacebookLogin
-        v-if="config.user?.socialLogins?.includes('facebook')"
+        v-if="
+          config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_FACEBOOK)
+        "
         @error="onError"
       />
     </div>
@@ -52,6 +54,10 @@ import { auth } from "../auth-provider";
 import FacebookLogin from "../components/FacebookLogin.vue";
 import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
+import {
+  SOCIAL_LOGIN_PROVIDER_FACEBOOK,
+  SOCIAL_LOGIN_PROVIDER_GOOGLE,
+} from "../constant";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
 

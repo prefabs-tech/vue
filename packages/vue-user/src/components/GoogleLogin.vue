@@ -18,6 +18,10 @@ import { useI18n } from "@dzangolab/vue3-i18n";
 import { GoogleSignInButton } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
+import {
+  AUTH_CALLBACK_PATH_GOOGLE,
+  SOCIAL_LOGIN_PROVIDER_GOOGLE,
+} from "../constant";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
 
@@ -36,8 +40,8 @@ const onGoogleSignIn = async () => {
 
   try {
     await socialSignIn(
-      "google",
-      `${config.websiteDomain}/auth/callback/google`,
+      SOCIAL_LOGIN_PROVIDER_GOOGLE,
+      `${config.websiteDomain}${AUTH_CALLBACK_PATH_GOOGLE}`,
     );
     loading.value = false;
   } catch (error) {

@@ -21,6 +21,10 @@ import { useI18n } from "@dzangolab/vue3-i18n";
 import { FacebookSignInButton } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
+import {
+  AUTH_CALLBACK_PATH_FACEBOOK,
+  SOCIAL_LOGIN_PROVIDER_FACEBOOK,
+} from "../constant";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
 
@@ -39,8 +43,8 @@ const onFacebookSignIn = async () => {
 
   try {
     await socialSignIn(
-      "facebook",
-      `${config.websiteDomain}/auth/callback/facebook`,
+      SOCIAL_LOGIN_PROVIDER_FACEBOOK,
+      `${config.websiteDomain}${AUTH_CALLBACK_PATH_FACEBOOK}`,
     );
     loading.value = false;
   } catch (error) {
