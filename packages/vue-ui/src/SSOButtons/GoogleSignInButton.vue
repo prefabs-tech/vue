@@ -31,13 +31,13 @@ defineProps({
     type: Boolean,
     default: false,
   },
-  title: {
-    type: String,
-    required: true,
-  },
   loading: {
     default: false,
     type: Boolean,
+  },
+  title: {
+    type: String,
+    required: true,
   },
 });
 </script>
