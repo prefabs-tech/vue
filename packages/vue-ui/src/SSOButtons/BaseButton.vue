@@ -30,20 +30,20 @@ defineProps({
     validator: (value: string) => ["rectangular", "pill"].includes(value),
   },
   disabled: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
   imageSource: {
     required: true,
     type: String,
   },
   loading: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
   title: {
-    type: String,
     required: true,
+    type: String,
   },
   variant: {
     default: "light",

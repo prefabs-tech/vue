@@ -28,16 +28,16 @@ defineProps({
     type: Object as () => Record<string, unknown>,
   },
   disabled: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
   loading: {
     default: false,
     type: Boolean,
   },
   title: {
-    type: String,
     required: true,
+    type: String,
   },
 });
 </script>
