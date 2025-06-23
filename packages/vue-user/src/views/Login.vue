@@ -22,15 +22,15 @@
     <Divider v-if="config.user?.socialLogins?.length" />
 
     <div class="social-login-wrapper">
-      <GoogleLogin
-        v-if="config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_GOOGLE)"
-        @error="onError"
-      />
-
       <FacebookLogin
         v-if="
           config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_FACEBOOK)
         "
+        @error="onError"
+      />
+
+      <GoogleLogin
+        v-if="config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_GOOGLE)"
         @error="onError"
       />
     </div>
