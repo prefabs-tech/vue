@@ -133,7 +133,7 @@ exports[`Login > matches snapshot in en 1`] = `
     </div>
     <!--v-if-->
     <div
-      class="social-logins"
+      class="social-login-wrapper"
     >
       <!--v-if-->
       <!--v-if-->
@@ -277,7 +277,7 @@ exports[`Login > matches snapshot in fr 1`] = `
     </div>
     <!--v-if-->
     <div
-      class="social-logins"
+      class="social-login-wrapper"
     >
       <!--v-if-->
       <!--v-if-->

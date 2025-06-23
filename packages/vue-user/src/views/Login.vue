@@ -19,9 +19,9 @@
       </router-link>
     </div>
 
-    <div v-if="config.user?.socialLogins?.length" class="divider"></div>
+    <Divider v-if="config.user?.socialLogins?.length" />
 
-    <div class="social-logins">
+    <div class="social-login-wrapper">
       <GoogleLogin
         v-if="config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_GOOGLE)"
         @error="onError"
@@ -46,7 +46,7 @@ export default {
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Errors, Page } from "@dzangolab/vue3-ui";
+import { Divider, Errors, Page } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -149,10 +149,5 @@ prepareComponent();
 </script>
 
 <style lang="css">
-.auth.login .divider {
-  border-top: 1px solid #d0d0d0;
-  height: 0;
-  margin: 1rem 0;
-  width: 100%;
-}
+@import "../assets/css/login.css";
 </style>
