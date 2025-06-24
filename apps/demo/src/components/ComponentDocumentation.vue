@@ -50,6 +50,21 @@ defineProps({
   },
 });
 
+const eventsColumns = [
+  {
+    accessorKey: "name",
+    header: "Event",
+  },
+  {
+    accessorKey: "payload",
+    header: "Payload",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
 const propsColumns = [
   {
     accessorKey: "prop",
@@ -73,21 +88,6 @@ const slotsColumns = [
   {
     accessorKey: "name",
     header: "Name",
-  },
-  {
-    accessorKey: "description",
-    header: "Description",
-  },
-];
-
-const eventsColumns = [
-  {
-    accessorKey: "name",
-    header: "Event",
-  },
-  {
-    accessorKey: "payload",
-    header: "Payload",
   },
   {
     accessorKey: "description",
