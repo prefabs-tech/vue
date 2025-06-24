@@ -1,6 +1,6 @@
 <template>
   <section v-if="propsData.length">
-    <h2>{{ $t("common.properties", { value: propsTableTitle }) }}</h2>
+    <h2>{{ propsTableTitle ?? $t("common.properties") }}</h2>
 
     <Table :columns-data="propsColumns" :data="propsData" :paginated="false" />
   </section>
@@ -41,7 +41,7 @@ defineProps({
     type: Array as Record<string, string>[],
   },
   propsTableTitle: {
-    default: "Properties",
+    default: undefined,
     type: String,
   },
   slotsData: {
@@ -82,8 +82,12 @@ const slotsColumns = [
 
 const eventsColumns = [
   {
-    accessorKey: "event",
+    accessorKey: "name",
     header: "Event",
+  },
+  {
+    accessorKey: "payload",
+    header: "Payload",
   },
   {
     accessorKey: "description",

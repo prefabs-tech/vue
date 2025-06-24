@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.dropdown.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.dropdown.subtitle')"
+    :title="$t('ui.dropdown.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -154,6 +158,34 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'DropdownProperties' })
+      "
+      :slots-data="slotsData"
+    />
+
+    <section>
+      <h2>{{ $t("common.type") }}</h2>
+      <div class="section-content">
+        <!-- eslint-disable -->
+          <SshPre language="html-vue">
+            interface DropdownMenu {
+              class?: string;
+              disabled?: boolean;
+              display?: boolean;
+              icon?: string;
+              key?: string;
+              label?: string;
+              value?: string | number;
+            }
+          </SshPre>
+          <!-- eslint-enable -->
+      </div>
+    </section>
   </UiPage>
 </template>
 
@@ -161,6 +193,7 @@
 import { ButtonElement, Dropdown } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 import type { DropdownMenu } from "@dzangolab/vue3-ui";
@@ -176,6 +209,47 @@ const menu = ref([
 ]);
 
 const showProfile = ref<boolean>(false);
+
+const eventsData = [
+  {
+    description:
+      "Emitted when a menu item is selected. Payload is the selected item.",
+    name: "select",
+    payload: "DropdownMenu",
+  },
+];
+
+const propsData = [
+  {
+    default: "-",
+    description: "Optional icon for the trigger element.",
+    prop: "icon",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: "Label text for the dropdown trigger.",
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: "Array of menu items for the dropdown.",
+    prop: "menu",
+    type: "Array<DropdownMenu>",
+  },
+];
+
+const slotsData = [
+  {
+    description: "Custom trigger content for the dropdown.",
+    name: "default",
+  },
+  {
+    description: "Custom icon slot for each menu item by key.",
+    name: "`icon-${key}`",
+  },
+];
 
 const onSelect = (item: DropdownMenu) => {
   if (item === menu.value[1]) {

@@ -69,6 +69,7 @@
       "textOnly": "Text only",
       "warning": "Warning"
     },
+    "subtitle": "The Button component is a flexible and customizable button implementation for Vue applications. It supports various properties for styling, behavior, and functionality, making it suitable for different use cases.",
     "title": "Button",
     "usage": {
       "basic": "Basic",
@@ -159,6 +160,7 @@
       "name": "Name",
       "user": "User"
     },
+    "subtitle": "The Dropdown component provides an accessible and customizable menu for selecting actions or options. It supports labels, icons, slots for custom triggers and icons, and emits events on selection.",
     "title": "Dropdown",
     "usage": {
       "basic": "Basic",
