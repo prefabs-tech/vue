@@ -112,8 +112,8 @@
 
       <div class="section-content">
         <div class="container">
-          <ButtonElement children>
-            <template #buttonContent>
+          <ButtonElement>
+            <template #label>
               <u>{{ $t("ui.button.label.clickMe") }}</u>
             </template>
           </ButtonElement>
@@ -510,7 +510,7 @@ const eventsData = [
   {
     description: "Emitted when the button is clicked.",
     name: "click",
-    payload: "none",
+    payload: "-",
   },
 ];
 
@@ -528,19 +528,19 @@ const propsData = [
     type: "Boolean",
   },
   {
-    default: "null",
+    default: "-",
     description: "Icon to be displayed on the left side of the button.",
     prop: "iconLeft",
     type: "String | Boolean",
   },
   {
-    default: "null",
+    default: "-",
     description: "Icon to be displayed on the right side of the button.",
     prop: "iconRight",
     type: "String | Boolean",
   },
   {
-    default: "null",
+    default: "-",
     description: "Text label to display inside the button.",
     prop: "label",
     type: "String",
@@ -571,13 +571,13 @@ const propsData = [
     type: `"small" | "medium" | "large"`,
   },
   {
-    default: "null",
+    default: "-",
     description: "If set, the button renders as a link pointing to this URL.",
     prop: "to",
     type: "String",
   },
   {
-    default: "null",
+    default: "-",
     description: "HTML title attribute.",
     prop: "title",
     type: "String",
