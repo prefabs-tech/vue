@@ -118,6 +118,7 @@
     "headerContent": {
       "deleteUser": "Delete user"
     },
+    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, body, and footer content via slots.",
     "title": "Confirmation modal",
     "usage": {
       "basic": "Basic",

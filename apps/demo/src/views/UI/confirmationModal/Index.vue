@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.confirmationModal.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.confirmationModal.subtitle')"
+    :title="$t('ui.confirmationModal.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -391,6 +395,15 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'ConfirmationModalProperties' })
+      "
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
@@ -398,6 +411,7 @@
 import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 const currentTime = ref(undefined as unknown as Date);
@@ -407,6 +421,56 @@ const showDisabledBodyModal = ref(false);
 const showDisabledHeaderModal = ref(false);
 const showI18nModal = ref(false);
 const showModal = ref(false);
+
+const eventsData = [
+  {
+    name: "on:close",
+    payload: "-",
+    description: "Emitted when the modal is closed.",
+  },
+  {
+    name: "on:confirm",
+    payload: "-",
+    description: "Emitted when the Confirm button is clicked.",
+  },
+];
+
+const propsData = [
+  {
+    prop: "disableBody",
+    type: "Boolean",
+    default: "false",
+    description: "If true, hides the default body content of the modal.",
+  },
+  {
+    prop: "disableHeader",
+    type: "Boolean",
+    default: "false",
+    description: "If true, hides the default header content of the modal.",
+  },
+  {
+    prop: "divider",
+    type: "Boolean",
+    default: "false",
+    description:
+      "If true, adds a visual divider (border) to the modal container.",
+  },
+];
+
+const slotsData = [
+  {
+    name: "body",
+    description: "Slot to override the default body message.",
+  },
+  {
+    name: "footer",
+    description: "Slot to override the default footer.",
+  },
+  {
+    name: "header",
+    description: "Slot to override the default header title.",
+  },
+];
 
 const onConfirm = () => {
   currentTime.value = new Date();

@@ -150,7 +150,7 @@
       :events-data="eventsData"
       :props-data="propsData"
       :props-table-title="
-        $t('common.properties', { value: 'ButtonProperties' })
+        $t('common.properties', { value: 'MessageProperties' })
       "
       :slots-data="slotsData"
     />
