@@ -424,51 +424,51 @@ const showModal = ref(false);
 
 const eventsData = [
   {
+    description: "Emitted when the modal is closed.",
     name: "on:close",
     payload: "-",
-    description: "Emitted when the modal is closed.",
   },
   {
+    description: "Emitted when the Confirm button is clicked.",
     name: "on:confirm",
     payload: "-",
-    description: "Emitted when the Confirm button is clicked.",
   },
 ];
 
 const propsData = [
   {
-    prop: "disableBody",
-    type: "Boolean",
     default: "false",
     description: "If true, hides the default body content of the modal.",
+    prop: "disableBody",
+    type: "Boolean",
   },
   {
-    prop: "disableHeader",
-    type: "Boolean",
     default: "false",
     description: "If true, hides the default header content of the modal.",
+    prop: "disableHeader",
+    type: "Boolean",
   },
   {
-    prop: "divider",
-    type: "Boolean",
     default: "false",
     description:
       "If true, adds a visual divider (border) to the modal container.",
+    prop: "divider",
+    type: "Boolean",
   },
 ];
 
 const slotsData = [
   {
-    name: "body",
     description: "Slot to override the default body message.",
+    name: "body",
   },
   {
-    name: "footer",
     description: "Slot to override the default footer.",
+    name: "footer",
   },
   {
-    name: "header",
     description: "Slot to override the default header title.",
+    name: "header",
   },
 ];
 

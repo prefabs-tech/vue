@@ -168,42 +168,42 @@ const showEnableCloseSection = ref(true);
 
 const eventsData = [
   {
+    description: "Emitted when the close icon is clicked.",
     name: "close",
     payload: "-",
-    description: "Emitted when the close icon is clicked.",
   },
 ];
 
 const propsData = [
   {
-    prop: "enableClose",
-    type: "Boolean",
     default: "false",
     description:
       "Displays a close icon if true, allowing the message to be dismissed.",
+    prop: "enableClose",
+    type: "Boolean",
   },
   {
-    prop: "icon",
-    type: "String",
     default: "-",
     description: "Icon to display alongside the message.",
+    prop: "icon",
+    type: "String",
   },
   {
-    prop: "message",
-    type: "String",
     default: "-",
     description: "The message text to display in the component.",
+    prop: "message",
+    type: "String",
   },
 ];
 
 const slotsData = [
   {
-    name: "default",
     description: "Slot for message. Overrides the message content.",
+    name: "default",
   },
   {
-    name: "icon",
     description: "Slot for custom icon. Overrides the `icon` prop if provided.",
+    name: "icon",
   },
 ];
 </script>
