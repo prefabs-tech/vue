@@ -1,9 +1,20 @@
 <template>
   <div
-    :class="`align-${alignment} direction-${flowDirection}`"
+    :data-alignment="alignment"
+    :data-direction="flowDirection"
+    :data-reverse="reverse"
     class="form-actions"
   >
     <slot>
+      <slot name="submitButton">
+        <ButtonElement
+          :disabled="loading"
+          :label="submitLabel"
+          class="submit-button"
+          type="submit"
+          @click="onSubmit"
+        />
+      </slot>
       <slot name="cancelButton">
         <ButtonElement
           :disabled="loading"
@@ -12,15 +23,6 @@
           type="button"
           variant="outlined"
           @click="onCancel"
-        />
-      </slot>
-      <slot name="submitButton">
-        <ButtonElement
-          :disabled="loading"
-          :label="submitLabel"
-          class="submit-button"
-          type="submit"
-          @click="onSubmit"
         />
       </slot>
     </slot>
@@ -53,6 +55,7 @@ defineProps({
     default: false,
     type: Boolean,
   },
+  reverse: Boolean,
   submitLabel: {
     default: "Submit",
     type: String,
@@ -67,38 +70,5 @@ const onSubmit = () => emit("submit");
 </script>
 
 <style lang="css">
-.form-actions {
-  display: flex;
-  gap: var(--form-field-gap, 0.5em);
-  margin-bottom: var(--form-margin-bottom, 0);
-  width: 100%;
-}
-
-.form-actions.align-center {
-  justify-content: center;
-}
-
-.form-actions.align-left {
-  justify-content: left;
-}
-
-.form-actions.align-right {
-  justify-content: right;
-}
-
-.form-actions.align-filled {
-  justify-content: space-between;
-}
-
-.form-actions.align-filled button {
-  flex: 1;
-}
-
-.form-actions.direction-horizontal {
-  flex-direction: row;
-}
-
-.form-actions.direction-vertical {
-  flex-direction: column;
-}
+@import "../assets/css/formAction.css";
 </style>
