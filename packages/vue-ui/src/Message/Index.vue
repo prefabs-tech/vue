@@ -6,7 +6,11 @@
       </slot>
     </span>
 
-    <span class="message-content">{{ message }}</span>
+    <span class="message-content">
+      <slot>
+        {{ message }}
+      </slot>
+    </span>
 
     <img
       v-if="enableClose"

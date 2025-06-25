@@ -118,6 +118,7 @@
     "headerContent": {
       "deleteUser": "Delete user"
     },
+    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, body, and footer content via slots.",
     "title": "Confirmation modal",
     "usage": {
       "basic": "Basic",
@@ -209,6 +210,7 @@
       "content4": "We value your feedback: take our quick survey!",
       "content5": "Warning: Limited time only! Sale ends soon!"
     },
+    "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
     "title": "Message",
     "usage": {
       "basic": "Basic",
