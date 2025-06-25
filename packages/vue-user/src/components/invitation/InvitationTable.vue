@@ -270,15 +270,8 @@ const actionMenuData = computed(() => [
 
 const appNameMap = computed(() => {
   const apps = props.apps ?? [];
-  const currentOrigin = window.location.origin;
-  const currentAppId = apps.find((app) => app.origin === currentOrigin)?.id;
 
-  return new Map(
-    apps.map((app) => [
-      app.id,
-      app.id === currentAppId ? t("user.invitation.thisApp") : app.name,
-    ]),
-  );
+  return new Map(apps.map((app) => [app.id, app.name]));
 });
 
 const mergedColumns = computed(() => [
