@@ -166,7 +166,8 @@
             "pending": "Pending",
             "revoked": "Revoked"
           }
-        }
+        },
+        "thisApp": "This app"
       },
       "loading": "Loading...",
       "login": {
@@ -569,7 +570,8 @@
             "pending": "Pending",
             "revoked": "Revoked"
           }
-        }
+        },
+        "thisApp": "This app"
       },
       "loading": "Loading...[fr]",
       "login": {
