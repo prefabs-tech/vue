@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.message.title')" class="demo-message">
+  <UiPage
+    :sub-title="$t('ui.message.subtitle')"
+    :title="$t('ui.message.title')"
+    class="demo-message"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -141,6 +145,15 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'ButtonProperties' })
+      "
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
@@ -148,9 +161,51 @@
 import { ButtonElement, Message } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 const showEnableCloseSection = ref(true);
+
+const eventsData = [
+  {
+    name: "close",
+    payload: "-",
+    description: "Emitted when the close icon is clicked.",
+  },
+];
+
+const propsData = [
+  {
+    prop: "enableClose",
+    type: "Boolean",
+    default: "false",
+    description:
+      "Displays a close icon if true, allowing the message to be dismissed.",
+  },
+  {
+    prop: "icon",
+    type: "String",
+    default: "-",
+    description: "Icon to display alongside the message.",
+  },
+  {
+    prop: "message",
+    type: "String",
+    default: "-",
+    description: "The message text to display in the component.",
+  },
+];
+
+const slotsData = [
+  {
+    name: "default",
+    description: "Slot for message. Overrides the message content.",
+  },
+  {
+    name: "icon",
+    description: "Slot for custom icon. Overrides the `icon` prop if provided.",
+  },
+];
 </script>
 
 <style lang="css">
