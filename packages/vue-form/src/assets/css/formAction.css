@@ -15,20 +15,8 @@
     flex-direction: row;
   }
 
-  .form-actions[data-direction="vertical"] {
-    flex-direction: column;
-  }
-
   .form-actions[data-alignment="right"] {
     justify-content: flex-end;
-  }
-
-  .form-actions[data-reverse="true"] {
-    flex-direction: row-reverse;
-  }
-
-  .form-actions[data-direction="vertical"][data-reverse="true"] {
-    flex-direction: column-reverse;
   }
 
   .form-actions[data-alignment="left"][data-reverse="true"] {
@@ -41,5 +29,17 @@
 
   .form-actions[data-alignment="filled"] button {
     flex: 1;
+  }
+  
+  .form-actions[data-direction="vertical"] {
+    flex-direction: column;
+  }
+
+  .form-actions[data-direction="vertical"][data-reverse="true"] {
+    flex-direction: column-reverse;
+  }
+  
+  .form-actions[data-reverse="true"] {
+    flex-direction: row-reverse;
   }
 }
