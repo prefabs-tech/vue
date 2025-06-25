@@ -67,8 +67,11 @@ import {
   FormActions,
   SelectInput,
 } from "@dzangolab/vue3-form";
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { computed, ref } from "vue";
 import { z } from "zod";
+
+import { useTranslations } from "../../index";
 
 import type {
   InvitationAppOption,
@@ -131,6 +134,9 @@ const props = defineProps({
 
 const emit = defineEmits(["cancel", "submit"]);
 
+const messages = useTranslations();
+const { t } = useI18n({ messages });
+
 const expiresAfter = ref<number>();
 const formData = ref<InvitationPayload>({} as InvitationPayload);
 
@@ -142,7 +148,10 @@ const updatedApps = computed(() => {
 
   if (appToMove) {
     modifiedApps = modifiedApps.filter((app) => app.origin !== currentOrigin);
-    modifiedApps = [{ ...appToMove, name: "This app" }, ...modifiedApps];
+    modifiedApps = [
+      { ...appToMove, name: t("user.invitation.thisApp") },
+      ...modifiedApps,
+    ];
   }
 
   const modifiedLabels = modifiedApps.map((app) => {

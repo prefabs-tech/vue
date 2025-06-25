@@ -154,7 +154,7 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     align: "center",
     accessorKey: "app",
     header: t("user.invitation.table.defaultColumns.app"),
-    cell: ({ row }) => row.original.appId || "—",
+    cell: ({ row }) => appNameMap.value?.get(row.original.appId) || "-",
   },
   {
     accessorKey: "role",
@@ -267,6 +267,19 @@ const actionMenuData = computed(() => [
     requireConfirmationModal: true,
   },
 ]);
+
+const appNameMap = computed(() => {
+  const apps = props.apps ?? [];
+  const currentOrigin = window.location.origin;
+  const currentAppId = apps.find((app) => app.origin === currentOrigin)?.id;
+
+  return new Map(
+    apps.map((app) => [
+      app.id,
+      app.id === currentAppId ? t("user.invitation.thisApp") : app.name,
+    ]),
+  );
+});
 
 const mergedColumns = computed(() => [
   ...defaultColumns.map((defaultColumn) => {
