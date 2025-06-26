@@ -27,18 +27,18 @@
       name="confirmation"
     />
 
-    <slot
-      v-if="termsAndConditionsConfig?.display || $slots.termsAndConditions"
-      name="termsAndConditions"
-    >
+    <template v-if="termsAndConditionsConfig?.display">
       <TermsAndConditions
         :has-checkbox="!!termsAndConditionsConfig?.showCheckbox"
         :route="termsAndConditionsConfig?.route"
         @update:check="disableButton = !$event"
       >
-        <slot v-if="$slots.termsLabel" name="termsLabel" />
+        <component
+          :is="customTermsAndCondition"
+          v-if="!!customTermsAndCondition"
+        />
       </TermsAndConditions>
-    </slot>
+    </template>
 
     <div class="actions">
       <LoadingButton
@@ -73,7 +73,7 @@ import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { storeToRefs } from "pinia";
 import { Form } from "vee-validate";
-import { onMounted, reactive, ref } from "vue";
+import { inject, onMounted, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 import { z } from "zod";
 
@@ -87,6 +87,8 @@ import type { LoginCredentials } from "../types";
 const emit = defineEmits(["submit"]);
 
 const config = useConfig();
+
+const customTermsAndCondition = inject("dzangolabVueUserTerms");
 
 const messages = useTranslations();
 
