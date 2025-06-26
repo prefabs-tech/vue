@@ -341,11 +341,8 @@
             },
             "label": "Your password"
           },
-          "termsAndConditions": {
-            "infix": "Terms and conditions",
-            "prefix": "I agree to the",
-            "suffix": "as set out by the user agreement"
-          },
+          "termsAndConditions": "I agree to the {0} as set out by the user agreement",
+          "termsLabel": "Terms and conditions",
           "username": {
             "errors": {
               "invalid": "Please provide a valid username",
@@ -734,11 +731,8 @@
             },
             "label": "Votre mot de passe"
           },
-          "termsAndConditions": {
-            "infix": "Terms and conditions",
-            "prefix": "I agree to the",
-            "suffix": "as set out by the user agreement"
-          },
+          "termsAndConditions": "I agree to the {0} as set out by the user agreement",
+          "termsLabel": "Terms and conditions",
           "username": {
             "errors": {
               "invalid": "Please provide a valid username",
