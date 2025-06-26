@@ -33,7 +33,6 @@
     >
       <TermsAndConditions
         :has-checkbox="!!termsAndConditionsConfig?.showCheckbox"
-        :label="hasLabelText ? termsAndConditionsConfig?.label : undefined"
         :route="termsAndConditionsConfig?.route"
         @update:check="disableButton = !$event"
       >
@@ -146,8 +145,6 @@ const validationSchema = toFormValidator(
 );
 
 const disableButton = ref<boolean>(true);
-
-const hasLabelText = typeof termsAndConditionsConfig?.label === "string";
 
 const onSubmit = (credentials: LoginCredentials) => {
   emit("submit", credentials);
