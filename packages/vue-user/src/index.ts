@@ -34,6 +34,7 @@ const plugin: Plugin = {
       : messages;
 
     app.provide(__dzangolabVueUserTranslations, translations);
+    app.provide("dzangolabVueUserTerms", options?.termsComponent);
 
     if (options && options.notification) {
       emitter.on("notify", (message: object | string | unknown) => {
