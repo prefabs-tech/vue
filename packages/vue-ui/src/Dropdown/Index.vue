@@ -1,5 +1,5 @@
 <template>
-  <Popup ref="popup" position="bottom" tabindex="0">
+  <Popup ref="popup" class="dropdown-menu" position="bottom" tabindex="0">
     <div
       :aria-label="(label ?? '') + ' dropdown'"
       :class="{ triggered: popup?.isVisible }"
@@ -7,14 +7,14 @@
     >
       <slot>
         <template v-if="label">
-          {{ label }}
+          <span>{{ label }}</span>
 
           <svg
             class="dropdown-icon"
             fill="none"
-            height="1.2rem"
+            height="24"
             viewBox="0 0 24 24"
-            width="1.2rem"
+            width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
             <g stroke-width="0"></g>

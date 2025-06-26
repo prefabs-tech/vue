@@ -6,6 +6,9 @@
     "checkbox": {
       "min": "Please select at least {min} options"
     },
+    "currencyPicker": {
+      "invalid": "Please select at least one valid option"
+    },
     "daysInput": {
       "invalid": "Please provide number of days within a year"
     },
@@ -57,6 +60,7 @@
     "checkbox": "Checkbox input",
     "consequences": "Consequences",
     "contentElement": "Content element",
+    "currencyPicker": "Currency picker",
     "customColsRowsInput": "With cols and rows props",
     "customErrorMessageInput": "With custom error message",
     "customFormat": "Custom format",
@@ -100,6 +104,7 @@
     "labelInput": "With label",
     "language": "Language",
     "male": "Male",
+    "minMaxValidation": "With min max options validation",
     "misc": "Misc",
     "month": "Month",
     "monthAndYear": "Month and year",
@@ -110,6 +115,7 @@
     "multiple": "Multiple files",
     "multiselect": "Multiselect",
     "multiselectSearch": "Multiselect with search",
+    "multiselectWithKeys": "Multiselect with label and value keys",
     "nepali": "Nepali",
     "next": "Next",
     "no": "No",
@@ -124,6 +130,7 @@
     "size": "Size",
     "select": "Select",
     "selection": "Selection",
+    "selectLabelOrder": "Option label order",
     "solutions": "Solutions",
     "submit": "Submit",
     "summary": "Summary",
@@ -140,14 +147,17 @@
     "valid": "Show valid state",
     "vehicle": "Vehicle",
     "withI18n": "With i18n",
+    "withLabelValueKeys": "With label and value keys",
     "withOnOffLabel":  "With on off label",
     "withSearch": "With search",
+    "withSelectOptions": "With select input options",
     "workInProgress": "Work in progress",
     "year": "Year",
     "yearPicker": "Year picker",
     "yes": "Yes"
   },
   "placeholder": {
+    "currency": "Select a currency",
     "days": "Enter number of days",
     "email": "Enter a email",
     "input": "Enter input",
@@ -164,5 +174,8 @@
     "username": "Enter username"
   },
   "submittedValue": "Submitted value",
+  "subtitle": {
+    "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts."
+  },
   "title": "Form library"
 }

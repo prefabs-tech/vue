@@ -27,16 +27,18 @@
       name="confirmation"
     />
 
-    <TermsAndConditions
-      v-if="termsAndConditionsConfig?.display"
-      :has-checkbox="!!termsAndConditionsConfig?.showCheckbox"
-      :label="hasLabelText ? termsAndConditionsConfig?.label : undefined"
-      @update:check="disableButton = !$event"
-    >
-      <template v-if="termsAndConditionsConfig?.label && !hasLabelText">
-        <component :is="termsAndConditionsConfig?.label" />
-      </template>
-    </TermsAndConditions>
+    <template v-if="termsAndConditionsConfig?.display">
+      <TermsAndConditions
+        :has-checkbox="!!termsAndConditionsConfig?.showCheckbox"
+        :route="termsAndConditionsConfig?.route"
+        @update:check="disableButton = !$event"
+      >
+        <component
+          :is="customTermsAndCondition"
+          v-if="!!customTermsAndCondition"
+        />
+      </TermsAndConditions>
+    </template>
 
     <div class="actions">
       <LoadingButton
@@ -71,7 +73,7 @@ import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { storeToRefs } from "pinia";
 import { Form } from "vee-validate";
-import { computed, onMounted, reactive, ref } from "vue";
+import { inject, onMounted, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 import { z } from "zod";
 
@@ -85,6 +87,8 @@ import type { LoginCredentials } from "../types";
 const emit = defineEmits(["submit"]);
 
 const config = useConfig();
+
+const customTermsAndCondition = inject("dzangolabVueUserTerms");
 
 const messages = useTranslations();
 
@@ -143,12 +147,6 @@ const validationSchema = toFormValidator(
 );
 
 const disableButton = ref<boolean>(true);
-
-const hasLabelText = computed(
-  () =>
-    typeof termsAndConditionsConfig?.label === "string" ||
-    termsAndConditionsConfig?.label instanceof String,
-);
 
 const onSubmit = (credentials: LoginCredentials) => {
   emit("submit", credentials);

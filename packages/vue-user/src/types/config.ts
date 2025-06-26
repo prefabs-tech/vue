@@ -26,7 +26,7 @@ interface DzangolabVueUserConfig {
       emailVerification?: boolean;
       termsAndConditions?: {
         display?: boolean;
-        label: DefineComponent | string;
+        route?: string;
         showCheckbox?: boolean;
       };
     };

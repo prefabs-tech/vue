@@ -19,11 +19,11 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge label="Basic" /&gt; 
+            &lt;BadgeComponent label="Basic" /&gt; 
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
+          import { BadgeComponent } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -39,14 +39,14 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge :label=t("ui.badge.label.addedIn") /&gt; 
+            &lt;BadgeComponent :label="t('ui.badge.label.addedIn')" /&gt; 
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
-            import { useI18n } from "@dzangolab/vue3-i18n";
+          import { BadgeComponent } from "@dzangolab/vue3-ui";
+          import { useI18n } from "@dzangolab/vue3-i18n";
 
-            const { t } = useI18n();
+          const { t } = useI18n();
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -62,11 +62,11 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge label="Rounded" rounded /&gt; 
+            &lt;BadgeComponent label="Rounded" rounded /&gt; 
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
+          import { BadgeComponent } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -107,16 +107,16 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge label="Primary" severity="primary" /&gt;
-            &lt;Badge label="Secondary" severity="secondary" /&gt;
-            &lt;Badge label="Alternate" severity="alternate" /&gt;
-            &lt;Badge label="Success" severity="success" /&gt;
-            &lt;Badge label="Danger" severity="danger" /&gt;
-            &lt;Badge label="Warning" severity="warning" /&gt;
+            &lt;BadgeComponent label="Primary" severity="primary" /&gt;
+            &lt;BadgeComponent label="Secondary" severity="secondary" /&gt;
+            &lt;BadgeComponent label="Alternate" severity="alternate" /&gt;
+            &lt;BadgeComponent label="Success" severity="success" /&gt;
+            &lt;BadgeComponent label="Danger" severity="danger" /&gt;
+            &lt;BadgeComponent label="Warning" severity="warning" /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
+          import { BadgeComponent } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -135,12 +135,12 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge icon-left="pi pi-thumbs-up" /&gt;
-            &lt;Badge icon-right="pi pi-thumbs-down" /&gt;
+            &lt;BadgeComponent icon-left="pi pi-thumbs-up" /&gt;
+            &lt;BadgeComponent icon-right="pi pi-thumbs-down" /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
+          import { BadgeComponent } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -167,12 +167,12 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge label="Locked" icon-left="pi pi-lock" /&gt;
-            &lt;Badge label="Unlocked" icon-right="fa-solid fa-lock-open" severity="success /&gt;
+            &lt;BadgeComponent label="Locked" icon-left="pi pi-lock" /&gt;
+            &lt;BadgeComponent label="Unlocked" icon-right="fa-solid fa-lock-open" severity="success /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
+          import { BadgeComponent } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -199,12 +199,12 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge label="Locked" icon-left="pi pi-lock" /&gt;
-            &lt;Badge label="Unlocked" icon-right="pi pi-lock-open" severity="success /&gt;
+            &lt;BadgeComponent label="Locked" icon-left="pi pi-lock" /&gt;
+            &lt;BadgeComponent label="Unlocked" icon-right="pi pi-lock-open" severity="success /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
+          import { BadgeComponent } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -232,21 +232,21 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge label="Correct"&gt;
+            &lt;BadgeComponent label="Correct"&gt;
               &lt;template #iconLeft&gt;
                 &lt;i class="pi pi-check" &gt;
               &lt;/template&gt;
-            &lt;/Badge&gt;
+            &lt;/BadgeComponent&gt;
 
-            &lt;Badge label="Wrong" severity="danger"&gt;
+            &lt;BadgeComponent label="Wrong" severity="danger"&gt;
               &lt;template #iconRight&gt;
                 &lt;i class="pi pi-times" &gt;
               &lt;/template&gt;
-            &lt;/Badge&gt;
+            &lt;/BadgeComponent&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
+          import { BadgeComponent } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->

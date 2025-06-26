@@ -6,6 +6,7 @@
     :disabled="!to && isDisabled"
     :href="to && !isDisabled ? to : null"
     :role="buttonRole"
+    :title="title"
     @click="!to && handleClick()"
   >
     <span v-if="iconLeft || !!slots.iconLeft" class="icon-left">
@@ -14,8 +15,8 @@
       </slot>
     </span>
 
-    <div v-if="children || label" class="label">
-      <slot name="buttonContent">
+    <div v-if="$slots.label || label" class="label">
+      <slot name="label">
         <span>{{ label }}</span>
       </slot>
     </div>
@@ -46,14 +47,6 @@ const emits = defineEmits(["click"]);
 const props = defineProps({
   ariaLabel: {
     default: "button",
-    type: String,
-  },
-  children: {
-    default: false,
-    type: Boolean,
-  },
-  className: {
-    default: "",
     type: String,
   },
   disabled: {
@@ -119,11 +112,10 @@ const slots = useSlots();
 const buttonClassName = computed(() => {
   return [
     "button",
-    props.className,
     props.severity,
     props.size,
-    props.variant,
-    !(props.label || props.children) && "icon-only",
+    props.variant === "textOnly" ? "text-only" : props.variant,
+    !(props.label || !!slots.label) && "icon-only",
     props.loading && "loading",
     props.rounded && "rounded",
     isDisabled.value && "disabled",

@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TabView > matches snapshot 1`] = `
+<div
+  class="tabbed-panel top"
+  id=""
+>
+  <div
+    aria-orientation="horizontal"
+    role="tablist"
+  >
+    
+    <button
+      aria-label="Tab1"
+      aria-selected="true"
+      class="active"
+      id="tab1"
+      role="tab"
+      tabindex="0"
+    >
+      <!--v-if-->
+      <span
+        title="Tab1"
+      >
+        Tab1
+      </span>
+      <!--v-if-->
+    </button>
+    <button
+      aria-label="Tab2"
+      aria-selected="false"
+      class=""
+      id="tab2"
+      role="tab"
+      tabindex="0"
+    >
+      <!--v-if-->
+      <span
+        title="Tab2"
+      >
+        Tab2
+      </span>
+      <!--v-if-->
+    </button>
+    <button
+      aria-label="Tab3"
+      aria-selected="false"
+      class=""
+      id="tab3"
+      role="tab"
+      tabindex="0"
+    >
+      <!--v-if-->
+      <span
+        title="Tab3"
+      >
+        Tab3
+      </span>
+      <!--v-if-->
+    </button>
+    <button
+      aria-label="Tab4"
+      aria-selected="false"
+      class=""
+      id="tab4"
+      role="tab"
+      tabindex="0"
+    >
+      <!--v-if-->
+      <span
+        title="Tab4"
+      >
+        Tab4
+      </span>
+      <!--v-if-->
+    </button>
+    
+  </div>
+  <div
+    role="tabpanel"
+  >
+    
+    
+    <!--v-if-->
+    
+    
+  </div>
+</div>
+`;

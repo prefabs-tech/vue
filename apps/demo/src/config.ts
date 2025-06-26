@@ -8,6 +8,7 @@ import fr from "@/locales/fr";
 
 const config: AppConfig = {
   apiBaseUrl: import.meta.env.VITE_API_BASE_URL as string,
+  appName: import.meta.env.VITE_APP_NAME as string,
   appTitle: import.meta.env.VITE_APP_TITLE as string,
   appVersion: `${import.meta.env.VITE_APP_VERSION}-${
     import.meta.env.VITE_APP_BUILD

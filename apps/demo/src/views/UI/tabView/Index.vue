@@ -14,22 +14,12 @@
       <h2>{{ $t("ui.tabView.usage.basic") }}</h2>
 
       <div class="section-content">
-        <TabView
-          id="tab-view"
-          :tabs="tabs"
-          :visible-tabs="['1', '5', '6']"
-          active-key="1"
-        />
+        <TabView id="tab-view" :tabs="tabs" active-key="1" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;TabView
-              id="tab-view"
-              :tabs="tabs"    
-              :visible-tabs="['1', '5', '6']"
-              active-key="1"
-            /&gt;
+            &lt;TabView id="tab-view" :tabs="tabs" active-key="1" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -313,9 +303,7 @@
           :visible-tabs="['description', 'installation', 'certifications']"
           active-key="description"
         >
-          <p key="description">Description</p>
-          <p key="installation">Installation</p>
-          <p key="certifications">Certifications</p>
+          <p v-for="tab in tabList" :key="tab.key">{{ tab.label }}</p>
         </TabView>
 
         <!-- eslint-disable -->
@@ -326,10 +314,8 @@
               :tabs="tabList"    
               :visible-tabs="['description', 'installation', 'certifications']"
               active-key="['description']"
-            /&gt;
-              &lt;p key="description"&gt;Description&lt;/p&gt;
-              &lt;p key="installation"&gt;Installation&lt;/p&gt;
-              &lt;p key="certifications"&gt;Certifications&lt;/p&gt;
+            &gt;
+              &lt;p v-for="tab in tabList" :key="tab.key"&gt;&lbrace;&lbrace; tab.label &rbrace;&rbrace;&lt;/p&gt;
             &lt;/TabView&gt;
           &lt;/template&gt;
 
@@ -343,6 +329,192 @@
             { key: "pricing", label: "Pricing" },
             { key: "installation", label: "Installation" },
             { key: "certifications", label: "Certifications" },
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.tabView.usage.interceptTabChange") }}</h2>
+
+      <div class="section-content">
+        <TabView
+          id="tab-view-interception"
+          v-model:active-key="interceptionActiveKey"
+          :tabs="tabs"
+          :visible-tabs="['1', '5', '6']"
+          intercept-tab-change
+          @before-tab-change="beforeTabChange"
+        />
+
+        <ConfirmationModal
+          v-if="showConfirmation"
+          @on:close="showConfirmation = false"
+          @on:confirm="onConfirmChange"
+        />
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;TabView
+              id="tab-view-interception"
+              v-model:active-key="activeKey"
+              :tabs="tabs"
+              :visible-tabs="['1', '5', '6']"
+              intercept-tab-change
+              @before-tab-change="beforeTabChange"
+            /&gt;
+
+            &lt;ConfirmationModal
+              v-if="showConfirmation"
+              @on:close="showConfirmation = false"
+              @on:confirm="onConfirmChange"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ConfirmationModal, TabView } from "@dzangolab/vue3-ui";
+          import { ref } from "vue";
+
+          const activeKey = ref&lt;string&gt;("1");
+          const nextTabKey = ref&lt;string&gt;();
+          const showConfirmation = ref&lt;boolean&gt;(false);
+
+          const tabs = [
+            { children: "Description", key: "1", label: "Description" },
+            { children: "Reviews", closable: true, key: "2", label: "Reviews" },
+            {
+              children: "Specifications",
+              closable: true,
+              key: "3",
+              label: "Specifications",
+            },
+            { children: "Pricing", closable: true, key: "4", label: "Pricing",  },
+            { children: "Installation Instructions", key: "5", label: "Installation",  },
+            { children: "Certifications", key: "6", label: "Certifications" },
+          ];
+
+          const beforeTabChange = (key: string) => {
+            showConfirmation.value = true;
+            nextTabKey.value = key;
+          };
+
+          const onConfirmChange = () => {
+            activeKey.value = nextTabKey.value || activeKey.value;
+            showConfirmation.value = false;
+          };
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.tabView.usage.interceptTabClose") }}</h2>
+
+      <div class="section-content">
+        <TabView
+          id="tab-view-interception-close"
+          ref="dzangolabVueTabView"
+          :tabs="tabs"
+          active-key="1"
+          intercept-tab-close
+          @before-tab-close="beforeTabClose"
+        />
+
+        <ConfirmationModal
+          v-if="showCloseConfirmation"
+          @on:close="showCloseConfirmation = false"
+          @on:confirm="onConfirmClose"
+        />
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;TabView
+              id="tab-view-interception-close"
+              ref="dzangolabVueTabView"
+              :tabs="tabs"
+              active-key="1"
+              intercept-tab-close
+              @before-tab-change="beforeTabClose"
+            /&gt;
+
+            &lt;ConfirmationModal
+              v-if="showConfirmation"
+              @on:close="showConfirmation = false"
+              @on:confirm="onConfirmChange"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ConfirmationModal, TabView } from "@dzangolab/vue3-ui";
+          import { ref } from "vue";
+
+          const closingKey = ref&lt;string&gt;();
+          const dzangolabVueTabView = ref();
+          const showConfirmation = ref&lt;boolean&gt;(false);
+
+          const tabs = [
+            { children: "Description", key: "1", label: "Description" },
+            { children: "Reviews", closable: true, key: "2", label: "Reviews" },
+            {
+              children: "Specifications",
+              closable: true,
+              key: "3",
+              label: "Specifications",
+            },
+            { children: "Pricing", closable: true, key: "4", label: "Pricing",  },
+            { children: "Installation Instructions", key: "5", label: "Installation",  },
+            { children: "Certifications", key: "6", label: "Certifications" },
+          ];
+
+          const beforeTabClose = (key: string) => {
+            showConfirmation.value = true;
+            closingKey.value = key;
+          };
+
+          const onConfirm = () => {
+            dzangolabVueTabView.value?.closeTab(closingKey.value);
+            showConfirmation.value = false;
+          };
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.tabView.usage.withHashRouting") }}</h2>
+
+      <div class="section-content">
+        <TabView
+          id="tab-view-hash-routing"
+          :tabs="hashRoutingTabs"
+          active-key="tab1"
+          enable-hash-routing
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;TabView id="tab-view" :tabs="tabs" active-key="tab1" enable-hash-routing /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { TabView } from "@dzangolab/vue3-ui";
+
+          const tabs = [
+            { children: "Description", key: "tab1", label: "Description" },
+            { children: "Reviews", key: "tab2", label: "Reviews" },
+            {
+              children: "Specifications",
+              key: "tab3",
+              label: "Specifications",
+            },
+            { children: "Pricing", key: "tab4", label: "Pricing",  },
+            { children: "Installation Instructions", key: "tab5", label: "Installation",  },
+            { children: "Certifications", key: "tab6", label: "Certifications" },
           ];
           &lt;/script&gt;
         </SshPre>
@@ -411,12 +583,18 @@
 
 <script setup lang="ts">
 import { Table } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement, TabView } from "@dzangolab/vue3-ui";
+import { ButtonElement, ConfirmationModal, TabView } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 import UiPage from "../UiPage.vue";
 
 const activeKey = ref<string>("1");
+const closingKey = ref<string>();
+const dzangolabVueTabView = ref();
+const interceptionActiveKey = ref<string>("1");
+const nextTabKey = ref<string>();
+const showCloseConfirmation = ref<boolean>(false);
+const showConfirmation = ref<boolean>(false);
 const visibleTabs = ref<string[]>(["1"]);
 
 const eventColumns = [
@@ -432,15 +610,38 @@ const eventColumns = [
 
 const eventData = [
   {
-    description: "Triggers on active key change",
+    description: "Triggers before tab actually change",
     id: 1,
+    name: "beforeTabChange",
+  },
+  {
+    description: "Triggers before tab actually close",
+    id: 2,
+    name: "beforeTabClose",
+  },
+  {
+    description: "Triggers on active key change",
+    id: 3,
     name: "update:activeKey",
   },
   {
     description: "Triggers on visible tabs change",
-    id: 1,
+    id: 4,
     name: "update:visibleTabs",
   },
+];
+
+const hashRoutingTabs = [
+  { children: "Description", key: "tab1", label: "Description" },
+  { children: "Reviews", key: "tab2", label: "Reviews" },
+  {
+    children: "Specifications",
+    key: "tab3",
+    label: "Specifications",
+  },
+  { children: "Pricing", key: "tab4", label: "Pricing" },
+  { children: "Installation Instructions", key: "tab5", label: "Installation" },
+  { children: "Certifications", key: "tab6", label: "Certifications" },
 ];
 
 const propsColumns = [
@@ -471,46 +672,75 @@ const propsData = [
     type: "string",
   },
   {
+    default: "false",
+    description: "Enable hash routing for the tab view URL.",
+    id: 2,
+    prop: "enableHashRouting",
+    type: "boolean",
+  },
+  {
     default: "-",
     description:
       "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
-    id: 2,
+    id: 3,
     prop: "id",
     type: "string",
+  },
+  {
+    default: "false",
+    description: "Enable event emitting before tab actually change.",
+    id: 4,
+    prop: "interceptTabChange",
+    type: "boolean",
+  },
+  {
+    default: "false",
+    description: "Enable event emitting before tab actually change.",
+    id: 5,
+    prop: "interceptTabClose",
+    type: "boolean",
+  },
+  {
+    id: 6,
+    prop: "lazy",
+    type: "boolean",
+    default: "true",
+    description:
+      "The lazy prop enables lazy loading.It only loads content for the active tab.",
   },
   {
     default: "true",
     description:
       "If true, tab state is saved either in localStorage or sessionStorage.",
-    id: 3,
+    id: 7,
     prop: "persistState",
     type: "boolean",
   },
   {
     default: "localStorage",
     description: "Storage to save tab state.",
-    id: 4,
+    id: 8,
     prop: "persistStateStorage",
     type: '"localStorage" | "sessionStorage"',
   },
   {
     default: "top",
     description: "Position of the tab panel header relative to its content.",
-    id: 5,
+    id: 9,
     prop: "position",
     type: '"top" | "left" | "bottom" | "right"',
   },
   {
     default: "-",
     description: "Array of tab object.",
-    id: 6,
+    id: 10,
     prop: "tabs",
     type: "Tab[]",
   },
   {
     default: "-",
     description: "Array of visible tabs.",
-    id: 7,
+    id: 11,
     prop: "visibleTabs",
     type: "string[]",
   },
@@ -556,6 +786,26 @@ const addTab = (key: string) => {
   }
 
   activeKey.value = key;
+};
+
+const beforeTabChange = (key: string) => {
+  showConfirmation.value = true;
+  nextTabKey.value = key;
+};
+
+const beforeTabClose = (key: string) => {
+  showCloseConfirmation.value = true;
+  closingKey.value = key;
+};
+
+const onConfirmChange = () => {
+  interceptionActiveKey.value = nextTabKey.value || interceptionActiveKey.value;
+  showConfirmation.value = false;
+};
+
+const onConfirmClose = () => {
+  dzangolabVueTabView.value?.closeTab(closingKey.value);
+  showCloseConfirmation.value = false;
 };
 </script>
 

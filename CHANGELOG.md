@@ -1,3 +1,12 @@
+## [0.10.13](https://github.com/dzangolab/vue/compare/v0.10.12...v0.10.13) (2025-05-27)
+
+
+### Bug Fixes
+
+* update tab view component to provided slot content with loop ([#645](https://github.com/dzangolab/vue/issues/645)) ([7c246ca](https://github.com/dzangolab/vue/commit/7c246caf90dfa898bbdf6937f079ccd9f9c0311e))
+
+
+
 ## [0.10.12](https://github.com/dzangolab/vue/compare/v0.10.11...v0.10.12) (2025-05-16)
 
 

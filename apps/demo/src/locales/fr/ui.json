@@ -69,6 +69,7 @@
       "textOnly": "Text only",
       "warning": "Warning"
     },
+    "subtitle": "The Button component is a flexible and customizable button implementation for Vue applications. It supports various properties for styling, behavior, and functionality, making it suitable for different use cases.",
     "title": "Button",
     "usage": {
       "basic": "Basic",
@@ -96,6 +97,7 @@
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "headerContent": "Lorem ipsum",
     "footerContent": "The standard Lorem Ipsum passage, used since the 1500s",
+    "subtitle": "A versatile container for displaying content in a structured format. It supports slots for custom header, footer, and body content, making it adaptable for various use cases.",
     "title": "Card",
     "usage": {
       "basic": "Basic",
@@ -117,6 +119,7 @@
     "headerContent": {
       "deleteUser": "Delete user"
     },
+    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, body, and footer content via slots.",
     "title": "Confirmation modal",
     "usage": {
       "basic": "Basic",
@@ -159,6 +162,7 @@
       "name": "Name",
       "user": "User"
     },
+    "subtitle": "The Dropdown component provides an accessible and customizable menu for selecting actions or options. It supports labels, icons, slots for custom triggers and icons, and emits events on selection.",
     "title": "Dropdown",
     "usage": {
       "basic": "Basic",
@@ -207,6 +211,7 @@
       "content4": "We value your feedback: take our quick survey!",
       "content5": "Warning: Limited time only! Sale ends soon!"
     },
+    "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
     "title": "Message",
     "usage": {
       "basic": "Basic",
@@ -323,9 +328,13 @@
         "subtitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing :persist-state='false' prop to the component",
         "title": "State persistence disabled"
       },
+      "interceptTabChange": "With interception before tab change",
+      "interceptTabClose": "With interception before tab close",
       "positionBottom": "Bottom tabs",
       "positionLeft": "Left tabs",
       "positionRight": "Right tabs",
+      "shareableTab": "Shareable open tab",
+      "withHashRouting": "Hash routing enabled",
       "withSlot": "With slot for custom content"
     }
   },
@@ -341,6 +350,7 @@
         "title": "Tab 2[fr]"
       }
     },
+    "depreciation-message": "{'@'}deprecated: Use TabView component from the ui package instead",
     "no-title": "Les descendants sans prop `title` seront ignorés",
     "position": {
       "bottom": "Au-dessous",

@@ -1,21 +1,22 @@
 <template>
-  <div v-if="loading">{{ t("user.loading") }}</div>
+  <LoadingPage :loading="loading" />
 </template>
 
 <script lang="ts">
 export default {
-  name: "AuthGoogleCallBack",
+  name: "AuthSocialLoginCallback",
 };
 </script>
 
 <script lang="ts" setup>
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { LoadingPage } from "@dzangolab/vue3-ui";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 
-import { useTranslations } from "../index";
+import { emitter, useTranslations } from "../index";
 import useUserStore from "../store";
 import { verifySessionRoles } from "../supertokens";
 
@@ -25,7 +26,6 @@ import type { AppConfig } from "@dzangolab/vue3-config";
 const config = useConfig() as AppConfig;
 
 const messages = useTranslations();
-
 const { t } = useI18n({ messages });
 
 const loading = ref(false);
@@ -39,7 +39,14 @@ onMounted(async () => {
   const response = await ThirdPartyEmailPassword.thirdPartySignInAndUp({});
 
   if (response.status !== "OK") {
-    return window.location.assign("/auth?error=signin");
+    emitter.emit("notify", {
+      text: t("user.login.errors.SOMETHING_WRONG"),
+      type: "error",
+    });
+
+    router.push({ name: "login" });
+
+    return;
   }
 
   if (response?.user) {
@@ -51,7 +58,19 @@ onMounted(async () => {
     ) {
       setUser(response.user as UserType);
 
+      emitter.emit("notify", {
+        text: t("user.login.messages.success"),
+        type: "success",
+      });
+
       router.push({ name: "home" });
+    } else {
+      emitter.emit("notify", {
+        text: t("user.login.messages.error"),
+        type: "error",
+      });
+
+      router.push({ name: "login" });
     }
   }
 

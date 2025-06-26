@@ -128,49 +128,6 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.withSearch") }}</h2>
-
-      <div class="section-content">
-        <SelectInput
-          v-model="formData.selectWithSearch"
-          :label="$t('form.label.language')"
-          :options="options"
-          :placeholder="$t('form.placeholder.language')"
-          :search-placeholder="$t('form.placeholder.search')"
-          enable-search
-        />
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;SelectInput 
-              v-model="input"
-              :options="options"
-              enable-search
-              label="Language"
-              placeholder="Select a language"
-              search-placeholder="Search..."
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
-          import { ref } from "vue";
-
-          const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
-          ]);
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
       <h2>{{ $t("form.label.disableSort") }}</h2>
 
       <div class="section-content">
@@ -204,6 +161,49 @@
             { disabled: true, label: "Dutch", value: "be", },
             { label: "Nepali", value: "np",  },
             { label: "Hindi", value: "hi" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.withLabelValueKeys") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.labelValueKeyInput"
+          :label="$t('form.label.language')"
+          :options="languageOptions"
+          :placeholder="$t('form.placeholder.language')"
+          label-key="language"
+          value-key="code"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              label="Language"
+              label-key="language"
+              placeholder="Select a language"
+              value-key="code"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { code: "fr", language: t("form.label.french") },
+            { code: "de", language: t("form.label.german") },
+            { code: "be", disabled: true, language: t("form.label.dutch") },
+            { code: "np", language: t("form.label.nepali") },
+            { code: "hi", language: t("form.label.hindi") },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -338,17 +338,17 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.multiselectSearch") }}</h2>
+      <h2>{{ $t("form.label.multiselectWithKeys") }}</h2>
 
       <div class="section-content">
         <SelectInput
-          v-model="formData.multiselectSearch"
+          v-model="formData.multiselectKeysInput"
           :label="$t('form.label.language')"
-          :options="options"
-          :placeholder="$t('form.placeholder.languages')"
-          :search-placeholder="$t('form.placeholder.search')"
-          enable-search
+          :options="languageOptions"
+          :placeholder="$t('form.placeholder.language')"
+          label-key="language"
           multiple
+          value-key="code"
         />
 
         <!-- eslint-disable -->
@@ -357,11 +357,11 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              enable-search
               label="Language"
+              label-key="language"
+              placeholder="Select a language"
               multiple
-              placeholder="Select languages"
-              search-placeholder="Search..."
+              value-key="code"
             /&gt;
           &lt;/template&gt;
 
@@ -370,11 +370,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
+            { code: "fr", language: t("form.label.french") },
+            { code: "de", language: t("form.label.german") },
+            { code: "be", disabled: true, language: t("form.label.dutch") },
+            { code: "np", language: t("form.label.nepali") },
+            { code: "hi", language: t("form.label.hindi") },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -448,7 +448,45 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.inputWithValidation") }}</h2>
+      <h2>{{ $t("form.label.minMaxValidation") }}</h2>
+
+      <div class="section-content">
+        <Form>
+          <SelectInput
+            v-model="formData.inputWithMinMax"
+            :label="$t('form.label.language')"
+            :max-selection="3"
+            :min-selection="2"
+            :options="options"
+            :placeholder="$t('form.placeholder.languages')"
+            multiple
+          />
+        </Form>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :max-selection="3"
+              :min-selection="2"
+              :options="options"
+              label="Language"
+              multiple
+              placeholder="Select languages"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Form, SelectInput } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
       <div class="section-content">
         <Form>
@@ -528,11 +566,12 @@ let formData = reactive({
   disabledSortInput: ref(),
   i18nSelect: ref(),
   input: ref(),
+  inputWithMinMax: ref([]),
   inputWithValidation: ref([]),
+  labelValueKeyInput: ref(),
   multiselect: ref(),
-  multiselectSearch: ref(),
+  multiselectKeysInput: ref([]),
   noLabelInput: ref(),
-  selectWithSearch: ref(),
 });
 
 const options = ref([
@@ -541,5 +580,13 @@ const options = ref([
   { disabled: true, label: t("form.label.dutch"), value: "be" },
   { label: t("form.label.nepali"), value: "np" },
   { label: t("form.label.hindi"), value: "hi" },
+]);
+
+const languageOptions = ref([
+  { code: "fr", language: t("form.label.french") },
+  { code: "de", language: t("form.label.german") },
+  { code: "be", disabled: true, language: t("form.label.dutch") },
+  { code: "np", language: t("form.label.nepali") },
+  { code: "hi", language: t("form.label.hindi") },
 ]);
 </script>

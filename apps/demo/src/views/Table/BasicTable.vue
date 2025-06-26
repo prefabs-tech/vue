@@ -33,25 +33,46 @@
           &lt;script setup lang="ts"&gt;
           import { Table } from "@dzangolab/vue3-tanstack-table";
     
+          import { city } from "./data";
+
           import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Email",
             },
             {
               accessorKey: "name",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Full name",
             },
             {
-              accessorKey: "age",
-              header: "Age",
               align: "right",
+              accessorKey: "age",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
+              header: "Age",
+              meta: {
+                filterVariant: "range",
+              },
             },
             {
               accessorKey: "city",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.city"),
               header: "City",
+              meta: {
+                filterVariant: "multiselect",
+                filterOptions: city,
+              },
             },
           ];
   
@@ -98,21 +119,39 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Email",
             },
             {
               accessorKey: "name",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Full name",
             },
             {
-              accessorKey: "age",
-              header: "Age",
               align: "right",
+              accessorKey: "age",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
+              header: "Age",
+              meta: {
+                filterVariant: "range",
+              },
             },
             {
               accessorKey: "city",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.city"),
               header: "City",
+              meta: {
+                filterVariant: "multiselect",
+                filterOptions: city,
+              },
             },
           ];
   
@@ -305,21 +344,40 @@
             {
               accessorKey: "email",
               align: "left",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Email",
             },
             {
               accessorKey: "name",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Full name",
             },
             {
               accessorKey: "age",
               align: "right",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Age",
+              meta: {
+                filterVariant: "range",
+              },
             },
             {
               accessorKey: "city",
               align: "center",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.city"),
               header: "City",
+              meta: {
+                filterVariant: "multiselect",
+                filterOptions: city,
+              },
             },
           ];
   
@@ -931,21 +989,35 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "description",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Description",
             },
             {
               accessorKey: "quantity",
               dataType: "number",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: () => "Quantity",
+              meta: {
+                filterVariant: "range",
+              },
               numberOptions: {
                 locale: "en-IN",
-              }
+              },
             },
             {
               accessorKey: "amount",
               dataType: "currency",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Amount",
+              meta: {
+                filterVariant: "range",
+              },
               numberOptions: {
                 formatOptions: {
                   currency: "EUR",
@@ -956,12 +1028,24 @@
             {
               accessorKey: "date",
               dataType: "date",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.dateRange"),
               header: "Date",
+              meta: {
+                filterVariant: "dateRange",
+              },
             },
             {
               accessorKey: "datetime",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.dateRange"),
               header: "Datetime",
               dataType: "datetime",
+              meta: {
+                filterVariant: "dateRange",
+              },
             },
             {
               id: "action",
@@ -1026,34 +1110,54 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "description",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
               header: "Description",
             },
             {
               accessorKey: "quantity",
               dataType: "number",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: () => "Quantity",
+              meta: {
+                filterVariant: "range",
+              },
             },
             {
               accessorKey: "amount",
               dataType: "currency",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Amount",
+              meta: {
+                filterVariant: "range",
+              },
             },
             {
               accessorKey: "date",
               dataType: "date",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.dateRange"),
               header: "Date",
+              meta: {
+                filterVariant: "dateRange",
+              },
             },
             {
               id: "action",
-              cell: () => 
+              cell: () =>
                 h(ButtonElement, {
                   iconLeft: "pi pi-eye",
                   variant: "textOnly",
                   rounded: true,
                 }),
               dataType: "other",
-              header: () => 
+              header: () =>
                 h("i", {
                   class: "pi pi-cog",
                 }),
@@ -1104,24 +1208,38 @@
             ...
           ];
 
-          const centerAlignedTableColumns = columns.map((column) => {
-            if (column.accessorKey === "name") {
-              return {
-                ...column,
-                align: "center",
-                cell: ({ row: { original } }) => h(
-                  "div",
+          const centerAlignedTableColumns = [
+            ...columns,
+            {
+              accessorKey: "disabled",
+              align: "center",
+              cell: ({ row }) => {
+                return h(BadgeComponent, {
+                  label: row.original?.disabled
+                    ? "Disabled"
+                    : "Enabled",
+                  severity: row.original?.disabled ? "danger" : "success",
+                });
+              },
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterPlaceholder: t("table.placeholder.status"),
+              header: "Status",
+              meta: {
+                filterVariant: "select",
+                filterOptions: [
                   {
-                    class: "cell-name",
+                    label: "Enabled",
+                    value: false,
                   },
-                  original.name
-                ),
-                header: "Name"
-              };
-            }
-
-            return column;
-          });
+                  {
+                    label: "Disabled",
+                    value: true,
+                  },
+                ],
+              },
+            },
+          ];
           &lt;/script&gt;
 
           &lt;style lang="css"&gt;
@@ -1168,54 +1286,99 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { Table } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement, formatDateTime } from "@dzangolab/vue3-ui";
+import {
+  BadgeComponent,
+  ButtonElement,
+  formatDateTime,
+} from "@dzangolab/vue3-ui";
 import { ref, h } from "vue";
 
-import { data, formatDemoData } from "./data";
+import { city, data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
 
 import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+
+const { t } = useI18n();
 
 const alignmentColumns = [
   {
     accessorKey: "email",
     align: "left",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Email",
   },
   {
     accessorKey: "name",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Full name",
   },
   {
     accessorKey: "age",
     align: "right",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Age",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "city",
     align: "center",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.city"),
     header: "City",
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: city,
+    },
   },
 ];
 
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "email",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Email",
   },
   {
     accessorKey: "name",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Full name",
   },
   {
     align: "right",
     accessorKey: "age",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Age",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "city",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.city"),
     header: "City",
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: city,
+    },
   },
 ];
 
@@ -1228,25 +1391,38 @@ const sortableColumns = columns.map((column) => ({
 
 const tooltipPositions = ["right", "top", "bottom", "left"];
 
-const centerAlignedTableColumns = columns.map((column) => {
-  if (column.accessorKey === "name") {
-    return {
-      ...column,
-      align: "center",
-      cell: ({ row: { original } }) =>
-        h(
-          "div",
-          {
-            class: "cell-name",
-          },
-          original.name,
-        ),
-      header: "Name",
-    };
-  }
-
-  return column;
-});
+const centerAlignedTableColumns = [
+  ...columns,
+  {
+    accessorKey: "disabled",
+    align: "center",
+    cell: ({ row }) => {
+      return h(BadgeComponent, {
+        label: row.original?.disabled
+          ? t("table.label.disabled")
+          : t("table.label.enabled"),
+        severity: row.original?.disabled ? "danger" : "success",
+      });
+    },
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.status"),
+    header: "Status",
+    meta: {
+      filterVariant: "select",
+      filterOptions: [
+        {
+          label: t("table.label.enabled"),
+          value: false,
+        },
+        {
+          label: t("table.label.disabled"),
+          value: true,
+        },
+      ],
+    },
+  },
+];
 
 const columnsWithTooltip = columns.map((column, index) => ({
   ...column,
@@ -1259,23 +1435,43 @@ const columnsWithTooltip = columns.map((column, index) => ({
 const customFormattedTableColumns = [
   {
     accessorKey: "description",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Description",
   },
   {
     accessorKey: "quantity",
     dataType: "number",
+    enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: () => "Quantity",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "amount",
     dataType: "currency",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Amount",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "date",
     dataType: "date",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.dateRange"),
     header: "Date",
+    meta: {
+      filterVariant: "dateRange",
+    },
   },
   {
     id: "action",
@@ -1296,13 +1492,21 @@ const customFormattedTableColumns = [
 const formattedTableColumns = [
   {
     accessorKey: "description",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.search"),
     header: "Description",
   },
   {
     accessorKey: "quantity",
     dataType: "number",
+    enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: () => "Quantity",
+    meta: {
+      filterVariant: "range",
+    },
     numberOptions: {
       locale: "en-IN",
     },
@@ -1310,7 +1514,13 @@ const formattedTableColumns = [
   {
     accessorKey: "amount",
     dataType: "currency",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Amount",
+    meta: {
+      filterVariant: "range",
+    },
     numberOptions: {
       formatOptions: {
         currency: "EUR",
@@ -1321,12 +1531,24 @@ const formattedTableColumns = [
   {
     accessorKey: "date",
     dataType: "date",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.dateRange"),
     header: "Date",
+    meta: {
+      filterVariant: "dateRange",
+    },
   },
   {
     accessorKey: "datetime",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("table.placeholder.dateRange"),
     header: "Datetime",
     dataType: "datetime",
+    meta: {
+      filterVariant: "dateRange",
+    },
   },
   {
     id: "action",

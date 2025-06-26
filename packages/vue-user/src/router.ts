@@ -1,7 +1,7 @@
 import { storeToRefs } from "pinia";
 import { Router } from "vue-router";
 
-import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
+import AuthSocialLoginCallback from "./components/AuthSocialLoginCallback.vue";
 import useUserStore from "./store";
 import AcceptInvitation from "./views/AcceptInvitation.vue";
 import ChangePassword from "./views/ChangePassword.vue";
@@ -37,9 +37,14 @@ const _routes = {
     name: "changePassword",
     path: "/change-password",
   },
+  facebook: {
+    component: AuthSocialLoginCallback,
+    name: "authFacebookCallback",
+    path: "/auth/callback/facebook",
+  },
   google: {
-    component: AuthGoogleCallback,
-    name: "authcallback",
+    component: AuthSocialLoginCallback,
+    name: "authGoogleCallback",
     path: "/auth/callback/google",
   },
   login: {
@@ -118,6 +123,8 @@ const getRoute = (
 
 const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   const routes: RouteOverrides | undefined = userConfig?.routes;
+
+  router.addRoute(getRoute(_routes.facebook, routes?.facebook));
 
   router.addRoute(getRoute(_routes.google, routes?.google));
 
@@ -210,8 +217,14 @@ const addAuthenticationGuard = (
       user.value = await getUser();
     }
 
+    const isSocialLoggedIn = user.value?.thirdParty && userConfig?.socialLogins?.includes(user.value?.thirdParty?.id);
+
     if (meta.authenticated && !user.value) {
       router.push({ name: "login" }); // using next inside async function is not allowed
+    }
+
+    if (isSocialLoggedIn && name === "changePassword") {
+      router.push({ name: "home" });
     }
 
     if (meta.authenticated && EmailVerificationEnabled && user.value) {

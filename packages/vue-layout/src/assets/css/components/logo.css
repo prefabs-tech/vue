@@ -1,0 +1,38 @@
+.layout .logo {
+  --_layout-logo-max-width: var(--layout-logo-max-width, 150px);
+}
+
+.layout .logo img {
+  max-width: var(--_layout-logo-max-width);
+}
+
+.layout .logo > a {
+  color: var(--color, #545454);
+  text-decoration: none;
+}
+
+.layout .logo .logo-default {
+  align-items: center;
+  display: flex;
+  font-weight: 500;
+  gap: 0.5rem;
+  text-transform: capitalize;
+}
+
+.layout .logo .logo-default > span:first-child {
+  align-items: center;
+  background: rgba(45, 45, 45, 0.25);
+  border-radius: 50%;
+  display: flex;
+  flex-shrink: 0;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+
+.layout .logo .logo-default > span:not(:first-child) {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}
