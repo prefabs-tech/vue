@@ -97,6 +97,7 @@
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "headerContent": "Lorem ipsum",
     "footerContent": "The standard Lorem Ipsum passage, used since the 1500s",
+    "subtitle": "A versatile container for displaying content in a structured format. It supports slots for custom header, footer, and body content, making it adaptable for various use cases.",
     "title": "Card",
     "usage": {
       "basic": "Basic",
@@ -118,6 +119,7 @@
     "headerContent": {
       "deleteUser": "Delete user"
     },
+    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, body, and footer content via slots.",
     "title": "Confirmation modal",
     "usage": {
       "basic": "Basic",
@@ -209,6 +211,7 @@
       "content4": "We value your feedback: take our quick survey!",
       "content5": "Warning: Limited time only! Sale ends soon!"
     },
+    "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
     "title": "Message",
     "usage": {
       "basic": "Basic",
