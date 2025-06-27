@@ -16,6 +16,7 @@
     }"
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
+    class="table-invitations"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
   >
@@ -156,6 +157,11 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.app"),
     cell: ({ row }) => appNameMap.value?.get(row.original.appId) || "-",
+    sortingFn: (rowA, rowB, columnId) => {
+      const appRowA = appNameMap.value.get(rowA.original.appId) || "";
+      const appRowB = appNameMap.value.get(rowB.original.appId) || "";
+      return appRowA.localeCompare(appRowB);
+    },
   },
   {
     accessorKey: "role",
@@ -339,3 +345,7 @@ defineExpose({
   showModal,
 });
 </script>
+
+<style lang="css">
+@import "../../assets/css/invitations-table.css";
+</style>
