@@ -160,6 +160,7 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     sortingFn: (rowA, rowB, columnId) => {
       const appRowA = appNameMap.value.get(rowA.original.appId) || "";
       const appRowB = appNameMap.value.get(rowB.original.appId) || "";
+
       return appRowA.localeCompare(appRowB);
     },
   },
@@ -304,7 +305,7 @@ const isExpired = (date?: string | Date | number) => {
 };
 
 const getStatusLabel = (row: TableRow<Invitation>) => {
-  const { acceptedAt, revokedAt, expiresAt } = row.original;
+  const { acceptedAt, expiresAt, revokedAt } = row.original;
 
   if (acceptedAt) {
     return t("user.invitation.table.status.accepted");
