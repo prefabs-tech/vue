@@ -1,0 +1,72 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CurrencyPicker > matches snapshot 1`] = `
+<div
+  class="currency-selector"
+>
+  <div
+    class="field currency-picker"
+  >
+    <label
+      for="currency-picker"
+    >
+      Currency Picker
+    </label>
+    
+    <div
+      class="multiple-mode multiselect"
+      id="input-field-currency-picker"
+      name="currency-picker"
+      tabindex="0"
+      value="AUD,GBP"
+    >
+      <!--v-if-->
+      <div
+        class="multiselect-input"
+      >
+        <div
+          class="field debounce-input multiselect-search"
+        >
+          <input
+            aria-label="input"
+            class="input-field"
+            placeholder="Select a currency"
+            type="text"
+            value=""
+          />
+        </div>
+        <span
+          class="action-items"
+        >
+          <!--v-if-->
+          <svg
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              id="Complete"
+            >
+              <g
+                id="F-Chevron"
+              >
+                <polyline
+                  fill="none"
+                  id="down"
+                  points="5 8.5 12 15.5 19 8.5"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+      </div>
+      <!--v-if-->
+    </div>
+    <!---->
+    
+  </div>
+</div>
+`;

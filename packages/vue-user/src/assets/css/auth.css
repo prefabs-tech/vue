@@ -38,7 +38,7 @@
   font-weight: bold;
 }
 
-.auth .social-logins > button {
+.auth .social-login-wrapper > button {
   margin: 0.5rem 0;
   width: 100%;
 }

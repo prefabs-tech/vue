@@ -1,7 +1,7 @@
 <template>
   <GoogleSignInButton
-    :label="t('user.login.social.google')"
     :loading="loading"
+    :title="t('user.login.social.google')"
     @click="onGoogleSignIn"
   />
 </template>
@@ -18,12 +18,16 @@ import { useI18n } from "@dzangolab/vue3-i18n";
 import { GoogleSignInButton } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
+import {
+  AUTH_CALLBACK_PATH_GOOGLE,
+  SOCIAL_LOGIN_PROVIDER_GOOGLE,
+} from "../constant";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
 
 const config = useConfig();
 const messages = useTranslations();
-const { googleSignIn } = useUserStore();
+const { socialSignIn } = useUserStore();
 
 const { t } = useI18n({ messages });
 
@@ -35,7 +39,10 @@ const onGoogleSignIn = async () => {
   loading.value = true;
 
   try {
-    const response = await googleSignIn(config.websiteDomain);
+    await socialSignIn(
+      SOCIAL_LOGIN_PROVIDER_GOOGLE,
+      `${config.websiteDomain}${AUTH_CALLBACK_PATH_GOOGLE}`,
+    );
     loading.value = false;
   } catch (error) {
     emit("error", error);

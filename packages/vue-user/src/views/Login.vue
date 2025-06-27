@@ -19,11 +19,18 @@
       </router-link>
     </div>
 
-    <div v-if="config.user?.socialLogins?.length" class="divider"></div>
+    <Divider v-if="config.user?.socialLogins?.length" />
 
-    <div class="social-logins">
+    <div class="social-login-wrapper">
+      <FacebookLogin
+        v-if="
+          config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_FACEBOOK)
+        "
+        @error="onError"
+      />
+
       <GoogleLogin
-        v-if="config.user?.socialLogins?.includes('google')"
+        v-if="config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_GOOGLE)"
         @error="onError"
       />
     </div>
@@ -39,13 +46,18 @@ export default {
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Errors, Page } from "@dzangolab/vue3-ui";
+import { Divider, Errors, Page } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import { auth } from "../auth-provider";
+import FacebookLogin from "../components/FacebookLogin.vue";
 import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
+import {
+  SOCIAL_LOGIN_PROVIDER_FACEBOOK,
+  SOCIAL_LOGIN_PROVIDER_GOOGLE,
+} from "../constant";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
 
@@ -137,10 +149,5 @@ prepareComponent();
 </script>
 
 <style lang="css">
-.auth.login .divider {
-  border-top: 1px solid #d0d0d0;
-  height: 0;
-  margin: 1rem 0;
-  width: 100%;
-}
+@import "../assets/css/login.css";
 </style>

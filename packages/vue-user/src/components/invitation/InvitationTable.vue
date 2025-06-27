@@ -162,10 +162,16 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
     align: "center",
     accessorKey: "appId",
-    cell: ({ row }) => row.original.appId || "—",
+    cell: ({ row }) => appNameMap.value?.get(row.original.appId) || "-",
     enableColumnFilter: true,
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.app"),
+    sortingFn: (rowA, rowB, columnId) => {
+      const appRowA = appNameMap.value.get(rowA.original.appId) || "";
+      const appRowB = appNameMap.value.get(rowB.original.appId) || "";
+
+      return appRowA.localeCompare(appRowB);
+    },
   },
   {
     align: "center",
@@ -348,6 +354,12 @@ const actionMenuData = computed(() => [
   },
 ]);
 
+const appNameMap = computed(() => {
+  const apps = props.apps ?? [];
+
+  return new Map(apps.map((app) => [app.id, app.name]));
+});
+
 const mergedColumns = computed(() => [
   ...defaultColumns.map((defaultColumn) => {
     const override = props.columnsData.find(
@@ -368,7 +380,7 @@ const isExpired = (date?: string | Date | number) => {
 };
 
 const getStatusLabel = (row: TableRow<Invitation>) => {
-  const { acceptedAt, revokedAt, expiresAt } = row.original;
+  const { acceptedAt, expiresAt, revokedAt } = row.original;
 
   if (acceptedAt) {
     return t("user.invitation.table.status.accepted");
@@ -411,5 +423,5 @@ defineExpose({
 </script>
 
 <style lang="css">
-@import "../../assets/css/invitation-table.css";
+@import "../../assets/css/invitations-table.css";
 </style>

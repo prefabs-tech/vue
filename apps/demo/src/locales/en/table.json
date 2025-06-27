@@ -7,7 +7,9 @@
     "dateRange": "Date range",
     "delete": "Delete",
     "deleteRecordMessage": "You are going to delete this data.",
+    "disabled": "Disabled",
     "edit": "Edit",
+    "enabled": "Enabled",
     "filesTable": "Files table",
     "filesPresentation": "Files presentation",
     "getStarted": "Get started",
@@ -21,6 +23,15 @@
     "totalRecords": "Total records",
     "users": "Users",
     "view": "View"
+  },
+  "placeholder": {
+    "city": "Select city",
+    "date": "Select date",
+    "dateRange": "Select date range",
+    "max": "Max",
+    "min": "Min",
+    "search": "Search",
+    "status": "Select status"
   },
   "title": "Table",
   "usage": {

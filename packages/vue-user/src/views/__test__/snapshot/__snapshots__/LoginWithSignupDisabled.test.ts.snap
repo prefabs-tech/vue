@@ -129,8 +129,9 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
     </div>
     <!--v-if-->
     <div
-      class="social-logins"
+      class="social-login-wrapper"
     >
+      <!--v-if-->
       <!--v-if-->
     </div>
     
@@ -268,8 +269,9 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
     </div>
     <!--v-if-->
     <div
-      class="social-logins"
+      class="social-login-wrapper"
     >
+      <!--v-if-->
       <!--v-if-->
     </div>
     

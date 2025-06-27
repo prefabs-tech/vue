@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.card.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.card.subtitle')"
+    :title="$t('ui.card.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -143,11 +147,45 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'CardProperties' })"
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
 import { ButtonElement, Card } from "@dzangolab/vue3-ui";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
+
+const propsData = [
+  {
+    default: "-",
+    description:
+      "Title text displayed in the card header. Ignored if header slot is provided.",
+    prop: "title",
+    type: "String",
+  },
+];
+
+const slotsData = [
+  {
+    description: "Default slot for the main body content of the card.",
+    name: "default",
+  },
+  {
+    description:
+      "Slot for custom footer content, rendered at the bottom of the card.",
+    name: "footer",
+  },
+  {
+    description:
+      "Slot for custom header content, replaces the default title if provided.",
+    name: "header",
+  },
+];
 </script>

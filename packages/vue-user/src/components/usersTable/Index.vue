@@ -249,7 +249,7 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
     enableSorting: true,
     header: t("user.table.defaultColumns.status"),
     meta: {
-      filterVariant: "multiselect",
+      filterVariant: "select",
       filterOptions: [
         {
           value: false,

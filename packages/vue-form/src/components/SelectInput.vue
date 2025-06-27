@@ -17,15 +17,18 @@
           valid: meta.dirty && meta.valid && fieldSchema,
         }"
         :disabled="disabled"
-        :enable-search="enableSearch"
+        :enable-custom-search="enableCustomSearch"
         :has-sorted-options="hasSortedOptions"
+        :label-key="labelKey"
         :model-value="modelValue"
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
         :show-remove-selection="showRemoveSelection"
+        :value-key="valueKey"
         tabindex="0"
         @update:model-value="onSelect"
+        @update:search-input="$emit('update:searchInput', $event)"
       >
         <template
           v-for="(option, index) in options"
@@ -33,6 +36,10 @@
           #[option.value]
         >
           <slot :name="option.value"></slot>
+        </template>
+
+        <template v-if="$slots.selection" #selection>
+          <slot name="selection" />
         </template>
       </MultiSelect>
       <ErrorMessage :name="name" />
@@ -49,6 +56,7 @@ export default {
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { computed } from "vue";
 import { z } from "zod";
 
 import MultiSelect from "./Select.vue";
@@ -61,7 +69,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
-  enableSearch: Boolean,
+  enableCustomSearch: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -71,11 +79,23 @@ const props = defineProps({
     required: false,
     type: String as PropType<string>,
   },
+  labelKey: {
+    default: undefined,
+    type: String,
+  },
+  maxSelection: {
+    default: undefined,
+    type: Number as PropType<number | undefined>,
+  },
+  minSelection: {
+    default: undefined,
+    type: Number as PropType<number | undefined>,
+  },
   modelValue: {
     default: () => null,
     required: false,
-    type: [Number, String, Array] as PropType<
-      number | string | (number | string)[]
+    type: [Boolean, Number, String, Array] as PropType<
+      boolean | number | string | (number | string)[]
     >,
   },
   multiple: {
@@ -102,21 +122,60 @@ const props = defineProps({
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
   },
-  searchPlaceholder: {
-    default: undefined,
-    type: String,
-  },
   showRemoveSelection: {
     default: true,
     type: Boolean,
   },
+  valueKey: {
+    default: undefined,
+    type: String,
+  },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
-const fieldSchema = Object.keys(props.schema).length
-  ? toFieldValidator(props.schema)
-  : null;
+let fieldSchema: object;
+
+const activeOptions = computed(() =>
+  props.options.filter((option) => !option.disabled),
+);
+
+if (Object.keys(props.schema).length) {
+  fieldSchema = toFieldValidator(props.schema);
+} else if ((props.maxSelection || props.minSelection) && props.multiple) {
+  const currentLength = activeOptions.value.length;
+  const max = props.maxSelection ?? 0;
+  const min = props.minSelection ?? 0;
+
+  const minValue =
+    min > currentLength
+      ? currentLength
+      : props.maxSelection && max < min
+        ? max
+        : min;
+  const maxValue = props.maxSelection ? Math.max(min, max) : undefined;
+
+  const arraySchema = z.preprocess(
+    (value) => (value === null || value === undefined ? [] : value),
+    z.array(z.string()).refine(
+      (value) => {
+        return (
+          (!maxValue || value.length <= maxValue) &&
+          (!minValue || value.length >= minValue)
+        );
+      },
+      {
+        message: `Please select ${
+          minValue !== maxValue
+            ? `between ${minValue} and ${maxValue ?? "available"}`
+            : minValue
+        } options`,
+      },
+    ),
+  );
+
+  fieldSchema = toFieldValidator(arraySchema);
+}
 
 const onSelect = (value: string | number | []) => {
   emit("update:modelValue", value);

@@ -3,6 +3,12 @@
     "submit": "Submit[fr]"
   },
   "errors": {
+    "checkbox": {
+      "min": "Please select at least {min} options"
+    },
+    "currencyPicker": {
+      "invalid": "Please select at least one valid option"
+    },
     "daysInput": {
       "invalid": "Please provide number of days within a year"
     },
@@ -54,6 +60,7 @@
     "checkbox": "Checkbox input",
     "consequences": "Consequences",
     "contentElement": "Content element",
+    "currencyPicker": "Currency picker",
     "customColsRowsInput": "With cols and rows props[fr]",
     "customErrorMessageInput": "With custom error message[fr]",
     "customFormat": "Custom format[fr]",
@@ -97,6 +104,7 @@
     "labelInput": "With label[fr]",
     "language": "Language",
     "male": "Male",
+    "minMaxValidation": "With min max options validation",
     "misc": "Misc",
     "month": "Month[fr]",
     "monthAndYear": "Month and year[fr]",
@@ -107,6 +115,7 @@
     "multiple": "Multiple files",
     "multiselect": "Multiselect[fr]",
     "multiselectSearch": "Multiselect with search",
+    "multiselectWithKeys": "Multiselect with label and value keys",
     "nepali": "Nepali",
     "next": "Next",
     "no": "No",
@@ -121,6 +130,7 @@
     "size": "Size",
     "select": "Select[fr]",
     "selection": "Selection",
+    "selectLabelOrder": "Option label order",
     "solutions": "Solutions",
     "submit": "Submit",
     "summary": "Summary",
@@ -137,14 +147,17 @@
     "valid": "Show valid state[fr]",
     "vehicle": "Vehicle",
     "withI18n": "With i18n[fr]",
+    "withLabelValueKeys": "With label and value keys",
     "withOnOffLabel":  "With on off label",
     "withSearch": "With search",
+    "withSelectOptions": "With select input options",
     "workInProgress": "Work in progress",
     "year": "Year[fr]",
     "yearPicker": "Year picker[fr]",
     "yes": "Yes"
   },
   "placeholder": {
+    "currency": "Select a currency",
     "days": "Enter number of days",
     "email": "Enter a email[fr]",
     "input": "Enter input[fr]",
@@ -161,5 +174,8 @@
     "username": "Enter username[fr]"
   },
   "submittedValue": "Submitted value[fr]",
+  "subtitle": {
+    "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts."
+  },
   "title": "Form library[fr]"
 }

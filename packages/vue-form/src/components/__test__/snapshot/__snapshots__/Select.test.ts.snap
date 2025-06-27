@@ -3,6 +3,7 @@
 exports[`MultiSelect > matches snapshot for multiple select 1`] = `
 <div
   class="multiple-mode multiselect"
+  tabindex="0"
 >
   <label
     for="multiselect"
@@ -12,16 +13,23 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
   <div
     class="multiselect-input"
   >
-    <span
-      class="selected-options"
+    <div
+      class="field debounce-input multiselect-search"
     >
-      FR, DE, BE, FE, RE
-    </span>
+      <input
+        aria-label="input"
+        class="input-field"
+        placeholder="Select multiple value"
+        type="text"
+        value=""
+      />
+    </div>
     <span
       class="action-items"
     >
       <svg
         fill="none"
+        tabindex="0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -57,137 +65,157 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
       </svg>
     </span>
   </div>
-  <ul
-    role="list"
+  <div
+    class="multiselect-options"
   >
-    <!--v-if-->
-    <li
-      class="multiselect-option"
+    <div
+      class="selected-options-wrapper visible"
     >
-      <div
-        class="checkbox-wrapper"
-      >
-        <input
-          checked=""
-          id="checkbox"
-          name="checkbox"
-          type="checkbox"
-        />
-        <!--v-if-->
-      </div>
-      <span>
-        Select all
-      </span>
-    </li>
-    
-    <li
-      class="multiselect-option"
-    >
-      <div
-        class="checkbox-wrapper"
-      >
-        <input
-          checked=""
-          id="checkbox"
-          name="checkbox"
-          type="checkbox"
-        />
-        <!--v-if-->
-      </div>
       
-      <span>
-        BE
+      <span
+        class="selected-options"
+      >
+        FR, DE, BE, FE, RE
       </span>
       
-    </li>
-    <li
-      class="multiselect-option"
-    >
       <div
-        class="checkbox-wrapper"
-      >
-        <input
-          checked=""
-          id="checkbox"
-          name="checkbox"
-          type="checkbox"
-        />
-        <!--v-if-->
-      </div>
-      
-      <span>
-        DE
-      </span>
-      
-    </li>
-    <li
-      class="multiselect-option"
+        class="divider"
+        data-aria-orientation="horizontal"
+        role="separator"
+      />
+    </div>
+    <ul
+      role="list"
     >
-      <div
-        class="checkbox-wrapper"
+      <li
+        class="multiselect-option"
       >
-        <input
-          checked=""
-          id="checkbox"
-          name="checkbox"
-          type="checkbox"
-        />
-        <!--v-if-->
-      </div>
+        <div
+          class="checkbox-wrapper"
+        >
+          <input
+            checked=""
+            id="checkbox"
+            name="checkbox"
+            type="checkbox"
+          />
+          <!--v-if-->
+        </div>
+        <span>
+          Select all
+        </span>
+      </li>
       
-      <span>
-        FE
-      </span>
-      
-    </li>
-    <li
-      class="multiselect-option"
-    >
-      <div
-        class="checkbox-wrapper"
+      <li
+        class="multiselect-option"
       >
-        <input
-          checked=""
-          id="checkbox"
-          name="checkbox"
-          type="checkbox"
-        />
-        <!--v-if-->
-      </div>
-      
-      <span>
-        FR
-      </span>
-      
-    </li>
-    <li
-      class="multiselect-option"
-    >
-      <div
-        class="checkbox-wrapper"
+        <div
+          class="checkbox-wrapper"
+        >
+          <input
+            checked=""
+            id="checkbox"
+            name="checkbox"
+            type="checkbox"
+          />
+          <!--v-if-->
+        </div>
+        
+        <span>
+          BE
+        </span>
+        
+      </li>
+      <li
+        class="multiselect-option"
       >
-        <input
-          checked=""
-          id="checkbox"
-          name="checkbox"
-          type="checkbox"
-        />
-        <!--v-if-->
-      </div>
+        <div
+          class="checkbox-wrapper"
+        >
+          <input
+            checked=""
+            id="checkbox"
+            name="checkbox"
+            type="checkbox"
+          />
+          <!--v-if-->
+        </div>
+        
+        <span>
+          DE
+        </span>
+        
+      </li>
+      <li
+        class="multiselect-option"
+      >
+        <div
+          class="checkbox-wrapper"
+        >
+          <input
+            checked=""
+            id="checkbox"
+            name="checkbox"
+            type="checkbox"
+          />
+          <!--v-if-->
+        </div>
+        
+        <span>
+          FE
+        </span>
+        
+      </li>
+      <li
+        class="multiselect-option"
+      >
+        <div
+          class="checkbox-wrapper"
+        >
+          <input
+            checked=""
+            id="checkbox"
+            name="checkbox"
+            type="checkbox"
+          />
+          <!--v-if-->
+        </div>
+        
+        <span>
+          FR
+        </span>
+        
+      </li>
+      <li
+        class="multiselect-option"
+      >
+        <div
+          class="checkbox-wrapper"
+        >
+          <input
+            checked=""
+            id="checkbox"
+            name="checkbox"
+            type="checkbox"
+          />
+          <!--v-if-->
+        </div>
+        
+        <span>
+          RE
+        </span>
+        
+      </li>
       
-      <span>
-        RE
-      </span>
-      
-    </li>
-    
-  </ul>
+    </ul>
+  </div>
 </div>
 `;
 
 exports[`MultiSelect > matches snapshot for single select 1`] = `
 <div
   class="multiselect"
+  tabindex="0"
 >
   <label
     for="multiselect"
@@ -197,16 +225,23 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
   <div
     class="multiselect-input"
   >
-    <span
-      class="selected-options"
+    <div
+      class="field debounce-input multiselect-search"
     >
-      FR
-    </span>
+      <input
+        aria-label="input"
+        class="input-field"
+        placeholder="Select a value"
+        type="text"
+        value=""
+      />
+    </div>
     <span
       class="action-items"
     >
       <svg
         fill="none"
+        tabindex="0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -242,63 +277,82 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
       </svg>
     </span>
   </div>
-  <ul
-    role="list"
+  <div
+    class="multiselect-options"
   >
-    <!--v-if-->
-    <!--v-if-->
-    
-    <li
-      class="multiselect-option"
+    <div
+      class="selected-options-wrapper visible"
     >
-      <!--v-if-->
       
-      <span>
-        BE
-      </span>
-      
-    </li>
-    <li
-      class="multiselect-option"
-    >
-      <!--v-if-->
-      
-      <span>
-        DE
-      </span>
-      
-    </li>
-    <li
-      class="multiselect-option"
-    >
-      <!--v-if-->
-      
-      <span>
-        FE
-      </span>
-      
-    </li>
-    <li
-      class="multiselect-option selected"
-    >
-      <!--v-if-->
-      
-      <span>
+      <span
+        class="selected-options"
+      >
         FR
       </span>
       
-    </li>
-    <li
-      class="multiselect-option"
+      <div
+        class="divider"
+        data-aria-orientation="horizontal"
+        role="separator"
+      />
+    </div>
+    <ul
+      role="list"
     >
       <!--v-if-->
       
-      <span>
-        RE
-      </span>
+      <li
+        class="multiselect-option"
+      >
+        <!--v-if-->
+        
+        <span>
+          BE
+        </span>
+        
+      </li>
+      <li
+        class="multiselect-option"
+      >
+        <!--v-if-->
+        
+        <span>
+          DE
+        </span>
+        
+      </li>
+      <li
+        class="multiselect-option"
+      >
+        <!--v-if-->
+        
+        <span>
+          FE
+        </span>
+        
+      </li>
+      <li
+        class="selected multiselect-option"
+      >
+        <!--v-if-->
+        
+        <span>
+          FR
+        </span>
+        
+      </li>
+      <li
+        class="multiselect-option"
+      >
+        <!--v-if-->
+        
+        <span>
+          RE
+        </span>
+        
+      </li>
       
-    </li>
-    
-  </ul>
+    </ul>
+  </div>
 </div>
 `;

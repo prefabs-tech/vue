@@ -1,0 +1,23 @@
+.currency-selector .currency-label {
+  align-items: baseline;
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.currency-selector .currency-label .code {
+  color: var(--dz-secondary-color, #475569);
+  font-size: 0.9rem;
+}
+
+.currency-selector .currency-label .symbol {
+  margin-inline: 0.75rem;
+}
+
+.currency-selector .currency-label .tertiary-currency-label {
+  margin-left: auto;
+}
+
+.currency-selector li[disabled=true] .currency-label .code {
+  opacity: 0.6;
+}
