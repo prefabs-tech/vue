@@ -7,8 +7,8 @@ interface Invitation {
   email: string;
   expiresAt: number;
   id: number;
-  invitedById: string;
   invitedBy?: UserType;
+  invitedById: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload: any;
   revokedAt: number | null;
