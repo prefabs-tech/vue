@@ -218,13 +218,13 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.app"),
     meta: {
-      filterVariant: "multiselect",
       filterOptions: appNameMap.value
         ? Array.from(appNameMap.value.entries()).map(([id, name]) => ({
             label: name,
             value: id,
           }))
         : [],
+      filterVariant: "multiselect",
     },
     sortingFn: (rowA, rowB, columnId) => {
       const appRowA = appNameMap.value.get(rowA.original.appId) || "";

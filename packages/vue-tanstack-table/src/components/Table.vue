@@ -446,12 +446,8 @@ const prepareComponent = () => {
           return row;
         }
 
-        return filterValue.some((value: string | boolean) => {
-          if (typeof value === "boolean") {
-            return row.getValue(columnId) === value;
-          } else {
-            return row.getValue<unknown[]>(columnId)?.includes(value);
-          }
+        return filterValue.some((value: string | number | boolean) => {
+          return row.getValue(columnId) == value;
         });
       };
     } else if (column.meta?.filterVariant === "select") {
