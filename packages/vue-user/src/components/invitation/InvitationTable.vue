@@ -262,16 +262,16 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
       filterVariant: "multiselect",
       filterOptions: [
         {
-          value: ROLE_ADMIN,
           label: t("user.table.role.admin"),
+          value: ROLE_ADMIN,
         },
         {
-          value: ROLE_SUPERADMIN,
           label: t("user.table.role.superadmin"),
+          value: ROLE_SUPERADMIN,
         },
         {
-          value: ROLE_USER,
           label: t("user.table.role.user"),
+          value: ROLE_USER,
         },
       ],
     },
