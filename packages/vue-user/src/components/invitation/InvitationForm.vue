@@ -19,7 +19,7 @@
         v-if="apps?.length || roles?.length"
         v-model="formData.role"
         :disabled="Boolean(!updatedRoles?.length)"
-        :options="updatedRoles"
+        :options="updatedRoles || []"
         :schema="roleSchema"
         label="Role"
         name="role"
