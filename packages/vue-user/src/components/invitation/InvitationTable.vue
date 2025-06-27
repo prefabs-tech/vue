@@ -202,22 +202,7 @@ const appNameMap = computed(() => {
   return new Map(apps.map((app) => [app.id, app.name]));
 });
 
-const mergedColumns = computed(() => [
-  ...defaultColumns.map((defaultColumn) => {
-    const override = props.columnsData.find(
-      (column) => column.accessorKey === defaultColumn.accessorKey,
-    );
-    return override ? { ...defaultColumn, ...override } : defaultColumn;
-  }),
-  ...props.columnsData.filter(
-    (column) =>
-      !defaultColumns.some(
-        (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
-      ),
-  ),
-]);
-
-const defaultColumns: TableColumnDefinition<Invitation>[] = [
+const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
   {
     accessorKey: "email",
     enableColumnFilter: true,
@@ -382,7 +367,22 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
       return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));
     },
   },
-];
+]);
+
+const mergedColumns = computed(() => [
+  ...defaultColumns.value.map((defaultColumn) => {
+    const override = props.columnsData.find(
+      (column) => column.accessorKey === defaultColumn.accessorKey,
+    );
+    return override ? { ...defaultColumn, ...override } : defaultColumn;
+  }),
+  ...props.columnsData.filter(
+    (column) =>
+      !defaultColumns.value.some(
+        (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
+      ),
+  ),
+]);
 
 const isExpired = (date?: string | Date | number) => {
   return !!(date && new Date(date) < new Date());
