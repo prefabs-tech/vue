@@ -151,6 +151,72 @@ const emit = defineEmits([
   "update:request",
 ]);
 
+const showModal = ref<boolean>(false);
+
+const actionMenuData = computed(() => [
+  {
+    confirmationOptions: {
+      body: t("user.invitation.table.confirmation.resend.message"),
+      header: t("user.invitation.table.confirmation.header"),
+    },
+    disabled: (invitation: Invitation) =>
+      !!invitation.acceptedAt ||
+      !!invitation.revokedAt ||
+      isExpired(invitation.expiresAt),
+    icon: "pi pi-replay",
+    key: "resend",
+    label: t("user.invitation.table.actions.resend"),
+    requireConfirmationModal: true,
+  },
+  {
+    class: "danger",
+    confirmationOptions: {
+      body: t("user.invitation.table.confirmation.revoke.message"),
+      header: t("user.invitation.table.confirmation.header"),
+    },
+    disabled: (invitation: Invitation) =>
+      !!invitation.acceptedAt ||
+      !!invitation.revokedAt ||
+      isExpired(invitation.expiresAt),
+    icon: "pi pi-times",
+    key: "revoke",
+    label: t("user.invitation.table.actions.revoke"),
+    requireConfirmationModal: true,
+  },
+  {
+    class: "danger",
+    confirmationOptions: {
+      body: t("user.invitation.table.confirmation.delete.message"),
+      header: t("user.invitation.table.confirmation.header"),
+    },
+    icon: "pi pi-trash",
+    key: "delete",
+    label: t("user.invitation.table.actions.delete"),
+    requireConfirmationModal: true,
+  },
+]);
+
+const appNameMap = computed(() => {
+  const apps = props.apps ?? [];
+
+  return new Map(apps.map((app) => [app.id, app.name]));
+});
+
+const mergedColumns = computed(() => [
+  ...defaultColumns.map((defaultColumn) => {
+    const override = props.columnsData.find(
+      (column) => column.accessorKey === defaultColumn.accessorKey,
+    );
+    return override ? { ...defaultColumn, ...override } : defaultColumn;
+  }),
+  ...props.columnsData.filter(
+    (column) =>
+      !defaultColumns.some(
+        (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
+      ),
+  ),
+]);
+
 const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
     accessorKey: "email",
@@ -166,6 +232,15 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     enableColumnFilter: true,
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.app"),
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: appNameMap.value
+        ? Array.from(appNameMap.value.entries()).map(([id, name]) => ({
+            label: name,
+            value: id,
+          }))
+        : [],
+    },
     sortingFn: (rowA, rowB, columnId) => {
       const appRowA = appNameMap.value.get(rowA.original.appId) || "";
       const appRowB = appNameMap.value.get(rowB.original.appId) || "";
@@ -308,72 +383,6 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     },
   },
 ];
-
-const showModal = ref<boolean>(false);
-
-const actionMenuData = computed(() => [
-  {
-    confirmationOptions: {
-      body: t("user.invitation.table.confirmation.resend.message"),
-      header: t("user.invitation.table.confirmation.header"),
-    },
-    disabled: (invitation: Invitation) =>
-      !!invitation.acceptedAt ||
-      !!invitation.revokedAt ||
-      isExpired(invitation.expiresAt),
-    icon: "pi pi-replay",
-    key: "resend",
-    label: t("user.invitation.table.actions.resend"),
-    requireConfirmationModal: true,
-  },
-  {
-    class: "danger",
-    confirmationOptions: {
-      body: t("user.invitation.table.confirmation.revoke.message"),
-      header: t("user.invitation.table.confirmation.header"),
-    },
-    disabled: (invitation: Invitation) =>
-      !!invitation.acceptedAt ||
-      !!invitation.revokedAt ||
-      isExpired(invitation.expiresAt),
-    icon: "pi pi-times",
-    key: "revoke",
-    label: t("user.invitation.table.actions.revoke"),
-    requireConfirmationModal: true,
-  },
-  {
-    class: "danger",
-    confirmationOptions: {
-      body: t("user.invitation.table.confirmation.delete.message"),
-      header: t("user.invitation.table.confirmation.header"),
-    },
-    icon: "pi pi-trash",
-    key: "delete",
-    label: t("user.invitation.table.actions.delete"),
-    requireConfirmationModal: true,
-  },
-]);
-
-const appNameMap = computed(() => {
-  const apps = props.apps ?? [];
-
-  return new Map(apps.map((app) => [app.id, app.name]));
-});
-
-const mergedColumns = computed(() => [
-  ...defaultColumns.map((defaultColumn) => {
-    const override = props.columnsData.find(
-      (column) => column.accessorKey === defaultColumn.accessorKey,
-    );
-    return override ? { ...defaultColumn, ...override } : defaultColumn;
-  }),
-  ...props.columnsData.filter(
-    (column) =>
-      !defaultColumns.some(
-        (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
-      ),
-  ),
-]);
 
 const isExpired = (date?: string | Date | number) => {
   return !!(date && new Date(date) < new Date());

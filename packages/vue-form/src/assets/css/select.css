@@ -53,10 +53,13 @@
 
 .multiselect .multiselect-input:has(.multiselect-search) {
   --_padding-h: 0;
+
+  overflow: hidden;
 }
 
 .multiselect .multiselect-input > .multiselect-search > input {
   border-color: transparent;
+  box-shadow: none;
 }
 
 .multiselect .multiselect-input > .multiselect-search > input:focus-within {
@@ -135,6 +138,7 @@
 }
 
 .multiselect .selected-options {
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -156,8 +160,9 @@
 
 .multiselect .multiselect-input>.action-items {
   display: flex;
-  position: absolute;
-  right: 0.75rem;
+  gap: 0.5rem;
+  margin-inline: 0.5rem;
+  min-width: fit-content;
 }
 
 .multiselect .multiselect-input>.action-items > svg {
