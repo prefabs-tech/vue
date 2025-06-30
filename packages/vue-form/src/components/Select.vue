@@ -15,7 +15,7 @@
       @click="toggleDropdown"
     >
       <DebouncedInput
-        v-if="!selectedOptions.length || (showDropdownMenu && !disabled)"
+        v-if="(!selectedOptions.length || showDropdownMenu) && !disabled"
         ref="dzangolabVueSearchInput"
         v-model="searchInput"
         :placeholder="placeholder"

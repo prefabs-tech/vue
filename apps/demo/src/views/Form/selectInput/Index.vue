@@ -17,7 +17,7 @@
         <SelectInput
           v-model="formData.noLabelInput"
           :options="options"
-          :placeholder="$t('form.placeholder.language')"
+          :placeholder="$t('form.placeholder.country')"
         />
 
         <!-- eslint-disable -->
@@ -26,7 +26,7 @@
             &lt;SelectInput
               v-model="input"
               :options="options"
-              placeholder="Select a language"
+              placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
 
@@ -35,11 +35,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -53,9 +53,9 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.input"
-          :label="$t('form.label.language')"
+          :label="$t('form.label.country')"
           :options="options"
-          :placeholder="$t('form.placeholder.language')"
+          :placeholder="$t('form.placeholder.country')"
         />
 
         <!-- eslint-disable -->
@@ -65,7 +65,7 @@
               v-model="input"
               :options="options"
               label="Language"
-              placeholder="Select a language"
+              placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
 
@@ -74,11 +74,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -92,8 +92,9 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.disabled"
-          :label="$t('form.label.language')"
+          :label="$t('form.label.country')"
           :options="options"
+          :placeholder="$t('form.placeholder.country')"
           disabled
         />
 
@@ -105,6 +106,7 @@
               :options="options"
               disabled
               label="Language"
+              placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
 
@@ -115,11 +117,11 @@
           const disabled = ref("de");
 
           const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -134,9 +136,9 @@
         <SelectInput
           v-model="formData.disabledSortInput"
           :has-sorted-options="false"
-          :label="$t('form.label.language')"
+          :label="$t('form.label.country')"
           :options="options"
-          :placeholder="$t('form.placeholder.language')"
+          :placeholder="$t('form.placeholder.country')"
         />
 
         <!-- eslint-disable -->
@@ -147,7 +149,7 @@
               :has-sorted-options="false"
               :options="options"
               label="Language"
-              placeholder="Select a language"
+              placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
 
@@ -156,11 +158,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -174,10 +176,10 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.labelValueKeyInput"
-          :label="$t('form.label.language')"
-          :options="languageOptions"
-          :placeholder="$t('form.placeholder.language')"
-          label-key="language"
+          :label="$t('form.label.country')"
+          :options="countryOptions"
+          :placeholder="$t('form.placeholder.country')"
+          label-key="country"
           value-key="code"
         />
 
@@ -188,8 +190,8 @@
               v-model="input"
               :options="options"
               label="Language"
-              label-key="language"
-              placeholder="Select a language"
+              label-key="country"
+              placeholder="Select a country"
               value-key="code"
             /&gt;
           &lt;/template&gt;
@@ -199,11 +201,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { code: "fr", language: t("form.label.french") },
-            { code: "de", language: t("form.label.german") },
-            { code: "be", disabled: true, language: t("form.label.dutch") },
-            { code: "np", language: t("form.label.nepali") },
-            { code: "hi", language: t("form.label.hindi") },
+            { code: "FR", country: "France" },
+            { code: "DE", country: "Germany" },
+            { code: "BE", country: "Belgium", disabled: true },
+            { code: "NP", country: "Nepal" },
+            { code: "IN", country: "India" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -217,9 +219,9 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.i18nSelect"
-          :label="$t('form.label.language')"
+          :label="$t('form.label.country')"
           :options="options"
-          :placeholder="$t('form.placeholder.language')"
+          :placeholder="$t('form.placeholder.country')"
         />
 
         <!-- eslint-disable -->
@@ -228,8 +230,8 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              :label="t('form.label.language')"
-              :placeholder="t('form.placeholder.language')"
+              :label="t('form.label.country')"
+              :placeholder="t('form.placeholder.country')"
             /&gt;
           &lt;/template&gt;
 
@@ -241,11 +243,11 @@
           const { t } = useI18n();
 
           const options = ref([
-            { label: t("form.label.french"), value: "fr"},
-            { label: t("form.label.german"), value: "de"},
-            { disabled: true, label: t("form.label.dutch"), value: "be", },
-            { label: t("form.label.nepali"), value: "np",  },
-            { label: t("form.label.hindi"), value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -259,9 +261,9 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.multiselect"
-          :label="$t('form.label.language')"
+          :label="$t('form.label.country')"
           :options="options"
-          :placeholder="$t('form.placeholder.languages')"
+          :placeholder="$t('form.placeholder.countries')"
           multiple
         />
 
@@ -273,7 +275,7 @@
               :options="options"
               label="Language"
               multiple
-              placeholder="Select languages"
+              placeholder="Select countries"
             /&gt;
           &lt;/template&gt;
 
@@ -282,11 +284,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -300,8 +302,9 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.disabledMultiselect"
-          :label="$t('form.label.language')"
+          :label="$t('form.label.country')"
           :options="options"
+          :placeholder="$t('form.placeholder.countries')"
           disabled
           multiple
         />
@@ -315,6 +318,7 @@
               disabled
               label="Language"
               multiple
+              placeholder="Select countries"
             /&gt;
           &lt;/template&gt;
 
@@ -325,11 +329,11 @@
           const disabled = ref(["be", "de"]);
 
           const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -343,10 +347,10 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.multiselectKeysInput"
-          :label="$t('form.label.language')"
-          :options="languageOptions"
-          :placeholder="$t('form.placeholder.language')"
-          label-key="language"
+          :label="$t('form.label.country')"
+          :options="countryOptions"
+          :placeholder="$t('form.placeholder.country')"
+          label-key="country"
           multiple
           value-key="code"
         />
@@ -359,7 +363,7 @@
               :options="options"
               label="Language"
               label-key="language"
-              placeholder="Select a language"
+              placeholder="Select a country"
               multiple
               value-key="code"
             /&gt;
@@ -370,11 +374,11 @@
           import { ref } from "vue";
 
           const options = ref([
-            { code: "fr", language: t("form.label.french") },
-            { code: "de", language: t("form.label.german") },
-            { code: "be", disabled: true, language: t("form.label.dutch") },
-            { code: "np", language: t("form.label.nepali") },
-            { code: "hi", language: t("form.label.hindi") },
+            { code: "FR", country: "France" },
+            { code: "DE", country: "Germany" },
+            { code: "BE", country: "Belgium", disabled: true },
+            { code: "NP", country: "Nepal" },
+            { code: "IN", country: "India" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -388,9 +392,9 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.customLabelSelect"
-          :label="$t('form.label.language')"
+          :label="$t('form.label.country')"
           :options="options"
-          :placeholder="$t('form.placeholder.language')"
+          :placeholder="$t('form.placeholder.country')"
           multiple
         >
           <template
@@ -411,8 +415,8 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              :label="t('form.label.language')"
-              :placeholder="t('form.placeholder.language')"
+              :label="t('form.label.country')"
+              :placeholder="t('form.placeholder.country')"
               multiple
             &gt;
               &lt;template
@@ -435,11 +439,11 @@
           const { t } = useI18n();
 
           const options = ref([
-            { label: "French", value: "fr"},
-            { label: "German", value: "de"},
-            { disabled: true, label: "Dutch", value: "be", },
-            { label: "Nepali", value: "np",  },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -454,11 +458,11 @@
         <Form>
           <SelectInput
             v-model="formData.inputWithMinMax"
-            :label="$t('form.label.language')"
+            :label="$t('form.label.country')"
             :max-selection="3"
             :min-selection="2"
             :options="options"
-            :placeholder="$t('form.placeholder.languages')"
+            :placeholder="$t('form.placeholder.countries')"
             multiple
           />
         </Form>
@@ -473,7 +477,7 @@
               :options="options"
               label="Language"
               multiple
-              placeholder="Select languages"
+              placeholder="Select countries"
             /&gt;
           &lt;/Form&gt;
 
@@ -492,9 +496,9 @@
         <Form>
           <SelectInput
             v-model="formData.inputWithValidation"
-            :label="$t('form.label.language')"
+            :label="$t('form.label.country')"
             :options="options"
-            :placeholder="$t('form.placeholder.languages')"
+            :placeholder="$t('form.placeholder.countries')"
             :schema="inputSchema"
             multiple
           />
@@ -509,7 +513,7 @@
               :schema="inputSchema"
               label="Language"
               multiple
-              placeholder="Select languages"
+              placeholder="Select countries"
             /&gt;
           &lt;/Form&gt;
 
@@ -523,11 +527,11 @@
             .min(1, { message: "Please select at least one valid option" });
 
             const options = ref([
-              { label: "French", value: "fr"},
-              { label: "German", value: "de"},
-              { disabled: true, label: "Dutch", value: "be", },
-              { label: "Nepali", value: "np",  },
-              { label: "Hindi", value: "hi" },
+              { label: "France", value: "FR" },
+              { label: "Germany", value: "DE" },
+              { disabled: true, label: "Belgium", value: "BE" },
+              { label: "Nepal", value: "NP" },
+              { label: "India", value: "IN" },
             ]);
           &lt;/script&gt;
         </SshPre>
@@ -575,18 +579,18 @@ let formData = reactive({
 });
 
 const options = ref([
-  { label: t("form.label.french"), value: "fr" },
-  { label: t("form.label.german"), value: "de" },
-  { disabled: true, label: t("form.label.dutch"), value: "be" },
-  { label: t("form.label.nepali"), value: "np" },
-  { label: t("form.label.hindi"), value: "hi" },
+  { label: t("form.label.france"), value: "FR" },
+  { label: t("form.label.germany"), value: "DE" },
+  { disabled: true, label: t("form.label.belgium"), value: "BE" },
+  { label: t("form.label.nepal"), value: "NP" },
+  { label: t("form.label.india"), value: "IN" },
 ]);
 
-const languageOptions = ref([
-  { code: "fr", language: t("form.label.french") },
-  { code: "de", language: t("form.label.german") },
-  { code: "be", disabled: true, language: t("form.label.dutch") },
-  { code: "np", language: t("form.label.nepali") },
-  { code: "hi", language: t("form.label.hindi") },
+const countryOptions = ref([
+  { code: "FR", country: t("form.label.france") },
+  { code: "DE", country: t("form.label.germany") },
+  { code: "BE", country: t("form.label.belgium"), disabled: true },
+  { code: "NP", country: t("form.label.nepal") },
+  { code: "IN", country: t("form.label.india") },
 ]);
 </script>
