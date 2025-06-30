@@ -14,6 +14,10 @@
   margin-inline: 0.75rem;
 }
 
+.currency-selector .currency-label .primary-currency-label {
+  min-width: 1rem;
+}
+
 .currency-selector .currency-label .tertiary-currency-label {
   margin-left: auto;
 }

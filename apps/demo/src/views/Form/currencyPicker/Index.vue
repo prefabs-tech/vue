@@ -95,6 +95,49 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.currencyPickerExtensive") }}</h2>
+
+      <div class="section-content">
+        <CurrencyPicker
+          v-model="formData.entensivePicker"
+          :options="currencies"
+          :placeholder="$t('form.placeholder.currency')"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;CurrencyPicker
+              v-model="input"
+              :options="currencies"
+              placeholder="Select a currency"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { CurrencyPicker } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          import { currencies } from "../data";
+
+          import type { CurrencyOption } from "@dzangolab/vue3-form";
+
+          const input = ref();
+
+          const options = [
+            { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+            { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+            { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
+            { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+            { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+          ] as CurrencyOption[];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.multiselect") }}</h2>
 
       <div class="section-content">
@@ -268,6 +311,7 @@ import { ButtonElement } from "@dzangolab/vue3-ui";
 import { reactive } from "vue";
 import { z } from "zod";
 
+import { currencies } from "../data";
 import FormPage from "../FormPage.vue";
 
 import type { CurrencyOption } from "@dzangolab/vue3-form";
@@ -276,6 +320,7 @@ const { t } = useI18n();
 
 const formData = reactive({
   basic: undefined,
+  extensivePicker: undefined,
   multiselect: undefined,
   selectOptionsInput: undefined,
   selectWithOrder: undefined,
@@ -295,5 +340,12 @@ const options = [
   { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
   { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
   { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+  { code: "DZD", label: "Algerian dinar", value: "DZD" },
+  {
+    code: "ZAR",
+    label: "South African Rand",
+    value: "ZAR",
+  },
+  { code: "NPR", label: "Nepalese rupee", symbol: "Rs", value: "NPR" },
 ] as CurrencyOption[];
 </script>
