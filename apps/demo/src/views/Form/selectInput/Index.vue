@@ -64,7 +64,7 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              label="Language"
+              label="Country"
               placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
@@ -105,7 +105,7 @@
               v-model="disabled"
               :options="options"
               disabled
-              label="Language"
+              label="Country"
               placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
@@ -148,7 +148,7 @@
               v-model="input"
               :has-sorted-options="false"
               :options="options"
-              label="Language"
+              label="Country"
               placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
@@ -189,7 +189,7 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              label="Language"
+              label="Country"
               label-key="country"
               placeholder="Select a country"
               value-key="code"
@@ -272,7 +272,7 @@
             &lt;SelectInput 
               v-model="input"
               :options="countries"
-              label="Language"
+              label="Country"
               placeholder="Select countries"
             /&gt;
           &lt;/template&gt;
@@ -306,7 +306,7 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              label="Language"
+              label="Country"
               multiple
               placeholder="Select countries"
             /&gt;
@@ -349,7 +349,7 @@
               v-model="disabled"
               :options="options"
               disabled
-              label="Language"
+              label="Country"
               multiple
               placeholder="Select countries"
             /&gt;
@@ -394,7 +394,7 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              label="Language"
+              label="Country"
               label-key="language"
               placeholder="Select a country"
               multiple
@@ -508,7 +508,7 @@
               :max-selection="3"
               :min-selection="2"
               :options="options"
-              label="Language"
+              label="Country"
               multiple
               placeholder="Select countries"
             /&gt;
@@ -544,7 +544,7 @@
               v-model="input"
               :options="options"
               :schema="inputSchema"
-              label="Language"
+              label="Country"
               multiple
               placeholder="Select countries"
             /&gt;
