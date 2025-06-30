@@ -256,6 +256,39 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.selectExtensive") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.multiselect"
+          :label="$t('form.label.country')"
+          :options="countries"
+          :placeholder="$t('form.placeholder.countries')"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="countries"
+              label="Language"
+              placeholder="Select countries"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          import { countries } from "../data";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.multiselect") }}</h2>
 
       <div class="section-content">
@@ -554,6 +587,7 @@ import { ButtonElement } from "@dzangolab/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import { countries } from "../data";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
@@ -565,8 +599,8 @@ const inputSchema = z
 
 let formData = reactive({
   customLabelSelect: ref(),
-  disabled: ref("de"),
-  disabledMultiselect: ref(["be", "de"]),
+  disabled: ref("NP"),
+  disabledMultiselect: ref(["FR", "NP"]),
   disabledSortInput: ref(),
   i18nSelect: ref(),
   input: ref(),
