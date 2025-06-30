@@ -15,7 +15,7 @@
       @click="toggleDropdown"
     >
       <DebouncedInput
-        v-if="!selectedOptions.length || (showDropdownMenu && !disabled)"
+        v-if="(!selectedOptions.length || showDropdownMenu) && !disabled"
         ref="dzangolabVueSearchInput"
         v-model="searchInput"
         :placeholder="placeholder"
@@ -203,7 +203,7 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
-const { options, multiple, placeholder } = toRefs(props);
+const { multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
 const dzangolabVueSearchInput = ref();
 const dzangolabVueSelectAll = ref();
@@ -303,7 +303,7 @@ const focusSearchInput = async () => {
 
 const getSelectedOption = (value: number | string | boolean) => {
   return (
-    options.value?.find((option) => option.value === value) ||
+    normalizedOptions.value?.find((option) => option.value === value) ||
     selectedOptions.value.find((option) => option.value === value)
   );
 };
@@ -531,6 +531,10 @@ const setOptionReference =
   };
 
 const toggleDropdown = () => {
+  if (props.disabled) {
+    return;
+  }
+
   showDropdownMenu.value = !showDropdownMenu.value;
 
   if (showDropdownMenu.value) {
