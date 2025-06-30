@@ -76,6 +76,7 @@ import type {
   InvitationRoleOption,
 } from "../../types";
 import type {
+  FilterOption,
   SortingState,
   TableColumnDefinition,
   TableRow,
@@ -88,6 +89,10 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 const props = defineProps({
+  appFilterOptions: {
+    default: () => [],
+    type: Array as PropType<Array<FilterOption>>,
+  },
   apps: {
     default: () => [],
     type: Array as PropType<Array<InvitationAppOption>>,
@@ -116,6 +121,10 @@ const props = defineProps({
   },
   isLoading: Boolean,
   isServerTable: Boolean,
+  roleFilterOptions: {
+    default: () => [],
+    type: Array as PropType<Array<FilterOption>>,
+  },
   roles: {
     default: () => [],
     type: Array as PropType<Array<InvitationRoleOption>>,
@@ -123,6 +132,10 @@ const props = defineProps({
   showInviteAction: {
     default: true,
     type: Boolean,
+  },
+  statutsFilterOptions: {
+    default: () => [],
+    type: Array as PropType<Array<FilterOption>>,
   },
   submitLabel: {
     default: undefined,
@@ -218,12 +231,14 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.app"),
     meta: {
-      filterOptions: appNameMap.value
-        ? Array.from(appNameMap.value.entries()).map(([id, name]) => ({
-            label: name,
-            value: id,
-          }))
-        : [],
+      filterOptions: props.appFilterOptions.length
+        ? props.appFilterOptions
+        : appNameMap.value
+          ? Array.from(appNameMap.value.entries()).map(([id, name]) => ({
+              label: name,
+              value: id,
+            }))
+          : [],
       filterVariant: "multiselect",
     },
     sortingFn: (rowA, rowB, columnId) => {
@@ -260,20 +275,22 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     header: t("user.invitation.table.defaultColumns.role"),
     meta: {
       filterVariant: "multiselect",
-      filterOptions: [
-        {
-          label: t("user.table.role.admin"),
-          value: ROLE_ADMIN,
-        },
-        {
-          label: t("user.table.role.superadmin"),
-          value: ROLE_SUPERADMIN,
-        },
-        {
-          label: t("user.table.role.user"),
-          value: ROLE_USER,
-        },
-      ],
+      filterOptions: props.roleFilterOptions.length
+        ? props.roleFilterOptions
+        : [
+            {
+              label: t("user.table.role.admin"),
+              value: ROLE_ADMIN,
+            },
+            {
+              label: t("user.table.role.superadmin"),
+              value: ROLE_SUPERADMIN,
+            },
+            {
+              label: t("user.table.role.user"),
+              value: ROLE_USER,
+            },
+          ],
     },
   },
   {
@@ -308,7 +325,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
   {
     align: "center",
     accessorKey: "status",
-    enableColumnFilter: !props.isServerTable,
+    enableColumnFilter: true,
     enableSorting: !props.isServerTable,
     filterFn: (row, columnId, filterValue) => {
       const { acceptedAt, revokedAt, expiresAt } = row.original;
@@ -344,24 +361,26 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     },
     meta: {
       filterVariant: "multiselect",
-      filterOptions: [
-        {
-          label: t("user.invitation.table.status.accepted"),
-          value: INVITATION_STATUS_ACCEPTED,
-        },
-        {
-          label: t("user.invitation.table.status.revoked"),
-          value: INVITATION_STATUS_REVOKED,
-        },
-        {
-          label: t("user.invitation.table.status.expired"),
-          value: INVITATION_STATUS_EXPIRED,
-        },
-        {
-          label: t("user.invitation.table.status.pending"),
-          value: INVITATION_STATUS_PENDING,
-        },
-      ],
+      filterOptions: props.statutsFilterOptions.length
+        ? props.statutsFilterOptions
+        : [
+            {
+              label: t("user.invitation.table.status.accepted"),
+              value: INVITATION_STATUS_ACCEPTED,
+            },
+            {
+              label: t("user.invitation.table.status.revoked"),
+              value: INVITATION_STATUS_REVOKED,
+            },
+            {
+              label: t("user.invitation.table.status.expired"),
+              value: INVITATION_STATUS_EXPIRED,
+            },
+            {
+              label: t("user.invitation.table.status.pending"),
+              value: INVITATION_STATUS_PENDING,
+            },
+          ],
     },
     sortingFn: (rowA, rowB, columnId) => {
       return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));

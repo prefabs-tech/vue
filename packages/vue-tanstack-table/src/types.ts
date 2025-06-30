@@ -38,7 +38,7 @@ declare module "@tanstack/vue-table" {
   }
 }
 
-type FilterOption = {
+export type FilterOption = {
   label: string;
   value: boolean | number | string;
 };
