@@ -156,6 +156,7 @@
   height: 3rem;
   min-height: 3rem;
   opacity: 1;
+  text-align: left;
 }
 
 .multiselect .multiselect-input>.action-items {
