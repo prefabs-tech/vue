@@ -44,6 +44,13 @@
             { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
             { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
             { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+            { code: "DZD", label: "Algerian dinar", value: "DZD" },
+            {
+              code: "ZAR",
+              label: "South African Rand",
+              value: "ZAR",
+            },
+            { code: "NPR", label: "Nepalese rupee", symbol: "Rs", value: "NPR" },
           ] as CurrencyOption[];
           &lt;/script&gt;
         </SshPre>
@@ -87,6 +94,13 @@
             { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
             { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
             { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+            { code: "DZD", label: "Algerian dinar", value: "DZD" },
+            {
+              code: "ZAR",
+              label: "South African Rand",
+              value: "ZAR",
+            },
+            { code: "NPR", label: "Nepalese rupee", symbol: "Rs", value: "NPR" },
           ] as CurrencyOption[];
           &lt;/script&gt;
         </SshPre>
@@ -99,7 +113,7 @@
 
       <div class="section-content">
         <CurrencyPicker
-          v-model="formData.entensivePicker"
+          v-model="formData.extensivePicker"
           :options="currencies"
           :placeholder="$t('form.placeholder.currency')"
         />
@@ -123,14 +137,6 @@
           import type { CurrencyOption } from "@dzangolab/vue3-form";
 
           const input = ref();
-
-          const options = [
-            { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
-            { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-            { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
-            { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
-            { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
-          ] as CurrencyOption[];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -173,7 +179,14 @@
             { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
             { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
             { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
-          ] as CurrencyOption[];
+            { code: "DZD", label: "Algerian dinar", value: "DZD" },
+            {
+              code: "ZAR",
+              label: "South African Rand",
+              value: "ZAR",
+            },
+            { code: "NPR", label: "Nepalese rupee", symbol: "Rs", value: "NPR" },
+            ] as CurrencyOption[];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -232,6 +245,13 @@
             { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
             { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
             { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+            { code: "DZD", label: "Algerian dinar", value: "DZD" },
+            {
+              code: "ZAR",
+              label: "South African Rand",
+              value: "ZAR",
+            },
+            { code: "NPR", label: "Nepalese rupee", symbol: "Rs", value: "NPR" },
           ] as CurrencyOption[];
           &lt;/script&gt;
         </SshPre>
@@ -289,6 +309,13 @@
             { code: "EUR", disabled: true, label: "Euro", symbol: "€", value: "EUR" },
             { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
             { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+            { code: "DZD", label: "Algerian dinar", value: "DZD" },
+            {
+              code: "ZAR",
+              label: "South African Rand",
+              value: "ZAR",
+            },
+            { code: "NPR", label: "Nepalese rupee", symbol: "Rs", value: "NPR" },
           ] as CurrencyOption[];
           &lt;/script&gt;
         </SshPre>
