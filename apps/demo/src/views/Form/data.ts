@@ -245,4 +245,3 @@ const countries = [
 ];
 
 export { countries };
-

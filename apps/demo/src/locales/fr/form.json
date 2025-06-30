@@ -159,6 +159,7 @@
     "yes": "Yes"
   },
   "placeholder": {
+    "countries": "Select countries[fr]",
     "country": "Select a country[fr]",
     "currency": "Select a currency",
     "days": "Enter number of days",

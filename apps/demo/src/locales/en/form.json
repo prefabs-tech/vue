@@ -159,8 +159,8 @@
     "yes": "Yes"
   },
   "placeholder": {
-    "country": "Select a country",
     "countries": "Select countries",
+    "country": "Select a country",
     "currency": "Select a currency",
     "days": "Enter number of days",
     "email": "Enter a email",
