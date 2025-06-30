@@ -18,6 +18,7 @@ export type {
   DataActionsMenuItem,
   FilterFunction,
   FilterFunctions,
+  FilterOption,
   SortingState,
   TableColumnDefinition,
   TableRow,
