@@ -21,10 +21,7 @@
       >
         <slot :name="option.value">
           <div class="currency-label">
-            <span
-              v-if="option?.[optionLabelOrder[0]]"
-              :class="[optionLabelOrder[0], 'primary-currency-label']"
-            >
+            <span :class="[optionLabelOrder[0], 'primary-currency-label']">
               {{ option?.[optionLabelOrder[0]] }}
             </span>
             <span
@@ -143,5 +140,5 @@ const onSearchInput = (value: string) => {
 </script>
 
 <style lang="css">
-@import "../assets/css/currencySelector.css";
+@import "../assets/css/currencyPicker.css";
 </style>

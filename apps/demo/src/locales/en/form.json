@@ -63,6 +63,7 @@
     "contentElement": "Content element",
     "country": "Country",
     "currencyPicker": "Currency picker",
+    "currencyPickerExtensive": "Currency picker with extensive options",
     "customColsRowsInput": "With cols and rows props",
     "customErrorMessageInput": "With custom error message",
     "customFormat": "Custom format",
