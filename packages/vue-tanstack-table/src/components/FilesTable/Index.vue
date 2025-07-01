@@ -1,7 +1,7 @@
 <template>
   <Table
     v-bind="tableOptions"
-    id="table-files"
+    :id="id"
     :columns-data="mergedColumns"
     :data="files"
     :data-action-menu="actionMenuData"
@@ -9,6 +9,8 @@
     :initial-sorting="initialSorting"
     :is-loading="isLoading"
     :is-server-table="isServerTable"
+    :persist-state="persistState"
+    :persist-state-storage="persistStateStorage"
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
     class="table-files"
@@ -69,8 +71,19 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<IFile[]>,
   },
+  id: {
+    default: "files-table",
+    type: String,
+  },
   isLoading: Boolean,
   isServerTable: Boolean,
+  persistState: Boolean,
+  persistStateStorage: {
+    default: "localStorage",
+    type: String,
+    validator: (value: string) =>
+      ["localStorage", "sessionStorage"].includes(value),
+  },
   messages: {
     default: undefined,
     type: Object as PropType<TableMessages>,
@@ -111,15 +124,17 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
   },
   {
     accessorKey: "description",
+    enableSorting: true,
     header: props.messages?.descriptionHeader || "Description",
     tooltip: true,
   },
   {
     accessorKey: "size",
+    enableSorting: true,
     header: props.messages?.fileSizeHeader || "Size",
   },
   {
-    id: "uploadedBy",
+    accessorKey: "uploadedBy",
     cell: ({ row: { original } }) => {
       if (!original.uploadedBy) {
         return h("code", {}, "—");
@@ -133,6 +148,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return original.uploadedBy.email;
     },
+    enableSorting: true,
     header: props.messages?.uploadedByHeader || "Uploaded by",
   },
   {
@@ -140,11 +156,13 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     cell: ({ getValue }) => {
       return formatDateTime(getValue() as number);
     },
+    enableSorting: true,
     header: props.messages?.uploadedAtHeader || "Uploaded at",
   },
   {
     accessorKey: "downloadCount",
     align: "right",
+    enableSorting: true,
     header: props.messages?.downloadCountHeader || "Download count",
   },
   {
@@ -157,7 +175,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
       return h("code", {}, "—");
     },
     enableColumnFilter: false,
-    enableSorting: false,
+    enableSorting: true,
     header: props.messages?.lastDownloadedAtHeader || "Last downloaded at",
   },
 ];
