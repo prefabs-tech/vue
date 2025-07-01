@@ -260,7 +260,7 @@
 
       <div class="section-content">
         <SelectInput
-          v-model="formData.multiselect"
+          v-model="formData.selectExtensive"
           :label="$t('form.label.country')"
           :options="countries"
           :placeholder="$t('form.placeholder.countries')"
@@ -368,6 +368,41 @@
             { label: "Nepal", value: "NP" },
             { label: "India", value: "IN" },
           ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.multiselectExtensive") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.multiselectExtensive"
+          :label="$t('form.label.country')"
+          :options="countries"
+          :placeholder="$t('form.placeholder.countries')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="countries"
+              label="Country"
+              multiple
+              placeholder="Select countries"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          import { countries } from "../data";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -608,8 +643,10 @@ let formData = reactive({
   inputWithValidation: ref([]),
   labelValueKeyInput: ref(),
   multiselect: ref(),
+  multiselectExtensive: ref([]),
   multiselectKeysInput: ref([]),
   noLabelInput: ref(),
+  selectExtensive: ref(),
 });
 
 const options = ref([
