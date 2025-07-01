@@ -109,6 +109,10 @@ const props = defineProps({
     type: String,
     validator: (value: string) => ["calendar", "days"].includes(value),
   },
+  id: {
+    default: "users-table",
+    type: String,
+  },
   initialSorting: {
     default: () => [],
     type: Array as PropType<SortingState>,
@@ -119,6 +123,13 @@ const props = defineProps({
   },
   isLoading: Boolean,
   isServerTable: Boolean,
+  persistState: Boolean,
+  persistStateStorage: {
+    default: "localStorage",
+    type: String,
+    validator: (value: string) =>
+      ["localStorage", "sessionStorage"].includes(value),
+  },
   roles: {
     default: () => [],
     type: Array as PropType<Array<InvitationRoleOption>>,

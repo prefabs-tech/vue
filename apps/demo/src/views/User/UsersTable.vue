@@ -15,20 +15,24 @@
 
       <div class="section-content">
         <UsersTable
+          id="users-table"
           :initial-sorting="[{ id: 'email', desc: false }]"
           :invitation-modal-title="$t('user.label.inviteUser')"
           :users="allUsers"
           :visible-columns="visibleColumns"
+          persist-state
         />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;UsersTable
+              id="users-table"
               :initial-sorting="[{ id: 'email', desc: false }]"
               :users="users"
               :visible-columns="visibleColumns"
               invitation-modal-title="Invite a user"
+              persist-state
             /&gt;
           &lt;/template&gt;
 
