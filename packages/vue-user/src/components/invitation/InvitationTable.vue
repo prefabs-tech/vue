@@ -1,6 +1,7 @@
 <template>
   <Table
     v-bind="tableOptions"
+    :id="id"
     :columns-data="mergedColumns"
     :data="invitations"
     :data-action-menu="actionMenuData"
@@ -14,6 +15,8 @@
         'user.invitation.table.pagination.rowsPerPage',
       ),
     }"
+    :persist-state="persistState"
+    :persist-state-storage="persistStateStorage"
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
     class="table-invitations"
@@ -107,6 +110,10 @@ const props = defineProps({
     type: String,
     validator: (value: string) => ["calendar", "days"].includes(value),
   },
+  id: {
+    default: "invitation-table",
+    type: String,
+  },
   initialSorting: {
     default: () => [],
     type: Array as PropType<SortingState>,
@@ -121,6 +128,13 @@ const props = defineProps({
   },
   isLoading: Boolean,
   isServerTable: Boolean,
+  persistState: Boolean,
+  persistStateStorage: {
+    default: "localStorage",
+    type: String,
+    validator: (value: string) =>
+      ["localStorage", "sessionStorage"].includes(value),
+  },
   roleFilterOptions: {
     default: () => [],
     type: Array as PropType<Array<FilterOption>>,
