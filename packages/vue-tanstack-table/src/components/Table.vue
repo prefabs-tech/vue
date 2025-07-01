@@ -450,13 +450,13 @@ const prepareComponent = () => {
           return row.getValue(columnId) == value;
         });
       };
-    } else if (column.meta?.filterVariant === "select") {
+    } else if (column.meta?.filterVariant === "select" && !column.filterFn) {
       column.filterFn = (row, columnId, filterValue) => {
         if (filterValue === undefined || filterValue.length === 0) {
           return true;
         }
 
-        return filterValue === row.getValue(columnId);
+        return String(filterValue) === String(row.getValue(columnId));
       };
     } else if (column.meta?.filterVariant === "dateRange" && !column.filterFn) {
       column.filterFn = (row, columnId, filterValue) => {

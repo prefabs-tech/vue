@@ -18,6 +18,7 @@
 
       <div class="section-content">
         <InvitationTable
+          id="invitation-table"
           :apps="apps"
           :columns-data="[
             {
@@ -31,12 +32,14 @@
           :invitation-modal-title="$t('user.label.inviteUser')"
           :invitations="invitations"
           :visible-columns="visibleColumns"
+          persist-state
         />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;InvitationTable
+              id="invitation-table"
               :apps="apps"
               :columns-data="[{
                 accessorKey: 'invitedBy',
@@ -48,6 +51,7 @@
               :invitations="invitations"
               :visible-columns="visibleColumns"
               invitation-modal-title="Invite a user"
+              persist-state
             /&gt;
           &lt;/template&gt;
 

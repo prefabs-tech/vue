@@ -1,6 +1,7 @@
 <template>
   <Table
     v-bind="tableOptions"
+    :id="id"
     :columns-data="mergedColumns"
     :data="users"
     :data-action-menu="actionMenuData"
@@ -12,6 +13,8 @@
       pageInputLabel: t('user.table.pagination.pageInputLabel'),
       itemsPerPageControlLabel: t('user.table.pagination.rowsPerPage'),
     }"
+    :persist-state="persistState"
+    :persist-state-storage="persistStateStorage"
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
     class="table-users"
@@ -72,6 +75,7 @@ import type {
 import type { AppConfig } from "@dzangolab/vue3-config";
 import type {
   DataActionsMenuItem,
+  FilterOption,
   SortingState,
   TableColumnDefinition,
   TRequestJSON,
@@ -109,6 +113,10 @@ const props = defineProps({
     type: String,
     validator: (value: string) => ["calendar", "days"].includes(value),
   },
+  id: {
+    default: "users-table",
+    type: String,
+  },
   initialSorting: {
     default: () => [],
     type: Array as PropType<SortingState>,
@@ -119,6 +127,13 @@ const props = defineProps({
   },
   isLoading: Boolean,
   isServerTable: Boolean,
+  persistState: Boolean,
+  persistStateStorage: {
+    default: "localStorage",
+    type: String,
+    validator: (value: string) =>
+      ["localStorage", "sessionStorage"].includes(value),
+  },
   roles: {
     default: () => [],
     type: Array as PropType<Array<InvitationRoleOption>>,
@@ -252,14 +267,14 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
       filterVariant: "select",
       filterOptions: [
         {
-          value: false,
           label: t("user.table.status.enabled"),
+          value: false,
         },
         {
-          value: true,
           label: t("user.table.status.disabled"),
+          value: true,
         },
-      ],
+      ] as FilterOption[],
     },
   },
 ];
