@@ -236,6 +236,7 @@
       "show": "Show",
       "viewDetail": "View detail"
     },
+    "subtitle": "A modal dialog component for displaying content in an overlay with support for custom headers, footers, and dismissal logic.",
     "title": "Modal",
     "usage": {
       "basic": "Basic",

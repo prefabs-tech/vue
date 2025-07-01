@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.modal.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.modal.subtitle')"
+    :title="$t('ui.modal.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -220,7 +224,7 @@
             <span role="heading">{{ $t("ui.modal.label.login") }}</span>
           </template>
 
-          <Form>
+          <Form class="login-form">
             <Email
               v-model="formData.email"
               :label="$t('form.label.email')"
@@ -307,6 +311,13 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'ModalProperties' })"
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
@@ -315,12 +326,17 @@ import { Email, Form, FormActions, Password } from "@dzangolab/vue3-form";
 import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
 import { reactive, ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
-const formData = reactive({
-  email: ref(),
-  password: ref(),
-});
+const eventsData = [
+  {
+    description:
+      "Emitted when the modal is requested to close (via close icon or outside click).",
+    name: "on:close",
+    payload: "-",
+  },
+];
 
 const productDetail = [
   {
@@ -336,6 +352,47 @@ const productDetail = [
     value: "Black",
   },
 ];
+
+const propsData = [
+  {
+    default: "true",
+    description: "Closes the modal when clicking outside the modal content.",
+    prop: "dismissOnClickOut",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: "Controls the visibility of the modal.",
+    prop: "show",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: "Title for the modal. Override by `header` slot if provided.",
+    prop: "title",
+    type: "String",
+  },
+];
+
+const slotsData = [
+  {
+    description: "Main content of the modal body.",
+    name: "default",
+  },
+  {
+    description: "Footer section of the modal. Placed below the content.",
+    name: "footer",
+  },
+  {
+    description: "Custom header content. Overrides `title` if provided.",
+    name: "header",
+  },
+];
+
+const formData = reactive({
+  email: ref(),
+  password: ref(),
+});
 
 const showDisableDismissModal = ref(false);
 const showI18nModal = ref(false);
@@ -358,5 +415,9 @@ const showTitleModal = ref(false);
 
 .demo .login-actions {
   margin-bottom: 0;
+}
+
+.demo .dialog.active .login-form {
+  width: 25rem;
 }
 </style>
