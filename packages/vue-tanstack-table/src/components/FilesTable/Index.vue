@@ -124,14 +124,19 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
   },
   {
     accessorKey: "description",
+    enableColumnFilter: true,
     enableSorting: true,
     header: "Description",
     tooltip: true,
   },
   {
     accessorKey: "size",
+    enableColumnFilter: true,
     enableSorting: true,
     header: "Size",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "uploadedBy",
@@ -148,7 +153,26 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return original.uploadedBy.email;
     },
+    enableColumnFilter: true,
     enableSorting: true,
+    filterFn: (row, columnId, filterValue) => {
+      const value = row.getValue(columnId) as {
+        givenName?: string;
+        lastName?: string;
+        email?: string;
+      };
+      if (!filterValue || filterValue.length === 0) {
+        return true;
+      }
+
+      const fullName =
+        `${value.givenName || ""} ${value.lastName || ""}`.trim();
+      return (
+        fullName.toLowerCase().includes(filterValue.toLowerCase()) ||
+        (value.email?.toLowerCase().includes(filterValue.toLowerCase()) ??
+          false)
+      );
+    },
     header: "Uploaded by",
   },
   {
@@ -156,14 +180,22 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     cell: ({ getValue }) => {
       return formatDateTime(getValue() as number);
     },
+    enableColumnFilter: true,
     enableSorting: true,
     header: "Uploaded at",
+    meta: {
+      filterVariant: "dateRange",
+    },
   },
   {
     accessorKey: "downloadCount",
     align: "right",
+    enableColumnFilter: true,
     enableSorting: true,
     header: "Download count",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "lastDownloadedAt",
@@ -174,9 +206,12 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return h("code", {}, "—");
     },
-    enableColumnFilter: false,
+    enableColumnFilter: true,
     enableSorting: true,
     header: "Last downloaded at",
+    meta: {
+      filterVariant: "dateRange",
+    },
   },
 ];
 
