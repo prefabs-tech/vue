@@ -132,8 +132,8 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
   },
   {
     accessorKey: "size",
-    enableColumnFilter: true,
-    enableSorting: true,
+    enableColumnFilter: !props.isServerTable,
+    enableSorting: !props.isServerTable,
     filterPlaceholder: "Size",
     header: "Size",
     meta: {
@@ -155,8 +155,8 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return original.uploadedBy.email;
     },
-    enableColumnFilter: true,
-    enableSorting: true,
+    enableColumnFilter: !props.isServerTable,
+    enableSorting: !props.isServerTable,
     filterFn: (row, columnId, filterValue) => {
       const value = row.getValue(columnId) as {
         givenName?: string;
@@ -189,6 +189,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     header: "Uploaded at",
     meta: {
       filterVariant: "dateRange",
+      serverFilterFn: "between",
     },
   },
   {
@@ -217,6 +218,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     header: "Last downloaded at",
     meta: {
       filterVariant: "dateRange",
+      serverFilterFn: "between",
     },
   },
 ];
