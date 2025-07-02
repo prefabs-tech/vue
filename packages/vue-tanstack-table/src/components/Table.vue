@@ -289,14 +289,21 @@ const table = computed(() =>
 
       if (props.isServerTable) {
         columnFilters.value = props.columnsData
-          .filter((column) => column.enableColumnFilter)
+          .filter(
+            (column) =>
+              column.enableColumnFilter &&
+              (props.visibleColumns.includes(
+                String(column.accessorKey ?? column.id),
+              ) ||
+                !props.visibleColumns.length),
+          )
           .map((column) => {
             if (column.meta?.filterVariant === "range") {
               const rangeFilterValue = columnFilters.value.find(
-                (filter) => filter.id === column.accessorKey,
+                (filter) => filter?.id === column.accessorKey,
               )?.value as number[];
 
-              const [min, max] = rangeFilterValue;
+              const [min, max] = rangeFilterValue || [];
 
               const filterFn =
                 column.meta?.serverFilterFn ||
@@ -310,13 +317,15 @@ const table = computed(() =>
                       ? "lessThanOrEqual"
                       : null);
 
-              if (filterFn) {
+              if (filterFn && rangeFilterValue?.length) {
                 return {
                   filterFn,
                   id: column.accessorKey,
                   value: rangeFilterValue,
                 };
               }
+
+              return;
             } else {
               return {
                 filterFn: column?.meta?.serverFilterFn,
@@ -326,7 +335,8 @@ const table = computed(() =>
                 )?.value,
               };
             }
-          }) as ColumnFiltersState;
+          })
+          .filter(Boolean) as ColumnFiltersState;
 
         fetchData();
       }

@@ -119,19 +119,26 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     accessorKey: "originalFileName",
     enableColumnFilter: true,
     enableSorting: true,
-    filterPlaceholder: props.messages?.searchPlaceholder || "File name example",
+    filterPlaceholder: "File name",
     header: "File",
   },
   {
     accessorKey: "description",
+    enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "Description",
     header: "Description",
     tooltip: true,
   },
   {
     accessorKey: "size",
-    enableSorting: true,
+    enableColumnFilter: !props.isServerTable,
+    enableSorting: !props.isServerTable,
+    filterPlaceholder: "Size",
     header: "Size",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "uploadedBy",
@@ -148,7 +155,27 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return original.uploadedBy.email;
     },
-    enableSorting: true,
+    enableColumnFilter: !props.isServerTable,
+    enableSorting: !props.isServerTable,
+    filterFn: (row, columnId, filterValue) => {
+      const value = row.getValue(columnId) as {
+        givenName?: string;
+        lastName?: string;
+        email?: string;
+      };
+      if (!filterValue || filterValue.length === 0) {
+        return true;
+      }
+
+      const fullName =
+        `${value.givenName || ""} ${value.lastName || ""}`.trim();
+      return (
+        fullName.toLowerCase().includes(filterValue.toLowerCase()) ||
+        (value.email?.toLowerCase().includes(filterValue.toLowerCase()) ??
+          false)
+      );
+    },
+    filterPlaceholder: "Name",
     header: "Uploaded by",
   },
   {
@@ -156,14 +183,25 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     cell: ({ getValue }) => {
       return formatDateTime(getValue() as number);
     },
+    enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "Date range",
     header: "Uploaded at",
+    meta: {
+      filterVariant: "dateRange",
+      serverFilterFn: "between",
+    },
   },
   {
     accessorKey: "downloadCount",
     align: "right",
+    enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "Number of downloads",
     header: "Download count",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "lastDownloadedAt",
@@ -174,9 +212,14 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return h("code", {}, "—");
     },
-    enableColumnFilter: false,
+    enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "Date range",
     header: "Last downloaded at",
+    meta: {
+      filterVariant: "dateRange",
+      serverFilterFn: "between",
+    },
   },
 ];
 
