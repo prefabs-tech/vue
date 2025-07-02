@@ -8,13 +8,10 @@ export type FileMessages = {
   deleteAction?: string;
   deleteConfirmationHeader?: string;
   deleteConfirmationMessage?: string;
-  originalFileNameHeader?: string;
-  descriptionHeader?: string;
   downloadCountHeader?: string;
   lastDownloadedAtHeader?: string;
   uploadedByHeader?: string;
   uploadedAtHeader?: string;
-  actionsHeader?: string;
   shareAction?: string;
   viewAction?: string;
 };

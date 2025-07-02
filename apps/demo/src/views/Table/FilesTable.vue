@@ -17,12 +17,14 @@
           :columns-data="[
             {
               accessorKey: 'uploadedBy',
+              header: $t('table.label.uploadedBy'),
               tooltip: ({ row: { original } }) => {
                 return `${original.uploadedBy?.givenName} ${original.uploadedBy?.lastName}`;
               },
             },
             {
               accessorKey: 'uploadedAt',
+              header: $t('table.label.uploadedAt'),
               tooltip: true,
             },
           ]"
@@ -168,7 +170,3 @@ import { ButtonElement } from "@dzangolab/vue3-ui";
 
 import TablePage from "./TablePage.vue";
 </script>
-
-<style lang="css">
-@import "../../assets/css/table/table.css";
-</style>

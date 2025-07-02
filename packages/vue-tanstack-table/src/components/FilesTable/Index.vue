@@ -120,18 +120,18 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     enableColumnFilter: true,
     enableSorting: true,
     filterPlaceholder: props.messages?.searchPlaceholder || "File name example",
-    header: props.messages?.originalFileNameHeader || "File",
+    header: "File",
   },
   {
     accessorKey: "description",
     enableSorting: true,
-    header: props.messages?.descriptionHeader || "Description",
+    header: "Description",
     tooltip: true,
   },
   {
     accessorKey: "size",
     enableSorting: true,
-    header: props.messages?.fileSizeHeader || "Size",
+    header: "Size",
   },
   {
     accessorKey: "uploadedBy",
@@ -149,7 +149,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
       return original.uploadedBy.email;
     },
     enableSorting: true,
-    header: props.messages?.uploadedByHeader || "Uploaded by",
+    header: "Uploaded by",
   },
   {
     accessorKey: "uploadedAt",
@@ -157,13 +157,13 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
       return formatDateTime(getValue() as number);
     },
     enableSorting: true,
-    header: props.messages?.uploadedAtHeader || "Uploaded at",
+    header: "Uploaded at",
   },
   {
     accessorKey: "downloadCount",
     align: "right",
     enableSorting: true,
-    header: props.messages?.downloadCountHeader || "Download count",
+    header: "Download count",
   },
   {
     accessorKey: "lastDownloadedAt",
@@ -176,7 +176,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     },
     enableColumnFilter: false,
     enableSorting: true,
-    header: props.messages?.lastDownloadedAtHeader || "Last downloaded at",
+    header: "Last downloaded at",
   },
 ];
 
