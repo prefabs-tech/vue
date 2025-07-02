@@ -119,13 +119,14 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     accessorKey: "originalFileName",
     enableColumnFilter: true,
     enableSorting: true,
-    filterPlaceholder: props.messages?.searchPlaceholder || "File name example",
+    filterPlaceholder: "File name",
     header: "File",
   },
   {
     accessorKey: "description",
     enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "Description",
     header: "Description",
     tooltip: true,
   },
@@ -133,6 +134,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     accessorKey: "size",
     enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "Size",
     header: "Size",
     meta: {
       filterVariant: "range",
@@ -173,6 +175,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
           false)
       );
     },
+    filterPlaceholder: "Name",
     header: "Uploaded by",
   },
   {
@@ -182,6 +185,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     },
     enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "Date range",
     header: "Uploaded at",
     meta: {
       filterVariant: "dateRange",
@@ -192,6 +196,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     align: "right",
     enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "Number of downloads",
     header: "Download count",
     meta: {
       filterVariant: "range",
@@ -208,6 +213,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     },
     enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: "Date range",
     header: "Last downloaded at",
     meta: {
       filterVariant: "dateRange",
