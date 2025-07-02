@@ -280,12 +280,12 @@ const propsData = [
 
 const slotsData = [
   {
-    name: "content",
     description: "Content to be shown in the popup. Visible when toggled.",
+    name: "content",
   },
   {
-    name: "default",
     description: "The trigger element that opens the popup.",
+    name: "default",
   },
 ];
 </script>
