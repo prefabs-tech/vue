@@ -21,6 +21,8 @@
     "share": "Share",
     "tableFilters": "Table filters",
     "totalRecords": "Total records",
+    "uploadedAt": "Uploaded at",
+    "uploadedBy": "Uploaded by",
     "users": "Users",
     "view": "View"
   },

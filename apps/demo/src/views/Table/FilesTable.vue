@@ -13,33 +13,38 @@
     <section>
       <div class="section-content">
         <FilesTable
+          id="files-table"
           :columns-data="[
             {
-              id: 'uploadedBy',
+              accessorKey: 'uploadedBy',
+              header: $t('table.label.uploadedBy'),
               tooltip: ({ row: { original } }) => {
                 return `${original.uploadedBy?.givenName} ${original.uploadedBy?.lastName}`;
               },
             },
             {
               accessorKey: 'uploadedAt',
+              header: $t('table.label.uploadedAt'),
               tooltip: true,
             },
           ]"
           :files="[
             {
               description: 'File 1 description',
+              downloadCount: 10,
               id: 1,
-              lastDownloadedAt: Date.now(),
+              lastDownloadedAt: new Date('2025-01-14').getTime(),
               originalFileName: 'My file',
-              uploadedAt: Date.now(),
+              uploadedAt: new Date('2025-01-25').getTime(),
               uploadedBy: { givenName: 'monorepo', lastName: 'Admin' },
             },
             {
               description: 'File description',
+              downloadCount: 12,
               id: 2,
               lastDownloadedAt: Date.now(),
               originalFileName: 'My file v2',
-              uploadedAt: Date.now(),
+              uploadedAt: new Date('2025-02-17').getTime(),
               uploadedBy: { givenName: 'Monorepo', lastName: '' },
             },
           ]"
@@ -54,11 +59,15 @@
             'description',
             'uploadedBy',
             'uploadedAt',
+            'lastDownloadedAt',
+            'downloadCount',
+            'actions',
           ]"
           archive-file
           delete-file
           download-file
           edit-description
+          persist-state
           share-file
           view-file
           @action:archive="() => {}"
@@ -73,9 +82,10 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;FilesTable
+              id="files-table"
               :columns-data="[
                 {
-                  id: 'uploadedBy',
+                  accessorKey: 'uploadedBy',
                   tooltip: ({ row: { original } }) => {
                     return `${original.uploadedBy?.givenName} ${original.uploadedBy?.lastName}`;
                   },
@@ -88,18 +98,20 @@
               :files="[
                 {
                   description: 'File 1 description',
+                  downloadCount: 10,
                   id: 1,
-                  lastDownloadedAt: Date.now(),
+                  lastDownloadedAt: new Date('2025-01-14').getTime(),
                   originalFileName: 'My file',
-                  uploadedAt: Date.now(),
+                  uploadedAt: new Date('2025-01-25').getTime(),
                   uploadedBy: { givenName: 'monorepo', lastName: 'Admin' },
                 },
                 {
                   description: 'File description',
+                  downloadCount: 12,
                   id: 2,
                   lastDownloadedAt: Date.now(),
                   originalFileName: 'My file v2',
-                  uploadedAt: Date.now(),
+                  uploadedAt: new Date('2025-02-17').getTime(),
                   uploadedBy: { givenName: 'Monorepo', lastName: '' },
                 },
               ]"
@@ -114,11 +126,15 @@
                 'description',
                 'uploadedBy',
                 'uploadedAt',
+                'lastDownloadedAt',
+                'downloadCount',
+                'actions',
               ]"
               archive-file
               delete-file
               download-file
               edit-description
+              persist-state
               share-file
               view-file
               @action:archive="() => {}"
@@ -154,7 +170,3 @@ import { ButtonElement } from "@dzangolab/vue3-ui";
 
 import TablePage from "./TablePage.vue";
 </script>
-
-<style lang="css">
-@import "../../assets/css/table/table.css";
-</style>
