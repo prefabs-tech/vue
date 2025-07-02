@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.popup.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.popup.subtitle')"
+    :title="$t('ui.popup.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -228,11 +232,60 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'PopupProperties' })"
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
 import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
+
+const eventsData = [
+  {
+    description: "Emitted when the user clicks outside the popup.",
+    name: "onClickOutside",
+    payload: "-",
+  },
+];
+
+const propsData = [
+  {
+    default: `"popup"`,
+    description: "Aria label for accessibility, used on the trigger element.",
+    prop: "ariaLabel",
+    type: "String",
+  },
+  {
+    default: `10`,
+    description: "Spacing in pixels between the trigger and popup content.",
+    prop: "offset",
+    type: "Number",
+  },
+  {
+    default: `-`,
+    description:
+      "Preferred position of the popup (`top`, `bottom`, `left`, or `right`).",
+    prop: "position",
+    type: "String",
+  },
+];
+
+const slotsData = [
+  {
+    name: "content",
+    description: "Content to be shown in the popup. Visible when toggled.",
+  },
+  {
+    name: "default",
+    description: "The trigger element that opens the popup.",
+  },
+];
 </script>

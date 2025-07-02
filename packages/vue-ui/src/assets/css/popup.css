@@ -11,7 +11,7 @@
 
 .popup-trigger {
   cursor: pointer;
-  width: 100%;
+  width: max-content;
 }
 
 .popup-content {
