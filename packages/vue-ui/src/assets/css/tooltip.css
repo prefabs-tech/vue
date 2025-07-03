@@ -10,9 +10,12 @@
   background-color: var(--_bg-color);
   border-radius: 0.25rem;
   color: var(--_text-color);
+  max-width: 300px;
   padding: 0.25rem;
   position: fixed;
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
   z-index: 999;
 }
 

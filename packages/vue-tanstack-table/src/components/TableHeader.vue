@@ -130,6 +130,7 @@
               :placeholder="column.columnDef.filterPlaceholder"
               :name="`multiselect-filter-${column.columnDef.accessorKey}`"
               :multiple="column.columnDef.meta?.filterVariant === 'multiselect'"
+              enable-tooltip
               @update:model-value="column.setFilterValue($event)"
             />
           </template>
