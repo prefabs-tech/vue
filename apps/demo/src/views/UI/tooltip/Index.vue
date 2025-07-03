@@ -56,7 +56,7 @@
       <div class="section-content">
         <Tooltip position="top">
           <div class="trigger">
-            {{ $t("ui.tooltip.usage.top") }}
+            {{ $t("ui.tooltip.label.top") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -101,7 +101,7 @@
       <div class="section-content">
         <Tooltip position="bottom">
           <div class="trigger">
-            {{ $t("ui.tooltip.usage.bottom") }}
+            {{ $t("ui.tooltip.label.bottom") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -135,7 +135,7 @@
       <div class="section-content">
         <Tooltip position="left">
           <div class="trigger">
-            {{ $t("ui.tooltip.usage.left") }}
+            {{ $t("ui.tooltip.label.left") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -169,7 +169,7 @@
       <div class="section-content">
         <Tooltip position="right">
           <div class="trigger">
-            {{ $t("ui.tooltip.usage.right") }}
+            {{ $t("ui.tooltip.label.right") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
