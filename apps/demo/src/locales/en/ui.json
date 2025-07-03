@@ -270,17 +270,18 @@
   "popup": {
     "content": "This is a popup",
     "label": {
-      "button": "Click me"
+      "button": "Click me",
+      "show": "Show"
     },
     "subtitle": "The Popup component is a versatile overlay that displays content relative to a trigger element with automatic or configurable positioning.",
     "title": "Popup",
     "usage": {
       "basic":"Basic",
-      "bottom": "Bottom",
+      "bottom": "With position bottom",
       "customStyle":"Custom style",
-      "left": "Left",
-      "right": "Right",
-      "top": "Top",
+      "left": "With position left",
+      "right": "With position right",
+      "top": "With position top",
       "withI18n": "With i18n"
     }
   },

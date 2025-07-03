@@ -93,11 +93,14 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.tooltip.usage.top") }}</h2>
+      <h2>{{ $t("ui.popup.usage.top") }}</h2>
 
       <div class="section-content">
         <Popup position="top">
-          <ButtonElement :label="$t('ui.popup.usage.top')" severity="success" />
+          <ButtonElement
+            :label="$t('ui.popup.label.show')"
+            severity="success"
+          />
           <template #content>
             {{ $t("ui.popup.content") }}
           </template>
@@ -108,7 +111,7 @@
           &lt;template&gt;
             &lt;Popup position="top"&gt;
               &lt;ButtonElement
-                :label="Top"
+                :label="Show"
                 severity="success"
               /&gt;
               &lt;template #content&gt;
@@ -126,12 +129,12 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.tooltip.usage.bottom") }}</h2>
+      <h2>{{ $t("ui.popup.usage.bottom") }}</h2>
 
       <div class="section-content">
         <Popup position="bottom">
           <ButtonElement
-            :label="$t('ui.popup.usage.bottom')"
+            :label="$t('ui.popup.label.show')"
             severity="success"
           />
           <template #content>
@@ -144,7 +147,7 @@
           &lt;template&gt;
             &lt;Popup position="bottom"&gt;
               &lt;ButtonElement
-                :label="Bottom"
+                :label="Show"
                 severity="success"
               /&gt;
               &lt;template #content&gt;
@@ -162,12 +165,12 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.tooltip.usage.left") }}</h2>
+      <h2>{{ $t("ui.popup.usage.left") }}</h2>
 
       <div class="section-content">
         <Popup position="left">
           <ButtonElement
-            :label="$t('ui.popup.usage.left')"
+            :label="$t('ui.popup.label.show')"
             severity="success"
           />
           <template #content>
@@ -180,7 +183,7 @@
           &lt;template&gt;
             &lt;Popup position="left"&gt;
               &lt;ButtonElement
-                :label="Left"
+                :label="Show"
                 severity="success"
               /&gt;
               &lt;template #content&gt;
@@ -198,12 +201,12 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.tooltip.usage.right") }}</h2>
+      <h2>{{ $t("ui.popup.usage.right") }}</h2>
 
       <div class="section-content">
         <Popup position="right">
           <ButtonElement
-            :label="$t('ui.popup.usage.right')"
+            :label="$t('ui.popup.label.show')"
             severity="success"
           />
           <template #content>
@@ -216,7 +219,7 @@
           &lt;template&gt;
             &lt;Popup position="right"&gt;
               &lt;ButtonElement
-                :label="Right"
+                :label="Show"
                 severity="success"
               /&gt;
               &lt;template #content&gt;
@@ -265,14 +268,15 @@ const propsData = [
   },
   {
     default: `10`,
-    description: "Spacing in pixels between the trigger and popup content.",
+    description:
+      "Spacing in pixels between the trigger element and popup content.",
     prop: "offset",
     type: "Number",
   },
   {
     default: `-`,
     description:
-      "Preferred position of the popup (`top`, `bottom`, `left`, or `right`).",
+      "Supported position of the popup (`top`, `bottom`, `left`, or `right`).",
     prop: "position",
     type: "String",
   },
@@ -280,7 +284,7 @@ const propsData = [
 
 const slotsData = [
   {
-    description: "Content to be shown in the popup. Visible when toggled.",
+    description: "Content to be shown in the popup.",
     name: "content",
   },
   {
