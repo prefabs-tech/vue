@@ -455,6 +455,58 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.withTooltip") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.tooltipMultiselect"
+          :label="$t('form.label.country')"
+          :options="options"
+          :placeholder="$t('form.placeholder.countries')"
+          :tooltip-options="{
+            offset: 16,
+            position: 'top',
+          }"
+          class="tooltip-multiselect"
+          enable-tooltip
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              :tooltip-options="{
+                offset: 16,
+                position: 'top',
+              }"
+              enable-tooltip
+              label="Country"
+              multiple
+              placeholder="Select countries"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.customLabel") }}</h2>
 
       <div class="section-content">
@@ -647,6 +699,7 @@ let formData = reactive({
   multiselectKeysInput: ref([]),
   noLabelInput: ref(),
   selectExtensive: ref(),
+  tooltipMultiselect: ref([]),
 });
 
 const options = ref([
@@ -665,3 +718,7 @@ const countryOptions = ref([
   { code: "IN", country: t("form.label.india") },
 ]);
 </script>
+
+<style lang="css">
+@import "../../../assets/css/form/select.css";
+</style>
