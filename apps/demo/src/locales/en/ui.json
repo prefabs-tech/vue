@@ -381,13 +381,13 @@
     "title": "Tooltip",
     "usage": {
       "basic":"Basic",
-      "bottom": "Bottom",
+      "bottom": "With position bottom",
       "clickable": "Clickable",
       "customStyle":"Custom style",
       "delay": "With delay",
-      "left": "Left",
-      "right": "Right",
-      "top": "Top"
+      "left": "With position left",
+      "right": "With position right",
+      "top": "With position top"
     }
   },
   "typography": {
