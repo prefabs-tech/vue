@@ -270,16 +270,18 @@
   "popup": {
     "content": "This is a popup",
     "label": {
-      "button": "Click me"
+      "button": "Click me",
+      "show": "Show"
     },
+    "subtitle": "The Popup component is a versatile overlay that displays content relative to a trigger element with automatic or configurable positioning.",
     "title": "Popup",
     "usage": {
       "basic":"Basic",
-      "bottom": "Bottom",
+      "bottom": "With position bottom",
       "customStyle":"Custom style",
-      "left": "Left",
-      "right": "Right",
-      "top": "Top",
+      "left": "With position left",
+      "right": "With position right",
+      "top": "With position top",
       "withI18n": "With i18n"
     }
   },
@@ -371,20 +373,25 @@
   "tooltip": {
     "content":"Tooltip content",
     "label": {
+      "bottom": "Bottom",
       "button": "Click me",
       "custom": "Custom",
-      "delay": "Delay"
-    },
-    "title": "Tooltip",
-    "usage": {
-      "basic":"Basic",
-      "bottom": "Bottom",
-      "clickable": "Clickable",
-      "customStyle":"Custom style",
-      "delay": "With delay",
+      "delay": "Delay",
       "left": "Left",
       "right": "Right",
       "top": "Top"
+    },
+    "subtitle": "The Tooltip component provides contextual information when hovering over an element. It supports various positions, custom styles, and can be triggered by hover or click events.",
+    "title": "Tooltip",
+    "usage": {
+      "basic":"Basic",
+      "bottom": "With position bottom",
+      "clickable": "Clickable",
+      "customStyle":"Custom style",
+      "delay": "With delay",
+      "left": "With position left",
+      "right": "With position right",
+      "top": "With position top"
     }
   },
   "typography": {
