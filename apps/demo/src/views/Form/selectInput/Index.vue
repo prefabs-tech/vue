@@ -482,8 +482,8 @@
                 offset: 16,
                 position: 'top',
               }"
-              label="Country"
               enable-tooltip
+              label="Country"
               multiple
               placeholder="Select countries"
             /&gt;
