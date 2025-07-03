@@ -288,7 +288,7 @@ const propsData = [
   },
   {
     default: `false`,
-    description: "Toggle the tooltip visibility on click",
+    description: "Toggle the tooltip visibility on click.",
     prop: "clickable",
     type: "Boolean",
   },
