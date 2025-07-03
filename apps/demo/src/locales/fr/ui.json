@@ -373,20 +373,25 @@
   "tooltip": {
     "content":"Tooltip content",
     "label": {
+      "bottom": "Bottom",
       "button": "Click me",
       "custom": "Custom",
-      "delay": "Delay"
-    },
-    "title": "Tooltip",
-    "usage": {
-      "basic":"Basic",
-      "bottom": "Bottom",
-      "clickable": "Clickable",
-      "customStyle":"Custom style",
-      "delay": "With delay",
+      "delay": "Delay",
       "left": "Left",
       "right": "Right",
       "top": "Top"
+    },
+    "subtitle": "The Tooltip component provides contextual information when hovering over an element. It supports various positions, custom styles, and can be triggered by hover or click events.",
+    "title": "Tooltip",
+    "usage": {
+      "basic":"Basic",
+      "bottom": "With position bottom",
+      "clickable": "Clickable",
+      "customStyle":"Custom style",
+      "delay": "With delay",
+      "left": "With position left",
+      "right": "With position right",
+      "top": "With position top"
     }
   },
   "typography": {

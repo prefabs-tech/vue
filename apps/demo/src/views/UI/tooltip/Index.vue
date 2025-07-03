@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.tooltip.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.tooltip.subtitle')"
+    :title="$t('ui.tooltip.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -52,7 +56,7 @@
       <div class="section-content">
         <Tooltip position="top">
           <div class="trigger">
-            {{ $t("ui.tooltip.usage.top") }}
+            {{ $t("ui.tooltip.label.top") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -97,7 +101,7 @@
       <div class="section-content">
         <Tooltip position="bottom">
           <div class="trigger">
-            {{ $t("ui.tooltip.usage.bottom") }}
+            {{ $t("ui.tooltip.label.bottom") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -131,7 +135,7 @@
       <div class="section-content">
         <Tooltip position="left">
           <div class="trigger">
-            {{ $t("ui.tooltip.usage.left") }}
+            {{ $t("ui.tooltip.label.left") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -165,7 +169,7 @@
       <div class="section-content">
         <Tooltip position="right">
           <div class="trigger">
-            {{ $t("ui.tooltip.usage.right") }}
+            {{ $t("ui.tooltip.label.right") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -260,13 +264,65 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'PopupProperties' })"
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
 import { ButtonElement, Tooltip } from "@dzangolab/vue3-ui";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
+
+const propsData = [
+  {
+    default: `"tooltip"`,
+    description: "The accessible label for the tooltip container.",
+    prop: "ariaLabel",
+    type: "String",
+  },
+  {
+    default: `false`,
+    description: "Toggle the tooltip visibility on click.",
+    prop: "clickable",
+    type: "Boolean",
+  },
+  {
+    default: `100`,
+    description: "Delay in milliseconds before the tooltip appears on hover.",
+    prop: "delay",
+    type: "Number",
+  },
+  {
+    default: `10`,
+    description: "The spacing in pixels between the trigger and the tooltip.",
+    prop: "offset",
+    type: "Number",
+  },
+  {
+    default: "-",
+    description: "Supported position of the tooltip relative to the trigger.",
+    prop: "position",
+    type: `"top" | "bottom" | "left" | "right"`,
+  },
+];
+
+const slotsData = [
+  {
+    description: "The default slot used as the tooltip trigger element.",
+    name: "default",
+  },
+  {
+    description:
+      "Slot used for the tooltip content that is displayed on hover or click.",
+    name: "content",
+  },
+];
 </script>
 
 <style lang="css">
