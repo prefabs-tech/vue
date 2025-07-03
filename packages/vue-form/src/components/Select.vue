@@ -27,11 +27,19 @@
           {{ placeholder }}
         </span>
         <template v-else>
-          <slot name="selection">
-            <span class="selected-options">
+          <component
+            v-bind="enableTooltip ? tooltipOptions : {}"
+            :is="enableTooltip ? Tooltip : 'div'"
+            class="selected-options"
+          >
+            <slot name="selection">
               {{ selectedLabels }}
-            </span>
-          </slot>
+            </slot>
+
+            <template v-if="enableTooltip" #content>
+              {{ selectedLabels }}
+            </template>
+          </component>
         </template>
       </template>
       <span class="action-items">
@@ -77,11 +85,19 @@
           { visible: selectedOptions.length },
         ]"
       >
-        <slot name="selection">
-          <span class="selected-options">
+        <component
+          v-bind="enableTooltip ? tooltipOptions : {}"
+          :is="enableTooltip ? Tooltip : 'div'"
+          class="selected-options"
+        >
+          <slot name="selection">
             {{ selectedLabels }}
-          </span>
-        </slot>
+          </slot>
+
+          <template v-if="enableTooltip" #content>
+            {{ selectedLabels }}
+          </template>
+        </component>
         <Divider />
       </div>
 
@@ -144,7 +160,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DebouncedInput, Divider } from "@dzangolab/vue3-ui";
+import { DebouncedInput, Divider, Tooltip } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { computed, nextTick, onMounted, ref, toRefs, watch } from "vue";
 
@@ -159,6 +175,7 @@ const props = defineProps({
     type: Boolean,
   },
   enableCustomSearch: Boolean,
+  enableTooltip: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -194,6 +211,10 @@ const props = defineProps({
   showRemoveSelection: {
     default: true,
     type: Boolean,
+  },
+  tooltipOptions: {
+    default: () => ({}),
+    type: Object as PropType<Record<string, unknown>>,
   },
   valueKey: {
     default: undefined,

@@ -137,11 +137,13 @@
   --_border-color: var(--color-alert-success, #198754);
 }
 
-.multiselect .selected-options {
+.multiselect .selected-options,
+.multiselect .selected-options > .tooltip-trigger {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
 }
 
 .multiselect .selected-options-wrapper {
