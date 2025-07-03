@@ -18,6 +18,7 @@
         }"
         :disabled="disabled"
         :enable-custom-search="enableCustomSearch"
+        :enable-tooltip="enableTooltip"
         :has-sorted-options="hasSortedOptions"
         :label-key="labelKey"
         :model-value="modelValue"
@@ -25,6 +26,7 @@
         :options="options"
         :placeholder="placeholder"
         :show-remove-selection="showRemoveSelection"
+        :tooltip-options="tooltipOptions"
         :value-key="valueKey"
         tabindex="0"
         @update:model-value="onSelect"
@@ -70,6 +72,7 @@ const props = defineProps({
     type: Boolean,
   },
   enableCustomSearch: Boolean,
+  enableTooltip: Boolean,
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -125,6 +128,10 @@ const props = defineProps({
   showRemoveSelection: {
     default: true,
     type: Boolean,
+  },
+  tooltipOptions: {
+    default: () => ({}),
+    type: Object as PropType<Record<string, unknown>>,
   },
   valueKey: {
     default: undefined,

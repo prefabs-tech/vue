@@ -71,13 +71,13 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
     <div
       class="selected-options-wrapper visible"
     >
-      
-      <span
+      <div
         class="selected-options"
       >
+        
         FR, DE, BE, FE, RE
-      </span>
-      
+        
+      </div>
       <div
         class="divider"
         data-aria-orientation="horizontal"
@@ -283,13 +283,13 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     <div
       class="selected-options-wrapper visible"
     >
-      
-      <span
+      <div
         class="selected-options"
       >
+        
         FR
-      </span>
-      
+        
+      </div>
       <div
         class="divider"
         data-aria-orientation="horizontal"
