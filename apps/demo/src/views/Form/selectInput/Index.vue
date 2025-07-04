@@ -535,11 +535,21 @@
           import { ref } from "vue";
 
           const options = ref([
-            { label: "France", value: "FR" },
-            { label: "Germany", value: "DE" },
-            { disabled: true, label: "Belgium", value: "BE" },
-            { label: "Nepal", value: "NP" },
-            { label: "India", value: "IN" },
+            {
+              label: t("form.label.europe"),
+              options: [
+                { label: t("form.label.germany"), value: "DE" },
+                { label: t("form.label.france"), value: "FR" },
+                { disabled: true, label: t("form.label.belgium"), value: "BE" },
+              ],
+            },
+            {
+              label: t("form.label.asia"),
+              options: [
+                { label: t("form.label.nepal"), value: "NP" },
+                { label: t("form.label.india"), value: "IN" },
+              ],
+            },
           ]);
           &lt;/script&gt;
         </SshPre>
@@ -737,7 +747,7 @@ let formData = reactive({
   labelValueKeyInput: ref(),
   multiselect: ref(),
   multiselectExtensive: ref([]),
-  multiselectGrouoing: ref([]),
+  multiselectGrouping: ref([]),
   multiselectKeysInput: ref([]),
   noLabelInput: ref(),
   selectExtensive: ref(),

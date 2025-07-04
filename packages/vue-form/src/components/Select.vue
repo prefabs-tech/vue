@@ -114,7 +114,7 @@
               focused:
                 focusedOptionIndex === selectAllIndex && enableOptionNavigation,
             },
-            'multiselect-option',
+            'multiselect-option select-all-option',
           ]"
           @click="onSelectAll()"
         >

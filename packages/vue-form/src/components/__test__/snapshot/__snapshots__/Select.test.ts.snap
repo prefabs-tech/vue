@@ -88,7 +88,7 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
       role="list"
     >
       <li
-        class="multiselect-option"
+        class="multiselect-option select-all-option"
       >
         <div
           class="checkbox-wrapper"

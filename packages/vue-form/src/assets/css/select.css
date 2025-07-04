@@ -132,6 +132,10 @@
   font-weight: 600;
 }
 
+.multiselect > .multiselect-options > ul:has(.multiselect-group-label) > li:not(.select-all-option, .multiselect-group-label) {
+  margin-left: 0.5rem;;
+}
+
 .multiselect .multiselect-placeholder {
   --_multiselect-placeholder-color: var(--form-input-placeholder-color, #555);
 
