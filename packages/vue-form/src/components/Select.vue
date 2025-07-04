@@ -286,47 +286,35 @@ const isAllSelected = computed((): boolean => {
 });
 
 const normalizedOptions = computed(() => {
-  if (!props.options || !props.options.length) {
+  const options = props.options ?? [];
+
+  if (!options.length) {
     return [];
   }
 
-  const isGroupedOptionArray = (
-    options: (SelectOption | GroupedOption)[],
-  ): options is GroupedOption[] => {
-    return (
-      options.length > 0 &&
-      Object.prototype.hasOwnProperty.call(options[0], "options")
-    );
-  };
+  const isGrouped = (
+    providedOptions: (SelectOption | GroupedOption)[],
+  ): providedOptions is GroupedOption[] => "options" in providedOptions[0];
 
-  if (isGroupedOptionArray(props.options)) {
-    return (props.options as GroupedOption[]).flatMap((group) =>
-      group.options.map((option) => ({
-        ...option,
-        groupLabel: group.label,
-        label: (props.labelKey
-          ? option[props.labelKey as keyof SelectOption]
-          : option.label
-        )?.toString(),
-        value: (props.valueKey
-          ? option[props.valueKey as keyof SelectOption]
-          : option.value) as string | number,
-      })),
+  const normalize = (option: SelectOption, groupLabel?: string) => ({
+    ...option,
+    groupLabel,
+    label: (props.labelKey
+      ? option[props.labelKey as keyof SelectOption]
+      : option.label
+    )?.toString(),
+    value: (props.valueKey
+      ? option[props.valueKey as keyof SelectOption]
+      : option.value) as string | number,
+  });
+
+  if (isGrouped(options)) {
+    return options.flatMap((group) =>
+      group.options.map((option) => normalize(option, group.label)),
     );
-  } else {
-    return (props.options as SelectOption[]).map((option) => {
-      return {
-        ...option,
-        label: (props.labelKey
-          ? option[props.labelKey as keyof SelectOption]
-          : option.label
-        )?.toString(),
-        value: (props.valueKey
-          ? option[props.valueKey as keyof SelectOption]
-          : option.value) as string | number,
-      };
-    });
   }
+
+  return options.map((option) => normalize(option));
 });
 
 const selectedLabels = computed(() =>

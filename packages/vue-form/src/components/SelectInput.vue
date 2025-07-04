@@ -11,7 +11,6 @@
     >
       <MultiSelect
         :id="`input-field-${name}`"
-        ref="dzangolabVueFormSelect"
         v-bind="field"
         :class="{
           invalid: meta.touched && !meta.valid,
@@ -67,7 +66,7 @@ export default {
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { z } from "zod";
 
 import MultiSelect from "./Select.vue";
@@ -152,10 +151,36 @@ const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
 let fieldSchema: object;
 
-const dzangolabVueFormSelect = ref();
-
 const normalizedOptions = computed(() => {
-  return dzangolabVueFormSelect.value?.normalizedOptions.value || [];
+  const options = props.options ?? [];
+
+  if (!options.length) {
+    return [];
+  }
+
+  const isGrouped = (
+    providedOptions: (SelectOption | GroupedOption)[],
+  ): providedOptions is GroupedOption[] => "options" in providedOptions[0];
+
+  const normalize = (option: SelectOption, groupLabel?: string) => ({
+    ...option,
+    groupLabel,
+    label: (props.labelKey
+      ? option[props.labelKey as keyof SelectOption]
+      : option.label
+    )?.toString(),
+    value: (props.valueKey
+      ? option[props.valueKey as keyof SelectOption]
+      : option.value) as string | number,
+  });
+
+  if (isGrouped(options)) {
+    return options.flatMap((group) =>
+      group.options.map((option) => normalize(option, group.label)),
+    );
+  }
+
+  return options.map((option) => normalize(option));
 });
 
 const activeOptions = computed(() =>
