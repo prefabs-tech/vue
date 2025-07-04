@@ -5,12 +5,13 @@
 
 .tooltip-content {
   --_bg-color: var(--tooltip-bg-color, #555);
+  --_max-width: var(--tooltip-max-width, 300px);
   --_text-color: var(--tooltip-color, #fff);
 
   background-color: var(--_bg-color);
   border-radius: 0.25rem;
   color: var(--_text-color);
-  max-width: 300px;
+  max-width: var(--_max-width);
   padding: 0.25rem;
   position: fixed;
   white-space: normal;
@@ -35,13 +36,13 @@
 .tooltip-content.left::after {
   border-color: transparent transparent transparent var(--_bg-color);
   left: 100%;
-  top: 35%;
+  top: calc(50% - 0.25rem);
 }
 
 .tooltip-content.right::after {
   border-color: transparent var(--_bg-color) transparent transparent;
   right: 100%;
-  top: 35%;
+  top: calc(50% - 0.25rem);
 }
 
 .tooltip-content.top::after {
