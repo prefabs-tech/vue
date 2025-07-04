@@ -507,11 +507,11 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.multiselect") }}</h2>
+      <h2>{{ $t("form.label.multiselectGrouping") }}</h2>
 
       <div class="section-content">
         <SelectInput
-          v-model="formData.multiselect"
+          v-model="formData.multiselectGrouping"
           :label="$t('form.label.country')"
           :options="groupedOptions"
           :placeholder="$t('form.placeholder.countries')"
@@ -737,6 +737,7 @@ let formData = reactive({
   labelValueKeyInput: ref(),
   multiselect: ref(),
   multiselectExtensive: ref([]),
+  multiselectGrouoing: ref([]),
   multiselectKeysInput: ref([]),
   noLabelInput: ref(),
   selectExtensive: ref(),

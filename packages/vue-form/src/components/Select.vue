@@ -128,7 +128,7 @@
         <template v-for="(option, index) in sortedOptions" :key="option.label">
           <li
             v-if="option.groupLabel && shouldRenderGroupHeader(option, index)"
-            class="group-header"
+            class="multiselect-group-label"
           >
             <slot :name="option.groupLabel">
               {{ option.groupLabel }}
