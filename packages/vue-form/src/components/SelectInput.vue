@@ -69,6 +69,7 @@ import { ErrorMessage, Field } from "vee-validate";
 import { computed } from "vue";
 import { z } from "zod";
 
+import { normalizeOptions } from "../utils";
 import MultiSelect from "./Select.vue";
 
 import type { GroupedOption, SelectOption } from "../types";
@@ -151,37 +152,9 @@ const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
 let fieldSchema: object;
 
-const normalizedOptions = computed(() => {
-  const options = props.options ?? [];
-
-  if (!options.length) {
-    return [];
-  }
-
-  const isGrouped = (
-    providedOptions: (SelectOption | GroupedOption)[],
-  ): providedOptions is GroupedOption[] => "options" in providedOptions[0];
-
-  const normalize = (option: SelectOption, groupLabel?: string) => ({
-    ...option,
-    groupLabel,
-    label: (props.labelKey
-      ? option[props.labelKey as keyof SelectOption]
-      : option.label
-    )?.toString(),
-    value: (props.valueKey
-      ? option[props.valueKey as keyof SelectOption]
-      : option.value) as string | number,
-  });
-
-  if (isGrouped(options)) {
-    return options.flatMap((group) =>
-      group.options.map((option) => normalize(option, group.label)),
-    );
-  }
-
-  return options.map((option) => normalize(option));
-});
+const normalizedOptions = computed(() =>
+  normalizeOptions(props.options, props.labelKey, props.valueKey),
+);
 
 const activeOptions = computed(() =>
   [...normalizedOptions.value]?.filter((option) => !option?.disabled),
