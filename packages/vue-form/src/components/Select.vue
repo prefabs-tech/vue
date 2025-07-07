@@ -114,7 +114,7 @@
               focused:
                 focusedOptionIndex === selectAllIndex && enableOptionNavigation,
             },
-            'multiselect-option',
+            'multiselect-option select-all-option',
           ]"
           @click="onSelectAll()"
         >
@@ -124,30 +124,40 @@
           />
           <span>Select all</span>
         </li>
-        <li
-          v-for="(option, index) in sortedOptions"
-          :key="option.label"
-          :ref="setOptionReference(index)"
-          :class="[
-            {
-              focused: focusedOptionIndex === index && enableOptionNavigation,
-              selected: isSelected(option) && !multiple,
-            },
-            'multiselect-option',
-          ]"
-          :disabled="option.disabled"
-          @click="!option.disabled ? onSelect($event, option) : ''"
-        >
-          <Checkbox
-            v-if="multiple"
-            :model-value="isSelected(option)"
+
+        <template v-for="(option, index) in sortedOptions" :key="option.label">
+          <li
+            v-if="option.groupLabel && shouldRenderGroupHeader(option, index)"
+            class="multiselect-group-label"
+          >
+            <slot :name="option.groupLabel">
+              {{ option.groupLabel }}
+            </slot>
+          </li>
+
+          <li
+            :ref="setOptionReference(index)"
+            :class="[
+              {
+                focused: focusedOptionIndex === index && enableOptionNavigation,
+                selected: isSelected(option) && !multiple,
+              },
+              'multiselect-option',
+            ]"
             :disabled="option.disabled"
-            @update:model-value="onMultiSelect()"
-          />
-          <slot :name="option.value">
-            <span>{{ option.label }}</span>
-          </slot>
-        </li>
+            @click="!option.disabled ? onSelect($event, option) : ''"
+          >
+            <Checkbox
+              v-if="multiple"
+              :disabled="option.disabled"
+              :model-value="isSelected(option)"
+              @update:model-value="onMultiSelect()"
+            />
+            <slot :name="option.label">
+              <span>{{ option.label }}</span>
+            </slot>
+          </li>
+        </template>
       </ul>
     </div>
   </div>
@@ -164,9 +174,10 @@ import { DebouncedInput, Divider, Tooltip } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { computed, nextTick, onMounted, ref, toRefs, watch } from "vue";
 
+import { normalizeOptions } from "../utils";
 import Checkbox from "./Checkbox.vue";
 
-import type { SelectOption } from "../types";
+import type { GroupedOption, SelectOption } from "../types";
 import type { ComponentPublicInstance, PropType, Ref } from "vue";
 
 const props = defineProps({
@@ -202,7 +213,7 @@ const props = defineProps({
   },
   options: {
     required: true,
-    type: Array as PropType<SelectOption[]>,
+    type: Array as PropType<SelectOption[] | GroupedOption[]>,
   },
   placeholder: {
     default: undefined,
@@ -275,21 +286,8 @@ const isAllSelected = computed((): boolean => {
   );
 });
 
-const normalizedOptions = computed(
-  () =>
-    props.options.map((option) => {
-      return {
-        ...option,
-        label: (props.labelKey
-          ? option[props.labelKey as keyof SelectOption]
-          : option.label
-        )?.toString(),
-        value: (props.valueKey
-          ? option[props.valueKey as keyof SelectOption]
-          : option.value
-        )?.toString(),
-      };
-    }) as SelectOption[],
+const normalizedOptions = computed(() =>
+  normalizeOptions(props.options, props.labelKey, props.valueKey),
 );
 
 const selectedLabels = computed(() =>
@@ -297,13 +295,22 @@ const selectedLabels = computed(() =>
 );
 
 const sortedOptions = computed(() => {
-  if (props.hasSortedOptions) {
-    return filteredOptions.value
-      ?.slice()
-      .sort((a, b) => String(a.label).localeCompare(String(b.label)));
+  const options = filteredOptions.value;
+
+  if (!props.hasSortedOptions || !options) {
+    return options;
   }
 
-  return filteredOptions.value;
+  const hasGroups = options.some((option) => "groupLabel" in option);
+
+  const compareLabels = (optionA: SelectOption, optionB: SelectOption) =>
+    String(optionA.label).localeCompare(String(optionB.label));
+
+  const compareGrouped = (optionA: SelectOption, optionB: SelectOption) =>
+    String(optionA.groupLabel).localeCompare(String(optionB.groupLabel)) ||
+    compareLabels(optionA, optionB);
+
+  return options.slice().sort(hasGroups ? compareGrouped : compareLabels);
 });
 
 watch(
@@ -550,6 +557,17 @@ const setOptionReference =
   (index: number) => (element: Element | ComponentPublicInstance | null) => {
     dzangolabVueFormSelectOptions.value[index] = element as HTMLElement | null;
   };
+
+const shouldRenderGroupHeader = (
+  option: SelectOption,
+  index: number,
+): boolean => {
+  return !!(
+    option.groupLabel &&
+    (index === 0 ||
+      sortedOptions.value[index - 1]?.groupLabel !== option.groupLabel)
+  );
+};
 
 const toggleDropdown = () => {
   if (props.disabled) {
