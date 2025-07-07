@@ -149,8 +149,8 @@
           >
             <Checkbox
               v-if="multiple"
-              :model-value="isSelected(option)"
               :disabled="option.disabled"
+              :model-value="isSelected(option)"
               @update:model-value="onMultiSelect()"
             />
             <slot :name="option.label">
