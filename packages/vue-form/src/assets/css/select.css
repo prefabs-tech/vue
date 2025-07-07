@@ -130,6 +130,7 @@
 .multiselect > .multiselect-options > ul > li.multiselect-group-label {
   color: #555;
   font-weight: 600;
+  margin-top: 0.5rem;;
 }
 
 .multiselect > .multiselect-options > ul:has(.multiselect-group-label) > li:not(.select-all-option, .multiselect-group-label) {
