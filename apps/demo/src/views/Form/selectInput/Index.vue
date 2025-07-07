@@ -289,6 +289,55 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.withGrouping") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.groupingSelect"
+          :label="$t('form.label.country')"
+          :options="groupedOptions"
+          :placeholder="$t('form.placeholder.countries')"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              label="Country"
+              placeholder="Select countries"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            {
+              label: t("form.label.europe"),
+              options: [
+                { label: t("form.label.germany"), value: "DE" },
+                { label: t("form.label.france"), value: "FR" },
+                { disabled: true, label: t("form.label.belgium"), value: "BE" },
+              ],
+            },
+            {
+              label: t("form.label.asia"),
+              options: [
+                { label: t("form.label.nepal"), value: "NP" },
+                { label: t("form.label.india"), value: "IN" },
+              ],
+            },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.multiselect") }}</h2>
 
       <div class="section-content">
@@ -740,6 +789,7 @@ let formData = reactive({
   disabled: ref("NP"),
   disabledMultiselect: ref(["FR", "NP"]),
   disabledSortInput: ref(),
+  groupingSelect: ref(),
   i18nSelect: ref(),
   input: ref(),
   inputWithMinMax: ref([]),

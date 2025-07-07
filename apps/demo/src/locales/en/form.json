@@ -153,6 +153,7 @@
     "username": "Username",
     "valid": "Show valid state",
     "vehicle": "Vehicle",
+    "withGrouping": "With grouping",
     "withI18n": "With i18n",
     "withLabelValueKeys": "With label and value keys",
     "withOnOffLabel":  "With on off label",
