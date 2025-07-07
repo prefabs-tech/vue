@@ -129,7 +129,13 @@
           <li
             v-if="option.groupLabel && shouldRenderGroupHeader(option, index)"
             class="multiselect-group-label"
+            @click="option.groupLabel ? onSelectGroup(option.groupLabel) : ''"
           >
+            <Checkbox
+              v-if="option.groupLabel && props.multiple"
+              :model-value="isGroupSelected(option.groupLabel)"
+              @update:model-value="onMultiSelect()"
+            />
             <slot :name="option.groupLabel">
               {{ option.groupLabel }}
             </slot>
@@ -340,6 +346,21 @@ const getSelectedOption = (value: number | string | boolean) => {
   );
 };
 
+const isGroupSelected = (groupLabel: string): boolean => {
+  const groupOptions =
+    (props.options as GroupedOption[])?.find(
+      (option) => option.label === groupLabel,
+    )?.options || [];
+
+  if (selectedOptions.value?.length) {
+    return selectedOptions.value.every((selectedOption) =>
+      groupOptions.some((option) => option.value === selectedOption.value),
+    );
+  }
+
+  return false;
+};
+
 const isSelected = (option: SelectOption): boolean => {
   return selectedOptions.value.some(
     (selectedOption) => selectedOption.value === option.value,
@@ -475,6 +496,23 @@ const onSelectAll = () => {
   } else {
     selectedOptions.value = activeOptions.value;
   }
+
+  onMultiSelect();
+};
+
+const onSelectGroup = (groupLabel: string) => {
+  const isSelected = isGroupSelected(groupLabel);
+
+  selectedOptions.value = isSelected
+    ? selectedOptions.value.filter(
+        (option) => option?.groupLabel !== groupLabel,
+      )
+    : [
+        ...selectedOptions.value,
+        ...activeOptions.value.filter(
+          (option) => option?.groupLabel === groupLabel,
+        ),
+      ];
 
   onMultiSelect();
 };
