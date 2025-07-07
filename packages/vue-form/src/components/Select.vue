@@ -260,10 +260,14 @@ const filteredOptions = computed(() => {
     return normalizedOptions.value;
   }
 
-  return normalizedOptions.value?.filter((option) =>
-    String(option.label)
-      .toLowerCase()
-      .includes(String(searchInput.value).toLowerCase()),
+  return normalizedOptions.value?.filter(
+    (option) =>
+      String(option.label)
+        .toLowerCase()
+        .includes(String(searchInput.value).toLowerCase()) ||
+      String(option.groupLabel)
+        .toLowerCase()
+        .includes(String(searchInput.value).toLowerCase()),
   );
 });
 
