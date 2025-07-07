@@ -174,6 +174,7 @@ import { DebouncedInput, Divider, Tooltip } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { computed, nextTick, onMounted, ref, toRefs, watch } from "vue";
 
+import { normalizeOptions } from "../utils";
 import Checkbox from "./Checkbox.vue";
 
 import type { GroupedOption, SelectOption } from "../types";
@@ -289,37 +290,9 @@ const isAllSelected = computed((): boolean => {
   );
 });
 
-const normalizedOptions = computed(() => {
-  const options = props.options ?? [];
-
-  if (!options.length) {
-    return [];
-  }
-
-  const isGrouped = (
-    providedOptions: (SelectOption | GroupedOption)[],
-  ): providedOptions is GroupedOption[] => "options" in providedOptions[0];
-
-  const normalize = (option: SelectOption, groupLabel?: string) => ({
-    ...option,
-    groupLabel,
-    label: (props.labelKey
-      ? option[props.labelKey as keyof SelectOption]
-      : option.label
-    )?.toString(),
-    value: (props.valueKey
-      ? option[props.valueKey as keyof SelectOption]
-      : option.value) as string | number,
-  });
-
-  if (isGrouped(options)) {
-    return options.flatMap((group) =>
-      group.options.map((option) => normalize(option, group.label)),
-    );
-  }
-
-  return options.map((option) => normalize(option));
-});
+const normalizedOptions = computed(() =>
+  normalizeOptions(props.options, props.labelKey, props.valueKey),
+);
 
 const selectedLabels = computed(() =>
   selectedOptions.value.map((option) => option.label).join(", "),
@@ -614,10 +587,6 @@ const toggleDropdown = () => {
 
 onMounted(() => {
   prepareComponent();
-});
-
-defineExpose({
-  normalizedOptions,
 });
 </script>
 
