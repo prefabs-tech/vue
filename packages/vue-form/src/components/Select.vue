@@ -102,6 +102,7 @@
       </div>
 
       <ul
+        :class="multiple ? 'multiple-select' : 'single-select'"
         role="list"
         @mouseenter="enableOptionNavigation = false"
         @keydown.tab.stop.prevent="toggleDropdown"
@@ -128,11 +129,16 @@
         <template v-for="(option, index) in sortedOptions" :key="option.label">
           <li
             v-if="option.groupLabel && shouldRenderGroupHeader(option, index)"
-            class="multiselect-group-label"
+            :class="[
+              'multiselect-group',
+              { 'disabled-group-select': disableGroupSelect },
+            ]"
             @click="option.groupLabel ? onSelectGroup(option.groupLabel) : ''"
           >
             <Checkbox
-              v-if="option.groupLabel && props.multiple"
+              v-if="
+                option.groupLabel && props.multiple && !props.disableGroupSelect
+              "
               :model-value="isGroupSelected(option.groupLabel)"
               @update:model-value="onMultiSelect()"
             />
@@ -191,6 +197,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  disableGroupSelect: Boolean,
   enableCustomSearch: Boolean,
   enableTooltip: Boolean,
   hasSortedOptions: {
@@ -348,13 +355,14 @@ const getSelectedOption = (value: number | string | boolean) => {
 
 const isGroupSelected = (groupLabel: string): boolean => {
   const groupOptions =
-    (props.options as GroupedOption[])?.find(
-      (option) => option.label === groupLabel,
-    )?.options || [];
+    activeOptions.value?.filter((option) => option.groupLabel === groupLabel) ||
+    [];
 
   if (selectedOptions.value?.length) {
-    return selectedOptions.value.every((selectedOption) =>
-      groupOptions.some((option) => option.value === selectedOption.value),
+    return groupOptions.every((option) =>
+      selectedOptions.value.some(
+        (selectedOption) => selectedOption.value === option.value,
+      ),
     );
   }
 
@@ -501,18 +509,24 @@ const onSelectAll = () => {
 };
 
 const onSelectGroup = (groupLabel: string) => {
-  const isSelected = isGroupSelected(groupLabel);
+  const groupOptions =
+    activeOptions.value?.filter((option) => option.groupLabel === groupLabel) ||
+    [];
 
-  selectedOptions.value = isSelected
-    ? selectedOptions.value.filter(
-        (option) => option?.groupLabel !== groupLabel,
-      )
-    : [
-        ...selectedOptions.value,
-        ...activeOptions.value.filter(
-          (option) => option?.groupLabel === groupLabel,
+  if (isGroupSelected(groupLabel)) {
+    selectedOptions.value = selectedOptions.value.filter(
+      (option) => option.groupLabel !== groupLabel,
+    );
+  } else {
+    const newSelections = groupOptions.filter(
+      (option) =>
+        !selectedOptions.value.some(
+          (selectedOption) => selectedOption.value === option.value,
         ),
-      ];
+    );
+
+    selectedOptions.value = [...selectedOptions.value, ...newSelections];
+  }
 
   onMultiSelect();
 };
