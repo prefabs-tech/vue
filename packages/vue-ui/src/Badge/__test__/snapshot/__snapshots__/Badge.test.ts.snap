@@ -2,7 +2,7 @@
 
 exports[`Badge > matches snapshot 1`] = `
 <span
-  class="badge rounded primary"
+  class="badge primary rounded"
 >
   <span
     class="icon-left"

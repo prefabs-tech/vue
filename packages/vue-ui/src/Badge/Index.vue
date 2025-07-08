@@ -28,14 +28,6 @@ export default {
 import { computed, useSlots } from "vue";
 
 const props = defineProps({
-  className: {
-    default: "",
-    type: String,
-  },
-  color: {
-    default: "default",
-    type: String,
-  },
   iconLeft: {
     default: null,
     type: String,
@@ -67,7 +59,7 @@ const props = defineProps({
 const slots = useSlots();
 
 const badgeClassName = computed(() => {
-  return ["badge", props.className, props.rounded && "rounded", props.severity]
+  return ["badge", props.rounded && "rounded", props.severity]
     .filter(Boolean)
     .join(" ");
 });

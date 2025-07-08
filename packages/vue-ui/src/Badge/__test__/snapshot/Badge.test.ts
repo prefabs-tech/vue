@@ -10,7 +10,7 @@ describe("Badge", () => {
         iconLeft: "pi pi-home",
         iconRight: "pi pi-home",
         label: "Basic",
-        className: "rounded",
+        class: "rounded",
       },
     });
 
