@@ -133,12 +133,14 @@
               'multiselect-group',
               { 'disabled-group-select': disableGroupSelect },
             ]"
-            @click="option.groupLabel ? onSelectGroup(option.groupLabel) : ''"
+            @click="
+              canSelectGroup && option.groupLabel
+                ? onSelectGroup(option.groupLabel)
+                : ''
+            "
           >
             <Checkbox
-              v-if="
-                option.groupLabel && props.multiple && !props.disableGroupSelect
-              "
+              v-if="canSelectGroup"
               :model-value="isGroupSelected(option.groupLabel)"
               @update:model-value="onMultiSelect()"
             />
@@ -267,6 +269,18 @@ onClickOutside(dzangolabVueFormSelect, (event) => {
 
 const activeOptions = computed(() =>
   normalizedOptions.value?.filter((option) => !option.disabled),
+);
+
+const canSelectGroup = computed(
+  () =>
+    props.multiple &&
+    !props.disableGroupSelect &&
+    (!searchInput.value ||
+      activeOptions.value?.some((option) =>
+        String(option.groupLabel)
+          .toLowerCase()
+          .includes(String(searchInput.value).toLowerCase()),
+      )),
 );
 
 const filteredOptions = computed(() => {
