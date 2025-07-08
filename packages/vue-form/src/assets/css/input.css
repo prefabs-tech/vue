@@ -8,6 +8,10 @@
   justify-content: flex-start;
 }
 
+.field:has(.multiselect):not(:has(.multiselect-options)) {
+  overflow: hidden;
+}
+
 .field input, .field textarea {
   --_input-field-border-color: var(--form-input-border-color, #ccc);
   --_input-field-border-radius: var(--form-input-border-radius, 0.25em);
