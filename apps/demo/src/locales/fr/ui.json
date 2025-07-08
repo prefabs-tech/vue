@@ -36,6 +36,7 @@
       "warning": "Warning",
       "wrong": "Wrong"
     },
+    "subtitle": "Badge component is a compact UI element used to display short, contextual information such as status, labels, or icons, with severity and styling support.",
     "title": "Badge",
     "usage": {
       "basic": "Basic",

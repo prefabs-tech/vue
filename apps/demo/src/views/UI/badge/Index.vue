@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.badge.title')" class="demo-badge">
+  <UiPage
+    :sub-title="$t('ui.badge.subtitle')"
+    :title="$t('ui.badge.title')"
+    class="demo-badge"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -252,13 +256,66 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'BadgeProperties' })"
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
 import { BadgeComponent, ButtonElement } from "@dzangolab/vue3-ui";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
+
+const propsData = [
+  {
+    default: `-`,
+    description: "Icon class to show on the left side (e.g. `pi pi-check`).",
+    prop: "iconLeft",
+    type: "String",
+  },
+  {
+    default: `-`,
+    description: "Icon class to show on the right side (e.g. `fa fa-lock`).",
+    prop: "iconRight",
+    type: "String",
+  },
+  {
+    default: `-`,
+    description: "The text label to be displayed inside the badge.",
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: `false`,
+    description: "Applies rounded styling to the badge (pill shape).",
+    prop: "rounded",
+    type: "Boolean",
+  },
+  {
+    default: `"primary"`,
+    description: `Severity level for styling.`,
+    prop: "severity",
+    type: `"primary" | "secondary" | "alternate" | "success" | "danger" | "warning"`,
+  },
+];
+
+const slotsData = [
+  {
+    description:
+      "Used to insert a custom icon element on the left side of the label.",
+    name: "iconLeft",
+  },
+  {
+    description:
+      "Used to insert a custom icon element on the right side of the label.",
+    name: "iconRight",
+  },
+];
 </script>
 
 <style lang="css" scoped>
