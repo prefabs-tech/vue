@@ -17,7 +17,7 @@
       <template
         v-for="(option, index) in options"
         :key="`${index}-${option.label}`"
-        #[option.value]
+        #[option.label]
       >
         <slot :name="option.value">
           <div class="currency-label">
