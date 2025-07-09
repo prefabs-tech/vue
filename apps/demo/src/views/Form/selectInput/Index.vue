@@ -620,7 +620,7 @@
           <template
             v-for="(option, index) in options"
             :key="`${index}-${option.label}`"
-            #[option.value]
+            #[option.label]
           >
             <span>
               <i class="pi pi-user" />
@@ -641,7 +641,7 @@
             &gt;
               &lt;template
                 v-for="(option, index) in options"
-                #[option.value]
+                #[option.label]
               &gt;
                 &lt;span&gt;
                   &lt;i class="pi pi-user" /&gt;

@@ -102,6 +102,7 @@
       </div>
 
       <ul
+        :class="multiple ? 'multiple-select' : 'single-select'"
         role="list"
         @mouseenter="enableOptionNavigation = false"
         @keydown.tab.stop.prevent="toggleDropdown"
@@ -128,8 +129,21 @@
         <template v-for="(option, index) in sortedOptions" :key="option.label">
           <li
             v-if="option.groupLabel && shouldRenderGroupHeader(option, index)"
-            class="multiselect-group-label"
+            :class="[
+              'multiselect-group',
+              { 'disabled-group-select': disableGroupSelect },
+            ]"
+            @click="
+              canSelectGroup && option.groupLabel
+                ? onSelectGroup(option.groupLabel)
+                : ''
+            "
           >
+            <Checkbox
+              v-if="canSelectGroup"
+              :model-value="isGroupSelected(option.groupLabel)"
+              @update:model-value="onMultiSelect()"
+            />
             <slot :name="option.groupLabel">
               {{ option.groupLabel }}
             </slot>
@@ -185,6 +199,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  disableGroupSelect: Boolean,
   enableCustomSearch: Boolean,
   enableTooltip: Boolean,
   hasSortedOptions: {
@@ -254,6 +269,18 @@ onClickOutside(dzangolabVueFormSelect, (event) => {
 
 const activeOptions = computed(() =>
   normalizedOptions.value?.filter((option) => !option.disabled),
+);
+
+const canSelectGroup = computed(
+  () =>
+    props.multiple &&
+    !props.disableGroupSelect &&
+    (!searchInput.value ||
+      activeOptions.value?.some((option) =>
+        String(option.groupLabel)
+          .toLowerCase()
+          .includes(String(searchInput.value).toLowerCase()),
+      )),
 );
 
 const filteredOptions = computed(() => {
@@ -338,6 +365,22 @@ const getSelectedOption = (value: number | string | boolean) => {
     normalizedOptions.value?.find((option) => option.value === value) ||
     selectedOptions.value.find((option) => option.value === value)
   );
+};
+
+const isGroupSelected = (groupLabel: string): boolean => {
+  const groupOptions =
+    activeOptions.value?.filter((option) => option.groupLabel === groupLabel) ||
+    [];
+
+  if (selectedOptions.value?.length) {
+    return groupOptions.every((option) =>
+      selectedOptions.value.some(
+        (selectedOption) => selectedOption.value === option.value,
+      ),
+    );
+  }
+
+  return false;
 };
 
 const isSelected = (option: SelectOption): boolean => {
@@ -474,6 +517,29 @@ const onSelectAll = () => {
     selectedOptions.value = [];
   } else {
     selectedOptions.value = activeOptions.value;
+  }
+
+  onMultiSelect();
+};
+
+const onSelectGroup = (groupLabel: string) => {
+  const groupOptions =
+    activeOptions.value?.filter((option) => option.groupLabel === groupLabel) ||
+    [];
+
+  if (isGroupSelected(groupLabel)) {
+    selectedOptions.value = selectedOptions.value.filter(
+      (option) => option.groupLabel !== groupLabel,
+    );
+  } else {
+    const newSelections = groupOptions.filter(
+      (option) =>
+        !selectedOptions.value.some(
+          (selectedOption) => selectedOption.value === option.value,
+        ),
+    );
+
+    selectedOptions.value = [...selectedOptions.value, ...newSelections];
   }
 
   onMultiSelect();
