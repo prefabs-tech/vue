@@ -160,6 +160,13 @@
             "pageInputLabel": "Go to",
             "rowsPerPage": "Rows"
           },
+          "placeholder": {
+            "app": "Select app",
+            "date": "Select date range",
+            "role": "Select role",
+            "search": "Search",
+            "status": "Select status"
+          },
           "status": {
             "accepted": "Accepted",
             "expired": "Expired",
@@ -560,6 +567,13 @@
           "pagination": {
             "pageInputLabel": "Go to",
             "rowsPerPage": "Rows"
+          },
+          "placeholder": {
+            "app": "Select app",
+            "date": "Select date range",
+            "role": "Select role",
+            "search": "Search",
+            "status": "Select status"
           },
           "status": {
             "accepted": "Accepted",
