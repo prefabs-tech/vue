@@ -1,5 +1,8 @@
 <template>
+  <LoadingPage :loading="isLoading" />
+
   <Table
+    v-if="!isLoading"
     v-bind="tableOptions"
     :id="id"
     :columns-data="mergedColumns"
@@ -7,7 +10,6 @@
     :data-action-menu="actionMenuData"
     :empty-table-message="t('user.invitation.table.emptyMessage')"
     :initial-sorting="initialSorting"
-    :is-loading="isLoading"
     :is-server-table="isServerTable"
     :pagination-options="{
       pageInputLabel: t('user.invitation.table.pagination.pageInputLabel'),
@@ -58,6 +60,7 @@ import {
   BadgeComponent,
   ButtonElement,
   formatDateTime,
+  LoadingPage,
 } from "@dzangolab/vue3-ui";
 import { computed, h, ref } from "vue";
 
