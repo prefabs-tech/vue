@@ -19,6 +19,13 @@
   --color-alert-danger: #ff0000;
   --color-primary: green;
 
+  --dz-primary-color: #007aff;
+  --dz-secondary-color: #475569;
+  --dz-alternate-color: #0284c7;
+  --dz-danger-color: #dc3545;
+  --dz-success-color: #22c55e;
+  --dz-warning-color: #ea580c;
+
   --font-size-max: 1rem;
   --font-size-min: 1rem;
   --font-size-val: 2.5vw;

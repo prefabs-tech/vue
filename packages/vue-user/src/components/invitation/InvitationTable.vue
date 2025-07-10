@@ -1,5 +1,8 @@
 <template>
+  <LoadingPage :loading="isLoading" />
+
   <Table
+    v-if="!isLoading"
     v-bind="tableOptions"
     :id="id"
     :columns-data="mergedColumns"
@@ -7,7 +10,6 @@
     :data-action-menu="actionMenuData"
     :empty-table-message="t('user.invitation.table.emptyMessage')"
     :initial-sorting="initialSorting"
-    :is-loading="isLoading"
     :is-server-table="isServerTable"
     :pagination-options="{
       pageInputLabel: t('user.invitation.table.pagination.pageInputLabel'),
@@ -28,7 +30,21 @@
         <ButtonElement
           :label="t('user.invitation.table.inviteUser')"
           @click="showModal = true"
-        />
+        >
+          <template #iconLeft>
+            <svg
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 12.25a3.75 3.75 0 1 1 3.75-3.75A3.75 3.75 0 0 1 12 12.25m0-6a2.25 2.25 0 1 0 2.25 2.25A2.25 2.25 0 0 0 12 6.25m7 13a.76.76 0 0 1-.75-.75c0-1.95-1.06-3.25-6.25-3.25s-6.25 1.3-6.25 3.25a.75.75 0 0 1-1.5 0c0-4.75 5.43-4.75 7.75-4.75s7.75 0 7.75 4.75a.76.76 0 0 1-.75.75"
+                fill="currentColor"
+              />
+            </svg>
+          </template>
+        </ButtonElement>
 
         <InvitationModal
           :apps="apps"
@@ -58,6 +74,7 @@ import {
   BadgeComponent,
   ButtonElement,
   formatDateTime,
+  LoadingPage,
 } from "@dzangolab/vue3-ui";
 import { computed, h, ref } from "vue";
 
@@ -234,7 +251,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     accessorKey: "email",
     enableColumnFilter: true,
     enableSorting: true,
-    filterPlaceholder: "",
+    filterPlaceholder: t("user.invitation.table.placeholder.search"),
     header: t("user.invitation.table.defaultColumns.email"),
   },
   {
@@ -255,6 +272,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
           : [],
       filterVariant: "multiselect",
     },
+    filterPlaceholder: t("user.invitation.table.placeholder.app"),
     sortingFn: (rowA, rowB, columnId) => {
       const appRowA = appNameMap.value.get(rowA.original.appId) || "";
       const appRowB = appNameMap.value.get(rowB.original.appId) || "";
@@ -306,6 +324,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
             },
           ],
     },
+    filterPlaceholder: t("user.invitation.table.placeholder.role"),
   },
   {
     accessorFn: (original: Invitation) => {
@@ -324,6 +343,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     enableColumnFilter: true,
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.invitedBy"),
+    filterPlaceholder: t("user.invitation.table.placeholder.search"),
   },
   {
     accessorKey: "expiresAt",
@@ -335,6 +355,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
       filterVariant: "dateRange",
       serverFilterFn: "between",
     },
+    filterPlaceholder: t("user.invitation.table.placeholder.date"),
   },
   {
     align: "center",
@@ -396,6 +417,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
             },
           ],
     },
+    filterPlaceholder: t("user.invitation.table.placeholder.status"),
     sortingFn: (rowA, rowB, columnId) => {
       return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));
     },
