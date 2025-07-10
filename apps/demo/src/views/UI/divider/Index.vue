@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.divider.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.divider.subtitle')"
+    :title="$t('ui.divider.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -113,12 +117,20 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'DividerProperties' })
+      "
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
 import { ButtonElement, Divider } from "@dzangolab/vue3-ui";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 const firstMessage =
@@ -126,6 +138,15 @@ const firstMessage =
 const secondMessage = "Code is read much more often than it is written.";
 const thirdMessage =
   "The most dangerous phrase in the language is, ‘We’ve always done it this way.'";
+
+const propsData = [
+  {
+    default: `"horizontal"`,
+    description: "Sets the direction of the divider.",
+    prop: "orientation",
+    type: `"horizontal" | "vertical"`,
+  },
+];
 </script>
 
 <style lang="css">

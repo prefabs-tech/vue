@@ -151,6 +151,7 @@
     }
   },
   "divider": {
+    "subtitle": "Divider component is a visual separator used to group or divide content with the border line either horizontally or vertically.",
     "title": "Divider",
     "usage": {
       "horizontal": "Horizontal",
