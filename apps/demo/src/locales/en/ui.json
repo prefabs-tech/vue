@@ -192,6 +192,7 @@
     "usage": {
       "basic": "Basic"
     },
+    "subtitle": "GridContainer component is a responsive layout wrapper that arranges its child elements in a flexible grid structure.",
     "title": "Grid container"
   },
   "loading": {
