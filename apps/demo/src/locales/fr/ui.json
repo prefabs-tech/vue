@@ -258,6 +258,7 @@
       "subtitle": "Page subtitle",
       "titleTag": "Heading tag"
     },
+    "subtitle": "Page component is a layout wrapper used to structure pages with a title, subtitle, toolbar, and loading overlay support.",
     "title": "Page",
     "usage": {
       "basic": "Basic",
