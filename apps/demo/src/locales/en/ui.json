@@ -297,6 +297,7 @@
       "hockey": "Hockey",
       "volleyball": "Volleyball"
     },
+    "subtitle": "SortableList component is a flexible list that supports drag-and-drop reordering, with support for custom item rendering.",
     "title": "Sortable list",
     "usage": {
       "basic": "Basic",
