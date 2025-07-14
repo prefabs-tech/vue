@@ -176,6 +176,7 @@
   },
   "file": "File",
   "fileCard": {
+    "subtitle": "The FileCard component is a structured card layout that displays file detail with a thumbnail and action buttons.",
     "title": "File card",
     "usage": {
       "basic": "Basic",
