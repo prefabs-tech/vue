@@ -405,6 +405,7 @@
   },
   "youtubeFacade": {
     "alternativeMessage": "Vue basic",
+    "subtitle": "YoutubeFacade component is a lightweight preview for embedding YouTube videos, showing a thumbnail and loading the iframe.",
     "title": "Youtube facade",
     "usage": {
       "aspectRatio": "Aspect ratio",
