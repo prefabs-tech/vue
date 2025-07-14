@@ -1,3 +1,13 @@
+# [0.11.0](https://github.com/dzangolab/vue/compare/v0.10.14...v0.11.0) (2025-07-14)
+
+
+### Features
+
+* add support to option grouping for select ([406fe6a](https://github.com/dzangolab/vue/commit/406fe6aceae58fb9ad512d58e7baf45202dd83a7))
+* add support to search by group ([f714318](https://github.com/dzangolab/vue/commit/f7143188b1afd83efa8f1bb0e1b9bd4a276729d6))
+
+
+
 ## [0.10.14](https://github.com/dzangolab/vue/compare/v0.10.13...v0.10.14) (2025-07-03)
 
 
