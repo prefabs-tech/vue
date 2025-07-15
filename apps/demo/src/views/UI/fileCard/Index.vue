@@ -232,37 +232,37 @@
 
     <section>
       <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          interface IFile {
-            id: number | string;
-            originalFileName: string;
-            description?: string;
-            size?: number;
-            uploadedBy: any;
-            uploadedAt: number;
-            downloadCount?: number;
-            lastDownloadedAt?: number;
-          }
+      <SshPre language="html-vue">
+        interface IFile {
+          id: number | string;
+          originalFileName: string;
+          description?: string;
+          size?: number;
+          uploadedBy: any;
+          uploadedAt: number;
+          downloadCount?: number;
+          lastDownloadedAt?: number;
+        }
 
-          type FileMessages = {
-            archiveAction?: string;
-            archiveConfirmationHeader?: string;
-            archiveConfirmationMessage?: string;
-            downloadAction?: string;
-            editDescriptionAction?: string;
-            renameAction?: string;
-            deleteAction?: string;
-            deleteConfirmationHeader?: string;
-            deleteConfirmationMessage?: string;
-            downloadCountHeader?: string;
-            lastDownloadedAtHeader?: string;
-            uploadedByHeader?: string;
-            uploadedAtHeader?: string;
-            shareAction?: string;
-            viewAction?: string;
-          };
-        </SshPre>
-        <!-- eslint-enable -->
+        type FileMessages = {
+          archiveAction?: string;
+          archiveConfirmationHeader?: string;
+          archiveConfirmationMessage?: string;
+          downloadAction?: string;
+          editDescriptionAction?: string;
+          renameAction?: string;
+          deleteAction?: string;
+          deleteConfirmationHeader?: string;
+          deleteConfirmationMessage?: string;
+          downloadCountHeader?: string;
+          lastDownloadedAtHeader?: string;
+          uploadedByHeader?: string;
+          uploadedAtHeader?: string;
+          shareAction?: string;
+          viewAction?: string;
+        };
+      </SshPre>
+      <!-- eslint-enable -->
     </section>
   </UiPage>
 </template>

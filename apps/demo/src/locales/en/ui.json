@@ -186,6 +186,7 @@
     }
   },
   "filesList": {
+    "subtitle": "The FilesList component displays a collection of files in a list layout using FileCard component, with customizable actions and visibility options.",
     "title": "Files List"
   },
   "getStarted": "Get started",
