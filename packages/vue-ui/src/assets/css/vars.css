@@ -40,6 +40,11 @@
   --loading-button-bg-color: #1c4786;
   --loading-button-color: #ffffff;
 
+  --message-danger-color: var(--dz-danger-color);
+  --message-info-color: var(--dz-primary-color);
+  --message-success-color: var(--dz-success-color);
+  --message-warning-color: var(--dz-warning-color);
+
   --page-max-width: 550px;
 
   --menu-border-color: #555;

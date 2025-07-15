@@ -1,15 +1,26 @@
 .message {
-  --_background-color: var(--message-bg-color, #d0e1fd);
-  --_border-color: var(--message-border-color, #204887);
-  --_message-color: var(--message-color, #204887);
-
-  background-color: var(--_background-color);
+  background-color: color-mix(in srgb, var(--_background-color) 20%, #fff);
   border-radius: 0.5rem;
-  border: 1px solid var(--_border-color);
-  color: solid var(--_message-color);
+  border: 1px solid #204887;
   display: flex;
   gap: 1rem;
   padding: 0.5rem 1rem;
+}
+
+.message.danger {
+  --_background-color: var(--message-danger-color);
+}
+
+.message.info {
+  --_background-color: var(--message-info-color);
+}
+
+.message.success {
+  --_background-color: var(--message-success-color);
+}
+
+.message.warning {
+  --_background-color: var(--message-warning-color);
 }
 
 .message .close-message {
@@ -18,4 +29,3 @@
   margin: auto 0 auto auto;
   width: 1.25rem;
 }
-

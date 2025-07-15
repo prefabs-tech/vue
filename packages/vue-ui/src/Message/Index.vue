@@ -1,5 +1,5 @@
 <template>
-  <div v-show="showMessage" class="message">
+  <div v-show="showMessage" :class="['message', severity]">
     <span v-if="icon || !!slots.icon" class="icon">
       <slot name="icon">
         <i :class="icon" />
@@ -44,6 +44,12 @@ defineProps({
   message: {
     required: true,
     type: String,
+  },
+  severity: {
+    type: String,
+    default: "info",
+    validator: (value: string) =>
+      ["danger", "info", "success", "warning"].includes(value),
   },
 });
 
