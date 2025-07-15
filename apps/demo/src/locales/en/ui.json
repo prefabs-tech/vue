@@ -176,6 +176,7 @@
   },
   "file": "File",
   "fileCard": {
+    "subtitle": "The FileCard component is a structured card layout that displays file detail with a thumbnail and action buttons.",
     "title": "File card",
     "usage": {
       "basic": "Basic",
@@ -185,6 +186,7 @@
     }
   },
   "filesList": {
+    "subtitle": "The FilesList component displays a collection of files in a list layout using FileCard component, with customizable actions and visibility options.",
     "title": "Files List"
   },
   "getStarted": "Get started",
@@ -406,6 +408,7 @@
   },
   "youtubeFacade": {
     "alternativeMessage": "Vue basic",
+    "subtitle": "YoutubeFacade component is a lightweight preview for embedding YouTube videos, showing a thumbnail and loading the iframe.",
     "title": "Youtube facade",
     "usage": {
       "aspectRatio": "Aspect ratio",
