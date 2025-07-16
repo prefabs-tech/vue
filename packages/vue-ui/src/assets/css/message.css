@@ -1,20 +1,21 @@
 .message {
   background-color: color-mix(in srgb, var(--_background-color) 20%, #fff);
   border-radius: 0.5rem;
-  border: 1px solid #204887;
-  color: color-mix(in srgb, var(--_color) 80%, #000);;
+  border: 1px solid var(--_color);
+  color: color-mix(in srgb, var(--_color) 90%, #000);;
   display: flex;
+  font-weight: 500;
   gap: 1rem;
   padding: 0.5rem 1rem;
 }
 
 .message > .icon.default {
   background-color: var(--_background-color);
-  width: 24px;
   height: 24px;
   mask-image: var(--_svg);
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
+  width: 24px;
 }
 
 .message > .message-content {
