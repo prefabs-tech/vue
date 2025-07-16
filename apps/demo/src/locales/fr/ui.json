@@ -224,7 +224,7 @@
       "propsDescription": {
         "enableClose": "Displays a close icon if true, allowing the message to be dismissed.",
         "icon": "Icon to display alongside the message.",
-        "message": "The message text or array of message text to display in the component.",
+        "message": "The message text, or an array of message texts to displayed in the component.",
         "severity": "Defines the message background color style.",
         "showIcon": "Displays a icon before message if true."
       },
