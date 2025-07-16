@@ -208,17 +208,20 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { ButtonElement, Message } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
+const { t } = useI18n();
+
 const showEnableCloseSection = ref(true);
 
 const eventsData = [
   {
-    description: "Emitted when the close icon is clicked.",
+    description: t("ui.message.documentation.eventDescription.close"),
     name: "close",
     payload: "-",
   },
@@ -227,32 +230,31 @@ const eventsData = [
 const propsData = [
   {
     default: "false",
-    description:
-      "Displays a close icon if true, allowing the message to be dismissed.",
+    description: t("ui.message.documentation.propsDescription.enableClose"),
     prop: "enableClose",
     type: "Boolean",
   },
   {
     default: "-",
-    description: "Icon to display alongside the message.",
+    description: t("ui.message.documentation.propsDescription.icon"),
     prop: "icon",
     type: "String",
   },
   {
     default: "-",
-    description: "The message text to display in the component.",
+    description: t("ui.message.documentation.propsDescription.message"),
     prop: "message",
     type: "String",
   },
   {
     default: `"info"`,
-    description: "Defines the message background color style.",
+    description: t("ui.message.documentation.propsDescription.severity"),
     prop: "severity",
     type: `"danger" | "info" | "success" | "warning"`,
   },
   {
     default: "true",
-    description: "Displays a icon before message if true.",
+    description: t("ui.message.documentation.propsDescription.showIcon"),
     prop: "showIcon",
     type: "Boolean",
   },
@@ -260,11 +262,11 @@ const propsData = [
 
 const slotsData = [
   {
-    description: "Slot for message. Overrides the message content.",
+    description: t("ui.message.documentation.slotDescription.default"),
     name: "default",
   },
   {
-    description: "Slot for custom icon. Overrides the `icon` prop if provided.",
+    description: t("ui.message.documentation.slotDescription.icon"),
     name: "icon",
   },
 ];

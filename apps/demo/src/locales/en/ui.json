@@ -217,6 +217,22 @@
       "content4": "We value your feedback: take our quick survey!",
       "content5": "Warning: Limited time only! Sale ends soon!"
     },
+    "documentation": {
+      "eventDescription": {
+        "close": "Emitted when the close icon is clicked."
+      },
+      "propsDescription": {
+        "enableClose": "Displays a close icon if true, allowing the message to be dismissed.",
+        "icon": "Icon to display alongside the message.",
+        "message": "The message text to display in the component.",
+        "severity": "Defines the message background color style.",
+        "showIcon": "Displays a icon before message if true."
+      },
+      "slotDescription": {
+        "default": "Slot for message. Overrides the message content.",
+        "icon": "Slot for custom icon. Overrides the `icon` prop if provided."
+      }
+    },
     "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
     "title": "Message",
     "usage": {
