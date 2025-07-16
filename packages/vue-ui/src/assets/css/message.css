@@ -4,6 +4,7 @@
   border: 1px solid var(--_color);
   color: var(--_color);
   display: flex;
+  font-weight: 500;
   gap: 1rem;
   padding: 0.5rem 1rem;
 }
@@ -19,6 +20,14 @@
 
 .message > .message-content {
   flex: 1;
+}
+
+.message > .message-content > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: disc;
+  margin-inline: 1rem;
 }
 
 .message.danger {
