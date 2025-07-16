@@ -2,7 +2,7 @@
 
 exports[`Message > matches snapshot 1`] = `
 <div
-  class="message"
+  class="message info"
 >
   <span
     class="icon"

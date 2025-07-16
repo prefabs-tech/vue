@@ -226,6 +226,7 @@
         "icon": "Icon",
         "iconSlot": "Icon slot"
       },
+      "severity": "Severity",
       "withI18n": "With i18n"
     }
   },

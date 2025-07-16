@@ -96,7 +96,7 @@
       <div class="section-content">
         <Message
           :message="$t('ui.message.contents.content4')"
-          icon="pi pi-comments"
+          :show-icon="false"
           enable-close
           @close="showEnableCloseSection = false"
         />
@@ -140,6 +140,56 @@
             import { useI18n } from "@dzangolab/vue3-i18n";
 
             const { t } = useI18n();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.message.usage.severity") }}</h2>
+
+      <div class="section-content">
+        <Message
+          :message="$t('ui.message.contents.content2')"
+          severity="info"
+        />
+        <Message
+          :message="$t('ui.message.contents.content3')"
+          severity="success"
+        />
+        <Message
+          :message="$t('ui.message.contents.content4')"
+          severity="danger"
+        />
+        <Message
+          :message="$t('ui.message.contents.content5')"
+          severity="warning"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Message
+              message="New features just launched! Check them out!"
+              severity="info"
+            /&gt;
+            &lt;Message
+              :message="New Year, New You: Start fresh with our services!"
+              severity="success"
+            /&gt;
+            &lt;Message
+              :message="We value your feedback: take our quick survey!"
+              severity="danger"
+            /&gt;
+            &lt;Message
+              :message="Warning: Limited time only! Sale ends soon!"
+              severity="warning"
+            /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Message } from "@dzangolab/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -193,6 +243,18 @@ const propsData = [
     description: "The message text to display in the component.",
     prop: "message",
     type: "String",
+  },
+  {
+    default: `"info"`,
+    description: "Defines the message background color style.",
+    prop: "severity",
+    type: `"danger" | "info" | "success" | "warning"`,
+  },
+  {
+    default: "true",
+    description: "Displays a icon before message if true.",
+    prop: "showIcon",
+    type: "Boolean",
   },
 ];
 
