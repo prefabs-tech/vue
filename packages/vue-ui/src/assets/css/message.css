@@ -22,6 +22,14 @@
   flex: 1;
 }
 
+.message > .message-content > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: disc;
+  margin-inline: 1rem;
+}
+
 .message.danger {
   --_background-color: var(--message-danger-color);
   --_color: var(--message-danger-color);

@@ -18,12 +18,12 @@
       <h2>{{ $t("ui.message.usage.basic") }}</h2>
 
       <div class="section-content">
-        <Message :message="$t('ui.message.contents.content1')" />
+        <Message :message="$t('ui.message.contents.content3')" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Message message="Season sale: Up to 50% off selected items!" /&gt;
+            &lt;Message message="New Year, New You: Start fresh with our services!" /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
@@ -105,7 +105,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Message
-              icon="pi pi-comments"
+              :show-icon="false"
               message="We value your feedback: take our quick survey!"
               enable-close
               @close="showEnableCloseSection = false"
@@ -127,7 +127,7 @@
       <h2>{{ $t("ui.message.usage.withI18n") }}</h2>
 
       <div class="section-content">
-        <Message :message="$t('ui.message.contents.content1')" />
+        <Message :message="$t('ui.message.contents.content2')" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
@@ -196,6 +196,42 @@
       </div>
     </section>
 
+    <section>
+      <h2>{{ $t("ui.message.usage.messageArray") }}</h2>
+
+      <div class="section-content">
+        <Message
+          :message="[
+            $t('ui.message.contents.content1'),
+            $t('ui.message.contents.content2'),
+            $t('ui.message.contents.content3'),
+            $t('ui.message.contents.content4'),
+          ]"
+          enable-close
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Message
+              enable-close
+              message="[
+                'Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!',
+                'New features just launched! Check them out!',
+                'New Year, New You: Start fresh with our services!',
+                'We value your feedback: take our quick survey!',
+              ]"
+            /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Message } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
     <ComponentDocumentation
       :events-data="eventsData"
       :props-data="propsData"
@@ -244,7 +280,7 @@ const propsData = [
     default: "-",
     description: t("ui.message.documentation.propsDescription.message"),
     prop: "message",
-    type: "String",
+    type: "String | Array<string>",
   },
   {
     default: `"info"`,

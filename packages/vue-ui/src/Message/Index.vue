@@ -9,7 +9,7 @@
       </slot>
     </span>
 
-    <span class="message-content">
+    <div class="message-content">
       <slot>
         <template v-if="!Array.isArray(message)">
           {{ message }}
@@ -25,7 +25,7 @@
           </ul>
         </template>
       </slot>
-    </span>
+    </div>
 
     <img
       v-if="enableClose"
