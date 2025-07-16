@@ -1,5 +1,5 @@
 .message {
-  background-color: color-mix(in srgb, var(--_background-color) 20%, #fff);
+  background-color: color-mix(in srgb, var(--_background-color) 10%, #fff);
   border-radius: 0.5rem;
   border: 1px solid var(--_color);
   color: var(--_color);
