@@ -11,7 +11,19 @@
 
     <span class="message-content">
       <slot>
-        {{ message }}
+        <template v-if="!Array.isArray(message)">
+          {{ message }}
+        </template>
+        <template v-else-if="message.length">
+          <ul>
+            <li
+              v-for="(messageData, index) in message"
+              :key="`message-${index}`"
+            >
+              {{ messageData }}
+            </li>
+          </ul>
+        </template>
       </slot>
     </span>
 
@@ -33,6 +45,8 @@ export default {
 <script setup lang="ts">
 import { ref, useSlots } from "vue";
 
+import type { PropType } from "vue";
+
 const emits = defineEmits(["close"]);
 
 defineProps({
@@ -46,7 +60,7 @@ defineProps({
   },
   message: {
     required: true,
-    type: String,
+    type: String || (Array as PropType<string[]>),
   },
   severity: {
     type: String,

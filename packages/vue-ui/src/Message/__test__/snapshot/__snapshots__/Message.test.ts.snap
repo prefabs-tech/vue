@@ -17,7 +17,9 @@ exports[`Message > matches snapshot 1`] = `
     class="message-content"
   >
     
+    
     This is a very important message.
+    
     
   </span>
   <img
