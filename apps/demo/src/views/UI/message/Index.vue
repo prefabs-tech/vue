@@ -96,7 +96,7 @@
       <div class="section-content">
         <Message
           :message="$t('ui.message.contents.content4')"
-          icon="pi pi-comments"
+          :show-icon="false"
           enable-close
           @close="showEnableCloseSection = false"
         />
@@ -249,6 +249,12 @@ const propsData = [
     description: "Defines the message background color style.",
     prop: "severity",
     type: `"danger" | "info" | "success" | "warning"`,
+  },
+  {
+    default: "true",
+    description: "Displays a icon before message if true.",
+    prop: "showIcon",
+    type: "Boolean",
   },
 ];
 
