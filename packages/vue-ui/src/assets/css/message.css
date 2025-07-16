@@ -2,7 +2,7 @@
   background-color: color-mix(in srgb, var(--_background-color) 20%, #fff);
   border-radius: 0.5rem;
   border: 1px solid var(--_color);
-  color: color-mix(in srgb, var(--_color) 90%, #000);;
+  color: var(--_color);
   display: flex;
   font-weight: 500;
   gap: 1rem;
