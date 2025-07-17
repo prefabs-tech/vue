@@ -31,10 +31,6 @@ defineProps({
     default: false,
     type: Boolean,
   },
-  imageSource: {
-    required: true,
-    type: String,
-  },
   loading: {
     default: false,
     type: Boolean,

@@ -48,7 +48,7 @@ const onFacebookSignIn = async () => {
     );
     loading.value = false;
   } catch (error) {
-    emit("error", error);
+    emit("error", new Error("SOMETHING_WRONG"));
     loading.value = false;
   }
 };
