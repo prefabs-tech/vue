@@ -230,6 +230,10 @@
         "signup": "Signup"
       },
       "passwordReset": {
+        "errors": {
+          "INVALID_TOKEN": "The token is invalid. Please request again for password reset.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
           "actions": {
             "submit": "Change Password"
@@ -587,7 +591,8 @@
       "loading": "Loading...[fr]",
       "login": {
         "errors": {
-          "401": "Votre identifiant et/ou mot de passe sont invalides."
+          "401": "Votre identifiant et/ou mot de passe sont invalides.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
@@ -628,6 +633,10 @@
         "signup": "Inscription"
       },
       "passwordReset": {
+        "errors": {
+          "INVALID_TOKEN": "The token is invalid. Please request again for password reset.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
           "actions": {
             "submit": "Modifier votre mot de passe"
@@ -718,7 +727,8 @@
       },
       "signup": {
         "errors": {
-          "409": "This email already exists. Please sign in instead. (fr)"
+          "409": "This email already exists. Please sign in instead.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
