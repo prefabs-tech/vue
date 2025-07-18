@@ -14,10 +14,13 @@ const resetPassword = async (
     ],
   });
 
-  if (response.status == "OK") {
+  if (response.status === "OK") {
     return true;
+  } else if (response.status === "RESET_PASSWORD_INVALID_TOKEN_ERROR") {
+    throw new Error("INVALID_TOKEN");
+  } else {
+    throw new Error("SOMETHING_WRONG");
   }
-  return false;
 };
 
 export default resetPassword;

@@ -1,6 +1,12 @@
 <template>
   <Page :title="t('user.signup.title')" class="auth signup">
-    <Errors v-if="errors.length" :errors="errors" />
+    <Message
+      v-if="errorMessage"
+      :message="t(`user.signup.errors.${errorMessage}`)"
+      enable-close
+      severity="danger"
+      @close="errorMessage = undefined"
+    />
 
     <slot name="instructions"></slot>
 
@@ -25,7 +31,7 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Errors, Page } from "@dzangolab/vue3-ui";
+import { Message, Page } from "@dzangolab/vue3-ui";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -35,8 +41,6 @@ import { useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
-import type { Error as ErrorType } from "@dzangolab/vue3-ui";
-import type { Ref } from "vue";
 
 const messages = useTranslations();
 
@@ -48,16 +52,11 @@ const { user } = storeToRefs(userStore);
 
 const router = useRouter();
 
-const errors = ref([]) as Ref<ErrorType[]>;
+const errorMessage = ref<string>();
 
 const handleSubmit = async (credentials: LoginCredentials) => {
   await signup(credentials).catch((error) => {
-    errors.value = [
-      {
-        code: error.message,
-        message: t(`user.signup.errors.${error.message}`),
-      },
-    ];
+    errorMessage.value = error.message;
   });
 
   if (user.value) {

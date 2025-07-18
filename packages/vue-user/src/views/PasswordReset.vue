@@ -1,5 +1,13 @@
 <template>
   <Page :title="t('user.passwordReset.title')" class="auth password-reset">
+    <Message
+      v-if="errorMessage"
+      :message="t(`user.passwordReset.errors.${errorMessage}`)"
+      enable-close
+      severity="danger"
+      @close="errorMessage = undefined"
+    />
+
     <slot name="instructions"></slot>
 
     <PasswordResetForm @submit="handleSubmit" />
@@ -14,7 +22,8 @@ export default {
 
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { Page } from "@dzangolab/vue3-ui";
+import { Message, Page } from "@dzangolab/vue3-ui";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import PasswordResetForm from "../components/PasswordResetForm.vue";
@@ -31,9 +40,15 @@ const { resetPassword } = useUserStore();
 
 const router = useRouter();
 
+const errorMessage = ref<string>();
+
 const handleSubmit = async (payload: PasswordResetPayload) => {
-  await resetPassword(payload).then(() => {
-    router.push({ name: "login" });
-  });
+  await resetPassword(payload)
+    .then(() => {
+      router.push({ name: "login" });
+    })
+    .catch((error) => {
+      errorMessage.value = error.message;
+    });
 };
 </script>
