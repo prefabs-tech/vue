@@ -320,7 +320,7 @@
       },
       "signup": {
         "errors": {
-          "401": "Sorry! We could not register your account because of an unexpected error.",
+          "409": "This email already exists. Please sign in instead.",
           "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
@@ -718,7 +718,7 @@
       },
       "signup": {
         "errors": {
-          "409": "Désolé ! Nous n'avons pas pu enregistrer votre inscription à cause d'une erreur inopinée."
+          "409": "This email already exists. Please sign in instead. (fr)"
         },
         "form": {
           "actions": {
