@@ -327,6 +327,19 @@
     }
   },
   "stepper": {
+    "documentation": {
+      "eventDescription": {
+        "complete": "Emitted when all steps are completed"
+      },
+      "propsDescription": {
+        "nextButton": "Properties for the next button",
+        "previousButton": "properties for the previous button",
+        "steps": "Array of step objects (required)"
+      },
+      "slotDescription": {
+        "step": "Dynamic slot for step content (use step as slot name from steps prop)"
+      }
+    },
     "label": {
       "name": "Name",
       "phone": "Phone",
@@ -336,6 +349,7 @@
       "name": "Enter your name",
       "phone": "Enter your phone"
     },
+    "subtitle": "The Stepper component guides users through a multi-step process with visual progress indicators.",
     "title": "Stepper",
     "usage": {
       "basic": "Basic",
