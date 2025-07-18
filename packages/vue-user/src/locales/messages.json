@@ -57,6 +57,10 @@
     },    
     "user": {
       "changePassword": {
+        "errors": {
+          "INVALID_PASSWORD": "The password is invalid. Please check your password and try again.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
           "confirmPassword": {
             "errors": {
@@ -179,7 +183,7 @@
       "loading": "Loading...",
       "login": {
         "errors": {
-          "401": "Invalid credentials. Please check you email or  password and try again.",
+          "401": "Invalid credentials. Please check your email or  password and try again.",
           "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
@@ -469,6 +473,10 @@
     },    
     "user": {
       "changePassword": {
+        "errors": {
+          "INVALID_PASSWORD": "The password is invalid. Please check your password and try again.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
           "confirmPassword": {
             "errors": {

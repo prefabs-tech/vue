@@ -85,7 +85,6 @@ const { getIsFirstUser, login, removeUser, setUser } = userStore;
 const router = useRouter();
 
 const errorMessage = ref<string>();
-
 const loading = ref(false);
 
 const handleSubmit = async (credentials: LoginCredentials) => {

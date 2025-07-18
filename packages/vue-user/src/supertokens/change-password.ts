@@ -6,10 +6,11 @@ const changePassword = async (
   payload: ChangePasswordPayload,
   apiBaseUrl: string,
 ): Promise<boolean | undefined> => {
+  let response;
   let success = false;
 
   try {
-    const response = await client(apiBaseUrl).post(
+    response = await client(apiBaseUrl).post(
       "/change_password",
       {
         oldPassword: payload.currentPassword,
@@ -19,19 +20,16 @@ const changePassword = async (
         withCredentials: true,
       },
     );
-
-    if (response.data.status === "OK") {
-      success = true;
-    } else {
-      throw new Error(response.data.message);
-    }
   } catch (err) {
-    let errorMessage = "Oops! Something went wrong.";
-    if (err instanceof Error) {
-      errorMessage = err.message;
-    }
+    throw new Error("SOMETHING_WRONG");
+  }
 
-    throw new Error(errorMessage);
+  if (response.data.status === "OK") {
+    success = true;
+  } else if (response.data.status === "INVALID_PASSWORD")  {
+    throw new Error("INVALID_PASSWORD");
+  } else {
+    throw new Error("SOMETHING_WRONG");
   }
 
   return success;
