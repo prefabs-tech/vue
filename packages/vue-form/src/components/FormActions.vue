@@ -6,25 +6,19 @@
     class="form-actions"
   >
     <slot>
-      <slot name="submitButton">
-        <ButtonElement
-          :disabled="loading"
-          :label="submitLabel"
-          class="submit-button"
-          type="submit"
-          @click="onSubmit"
-        />
-      </slot>
-      <slot name="cancelButton">
-        <ButtonElement
-          :disabled="loading"
-          :label="cancelLabel"
-          class="cancel-button"
-          type="button"
-          variant="outlined"
-          @click="onCancel"
-        />
-      </slot>
+      <template
+        v-for="(action, index) in parsedActions"
+        :key="`${action.id || action.label}-${index}`"
+      >
+        <slot :name="action.id || action.label">
+          <ButtonElement
+            v-bind="action"
+            :disabled="disabled || loading"
+            :type="action?.type || 'button'"
+            @click="onSubmit(action)"
+          />
+        </slot>
+      </template>
     </slot>
   </div>
 </template>
@@ -37,8 +31,15 @@ export default {
 
 <script setup lang="ts">
 import { ButtonElement } from "@dzangolab/vue3-ui";
+import { computed } from "vue";
 
-defineProps({
+import type { PropType } from "vue";
+
+const props = defineProps({
+  actions: {
+    default: () => [],
+    type: Array as PropType<Record<string, unknown>[]>,
+  },
   alignment: {
     default: "right",
     type: String,
@@ -46,6 +47,10 @@ defineProps({
   cancelLabel: {
     default: "Cancel",
     type: String,
+  },
+  disabled: {
+    default: false,
+    type: Boolean,
   },
   flowDirection: {
     default: "horizontal",
@@ -64,9 +69,56 @@ defineProps({
 
 const emit = defineEmits(["cancel", "submit"]);
 
-const onCancel = () => emit("cancel");
+const defaultActions = [
+  {
+    id: "submit",
+    label: props.submitLabel,
+    type: "submit",
+  },
+  {
+    id: "cancel",
+    label: props.cancelLabel,
+    severity: "secondary",
+    variant: "outlined",
+  },
+];
 
-const onSubmit = () => emit("submit");
+const parsedActions = computed(() => {
+  if (!props.actions.length) {
+    return defaultActions;
+  }
+
+  const mappedActions = new Map<string, Record<string, unknown>>();
+
+  for (const action of props.actions) {
+    mappedActions.set(String(action?.id ?? action?.label ?? ""), action);
+  }
+
+  for (const defaultAction of defaultActions) {
+    if (mappedActions.get(defaultAction.id || defaultAction.label || "")) {
+      const previousAction = mappedActions.get(
+        defaultAction.id || defaultAction.label || "",
+      );
+
+      mappedActions.set(defaultAction.id || defaultAction.label || "", {
+        ...defaultAction,
+        ...previousAction,
+      });
+    }
+  }
+
+  return Array.from(mappedActions.values());
+});
+
+const onSubmit = (action: Record<string, unknown>) => {
+  const actionEvent = action.type || action.id || action.label;
+
+  if (actionEvent === "submit") {
+    emit("submit");
+  } else {
+    emit("cancel");
+  }
+};
 </script>
 
 <style lang="css">

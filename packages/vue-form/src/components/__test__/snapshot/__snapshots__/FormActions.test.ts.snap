@@ -9,10 +9,11 @@ exports[`FormActions > matches snapshot 1`] = `
 >
   
   
+  
   <button-element-stub
     aria-label="button"
-    class="submit-button"
     disabled="false"
+    id="submit"
     label="Submit"
     loading="false"
     rounded="false"
@@ -25,16 +26,17 @@ exports[`FormActions > matches snapshot 1`] = `
   
   <button-element-stub
     aria-label="button"
-    class="cancel-button"
     disabled="false"
+    id="cancel"
     label="Cancel"
     loading="false"
     rounded="false"
-    severity="primary"
+    severity="secondary"
     size="medium"
     type="button"
     variant="outlined"
   />
+  
   
   
 </div>

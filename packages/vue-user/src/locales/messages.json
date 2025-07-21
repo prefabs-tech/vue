@@ -188,7 +188,7 @@
         },
         "form": {
           "actions": {
-            "submit": "Sign in"
+            "submit": "Log in"
           },
           "email": {
             "errors": {
@@ -227,7 +227,7 @@
           "facebook": "Continue with Facebook",
           "google": "Continue with Google"
         },
-        "title": "Login"
+        "title": "Log in"
       },
       "menu": {
         "signin": "Signin",

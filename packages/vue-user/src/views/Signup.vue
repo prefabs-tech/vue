@@ -10,7 +10,7 @@
 
     <slot name="instructions"></slot>
 
-    <SignupForm @submit="handleSubmit" />
+    <SignupForm :loading="loading" @submit="handleSubmit" />
 
     <div class="links">
       <router-link :to="{ name: 'login' }" class="login">
@@ -53,11 +53,18 @@ const { user } = storeToRefs(userStore);
 const router = useRouter();
 
 const errorMessage = ref<string>();
+const loading = ref<boolean>(false);
 
 const handleSubmit = async (credentials: LoginCredentials) => {
-  await signup(credentials).catch((error) => {
-    errorMessage.value = error.message;
-  });
+  loading.value = true;
+
+  await signup(credentials)
+    .catch((error) => {
+      errorMessage.value = error.message;
+    })
+    .finally(() => {
+      loading.value = false;
+    });
 
   if (user.value) {
     router.push({ name: "home" });
