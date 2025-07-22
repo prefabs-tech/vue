@@ -219,9 +219,11 @@ const addAuthenticationGuard = (
 
       if (
         !isEmailVerified &&
-        !routesToRedirect.includes(name)
+        ![...routesToRedirect, "profile"].includes(name)
       ) {
         router.push({ name: "verifyEmailReminder" });
+
+        return;
       } else if (isEmailVerified && routesToRedirect.includes(name)) {
         router.push({ name: "home" });
       }
@@ -234,7 +236,7 @@ const addAuthenticationGuard = (
       meta.authenticated &&
       profileCompletionEnabled &&
       !isProfileCompleted &&
-      !["profile", "verifyEmail", "verifyEmailReminder"].includes(name)
+      ![...routesToRedirect, "profile"].includes(name)
     ) {
       router.push({ name: "profile" });
     }

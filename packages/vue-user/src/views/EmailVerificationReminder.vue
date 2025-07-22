@@ -4,7 +4,9 @@
     centered
     class="email-verification-reminder"
   >
-    <p>{{ t("user.emailVerification.messages.verifyEmail") }}</p>
+    <i18n-t keypath="user.emailVerification.messages.verifyEmail" tag="p">
+      <span v-if="user?.email" class="email">{{ user?.email }}</span>
+    </i18n-t>
 
     <p class="resend-email">
       {{ t("user.emailVerification.messages.resendEmailInfo") }}
@@ -34,7 +36,7 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 const userStore = useUserStore();
-const { sendVerificationEmail } = userStore;
+const { sendVerificationEmail, user } = userStore;
 
 const handleResend = () => {
   sendVerificationEmail()
