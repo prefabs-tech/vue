@@ -15,7 +15,7 @@
             v-bind="action"
             :disabled="disabled || loading"
             :type="action?.type || 'button'"
-            @click="onSubmit(action)"
+            @click="onActionClick(action)"
           />
         </slot>
       </template>
@@ -67,7 +67,9 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["cancel", "submit"]);
+const emit = defineEmits<{
+  (event: string, action: Record<string, unknown>): void;
+}>();
 
 const defaultActions = [
   {
@@ -110,14 +112,12 @@ const parsedActions = computed(() => {
   return Array.from(mappedActions.values());
 });
 
-const onSubmit = (action: Record<string, unknown>) => {
-  const actionEvent = action.type || action.id || action.label;
+const onActionClick = (action: Record<string, unknown>) => {
+  const eventName = String(
+    action?.id || action?.label || "click",
+  ).toLowerCase();
 
-  if (actionEvent === "submit") {
-    emit("submit");
-  } else {
-    emit("cancel");
-  }
+  emit(eventName, action);
 };
 </script>
 

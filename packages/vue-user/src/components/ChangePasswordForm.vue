@@ -30,8 +30,13 @@
     />
 
     <div class="actions">
-      <LoadingButton
-        :label="t('user.changePassword.form.submit.label')"
+      <FormActions
+        :actions="[
+          {
+            id: 'submit',
+            label: t('user.changePassword.form.submit.label'),
+          },
+        ]"
         :loading="loading"
         tabindex="0"
       />
@@ -46,9 +51,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Password } from "@dzangolab/vue3-form";
+import { FormActions, Password } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { LoadingButton } from "@dzangolab/vue3-ui";
 import { Form } from "vee-validate";
 import { z } from "zod";
 
