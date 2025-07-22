@@ -262,14 +262,6 @@
         },
         "title": "Enter your new password."
       },
-      "password-reset-acknowledge": {
-        "actions": {
-          "login": "Return to Login page"
-        },
-        "content": "We are processing your request to reset the password for email {0}. If a user account exists for this email address, it will receive in the next few minutes an email containing instructions on how to reset their password.",
-        "redirect": "Redirecting automatically in {0} seconds",
-        "title": "Resetting your password"
-      },
       "passwordResetRequest": {
         "form": {
           "actions": {
@@ -667,14 +659,6 @@
           "success": "Votre mot de passe a été mis à jour.",
           "wrongPassword": "The password confirmation doesnot match"
         },
-        "title": "Réinitialisation de votre mot de passe"
-      },
-      "password-reset-acknowledge": {
-        "actions": {
-          "login": "Retourner à la page de connexion"
-        },
-        "content": "Nous traitons votre demande de réinitialisation du mot de passe pour l'adresse {0}. Si un compte existe pour cette adresse, elle recevra dans les minutes qui viennent un courriel contenant les instructions pour la réinitialisation de leur mot de passe.",
-        "redirect": "Retour automatique dans {0} secondes",
         "title": "Réinitialisation de votre mot de passe"
       },
       "passwordResetRequest": {
