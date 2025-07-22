@@ -5,7 +5,7 @@
   >
     <slot name="instructions"></slot>
 
-    <PasswordResetRequestForm @submit="handleSubmit" />
+    <PasswordResetRequestForm :loading="loading" @submit="handleSubmit" />
   </Page>
 </template>
 
@@ -18,6 +18,7 @@ export default {
 <script setup lang="ts">
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { Page } from "@dzangolab/vue3-ui";
+import { ref } from "vue";
 
 import PasswordResetRequestForm from "../components/PasswordResetRequestForm.vue";
 import { useTranslations, emitter } from "../index";
@@ -29,16 +30,24 @@ const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
+const loading = ref<boolean>(false);
+
 const { requestPasswordReset } = useUserStore();
 
 const handleSubmit = async (payload: PasswordResetRequestPayload) => {
-  await requestPasswordReset(payload).then((response) => {
-    if (response) {
-      emitter.emit("notify", {
-        text: t("user.passwordResetRequest.messages.success"),
-        type: "success",
-      });
-    }
-  });
+  loading.value = true;
+
+  await requestPasswordReset(payload)
+    .then((response) => {
+      if (response) {
+        emitter.emit("notify", {
+          text: t("user.passwordResetRequest.messages.success"),
+          type: "success",
+        });
+      }
+    })
+    .finally(() => {
+      loading.value = false;
+    });
 };
 </script>

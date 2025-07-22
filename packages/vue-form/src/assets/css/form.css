@@ -17,7 +17,7 @@ form {
   justify-content: flex-start;
 }
 
-form .actions {
+form .form-actions {
   align-items: stretch;
   display: flex;
   flex-direction: row;
@@ -25,7 +25,7 @@ form .actions {
   justify-content: stretch;
 }
 
-form .actions button {
+form .form-actions button {
   flex: 1;
 }
 

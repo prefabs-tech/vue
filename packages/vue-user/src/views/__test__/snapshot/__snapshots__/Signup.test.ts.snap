@@ -133,22 +133,40 @@ exports[`SignUp > matches snapshot in en 1`] = `
       <div
         class="actions"
       >
-        <button
-          class="loading-button"
-          data-v-3fdbc7b3=""
+        <div
+          class="form-actions"
+          data-alignment="right"
+          data-direction="horizontal"
+          data-reverse="false"
+          tabindex="0"
         >
-          <div
-            class="label"
-            data-v-3fdbc7b3=""
+          
+          
+          
+          <button
+            aria-label="button"
+            class="button primary medium filled"
+            id="submit"
+            role="button"
+            type="submit"
           >
-            <span
-              data-v-3fdbc7b3=""
+            <!---->
+            <div
+              class="label"
             >
-              Create my account
-            </span>
-          </div>
-          <!---->
-        </button>
+              
+              <span>
+                Create my account
+              </span>
+              
+            </div>
+            <!---->
+            <!---->
+          </button>
+          
+          
+          
+        </div>
       </div>
     </form>
     <div
@@ -304,22 +322,40 @@ exports[`SignUp > matches snapshot in fr 1`] = `
       <div
         class="actions"
       >
-        <button
-          class="loading-button"
-          data-v-3fdbc7b3=""
+        <div
+          class="form-actions"
+          data-alignment="right"
+          data-direction="horizontal"
+          data-reverse="false"
+          tabindex="0"
         >
-          <div
-            class="label"
-            data-v-3fdbc7b3=""
+          
+          
+          
+          <button
+            aria-label="button"
+            class="button primary medium filled"
+            id="submit"
+            role="button"
+            type="submit"
           >
-            <span
-              data-v-3fdbc7b3=""
+            <!---->
+            <div
+              class="label"
             >
-              M'inscrire
-            </span>
-          </div>
-          <!---->
-        </button>
+              
+              <span>
+                M'inscrire
+              </span>
+              
+            </div>
+            <!---->
+            <!---->
+          </button>
+          
+          
+          
+        </div>
       </div>
     </form>
     <div

@@ -10,7 +10,7 @@
 
     <slot name="instructions"></slot>
 
-    <PasswordResetForm @submit="handleSubmit" />
+    <PasswordResetForm :loading="loading" @submit="handleSubmit" />
   </Page>
 </template>
 
@@ -41,14 +41,20 @@ const { resetPassword } = useUserStore();
 const router = useRouter();
 
 const errorMessage = ref<string>();
+const loading = ref<boolean>(false);
 
 const handleSubmit = async (payload: PasswordResetPayload) => {
+  loading.value = true;
+
   await resetPassword(payload)
     .then(() => {
       router.push({ name: "login" });
     })
     .catch((error) => {
       errorMessage.value = error.message;
+    })
+    .finally(() => {
+      loading.value = false;
     });
 };
 </script>

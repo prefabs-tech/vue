@@ -12,7 +12,16 @@
     />
 
     <div class="submit">
-      <LoadingButton :label="t('user.passwordReset.form.actions.submit')" />
+      <FormActions
+        :actions="[
+          {
+            id: 'submit',
+            label: t('user.passwordReset.form.actions.submit'),
+          },
+        ]"
+        :loading="loading"
+        tabindex="0"
+      />
     </div>
   </Form>
 </template>
@@ -25,9 +34,8 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
-import { Password, passwordSchema } from "@dzangolab/vue3-form";
+import { FormActions, Password, passwordSchema } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { Form } from "vee-validate";
 import { useRoute, useRouter } from "vue-router";
@@ -36,6 +44,12 @@ import { z } from "zod";
 import { useTranslations } from "../index";
 
 import type { PasswordResetPayload } from "../types";
+
+defineProps({
+  loading: Boolean,
+});
+
+const emit = defineEmits(["submit"]);
 
 const config = useConfig();
 
@@ -77,7 +91,6 @@ const validationSchema = toFormValidator(
     ),
 );
 
-const emit = defineEmits(["submit"]);
 const route = useRoute();
 const router = useRouter();
 

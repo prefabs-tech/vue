@@ -41,13 +41,20 @@
     </template>
 
     <div class="actions">
-      <LoadingButton
+      <FormActions
+        :actions="[
+          {
+            id: 'submit',
+            label: t('user.signup.form.actions.submit'),
+          },
+        ]"
         :disabled="
           disableButton &&
           termsAndConditionsConfig?.display &&
           termsAndConditionsConfig?.showCheckbox
         "
-        :label="t('user.signup.form.actions.submit')"
+        :loading="loading"
+        tabindex="0"
       />
     </div>
   </Form>
@@ -64,12 +71,12 @@ import { useConfig } from "@dzangolab/vue3-config";
 import {
   Email,
   emailSchema,
+  FormActions,
   Input,
   Password,
   passwordSchema,
 } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { storeToRefs } from "pinia";
 import { Form } from "vee-validate";
@@ -83,6 +90,10 @@ import TermsAndConditions from "./TermsAndConditions.vue";
 import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
+
+defineProps({
+  loading: Boolean,
+});
 
 const emit = defineEmits(["submit"]);
 
