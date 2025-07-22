@@ -29,6 +29,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { Table } from "@dzangolab/vue3-tanstack-table";
 
 defineProps({
@@ -50,48 +51,50 @@ defineProps({
   },
 });
 
+const { t } = useI18n();
+
 const eventsColumns = [
   {
     accessorKey: "name",
-    header: "Event",
+    header: t("common.event"),
   },
   {
     accessorKey: "payload",
-    header: "Payload",
+    header: t("common.payload"),
   },
   {
     accessorKey: "description",
-    header: "Description",
+    header: t("common.description"),
   },
 ];
 
 const propsColumns = [
   {
     accessorKey: "prop",
-    header: "Property",
+    header: t("common.property"),
   },
   {
     accessorKey: "type",
-    header: "Type",
+    header: t("common.type"),
   },
   {
     accessorKey: "default",
-    header: "Default",
+    header: t("common.default"),
   },
   {
     accessorKey: "description",
-    header: "Description",
+    header: t("common.description"),
   },
 ];
 
 const slotsColumns = [
   {
     accessorKey: "name",
-    header: "Name",
+    header: t("common.name"),
   },
   {
     accessorKey: "description",
-    header: "Description",
+    header: t("common.description"),
   },
 ];
 </script>
