@@ -363,6 +363,31 @@
     "content": "This is a subpane[fr]"
   },
   "tabView": {
+    "documentation": {
+      "eventDescription": {
+        "beforeTabChange": "Triggers before tab actually change",
+        "beforeTabClose": "Triggers before tab actually close",
+        "updateActiveKey": "Triggers on active key change",
+        "updateVisibleTabs": "Triggers on visible tabs change"
+      },
+      "propsDescription": {
+        "activeKey": "Active key of TabView.",
+        "enableHashRouting": "Enable hash routing for the tab view URL.",
+        "id": "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
+        "interceptTabChange": "Enable event emitting before tab actually change.",
+        "interceptTabClose": "Enable event emitting before tab actually change.",
+        "lazy": "The lazy prop enables lazy loading.It only loads content for the active tab.",
+        "persistState": "If true, tab state is saved either in localStorage or sessionStorage.",
+        "persistStateStorage": "Storage to save tab state.",
+        "position": "Position of the tab panel header relative to its content.",
+        "tabs": "Array of tab object.",
+        "visibleTabs": "Array of visible tabs."
+      },
+      "slotDescription": {
+        "default": "Content for the tab, matched using the key attribute on each element"
+      }
+    },
+    "subtitle": "The TabView component organizes content into tabbed panels with support for multiple positions, closable tabs, state persistence, and interception handlers for tab changes and closures",
     "title": "Tab view",
     "usage": {
       "basic": "Basic",

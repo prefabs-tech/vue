@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.tabView.title')" class="tab-view">
+  <UiPage
+    :sub-title="$t('ui.tabView.subtitle')"
+    :title="$t('ui.tabView.title')"
+    class="tab-view"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -522,45 +526,14 @@
       </div>
     </section>
 
-    <section>
-      <h2>{{ $t("common.properties", { value: "TabViewProperties" }) }}</h2>
-      <div class="section-content">
-        <Table
-          :columns-data="propsColumns"
-          :data="propsData"
-          :paginated="false"
-        />
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("common.slots") }}</h2>
-      <div class="section-content">
-        <Table
-          :columns-data="slotColumns"
-          :data="[
-            {
-              description:
-                'Content for the tab, matched using the key attribute on each element',
-              id: 1,
-              name: 'default',
-            },
-          ]"
-          :paginated="false"
-        />
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("common.events") }}</h2>
-      <div class="section-content">
-        <Table
-          :columns-data="eventColumns"
-          :data="eventData"
-          :paginated="false"
-        />
-      </div>
-    </section>
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'TabViewProperties' })
+      "
+      :slots-data="slotsData"
+    />
 
     <section>
       <h2>{{ $t("common.type") }}</h2>
@@ -582,11 +555,14 @@
 </template>
 
 <script setup lang="ts">
-import { Table } from "@dzangolab/vue3-tanstack-table";
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { ButtonElement, ConfirmationModal, TabView } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
+
+const { t } = useI18n();
 
 const activeKey = ref<string>("1");
 const closingKey = ref<string>();
@@ -597,37 +573,28 @@ const showCloseConfirmation = ref<boolean>(false);
 const showConfirmation = ref<boolean>(false);
 const visibleTabs = ref<string[]>(["1"]);
 
-const eventColumns = [
+const eventsData = [
   {
-    accessorKey: "name",
-    header: "Name",
-  },
-  {
-    accessorKey: "description",
-    header: "Description",
-  },
-];
-
-const eventData = [
-  {
-    description: "Triggers before tab actually change",
-    id: 1,
+    description: t("ui.tabView.documentation.eventDescription.beforeTabChange"),
     name: "beforeTabChange",
+    payload: "key",
   },
   {
-    description: "Triggers before tab actually close",
-    id: 2,
+    description: t("ui.tabView.documentation.eventDescription.beforeTabClose"),
     name: "beforeTabClose",
+    payload: "key",
   },
   {
-    description: "Triggers on active key change",
-    id: 3,
+    description: t("ui.tabView.documentation.eventDescription.updateActiveKey"),
     name: "update:activeKey",
+    payload: "key",
   },
   {
-    description: "Triggers on visible tabs change",
-    id: 4,
+    description: t(
+      "ui.tabView.documentation.eventDescription.updateVisibleTabs",
+    ),
     name: "update:visibleTabs",
+    payload: "key[]",
   },
 ];
 
@@ -644,116 +611,87 @@ const hashRoutingTabs = [
   { children: "Certifications", key: "tab6", label: "Certifications" },
 ];
 
-const propsColumns = [
-  {
-    accessorKey: "prop",
-    header: "Property",
-  },
-  {
-    accessorKey: "type",
-    header: "Type",
-  },
-  {
-    accessorKey: "default",
-    header: "Default",
-  },
-  {
-    accessorKey: "description",
-    header: "Description",
-  },
-];
-
 const propsData = [
   {
     default: "-",
-    description: "Active key of TabView.",
-    id: 1,
+    description: t("ui.tabView.documentation.propsDescription.activeKey"),
     prop: "activeKey",
     type: "string",
   },
   {
     default: "false",
-    description: "Enable hash routing for the tab view URL.",
-    id: 2,
+    description: t(
+      "ui.tabView.documentation.propsDescription.enableHashRouting",
+    ),
     prop: "enableHashRouting",
     type: "boolean",
   },
   {
     default: "-",
-    description:
-      "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
-    id: 3,
+    description: t("ui.tabView.documentation.propsDescription.id"),
     prop: "id",
     type: "string",
   },
   {
     default: "false",
-    description: "Enable event emitting before tab actually change.",
-    id: 4,
+    description: t(
+      "ui.tabView.documentation.propsDescription.interceptTabChange",
+    ),
     prop: "interceptTabChange",
     type: "boolean",
   },
   {
     default: "false",
-    description: "Enable event emitting before tab actually change.",
-    id: 5,
+    description: t(
+      "ui.tabView.documentation.propsDescription.interceptTabClose",
+    ),
     prop: "interceptTabClose",
     type: "boolean",
   },
   {
-    id: 6,
+    default: "true",
+    description: t("ui.tabView.documentation.propsDescription.lazy"),
     prop: "lazy",
     type: "boolean",
-    default: "true",
-    description:
-      "The lazy prop enables lazy loading.It only loads content for the active tab.",
   },
   {
     default: "true",
-    description:
-      "If true, tab state is saved either in localStorage or sessionStorage.",
-    id: 7,
+    description: t("ui.tabView.documentation.propsDescription.persistState"),
     prop: "persistState",
     type: "boolean",
   },
   {
     default: "localStorage",
-    description: "Storage to save tab state.",
-    id: 8,
+    description: t(
+      "ui.tabView.documentation.propsDescription.persistStateStorage",
+    ),
     prop: "persistStateStorage",
     type: '"localStorage" | "sessionStorage"',
   },
   {
     default: "top",
-    description: "Position of the tab panel header relative to its content.",
-    id: 9,
+    description: t("ui.tabView.documentation.propsDescription.position"),
     prop: "position",
     type: '"top" | "left" | "bottom" | "right"',
   },
   {
     default: "-",
-    description: "Array of tab object.",
-    id: 10,
+    description: t("ui.tabView.documentation.propsDescription.tabs"),
     prop: "tabs",
     type: "Tab[]",
   },
   {
     default: "-",
-    description: "Array of visible tabs.",
-    id: 11,
+    description: t("ui.tabView.documentation.propsDescription.visibleTabs"),
     prop: "visibleTabs",
     type: "string[]",
   },
 ];
 
-const slotColumns = [
+const slotsData = [
   {
-    accessorKey: "name",
-    header: "Name",
-  },
-  {
-    accessorKey: "description",
-    header: "Description",
+    description: t("ui.tabView.documentation.slotDescription.default"),
+    name: "default",
   },
 ];
 
