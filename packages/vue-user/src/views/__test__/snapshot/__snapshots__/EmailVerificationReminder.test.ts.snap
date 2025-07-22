@@ -37,7 +37,9 @@ exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
   >
     
     <p>
-      We've sent you an email with a link to verify your email address. Please check your inbox.
+      We've sent an email to 
+      <!--v-if-->
+       with a link for verification. Please check your inbox.
     </p>
     <p
       class="resend-email"
@@ -92,7 +94,9 @@ exports[`EmailVerificationReminder > matches snapshot in fr 1`] = `
   >
     
     <p>
-      We've sent you an email with a link to verify your email address. Please check your inbox.
+      We've sent an email to 
+      <!--v-if-->
+       with a link for verification. Please check your inbox.
     </p>
     <p
       class="resend-email"

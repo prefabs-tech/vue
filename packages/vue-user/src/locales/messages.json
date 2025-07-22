@@ -105,7 +105,7 @@
             "invalidToken": "The token is invalid",
             "success": "Email verified successfully"
           }, 
-          "verifyEmail": "We've sent you an email with a link to verify your email address. Please check your inbox.",
+          "verifyEmail": "We've sent an email to {0} with a link for verification. Please check your inbox.",
           "verifyingEmail": "Verifying email"
         },
         "title": "Please verify your email address",
@@ -513,7 +513,7 @@
             "invalidToken": "The token is invalid",
             "success": "Email verified successfully"
           }, 
-          "verifyEmail": "We've sent you an email with a link to verify your email address. Please check your inbox.",
+          "verifyEmail": "We've sent an email to {0} with a link for verification. Please check your inbox.",
           "verifyingEmail": "Verifying email"
         },
         "title": "Please verify your email address",
