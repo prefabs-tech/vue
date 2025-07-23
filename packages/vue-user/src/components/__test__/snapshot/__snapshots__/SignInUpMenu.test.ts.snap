@@ -10,14 +10,14 @@ exports[`SignInUpMenu > matches snapshot in en 1`] = `
       class=""
     >
       <a>
-        Signin
+        Log in
       </a>
     </li>
     <li
       class=""
     >
       <a>
-        Signup
+        Sign up
       </a>
     </li>
     
