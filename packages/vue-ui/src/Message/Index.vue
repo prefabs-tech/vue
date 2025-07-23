@@ -27,12 +27,7 @@
       </slot>
     </div>
 
-    <img
-      v-if="enableClose"
-      src="./../assets/svg/x-mark.svg"
-      class="close-message"
-      @click="onClose()"
-    />
+    <span v-if="enableClose" class="close-message" @click="onClose()" />
   </div>
 </template>
 
