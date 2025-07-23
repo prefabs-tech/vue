@@ -11,7 +11,7 @@
 .account-info > .data.update-email .value {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.45rem;
   margin-bottom: 0.5rem;
-  flex-wrap: wrap;
 }
