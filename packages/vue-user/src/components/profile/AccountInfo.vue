@@ -71,21 +71,5 @@ const showModal = ref<boolean>(false);
 </script>
 
 <style lang="css">
-.account-info > .data > .data-value {
-  align-items: center;
-  display: flex;
-  gap: 1rem;
-}
-
-.account-info > .data > .data-value > svg {
-  cursor: pointer;
-}
-
-.account-info .data.update-email .value {
-  align-items: center;
-  display: flex;
-  gap: 0.45rem;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
-}
+@import "../../assets/css/profile/account-info.css";
 </style>
