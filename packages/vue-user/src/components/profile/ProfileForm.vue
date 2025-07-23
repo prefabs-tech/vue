@@ -18,6 +18,8 @@
 
     <FormActions
       :loading="loading || !isDirty"
+      :submit-label="t('user.profile.form.actions.update')"
+      alignment="left"
       @cancel="dzangolabVueUpdateProfile.resetForm()"
     />
   </Form>
@@ -96,3 +98,7 @@ const onSubmit = async (data: UpdateProfileInputType) => {
     });
 };
 </script>
+
+<style lang="css">
+@import "../../assets/css/profile/profile-form.css";
+</style>
