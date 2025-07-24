@@ -12,12 +12,12 @@ import SyntaxHighlighter from "./components/SyntaxHighlighter.vue";
 import config from "./config";
 import router from "./router";
 
-import "@prefabs.tech/vue3-ui/dist/DzangolabVue3UI.css";
-import "@prefabs.tech/vue3-form/dist/DzangolabVue3Form.css";
-import "@prefabs.tech/vue3-i18n/dist/DzangolabVue3I18n.css";
-import "@prefabs.tech/vue3-layout/dist/DzangolabVue3Layout.css";
-import "@prefabs.tech/vue3-tanstack-table/dist/DzangolabVue3TanstackTable.css";
-import "@prefabs.tech/vue3-user/dist/DzangolabVue3User.css";
+import "@prefabs.tech/vue3-ui/dist/PrefabsTechVue3UI.css";
+import "@prefabs.tech/vue3-form/dist/PrefabsTechVue3Form.css";
+import "@prefabs.tech/vue3-i18n/dist/PrefabsTechVue3I18n.css";
+import "@prefabs.tech/vue3-layout/dist/PrefabsTechVue3Layout.css";
+import "@prefabs.tech/vue3-tanstack-table/dist/PrefabsTechVue3TanstackTable.css";
+import "@prefabs.tech/vue3-user/dist/PrefabsTechVue3User.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "simple-syntax-highlighter/dist/sshpre.css";
 import "./assets/css/index.css";

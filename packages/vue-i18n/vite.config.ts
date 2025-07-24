@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3I18n.${format}.js`,
+        fileName: (format) => `PrefabsTechVue3I18n.${format}.js`,
         name: "@prefabs.tech/vue3-i18n",
       },
       rollupOptions: {
@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@prefabs.tech/vue3-config": "DzangolabVue3Config",
+            "@prefabs.tech/vue3-config": "PrefabsTechVue3Config",
             pinia: "Pinia",
             vue: "Vue",
             "vue-i18n": "VueI18n",

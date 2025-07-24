@@ -34,7 +34,7 @@ Import and register the plugin in `main.ts`.
 
 ```ts
 import layoutPlugin from "@prefabs.tech/vue3-layout";
-import "@prefabs.tech/vue3-layout/dist/DzangolabVue3Layout.css";
+import "@prefabs.tech/vue3-layout/dist/PrefabsTechVue3Layout.css";
 
 app.use(layoutPlugin);
 

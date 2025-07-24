@@ -18,15 +18,15 @@ import SidebarOnlyLayout from "./layouts/SidebarOnlyLayout.vue";
 import messages from "./locales/messages.json";
 
 import type {
-  DzangolabVue3LayoutConfig,
-  DzangolabVue3LayoutPluginOptions,
+  PrefabsTechVue3LayoutConfig,
+  PrefabsTechVue3LayoutPluginOptions,
   LayoutType,
 } from "./types";
 import type { App } from "vue";
 
 declare module "@prefabs.tech/vue3-config" {
   interface AppConfig {
-    layout?: DzangolabVue3LayoutConfig;
+    layout?: PrefabsTechVue3LayoutConfig;
   }
 }
 
@@ -45,7 +45,7 @@ const useTranslations = () => {
 };
 
 const plugin = {
-  install: (app: App, options: DzangolabVue3LayoutPluginOptions): void => {
+  install: (app: App, options: PrefabsTechVue3LayoutPluginOptions): void => {
     app.component("Layout", Layout);
 
     const translations = options?.translations
@@ -75,8 +75,8 @@ export {
 };
 
 export type {
-  DzangolabVue3LayoutConfig,
-  DzangolabVue3LayoutPluginOptions,
+  PrefabsTechVue3LayoutConfig,
+  PrefabsTechVue3LayoutPluginOptions,
   LayoutType,
   MenuItem,
   SidebarMenu,

@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3Form.${format}.js`,
+        fileName: (format) => `PrefabsTechVue3Form.${format}.js`,
         name: "@prefabs.tech/vue3-form",
       },
       rollupOptions: {
@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@prefabs.tech/vue3-ui": "DzangolabVue3UI",
+            "@prefabs.tech/vue3-ui": "PrefabsTechVue3UI",
             "@vee-validate/i18n": "VeeValidateI18n",
             "@vee-validate/rules": "VeeValidateRules",
             "@vee-validate/zod": "VeeValidateZod",

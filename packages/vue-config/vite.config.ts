@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3Config.${format}.js`,
+        fileName: (format) => `PrefabsTechVue3Config.${format}.js`,
         name: "@prefabs.tech/vue3-config",
       },
       rollupOptions: {

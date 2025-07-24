@@ -6,12 +6,12 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/DzangolabVue3Config.es.js",
-      "require": "./dist/DzangolabVue3Config.umd.js"
+      "import": "./dist/PrefabsTechVue3Config.es.js",
+      "require": "./dist/PrefabsTechVue3Config.umd.js"
     }
   },
-  "main": "dist//DzangolabVue3Config.umd.js",
-  "module": "dist//DzangolabVue3Config.es.js",
+  "main": "dist//PrefabsTechVue3Config.umd.js",
+  "module": "dist//PrefabsTechVue3Config.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

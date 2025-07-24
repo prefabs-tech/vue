@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3User.${format}.js`,
+        fileName: (format) => `PrefabsTechVue3User.${format}.js`,
         name: "@prefabs.tech/vue3-user",
       },
       rollupOptions: {
@@ -26,10 +26,10 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@prefabs.tech/vue3-config": "DzangolabVue3Config",
-            "@prefabs.tech/vue3-i18n": "DzangolabVue3I18n",
-            "@prefabs.tech/vue3-layout": "DzangolabVue3Layout",
-            "@prefabs.tech/vue3-ui": "DzangolabVue3UI",
+            "@prefabs.tech/vue3-config": "PrefabsTechVue3Config",
+            "@prefabs.tech/vue3-i18n": "PrefabsTechVue3I18n",
+            "@prefabs.tech/vue3-layout": "PrefabsTechVue3Layout",
+            "@prefabs.tech/vue3-ui": "PrefabsTechVue3UI",
             axios: "Axios",
             pinia: "Pinia",
             vue: "Vue",

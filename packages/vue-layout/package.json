@@ -5,13 +5,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/DzangolabVue3Layout.es.js",
-      "require": "./dist/DzangolabVue3Layout.umd.js"
+      "import": "./dist/PrefabsTechVue3Layout.es.js",
+      "require": "./dist/PrefabsTechVue3Layout.umd.js"
     },
-    "./dist/DzangolabVue3Layout.css": "./dist/vue3-layout.css"
+    "./dist/PrefabsTechVue3Layout.css": "./dist/vue3-layout.css"
   },
-  "main": "dist//DzangolabVue3Layout.umd.js",
-  "module": "dist//DzangolabVue3Layout.es.js",
+  "main": "dist//PrefabsTechVue3Layout.umd.js",
+  "module": "dist//PrefabsTechVue3Layout.es.js",
   "types": "./dist/src/index.d.ts",
   "files": ["dist"],
   "scripts": {

@@ -6,13 +6,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/DzangolabVue3Form.es.js",
-      "require": "./dist/DzangolabVue3Form.umd.js"
+      "import": "./dist/PrefabsTechVue3Form.es.js",
+      "require": "./dist/PrefabsTechVue3Form.umd.js"
     },
-    "./dist/DzangolabVue3Form.css": "./dist/vue3-form.css"
+    "./dist/PrefabsTechVue3Form.css": "./dist/vue3-form.css"
   },
-  "main": "dist//DzangolabVue3Form.umd.js",
-  "module": "dist//DzangolabVue3Form.es.js",
+  "main": "dist//PrefabsTechVue3Form.umd.js",
+  "module": "dist//PrefabsTechVue3Form.es.js",
   "types": "./dist/src/index.d.ts",
   "files": ["dist"],
   "scripts": {
