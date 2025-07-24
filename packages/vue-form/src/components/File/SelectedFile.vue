@@ -63,7 +63,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 

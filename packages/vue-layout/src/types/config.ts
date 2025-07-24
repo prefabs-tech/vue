@@ -1,6 +1,6 @@
 import type { MenuItem } from "./menu";
-import type { AppConfig } from "@dzangolab/vue3-config";
-import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 
 interface DzangolabVue3LayoutConfig {
   homeRoute?: "home" | string;

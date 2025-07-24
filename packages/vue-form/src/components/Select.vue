@@ -184,7 +184,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DebouncedInput, Divider, Tooltip } from "@dzangolab/vue3-ui";
+import { DebouncedInput, Divider, Tooltip } from "@prefabs.tech/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { computed, nextTick, onMounted, ref, toRefs, watch } from "vue";
 

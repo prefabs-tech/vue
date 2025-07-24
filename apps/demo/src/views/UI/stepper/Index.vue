@@ -27,7 +27,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Stepper } from "@dzangolab/vue3-ui";
+          import { Stepper } from "@prefabs.tech/vue3-ui";
 
           import { useRouter } from "vue-router";
 
@@ -86,7 +86,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Stepper } from "@dzangolab/vue3-ui";
+          import { Stepper } from "@prefabs.tech/vue3-ui";
 
           const steps = [
             {
@@ -200,9 +200,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { useI18n } from "@dzangolab/vue3-i18n";
-          import { TextInput, NumberInput } from "@dzangolab/vue3-form";
-          import { Stepper } from "@dzangolab/vue3-ui";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
+          import { TextInput, NumberInput } from "@prefabs.tech/vue3-form";
+          import { Stepper } from "@prefabs.tech/vue3-ui";
 
           import { reactive } from "vue";
 
@@ -260,9 +260,9 @@
 </template>
 
 <script setup lang="ts">
-import { TextInput, NumberInput } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, Stepper } from "@dzangolab/vue3-ui";
+import { TextInput, NumberInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement, Stepper } from "@prefabs.tech/vue3-ui";
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 

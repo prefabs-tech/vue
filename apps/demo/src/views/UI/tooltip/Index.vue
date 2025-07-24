@@ -43,7 +43,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, Tooltip } from "@dzangolab/vue3-ui";
+            import { ButtonElement, Tooltip } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -78,7 +78,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
 
           &lt;style lang="css"&gt;
@@ -122,7 +122,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -156,7 +156,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -190,7 +190,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -224,7 +224,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -258,7 +258,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Tooltip } from "@dzangolab/vue3-ui";
+          import { Tooltip } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -274,7 +274,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, Tooltip } from "@dzangolab/vue3-ui";
+import { ButtonElement, Tooltip } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";

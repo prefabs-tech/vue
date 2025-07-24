@@ -52,7 +52,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
   
             const currentTime = ref(undefined as unknown as Date);
@@ -105,7 +105,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showModal = ref(false);
@@ -152,7 +152,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showModal = ref(false);
@@ -199,7 +199,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showModal = ref(false);
@@ -289,7 +289,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showModal = ref(false);
@@ -384,9 +384,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
-            import { useI18n } from "@dzangolab/vue3-i18n";
+            import { useI18n } from "@prefabs.tech/vue3-i18n";
 
             const showModal = ref(false);
             const { t } = useI18n();
@@ -408,7 +408,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";

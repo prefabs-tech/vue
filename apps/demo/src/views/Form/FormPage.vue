@@ -19,8 +19,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Sidebar } from "@dzangolab/vue3-layout";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Sidebar } from "@prefabs.tech/vue3-layout";
 
 import type { PropType } from "vue";
 

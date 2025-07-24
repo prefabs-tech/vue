@@ -1,6 +1,6 @@
 import "./assets/css/index.css";
 
-import { prependMessages } from "@dzangolab/vue3-i18n";
+import { prependMessages } from "@prefabs.tech/vue3-i18n";
 import { inject } from "vue";
 
 import AppFooter from "./components/AppFooter.vue";
@@ -24,7 +24,7 @@ import type {
 } from "./types";
 import type { App } from "vue";
 
-declare module "@dzangolab/vue3-config" {
+declare module "@prefabs.tech/vue3-config" {
   interface AppConfig {
     layout?: DzangolabVue3LayoutConfig;
   }

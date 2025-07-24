@@ -32,8 +32,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Email, FormActions } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
+import { Email, FormActions } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Form } from "vee-validate";
 
 import { useTranslations } from "../index";

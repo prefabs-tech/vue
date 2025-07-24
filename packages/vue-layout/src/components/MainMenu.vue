@@ -14,7 +14,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ResponsiveMenu } from "@dzangolab/vue3-ui";
+import { ResponsiveMenu } from "@prefabs.tech/vue3-ui";
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 

@@ -18,7 +18,7 @@ import {
   PasswordResetRequestPayload
 } from "./types";
 
-import type { AppConfig } from "@dzangolab/vue3-config";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 let authConfig: AppConfig | undefined;
 

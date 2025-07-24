@@ -1,5 +1,5 @@
 module.exports = {
-  appName: "@dzangolab/vue",
+  appName: "@prefabs.tech/vue",
   buildCommand: ({ isYarn, version }) => {
     return "pnpm build";
   },

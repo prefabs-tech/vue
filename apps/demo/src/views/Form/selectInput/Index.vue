@@ -31,7 +31,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const options = ref([
@@ -70,7 +70,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const options = ref([
@@ -111,7 +111,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
   
           const disabled = ref("de");
@@ -154,7 +154,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const options = ref([
@@ -197,7 +197,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const options = ref([
@@ -236,9 +236,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
 
@@ -278,7 +278,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           import { countries } from "../data";
@@ -311,7 +311,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const options = ref([
@@ -362,7 +362,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const options = ref([
@@ -405,7 +405,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const disabled = ref(["be", "de"]);
@@ -448,7 +448,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           import { countries } from "../data";
@@ -487,7 +487,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const options = ref([
@@ -539,7 +539,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const options = ref([
@@ -580,7 +580,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const options = ref([
@@ -652,9 +652,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SelectInput } from "@dzangolab/vue3-form";
+          import { SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
 
@@ -702,7 +702,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, SelectInput } from "@dzangolab/vue3-form";
+          import { Form, SelectInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -738,7 +738,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, SelectInput } from "@dzangolab/vue3-form";
+          import { Form, SelectInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const inputSchema = z
@@ -768,9 +768,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, SelectInput } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, SelectInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

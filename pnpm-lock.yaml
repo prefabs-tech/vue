@@ -26,27 +26,6 @@ importers:
 
   apps/demo:
     dependencies:
-      '@dzangolab/vue3-config':
-        specifier: 0.11.0
-        version: link:../../packages/vue-config
-      '@dzangolab/vue3-form':
-        specifier: 0.11.0
-        version: link:../../packages/vue-form
-      '@dzangolab/vue3-i18n':
-        specifier: 0.11.0
-        version: link:../../packages/vue-i18n
-      '@dzangolab/vue3-layout':
-        specifier: 0.11.0
-        version: link:../../packages/vue-layout
-      '@dzangolab/vue3-tanstack-table':
-        specifier: 0.11.0
-        version: link:../../packages/vue-tanstack-table
-      '@dzangolab/vue3-ui':
-        specifier: 0.11.0
-        version: link:../../packages/vue-ui
-      '@dzangolab/vue3-user':
-        specifier: 0.11.0
-        version: link:../../packages/vue-user
       '@fortawesome/fontawesome-free':
         specifier: 6.7.2
         version: 6.7.2
@@ -56,6 +35,27 @@ importers:
       '@kyvg/vue3-notification':
         specifier: 3.4.1
         version: 3.4.1(vue@3.5.13(typescript@5.5.4))
+      '@prefabs.tech/vue3-config':
+        specifier: 0.11.0
+        version: link:../../packages/vue-config
+      '@prefabs.tech/vue3-form':
+        specifier: 0.11.0
+        version: link:../../packages/vue-form
+      '@prefabs.tech/vue3-i18n':
+        specifier: 0.11.0
+        version: link:../../packages/vue-i18n
+      '@prefabs.tech/vue3-layout':
+        specifier: 0.11.0
+        version: link:../../packages/vue-layout
+      '@prefabs.tech/vue3-tanstack-table':
+        specifier: 0.11.0
+        version: link:../../packages/vue-tanstack-table
+      '@prefabs.tech/vue3-ui':
+        specifier: 0.11.0
+        version: link:../../packages/vue-ui
+      '@prefabs.tech/vue3-user':
+        specifier: 0.11.0
+        version: link:../../packages/vue-user
       pinia:
         specifier: 3.0.1
         version: 3.0.1(typescript@5.5.4)(vue@3.5.13(typescript@5.5.4))
@@ -75,12 +75,12 @@ importers:
         specifier: 4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.5.4))
     devDependencies:
-      '@12deg/eslint-config':
-        specifier: 0.1.11
-        version: 0.1.11(vnjhmgjyaxqdqqy264znmyntye)
-      '@12deg/tsconfig':
-        specifier: 0.1.11
-        version: 0.1.11(@types/node@22.13.5)
+      '@prefabs.tech/eslint-config':
+        specifier: 0.2.0
+        version: 0.2.0(vnjhmgjyaxqdqqy264znmyntye)
+      '@prefabs.tech/tsconfig':
+        specifier: 0.2.0
+        version: 0.2.0(@types/node@22.13.5)
       '@types/jsdom':
         specifier: 21.1.7
         version: 21.1.7
@@ -181,12 +181,12 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(pinia@3.0.1(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
     devDependencies:
-      '@12deg/eslint-config':
-        specifier: 0.1.11
-        version: 0.1.11(vqalw7sgwmgtp4mpnqeon5egvm)
-      '@12deg/tsconfig':
-        specifier: 0.1.11
-        version: 0.1.11(@types/node@22.13.5)
+      '@prefabs.tech/eslint-config':
+        specifier: 0.2.0
+        version: 0.2.0(vqalw7sgwmgtp4mpnqeon5egvm)
+      '@prefabs.tech/tsconfig':
+        specifier: 0.2.0
+        version: 0.2.0(@types/node@22.13.5)
       '@types/node':
         specifier: 22.13.5
         version: 22.13.5
@@ -260,13 +260,13 @@ importers:
         specifier: 13.12.0
         version: 13.12.0
     devDependencies:
-      '@12deg/eslint-config':
-        specifier: 0.1.11
-        version: 0.1.11(vnjhmgjyaxqdqqy264znmyntye)
-      '@12deg/tsconfig':
-        specifier: 0.1.11
-        version: 0.1.11(@types/node@22.13.5)
-      '@dzangolab/vue3-ui':
+      '@prefabs.tech/eslint-config':
+        specifier: 0.2.0
+        version: 0.2.0(vnjhmgjyaxqdqqy264znmyntye)
+      '@prefabs.tech/tsconfig':
+        specifier: 0.2.0
+        version: 0.2.0(@types/node@22.13.5)
+      '@prefabs.tech/vue3-ui':
         specifier: 0.11.0
         version: link:../vue-ui
       '@types/node':
@@ -369,13 +369,13 @@ importers:
         specifier: 9.1.10
         version: 9.1.10(vue@3.5.13(typescript@5.5.4))
     devDependencies:
-      '@12deg/eslint-config':
-        specifier: 0.1.11
-        version: 0.1.11(vnjhmgjyaxqdqqy264znmyntye)
-      '@12deg/tsconfig':
-        specifier: 0.1.11
-        version: 0.1.11(@types/node@22.13.5)
-      '@dzangolab/vue3-config':
+      '@prefabs.tech/eslint-config':
+        specifier: 0.2.0
+        version: 0.2.0(vnjhmgjyaxqdqqy264znmyntye)
+      '@prefabs.tech/tsconfig':
+        specifier: 0.2.0
+        version: 0.2.0(@types/node@22.13.5)
+      '@prefabs.tech/vue3-config':
         specifier: 0.11.0
         version: link:../vue-config
       '@types/node':
@@ -453,24 +453,24 @@ importers:
 
   packages/vue-layout:
     devDependencies:
-      '@12deg/eslint-config':
-        specifier: 0.1.11
-        version: 0.1.11(vnjhmgjyaxqdqqy264znmyntye)
-      '@12deg/tsconfig':
-        specifier: 0.1.11
-        version: 0.1.11(@types/node@22.13.5)
-      '@dzangolab/vue3-config':
-        specifier: 0.11.0
-        version: link:../vue-config
-      '@dzangolab/vue3-i18n':
-        specifier: 0.11.0
-        version: link:../vue-i18n
-      '@dzangolab/vue3-ui':
-        specifier: 0.11.0
-        version: link:../vue-ui
       '@iconify/vue':
         specifier: 4.3.0
         version: 4.3.0(vue@3.5.13(typescript@5.5.4))
+      '@prefabs.tech/eslint-config':
+        specifier: 0.2.0
+        version: 0.2.0(vnjhmgjyaxqdqqy264znmyntye)
+      '@prefabs.tech/tsconfig':
+        specifier: 0.2.0
+        version: 0.2.0(@types/node@22.13.5)
+      '@prefabs.tech/vue3-config':
+        specifier: 0.11.0
+        version: link:../vue-config
+      '@prefabs.tech/vue3-i18n':
+        specifier: 0.11.0
+        version: link:../vue-i18n
+      '@prefabs.tech/vue3-ui':
+        specifier: 0.11.0
+        version: link:../vue-ui
       '@types/node':
         specifier: 22.13.5
         version: 22.13.5
@@ -550,21 +550,21 @@ importers:
         specifier: 8.21.2
         version: 8.21.2(vue@3.5.13(typescript@5.5.4))
     devDependencies:
-      '@12deg/eslint-config':
-        specifier: 0.1.11
-        version: 0.1.11(vnjhmgjyaxqdqqy264znmyntye)
-      '@12deg/tsconfig':
-        specifier: 0.1.11
-        version: 0.1.11(@types/node@22.13.5)
-      '@dzangolab/vue3-form':
-        specifier: 0.11.0
-        version: link:../vue-form
-      '@dzangolab/vue3-ui':
-        specifier: 0.11.0
-        version: link:../vue-ui
       '@iconify/vue':
         specifier: 4.3.0
         version: 4.3.0(vue@3.5.13(typescript@5.5.4))
+      '@prefabs.tech/eslint-config':
+        specifier: 0.2.0
+        version: 0.2.0(vnjhmgjyaxqdqqy264znmyntye)
+      '@prefabs.tech/tsconfig':
+        specifier: 0.2.0
+        version: 0.2.0(@types/node@22.13.5)
+      '@prefabs.tech/vue3-form':
+        specifier: 0.11.0
+        version: link:../vue-form
+      '@prefabs.tech/vue3-ui':
+        specifier: 0.11.0
+        version: link:../vue-ui
       '@types/node':
         specifier: 22.13.5
         version: 22.13.5
@@ -637,12 +637,12 @@ importers:
 
   packages/vue-ui:
     devDependencies:
-      '@12deg/eslint-config':
-        specifier: 0.1.11
-        version: 0.1.11(vnjhmgjyaxqdqqy264znmyntye)
-      '@12deg/tsconfig':
-        specifier: 0.1.11
-        version: 0.1.11(@types/node@22.13.5)
+      '@prefabs.tech/eslint-config':
+        specifier: 0.2.0
+        version: 0.2.0(vnjhmgjyaxqdqqy264znmyntye)
+      '@prefabs.tech/tsconfig':
+        specifier: 0.2.0
+        version: 0.2.0(@types/node@22.13.5)
       '@types/node':
         specifier: 22.13.5
         version: 22.13.5
@@ -725,33 +725,33 @@ importers:
         specifier: 16.0.1
         version: 16.0.1
     devDependencies:
-      '@12deg/eslint-config':
-        specifier: 0.1.11
-        version: 0.1.11(vnjhmgjyaxqdqqy264znmyntye)
-      '@12deg/tsconfig':
-        specifier: 0.1.11
-        version: 0.1.11(@types/node@22.13.5)
-      '@dzangolab/vue3-config':
-        specifier: 0.11.0
-        version: link:../vue-config
-      '@dzangolab/vue3-form':
-        specifier: 0.11.0
-        version: link:../vue-form
-      '@dzangolab/vue3-i18n':
-        specifier: 0.11.0
-        version: link:../vue-i18n
-      '@dzangolab/vue3-layout':
-        specifier: 0.11.0
-        version: link:../vue-layout
-      '@dzangolab/vue3-tanstack-table':
-        specifier: 0.11.0
-        version: link:../vue-tanstack-table
-      '@dzangolab/vue3-ui':
-        specifier: 0.11.0
-        version: link:../vue-ui
       '@iconify/vue':
         specifier: 4.3.0
         version: 4.3.0(vue@3.5.13(typescript@5.5.4))
+      '@prefabs.tech/eslint-config':
+        specifier: 0.2.0
+        version: 0.2.0(vnjhmgjyaxqdqqy264znmyntye)
+      '@prefabs.tech/tsconfig':
+        specifier: 0.2.0
+        version: 0.2.0(@types/node@22.13.5)
+      '@prefabs.tech/vue3-config':
+        specifier: 0.11.0
+        version: link:../vue-config
+      '@prefabs.tech/vue3-form':
+        specifier: 0.11.0
+        version: link:../vue-form
+      '@prefabs.tech/vue3-i18n':
+        specifier: 0.11.0
+        version: link:../vue-i18n
+      '@prefabs.tech/vue3-layout':
+        specifier: 0.11.0
+        version: link:../vue-layout
+      '@prefabs.tech/vue3-tanstack-table':
+        specifier: 0.11.0
+        version: link:../vue-tanstack-table
+      '@prefabs.tech/vue3-ui':
+        specifier: 0.11.0
+        version: link:../vue-ui
       '@types/node':
         specifier: 22.13.5
         version: 22.13.5
@@ -850,43 +850,6 @@ importers:
         version: 3.24.2
 
 packages:
-
-  '@12deg/eslint-config@0.1.11':
-    resolution: {integrity: sha512-g7OhBCEVQO/JeHrXQtf9wpzNpu4TixGQry2EO+lqeVYQQy1T67BneUdip+VqtTWWG7oKZ7qffHcrk7UDhTZxhg==}
-    peerDependencies:
-      '@typescript-eslint/eslint-plugin': '>=8.14.0'
-      '@typescript-eslint/parser': '>=8.14.0'
-      eslint: '>=8.57.1 <9.0.0'
-      eslint-config-prettier: '>=9.1.0'
-      eslint-config-react-app: '>=7.0.1'
-      eslint-import-resolver-alias: '>=1.1.2'
-      eslint-import-resolver-typescript: '>=3.6.3'
-      eslint-plugin-cypress: '>=3.6.0'
-      eslint-plugin-import: '>=2.31.0'
-      eslint-plugin-n: '>=14.0.0'
-      eslint-plugin-prettier: '>=5.2.1'
-      eslint-plugin-promise: '>=7.1.0'
-      eslint-plugin-unicorn: '>=56.0.1'
-      eslint-plugin-vue: '>=9.29.0'
-      prettier: '>=3.3.3'
-      typescript: '>=4.9.5'
-      vue-eslint-parser: '>=9.4.3'
-    peerDependenciesMeta:
-      eslint-config-react-app:
-        optional: true
-      eslint-plugin-cypress:
-        optional: true
-      eslint-plugin-n:
-        optional: true
-      eslint-plugin-promise:
-        optional: true
-      eslint-plugin-vue:
-        optional: true
-      vue-eslint-parser:
-        optional: true
-
-  '@12deg/tsconfig@0.1.11':
-    resolution: {integrity: sha512-r/q6ZRX4sl7IMUNYlvPTjPZQAyBhcjepduoqP69owZG+SZbu75+Cfw6KfYphpm1LWzf6Y7eAv7ee8BLAPoojPg==}
 
   '@ampproject/remapping@2.2.0':
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
@@ -2058,6 +2021,43 @@ packages:
   '@pkgr/core@0.1.1':
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+
+  '@prefabs.tech/eslint-config@0.2.0':
+    resolution: {integrity: sha512-ILmLo3T7XkCo4Yrxs+LanzETwn+MRtq4LAz3EzAAB5WyvJ0vJHZcwovR7QFfsmQffMD3/Y3U69eDKT2iCPIYHA==}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': '>=8.14.0'
+      '@typescript-eslint/parser': '>=8.14.0'
+      eslint: '>=8.57.1 <9.0.0'
+      eslint-config-prettier: '>=9.1.0'
+      eslint-config-react-app: '>=7.0.1'
+      eslint-import-resolver-alias: '>=1.1.2'
+      eslint-import-resolver-typescript: '>=3.6.3'
+      eslint-plugin-cypress: '>=3.6.0'
+      eslint-plugin-import: '>=2.31.0'
+      eslint-plugin-n: '>=14.0.0'
+      eslint-plugin-prettier: '>=5.2.1'
+      eslint-plugin-promise: '>=7.1.0'
+      eslint-plugin-unicorn: '>=56.0.1'
+      eslint-plugin-vue: '>=9.29.0'
+      prettier: '>=3.3.3'
+      typescript: '>=4.9.5'
+      vue-eslint-parser: '>=9.4.3'
+    peerDependenciesMeta:
+      eslint-config-react-app:
+        optional: true
+      eslint-plugin-cypress:
+        optional: true
+      eslint-plugin-n:
+        optional: true
+      eslint-plugin-promise:
+        optional: true
+      eslint-plugin-vue:
+        optional: true
+      vue-eslint-parser:
+        optional: true
+
+  '@prefabs.tech/tsconfig@0.2.0':
+    resolution: {integrity: sha512-AUsEmP7j7NnfEYa18u4bkXJlijk2duaKaEhhhfeTCOj01nNRMhaqGWYkYaphdiUR4mSU3e1+wkVvJBbX8Ri3fg==}
 
   '@rollup/rollup-android-arm-eabi@4.38.0':
     resolution: {integrity: sha512-ldomqc4/jDZu/xpYU+aRxo3V4mGCV9HeTgUBANI3oIQMOL+SsxB+S2lxMpkFp5UamSS3XuTMQVbsS24R4J4Qjg==}
@@ -5750,54 +5750,6 @@ packages:
 
 snapshots:
 
-  '@12deg/eslint-config@0.1.11(vnjhmgjyaxqdqqy264znmyntye)':
-    dependencies:
-      '@typescript-eslint/eslint-plugin': 8.24.1(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
-      '@typescript-eslint/parser': 8.24.1(eslint@8.57.1)(typescript@5.5.4)
-      eslint: 8.57.1
-      eslint-config-prettier: 9.1.0(eslint@8.57.1)
-      eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.31.0)
-      eslint-import-resolver-typescript: 3.8.3(eslint-plugin-import@2.31.0)(eslint@8.57.1)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)
-      eslint-plugin-prettier: 5.2.3(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.2)
-      eslint-plugin-unicorn: 56.0.1(eslint@8.57.1)
-      prettier: 3.5.2
-      typescript: 5.5.4
-    optionalDependencies:
-      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)(typescript@5.5.4)
-      eslint-plugin-cypress: 3.6.0(eslint@8.57.1)
-      eslint-plugin-n: 14.0.0(eslint@8.57.1)
-      eslint-plugin-promise: 7.1.0(eslint@8.57.1)
-      eslint-plugin-vue: 9.32.0(eslint@8.57.1)
-      vue-eslint-parser: 9.4.3(eslint@8.57.1)
-
-  '@12deg/eslint-config@0.1.11(vqalw7sgwmgtp4mpnqeon5egvm)':
-    dependencies:
-      '@typescript-eslint/eslint-plugin': 8.24.1(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
-      '@typescript-eslint/parser': 8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
-      eslint: 9.20.1(jiti@2.4.2)
-      eslint-config-prettier: 10.0.1(eslint@9.20.1(jiti@2.4.2))
-      eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.31.0)
-      eslint-import-resolver-typescript: 3.8.3(eslint-plugin-import@2.31.0)(eslint@9.20.1(jiti@2.4.2))
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3)(eslint@9.20.1(jiti@2.4.2))
-      eslint-plugin-prettier: 5.2.3(eslint-config-prettier@10.0.1(eslint@9.20.1(jiti@2.4.2)))(eslint@9.20.1(jiti@2.4.2))(prettier@3.5.2)
-      eslint-plugin-unicorn: 56.0.1(eslint@9.20.1(jiti@2.4.2))
-      prettier: 3.5.2
-      typescript: 5.7.3
-    optionalDependencies:
-      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint-import-resolver-typescript@3.8.3)(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
-      eslint-plugin-cypress: 3.6.0(eslint@9.20.1(jiti@2.4.2))
-      eslint-plugin-n: 14.0.0(eslint@9.20.1(jiti@2.4.2))
-      eslint-plugin-promise: 7.1.0(eslint@9.20.1(jiti@2.4.2))
-      eslint-plugin-vue: 9.32.0(eslint@9.20.1(jiti@2.4.2))
-      vue-eslint-parser: 9.4.3(eslint@9.20.1(jiti@2.4.2))
-
-  '@12deg/tsconfig@0.1.11(@types/node@22.13.5)':
-    dependencies:
-      '@vue/tsconfig': 0.1.3(@types/node@22.13.5)
-    transitivePeerDependencies:
-      - '@types/node'
-
   '@ampproject/remapping@2.2.0':
     dependencies:
       '@jridgewell/gen-mapping': 0.1.1
@@ -7286,6 +7238,54 @@ snapshots:
     optional: true
 
   '@pkgr/core@0.1.1': {}
+
+  '@prefabs.tech/eslint-config@0.2.0(vnjhmgjyaxqdqqy264znmyntye)':
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 8.24.1(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
+      '@typescript-eslint/parser': 8.24.1(eslint@8.57.1)(typescript@5.5.4)
+      eslint: 8.57.1
+      eslint-config-prettier: 9.1.0(eslint@8.57.1)
+      eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.31.0)
+      eslint-import-resolver-typescript: 3.8.3(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)
+      eslint-plugin-prettier: 5.2.3(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.2)
+      eslint-plugin-unicorn: 56.0.1(eslint@8.57.1)
+      prettier: 3.5.2
+      typescript: 5.5.4
+    optionalDependencies:
+      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)(typescript@5.5.4)
+      eslint-plugin-cypress: 3.6.0(eslint@8.57.1)
+      eslint-plugin-n: 14.0.0(eslint@8.57.1)
+      eslint-plugin-promise: 7.1.0(eslint@8.57.1)
+      eslint-plugin-vue: 9.32.0(eslint@8.57.1)
+      vue-eslint-parser: 9.4.3(eslint@8.57.1)
+
+  '@prefabs.tech/eslint-config@0.2.0(vqalw7sgwmgtp4mpnqeon5egvm)':
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 8.24.1(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
+      '@typescript-eslint/parser': 8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
+      eslint: 9.20.1(jiti@2.4.2)
+      eslint-config-prettier: 10.0.1(eslint@9.20.1(jiti@2.4.2))
+      eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.31.0)
+      eslint-import-resolver-typescript: 3.8.3(eslint-plugin-import@2.31.0)(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3)(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-prettier: 5.2.3(eslint-config-prettier@10.0.1(eslint@9.20.1(jiti@2.4.2)))(eslint@9.20.1(jiti@2.4.2))(prettier@3.5.2)
+      eslint-plugin-unicorn: 56.0.1(eslint@9.20.1(jiti@2.4.2))
+      prettier: 3.5.2
+      typescript: 5.7.3
+    optionalDependencies:
+      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint-import-resolver-typescript@3.8.3)(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
+      eslint-plugin-cypress: 3.6.0(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-n: 14.0.0(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-promise: 7.1.0(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-vue: 9.32.0(eslint@9.20.1(jiti@2.4.2))
+      vue-eslint-parser: 9.4.3(eslint@9.20.1(jiti@2.4.2))
+
+  '@prefabs.tech/tsconfig@0.2.0(@types/node@22.13.5)':
+    dependencies:
+      '@vue/tsconfig': 0.1.3(@types/node@22.13.5)
+    transitivePeerDependencies:
+      - '@types/node'
 
   '@rollup/rollup-android-arm-eabi@4.38.0':
     optional: true

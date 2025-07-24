@@ -37,9 +37,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
@@ -112,14 +112,14 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Table } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import { city, data } from "./data";
 import TablePage from "./TablePage.vue";
 
-import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
 
 const { t } = useI18n();
 

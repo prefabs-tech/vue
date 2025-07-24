@@ -1,8 +1,8 @@
-# Dzangolab Vue3 Layout Plugin
+# Prefabs Tech Vue3 Layout Plugin
 
 ## Requirements
 
-* `@dzangolab/vue3-config: >= 0.6.5`
+* `@prefabs.tech/vue3-config: >= 0.6.5`
 * `vue: >= 3.2`
 * `vue-router: >= 4.0`
 
@@ -11,19 +11,19 @@
 ### npm
 
 ```bash
-npm install @dzangolab/vue3-layout @dzangolab/vue3-config`
+npm install @prefabs.tech/vue3-layout @prefabs.tech/vue3-config`
 ```
 
 ### yarn
 
 ```bash
-yarn add @dzangolab/vue3-layout @dzangolab/vue3-config
+yarn add @prefabs.tech/vue3-layout @prefabs.tech/vue3-config
 ```
 
 ### PNPM
 
 ```bash
-pnpm add @dzangolab/vue3-layout @dzangolab/vue3-config
+pnpm add @prefabs.tech/vue3-layout @prefabs.tech/vue3-config
 ```
 
 ## Usage
@@ -33,8 +33,8 @@ pnpm add @dzangolab/vue3-layout @dzangolab/vue3-config
 Import and register the plugin in `main.ts`.
 
 ```ts
-import layoutPlugin from "@dzangolab/vue3-layout";
-import "@dzangolab/vue3-layout/dist/DzangolabVue3Layout.css";
+import layoutPlugin from "@prefabs.tech/vue3-layout";
+import "@prefabs.tech/vue3-layout/dist/DzangolabVue3Layout.css";
 
 app.use(layoutPlugin);
 
@@ -57,7 +57,7 @@ app.mount("#app");
 </template>
 
 <script setup lang="ts">
-import { BasicLayout } from "@dzangolab/vue3-layout";
+import { BasicLayout } from "@prefabs.tech/vue3-layout";
 import { computed } from "vue";
 
 const defaultLayout = computed(() => {

@@ -27,7 +27,7 @@
         &lt;/template&gt;
         
         &lt;script setup lang="ts"&gt;
-        import { TabbedPanel } from "@dzangolab/vue3-ui";
+        import { TabbedPanel } from "@prefabs.tech/vue3-ui";
         &lt;/script&gt;
       </SshPre>
       <!-- eslint-enable -->
@@ -75,9 +75,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { TabbedPanel } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { TabbedPanel } from "@prefabs.tech/vue3-ui";
 
 import Pane1 from "./Pane1.vue";
 import Pane2 from "./Pane2.vue";

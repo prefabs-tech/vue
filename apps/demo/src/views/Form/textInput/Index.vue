@@ -29,7 +29,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TextInput } from "@dzangolab/vue3-form";
+          import { TextInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -57,7 +57,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TextInput } from "@dzangolab/vue3-form";
+          import { TextInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -85,7 +85,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Input } from "@dzangolab/vue3-form";
+          import { Input } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -113,8 +113,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TextInput } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { TextInput } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
           &lt;/script&gt;
@@ -148,7 +148,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, TextInput } from "@dzangolab/vue3-form";
+          import { Form, TextInput } from "@prefabs.tech/vue3-form";
 
           const validationOptions = {
             ignore_whitespace: true,
@@ -187,7 +187,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, TextInput } from "@dzangolab/vue3-form";
+          import { Form, TextInput } from "@prefabs.tech/vue3-form";
 
           const validationMessages = {
             required: "The field should not be empty"
@@ -230,7 +230,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, Input } from "@dzangolab/vue3-form";
+          import { Form, Input } from "@prefabs.tech/vue3-form";
           import { z } from "zod";
 
           const inputSchema = z.string()
@@ -250,9 +250,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, TextInput } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, TextInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

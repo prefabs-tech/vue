@@ -21,9 +21,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { Email, Form, FormActions } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { Email, Form, FormActions } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 

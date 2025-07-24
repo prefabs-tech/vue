@@ -29,7 +29,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { NumberInput } from "@dzangolab/vue3-form";
+          import { NumberInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -57,7 +57,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { NumberInput } from "@dzangolab/vue3-form";
+          import { NumberInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -85,7 +85,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { NumberInput } from "@dzangolab/vue3-form";
+          import { NumberInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -113,8 +113,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { NumberInput } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { NumberInput } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
           &lt;/script&gt;
@@ -148,9 +148,9 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, NumberInput } from "@dzangolab/vue3-form";
+          import { Form, NumberInput } from "@prefabs.tech/vue3-form";
           
-          import type { IsIntOptions } from "@dzangolab/vue3-form";
+          import type { IsIntOptions } from "@prefabs.tech/vue3-form";
   
           const validationOptions = {
             min: 1,
@@ -190,9 +190,9 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, NumberInput } from "@dzangolab/vue3-form";
+          import { Form, NumberInput } from "@prefabs.tech/vue3-form";
 
-          import type { NumberErrorMessages, IsIntOptions } from "@dzangolab/vue3-form";
+          import type { NumberErrorMessages, IsIntOptions } from "@prefabs.tech/vue3-form";
 
           const validationMessages = {
             invalid: "Please provide a number between 1 to 100",
@@ -237,7 +237,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, NumberInput } from "@dzangolab/vue3-form";
+          import { Form, NumberInput } from "@prefabs.tech/vue3-form";
           import { z } from "zod";
 
           const invalidNumberError = "Please provide a number between 1 to 100";
@@ -261,15 +261,18 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, NumberInput } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, NumberInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
 import FormPage from "../FormPage.vue";
 
-import type { NumberErrorMessages, IsIntOptions } from "@dzangolab/vue3-form";
+import type {
+  NumberErrorMessages,
+  IsIntOptions,
+} from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
 

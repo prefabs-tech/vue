@@ -21,7 +21,7 @@
           &lt;EditableContent v-model="input" /&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { EditableContent } from "@dzangolab/vue3-form";
+          import { EditableContent } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref("Basic");
@@ -48,7 +48,7 @@
           &lt;EditableContent v-model="input3" content-element="u" /&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { EditableContent } from "@dzangolab/vue3-form";
+          import { EditableContent } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input1 = ref("Input");
@@ -71,7 +71,7 @@
           &lt;EditableContent v-model="input" :allow-edit="false" /&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { EditableContent } from "@dzangolab/vue3-form";
+          import { EditableContent } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref("Title");
@@ -100,7 +100,7 @@
           &lt;EditableContent v-model="input4" size="full" /&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { EditableContent } from "@dzangolab/vue3-form";
+          import { EditableContent } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input1 = ref("Editable");
@@ -122,9 +122,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { EditableContent } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { EditableContent } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 
 import FormPage from "../FormPage.vue";

@@ -1,6 +1,6 @@
 import "./assets/css/index.css";
 
-import { prependMessages } from "@dzangolab/vue3-i18n";
+import { prependMessages } from "@prefabs.tech/vue3-i18n";
 import mitt from "mitt";
 import { inject } from "vue";
 
@@ -12,7 +12,7 @@ import userStore from "./store";
 import initSupertokens from "./supertokens";
 
 import type { DzangolabVueUserPluginOptions } from "./types";
-import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 import type { App, Plugin } from "vue";
 
 const __dzangolabVueUserTranslations = Symbol.for(

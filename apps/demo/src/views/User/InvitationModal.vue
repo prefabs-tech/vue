@@ -44,11 +44,11 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement } from "@dzangolab/vue3-ui";
-          import { InvitationModal } from "@dzangolab/vue3-user";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
+          import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
@@ -96,11 +96,11 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement } from "@dzangolab/vue3-ui";
-          import { InvitationModal } from "@dzangolab/vue3-user";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
+          import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
@@ -150,11 +150,11 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement } from "@dzangolab/vue3-ui";
-          import { InvitationModal } from "@dzangolab/vue3-user";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
+          import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
@@ -204,11 +204,11 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement } from "@dzangolab/vue3-ui";
-          import { InvitationModal } from "@dzangolab/vue3-user";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
+          import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
@@ -287,11 +287,11 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement } from "@dzangolab/vue3-ui";
-          import { InvitationModal } from "@dzangolab/vue3-user";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
+          import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
@@ -356,11 +356,11 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement } from "@dzangolab/vue3-ui";
-          import { InvitationModal } from "@dzangolab/vue3-user";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
+          import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
@@ -414,11 +414,11 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement } from "@dzangolab/vue3-ui";
-          import { InvitationModal } from "@dzangolab/vue3-user";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
+          import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
@@ -438,15 +438,15 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
-import { InvitationModal } from "@dzangolab/vue3-user";
 import { notify } from "@kyvg/vue3-notification";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
+import { InvitationModal } from "@prefabs.tech/vue3-user";
 import { ref } from "vue";
 
 import UserPage from "./UserPage.vue";
 
-import type { InvitationPayload } from "@dzangolab/vue3-user";
+import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
 const { t } = useI18n();
 

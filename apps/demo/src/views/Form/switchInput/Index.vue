@@ -23,7 +23,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SwitchInput } from "@dzangolab/vue3-form";
+          import { SwitchInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -46,7 +46,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SwitchInput } from "@dzangolab/vue3-form";
+          import { SwitchInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -74,7 +74,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SwitchInput } from "@dzangolab/vue3-form";
+          import { SwitchInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const disabled = ref(true);
@@ -107,7 +107,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SwitchInput } from "@dzangolab/vue3-form";
+          import { SwitchInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
 
           &lt;style&gt;
@@ -139,8 +139,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { SwitchInput } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { SwitchInput } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
           &lt;/script&gt;
@@ -172,7 +172,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, SwitchInput } from "@dzangolab/vue3-form";
+          import { Form, SwitchInput } from "@prefabs.tech/vue3-form";
 
           const inputSchema = z.coerce
             .boolean()
@@ -194,9 +194,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, SwitchInput } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, SwitchInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

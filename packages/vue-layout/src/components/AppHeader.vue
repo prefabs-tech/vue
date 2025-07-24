@@ -34,9 +34,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { LocaleSwitcher } from "@dzangolab/vue3-i18n";
 import { Icon } from "@iconify/vue";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 
