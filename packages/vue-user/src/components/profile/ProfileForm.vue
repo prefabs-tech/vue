@@ -1,4 +1,12 @@
 <template>
+  <Message
+    v-if="errorMessage"
+    :message="t(`user.profile.errors.${errorMessage}`)"
+    enable-close
+    severity="danger"
+    @close="errorMessage = undefined"
+  />
+
   <Form ref="dzangolabVueUpdateProfile" class="profile-form" @submit="onSubmit">
     <Input
       v-model="formValues.givenName"
@@ -35,6 +43,7 @@ export default {
 import { useConfig } from "@dzangolab/vue3-config";
 import { Input, Form, FormActions } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { Message } from "@dzangolab/vue3-ui";
 import { storeToRefs } from "pinia";
 import { computed, reactive, ref } from "vue";
 
@@ -59,6 +68,7 @@ const formValues = reactive({
 });
 
 const dzangolabVueUpdateProfile = ref();
+const errorMessage = ref<string>();
 const loading = ref<boolean>(false);
 
 const isDirty = computed(() => {
@@ -87,11 +97,8 @@ const onSubmit = async (data: UpdateProfileInputType) => {
         });
       }
     })
-    .catch(() => {
-      emitter.emit("notify", {
-        text: t("user.profile.form.messages.error"),
-        type: "error",
-      });
+    .catch((error) => {
+      errorMessage.value = error.message;
     })
     .finally(() => {
       loading.value = false;
