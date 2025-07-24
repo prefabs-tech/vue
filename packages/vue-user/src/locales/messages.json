@@ -302,6 +302,9 @@
           },
           "title": "Update email"
         },
+        "errors": {
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
           "actions": {
             "update": "Update"
@@ -703,6 +706,9 @@
             "verify": "Verify email to complete the email update."
           },
           "title": "Update email"
+        },
+        "errors": {
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
