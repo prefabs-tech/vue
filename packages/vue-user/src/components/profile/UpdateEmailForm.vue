@@ -1,5 +1,13 @@
 <template>
   <Form ref="dzangolabVueUpdateEmail" @submit="onSubmit">
+    <Message
+      v-if="errorMessage"
+      :message="errorMessage"
+      enable-close
+      severity="danger"
+      @close="errorMessage = undefined"
+    />
+
     <Email
       v-model="email"
       :error-messages="errorMessages"
@@ -26,6 +34,7 @@ export default {
 import { useConfig } from "@dzangolab/vue3-config";
 import { Email, Form, FormActions } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { Message } from "@dzangolab/vue3-ui";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 
@@ -56,6 +65,7 @@ const errorMessages = {
 
 const dzangolabVueUpdateEmail = ref();
 const email = ref<string | undefined>(user.value?.email);
+const errorMessage = ref<string>();
 const loading = ref<boolean>(false);
 
 const isEmailDirty = computed(() => {
@@ -90,48 +100,32 @@ const onSubmit = async (data: UpdateEmailFormData) => {
         break;
       }
       case "EMAIL_ALREADY_EXISTS_ERROR": {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.alreadyExist"),
-          type: "error",
-        });
+        errorMessage.value = t(
+          "user.profile.accountInfo.messages.alreadyExist",
+        );
         break;
       }
       case "EMAIL_SAME_AS_CURRENT_ERROR": {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.duplicate"),
-          type: "error",
-        });
+        errorMessage.value = t("user.profile.accountInfo.messages.duplicate");
         break;
       }
       case "EMAIL_INVALID_ERROR": {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.invalid"),
-          type: "error",
-        });
+        errorMessage.value = t("user.profile.accountInfo.messages.invalid");
         break;
       }
       case "EMAIL_FEATURE_DISABLED_ERROR": {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.disabled"),
-          type: "error",
-        });
+        errorMessage.value = t("user.profile.accountInfo.messages.disabled");
         break;
       }
       default: {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.error"),
-          type: "error",
-        });
+        errorMessage.value = t("user.profile.accountInfo.messages.error");
         break;
       }
     }
 
     loading.value = false;
   } catch (error) {
-    emitter.emit("notify", {
-      text: t("user.profile.accountInfo.messages.error"),
-      type: "error",
-    });
+    errorMessage.value = t("user.profile.accountInfo.messages.error");
 
     loading.value = false;
   }
