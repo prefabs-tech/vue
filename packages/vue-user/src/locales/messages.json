@@ -303,6 +303,9 @@
           "title": "Update email"
         },
         "form": {
+          "actions": {
+            "update": "Update"
+          },
           "firstName": {
             "label": "First name",
             "placeholder": "Enter your first name"
@@ -702,6 +705,9 @@
           "title": "Update email"
         },
         "form": {
+          "actions": {
+            "update": "Update"
+          },
           "firstName": {
             "label": "First name",
             "placeholder": "Enter your first name"
