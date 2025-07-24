@@ -15,7 +15,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
         class="title"
       >
         <h1>
-          Register
+          Sign up
         </h1>
         
         <!---->
@@ -102,7 +102,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
         <label
           for="password"
         >
-          Confirm your password
+          Confirm password
         </label>
         
         <div
@@ -156,7 +156,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
             >
               
               <span>
-                Create my account
+                Sign up
               </span>
               
             </div>
@@ -204,7 +204,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
         class="title"
       >
         <h1>
-          Inscription
+          S'inscrire
         </h1>
         
         <!---->
@@ -345,7 +345,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
             >
               
               <span>
-                M'inscrire
+                S'inscrire
               </span>
               
             </div>
