@@ -1,3 +1,3 @@
-.profile-form .form-actions button {
-  flex: none;
+.profile-form {
+  margin-block: 1rem;
 }

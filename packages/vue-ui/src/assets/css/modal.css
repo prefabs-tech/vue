@@ -3,19 +3,20 @@
 }
 
 .modal .dialog {
-  background-color: var(--modal-bg-color, #fff);
+  background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px #0003;
   color: var(--modal-color, inherit);
-  max-width: var(--modal-max-width, 80%);
-  max-height: var(--modal-max-height, 80%);
-  min-width: var(--modal-min-width, 300px);
+  max-width: 350px;
+  max-height: 80%;
+  min-width: 300px;
   left: 50%;
   overflow-y: auto;
-  padding: var(--modal-padding-v, 1rem) var(--modal-padding-h, 1rem);
+  padding: 1rem;
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
   z-index: 1000;
 }
 
@@ -64,4 +65,10 @@
 
 main:has(.modal > .overlay > .dialog.active) {
   z-index: 999;
+}
+
+@media screen and (min-width: 576px) {
+  .modal .dialog {
+    max-width: 430px;
+  }
 }

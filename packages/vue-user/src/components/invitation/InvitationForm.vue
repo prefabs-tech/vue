@@ -45,7 +45,7 @@
 
       <FormActions
         :submit-label="submitLabel"
-        alignment="filled"
+        reverse
         @cancel="$emit('cancel')"
       />
     </Form>

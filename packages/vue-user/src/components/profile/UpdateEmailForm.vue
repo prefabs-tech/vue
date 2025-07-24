@@ -9,6 +9,8 @@
 
     <FormActions
       :loading="loading || !isEmailDirty"
+      :submit-label="t('user.profile.form.actions.update')"
+      reverse
       @cancel="dzangolabVueUpdateEmail.resetForm()"
     />
   </Form>

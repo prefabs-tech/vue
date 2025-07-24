@@ -25,10 +25,6 @@ form .form-actions {
   justify-content: stretch;
 }
 
-form .form-actions button {
-  flex: 1;
-}
-
 form .field {
   align-items: flex-start;
   display: flex;
