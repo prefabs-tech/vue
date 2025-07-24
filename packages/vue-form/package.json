@@ -1,18 +1,18 @@
 {
-  "name": "@dzangolab/vue3-form",
+  "name": "@prefabs.tech/vue3-form",
   "version": "0.11.0",
   "description": "Vue Form plugin",
   "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/DzangolabVue3Form.es.js",
-      "require": "./dist/DzangolabVue3Form.umd.js"
+      "import": "./dist/PrefabsTechVue3Form.es.js",
+      "require": "./dist/PrefabsTechVue3Form.umd.js"
     },
-    "./dist/DzangolabVue3Form.css": "./dist/vue3-form.css"
+    "./dist/PrefabsTechVue3Form.css": "./dist/vue3-form.css"
   },
-  "main": "dist//DzangolabVue3Form.umd.js",
-  "module": "dist//DzangolabVue3Form.es.js",
+  "main": "dist//PrefabsTechVue3Form.umd.js",
+  "module": "dist//PrefabsTechVue3Form.es.js",
   "types": "./dist/src/index.d.ts",
   "files": ["dist"],
   "scripts": {
@@ -30,9 +30,9 @@
     "validator": "13.12.0"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.11",
-    "@12deg/tsconfig": "0.1.11",
-    "@dzangolab/vue3-ui": "0.11.0",
+    "@prefabs.tech/eslint-config": "0.2.0",
+    "@prefabs.tech/tsconfig": "0.2.0",
+    "@prefabs.tech/vue3-ui": "0.11.0",
     "@types/node": "22.13.5",
     "@types/validator": "13.12.2",
     "@typescript-eslint/eslint-plugin": "8.24.1",

@@ -33,7 +33,7 @@
           &lt;div v-if="result" class="result-date"&gt;&lbrace;&lbrace; result &rbrace;&rbrace;&lt;/div&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { DaysInput } from "@dzangolab/vue3-form";
+          import { DaysInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref();
@@ -71,7 +71,7 @@
           &lt;div v-if="result" class="result-date"&gt;&lbrace;&lbrace; result &rbrace;&rbrace;&lt;/div&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { DaysInput, Form } from "@dzangolab/vue3-form";
+          import { DaysInput, Form } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref();
@@ -113,7 +113,7 @@
           &lt;div v-if="result" class="result-date"&gt;&lbrace;&lbrace; result &rbrace;&rbrace;&lt;/div&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { DaysInput, Form } from "@dzangolab/vue3-form";
+          import { DaysInput, Form } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref();
@@ -167,7 +167,7 @@
           &lt;/div&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { DaysInput, Form } from "@dzangolab/vue3-form";
+          import { DaysInput, Form } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
           import { z } from "zod";
 
@@ -193,9 +193,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DaysInput, Form } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { DaysInput, Form } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

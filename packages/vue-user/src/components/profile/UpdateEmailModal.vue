@@ -16,8 +16,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Modal } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Modal } from "@prefabs.tech/vue3-ui";
 
 import UpdateEmailForm from "./UpdateEmailForm.vue";
 import { useTranslations } from "../../index";

@@ -61,9 +61,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { FilesPresentation } from "@dzangolab/vue3-tanstack-table";
+          import { FilesPresentation } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { IFile } from "@dzangolab/vue3-ui";
+          import type { IFile } from "@prefabs.tech/vue3-ui";
 
           const files = [
             {
@@ -168,9 +168,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { FilesPresentation } from "@dzangolab/vue3-tanstack-table";
+          import { FilesPresentation } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { IFile } from "@dzangolab/vue3-ui";
+          import type { IFile } from "@prefabs.tech/vue3-ui";
 
           const files = [
             {
@@ -226,12 +226,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { FilesPresentation } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { FilesPresentation } from "@prefabs.tech/vue3-tanstack-table";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import TablePage from "./TablePage.vue";
 
-import type { IFile } from "@dzangolab/vue3-ui";
+import type { IFile } from "@prefabs.tech/vue3-ui";
 
 const files = [
   {

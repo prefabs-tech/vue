@@ -23,11 +23,11 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
           import { city } from "./data";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
@@ -128,11 +128,11 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { useI18n } from "@dzangolab/vue3-i18n";
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
           import { h, ref } from "vue";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const { t } = useI18n();
 
@@ -310,13 +310,13 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
-          import { Table } from "@dzangolab/vue3-tanstack-table";
-          import { DebouncedInput } from "@dzangolab/vue3-ui";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
+          import { DebouncedInput } from "@prefabs.tech/vue3-ui";
           import { h, ref } from "vue";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const { t } = useI18n();
 
@@ -383,7 +383,7 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
           import { h, ref } from "vue";
 
           const equalFilterColumns = [
@@ -426,10 +426,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DatePicker } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Table } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement, DebouncedInput } from "@dzangolab/vue3-ui";
+import { DatePicker } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
+import { ButtonElement, DebouncedInput } from "@prefabs.tech/vue3-ui";
 import { h, ref } from "vue";
 
 import { city, data, formatDemoData } from "./data";
@@ -438,7 +438,7 @@ import TablePage from "./TablePage.vue";
 import type {
   FilterFunction,
   TableColumnDefinition,
-} from "@dzangolab/vue3-tanstack-table";
+} from "@prefabs.tech/vue3-tanstack-table";
 
 const { t } = useI18n();
 

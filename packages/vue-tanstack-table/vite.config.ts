@@ -14,17 +14,17 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3TanstackTable.${format}.js`,
-        name: "@dzangolab/vue3-tanstack-table",
+        fileName: (format) => `PrefabsTechVue3TanstackTable.${format}.js`,
+        name: "@prefabs.tech/vue3-tanstack-table",
       },
       rollupOptions: {
         external: [...Object.keys(peerDependencies)],
         output: {
           exports: "named",
           globals: {
-            "@dzangolab/vue3-config": "DzangolabVue3Config",
-            "@dzangolab/vue3-i18n": "DzangolabVue3I18n",
-            "@dzangolab/vue3-ui": "DzangolabVue3UI",
+            "@prefabs.tech/vue3-config": "PrefabsTechVue3Config",
+            "@prefabs.tech/vue3-i18n": "PrefabsTechVue3I18n",
+            "@prefabs.tech/vue3-ui": "PrefabsTechVue3UI",
             vue: "Vue",
             "vue-router": "VueRouter",
           },

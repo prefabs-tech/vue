@@ -26,9 +26,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { InvitationForm } from "@dzangolab/vue3-user";
+          import { InvitationForm } from "@prefabs.tech/vue3-user";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
           const onSubmit = (formData: InvitationPayload) => {
             ...
@@ -52,9 +52,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { InvitationForm } from "@dzangolab/vue3-user";
+          import { InvitationForm } from "@prefabs.tech/vue3-user";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
           const apps = [
             {
@@ -107,9 +107,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { InvitationForm } from "@dzangolab/vue3-user";
+          import { InvitationForm } from "@prefabs.tech/vue3-user";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
           const roles = [
             {
@@ -156,9 +156,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { InvitationForm } from "@dzangolab/vue3-user";
+          import { InvitationForm } from "@prefabs.tech/vue3-user";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
           const roles = [
             ...
@@ -190,9 +190,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { InvitationForm } from "@dzangolab/vue3-user";
+          import { InvitationForm } from "@prefabs.tech/vue3-user";
 
-          import type { InvitationPayload } from "@dzangolab/vue3-user";
+          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
           const roles = [
             ...
@@ -210,14 +210,14 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
-import { InvitationForm } from "@dzangolab/vue3-user";
 import { notify } from "@kyvg/vue3-notification";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
+import { InvitationForm } from "@prefabs.tech/vue3-user";
 
 import UserPage from "../UserPage.vue";
 
-import type { InvitationPayload } from "@dzangolab/vue3-user";
+import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
 const { t } = useI18n();
 

@@ -49,7 +49,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { computed, ref } from "vue";
 import { useDropzone } from "vue3-dropzone";
 

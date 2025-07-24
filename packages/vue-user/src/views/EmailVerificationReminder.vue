@@ -24,8 +24,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Page } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Page } from "@prefabs.tech/vue3-ui";
 
 import { EMAIL_VERIFICATION } from "../constant";
 import { useTranslations, emitter } from "../index";

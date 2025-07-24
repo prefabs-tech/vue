@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3UI.${format}.js`,
-        name: "@dzangolab/vue3-ui",
+        fileName: (format) => `PrefabsTechVue3UI.${format}.js`,
+        name: "@prefabs.tech/vue3-ui",
       },
       rollupOptions: {
         external: [...Object.keys(peerDependencies)],

@@ -41,7 +41,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const showModal = ref(false);
@@ -86,7 +86,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const showModal = ref(false);
@@ -147,7 +147,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const productDetail = [
@@ -196,8 +196,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { useI18n } from "@dzangolab/vue3-i18n";
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const { t } = useI18n();
@@ -296,8 +296,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Email, Form, FormActions, Password } from "@dzangolab/vue3-form";
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { Email, Form, FormActions, Password } from "@prefabs.tech/vue3-form";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { reactive, ref } from "vue";
 
           const formData = reactive({
@@ -322,8 +322,8 @@
 </template>
 
 <script setup lang="ts">
-import { Email, Form, FormActions, Password } from "@dzangolab/vue3-form";
-import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+import { Email, Form, FormActions, Password } from "@prefabs.tech/vue3-form";
+import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";

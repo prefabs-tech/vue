@@ -66,7 +66,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import UiPage from "../UiPage.vue";
 </script>

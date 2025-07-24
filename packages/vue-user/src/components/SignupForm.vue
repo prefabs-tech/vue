@@ -67,7 +67,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
+import { useConfig } from "@prefabs.tech/vue3-config";
 import {
   Email,
   emailSchema,
@@ -75,8 +75,8 @@ import {
   Input,
   Password,
   passwordSchema,
-} from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
+} from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { toFormValidator } from "@vee-validate/zod";
 import { storeToRefs } from "pinia";
 import { Form } from "vee-validate";

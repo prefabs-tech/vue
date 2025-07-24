@@ -65,7 +65,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { formatDate, formatDateTime, Tooltip } from "@dzangolab/vue3-ui";
+import { formatDate, formatDateTime, Tooltip } from "@prefabs.tech/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
 import { formatNumber, getAlignValue } from "../utils";

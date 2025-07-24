@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3Layout.${format}.js`,
-        name: "@dzangolab/vue3-layout",
+        fileName: (format) => `PrefabsTechVue3Layout.${format}.js`,
+        name: "@prefabs.tech/vue3-layout",
       },
       rollupOptions: {
         external: [...Object.keys(peerDependencies)],
@@ -24,9 +24,9 @@ export default defineConfig(({ mode }) => {
           // Provide global variables to use in the UMD build
           // for externalized deps
           globals: {
-            "@dzangolab/vue3-config": "DzangolabVue3Config",
-            "@dzangolab/vue3-i18n": "DzangolabVue3I18n",
-            "@dzangolab/vue3-ui": "DzangolabVue3UI",
+            "@prefabs.tech/vue3-config": "PrefabsTechVue3Config",
+            "@prefabs.tech/vue3-i18n": "PrefabsTechVue3I18n",
+            "@prefabs.tech/vue3-ui": "PrefabsTechVue3UI",
             "@vueuse/core": 'VueuseCore',
             vue: "Vue",
             "vue-router": "VueRouter",

@@ -29,7 +29,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Modal } from "@dzangolab/vue3-ui";
+import { Modal } from "@prefabs.tech/vue3-ui";
 import { z } from "zod";
 
 import InvitationForm from "./InvitationForm.vue";

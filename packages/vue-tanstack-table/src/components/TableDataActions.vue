@@ -49,8 +49,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ButtonElement, ConfirmationModal, Dropdown } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
+import {
+  ButtonElement,
+  ConfirmationModal,
+  Dropdown,
+} from "@prefabs.tech/vue3-ui";
 import { computed, ref } from "vue";
 
 import type { DataActionsMenuItem } from "../types";

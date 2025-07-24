@@ -39,7 +39,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { formatDateTime } from "@dzangolab/vue3-ui";
+import { formatDateTime } from "@prefabs.tech/vue3-ui";
 import { computed, h } from "vue";
 
 import Table from "../Table.vue";
@@ -50,7 +50,7 @@ import type {
   TableColumnDefinition,
   TRequestJSON,
 } from "../../types";
-import type { IFile, TableMessages } from "@dzangolab/vue3-ui";
+import type { IFile, TableMessages } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
 const props = defineProps({

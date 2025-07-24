@@ -202,8 +202,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DatePicker, NumberInput, SelectInput } from "@dzangolab/vue3-form";
-import { DebouncedInput } from "@dzangolab/vue3-ui";
+import { DatePicker, NumberInput, SelectInput } from "@prefabs.tech/vue3-form";
+import { DebouncedInput } from "@prefabs.tech/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
 import { getAlignValue } from "../utils";

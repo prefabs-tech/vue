@@ -2,7 +2,7 @@ import {
   BasicLayout,
   SidebarOnlyLayout,
   SidebarHeaderLayout,
-} from "@dzangolab/vue3-user";
+} from "@prefabs.tech/vue3-user";
 import { ref, shallowRef } from "vue";
 
 import {

@@ -37,9 +37,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileList } from "@dzangolab/vue3-ui";
+          import { FileList } from "@prefabs.tech/vue3-ui";
 
-          import type { IFile } from "@dzangolab/vue3-ui";
+          import type { IFile } from "@prefabs.tech/vue3-ui";
 
           const files = [
             {
@@ -128,12 +128,12 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, FilesList } from "@dzangolab/vue3-ui";
+import { ButtonElement, FilesList } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
-import type { IFile } from "@dzangolab/vue3-ui";
+import type { IFile } from "@prefabs.tech/vue3-ui";
 
 const eventsData = [
   {

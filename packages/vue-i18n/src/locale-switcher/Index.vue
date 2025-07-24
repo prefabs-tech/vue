@@ -35,7 +35,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
+import { useConfig } from "@prefabs.tech/vue3-config";
 import { onClickOutside } from "@vueuse/core";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
@@ -43,7 +43,7 @@ import { useI18n } from "vue-i18n";
 import LocaleOption from "./LocaleOption.vue";
 import useLocaleStore from "../store";
 
-import type { AppConfig } from "@dzangolab/vue3-config";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { Locale } from "vue-i18n";
 
 const { availableLocales, locale, t } = useI18n();

@@ -66,8 +66,8 @@ import {
   Form,
   FormActions,
   SelectInput,
-} from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
+} from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { computed, ref } from "vue";
 import { z } from "zod";
 

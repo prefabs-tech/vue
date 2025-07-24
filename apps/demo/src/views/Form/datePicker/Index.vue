@@ -23,7 +23,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -51,7 +51,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -77,9 +77,9 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
   
           const dateOfBirth = ref(new Date());
           const { t } = useI18n();
@@ -110,7 +110,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const appointmentDate = ref(new Date());
@@ -141,7 +141,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const presentationDate = ref(new Date());
@@ -172,7 +172,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const dateOfBirth = ref(new Date());
@@ -203,7 +203,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
   
           const startDate = new Date();
           const endDate = startDate;
@@ -241,7 +241,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
   
           const startDate = new Date();
           const endDate = startDate;
@@ -281,7 +281,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
   
           const startDate = new Date();
           const endDate = startDate;
@@ -321,7 +321,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const month = ref();
@@ -352,7 +352,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const monthAndYear = ref();
@@ -383,7 +383,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
   
           const year = ref(new Date().getFullYear()),
@@ -416,7 +416,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -448,7 +448,7 @@
           &lt;/Form&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker, Form } from "@dzangolab/vue3-form";
+          import { DatePicker, Form } from "@prefabs.tech/vue3-form";
           import { z } from "zod";
   
           const inputSchema = z
@@ -469,9 +469,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DatePicker, Form } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { DatePicker, Form } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

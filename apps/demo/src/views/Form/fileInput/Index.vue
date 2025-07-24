@@ -23,7 +23,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileInput } from "@dzangolab/vue3-form";
+          import { FileInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -61,7 +61,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileInput } from "@dzangolab/vue3-form";
+          import { FileInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -81,7 +81,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileInput } from "@dzangolab/vue3-form";
+          import { FileInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -121,7 +121,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileInput } from "@dzangolab/vue3-form";
+          import { FileInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -161,7 +161,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileInput } from "@dzangolab/vue3-form";
+          import { FileInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -195,7 +195,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileInput } from "@dzangolab/vue3-form";
+          import { FileInput } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -211,8 +211,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { FileInput } from "@dzangolab/vue3-form";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { FileInput } from "@prefabs.tech/vue3-form";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import FormPage from "../FormPage.vue";
 </script>

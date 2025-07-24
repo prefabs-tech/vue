@@ -1,5 +1,5 @@
 import { TABLE_STATE_PREFIX } from "./constants";
-import { getStorage } from "@dzangolab/vue3-ui";
+import { getStorage } from "@prefabs.tech/vue3-ui";
 
 import type {
   CellAlignmentType,
@@ -10,7 +10,7 @@ import type {
   TRequestJSON,
   TSortDirection,
 } from "./types";
-import type { StorageType } from "@dzangolab/vue3-ui";
+import type { StorageType } from "@prefabs.tech/vue3-ui";
 import type { 
   ColumnFiltersState,
   PaginationState,

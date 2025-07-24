@@ -1,4 +1,4 @@
-import i18Plugin, { useLocaleStore } from "@dzangolab/vue3-i18n";
+import i18Plugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { mount} from "@vue/test-utils";
 import { createPinia } from "pinia";
 import { describe, it, expect } from "vitest";

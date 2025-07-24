@@ -12,8 +12,8 @@ import Home from "@/views/Home.vue";
 // import Layout from "@/views/Layout/Index.vue";
 // import Sentry from "@/views/Sentry.vue";
 
-import type { AppFeatures } from "@dzangolab/vue3-config";
-import type { LayoutType } from "@dzangolab/vue3-layout";
+import type { AppFeatures } from "@prefabs.tech/vue3-config";
+import type { LayoutType } from "@prefabs.tech/vue3-layout";
 import type { RouteMeta, Router, RouterOptions } from "vue-router";
 
 interface AppRouteMeta extends RouteMeta {

@@ -40,9 +40,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { Form, FormActions, Input, SelectInput } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { Form, FormActions, Input, SelectInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ref, watch } from "vue";
 import { z } from "zod";
 
@@ -50,8 +50,8 @@ import { useTranslations } from "../../index";
 import useRolesStore from "../../stores/roles";
 
 import type { Role } from "../../types";
-import type { AppConfig } from "@dzangolab/vue3-config";
-import type { SelectOption } from "@dzangolab/vue3-form";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { SelectOption } from "@prefabs.tech/vue3-form";
 import type { PropType } from "vue";
 
 const props = defineProps({
