@@ -152,18 +152,22 @@
       <div class="section-content">
         <Message
           :message="$t('ui.message.contents.content2')"
+          enable-close
           severity="info"
         />
         <Message
           :message="$t('ui.message.contents.content3')"
+          enable-close
           severity="success"
         />
         <Message
           :message="$t('ui.message.contents.content4')"
+          enable-close
           severity="danger"
         />
         <Message
           :message="$t('ui.message.contents.content5')"
+          enable-close
           severity="warning"
         />
 
@@ -172,18 +176,22 @@
           &lt;template&gt;
             &lt;Message
               message="New features just launched! Check them out!"
+              enable-close
               severity="info"
             /&gt;
             &lt;Message
               :message="New Year, New You: Start fresh with our services!"
+              enable-close
               severity="success"
             /&gt;
             &lt;Message
               :message="We value your feedback: take our quick survey!"
+              enable-close
               severity="danger"
             /&gt;
             &lt;Message
               :message="Warning: Limited time only! Sale ends soon!"
+              enable-close
               severity="warning"
             /&gt;
           &lt;/template&gt;
