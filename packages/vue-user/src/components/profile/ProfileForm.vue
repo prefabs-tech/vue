@@ -7,7 +7,11 @@
     @close="errorMessage = undefined"
   />
 
-  <Form ref="dzangolabVueUpdateProfile" class="profile-form" @submit="onSubmit">
+  <Form
+    ref="prefabsTechVueUpdateProfile"
+    class="profile-form"
+    @submit="onSubmit"
+  >
     <Input
       v-model="formValues.givenName"
       :label="t('user.profile.form.firstName.label')"
@@ -28,7 +32,7 @@
       :loading="loading || !isDirty"
       :submit-label="t('user.profile.form.actions.update')"
       alignment="left"
-      @cancel="dzangolabVueUpdateProfile.resetForm()"
+      @cancel="onCancel"
     />
   </Form>
 </template>
@@ -67,7 +71,7 @@ const formValues = reactive({
   surname: user.value?.surname || "",
 });
 
-const dzangolabVueUpdateProfile = ref();
+const prefabsTechVueUpdateProfile = ref();
 const errorMessage = ref<string>();
 const loading = ref<boolean>(false);
 
@@ -77,6 +81,12 @@ const isDirty = computed(() => {
     formValues.surname !== user.value?.surname
   );
 });
+
+const onCancel = () => {
+  prefabsTechVueUpdateProfile.value.resetForm();
+
+  errorMessage.value = undefined;
+};
 
 const onSubmit = async (data: UpdateProfileInputType) => {
   loading.value = true;

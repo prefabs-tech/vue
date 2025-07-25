@@ -7,7 +7,7 @@
     @close="errorMessage = undefined"
   />
 
-  <Form ref="dzangolabVueUpdateEmail" @submit="onSubmit">
+  <Form ref="prefabsTechVueUpdateEmail" @submit="onSubmit">
     <Email
       v-model="email"
       :error-messages="errorMessages"
@@ -19,7 +19,7 @@
       :loading="loading || !isEmailDirty"
       :submit-label="t('user.profile.form.actions.update')"
       reverse
-      @cancel="dzangolabVueUpdateEmail.resetForm()"
+      @cancel="onCancel"
     />
   </Form>
 </template>
@@ -63,7 +63,7 @@ const errorMessages = {
   required: t("user.profile.accountInfo.messages.email"),
 };
 
-const dzangolabVueUpdateEmail = ref();
+const prefabsTechVueUpdateEmail = ref();
 const email = ref<string | undefined>(user.value?.email);
 const errorMessage = ref<string>();
 const loading = ref<boolean>(false);
@@ -71,6 +71,12 @@ const loading = ref<boolean>(false);
 const isEmailDirty = computed(() => {
   return user.value?.email !== email.value;
 });
+
+const onCancel = () => {
+  prefabsTechVueUpdateEmail.value.resetForm();
+
+  errorMessage.value = undefined;
+};
 
 const onSubmit = async (data: UpdateEmailFormData) => {
   loading.value = true;
@@ -96,7 +102,9 @@ const onSubmit = async (data: UpdateEmailFormData) => {
         }
 
         emit("email:updateProcessed");
-        dzangolabVueUpdateEmail.value?.resetForm();
+        prefabsTechVueUpdateEmail.value?.resetForm();
+
+        errorMessage.value = undefined;
         break;
       }
       case "EMAIL_ALREADY_EXISTS_ERROR": {
@@ -130,4 +138,8 @@ const onSubmit = async (data: UpdateEmailFormData) => {
     loading.value = false;
   }
 };
+
+defineExpose({
+  onCancel,
+});
 </script>
