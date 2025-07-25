@@ -1,5 +1,9 @@
+
 .modal .content {
-  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.7rem;
 }
 
 .modal .dialog {
@@ -7,7 +11,6 @@
   border-radius: 5px;
   box-shadow: 0 0 10px #0003;
   color: var(--modal-color, inherit);
-  max-width: 350px;
   max-height: 80%;
   min-width: 300px;
   left: 50%;
@@ -16,7 +19,7 @@
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: calc(100% - 2rem);
   z-index: 1000;
 }
 
@@ -35,7 +38,7 @@
   align-items: center;
   display: flex;
   margin-bottom: 0.5rem;
-  justify-content: var(--modal-header-justify, space-between);
+  justify-content: space-between;
   padding: 0.7rem;
 }
 
@@ -53,12 +56,12 @@
 }
 
 .modal .overlay {
+  align-items: center;
   background-color: #00000080;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  display: flex;
+  justify-content: center;
+  inset: 0;
   position: fixed;
-  top: 0;
   transition: opacity 0.3s ease;
   z-index: 1000;
 }
