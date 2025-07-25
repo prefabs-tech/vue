@@ -59,8 +59,8 @@
   align-items: center;
   background-color: #00000080;
   display: flex;
-  justify-content: center;
   inset: 0;
+  justify-content: center;
   position: fixed;
   transition: opacity 0.3s ease;
   z-index: 1000;
@@ -72,9 +72,9 @@ main:has(.modal.overlay > .dialog.active) {
 
 @media screen and (min-width: 576px) {
   .modal .dialog {
-    width: auto;
-    min-width: 25rem;
     max-width: 35rem;
+    min-width: 25rem;
+    width: auto;
   }
 
   .modal .dialog.large {
