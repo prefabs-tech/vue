@@ -17,7 +17,8 @@
   }
 
   .form-actions[data-alignment="right"] {
-    justify-content: flex-end;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
   }
 
   .form-actions[data-alignment="left"][data-reverse="true"] {
@@ -25,7 +26,8 @@
   }
 
   .form-actions[data-alignment="right"][data-reverse="true"] {
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 
   .form-actions[data-alignment="filled"] button {

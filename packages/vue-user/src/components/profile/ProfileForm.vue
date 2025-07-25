@@ -1,5 +1,17 @@
 <template>
-  <Form ref="dzangolabVueUpdateProfile" class="profile-form" @submit="onSubmit">
+  <Message
+    v-if="errorMessage"
+    :message="t(`user.profile.errors.${errorMessage}`)"
+    enable-close
+    severity="danger"
+    @close="errorMessage = undefined"
+  />
+
+  <Form
+    ref="prefabsTechVueUpdateProfile"
+    class="profile-form"
+    @submit="onSubmit"
+  >
     <Input
       v-model="formValues.givenName"
       :label="t('user.profile.form.firstName.label')"
@@ -20,7 +32,7 @@
       :loading="loading || !isDirty"
       :submit-label="t('user.profile.form.actions.update')"
       alignment="left"
-      @cancel="dzangolabVueUpdateProfile.resetForm()"
+      @cancel="onCancel"
     />
   </Form>
 </template>
@@ -35,6 +47,7 @@ export default {
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { Input, Form, FormActions } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Message } from "@prefabs.tech/vue3-ui";
 import { storeToRefs } from "pinia";
 import { computed, reactive, ref } from "vue";
 
@@ -58,7 +71,8 @@ const formValues = reactive({
   surname: user.value?.surname || "",
 });
 
-const dzangolabVueUpdateProfile = ref();
+const prefabsTechVueUpdateProfile = ref();
+const errorMessage = ref<string>();
 const loading = ref<boolean>(false);
 
 const isDirty = computed(() => {
@@ -67,6 +81,12 @@ const isDirty = computed(() => {
     formValues.surname !== user.value?.surname
   );
 });
+
+const onCancel = () => {
+  prefabsTechVueUpdateProfile.value.resetForm();
+
+  errorMessage.value = undefined;
+};
 
 const onSubmit = async (data: UpdateProfileInputType) => {
   loading.value = true;
@@ -87,11 +107,8 @@ const onSubmit = async (data: UpdateProfileInputType) => {
         });
       }
     })
-    .catch(() => {
-      emitter.emit("notify", {
-        text: t("user.profile.form.messages.error"),
-        type: "error",
-      });
+    .catch((error) => {
+      errorMessage.value = error.message;
     })
     .finally(() => {
       loading.value = false;

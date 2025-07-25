@@ -135,7 +135,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
       >
         <div
           class="form-actions"
-          data-alignment="right"
+          data-alignment="filled"
           data-direction="horizontal"
           data-reverse="false"
           tabindex="0"
@@ -324,7 +324,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
       >
         <div
           class="form-actions"
-          data-alignment="right"
+          data-alignment="filled"
           data-direction="horizontal"
           data-reverse="false"
           tabindex="0"

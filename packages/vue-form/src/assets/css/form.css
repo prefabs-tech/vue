@@ -17,18 +17,6 @@ form {
   justify-content: flex-start;
 }
 
-form .form-actions {
-  align-items: stretch;
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-  justify-content: stretch;
-}
-
-form .form-actions button {
-  flex: 1;
-}
-
 form .field {
   align-items: flex-start;
   display: flex;
