@@ -10,8 +10,8 @@
     },
     "./dist/PrefabsTechVue3UI.css": "./dist/vue3-ui.css"
   },
-  "main": "dist//PrefabsTechVue3UI.umd.js",
-  "module": "dist//PrefabsTechVue3UI.es.js",
+  "main": "./dist/PrefabsTechVue3UI.umd.js",
+  "module": "./dist/PrefabsTechVue3UI.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

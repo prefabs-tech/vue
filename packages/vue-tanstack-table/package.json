@@ -10,8 +10,8 @@
     },
     "./dist/PrefabsTechVue3TanstackTable.css": "./dist/vue3-tanstack-table.css"
   },
-  "main": "dist//PrefabsTechVue3TanstackTable.umd.js",
-  "module": "dist//PrefabsTechVue3TanstackTable.es.js",
+  "main": "./dist/PrefabsTechVue3TanstackTable.umd.js",
+  "module": "./dist/PrefabsTechVue3TanstackTable.es.js",
   "types": "./dist/src/index.d.ts",
   "files": ["dist"],
   "scripts": {

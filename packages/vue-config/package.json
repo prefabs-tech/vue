@@ -10,8 +10,8 @@
       "require": "./dist/PrefabsTechVue3Config.umd.js"
     }
   },
-  "main": "dist//PrefabsTechVue3Config.umd.js",
-  "module": "dist//PrefabsTechVue3Config.es.js",
+  "main": "./dist/PrefabsTechVue3Config.umd.js",
+  "module": "./dist/PrefabsTechVue3Config.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

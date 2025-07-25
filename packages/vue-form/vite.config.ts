@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
         fileName: (format) => `PrefabsTechVue3Form.${format}.js`,
-        name: "@prefabs.tech/vue3-form",
+        name: "PrefabsTechVue3Form",
       },
       rollupOptions: {
         external: [

@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
         fileName: (format) => `PrefabsTechVue3TanstackTable.${format}.js`,
-        name: "@prefabs.tech/vue3-tanstack-table",
+        name: "PrefabsTechVue3TanstackTable",
       },
       rollupOptions: {
         external: [...Object.keys(peerDependencies)],
