@@ -10,8 +10,8 @@
     },
     "./dist/PrefabsTechVue3User.css": "./dist/vue3-user.css"
   },
-  "main": "dist//PrefabsTechVue3User.umd.js",
-  "module": "dist//PrefabsTechVue3User.es.js",
+  "main": "./dist/PrefabsTechVue3User.umd.js",
+  "module": "./dist/PrefabsTechVue3User.es.js",
   "types": "./dist/src/index.d.ts",
   "files": ["dist"],
   "scripts": {

@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
         fileName: (format) => `PrefabsTechVue3User.${format}.js`,
-        name: "@prefabs.tech/vue3-user",
+        name: "PrefabsTechVue3User",
       },
       rollupOptions: {
         external: [

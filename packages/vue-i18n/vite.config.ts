@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
         fileName: (format) => `PrefabsTechVue3I18n.${format}.js`,
-        name: "@prefabs.tech/vue3-i18n",
+        name: "PrefabsTechVue3I18n",
       },
       rollupOptions: {
         external: ["@prefabs.tech/vue3-config", "pinia", "vue", "vue-i18n"],
