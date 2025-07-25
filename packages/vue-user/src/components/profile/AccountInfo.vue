@@ -47,9 +47,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, Data } from "@dzangolab/vue3-ui";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement, Data } from "@prefabs.tech/vue3-ui";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 

@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { SwitchInput } from "@dzangolab/vue3-form";
+import { SwitchInput } from "@prefabs.tech/vue3-form";
 
 const props = defineProps({
   showInvalid: {

@@ -1,6 +1,6 @@
 export type {
-  DzangolabVue3LayoutConfig,
-  DzangolabVue3LayoutPluginOptions,
+  PrefabsTechVue3LayoutConfig,
+  PrefabsTechVue3LayoutPluginOptions,
 } from "./config";
 
 export type { LayoutType } from "./layout";

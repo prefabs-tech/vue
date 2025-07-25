@@ -62,9 +62,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Input } from "@dzangolab/vue3-form";
-          import { StickyCollapsibleFooter } from "@dzangolab/vue3-layout";
-          import { ButtonElement } from "@dzangolab/vue3-ui";
+          import { Input } from "@prefabs.tech/vue3-form";
+          import { StickyCollapsibleFooter } from "@prefabs.tech/vue3-layout";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const input = ref();
@@ -112,8 +112,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { StickyCollapsibleFooter } from "@dzangolab/vue3-layout";
-          import { Card } from "@dzangolab/vue3-ui";
+          import { StickyCollapsibleFooter } from "@prefabs.tech/vue3-layout";
+          import { Card } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
 
           &lt;style lang="css"&gt;
@@ -135,9 +135,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Input } from "@dzangolab/vue3-form";
-import { StickyCollapsibleFooter } from "@dzangolab/vue3-layout";
-import { ButtonElement, Card } from "@dzangolab/vue3-ui";
+import { Input } from "@prefabs.tech/vue3-form";
+import { StickyCollapsibleFooter } from "@prefabs.tech/vue3-layout";
+import { ButtonElement, Card } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import LayoutPage from "../LayoutPage.vue";

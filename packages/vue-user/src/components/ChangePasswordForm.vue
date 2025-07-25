@@ -52,15 +52,15 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { FormActions, Password } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
+import { FormActions, Password } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Form } from "vee-validate";
 import { z } from "zod";
 
 import { useTranslations } from "../index";
 
 import type { ChangePasswordPayload } from "../types";
-import type { StrongPasswordOptions } from "@dzangolab/vue3-form";
+import type { StrongPasswordOptions } from "@prefabs.tech/vue3-form";
 import type { PropType } from "vue";
 
 const messages = useTranslations();

@@ -31,7 +31,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Card } from "@dzangolab/vue3-ui";
+import { Card } from "@prefabs.tech/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 

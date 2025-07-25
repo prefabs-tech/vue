@@ -34,7 +34,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -57,8 +57,8 @@
         &lt;/template&gt;
         
         &lt;script setup lang="ts"&gt; 
-          import { ButtonElement } from "@dzangolab/vue3-ui";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
         &lt;/script&gt;
@@ -89,7 +89,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement } from "@dzangolab/vue3-ui";
+            import { ButtonElement } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const loading = ref(false);
@@ -130,7 +130,7 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -185,7 +185,7 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -211,7 +211,7 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -247,7 +247,7 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -283,7 +283,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -337,7 +337,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -379,7 +379,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -450,7 +450,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -478,7 +478,7 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -497,7 +497,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";

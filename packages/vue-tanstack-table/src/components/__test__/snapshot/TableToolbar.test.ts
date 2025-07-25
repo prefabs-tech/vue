@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import { mockedTable } from "../table";
 import TableToolbar from "../../TableToolbar.vue";
-import { SortableList } from "@dzangolab/vue3-ui";
+import { SortableList } from "@prefabs.tech/vue3-ui";
 
 describe("TableToolbar", () => {
   it("matches snapshot", () => {

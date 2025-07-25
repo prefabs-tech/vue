@@ -9,9 +9,9 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { useConfig } from "@dzangolab/vue3-config";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { LoadingPage } from "@dzangolab/vue3-ui";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { LoadingPage } from "@prefabs.tech/vue3-ui";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -21,7 +21,7 @@ import useUserStore from "../store";
 import { verifySessionRoles } from "../supertokens";
 
 import type { UserType } from "../types";
-import type { AppConfig } from "@dzangolab/vue3-config";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const config = useConfig() as AppConfig;
 

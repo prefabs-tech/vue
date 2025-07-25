@@ -1,8 +1,8 @@
 /// <reference types="vite/client" />
 
-import { FilterFunction } from "@dzangolab/vue3-tanstack-table";
+import { FilterFunction } from "@prefabs.tech/vue3-tanstack-table";
 
-declare module "@dzangolab/vue3-tanstack-table" {
+declare module "@prefabs.tech/vue3-tanstack-table" {
   interface FilterFunctions {
     customEqualStringFilter: FilterFunction<unknown>;
     inDateRangeFilter: FilterFunction<unknown>;

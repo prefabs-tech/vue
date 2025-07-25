@@ -230,8 +230,8 @@
         "title": "Log in"
       },
       "menu": {
-        "signin": "Signin",
-        "signup": "Signup"
+        "signin": "Log in",
+        "signup": "Sign up"
       },
       "passwordReset": {
         "errors": {
@@ -240,32 +240,32 @@
         },
         "form": {
           "actions": {
-            "submit": "Change Password"
+            "submit": "Reset password"
           },
           "confirmation": {
             "errors": {
               "match": "The 2 passwords must match"
             },
-            "label": "Re-enter password"
+            "label": "Confirm password"
           },
           "password": {
             "errors": {
               "required": "Please provide a password",
               "weak": "Your password should be at least 8 characters long"
             },
-            "label": "Enter password"
+            "label": "New password"
           }
         },
         "messages": {
           "success": "Your password is changed successfully.",
           "wrongPassword": "The password confirmation does not match"
         },
-        "title": "Enter your new password."
+        "title": "Reset password"
       },
       "passwordResetRequest": {
         "form": {
           "actions": {
-            "submit": "Email me"
+            "submit": "Send reset link"
           },
           "email": {
             "errors": {
@@ -280,7 +280,7 @@
         "messages": {
           "success": "Please check your provided email to reset your password."
         },
-        "title": "Reset your password"
+        "title": "Forgot password"
       },
       "profile": {
         "accountInfo": {
@@ -331,13 +331,13 @@
         },
         "form": {
           "actions": {
-            "submit": "Create my account"
+            "submit": "Sign up"
           },
           "confirmation": {
             "errors": {
               "match": "The 2 passwords must match"
             },
-            "label": "Confirm your password"
+            "label": "Confirm password"
           },
           "email": {
             "errors": {
@@ -372,7 +372,7 @@
         "messages": {
           "success": "Signed up successfully."
         },
-        "title": "Register"
+        "title": "Sign up"
       },
       "table": {
         "actions": {
@@ -645,7 +645,7 @@
         },
         "form": {
           "actions": {
-            "submit": "Modifier votre mot de passe"
+            "submit": "Reset password (fr)"
           },
           "confirmation": {
             "errors": {
@@ -665,12 +665,12 @@
           "success": "Votre mot de passe a été mis à jour.",
           "wrongPassword": "The password confirmation doesnot match"
         },
-        "title": "Réinitialisation de votre mot de passe"
+        "title": "Reset password (fr)"
       },
       "passwordResetRequest": {
         "form": {
           "actions": {
-            "submit": "Réinitialiser"
+            "submit": "Send reset link (fr)"
           },
           "email": {
             "errors": {
@@ -685,7 +685,7 @@
         "messages": {
           "success": "Please check your provided email to reset your password."
         },
-        "title": "Réinitialisation de votre mot de passe"
+        "title": "Forgot password (fr)"
       },
       "profile": {
         "accountInfo": {
@@ -736,7 +736,7 @@
         },
         "form": {
           "actions": {
-            "submit": "M'inscrire"
+            "submit": "S'inscrire"
           },
           "confirmation": {
             "errors": {
@@ -777,7 +777,7 @@
         "messages": {
           "success": "Signed up successfully."
         },
-        "title": "Inscription"
+        "title": "S'inscrire"
       },
       "table": {
         "actions": {

@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { LocaleSwitcher } from "@dzangolab/vue3-i18n";
+import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { ref, watch, onUnmounted } from "vue";
 
 import AppFooter from "../components/AppFooter.vue";

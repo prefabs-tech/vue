@@ -35,7 +35,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { YoutubeFacade } from "@dzangolab/vue3-ui";
+            import { YoutubeFacade } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -65,7 +65,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { YoutubeFacade } from "@dzangolab/vue3-ui";
+            import { YoutubeFacade } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -97,7 +97,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { YoutubeFacade } from "@dzangolab/vue3-ui";
+            import { YoutubeFacade } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -114,7 +114,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, YoutubeFacade } from "@dzangolab/vue3-ui";
+import { ButtonElement, YoutubeFacade } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";

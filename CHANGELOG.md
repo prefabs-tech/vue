@@ -1,3 +1,7 @@
+# [0.12.0](https://github.com/prefabs-tech/vue/compare/v0.11.0...v0.12.0) (2025-07-25)
+
+
+
 # [0.11.0](https://github.com/dzangolab/vue/compare/v0.10.14...v0.11.0) (2025-07-14)
 
 

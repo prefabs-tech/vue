@@ -4,7 +4,7 @@ import type { RouteOverrides } from "./router";
 import type {
   IsEmailOptions,
   StrongPasswordOptions,
-} from "@dzangolab/vue3-form";
+} from "@prefabs.tech/vue3-form";
 
 interface DzangolabVueUserConfig {
   apiRoutes?: {
@@ -44,7 +44,7 @@ interface DzangolabVueUserConfig {
   supportedRoles?: string[];
 }
 
-declare module "@dzangolab/vue3-config" {
+declare module "@prefabs.tech/vue3-config" {
   export interface AppConfig {
     user?: DzangolabVueUserConfig;
   }

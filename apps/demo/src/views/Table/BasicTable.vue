@@ -31,11 +31,11 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
           import { city } from "./data";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
@@ -112,9 +112,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
@@ -201,9 +201,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -246,9 +246,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -286,9 +286,9 @@
             &lt;/template&gt;
       
             &lt;script setup lang="ts"&gt;
-            import { Table } from "@dzangolab/vue3-tanstack-table";
+            import { Table } from "@prefabs.tech/vue3-tanstack-table";
       
-            import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+            import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
       
             const columns: Array&lt;TableColumnDefinition&gt; = [
               ...
@@ -336,9 +336,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const alignmentColumns = [
             {
@@ -413,9 +413,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -451,9 +451,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -497,9 +497,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -543,9 +543,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -603,9 +603,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -658,11 +658,11 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
-          import { ButtonElement, formatDateTime } from "@dzangolab/vue3-ui";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
+          import { ButtonElement, formatDateTime } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -714,9 +714,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -800,9 +800,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -889,9 +889,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -942,9 +942,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -982,9 +982,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
@@ -1103,9 +1103,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
@@ -1196,9 +1196,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { Table } from "@dzangolab/vue3-tanstack-table";
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
 
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
           const columns: Array&lt;TableColumnDefinition&gt; = [
             ...
@@ -1286,19 +1286,19 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Table } from "@dzangolab/vue3-tanstack-table";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import {
   BadgeComponent,
   ButtonElement,
   formatDateTime,
-} from "@dzangolab/vue3-ui";
+} from "@prefabs.tech/vue3-ui";
 import { ref, h } from "vue";
 
 import { city, data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
 
-import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
 
 const { t } = useI18n();
 

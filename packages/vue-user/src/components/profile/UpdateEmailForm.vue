@@ -1,13 +1,13 @@
 <template>
-  <Form ref="dzangolabVueUpdateEmail" @submit="onSubmit">
-    <Message
-      v-if="errorMessage"
-      :message="errorMessage"
-      enable-close
-      severity="danger"
-      @close="errorMessage = undefined"
-    />
+  <Message
+    v-if="errorMessage"
+    :message="errorMessage"
+    enable-close
+    severity="danger"
+    @close="errorMessage = undefined"
+  />
 
+  <Form ref="dzangolabVueUpdateEmail" @submit="onSubmit">
     <Email
       v-model="email"
       :error-messages="errorMessages"
@@ -31,10 +31,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { Email, Form, FormActions } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Message } from "@dzangolab/vue3-ui";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { Email, Form, FormActions } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Message } from "@prefabs.tech/vue3-ui";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 

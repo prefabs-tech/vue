@@ -31,10 +31,10 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CurrencyPicker } from "@dzangolab/vue3-form";
+          import { CurrencyPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
-          import type { CurrencyOption } from "@dzangolab/vue3-form";
+          import type { CurrencyOption } from "@prefabs.tech/vue3-form";
 
           const input = ref();
 
@@ -81,10 +81,10 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CurrencyPicker } from "@dzangolab/vue3-form";
+          import { CurrencyPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
-          import type { CurrencyOption } from "@dzangolab/vue3-form";
+          import type { CurrencyOption } from "@prefabs.tech/vue3-form";
 
           const input = ref();
 
@@ -129,12 +129,12 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CurrencyPicker } from "@dzangolab/vue3-form";
+          import { CurrencyPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           import { currencies } from "../data";
 
-          import type { CurrencyOption } from "@dzangolab/vue3-form";
+          import type { CurrencyOption } from "@prefabs.tech/vue3-form";
 
           const input = ref();
           &lt;/script&gt;
@@ -166,10 +166,10 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CurrencyPicker } from "@dzangolab/vue3-form";
+          import { CurrencyPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
-          import type { CurrencyOption } from "@dzangolab/vue3-form";
+          import type { CurrencyOption } from "@prefabs.tech/vue3-form";
 
           const input = ref();
 
@@ -232,10 +232,10 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CurrencyPicker, Form } from "@dzangolab/vue3-form";
+          import { CurrencyPicker, Form } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
-          import type { CurrencyOption } from "@dzangolab/vue3-form";
+          import type { CurrencyOption } from "@prefabs.tech/vue3-form";
 
           const input = ref();
 
@@ -288,11 +288,11 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CurrencyPicker, Form } from "@dzangolab/vue3-form";
+          import { CurrencyPicker, Form } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
           import { z } from "zod";
 
-          import type { CurrencyOption } from "@dzangolab/vue3-form";
+          import type { CurrencyOption } from "@prefabs.tech/vue3-form";
 
           const input = ref();
 
@@ -332,16 +332,16 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { CurrencyPicker, Form } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { CurrencyPicker, Form } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive } from "vue";
 import { z } from "zod";
 
 import { currencies } from "../data";
 import FormPage from "../FormPage.vue";
 
-import type { CurrencyOption } from "@dzangolab/vue3-form";
+import type { CurrencyOption } from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
 

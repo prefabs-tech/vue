@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { LocaleSwitcher } from "@dzangolab/vue3-i18n";
+import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 
 import AppFooter from "../components/AppFooter.vue";
 import Sidebar from "../components/Sidebar.vue";

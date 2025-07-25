@@ -55,23 +55,29 @@
   margin-left: auto;
 }
 
-.modal .overlay {
+.modal.overlay {
   align-items: center;
   background-color: #00000080;
   display: flex;
-  justify-content: center;
   inset: 0;
+  justify-content: center;
   position: fixed;
   transition: opacity 0.3s ease;
   z-index: 1000;
 }
 
-main:has(.modal > .overlay > .dialog.active) {
+main:has(.modal.overlay > .dialog.active) {
   z-index: 999;
 }
 
 @media screen and (min-width: 576px) {
   .modal .dialog {
-    max-width: 430px;
+    max-width: 35rem;
+    min-width: 25rem;
+    width: auto;
+  }
+
+  .modal .dialog.large {
+    max-width: 56.25rem;
   }
 }

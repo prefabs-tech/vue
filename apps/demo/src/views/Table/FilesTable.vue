@@ -147,9 +147,9 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
-          import { FilesTable } from "@dzangolab/vue3-tanstack-table";
+          import { FilesTable } from "@prefabs.tech/vue3-tanstack-table";
     
-          import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -165,8 +165,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { FilesTable } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { FilesTable } from "@prefabs.tech/vue3-tanstack-table";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import TablePage from "./TablePage.vue";
 </script>

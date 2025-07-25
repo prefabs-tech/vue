@@ -1,4 +1,4 @@
-import configPlugin from "@dzangolab/vue3-config";
+import configPlugin from "@prefabs.tech/vue3-config";
 import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
 import { describe, expect, it } from "vitest";

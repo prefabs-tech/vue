@@ -89,7 +89,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
+import { useConfig } from "@prefabs.tech/vue3-config";
 import { onClickOutside } from "@vueuse/core";
 import { computed, ref } from "vue";
 

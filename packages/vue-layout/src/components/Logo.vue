@@ -19,7 +19,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
+import { useConfig } from "@prefabs.tech/vue3-config";
 import { computed } from "vue";
 
 import type { PropType } from "vue";

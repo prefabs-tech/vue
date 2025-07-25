@@ -35,7 +35,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { RadioInput } from "@dzangolab/vue3-form";
+          import { RadioInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           
@@ -81,7 +81,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { RadioInput } from "@dzangolab/vue3-form";
+          import { RadioInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref();
@@ -130,8 +130,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { RadioInput } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { RadioInput } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
 
@@ -186,8 +186,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, RadioInput } from "@dzangolab/vue3-form";
-          import { ButtonElement } from "@dzangolab/vue3-ui";
+          import { Form, RadioInput } from "@prefabs.tech/vue3-form";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
           const inputSchema = z.string({
             required_error: "Please choose one option",
@@ -218,9 +218,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, RadioInput } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, RadioInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
