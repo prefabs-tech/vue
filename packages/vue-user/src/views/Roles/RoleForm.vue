@@ -19,7 +19,6 @@
         name="permissions"
       />
       <FormActions
-        alignment="filled"
         :cancel-label="t('roles.form.actions.cancel')"
         :submit-label="
           !!role
@@ -27,7 +26,6 @@
             : t('roles.form.actions.create')
         "
         :loading="loading"
-        flow-direction="vertical"
         @cancel="$emit('cancel')"
       />
     </Form>
@@ -118,13 +116,3 @@ const prepareComponent = async () => {
 
 prepareComponent();
 </script>
-
-<style lang="css">
-.role-form button {
-  width: 100%;
-}
-
-.role-form .form-actions.direction-vertical {
-  flex-direction: column-reverse;
-}
-</style>
