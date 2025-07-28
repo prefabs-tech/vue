@@ -134,7 +134,7 @@ export const signUpFirstUser = async (
     });
   
     if (response.data.status === "EMAIL_ALREADY_EXISTS_ERROR") {
-      throw new Error("SOMETHING_WRONG");
+      throw new Error(response.data.message);
     } else {
       return response.data?.user;
     }
