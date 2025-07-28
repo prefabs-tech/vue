@@ -13,7 +13,7 @@
       @close="errorMessage = undefined"
     />
 
-    <SignupForm v-else :loading="loading" @submit="handleSubmit" />
+    <SignupForm :loading="loading" @submit="handleSubmit" />
   </Page>
 </template>
 
@@ -50,7 +50,7 @@ const { getIsFirstUser, signUpFirstUser } = userStore;
 const { user } = storeToRefs(userStore);
 
 const errorMessage = ref<string>();
-const loading = ref<boolean>(true);
+const loading = ref<boolean>(false);
 
 const handleSubmit = async (credentials: LoginCredentials) => {
   loading.value = true;
@@ -61,6 +61,22 @@ const handleSubmit = async (credentials: LoginCredentials) => {
         text: t("user.firstUser.signup.messages.success"),
         type: "success",
       });
+
+      if (user.value) {
+        emitter.emit("notify", {
+          text: t("user.login.messages.success"),
+          type: "success",
+        });
+
+        router.push({ name: "home" });
+      } else {
+        emitter.emit("notify", {
+          text: t("user.firstUser.login.messages.error"),
+          type: "error",
+        });
+
+        router.push({ name: "login" });
+      }
     })
     .catch(() => {
       errorMessage.value = t("user.firstUser.signup.messages.error");
@@ -68,25 +84,11 @@ const handleSubmit = async (credentials: LoginCredentials) => {
     .finally(() => {
       loading.value = false;
     });
-
-  if (user.value) {
-    emitter.emit("notify", {
-      text: t("user.login.messages.success"),
-      type: "success",
-    });
-
-    router.push({ name: "home" });
-  } else {
-    emitter.emit("notify", {
-      text: t("user.firstUser.login.messages.error"),
-      type: "error",
-    });
-
-    router.push({ name: "login" });
-  }
 };
 
 const prepareComponent = async () => {
+  loading.value = true;
+
   try {
     const response = await getIsFirstUser(config.apiBaseUrl);
 
