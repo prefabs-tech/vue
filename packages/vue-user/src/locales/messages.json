@@ -288,7 +288,7 @@
             "update": "Update"
           },
           "label": "Email",
-          "newEmail": "New Email",
+          "newEmail": "New email",
           "messages": {
             "alreadyExist": "Email already exists.",
             "duplicate": "Email is same as the current one.",
@@ -301,6 +301,9 @@
             "verify": "Verify email to complete the email update."
           },
           "title": "Update email"
+        },
+        "errors": {
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
@@ -690,7 +693,7 @@
             "update": "Update"
           },
           "label": "Email",
-          "newEmail": "New Email",
+          "newEmail": "New email",
           "messages": {
             "alreadyExist": "Email already exists.",
             "duplicate": "Email is same as the current one.",
@@ -703,6 +706,9 @@
             "verify": "Verify email to complete the email update."
           },
           "title": "Update email"
+        },
+        "errors": {
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {

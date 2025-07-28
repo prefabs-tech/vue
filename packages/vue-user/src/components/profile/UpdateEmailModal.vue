@@ -3,9 +3,12 @@
     class="update-email-modal"
     :show="show"
     :title="t('user.profile.accountInfo.title')"
-    @on:close="$emit('on:close')"
+    @on:close="onClose"
   >
-    <UpdateEmailForm @email:update-processed="$emit('on:close')" />
+    <UpdateEmailForm
+      ref="PrefabsTechUpdateEmail"
+      @email:update-processed="$emit('on:close')"
+    />
   </Modal>
 </template>
 
@@ -18,12 +21,15 @@ export default {
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Modal } from "@prefabs.tech/vue3-ui";
+import { ref } from "vue";
 
 import UpdateEmailForm from "./UpdateEmailForm.vue";
 import { useTranslations } from "../../index";
 
 const messages = useTranslations();
 const { t } = useI18n({ messages });
+
+const PrefabsTechUpdateEmail = ref();
 
 defineProps({
   show: {
@@ -32,5 +38,11 @@ defineProps({
   },
 });
 
-defineEmits(["on:close"]);
+const emit = defineEmits(["on:close"]);
+
+const onClose = () => {
+  PrefabsTechUpdateEmail.value.onCancel();
+
+  emit("on:close");
+};
 </script>
