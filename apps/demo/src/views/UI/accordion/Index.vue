@@ -94,7 +94,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import DemoAccordion from "./DemoAccordion.vue";
 import DemoAccordionWithIcons from "./DemoAccordionWithIcons.vue";

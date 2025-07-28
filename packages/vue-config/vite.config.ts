@@ -11,8 +11,8 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabVue3Config.${format}.js`,
-        name: "@dzangolab/vue3-config",
+        fileName: (format) => `PrefabsTechVue3Config.${format}.js`,
+        name: "PrefabsTechVue3Config",
       },
       rollupOptions: {
         external: ["vue"],

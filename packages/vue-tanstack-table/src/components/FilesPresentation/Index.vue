@@ -42,12 +42,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { FilesList } from "@dzangolab/vue3-ui";
+import { FilesList } from "@prefabs.tech/vue3-ui";
 import { computed } from "vue";
 
 import FilesTable from "../FilesTable/Index.vue";
 
-import type { IFile, TableMessages } from "@dzangolab/vue3-ui";
+import type { IFile, TableMessages } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
 const props = defineProps({

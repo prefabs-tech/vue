@@ -250,6 +250,22 @@
   "messages": "Messages",
   "modal": {
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "documentation": {
+      "eventDescription": {
+        "close": "Emitted when the modal is requested to close (via close icon or outside click)."
+      },
+      "propsDescription": {
+        "dismissOnClickOut":  "Closes the modal when clicking outside the modal content.",
+        "show": "Controls the visibility of the modal.",
+        "size": "Defines the width of the modal.",
+        "title": "Title for the modal. Override by `header` slot if provided."
+      },
+      "slotDescription": {
+        "default": "Main content of the modal body.",
+        "footer": "Footer section of the modal. Placed below the content.",
+        "header": "Custom header content. Overrides `title` if provided."
+      }
+    },
     "header": {
       "productDetail": "Product detail"
     },
@@ -265,6 +281,7 @@
     "usage": {
       "basic": "Basic",
       "disableDismiss": "Disabled dismiss on click outside",
+      "size": "Size",
       "slots": "With slots",
       "withTitle": "With title",
       "withI18n": "With i18n"

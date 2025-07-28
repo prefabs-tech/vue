@@ -27,7 +27,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabView } from "@dzangolab/vue3-ui";
+          import { TabView } from "@prefabs.tech/vue3-ui";
 
           const tabs = [
             { children: "Description", key: "1", label: "Description" },
@@ -72,7 +72,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabView } from "@dzangolab/vue3-ui";
+          import { TabView } from "@prefabs.tech/vue3-ui";
 
           const tabs = [
             { children: "Description", key: "1", label: "Description" },
@@ -118,7 +118,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabView } from "@dzangolab/vue3-ui";
+          import { TabView } from "@prefabs.tech/vue3-ui";
 
           const tabs = [
             { children: "Description", key: "1", label: "Description" },
@@ -164,7 +164,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabView } from "@dzangolab/vue3-ui";
+          import { TabView } from "@prefabs.tech/vue3-ui";
 
           const tabs = [
             { children: "Description", key: "1", label: "Description" },
@@ -210,7 +210,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabView } from "@dzangolab/vue3-ui";
+          import { TabView } from "@prefabs.tech/vue3-ui";
 
           const tabs = [
             { children: "Description", key: "1", label: "Description" },
@@ -264,7 +264,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabView } from "@dzangolab/vue3-ui";
+          import { TabView } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const activeKey = ref&lt;string&gt;("1");
@@ -324,7 +324,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabView } from "@dzangolab/vue3-ui";
+          import { TabView } from "@prefabs.tech/vue3-ui";
 
           const tabList = [
             { key: "description", label: "Description" },
@@ -378,7 +378,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ConfirmationModal, TabView } from "@dzangolab/vue3-ui";
+          import { ConfirmationModal, TabView } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const activeKey = ref&lt;string&gt;("1");
@@ -452,7 +452,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ConfirmationModal, TabView } from "@dzangolab/vue3-ui";
+          import { ConfirmationModal, TabView } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const closingKey = ref&lt;string&gt;();
@@ -506,7 +506,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { TabView } from "@dzangolab/vue3-ui";
+          import { TabView } from "@prefabs.tech/vue3-ui";
 
           const tabs = [
             { children: "Description", key: "tab1", label: "Description" },
@@ -555,8 +555,12 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, ConfirmationModal, TabView } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import {
+  ButtonElement,
+  ConfirmationModal,
+  TabView,
+} from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";

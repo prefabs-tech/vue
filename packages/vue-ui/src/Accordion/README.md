@@ -5,19 +5,19 @@
 ### npm
 
 ```
-npm install @dzangolab/vue3-ui
+npm install @prefabs.tech/vue3-ui
 ```
 
 ### yarn
 
 ```
-yarn add @dzangolab/vue3-ui
+yarn add @prefabs.tech/vue3-ui
 ```
 
 ### pnpm
 
 ```
-pnpm add @dzangolab/vue3-ui
+pnpm add @prefabs.tech/vue3-ui
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ pnpm add @dzangolab/vue3-ui
 </template>
 
 <script setup>
-import { Accordion, SubPane } from "@dzangolab/vue3-ui";
+import { Accordion, SubPane } from "@prefabs.tech/vue3-ui";
 </script>
 ```
 

@@ -21,9 +21,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Message, Page } from "@dzangolab/vue3-ui";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Message, Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -32,7 +32,7 @@ import { useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { ChangePasswordPayload } from "../types";
-import type { AppConfig } from "@dzangolab/vue3-config";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const config = useConfig() as AppConfig;
 

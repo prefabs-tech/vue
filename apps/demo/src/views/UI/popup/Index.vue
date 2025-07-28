@@ -46,7 +46,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Popup } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -82,8 +82,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { ButtonElement, Popup } from "@prefabs.tech/vue3-ui";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
           &lt;/script&gt;
@@ -121,7 +121,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Popup } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -157,7 +157,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Popup } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -193,7 +193,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Popup } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -229,7 +229,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Popup } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -246,7 +246,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+import { ButtonElement, Popup } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";

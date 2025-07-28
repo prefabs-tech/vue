@@ -18,7 +18,7 @@ import useUserStore from "../store";
 import verifyEmail, { getVerificationStatus } from "./verify-email";
 
 import type { UserType } from "../types";
-import type { AppConfig } from "@dzangolab/vue3-config";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const initSupertokens = (config: AppConfig) => {
   useUserStore();

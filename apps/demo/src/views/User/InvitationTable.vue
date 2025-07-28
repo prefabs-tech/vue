@@ -56,7 +56,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { InvitationTable } from "@dzangolab/vue3-user";
+          import { InvitationTable } from "@prefabs.tech/vue3-user";
 
           import { invitations } from "../Table/data";
 
@@ -77,8 +77,8 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement } from "@dzangolab/vue3-ui";
-import { InvitationTable } from "@dzangolab/vue3-user";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
+import { InvitationTable } from "@prefabs.tech/vue3-user";
 
 import { apps } from "./data";
 import UserPage from "./UserPage.vue";

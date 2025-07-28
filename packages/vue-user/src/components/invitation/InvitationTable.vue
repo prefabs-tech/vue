@@ -68,14 +68,14 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Table } from "@dzangolab/vue3-tanstack-table";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import {
   BadgeComponent,
   ButtonElement,
   formatDateTime,
   LoadingPage,
-} from "@dzangolab/vue3-ui";
+} from "@prefabs.tech/vue3-ui";
 import { computed, h, ref } from "vue";
 
 import InvitationModal from "./InvitationModal.vue";
@@ -101,7 +101,7 @@ import type {
   TableColumnDefinition,
   TableRow,
   TRequestJSON,
-} from "@dzangolab/vue3-tanstack-table";
+} from "@prefabs.tech/vue3-tanstack-table";
 import type { PropType } from "vue";
 
 const messages = useTranslations();

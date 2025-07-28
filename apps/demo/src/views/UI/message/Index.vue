@@ -27,7 +27,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -53,7 +53,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -83,7 +83,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -113,7 +113,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showEnableCloseSection = ref(true);
@@ -136,8 +136,8 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
-            import { useI18n } from "@dzangolab/vue3-i18n";
+            import { Message } from "@prefabs.tech/vue3-ui";
+            import { useI18n } from "@prefabs.tech/vue3-i18n";
 
             const { t } = useI18n();
           &lt;/script&gt;
@@ -152,18 +152,22 @@
       <div class="section-content">
         <Message
           :message="$t('ui.message.contents.content2')"
+          enable-close
           severity="info"
         />
         <Message
           :message="$t('ui.message.contents.content3')"
+          enable-close
           severity="success"
         />
         <Message
           :message="$t('ui.message.contents.content4')"
+          enable-close
           severity="danger"
         />
         <Message
           :message="$t('ui.message.contents.content5')"
+          enable-close
           severity="warning"
         />
 
@@ -172,24 +176,28 @@
           &lt;template&gt;
             &lt;Message
               message="New features just launched! Check them out!"
+              enable-close
               severity="info"
             /&gt;
             &lt;Message
               :message="New Year, New You: Start fresh with our services!"
+              enable-close
               severity="success"
             /&gt;
             &lt;Message
               :message="We value your feedback: take our quick survey!"
+              enable-close
               severity="danger"
             /&gt;
             &lt;Message
               :message="Warning: Limited time only! Sale ends soon!"
+              enable-close
               severity="warning"
             /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -225,7 +233,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -244,8 +252,8 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, Message } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement, Message } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";

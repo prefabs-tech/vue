@@ -50,10 +50,14 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Table } from "@dzangolab/vue3-tanstack-table";
-import { BadgeComponent, ButtonElement, formatDate } from "@dzangolab/vue3-ui";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
+import {
+  BadgeComponent,
+  ButtonElement,
+  formatDate,
+} from "@prefabs.tech/vue3-ui";
 import { computed, h, ref } from "vue";
 
 import {
@@ -72,14 +76,14 @@ import type {
   InvitationRoleOption,
   UserType,
 } from "../../types";
-import type { AppConfig } from "@dzangolab/vue3-config";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type {
   DataActionsMenuItem,
   FilterOption,
   SortingState,
   TableColumnDefinition,
   TRequestJSON,
-} from "@dzangolab/vue3-tanstack-table";
+} from "@prefabs.tech/vue3-tanstack-table";
 import type { PropType } from "vue";
 
 const config = useConfig() as AppConfig;

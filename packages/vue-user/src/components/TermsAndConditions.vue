@@ -15,7 +15,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Checkbox } from "@dzangolab/vue3-form";
+import { Checkbox } from "@prefabs.tech/vue3-form";
 
 import TermsAndServices from "./TermsAndServices.vue";
 

@@ -27,9 +27,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileCard } from "@dzangolab/vue3-ui";
+          import { FileCard } from "@prefabs.tech/vue3-ui";
 
-          import type { IFile } from "@dzangolab/vue3-ui";
+          import type { IFile } from "@prefabs.tech/vue3-ui";
 
           const file = {
             description: "This is a file",
@@ -60,9 +60,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileCard } from "@dzangolab/vue3-ui";
+          import { FileCard } from "@prefabs.tech/vue3-ui";
 
-          import type { FileMessages, IFile } from "@dzangolab/vue3-ui";
+          import type { FileMessages, IFile } from "@prefabs.tech/vue3-ui";
 
           const file = {
             ...
@@ -116,9 +116,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileCard } from "@dzangolab/vue3-ui";
+          import { FileCard } from "@prefabs.tech/vue3-ui";
 
-          import type { FileMessages, IFile } from "@dzangolab/vue3-ui";
+          import type { FileMessages, IFile } from "@prefabs.tech/vue3-ui";
 
           const archiveButtonProps = {
             severity: "warning",
@@ -209,9 +209,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { FileCard } from "@dzangolab/vue3-ui";
+          import { FileCard } from "@prefabs.tech/vue3-ui";
 
-          import type { IFile } from "@dzangolab/vue3-ui";
+          import type { IFile } from "@prefabs.tech/vue3-ui";
 
           const file = {
             ...
@@ -268,12 +268,12 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, FileCard } from "@dzangolab/vue3-ui";
+import { ButtonElement, FileCard } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
-import type { FileMessages, IFile } from "@dzangolab/vue3-ui";
+import type { FileMessages, IFile } from "@prefabs.tech/vue3-ui";
 
 const archiveButtonProperties = {
   severity: "warning",

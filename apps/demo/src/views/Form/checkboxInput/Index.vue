@@ -35,7 +35,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CheckboxInput } from "@dzangolab/vue3-form";
+          import { CheckboxInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref();
@@ -68,7 +68,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CheckboxInput } from "@dzangolab/vue3-form";
+          import { CheckboxInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref();
@@ -119,7 +119,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CheckboxInput } from "@dzangolab/vue3-form";
+          import { CheckboxInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref(["car"]);
@@ -172,8 +172,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, CheckboxInput } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { Form, CheckboxInput } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
           import { ref } from "vue";
 
           const { t } = useI18n();
@@ -265,10 +265,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, CheckboxInput } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Table } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, CheckboxInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

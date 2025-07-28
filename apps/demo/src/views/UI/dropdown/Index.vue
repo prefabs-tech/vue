@@ -58,7 +58,7 @@
                   Email
                 &lt;/span&gt;
                 &lt;span class="value"&gt;
-                  : monorepo@dzangolab.com
+                  : monorepo@prefabs.tech.com
                 &lt;/span&gt;
               &lt;/div&gt;
               &lt;div class="name"&gt;
@@ -73,10 +73,10 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Dropdown } from "@dzangolab/vue3-ui";
+          import { Dropdown } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
-          import type { DropdownMenu } from "@dzangolab/vue3-ui";
+          import type { DropdownMenu } from "@prefabs.tech/vue3-ui";
 
           const menu = [
             {
@@ -135,7 +135,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Dropdown } from "@dzangolab/vue3-ui";
+          import { Dropdown } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const menu = [
@@ -190,13 +190,13 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, Dropdown } from "@dzangolab/vue3-ui";
+import { ButtonElement, Dropdown } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
-import type { DropdownMenu } from "@dzangolab/vue3-ui";
+import type { DropdownMenu } from "@prefabs.tech/vue3-ui";
 
 const menu = ref([
   {

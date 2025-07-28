@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import { mockedTable } from "../table";
 import TableDataActions from "../../TableDataActions.vue";
-import { ConfirmationModal } from "@dzangolab/vue3-ui";
+import { ConfirmationModal } from "@prefabs.tech/vue3-ui";
 
 describe("TableDataActions", () => {
   it("matches snapshot", () => {

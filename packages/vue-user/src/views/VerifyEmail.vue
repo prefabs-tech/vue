@@ -16,14 +16,20 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Page } from "@dzangolab/vue3-ui";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Page } from "@prefabs.tech/vue3-ui";
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
+import { getMe } from "../api/user";
 import { EMAIL_VERIFICATION } from "../constant";
 import { useTranslations, emitter } from "../index";
 import useUserStore from "../store";
+
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
+const config = useConfig() as AppConfig;
 
 const route = useRoute();
 
@@ -31,7 +37,7 @@ const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
-const { user, verifyEmail } = useUserStore();
+const { user, setUser, verifyEmail } = useUserStore();
 
 const loading = ref<boolean>(false);
 const status = ref<string>();
@@ -69,14 +75,18 @@ onMounted(() => {
           : undefined;
 
     verifyEmail(token)
-      .then((response) => {
+      .then(async (response) => {
         status.value = response.status;
 
         if (status.value === EMAIL_VERIFICATION.OK) {
+          const userInfo = await getMe(config.apiBaseUrl);
+
           emitter.emit("notify", {
             text: t("user.emailVerification.messages.verify.success"),
             type: "success",
           });
+
+          setUser(userInfo.data);
         } else {
           emitter.emit("notify", {
             text: t("user.emailVerification.messages.verify.invalidToken"),

@@ -16,5 +16,5 @@ export default [
   {
     ignores: ["dist/**", "node_modules/**"],
   },
-  ...compat.extends("@12deg/eslint-config/vue"),
+  ...compat.extends("@prefabs.tech/eslint-config/vue"),
 ];

@@ -22,9 +22,8 @@ exports[`Message > matches snapshot 1`] = `
     
     
   </div>
-  <img
+  <span
     class="close-message"
-    src="/src/assets/svg/x-mark.svg"
   />
 </div>
 `;

@@ -37,7 +37,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
-            import { SortableList } from "@dzangolab/vue3-ui";
+            import { SortableList } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
   
             const list = ref([
@@ -82,8 +82,8 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, SortableList } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement, SortableList } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";

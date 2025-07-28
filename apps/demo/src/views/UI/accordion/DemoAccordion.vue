@@ -62,7 +62,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Accordion } from "@dzangolab/vue3-ui";
+import { Accordion } from "@prefabs.tech/vue3-ui";
 
 import TestComponent from "./TestComponent.vue";
 </script>

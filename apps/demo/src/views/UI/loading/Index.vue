@@ -36,7 +36,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement, LoadingPage } from "@dzangolab/vue3-ui";
+            import { ButtonElement, LoadingPage } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const loading = ref(false);
@@ -64,7 +64,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, LoadingPage } from "@dzangolab/vue3-ui";
+import { ButtonElement, LoadingPage } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";

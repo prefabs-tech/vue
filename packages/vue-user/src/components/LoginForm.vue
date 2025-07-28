@@ -38,6 +38,7 @@
           },
         ]"
         :loading="loading"
+        alignment="filled"
         tabindex="0"
       />
     </div>
@@ -51,9 +52,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { Email, FormActions, Input, Password } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { Email, FormActions, Input, Password } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Form } from "vee-validate";
 
 import { LOGIN_TYPE_USERNAME } from "../constant";

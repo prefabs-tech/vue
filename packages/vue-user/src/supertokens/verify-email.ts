@@ -5,15 +5,9 @@ const getVerificationStatus = async () => {
 };
 
 const verifyEmail = async () => {
-  const isVerified = await getVerificationStatus();
+  const response = await EmailVerification.verifyEmail();
 
-  if (isVerified) {
-    return { status: "EMAIL_ALREADY_VERIFIED" };
-  } else {
-    const response = await EmailVerification.verifyEmail();
-
-    return { status: response.status };
-  }
+  return { status: response.status };
 };
 
 export { getVerificationStatus };

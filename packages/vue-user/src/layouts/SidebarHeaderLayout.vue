@@ -43,8 +43,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { SidebarHeaderLayout as Layout } from "@dzangolab/vue3-layout";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { SidebarHeaderLayout as Layout } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
@@ -52,7 +52,7 @@ import { useRouter } from "vue-router";
 import UserMenu from "../components/UserMenu.vue";
 import useUserStore from "../store";
 
-import type { MenuItem, SidebarMenu } from "@dzangolab/vue3-layout";
+import type { MenuItem, SidebarMenu } from "@prefabs.tech/vue3-layout";
 
 defineProps({
   noLocaleSwitcher: Boolean,

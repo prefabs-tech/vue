@@ -19,33 +19,33 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Card } from "@dzangolab/vue3-ui";
+import { Card } from "@prefabs.tech/vue3-ui";
 
 const packages = [
   {
     name: "ui",
     route: "/ui",
-    description: "@dzangolab/vue3-ui components and utilities",
+    description: "@prefabs.tech/vue3-ui components and utilities",
   },
   {
     name: "user",
     route: "/user",
-    description: "@dzangolab/vue3-user components and utilities",
+    description: "@prefabs.tech/vue3-user components and utilities",
   },
   {
     name: "form",
     route: "/form",
-    description: "@dzangolab/vue3-form components and utilities",
+    description: "@prefabs.tech/vue3-form components and utilities",
   },
   {
     name: "layout",
     route: "/layout",
-    description: "@dzangolab/vue3-layout components and utilities",
+    description: "@prefabs.tech/vue3-layout components and utilities",
   },
   {
     name: "table",
     route: "/table",
-    description: "@dzangolab/vue3-tanstack-table components and utilities",
+    description: "@prefabs.tech/vue3-tanstack-table components and utilities",
   },
 ];
 </script>

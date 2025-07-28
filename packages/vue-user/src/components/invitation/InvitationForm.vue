@@ -43,11 +43,7 @@
         @update:date="formData.expiresAt = $event"
       />
 
-      <FormActions
-        :submit-label="submitLabel"
-        alignment="filled"
-        @cancel="$emit('cancel')"
-      />
+      <FormActions :submit-label="submitLabel" @cancel="$emit('cancel')" />
     </Form>
   </div>
 </template>
@@ -66,8 +62,8 @@ import {
   Form,
   FormActions,
   SelectInput,
-} from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
+} from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { computed, ref } from "vue";
 import { z } from "zod";
 
@@ -218,9 +214,3 @@ const prepareComponent = () => {
 
 prepareComponent();
 </script>
-
-<style lang="css">
-.invitation-form .form-actions {
-  --form-margin-bottom: 0;
-}
-</style>

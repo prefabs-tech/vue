@@ -63,9 +63,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Checkbox } from "@dzangolab/vue3-form";
-import { getStorage, LoadingIcon } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
+import { Checkbox } from "@prefabs.tech/vue3-form";
+import { getStorage, LoadingIcon } from "@prefabs.tech/vue3-ui";
 import {
   getCoreRowModel,
   getFilteredRowModel,
@@ -88,7 +88,7 @@ import {
 import { getRequestJSON, getSavedTableState, saveTableState } from "../utils";
 
 import type { DataActionsMenuItem, PersistentTableState } from "../types";
-import type { StorageType } from "@dzangolab/vue3-ui";
+import type { StorageType } from "@prefabs.tech/vue3-ui";
 import type {
   ColumnDef,
   ColumnFiltersState,
