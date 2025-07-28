@@ -5,11 +5,15 @@
     centered
     class="auth signup"
   >
-    <Card v-if="isError">
-      <p>{{ t("user.signup.errors.SOMETHING_WRONG") }}</p>
-    </Card>
+    <Message
+      v-if="errorMessage"
+      :message="errorMessage"
+      enable-close
+      severity="danger"
+      @close="errorMessage = undefined"
+    />
 
-    <SignupForm v-else @submit="handleSubmit" />
+    <SignupForm v-else :loading="loading" @submit="handleSubmit" />
   </Page>
 </template>
 
@@ -22,7 +26,7 @@ export default {
 <script setup lang="ts">
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { Card, Page } from "@prefabs.tech/vue3-ui";
+import { Message, Page } from "@prefabs.tech/vue3-ui";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -45,10 +49,12 @@ const userStore = useUserStore();
 const { getIsFirstUser, signUpFirstUser } = userStore;
 const { user } = storeToRefs(userStore);
 
-const isError = ref<boolean>(false);
+const errorMessage = ref<string>();
 const loading = ref<boolean>(true);
 
 const handleSubmit = async (credentials: LoginCredentials) => {
+  loading.value = true;
+
   await signUpFirstUser(credentials, config.apiBaseUrl)
     .then(() => {
       emitter.emit("notify", {
@@ -57,10 +63,10 @@ const handleSubmit = async (credentials: LoginCredentials) => {
       });
     })
     .catch(() => {
-      emitter.emit("notify", {
-        text: t("user.firstUser.signup.messages.error"),
-        type: "error",
-      });
+      errorMessage.value = t("user.firstUser.signup.messages.error");
+    })
+    .finally(() => {
+      loading.value = false;
     });
 
   if (user.value) {
@@ -88,7 +94,7 @@ const prepareComponent = async () => {
       router.push({ name: "login" });
     }
   } catch (error) {
-    isError.value = true;
+    errorMessage.value = t("user.signup.errors.SOMETHING_WRONG");
   } finally {
     loading.value = false;
   }
