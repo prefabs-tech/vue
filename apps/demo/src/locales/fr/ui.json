@@ -270,8 +270,11 @@
       "productDetail": "Product detail"
     },
     "label": {
+      "auto": "Auto",
       "forgotPassword": "Forgot password?",
+      "large": "Large",
       "login": "Login",
+      "medium": "Medium",
       "open": "Open",
       "show": "Show",
       "viewDetail": "View detail"
