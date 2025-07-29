@@ -260,6 +260,14 @@
           "success": "Your password is changed successfully.",
           "wrongPassword": "The password confirmation does not match"
         },
+        "modal": {
+          "label": {
+            "send": "Send"
+          },
+          "placeholder": {
+            "selectApp": "Select an app"
+          }
+        },
         "title": "Reset password"
       },
       "passwordResetRequest": {
@@ -664,6 +672,14 @@
         "messages": {
           "success": "Votre mot de passe a été mis à jour.",
           "wrongPassword": "The password confirmation doesnot match"
+        },
+        "modal": {
+          "label": {
+            "send": "Send"
+          },
+          "placeholder": {
+            "selectApp": "Select an app"
+          }
         },
         "title": "Reset password (fr)"
       },
