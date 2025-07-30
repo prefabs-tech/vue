@@ -2,7 +2,7 @@
   <UiPage
     :sub-title="$t('ui.modal.subtitle')"
     :title="$t('ui.modal.title')"
-    class="demo"
+    class="demo-modal"
   >
     <template #toolbar>
       <ButtonElement
@@ -18,47 +18,12 @@
       <h2>{{ $t("ui.modal.usage.basic") }}</h2>
 
       <div class="section-content">
-        <ButtonElement
-          :label="$t('ui.modal.label.open')"
-          @click="showModal = true"
-        />
-
-        <Modal :show="showModal" @on:close="showModal = false">
-          {{ $t("ui.modal.content") }}
-        </Modal>
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;ButtonElement
-              label="Open"
-              @click="showModal = true"
-            /&gt;
-
-            &lt;Modal :show="showModal" @on:close="showModal = false" &gt;
-              Lorem ipsum...
-            &lt;/Modal&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
-          import { ref } from "vue";
-
-          const showModal = ref(false);
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.modal.usage.withTitle") }}</h2>
-
-      <div class="section-content">
-        <ButtonElement
-          :label="$t('ui.modal.label.show')"
-          @click="showTitleModal = true"
-        />
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.modal.label.show')"
+            @click="showTitleModal = true"
+          />
+        </div>
 
         <Modal
           :show="showTitleModal"
@@ -100,10 +65,12 @@
       <h2>{{ $t("ui.modal.usage.disableDismiss") }}</h2>
 
       <div class="section-content">
-        <ButtonElement
-          :label="$t('ui.modal.label.viewDetail')"
-          @click="showDisableDismissModal = true"
-        />
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.modal.label.viewDetail')"
+            @click="showDisableDismissModal = true"
+          />
+        </div>
 
         <Modal
           :dismiss-on-click-out="false"
@@ -165,16 +132,44 @@
       <h2>{{ $t("ui.modal.usage.size") }}</h2>
 
       <div class="section-content">
-        <ButtonElement
-          :label="$t('ui.modal.label.show')"
-          @click="showSizeModal = true"
-        />
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.modal.label.medium')"
+            @click="showMediumSizeModal = true"
+          />
+          <ButtonElement
+            :label="$t('ui.modal.label.large')"
+            @click="showLargeSizeModal = true"
+          />
+          <ButtonElement
+            :label="$t('ui.modal.label.auto')"
+            @click="showAutoSizeModal = true"
+          />
+        </div>
 
         <Modal
-          :show="showSizeModal"
+          :show="showMediumSizeModal"
+          :title="$t('ui.modal.header.productDetail')"
+          size="medium"
+          @on:close="showMediumSizeModal = false"
+        >
+          {{ $t("ui.modal.content") }}
+        </Modal>
+
+        <Modal
+          :show="showLargeSizeModal"
           :title="$t('ui.modal.header.productDetail')"
           size="large"
-          @on:close="showSizeModal = false"
+          @on:close="showLargeSizeModal = false"
+        >
+          {{ $t("ui.modal.content") }}
+        </Modal>
+
+        <Modal
+          :show="showAutoSizeModal"
+          :title="$t('ui.modal.header.productDetail')"
+          size="auto"
+          @on:close="showAutoSizeModal = false"
         >
           {{ $t("ui.modal.content") }}
         </Modal>
@@ -183,15 +178,43 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;ButtonElement
-              label="Show"
-              @click="showModal = true"
+              label="Medium"
+              @click="showMediumModal = true"
+            /&gt;
+
+            &lt;ButtonElement
+              label="Large"
+              @click="showLargeModal = true"
+            /&gt;
+
+            &lt;ButtonElement
+              label="Auto"
+              @click="showAutoModal = true"
             /&gt;
 
             &lt;Modal
-              :show="showModal"
+              :show="showMediumModal"
+              size="medium"
+              title="Product detail"
+              @on:close="showMediumModal = false"
+            &gt;
+              Lorem ipsum...
+            &lt;/Modal&gt;
+
+            &lt;Modal
+              :show="showLargeModal"
               size="large"
               title="Product detail"
-              @on:close="showModal = false"
+              @on:close="showLargeModal = false"
+            &gt;
+              Lorem ipsum...
+            &lt;/Modal&gt;
+
+            &lt;Modal
+              :show="showAutoModal"
+              size="auto"
+              title="Product detail"
+              @on:close="showAutoModal = false"
             &gt;
               Lorem ipsum...
             &lt;/Modal&gt;
@@ -201,7 +224,9 @@
           import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
-          const showModal = ref(false);
+          const showAutoModal = ref(false);
+          const showLargeModal = ref(false);
+          const showMediumModal = ref(false);
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -212,10 +237,12 @@
       <h2>{{ $t("ui.confirmationModal.usage.withI18n") }}</h2>
 
       <div class="section-content">
-        <ButtonElement
-          :label="$t('ui.modal.label.show')"
-          @click="showI18nModal = true"
-        />
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.modal.label.show')"
+            @click="showI18nModal = true"
+          />
+        </div>
 
         <Modal
           :show="showI18nModal"
@@ -260,11 +287,13 @@
       <h2>{{ $t("ui.confirmationModal.usage.slots") }}</h2>
 
       <div class="section-content">
-        <ButtonElement
-          :label="$t('ui.modal.label.login')"
-          icon-left="pi pi-user"
-          @click="showSlotModal = true"
-        />
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.modal.label.login')"
+            icon-left="pi pi-user"
+            @click="showSlotModal = true"
+          />
+        </div>
 
         <Modal :show="showSlotModal" @on:close="showSlotModal = false">
           <template #header>
@@ -419,7 +448,7 @@ const propsData = [
     default: "medium",
     description: t("ui.modal.documentation.propsDescription.size"),
     prop: "size",
-    type: `"medium" | "large"`,
+    type: `"medium" | "large" | "auto"`,
   },
   {
     default: "-",
@@ -449,31 +478,35 @@ const formData = reactive({
   password: ref(),
 });
 
+const showAutoSizeModal = ref(false);
 const showDisableDismissModal = ref(false);
 const showI18nModal = ref(false);
-const showModal = ref(false);
-const showSizeModal = ref(false);
+const showLargeSizeModal = ref(false);
+const showMediumSizeModal = ref(false);
 const showSlotModal = ref(false);
 const showTitleModal = ref(false);
 </script>
 
 <style lang="css">
-.demo .info {
+.demo-modal .info {
   display: flex;
   line-height: 1.5rem;
   width: 20rem;
 }
 
-.demo .info > .label {
+.demo-modal .info > .label {
   font-weight: 600;
   min-width: 5rem;
 }
 
-.demo .login-actions {
+.demo-modal .login-actions {
   margin-bottom: 0;
 }
 
-.demo .dialog.active .login-form {
-  width: 25rem;
+.demo-modal .container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 </style>

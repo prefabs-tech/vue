@@ -25,9 +25,9 @@
 
 .modal .footer {
   display: flex;
-  gap: 1em;
+  gap: 1rem;
   margin-left: auto;
-  padding: 1em;
+  padding: 0.7rem;
 }
 
 .modal .header.disabled-header {
@@ -35,7 +35,7 @@
 }
 
 .modal .header {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   margin-bottom: 0.5rem;
   justify-content: space-between;
@@ -71,13 +71,12 @@ main:has(.modal.overlay > .dialog.active) {
 }
 
 @media screen and (min-width: 576px) {
-  .modal .dialog {
-    max-width: 35rem;
-    min-width: 25rem;
-    width: auto;
+  .modal .dialog.medium {
+    max-width: 32rem;
+    min-width: 32rem;
   }
 
   .modal .dialog.large {
-    max-width: 56.25rem;
+    max-width: 60rem;
   }
 }

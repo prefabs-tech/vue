@@ -59,7 +59,7 @@ const props = defineProps({
   size: {
     default: "medium",
     type: String,
-    validator: (value: string) => ["medium", "large"].includes(value),
+    validator: (value: string) => ["auto", "medium", "large"].includes(value),
   },
   title: {
     default: "",
