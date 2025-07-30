@@ -71,7 +71,7 @@ const emit = defineEmits<{
   (event: string, action: Record<string, unknown>): void;
 }>();
 
-const defaultActions = [
+const defaultActions = computed(() => [
   {
     id: "submit",
     label: props.submitLabel,
@@ -83,11 +83,11 @@ const defaultActions = [
     severity: "secondary",
     variant: "outlined",
   },
-];
+]);
 
 const parsedActions = computed(() => {
   if (!props.actions.length) {
-    return defaultActions;
+    return defaultActions.value;
   }
 
   const mappedActions = new Map<string, Record<string, unknown>>();
@@ -96,7 +96,7 @@ const parsedActions = computed(() => {
     mappedActions.set(String(action?.id ?? action?.label ?? ""), action);
   }
 
-  for (const defaultAction of defaultActions) {
+  for (const defaultAction of defaultActions.value) {
     if (mappedActions.get(defaultAction.id || defaultAction.label || "")) {
       const previousAction = mappedActions.get(
         defaultAction.id || defaultAction.label || "",
