@@ -128,14 +128,18 @@ export const signUpFirstUser = async (
   credential: LoginCredentials,
   apiBaseUrl: string,
 ): Promise<UserType> => {
-  const response = await client(apiBaseUrl).post(`signup/admin`, credential, {
-    withCredentials: true,
-  });
-
-  if (response.data.status === STATUS_ERROR) {
-    throw new Error(response.data.message);
-  } else {
-    return response.data?.user;
+  try {
+    const response = await client(apiBaseUrl).post(`signup/admin`, credential, {
+      withCredentials: true,
+    });
+  
+    if (response.data.status === "EMAIL_ALREADY_EXISTS_ERROR") {
+      throw new Error(response.data.message);
+    } else {
+      return response.data?.user;
+    }
+  } catch (error) {
+    throw new Error("SOMETHING_WRONG");
   }
 };
 
