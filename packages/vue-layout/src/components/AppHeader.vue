@@ -1,5 +1,11 @@
 <template>
   <header ref="dzangolabVueAppHeader">
+    <div v-if="!noToggle" class="toggle" @click="toggle">
+      <slot name="toggle">
+        <Icon icon="prime:bars" height="2rem" />
+      </slot>
+    </div>
+
     <slot name="logo" class="logo">
       <Logo v-if="!noLogo" :route="home" />
     </slot>
@@ -18,12 +24,6 @@
         <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales" />
       </slot>
     </nav>
-    <div class="toggle" @click="toggle">
-      <slot name="toggle">
-        <Icon v-if="expanded" icon="fa6-solid:bars-staggered" height="1.5rem" />
-        <Icon v-else icon="fa6-solid:bars" height="1.5rem" />
-      </slot>
-    </div>
   </header>
 </template>
 
@@ -47,6 +47,7 @@ defineProps({
   noLocaleSwitcher: Boolean,
   noLogo: Boolean,
   noMainMenu: Boolean,
+  noToggle: Boolean,
 });
 
 const { layout: layoutConfig } = useConfig();

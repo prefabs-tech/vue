@@ -1,10 +1,9 @@
 <template>
-  <div class="layout sidebar-header-layout">
+  <div :class="['layout sidebar-header-layout', { collapsible: collapsible }]">
     <slot name="header">
       <AppHeader
         ref="appHeader"
         :no-locale-switcher="noLocaleSwitcher"
-        no-logo
         no-main-menu
       >
         <template v-if="userMenuLocation === 'header'" #userMenu>
@@ -67,6 +66,10 @@ const sidebar = ref();
 const sidebarLocaleSwitcher = ref<boolean>(false);
 
 defineProps({
+  collapsible: {
+    default: true,
+    type: Boolean,
+  },
   menu: {
     required: true,
     type: Array as PropType<SidebarMenu[]>,

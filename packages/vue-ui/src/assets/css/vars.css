@@ -1,6 +1,6 @@
 :root {
   --background-color: #f9f8fa;
-  --border-color: #dee2e6;
+  --border-color: #e5e7eb;
   --border-radius: 0.5em;
 
   --button-alternate-color: var(--dz-alternate-color);
@@ -44,6 +44,19 @@
   --message-info-color: var(--dz-primary-color);
   --message-success-color: var(--dz-success-color);
   --message-warning-color: var(--dz-warning-color);
+
+  --nav-item-active-bg: #eff6ff;
+  --nav-item-active-color: var(--dz-primary-color);
+  --nav-item-border-radius: 0;
+  --nav-item-color: var(--color);
+  --nav-item-hover-bg: #f0f2f7ad;
+  --nav-item-hover-color: var(--dz-nav-item-color);
+  --nav-item-padding-h: 2rem;
+  --nav-item-padding-v: 0.5rem;
+  --nav-menu-label-color: var(--dz-nav-item-color);
+  --nav-menu-padding-h: 0;
+  --nav-menu-padding-v: 1rem;
+  --nav-menu-separator-color: var(--border-color);
 
   --page-max-width: 550px;
 

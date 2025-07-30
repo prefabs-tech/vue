@@ -2,7 +2,7 @@
 
 exports[`Sidebar > matches snapshot  1`] = `
 <div
-  class="sidebar"
+  class="sidebar collapsible"
 >
   <div
     class="header"

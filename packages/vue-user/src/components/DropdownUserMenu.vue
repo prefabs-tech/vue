@@ -142,8 +142,8 @@ nav.user-menu-dropdown .email {
 }
 
 nav.user-menu-dropdown > .trigger {
-  --_padding-h: var(--layout-nav-item-paddind-h, 1rem);
-  --_padding-v: var(--layout-nav-item-paddind-v, 0.625rem);
+  --_padding-h: var(--layout-nav-item-padding-h, 1rem);
+  --_padding-v: var(--layout-nav-item-padding-v, 0.625rem);
 
   align-items: flex-start;
   display: flex;

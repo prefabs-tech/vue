@@ -18,23 +18,26 @@
 }
 
 .sidebar {
-  --_bg-color: var(--sidebar-bg-color, #007aff);
-  --_color: var(--sidebar-color, #fff);
+  --_bg-color: var(--sidebar-bg-color, #fff);
+  --_border: var(
+    --layout-sidebar-border,
+    1px solid var(--border-color, #e5e7eb)
+  );
+  --_color: var(--sidebar-color, #2c2c2c);
   --_height: var(--sidebar-height, auto);
   --_position: var(--sidebar-position, fixed);
+  --_transition-duration: var(--transition-duration, 150ms);
   --_width: var(--sidebar-width, 16rem);
 
   background-color: var(--_bg-color);
-  bottom: 0;
+  border-right: var(--_border);
   color: var(--_color);
   display: flex;
   flex-direction: column;
   height: var(--_height);
-  left: 0;
-  overflow: hidden;
-  position: var(--_position);
-  top: 0;
-  transition: 0.2s ease-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width var(--_transition-duration) ease-in;
   width: var(--_width);
 }
 

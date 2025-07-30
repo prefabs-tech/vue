@@ -5,7 +5,7 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
   class="layout sidebar-only"
 >
   <div
-    class="sidebar layout-sidebar"
+    class="sidebar collapsible layout-sidebar"
   >
     <div
       class="header"

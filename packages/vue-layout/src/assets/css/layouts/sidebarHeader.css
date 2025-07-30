@@ -23,9 +23,7 @@
 }
 
 .layout.sidebar-header-layout .layout-sidebar > .header {
-  --_padding-v: 1rem;
-
-  height: var(--layout-header-height, 5.5rem);
+  display: none;
 }
 
 .layout.sidebar-header-layout footer {
@@ -93,7 +91,7 @@
 .layout.sidebar-header-layout:has(.extend) {
   grid-template-columns: var(--sidebar-collapsed-width, 6rem) 1fr;
   grid-template-areas:
-    "sidebar header"
+    "header header"
     "sidebar main";
 }
 
@@ -116,8 +114,6 @@
 
   background-color: #fff;
   grid-area: header;
-  height: var(--layout-header-height, 5.5rem);
-  padding-right: var(--header-padding-h);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -129,6 +125,7 @@
 
 .layout.sidebar-header-layout > main {
   grid-area: main;
+  overflow-y: auto;
   transition: all 0.3s ease-in-out;
 }
 
@@ -146,8 +143,10 @@
   .layout.sidebar-header-layout {
     grid-template-columns: var(--sidebar-width, 16rem) 1fr;
     grid-template-areas:
-      "sidebar header"
+      "header header"
       "sidebar main";
+    height: 100dvh;
+    overflow: hidden;
   }
 }
 

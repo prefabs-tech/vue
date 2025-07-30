@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!isInactive" class="sidebar">
+  <div v-if="!isInactive" :class="['sidebar', { collapsible: collapsible }]">
     <div v-if="!noHeader" class="header">
       <div class="logo">
         <Logo />
@@ -62,6 +62,10 @@ import type { SidebarMenu } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  collapsible: {
+    default: true,
+    type: Boolean,
+  },
   menu: {
     required: true,
     type: Array as PropType<SidebarMenu[]>,

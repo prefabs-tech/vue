@@ -2,12 +2,47 @@
 
 exports[`SidebarHeaderLayout > matches snapshot 1`] = `
 <div
-  class="layout sidebar-header-layout"
+  class="layout sidebar-header-layout collapsible"
 >
   
   <header>
+    <div
+      class="toggle"
+    >
+      
+      <svg
+        aria-hidden="true"
+        height="2rem"
+        role="img"
+        viewBox="0 0 16 16"
+        width="2rem"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      />
+      
+    </div>
     
-    <!---->
+    <div
+      class="logo"
+    >
+      
+      <a
+        class=""
+        href="/"
+      >
+        <span
+          class="logo-default"
+        >
+          <span>
+            T
+          </span>
+          <span>
+            Test app
+          </span>
+        </span>
+      </a>
+      
+    </div>
     
     <nav
       data-expanded="false"
@@ -25,21 +60,6 @@ exports[`SidebarHeaderLayout > matches snapshot 1`] = `
       />
       
     </nav>
-    <div
-      class="toggle"
-    >
-      
-      <svg
-        aria-hidden="true"
-        height="1.5rem"
-        role="img"
-        viewBox="0 0 16 16"
-        width="1.5rem"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-      />
-      
-    </div>
   </header>
   
   <div
