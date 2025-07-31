@@ -39,7 +39,7 @@
         </template>
       </template>
 
-      <template v-if="isSidebarExpanded" #footer>
+      <template #footer>
         <slot name="footer">
           <AppFooter />
         </slot>
@@ -64,7 +64,6 @@ import type { PropType } from "vue";
 
 const appHeader = ref();
 const sidebar = ref();
-const isSidebarExpanded = ref<boolean>(!!sidebar.value?.sidebarActive);
 const sidebarLocaleSwitcher = ref<boolean>(false);
 
 defineProps({
@@ -93,7 +92,6 @@ watch(
   (newValue) => {
     if (newValue) {
       sidebar.value.sidebarActive = true;
-      isSidebarExpanded.value = true;
     }
   },
 );
@@ -103,7 +101,6 @@ watch(
   (newValue) => {
     if (!newValue) {
       appHeader.value.expanded = false;
-      isSidebarExpanded.value = false;
     }
   },
 );

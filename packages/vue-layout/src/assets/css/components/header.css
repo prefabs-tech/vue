@@ -3,9 +3,9 @@
   --header-border-color: var(--border-color, #e5e7eb);
   --header-font-size: var(--font-size);
   --header-gap: 1.5rem;
-  --_layout-logo-max-width: var(--layout-logo-max-width, 150px);
   --_layout-header-padding-h: var(--layout-header-padding-h, 1rem);
   --_layout-header-padding-v: var(--layout-header-padding-v, 1rem);
+  --_layout-logo-max-width: var(--layout-logo-max-width, 150px);
 
   align-items: center;
   border-bottom: 1px solid var(--header-border-color);
