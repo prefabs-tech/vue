@@ -15,25 +15,29 @@
 
       <div class="section-content">
         <UsersTable
+          id="users-table"
           :initial-sorting="[{ id: 'email', desc: false }]"
           :invitation-modal-title="$t('user.label.inviteUser')"
           :users="allUsers"
           :visible-columns="visibleColumns"
+          persist-state
         />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;UsersTable
+              id="users-table"
               :initial-sorting="[{ id: 'email', desc: false }]"
               :users="users"
               :visible-columns="visibleColumns"
               invitation-modal-title="Invite a user"
+              persist-state
             /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { UsersTable } from "@dzangolab/vue3-user";
+          import { UsersTable } from "@prefabs.tech/vue3-user";
 
           import { allUsers } from "./data";
 
@@ -42,7 +46,7 @@
             "name",
             "roles",
             "signedUpAt",
-            "status",
+            "disabled",
           ];
           &lt;/script&gt;
         </SshPre>
@@ -53,11 +57,11 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement } from "@dzangolab/vue3-ui";
-import { UsersTable } from "@dzangolab/vue3-user";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
+import { UsersTable } from "@prefabs.tech/vue3-user";
 
 import { allUsers } from "./data";
 import UserPage from "./UserPage.vue";
 
-const visibleColumns = ["email", "name", "roles", "signedUpAt", "status"];
+const visibleColumns = ["email", "name", "roles", "signedUpAt", "disabled"];
 </script>

@@ -13,15 +13,27 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
       <div
         class="logo"
       >
-        <a
+        <div
           class="logo"
-          href="/"
         >
-          <img
-            alt="dzango"
-            src="/logo.png"
-          />
-        </a>
+          
+          <a
+            class=""
+            href="/"
+          >
+            <span
+              class="logo-default"
+            >
+              <span>
+                T
+              </span>
+              <span>
+                Test app
+              </span>
+            </span>
+          </a>
+          
+        </div>
       </div>
       <div
         class="title"

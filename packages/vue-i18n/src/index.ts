@@ -4,7 +4,7 @@ import LocaleSwitcher from "./locale-switcher/Index.vue";
 import useLocaleStore from "./store";
 import { getLocaleNames, getPreferredLocale, prependMessages } from "./utils";
 
-import type { AppConfig } from "@dzangolab/vue3-config";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { App, Plugin } from "vue";
 import type { I18nOptions, LocaleMessages, VueMessageType } from "vue-i18n";
 
@@ -57,7 +57,7 @@ interface DzangolabVueI18nPluginOptions {
   config: AppConfig;
 }
 
-declare module "@dzangolab/vue3-config" {
+declare module "@prefabs.tech/vue3-config" {
   export interface AppConfig {
     i18n: DzangolabI18nOptions;
   }

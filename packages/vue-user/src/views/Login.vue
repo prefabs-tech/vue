@@ -1,6 +1,12 @@
 <template>
   <Page :title="t('user.login.title')" class="auth login">
-    <Errors v-if="errors.length" :errors="errors" />
+    <Message
+      v-if="errorMessage"
+      :message="t(`user.login.errors.${errorMessage}`)"
+      enable-close
+      severity="danger"
+      @close="errorMessage = undefined"
+    />
 
     <slot name="instructions"></slot>
 
@@ -19,11 +25,18 @@
       </router-link>
     </div>
 
-    <div v-if="config.user?.socialLogins?.length" class="divider"></div>
+    <Divider v-if="config.user?.socialLogins?.length" />
 
-    <div class="social-logins">
+    <div class="social-login-wrapper">
+      <FacebookLogin
+        v-if="
+          config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_FACEBOOK)
+        "
+        @error="onError"
+      />
+
       <GoogleLogin
-        v-if="config.user?.socialLogins?.includes('google')"
+        v-if="config.user?.socialLogins?.includes(SOCIAL_LOGIN_PROVIDER_GOOGLE)"
         @error="onError"
       />
     </div>
@@ -37,22 +50,26 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Errors, Page } from "@dzangolab/vue3-ui";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Divider, Message, Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import { auth } from "../auth-provider";
+import FacebookLogin from "../components/FacebookLogin.vue";
 import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
+import {
+  SOCIAL_LOGIN_PROVIDER_FACEBOOK,
+  SOCIAL_LOGIN_PROVIDER_GOOGLE,
+} from "../constant";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
-import type { AppConfig } from "@dzangolab/vue3-config";
-import type { Error as ErrorType } from "@dzangolab/vue3-ui";
-import type { Ref } from "vue";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { Error as ErrorType } from "@prefabs.tech/vue3-ui";
 
 const config = useConfig() as AppConfig;
 
@@ -67,8 +84,7 @@ const { getIsFirstUser, login, removeUser, setUser } = userStore;
 
 const router = useRouter();
 
-const errors = ref([]) as Ref<ErrorType[]>;
-
+const errorMessage = ref<string>();
 const loading = ref(false);
 
 const handleSubmit = async (credentials: LoginCredentials) => {
@@ -98,19 +114,14 @@ const handleSubmit = async (credentials: LoginCredentials) => {
       }
     })
     .catch((error) => {
-      errors.value = [
-        {
-          code: error.message,
-          message: t(`user.login.errors.${error.message}`),
-        },
-      ];
+      errorMessage.value = error.message;
     });
 
   loading.value = false;
 };
 
 const onError = (error: ErrorType) => {
-  errors.value = [error];
+  errorMessage.value = error.message;
 };
 
 const prepareComponent = async () => {
@@ -137,10 +148,5 @@ prepareComponent();
 </script>
 
 <style lang="css">
-.auth.login .divider {
-  border-top: 1px solid #d0d0d0;
-  height: 0;
-  margin: 1rem 0;
-  width: 100%;
-}
+@import "../assets/css/login.css";
 </style>

@@ -1,17 +1,17 @@
 {
-  "name": "@dzangolab/vue3-config",
-  "version": "0.10.10",
+  "name": "@prefabs.tech/vue3-config",
+  "version": "0.12.0",
   "description": "Vue config plugin",
   "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/DzangolabVue3Config.es.js",
-      "require": "./dist/DzangolabVue3Config.umd.js"
+      "import": "./dist/PrefabsTechVue3Config.es.js",
+      "require": "./dist/PrefabsTechVue3Config.umd.js"
     }
   },
-  "main": "dist//DzangolabVue3Config.umd.js",
-  "module": "dist//DzangolabVue3Config.es.js",
+  "main": "./dist/PrefabsTechVue3Config.umd.js",
+  "module": "./dist/PrefabsTechVue3Config.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"
@@ -32,8 +32,8 @@
     "@sentry/vue": "9.1.0"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.11",
-    "@12deg/tsconfig": "0.1.11",
+    "@prefabs.tech/eslint-config": "0.2.0",
+    "@prefabs.tech/tsconfig": "0.2.0",
     "@types/node": "22.13.5",
     "@typescript-eslint/eslint-plugin": "8.24.1",
     "@typescript-eslint/parser": "8.24.1",

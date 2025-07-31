@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.button.title')" class="demo-button">
+  <UiPage
+    :sub-title="$t('ui.button.subtitle')"
+    :title="$t('ui.button.title')"
+    class="demo-button"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -30,7 +34,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -53,8 +57,8 @@
         &lt;/template&gt;
         
         &lt;script setup lang="ts"&gt; 
-          import { ButtonElement } from "@dzangolab/vue3-ui";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { ButtonElement } from "@prefabs.tech/vue3-ui";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
         &lt;/script&gt;
@@ -85,7 +89,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement } from "@dzangolab/vue3-ui";
+            import { ButtonElement } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const loading = ref(false);
@@ -108,8 +112,8 @@
 
       <div class="section-content">
         <div class="container">
-          <ButtonElement children>
-            <template #buttonContent>
+          <ButtonElement>
+            <template #label>
               <u>{{ $t("ui.button.label.clickMe") }}</u>
             </template>
           </ButtonElement>
@@ -126,7 +130,7 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -181,7 +185,7 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -207,7 +211,7 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -243,7 +247,7 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -279,7 +283,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -333,7 +337,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -375,7 +379,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -446,7 +450,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -474,23 +478,134 @@
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+            import { ButtonElement } from "@prefabs.tech/vue3-ui"; 
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'ButtonProperties' })
+      "
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 const currentTime = ref(undefined as unknown as Date);
 const loading = ref(false);
+
+const eventsData = [
+  {
+    description: "Emitted when the button is clicked.",
+    name: "click",
+    payload: "-",
+  },
+];
+
+const propsData = [
+  {
+    default: `"button"`,
+    description: "Accessible label for the button element.",
+    prop: "ariaLabel",
+    type: "String",
+  },
+  {
+    default: "false",
+    description: "If true, the button will be disabled and non-interactive.",
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: "Icon to be displayed on the left side of the button.",
+    prop: "iconLeft",
+    type: "String | Boolean",
+  },
+  {
+    default: "-",
+    description: "Icon to be displayed on the right side of the button.",
+    prop: "iconRight",
+    type: "String | Boolean",
+  },
+  {
+    default: "-",
+    description: "Text label to display inside the button.",
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "false",
+    description:
+      "If true, indicates that the button is in a loading state and disables user interaction.",
+    prop: "loading",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: "Applies rounded styling to the button.",
+    prop: "rounded",
+    type: "Boolean",
+  },
+  {
+    default: `"primary"`,
+    description: "Defines the button color style.",
+    prop: "severity",
+    type: `"primary" | "secondary" | "alternate" | "success" | "danger" | "warning"`,
+  },
+  {
+    default: `"medium"`,
+    description: "Defines the size of the button.",
+    prop: "size",
+    type: `"small" | "medium" | "large"`,
+  },
+  {
+    default: "-",
+    description: "If set, the button renders as a link pointing to this URL.",
+    prop: "to",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: "HTML title attribute.",
+    prop: "title",
+    type: "String",
+  },
+  {
+    default: `"filled"`,
+    description: "Defines the visual variant of the button.",
+    prop: "variant",
+    type: `"outlined" | "filled" | "textOnly"`,
+  },
+];
+
+const slotsData = [
+  {
+    description:
+      "Slot for custom left icon content. Overrides `iconLeft` prop.",
+    name: "iconLeft",
+  },
+  {
+    description:
+      "Slot for custom right icon content. Overrides `iconRight` prop.",
+    name: "iconRight",
+  },
+  {
+    description: "Slot for custom button content. Overrides `label` prop.",
+    name: "label",
+  },
+];
 
 const onClick = () => {
   currentTime.value = new Date();

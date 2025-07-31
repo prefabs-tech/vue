@@ -1,5 +1,13 @@
 <template>
-  <Form ref="dzangolabVueUpdateEmail" @submit="onSubmit">
+  <Message
+    v-if="errorMessage"
+    :message="errorMessage"
+    enable-close
+    severity="danger"
+    @close="errorMessage = undefined"
+  />
+
+  <Form ref="prefabsTechVueUpdateEmail" @submit="onSubmit">
     <Email
       v-model="email"
       :error-messages="errorMessages"
@@ -9,7 +17,8 @@
 
     <FormActions
       :loading="loading || !isEmailDirty"
-      @cancel="dzangolabVueUpdateEmail.resetForm()"
+      :submit-label="t('user.profile.form.actions.update')"
+      @cancel="onCancel"
     />
   </Form>
 </template>
@@ -21,9 +30,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { Email, Form, FormActions } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { Email, Form, FormActions } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Message } from "@prefabs.tech/vue3-ui";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 
@@ -51,13 +61,20 @@ const errorMessages = {
   required: t("user.profile.accountInfo.messages.email"),
 };
 
-const dzangolabVueUpdateEmail = ref();
+const prefabsTechVueUpdateEmail = ref();
 const email = ref<string | undefined>(user.value?.email);
+const errorMessage = ref<string>();
 const loading = ref<boolean>(false);
 
 const isEmailDirty = computed(() => {
   return user.value?.email !== email.value;
 });
+
+const onCancel = () => {
+  prefabsTechVueUpdateEmail.value.resetForm();
+
+  errorMessage.value = undefined;
+};
 
 const onSubmit = async (data: UpdateEmailFormData) => {
   loading.value = true;
@@ -84,53 +101,44 @@ const onSubmit = async (data: UpdateEmailFormData) => {
         }
 
         emit("email:updateProcessed");
+        prefabsTechVueUpdateEmail.value?.resetForm();
+
+        errorMessage.value = undefined;
         break;
       }
       case "EMAIL_ALREADY_EXISTS_ERROR": {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.alreadyExist"),
-          type: "error",
-        });
+        errorMessage.value = t(
+          "user.profile.accountInfo.messages.alreadyExist",
+        );
         break;
       }
       case "EMAIL_SAME_AS_CURRENT_ERROR": {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.duplicate"),
-          type: "error",
-        });
+        errorMessage.value = t("user.profile.accountInfo.messages.duplicate");
         break;
       }
       case "EMAIL_INVALID_ERROR": {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.invalid"),
-          type: "error",
-        });
+        errorMessage.value = t("user.profile.accountInfo.messages.invalid");
         break;
       }
       case "EMAIL_FEATURE_DISABLED_ERROR": {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.disabled"),
-          type: "error",
-        });
+        errorMessage.value = t("user.profile.accountInfo.messages.disabled");
         break;
       }
       default: {
-        emitter.emit("notify", {
-          text: t("user.profile.accountInfo.messages.error"),
-          type: "error",
-        });
+        errorMessage.value = t("user.profile.accountInfo.messages.error");
         break;
       }
     }
 
     loading.value = false;
   } catch (error) {
-    emitter.emit("notify", {
-      text: t("user.profile.accountInfo.messages.error"),
-      type: "error",
-    });
+    errorMessage.value = t("user.profile.accountInfo.messages.error");
 
     loading.value = false;
   }
 };
+
+defineExpose({
+  onCancel,
+});
 </script>

@@ -2,7 +2,7 @@
   <div class="demo">
     <Sidebar :menu="menu" class="demo-aside" no-header />
     <div class="demo-main">
-      <Page :sub-title="subTitle" :title="title">
+      <Page :sub-title="subtitle" :title="title">
         <template #toolbar>
           <slot name="toolbar"></slot>
         </template>
@@ -19,13 +19,13 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Sidebar } from "@dzangolab/vue3-layout";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Sidebar } from "@prefabs.tech/vue3-layout";
 
 import type { PropType } from "vue";
 
 defineProps({
-  subTitle: {
+  subtitle: {
     default: undefined,
     required: false,
     type: String as PropType<string>,
@@ -96,6 +96,10 @@ const menu = [
       {
         name: t("form.label.checkbox"),
         routeName: "checkboxInput",
+      },
+      {
+        name: t("form.label.currencyPicker"),
+        routeName: "currencyPicker",
       },
       {
         name: t("form.label.radio"),

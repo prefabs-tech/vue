@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.gridContainer.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.gridContainer.subtitle')"
+    :title="$t('ui.gridContainer.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -39,7 +43,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Card, GridContainer } from "@dzangolab/vue3-ui";
+          import { Card, GridContainer } from "@prefabs.tech/vue3-ui";
 
           const packages = [
             {
@@ -69,12 +73,15 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation :slots-data="slotsData" />
   </UiPage>
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, Card, GridContainer } from "@dzangolab/vue3-ui";
+import { ButtonElement, Card, GridContainer } from "@prefabs.tech/vue3-ui";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 const packages = [
@@ -98,6 +105,13 @@ const packages = [
   {
     name: "Card 5",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+  },
+];
+
+const slotsData = [
+  {
+    name: "default",
+    description: "Default slot to render grid items inside the container.",
   },
 ];
 </script>

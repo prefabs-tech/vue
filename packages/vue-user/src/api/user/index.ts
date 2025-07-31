@@ -156,13 +156,17 @@ export const updateUserProfile = async (
     path = API_PATH_UPDATE_PROFILE;
   }
 
-  const response = await client(apiBaseUrl).put(path, data, {
-    withCredentials: true,
-  });
-
-  if ("error" in response.data) {
-    throw new Error(response.data.message);
-  } else {
-    return response;
+  try {
+    const response = await client(apiBaseUrl).put(path, data, {
+      withCredentials: true,
+    });
+  
+    if ("error" in response.data) {
+      throw new Error("SOMETHING_WRONG");
+    } else {
+      return response;
+    }
+  } catch (error) {
+    throw new Error("SOMETHING_WRONG");
   }
 };

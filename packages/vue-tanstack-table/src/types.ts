@@ -38,9 +38,9 @@ declare module "@tanstack/vue-table" {
   }
 }
 
-type FilterOption = {
+export type FilterOption = {
   label: string;
-  value: string;
+  value: boolean | number | string;
 };
 
 type TFilterRequest =
@@ -85,6 +85,7 @@ export type {
   ColumnDef as TableColumnDefinition,
   FilterFn as FilterFunction,
   FilterFns as FilterFunctions,
+  Row as TableRow,
   SortingState,
 } from "@tanstack/vue-table";
 

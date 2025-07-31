@@ -1,12 +1,15 @@
 <template>
+  <LoadingPage :loading="isLoading" />
+
   <Table
+    v-if="!isLoading"
     v-bind="tableOptions"
+    :id="id"
     :columns-data="mergedColumns"
     :data="invitations"
     :data-action-menu="actionMenuData"
     :empty-table-message="t('user.invitation.table.emptyMessage')"
     :initial-sorting="initialSorting"
-    :is-loading="isLoading"
     :is-server-table="isServerTable"
     :pagination-options="{
       pageInputLabel: t('user.invitation.table.pagination.pageInputLabel'),
@@ -14,8 +17,11 @@
         'user.invitation.table.pagination.rowsPerPage',
       ),
     }"
+    :persist-state="persistState"
+    :persist-state-storage="persistStateStorage"
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
+    class="table-invitations"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
   >
@@ -24,7 +30,21 @@
         <ButtonElement
           :label="t('user.invitation.table.inviteUser')"
           @click="showModal = true"
-        />
+        >
+          <template #iconLeft>
+            <svg
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 12.25a3.75 3.75 0 1 1 3.75-3.75A3.75 3.75 0 0 1 12 12.25m0-6a2.25 2.25 0 1 0 2.25 2.25A2.25 2.25 0 0 0 12 6.25m7 13a.76.76 0 0 1-.75-.75c0-1.95-1.06-3.25-6.25-3.25s-6.25 1.3-6.25 3.25a.75.75 0 0 1-1.5 0c0-4.75 5.43-4.75 7.75-4.75s7.75 0 7.75 4.75a.76.76 0 0 1-.75.75"
+                fill="currentColor"
+              />
+            </svg>
+          </template>
+        </ButtonElement>
 
         <InvitationModal
           :apps="apps"
@@ -48,30 +68,40 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Table } from "@dzangolab/vue3-tanstack-table";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import {
   BadgeComponent,
   ButtonElement,
   formatDateTime,
-} from "@dzangolab/vue3-ui";
+  LoadingPage,
+} from "@prefabs.tech/vue3-ui";
 import { computed, h, ref } from "vue";
 
 import InvitationModal from "./InvitationModal.vue";
-import { ROLE_ADMIN } from "../../constant";
+import {
+  INVITATION_STATUS_ACCEPTED,
+  INVITATION_STATUS_EXPIRED,
+  INVITATION_STATUS_PENDING,
+  INVITATION_STATUS_REVOKED,
+  ROLE_ADMIN,
+  ROLE_SUPERADMIN,
+  ROLE_USER,
+} from "../../constant";
 import { useTranslations } from "../../index";
 
 import type {
   Invitation,
   InvitationAppOption,
   InvitationRoleOption,
-  UserType,
 } from "../../types";
 import type {
+  FilterOption,
   SortingState,
   TableColumnDefinition,
+  TableRow,
   TRequestJSON,
-} from "@dzangolab/vue3-tanstack-table";
+} from "@prefabs.tech/vue3-tanstack-table";
 import type { PropType } from "vue";
 
 const messages = useTranslations();
@@ -79,6 +109,10 @@ const messages = useTranslations();
 const { t } = useI18n({ messages });
 
 const props = defineProps({
+  appFilterOptions: {
+    default: () => [],
+    type: Array as PropType<Array<FilterOption>>,
+  },
   apps: {
     default: () => [],
     type: Array as PropType<Array<InvitationAppOption>>,
@@ -92,6 +126,10 @@ const props = defineProps({
     default: undefined,
     type: String,
     validator: (value: string) => ["calendar", "days"].includes(value),
+  },
+  id: {
+    default: "invitation-table",
+    type: String,
   },
   initialSorting: {
     default: () => [],
@@ -107,6 +145,17 @@ const props = defineProps({
   },
   isLoading: Boolean,
   isServerTable: Boolean,
+  persistState: Boolean,
+  persistStateStorage: {
+    default: "localStorage",
+    type: String,
+    validator: (value: string) =>
+      ["localStorage", "sessionStorage"].includes(value),
+  },
+  roleFilterOptions: {
+    default: () => [],
+    type: Array as PropType<Array<FilterOption>>,
+  },
   roles: {
     default: () => [],
     type: Array as PropType<Array<InvitationRoleOption>>,
@@ -114,6 +163,10 @@ const props = defineProps({
   showInviteAction: {
     default: true,
     type: Boolean,
+  },
+  statutsFilterOptions: {
+    default: () => [],
+    type: Array as PropType<Array<FilterOption>>,
   },
   submitLabel: {
     default: undefined,
@@ -141,87 +194,6 @@ const emit = defineEmits([
   "on:submitInvitation",
   "update:request",
 ]);
-
-const defaultColumns: TableColumnDefinition<Invitation>[] = [
-  {
-    accessorKey: "email",
-    enableColumnFilter: true,
-    enableSorting: true,
-    filterPlaceholder: "",
-    header: t("user.invitation.table.defaultColumns.email"),
-  },
-  {
-    align: "center",
-    accessorKey: "app",
-    header: t("user.invitation.table.defaultColumns.app"),
-    cell: ({ row }) => row.original.appId || "—",
-  },
-  {
-    accessorKey: "role",
-    header: t("user.invitation.table.defaultColumns.role"),
-    cell: ({ getValue, row: original }) => {
-      const roles = (original as unknown as { roles: string[] })?.roles;
-      if (Array.isArray(roles)) {
-        return roles.map((role, index) =>
-          h(BadgeComponent, {
-            label: role,
-            severity: role === ROLE_ADMIN ? "primary" : "success",
-            fullWidth: true,
-            key: role + index,
-          }),
-        );
-      }
-      const role = getValue() as string;
-      return h(BadgeComponent, {
-        label: role,
-        severity: role === ROLE_ADMIN ? "primary" : "success",
-        fullWidth: true,
-      });
-    },
-  },
-  {
-    accessorKey: "invitedBy",
-    header: t("user.invitation.table.defaultColumns.invitedBy"),
-    cell: ({ getValue }) => {
-      const invitedBy = getValue() as UserType;
-      if (!invitedBy) {
-        return "—";
-      }
-
-      return invitedBy.givenName || invitedBy.surname
-        ? `${invitedBy.givenName} ${invitedBy.surname}`
-        : invitedBy.email;
-    },
-  },
-  {
-    accessorKey: "expiresAt",
-    header: t("user.invitation.table.defaultColumns.expiresAt"),
-    cell: ({ getValue }) => formatDateTime(getValue() as string),
-  },
-  {
-    align: "center",
-    accessorKey: "status",
-    header: t("user.invitation.table.defaultColumns.status"),
-    cell: ({ row }) => {
-      const { acceptedAt, revokedAt, expiresAt } = row.original;
-      const label = acceptedAt
-        ? t("user.invitation.table.status.accepted")
-        : revokedAt
-          ? t("user.invitation.table.status.revoked")
-          : isExpired(expiresAt)
-            ? t("user.invitation.table.status.expired")
-            : t("user.invitation.table.status.pending");
-      const severity = acceptedAt
-        ? "success"
-        : revokedAt
-          ? "danger"
-          : isExpired(expiresAt)
-            ? "secondary"
-            : "warning";
-      return h(BadgeComponent, { label, severity });
-    },
-  },
-];
 
 const showModal = ref<boolean>(false);
 
@@ -268,8 +240,192 @@ const actionMenuData = computed(() => [
   },
 ]);
 
+const appNameMap = computed(() => {
+  const apps = props.apps ?? [];
+
+  return new Map(apps.map((app) => [app.id, app.name]));
+});
+
+const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
+  {
+    accessorKey: "email",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: t("user.invitation.table.placeholder.search"),
+    header: t("user.invitation.table.defaultColumns.email"),
+  },
+  {
+    align: "center",
+    accessorKey: "appId",
+    cell: ({ row }) => appNameMap.value?.get(row.original.appId) || "-",
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.app"),
+    meta: {
+      filterOptions: props.appFilterOptions.length
+        ? props.appFilterOptions
+        : appNameMap.value
+          ? Array.from(appNameMap.value.entries()).map(([id, name]) => ({
+              label: name,
+              value: id,
+            }))
+          : [],
+      filterVariant: "multiselect",
+    },
+    filterPlaceholder: t("user.invitation.table.placeholder.app"),
+    sortingFn: (rowA, rowB, columnId) => {
+      const appRowA = appNameMap.value.get(rowA.original.appId) || "";
+      const appRowB = appNameMap.value.get(rowB.original.appId) || "";
+
+      return appRowA.localeCompare(appRowB);
+    },
+  },
+  {
+    align: "center",
+    accessorKey: "role",
+    cell: ({ getValue, row: original }) => {
+      const roles = (original as unknown as { roles: string[] })?.roles;
+      if (Array.isArray(roles)) {
+        return roles.map((role, index) =>
+          h(BadgeComponent, {
+            label: role,
+            severity: role === ROLE_ADMIN ? "primary" : "success",
+            fullWidth: true,
+            key: role + index,
+          }),
+        );
+      }
+      const role = getValue() as string;
+      return h(BadgeComponent, {
+        label: role,
+        severity: role === ROLE_ADMIN ? "primary" : "success",
+        fullWidth: true,
+      });
+    },
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.role"),
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: props.roleFilterOptions.length
+        ? props.roleFilterOptions
+        : [
+            {
+              label: t("user.table.role.admin"),
+              value: ROLE_ADMIN,
+            },
+            {
+              label: t("user.table.role.superadmin"),
+              value: ROLE_SUPERADMIN,
+            },
+            {
+              label: t("user.table.role.user"),
+              value: ROLE_USER,
+            },
+          ],
+    },
+    filterPlaceholder: t("user.invitation.table.placeholder.role"),
+  },
+  {
+    accessorFn: (original: Invitation) => {
+      return (
+        (original?.invitedBy?.givenName ? original?.invitedBy?.givenName : "") +
+          (original?.invitedBy?.middleNames
+            ? " " + original?.invitedBy?.middleNames
+            : "") +
+          (original?.invitedBy?.surname
+            ? " " + original?.invitedBy?.surname
+            : "") || "-"
+      );
+    },
+    accessorKey: "invitedBy",
+    cell: ({ getValue }) => getValue(),
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.invitedBy"),
+    filterPlaceholder: t("user.invitation.table.placeholder.search"),
+  },
+  {
+    accessorKey: "expiresAt",
+    cell: ({ getValue }) => formatDateTime(getValue() as string),
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.expiresAt"),
+    meta: {
+      filterVariant: "dateRange",
+      serverFilterFn: "between",
+    },
+    filterPlaceholder: t("user.invitation.table.placeholder.date"),
+  },
+  {
+    align: "center",
+    accessorKey: "status",
+    enableColumnFilter: true,
+    enableSorting: !props.isServerTable,
+    filterFn: (row, columnId, filterValue) => {
+      const { acceptedAt, revokedAt, expiresAt } = row.original;
+
+      if (!filterValue || filterValue.length === 0) {
+        return true;
+      }
+
+      let status = INVITATION_STATUS_PENDING;
+
+      if (acceptedAt) {
+        status = INVITATION_STATUS_ACCEPTED;
+      } else if (revokedAt) {
+        status = INVITATION_STATUS_REVOKED;
+      } else if (isExpired(expiresAt)) {
+        status = INVITATION_STATUS_EXPIRED;
+      }
+
+      return filterValue.includes(status);
+    },
+    header: t("user.invitation.table.defaultColumns.status"),
+    cell: ({ row }) => {
+      const { acceptedAt, revokedAt, expiresAt } = row.original;
+      const label = getStatusLabel(row);
+      const severity = acceptedAt
+        ? "success"
+        : revokedAt
+          ? "danger"
+          : isExpired(expiresAt)
+            ? "secondary"
+            : "warning";
+      return h(BadgeComponent, { label, severity });
+    },
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: props.statutsFilterOptions.length
+        ? props.statutsFilterOptions
+        : [
+            {
+              label: t("user.invitation.table.status.accepted"),
+              value: INVITATION_STATUS_ACCEPTED,
+            },
+            {
+              label: t("user.invitation.table.status.revoked"),
+              value: INVITATION_STATUS_REVOKED,
+            },
+            {
+              label: t("user.invitation.table.status.expired"),
+              value: INVITATION_STATUS_EXPIRED,
+            },
+            {
+              label: t("user.invitation.table.status.pending"),
+              value: INVITATION_STATUS_PENDING,
+            },
+          ],
+    },
+    filterPlaceholder: t("user.invitation.table.placeholder.status"),
+    sortingFn: (rowA, rowB, columnId) => {
+      return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));
+    },
+  },
+]);
+
 const mergedColumns = computed(() => [
-  ...defaultColumns.map((defaultColumn) => {
+  ...defaultColumns.value.map((defaultColumn) => {
     const override = props.columnsData.find(
       (column) => column.accessorKey === defaultColumn.accessorKey,
     );
@@ -277,7 +433,7 @@ const mergedColumns = computed(() => [
   }),
   ...props.columnsData.filter(
     (column) =>
-      !defaultColumns.some(
+      !defaultColumns.value.some(
         (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
       ),
   ),
@@ -285,6 +441,20 @@ const mergedColumns = computed(() => [
 
 const isExpired = (date?: string | Date | number) => {
   return !!(date && new Date(date) < new Date());
+};
+
+const getStatusLabel = (row: TableRow<Invitation>) => {
+  const { acceptedAt, expiresAt, revokedAt } = row.original;
+
+  if (acceptedAt) {
+    return t("user.invitation.table.status.accepted");
+  } else if (revokedAt) {
+    return t("user.invitation.table.status.revoked");
+  } else if (isExpired(expiresAt)) {
+    return t("user.invitation.table.status.expired");
+  }
+
+  return t("user.invitation.table.status.pending");
 };
 
 const onActionSelect = (rowData: { action: string; data: Invitation }) => {
@@ -315,3 +485,7 @@ defineExpose({
   showModal,
 });
 </script>
+
+<style lang="css">
+@import "../../assets/css/invitations-table.css";
+</style>

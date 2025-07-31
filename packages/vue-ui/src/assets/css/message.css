@@ -1,21 +1,81 @@
 .message {
-  --_background-color: var(--message-bg-color, #d0e1fd);
-  --_border-color: var(--message-border-color, #204887);
-  --_message-color: var(--message-color, #204887);
-
-  background-color: var(--_background-color);
+  background-color: color-mix(in srgb, var(--_background-color) 10%, #fff);
   border-radius: 0.5rem;
-  border: 1px solid var(--_border-color);
-  color: solid var(--_message-color);
+  border: 1px solid var(--_color);
+  color: var(--_color);
   display: flex;
+  font-weight: 500;
   gap: 1rem;
   padding: 0.5rem 1rem;
 }
 
-.message .close-message {
-  cursor: pointer;
-  height: 1.25rem;
-  margin: auto 0 auto auto;
-  width: 1.25rem;
+.message > .icon.default {
+  background-color: var(--_background-color);
+  height: 24px;
+  mask-image: var(--_svg);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  width: 24px;
 }
 
+.message > .message-content {
+  flex: 1;
+}
+
+.message > .message-content > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: disc;
+  margin-inline: 1rem;
+}
+
+.message.danger {
+  --_background-color: var(--message-danger-color);
+  --_color: var(--message-danger-color);
+}
+
+.message.danger > .icon.default {
+  --_background-color: var(--message-danger-color);
+  --_svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 21a9 9 0 1 1 9-9a9 9 0 0 1-9 9m0-16.5a7.5 7.5 0 1 0 7.5 7.5A7.5 7.5 0 0 0 12 4.5'/%3E%3Cpath fill='%23000' d='M9 15.75a.74.74 0 0 1-.53-.22a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 1.06l-6 6a.74.74 0 0 1-.53.22'/%3E%3Cpath fill='%23000' d='M15 15.75a.74.74 0 0 1-.53-.22l-6-6a.75.75 0 0 1 1.06-1.06l6 6a.75.75 0 0 1 0 1.06a.74.74 0 0 1-.53.22'/%3E%3C/svg%3E");
+}
+
+.message.info {
+  --_background-color: var(--message-info-color);
+  --_color: var(--message-info-color);
+}
+
+.message.info > .icon.default {
+  --_background-color: var(--message-info-color);
+  --_svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 16.75a.76.76 0 0 1-.75-.75v-5a.75.75 0 0 1 1.5 0v5a.76.76 0 0 1-.75.75m0-7.5a.76.76 0 0 1-.75-.75V8a.75.75 0 0 1 1.5 0v.5a.76.76 0 0 1-.75.75'/%3E%3Cpath fill='%23000' d='M12 21a9 9 0 1 1 9-9a9 9 0 0 1-9 9m0-16.5a7.5 7.5 0 1 0 7.5 7.5A7.5 7.5 0 0 0 12 4.5'/%3E%3C/svg%3E");
+}
+
+.message.success {
+  --_background-color: var(--message-success-color);
+  --_color: var(--message-success-color);
+}
+
+.message.success > .icon.default {
+  --_background-color: var(--message-success-color);
+  --_svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M10.5 15.25A.74.74 0 0 1 10 15l-3-3a.75.75 0 0 1 1-1l2.47 2.47L19 5a.75.75 0 0 1 1 1l-9 9a.74.74 0 0 1-.5.25'/%3E%3Cpath fill='%23000' d='M12 21a9 9 0 0 1-7.87-4.66a8.7 8.7 0 0 1-1.07-3.41a9 9 0 0 1 4.6-8.81a8.7 8.7 0 0 1 3.41-1.07a8.9 8.9 0 0 1 3.55.34a.75.75 0 1 1-.43 1.43a7.6 7.6 0 0 0-3-.28a7.4 7.4 0 0 0-2.84.89a7.5 7.5 0 0 0-2.2 1.84a7.42 7.42 0 0 0-1.64 5.51a7.4 7.4 0 0 0 .89 2.84a7.5 7.5 0 0 0 1.84 2.2a7.42 7.42 0 0 0 5.51 1.64a7.4 7.4 0 0 0 2.84-.89a7.5 7.5 0 0 0 2.2-1.84a7.42 7.42 0 0 0 1.64-5.51a.75.75 0 1 1 1.57-.15a9 9 0 0 1-4.61 8.81A8.7 8.7 0 0 1 12.93 21z'/%3E%3C/svg%3E");
+}
+
+.message.warning {
+  --_background-color: var(--message-warning-color);
+  --_color: var(--message-warning-color);
+}
+
+.message.warning > .icon.default {
+  --_background-color: var(--message-warning-color);
+  --_svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M20 18.75H4a.76.76 0 0 1-.65-.37a.77.77 0 0 1 0-.75l8-14a.78.78 0 0 1 1.3 0l8 14a.77.77 0 0 1 0 .75a.76.76 0 0 1-.65.37m-14.71-1.5h13.42L12 5.51Z'/%3E%3Cpath fill='%23000' d='M12 13.25a.76.76 0 0 1-.75-.75V9a.75.75 0 0 1 1.5 0v3.5a.76.76 0 0 1-.75.75m0 3a.76.76 0 0 1-.75-.75V15a.75.75 0 0 1 1.5 0v.5a.76.76 0 0 1-.75.75'/%3E%3C/svg%3E");
+}
+
+.message .close-message {
+  background-color: var(--_background-color);
+  cursor: pointer;
+  height: 24px;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m13.06 12l4.42-4.42a.75.75 0 1 0-1.06-1.06L12 10.94L7.58 6.52a.75.75 0 0 0-1.06 1.06L10.94 12l-4.42 4.42a.75.75 0 0 0 0 1.06a.75.75 0 0 0 1.06 0L12 13.06l4.42 4.42a.75.75 0 0 0 1.06 0a.75.75 0 0 0 0-1.06Z'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  width: 24px;
+}

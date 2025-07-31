@@ -99,8 +99,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ButtonElement, DebouncedInput } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
+import { ButtonElement, DebouncedInput } from "@prefabs.tech/vue3-ui";
 import { ref, computed } from "vue";
 
 const props = defineProps({

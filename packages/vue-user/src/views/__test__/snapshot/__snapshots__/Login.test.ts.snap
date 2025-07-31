@@ -15,7 +15,7 @@ exports[`Login > matches snapshot in en 1`] = `
         class="title"
       >
         <h1>
-          Login
+          Log in
         </h1>
         
         <!---->
@@ -98,23 +98,40 @@ exports[`Login > matches snapshot in en 1`] = `
       <div
         class="actions"
       >
-        <button
-          class="loading-button"
-          data-v-3fdbc7b3=""
+        <div
+          class="form-actions"
+          data-alignment="filled"
+          data-direction="horizontal"
+          data-reverse="false"
           tabindex="0"
         >
-          <div
-            class="label"
-            data-v-3fdbc7b3=""
+          
+          
+          
+          <button
+            aria-label="button"
+            class="button primary medium filled"
+            id="submit"
+            role="button"
+            type="submit"
           >
-            <span
-              data-v-3fdbc7b3=""
+            <!---->
+            <div
+              class="label"
             >
-              Sign in
-            </span>
-          </div>
-          <!---->
-        </button>
+              
+              <span>
+                Log in
+              </span>
+              
+            </div>
+            <!---->
+            <!---->
+          </button>
+          
+          
+          
+        </div>
       </div>
     </form>
     <div
@@ -133,8 +150,9 @@ exports[`Login > matches snapshot in en 1`] = `
     </div>
     <!--v-if-->
     <div
-      class="social-logins"
+      class="social-login-wrapper"
     >
+      <!--v-if-->
       <!--v-if-->
     </div>
     
@@ -241,23 +259,40 @@ exports[`Login > matches snapshot in fr 1`] = `
       <div
         class="actions"
       >
-        <button
-          class="loading-button"
-          data-v-3fdbc7b3=""
+        <div
+          class="form-actions"
+          data-alignment="filled"
+          data-direction="horizontal"
+          data-reverse="false"
           tabindex="0"
         >
-          <div
-            class="label"
-            data-v-3fdbc7b3=""
+          
+          
+          
+          <button
+            aria-label="button"
+            class="button primary medium filled"
+            id="submit"
+            role="button"
+            type="submit"
           >
-            <span
-              data-v-3fdbc7b3=""
+            <!---->
+            <div
+              class="label"
             >
-              Connexion
-            </span>
-          </div>
-          <!---->
-        </button>
+              
+              <span>
+                Connexion
+              </span>
+              
+            </div>
+            <!---->
+            <!---->
+          </button>
+          
+          
+          
+        </div>
       </div>
     </form>
     <div
@@ -276,8 +311,9 @@ exports[`Login > matches snapshot in fr 1`] = `
     </div>
     <!--v-if-->
     <div
-      class="social-logins"
+      class="social-login-wrapper"
     >
+      <!--v-if-->
       <!--v-if-->
     </div>
     

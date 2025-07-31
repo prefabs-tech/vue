@@ -1,6 +1,12 @@
 <template>
   <Page :title="t('user.changePassword.title')" class="auth change-password">
-    <Errors v-if="errors.length" :errors="errors" />
+    <Message
+      v-if="errorMessage"
+      :message="t(`user.changePassword.errors.${errorMessage}`)"
+      enable-close
+      severity="danger"
+      @close="errorMessage = undefined"
+    />
 
     <slot name="instructions"></slot>
 
@@ -15,9 +21,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Errors, Page } from "@dzangolab/vue3-ui";
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Message, Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -26,9 +32,7 @@ import { useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { ChangePasswordPayload } from "../types";
-import type { AppConfig } from "@dzangolab/vue3-config";
-import type { Error as ErrorType } from "@dzangolab/vue3-ui";
-import type { Ref } from "vue";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const config = useConfig() as AppConfig;
 
@@ -41,26 +45,20 @@ const { changePassword } = userStore;
 
 const router = useRouter();
 
-const errors = ref([]) as Ref<ErrorType[]>;
-
+const errorMessage = ref<string>();
 const loading = ref(false);
 
 const handleSubmit = async (payload: ChangePasswordPayload) => {
   loading.value = true;
 
   await changePassword(payload, config?.apiBaseUrl)
-    .then(async (response) => {
+    .then((response) => {
       if (response) {
         router.push({ name: "home" });
       }
     })
     .catch((error) => {
-      errors.value = [
-        {
-          code: error.message,
-          message: error.message,
-        },
-      ];
+      errorMessage.value = error.message;
     });
 
   loading.value = false;

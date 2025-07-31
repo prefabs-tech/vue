@@ -57,6 +57,10 @@
     },    
     "user": {
       "changePassword": {
+        "errors": {
+          "INVALID_PASSWORD": "The password is invalid. Please check your password and try again.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
           "confirmPassword": {
             "errors": {
@@ -87,7 +91,7 @@
       },
       "emailVerification": {
         "button": {
-          "label": "Resend email"
+          "label": "Resend"
         },
         "messages": {
           "resend": {
@@ -95,15 +99,17 @@
             "error": "Something went wrong. Please try again",
             "success": "Email resent successfully."
           },
+          "resendEmailInfo": "Not received yet?",
           "verify": {
             "alreadyVerified": "Email is already verified",
             "invalidToken": "The token is invalid",
             "success": "Email verified successfully"
           }, 
-          "verifyEmail": "Please check your email for verification",
-          "verifyingEmail": "Verifying your email"
+          "verifyEmail": "We've sent an email to {0} with a link for verification. Please check your inbox.",
+          "verifyingEmail": "Verifying email"
         },
-        "title": "Email verification"
+        "title": "Please verify your email address",
+        "verifyEmail": "Verifying your email address."
       },
       "firstUser": {
         "title": "Register first user",
@@ -158,23 +164,31 @@
             "pageInputLabel": "Go to",
             "rowsPerPage": "Rows"
           },
+          "placeholder": {
+            "app": "Select app",
+            "date": "Select date range",
+            "role": "Select role",
+            "search": "Search",
+            "status": "Select status"
+          },
           "status": {
             "accepted": "Accepted",
             "expired": "Expired",
             "pending": "Pending",
             "revoked": "Revoked"
           }
-        }
+        },
+        "thisApp": "This app"
       },
       "loading": "Loading...",
       "login": {
         "errors": {
-          "401": "The credentials you input are invalid.",
+          "401": "Invalid credentials. Please check your email or  password and try again.",
           "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
-            "submit": "Sign in"
+            "submit": "Log in"
           },
           "email": {
             "errors": {
@@ -206,54 +220,52 @@
           "signup": "Sign up"
         },
         "messages": {
+          "error": "No email provided by social login. Please use another form of login.",
           "success": "Logged in successfully."
         },
         "social": {
-          "google": "Sign in with Google"
+          "facebook": "Continue with Facebook",
+          "google": "Continue with Google"
         },
-        "title": "Login"
+        "title": "Log in"
       },
       "menu": {
-        "signin": "Signin",
-        "signup": "Signup"
+        "signin": "Log in",
+        "signup": "Sign up"
       },
       "passwordReset": {
+        "errors": {
+          "INVALID_TOKEN": "The token is invalid. Please request again for password reset.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
           "actions": {
-            "submit": "Change Password"
+            "submit": "Reset password"
           },
           "confirmation": {
             "errors": {
               "match": "The 2 passwords must match"
             },
-            "label": "Re-enter password"
+            "label": "Confirm password"
           },
           "password": {
             "errors": {
               "required": "Please provide a password",
               "weak": "Your password should be at least 8 characters long"
             },
-            "label": "Enter password"
+            "label": "New password"
           }
         },
         "messages": {
           "success": "Your password is changed successfully.",
           "wrongPassword": "The password confirmation does not match"
         },
-        "title": "Enter your new password."
-      },
-      "password-reset-acknowledge": {
-        "actions": {
-          "login": "Return to Login page"
-        },
-        "content": "We are processing your request to reset the password for email {0}. If a user account exists for this email address, it will receive in the next few minutes an email containing instructions on how to reset their password.",
-        "redirect": "Redirecting automatically in {0} seconds",
-        "title": "Resetting your password"
+        "title": "Reset password"
       },
       "passwordResetRequest": {
         "form": {
           "actions": {
-            "submit": "Email me"
+            "submit": "Send reset link"
           },
           "email": {
             "errors": {
@@ -268,7 +280,7 @@
         "messages": {
           "success": "Please check your provided email to reset your password."
         },
-        "title": "Reset your password"
+        "title": "Forgot password"
       },
       "profile": {
         "accountInfo": {
@@ -276,7 +288,7 @@
             "update": "Update"
           },
           "label": "Email",
-          "newEmail": "New Email",
+          "newEmail": "New email",
           "messages": {
             "alreadyExist": "Email already exists.",
             "duplicate": "Email is same as the current one.",
@@ -290,7 +302,13 @@
           },
           "title": "Update email"
         },
+        "errors": {
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
+          "actions": {
+            "update": "Update"
+          },
           "firstName": {
             "label": "First name",
             "placeholder": "Enter your first name"
@@ -308,18 +326,18 @@
       },
       "signup": {
         "errors": {
-          "401": "Sorry! We could not register your account because of an unexpected error.",
+          "409": "This email already exists. Please sign in instead.",
           "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
-            "submit": "Create my account"
+            "submit": "Sign up"
           },
           "confirmation": {
             "errors": {
               "match": "The 2 passwords must match"
             },
-            "label": "Confirm your password"
+            "label": "Confirm password"
           },
           "email": {
             "errors": {
@@ -336,6 +354,8 @@
             },
             "label": "Your password"
           },
+          "termsAndConditions": "I agree to the {0} as set out by the user agreement",
+          "termsLabel": "Terms and conditions",
           "username": {
             "errors": {
               "invalid": "Please provide a valid username",
@@ -352,7 +372,7 @@
         "messages": {
           "success": "Signed up successfully."
         },
-        "title": "Register"
+        "title": "Sign up"
       },
       "table": {
         "actions": {
@@ -381,9 +401,14 @@
           "pageInputLabel": "Go to",
           "rowsPerPage": "Rows"
         },
+        "role": {
+          "admin": "ADMIN",
+          "superadmin": "SUPERADMIN",
+          "user": "USER"
+        },
         "status": {
           "disabled": "Disabled",
-          "enabled": "Enable"
+          "enabled": "Enabled"
         }
       }
     }
@@ -446,6 +471,10 @@
     },    
     "user": {
       "changePassword": {
+        "errors": {
+          "INVALID_PASSWORD": "The password is invalid. Please check your password and try again.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
           "confirmPassword": {
             "errors": {
@@ -476,23 +505,25 @@
       },
       "emailVerification": {
         "button": {
-          "label": "Resend email"
+          "label": "Resend"
         },
         "messages": {
           "resend": {
             "alreadyVerified": "Email is already verified. Please try refreshing the page.",
             "error": "Something went wrong. Please try again",
-            "success": "Email resent successfully"
+            "success": "Email resent successfully."
           },
+          "resendEmailInfo": "Not received yet?",
           "verify": {
             "alreadyVerified": "Email is already verified",
             "invalidToken": "The token is invalid",
             "success": "Email verified successfully"
           }, 
-          "verifyEmail": "Please check your email for verification",
-          "verifyingEmail": "Verifying your email"
+          "verifyEmail": "We've sent an email to {0} with a link for verification. Please check your inbox.",
+          "verifyingEmail": "Verifying email"
         },
-        "title": "Email verification"
+        "title": "Please verify your email address",
+        "verifyEmail": "Verifying your email address."
       },
       "firstUser": {
         "title": "Register first user",
@@ -547,18 +578,27 @@
             "pageInputLabel": "Go to",
             "rowsPerPage": "Rows"
           },
+          "placeholder": {
+            "app": "Select app",
+            "date": "Select date range",
+            "role": "Select role",
+            "search": "Search",
+            "status": "Select status"
+          },
           "status": {
             "accepted": "Accepted",
             "expired": "Expired",
             "pending": "Pending",
             "revoked": "Revoked"
           }
-        }
+        },
+        "thisApp": "This app"
       },
       "loading": "Loading...[fr]",
       "login": {
         "errors": {
-          "401": "Votre identifiant et/ou mot de passe sont invalides."
+          "401": "Votre identifiant et/ou mot de passe sont invalides.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
@@ -585,10 +625,12 @@
           "signup": "Inscription"
         },
         "messages": {
+          "error": "No email provided by social login. Please use another form of login.",
           "success": "Vous êtes maintenant connecté(e)"
         },
         "social": {
-          "google": "Sign in with Google[fr]"
+          "facebook": "Continue with Facebook",
+          "google": "Continue with Google"
         },
         "title": "Connexion"
       },
@@ -597,9 +639,13 @@
         "signup": "Inscription"
       },
       "passwordReset": {
+        "errors": {
+          "INVALID_TOKEN": "The token is invalid. Please request again for password reset.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
           "actions": {
-            "submit": "Modifier votre mot de passe"
+            "submit": "Reset password (fr)"
           },
           "confirmation": {
             "errors": {
@@ -619,20 +665,12 @@
           "success": "Votre mot de passe a été mis à jour.",
           "wrongPassword": "The password confirmation doesnot match"
         },
-        "title": "Réinitialisation de votre mot de passe"
-      },
-      "password-reset-acknowledge": {
-        "actions": {
-          "login": "Retourner à la page de connexion"
-        },
-        "content": "Nous traitons votre demande de réinitialisation du mot de passe pour l'adresse {0}. Si un compte existe pour cette adresse, elle recevra dans les minutes qui viennent un courriel contenant les instructions pour la réinitialisation de leur mot de passe.",
-        "redirect": "Retour automatique dans {0} secondes",
-        "title": "Réinitialisation de votre mot de passe"
+        "title": "Reset password (fr)"
       },
       "passwordResetRequest": {
         "form": {
           "actions": {
-            "submit": "Réinitialiser"
+            "submit": "Send reset link (fr)"
           },
           "email": {
             "errors": {
@@ -647,7 +685,7 @@
         "messages": {
           "success": "Please check your provided email to reset your password."
         },
-        "title": "Réinitialisation de votre mot de passe"
+        "title": "Forgot password (fr)"
       },
       "profile": {
         "accountInfo": {
@@ -655,7 +693,7 @@
             "update": "Update"
           },
           "label": "Email",
-          "newEmail": "New Email",
+          "newEmail": "New email",
           "messages": {
             "alreadyExist": "Email already exists.",
             "duplicate": "Email is same as the current one.",
@@ -669,7 +707,13 @@
           },
           "title": "Update email"
         },
+        "errors": {
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
+        },
         "form": {
+          "actions": {
+            "update": "Update"
+          },
           "firstName": {
             "label": "First name",
             "placeholder": "Enter your first name"
@@ -687,11 +731,12 @@
       },
       "signup": {
         "errors": {
-          "409": "Désolé ! Nous n'avons pas pu enregistrer votre inscription à cause d'une erreur inopinée."
+          "409": "This email already exists. Please sign in instead.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
-            "submit": "M'inscrire"
+            "submit": "S'inscrire"
           },
           "confirmation": {
             "errors": {
@@ -714,6 +759,8 @@
             },
             "label": "Votre mot de passe"
           },
+          "termsAndConditions": "I agree to the {0} as set out by the user agreement",
+          "termsLabel": "Terms and conditions",
           "username": {
             "errors": {
               "invalid": "Please provide a valid username",
@@ -730,7 +777,7 @@
         "messages": {
           "success": "Signed up successfully."
         },
-        "title": "Inscription"
+        "title": "S'inscrire"
       },
       "table": {
         "actions": {
@@ -759,9 +806,14 @@
           "pageInputLabel": "Go to",
           "rowsPerPage": "Rows"
         },
+        "role": {
+          "admin": "ADMIN",
+          "superadmin": "SUPERADMIN",
+          "user": "USER"
+        },
         "status": {
           "disabled": "Disabled",
-          "enabled": "Enable"
+          "enabled": "Enabled"
         }
       }
     }

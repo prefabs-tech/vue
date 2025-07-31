@@ -1,3 +1,5 @@
+import { UserType } from "./auth";
+
 interface Invitation {
   acceptedAt: number | null;
   appId: number;
@@ -5,6 +7,7 @@ interface Invitation {
   email: string;
   expiresAt: number;
   id: number;
+  invitedBy?: UserType;
   invitedById: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload: any;

@@ -1,3 +1,26 @@
+const city = [
+  { label: "Atlanta", value: "Atlanta" },
+  { label: "Austin", value: "Austin" },
+  { label: "Boston", value: "Boston" },
+  { label: "Charlotte", value: "Charlotte" },
+  { label: "Chicago", value: "Chicago" },
+  { label: "Dallas-Fort Worth", value: "Dallas-Fort Worth" },
+  { label: "Denver", value: "Denver" },
+  { label: "Detroit", value: "Detroit" },
+  { label: "Houston", value: "Houston" },
+  { label: "Los Angeles", value: "Los Angeles" },
+  { label: "Miami Beach", value: "Miami Beach" },
+  { label: "Minneapolis", value: "Minneapolis" },
+  { label: "Nashville", value: "Nashville" },
+  { label: "New York", value: "New York" },
+  { label: "Philadelphia", value: "Philadelphia" },
+  { label: "Phoenix", value: "Phoenix" },
+  { label: "Portland", value: "Portland" },
+  { label: "San Diego", value: "San Diego" },
+  { label: "San Francisco Bay Area", value: "San Francisco Bay Area" },
+  { label: "Seattle", value: "Seattle" },
+];
+
 const data = [
   {
     id: 1,
@@ -74,6 +97,7 @@ const data = [
     name: "Ryan Alexander Cooper",
     email: "ryan.cooper@example.com",
     age: 34,
+    disabled: true,
     city: "Boston",
   },
   {
@@ -81,6 +105,7 @@ const data = [
     name: "Emily Davis",
     email: "emily.d@example.com",
     age: 33,
+    disabled: true,
     city: "Phoenix",
   },
   {
@@ -88,6 +113,7 @@ const data = [
     name: "Daniel William White",
     email: "daniel.white@example.com",
     age: 28,
+    disabled: true,
     city: "Philadelphia",
   },
   {
@@ -95,6 +121,7 @@ const data = [
     name: "Ava Rose Moore",
     email: "ava.m@example.com",
     age: 24,
+    disabled: false,
     city: "Austin",
   },
   {
@@ -102,6 +129,7 @@ const data = [
     name: "Nicholas Harrison",
     email: "nicholas.h@example.com",
     age: 27,
+    disabled: false,
     city: "San Diego",
   },
   {
@@ -155,7 +183,7 @@ const formatDemoData = [
     amount: 987_654.32,
     quantity: 175,
     date: new Date("2023-12-01T12:30:00"),
-    datetime: "2023-12-01T11:00:00",
+    datetime: new Date ("2023-12-01T11:00:00"),
     description: "Office rent payment",
   },
   {
@@ -179,7 +207,7 @@ const formatDemoData = [
     amount: 789_012.34,
     quantity: 53210,
     date: new Date("2023-12-05T09:15:00"),
-    datetime: "2023-12-05T09:15:00",
+    datetime: new Date("2023-12-05T09:15:00"),
     description: "Travel and accommodation",
   },
   {
@@ -227,7 +255,7 @@ const formatDemoData = [
 const invitations = [
   {
     id: 456,
-    appId: 2,
+    appId: 1,
     createdAt: new Date("2024-01-05").getTime(),
     expiresAt: new Date("2024-02-04").getTime(),
     email: "bob@dzangolab.com",
@@ -250,7 +278,7 @@ const invitations = [
   },
   {
     id: 123,
-    appId: 3,
+    appId: 1,
     createdAt: new Date("2024-01-05").getTime(),
     expiresAt: new Date("2024-02-04").getTime(),
     email: "jane@dzangolab.com",
@@ -320,7 +348,7 @@ const invitations = [
   },
   {
     id: 890,
-    appId: 2,
+    appId: 1,
     createdAt: new Date("2024-01-10").getTime(),
     expiresAt: new Date().getTime() + 4 * 24 * 60 * 60 * 1000,
     payload: null,
@@ -412,7 +440,7 @@ const invitations = [
   },
   {
     id: 894,
-    appId: 2,
+    appId: 4,
     createdAt: new Date("2024-03-05").getTime(),
     expiresAt: new Date("2024-05-05").getTime(),
     payload: null,
@@ -527,7 +555,7 @@ const invitations = [
   },
   {
     id: 899,
-    appId: 2,
+    appId: 3,
     createdAt: new Date("2024-01-30").getTime(),
     expiresAt: new Date("2024-03-30").getTime(),
     payload: null,
@@ -550,4 +578,9 @@ const invitations = [
   },
 ];
 
-export { data, formatDemoData, invitations };
+export {
+  city,
+  data,
+  formatDemoData,
+  invitations
+};

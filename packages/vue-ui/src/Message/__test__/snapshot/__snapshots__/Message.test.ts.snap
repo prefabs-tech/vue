@@ -2,7 +2,7 @@
 
 exports[`Message > matches snapshot 1`] = `
 <div
-  class="message"
+  class="message info"
 >
   <span
     class="icon"
@@ -13,14 +13,17 @@ exports[`Message > matches snapshot 1`] = `
     />
     
   </span>
-  <span
+  <div
     class="message-content"
   >
+    
+    
     This is a very important message.
-  </span>
-  <img
+    
+    
+  </div>
+  <span
     class="close-message"
-    src="/src/assets/svg/x-mark.svg"
   />
 </div>
 `;

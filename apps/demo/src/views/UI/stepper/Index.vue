@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.stepper.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.stepper.subtitle')"
+    :title="$t('ui.stepper.title')"
+    class="demo-stepper"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -23,7 +27,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Stepper } from "@dzangolab/vue3-ui";
+          import { Stepper } from "@prefabs.tech/vue3-ui";
 
           import { useRouter } from "vue-router";
 
@@ -82,7 +86,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Stepper } from "@dzangolab/vue3-ui";
+          import { Stepper } from "@prefabs.tech/vue3-ui";
 
           const steps = [
             {
@@ -196,9 +200,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { useI18n } from "@dzangolab/vue3-i18n";
-          import { TextInput, NumberInput } from "@dzangolab/vue3-form";
-          import { Stepper } from "@dzangolab/vue3-ui";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
+          import { TextInput, NumberInput } from "@prefabs.tech/vue3-form";
+          import { Stepper } from "@prefabs.tech/vue3-ui";
 
           import { reactive } from "vue";
 
@@ -223,16 +227,49 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'StepperProperties' })
+      "
+      :slots-data="slotsData"
+    />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface StepProperties {
+        content?: string;
+        label?: string;
+        step?: number | string;
+      }
+
+      interface ActionButtonProperties {
+        disabled?: boolean;
+        iconLeft?: string;
+        iconRight?: string;
+        label?: string;
+        rounded?: boolean;
+        severity?: string;
+        size?: string;
+        variant?: string;
+      }
+    </SshPre>
   </UiPage>
 </template>
 
 <script setup lang="ts">
-import { TextInput, NumberInput } from "@dzangolab/vue3-form";
-import { ButtonElement, Stepper } from "@dzangolab/vue3-ui";
+import { TextInput, NumberInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement, Stepper } from "@prefabs.tech/vue3-ui";
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
+
+const { t } = useI18n();
 
 const router = useRouter();
 
@@ -241,6 +278,14 @@ const formData = reactive({
   phone: null,
   price: "$50",
 });
+
+const eventsData = [
+  {
+    description: t("ui.stepper.documentation.eventDescription.complete"),
+    name: "complete",
+    payload: "-",
+  },
+];
 
 const nextButtonProperties = {
   iconRight: "pi pi-chevron-right",
@@ -255,6 +300,34 @@ const previousButtonProperties = {
   severity: "secondary",
   variant: "filled",
 };
+
+const propsData = [
+  {
+    default: "-",
+    description: t("ui.stepper.documentation.propsDescription.nextButton"),
+    prop: "nextButtonProperties",
+    type: "ActionButtonProperties",
+  },
+  {
+    default: "-",
+    description: t("ui.stepper.documentation.propsDescription.PreviousButton"),
+    prop: "previousButtonProperties",
+    type: "ActionButtonProperties",
+  },
+  {
+    default: "-",
+    description: t("ui.stepper.documentation.propsDescription.steps"),
+    prop: "steps",
+    type: "Array<StepProperties>",
+  },
+];
+
+const slotsData = [
+  {
+    description: t("ui.stepper.documentation.slotDescription.step"),
+    name: "{step}",
+  },
+];
 
 const steps = [
   {

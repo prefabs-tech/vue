@@ -1,8 +1,16 @@
 <template>
   <Page :title="t('user.passwordReset.title')" class="auth password-reset">
+    <Message
+      v-if="errorMessage"
+      :message="t(`user.passwordReset.errors.${errorMessage}`)"
+      enable-close
+      severity="danger"
+      @close="errorMessage = undefined"
+    />
+
     <slot name="instructions"></slot>
 
-    <PasswordResetForm @submit="handleSubmit" />
+    <PasswordResetForm :loading="loading" @submit="handleSubmit" />
   </Page>
 </template>
 
@@ -13,8 +21,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { Page } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Message, Page } from "@prefabs.tech/vue3-ui";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import PasswordResetForm from "../components/PasswordResetForm.vue";
@@ -31,9 +40,21 @@ const { resetPassword } = useUserStore();
 
 const router = useRouter();
 
+const errorMessage = ref<string>();
+const loading = ref<boolean>(false);
+
 const handleSubmit = async (payload: PasswordResetPayload) => {
-  await resetPassword(payload).then(() => {
-    router.push({ name: "login" });
-  });
+  loading.value = true;
+
+  await resetPassword(payload)
+    .then(() => {
+      router.push({ name: "login" });
+    })
+    .catch((error) => {
+      errorMessage.value = error.message;
+    })
+    .finally(() => {
+      loading.value = false;
+    });
 };
 </script>

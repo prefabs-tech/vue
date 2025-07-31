@@ -1,24 +1,32 @@
 .multiselect {
-  display: inline-block;
   position: relative;
   width: 100%;
 }
 
-.multiselect>ul {
+.multiselect > .multiselect-options {
   background-color: #fff;
   border-top: none;
   border: 1px solid #ccc;
   display: flex;
   flex-direction: column;
-  list-style-type: none;
   margin: 0;
-  max-height: 10rem;
-  overflow-y: scroll;
+  max-height: 12.5rem;
+  min-width: 12rem;
+  overflow-y: auto;
   padding: 0.75rem 0.65rem;
   position: absolute;
-  row-gap: 0.3rem;
   width: 100%;
   z-index: 1000;
+}
+
+.multiselect > .multiselect-options > ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  overflow-y: auto;
+  row-gap: 0.3rem;
+  width: 100%;
 }
 
 .multiselect>.multiselect-input {
@@ -43,6 +51,21 @@
   user-select: none;
 }
 
+.multiselect .multiselect-input:has(.multiselect-search) {
+  --_padding-h: 0;
+
+  overflow: hidden;
+}
+
+.multiselect .multiselect-input > .multiselect-search > input {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.multiselect .multiselect-input > .multiselect-search > input:focus-within {
+  outline: none;
+}
+
 .multiselect>.multiselect-input.disabled {
   --_bg-color: var(--form-input-bg-color-disabled, #f7f7f7);
   --_border-color: var(--form-input-border-color-disabled, #ccc);
@@ -59,7 +82,8 @@
   --_border-color: var(--color-alert-danger, #dc3545);
 }
 
-.multiselect>ul>li {
+.multiselect > .multiselect-options > ul > li {
+  background-color: var(--_multiselect-selected-bg-color);
   border-radius: var(--form-input-border-radius, 0.25em);
   cursor: pointer;
   display: flex;
@@ -72,20 +96,46 @@
   cursor: not-allowed;
 }
 
-.multiselect>ul>li input {
+.multiselect ul > li > span, .multiselect span.multiselect-placeholder {
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.multiselect > .multiselect-options > ul > li input {
   box-shadow: none;
   height: fit-content;
   width: auto;
 }
 
-.multiselect>ul>li.selected,
-.multiselect>ul>li:hover {
+.multiselect > .multiselect-options > ul > li.selected,
+.multiselect > .multiselect-options > ul > li:not(.multiselect-group):hover,
+.multiselect > .multiselect-options > ul:not(.single-select) > li.multiselect-group:not(.disabled-group-select):hover {
+  --_multiselect-selected-bg-color: var(
+    --multiselect-selected-bg-color,
+    #e5e5e5
+  );
+}
+
+.multiselect > .multiselect-options > ul > li.focused {
   --_multiselect-selected-bg-color: var(
     --multiselect-selected-bg-color,
     #e5e5e5
   );
 
-  background-color: var(--_multiselect-selected-bg-color);
+  opacity: 0.8;
+}
+
+.multiselect > .multiselect-options > ul > li.multiselect-group {
+  color: #555;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.multiselect > .multiselect-options > ul:has(.multiselect-group) > li:not(.select-all-option, .multiselect-group) {
+  margin-left: 0.5rem;
 }
 
 .multiselect .multiselect-placeholder {
@@ -98,14 +148,35 @@
   --_border-color: var(--color-alert-success, #198754);
 }
 
-.multiselect .selected-options {
+.multiselect .selected-options,
+.multiselect .selected-options > .tooltip-trigger {
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
+}
+
+.multiselect .selected-options-wrapper {
+  height: 0;
+  min-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: min-height 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.multiselect .selected-options-wrapper.visible {
+  height: 3rem;
+  min-height: 3rem;
+  opacity: 1;
+  text-align: left;
 }
 
 .multiselect .multiselect-input>.action-items {
   display: flex;
+  gap: 0.5rem;
+  margin-inline: 0.5rem;
+  min-width: fit-content;
 }
 
 .multiselect .multiselect-input>.action-items > svg {

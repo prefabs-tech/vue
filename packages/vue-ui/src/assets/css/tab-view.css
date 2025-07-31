@@ -1,0 +1,25 @@
+@import "./tab-theme.css";
+@import "./tabs.css";
+
+.tabbed-panel > div[role=tablist] > button {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  max-width: 250px;
+}
+
+.tabbed-panel > div[role=tablist] > button span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}
+
+.tabbed-panel > div[role=tablist] > button i {
+  color: var(--dz-secondary-color);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tabbed-panel > div > button.active i {
+  color: var(--dz-primary-color);
+}

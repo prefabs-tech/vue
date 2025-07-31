@@ -1,18 +1,19 @@
 <template>
   <Page
     :title="t('user.emailVerification.title')"
-    class="auth verify-email-reminder"
+    centered
+    class="email-verification-reminder"
   >
-    <Card>
-      <p>{{ t("user.emailVerification.messages.verifyEmail") }}</p>
+    <i18n-t keypath="user.emailVerification.messages.verifyEmail" tag="p">
+      <span v-if="user?.email" class="email">{{ user?.email }}</span>
+    </i18n-t>
 
-      <template #footer>
-        <ButtonElement
-          :label="t('user.emailVerification.button.label')"
-          @click="handleResend"
-        />
-      </template>
-    </Card>
+    <p class="resend-email">
+      {{ t("user.emailVerification.messages.resendEmailInfo") }}
+      <RouterLink to="#" @click="handleResend">
+        {{ t("user.emailVerification.button.label") }}
+      </RouterLink>
+    </p>
   </Page>
 </template>
 
@@ -23,19 +24,22 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, Card, Page } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Page } from "@prefabs.tech/vue3-ui";
 
 import { EMAIL_VERIFICATION } from "../constant";
 import { useTranslations, emitter } from "../index";
-import { resendVerificationEmail } from "../supertokens";
+import useUserStore from "../store";
 
 const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
+const userStore = useUserStore();
+const { sendVerificationEmail, user } = userStore;
+
 const handleResend = () => {
-  resendVerificationEmail()
+  sendVerificationEmail()
     .then((status) => {
       if (status === EMAIL_VERIFICATION.OK) {
         emitter.emit("notify", {
@@ -57,3 +61,7 @@ const handleResend = () => {
     });
 };
 </script>
+
+<style lang="css">
+@import "../assets/css/verify-email.css";
+</style>

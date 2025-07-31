@@ -1,7 +1,7 @@
 {
-  "name": "@dzangolab/vue3-demo",
-  "homepage": "https://dzangolab.github.io/vue",
-  "version": "0.10.10",
+  "name": "@prefabs.tech/vue3-demo",
+  "homepage": "https://app-ofvi39.ws0.12deg.io/vue/",
+  "version": "0.12.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,13 +16,13 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@dzangolab/vue3-config": "0.10.10",
-    "@dzangolab/vue3-form": "0.10.10",
-    "@dzangolab/vue3-i18n": "0.10.10",
-    "@dzangolab/vue3-layout": "0.10.10",
-    "@dzangolab/vue3-tanstack-table": "0.10.10",
-    "@dzangolab/vue3-ui": "0.10.10",
-    "@dzangolab/vue3-user": "0.10.10",
+    "@prefabs.tech/vue3-config": "0.12.0",
+    "@prefabs.tech/vue3-form": "0.12.0",
+    "@prefabs.tech/vue3-i18n": "0.12.0",
+    "@prefabs.tech/vue3-layout": "0.12.0",
+    "@prefabs.tech/vue3-tanstack-table": "0.12.0",
+    "@prefabs.tech/vue3-ui": "0.12.0",
+    "@prefabs.tech/vue3-user": "0.12.0",
     "@fortawesome/fontawesome-free": "6.7.2",
     "@iconify/vue": "4.3.0",
     "@kyvg/vue3-notification": "3.4.1",
@@ -34,8 +34,8 @@
     "vue-router": "4.5.0"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.11",
-    "@12deg/tsconfig": "0.1.11",
+    "@prefabs.tech/eslint-config": "0.2.0",
+    "@prefabs.tech/tsconfig": "0.2.0",
     "@types/jsdom": "21.1.7",
     "@types/node": "22.13.5",
     "@typescript-eslint/eslint-plugin": "8.24.1",

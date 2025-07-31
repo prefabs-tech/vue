@@ -19,6 +19,7 @@ const SortableList = () => import("@/views/UI/sortableList/Index.vue");
 const Stepper = () => import("@/views/UI/stepper/Index.vue");
 const SubPane = () => import("@/views/UI/SubPanePage.vue");
 const TabbedPanel = () => import("@/views/UI/tabbed-panel/Index.vue");
+const TabView = () => import("@/views/UI/tabView/Index.vue");
 const Tooltip = () => import("@/views/UI/tooltip/Index.vue");
 const Typography = () => import("@/views/UI/typography/Index.vue");
 const UI = () => import("@/views/UI/Index.vue");
@@ -47,6 +48,11 @@ const routes = [
         component: TabbedPanel,
         name: "tabbedPanel",
         path: "tabbed-panel",
+      },
+      {
+        component: TabView,
+        name: "tabView",
+        path: "tab-view",
       },
       {
         component: Typography,

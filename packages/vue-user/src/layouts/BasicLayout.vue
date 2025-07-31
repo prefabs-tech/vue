@@ -12,7 +12,11 @@
           <MainMenu class="main-menu" :routes="routes" />
         </template>
         <template #userMenu>
-          <UserMenu v-if="showUserMenu" />
+          <UserMenu v-if="showUserMenu">
+            <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
+              <slot name="userMenuTrigger"></slot>
+            </template>
+          </UserMenu>
         </template>
       </AppHeader>
     </template>
@@ -28,13 +32,13 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
+import { useConfig } from "@prefabs.tech/vue3-config";
 import {
   AppHeader,
   BasicLayout as OriginalBasicLayout,
   Logo,
   MainMenu,
-} from "@dzangolab/vue3-layout";
+} from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
@@ -42,7 +46,7 @@ import { useRouter } from "vue-router";
 import UserMenu from "../components/UserMenu.vue";
 import useUserStore from "../store";
 
-import type { MenuItem } from "@dzangolab/vue3-layout";
+import type { MenuItem } from "@prefabs.tech/vue3-layout";
 
 defineProps({
   noLocaleSwitcher: Boolean,
@@ -85,3 +89,14 @@ const routes = computed(() => {
   return layoutConfig?.mainMenu as MenuItem[];
 });
 </script>
+
+<style>
+.layout.basic nav.user-menu-dropdown > ul.dropdown {
+  border: var(--dropdown-border, 1px solid transparent);
+  overflow-y: hidden;
+}
+
+.layout.basic nav.user-menu-dropdown.expanded > ul.dropdown {
+  border-color: grey;
+}
+</style>

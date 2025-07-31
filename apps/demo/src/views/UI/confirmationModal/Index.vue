@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.confirmationModal.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.confirmationModal.subtitle')"
+    :title="$t('ui.confirmationModal.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -48,7 +52,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
   
             const currentTime = ref(undefined as unknown as Date);
@@ -101,7 +105,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showModal = ref(false);
@@ -148,7 +152,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showModal = ref(false);
@@ -195,7 +199,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showModal = ref(false);
@@ -285,7 +289,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showModal = ref(false);
@@ -380,9 +384,9 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+            import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
-            import { useI18n } from "@dzangolab/vue3-i18n";
+            import { useI18n } from "@prefabs.tech/vue3-i18n";
 
             const showModal = ref(false);
             const { t } = useI18n();
@@ -391,13 +395,23 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'ConfirmationModalProperties' })
+      "
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, ConfirmationModal } from "@dzangolab/vue3-ui";
+import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 const currentTime = ref(undefined as unknown as Date);
@@ -407,6 +421,56 @@ const showDisabledBodyModal = ref(false);
 const showDisabledHeaderModal = ref(false);
 const showI18nModal = ref(false);
 const showModal = ref(false);
+
+const eventsData = [
+  {
+    description: "Emitted when the modal is closed.",
+    name: "on:close",
+    payload: "-",
+  },
+  {
+    description: "Emitted when the Confirm button is clicked.",
+    name: "on:confirm",
+    payload: "-",
+  },
+];
+
+const propsData = [
+  {
+    default: "false",
+    description: "If true, hides the default body content of the modal.",
+    prop: "disableBody",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: "If true, hides the default header content of the modal.",
+    prop: "disableHeader",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description:
+      "If true, adds a visual divider (border) to the modal container.",
+    prop: "divider",
+    type: "Boolean",
+  },
+];
+
+const slotsData = [
+  {
+    description: "Slot to override the default body message.",
+    name: "body",
+  },
+  {
+    description: "Slot to override the default footer.",
+    name: "footer",
+  },
+  {
+    description: "Slot to override the default header title.",
+    name: "header",
+  },
+];
 
 const onConfirm = () => {
   currentTime.value = new Date();

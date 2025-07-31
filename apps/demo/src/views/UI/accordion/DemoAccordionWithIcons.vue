@@ -56,7 +56,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Accordion } from "@dzangolab/vue3-ui";
+import { Accordion } from "@prefabs.tech/vue3-ui";
 
 import Number1Icon from "../../../assets/svg/number-1.svg";
 import Number2Icon from "../../../assets/svg/number-2.svg";

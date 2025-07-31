@@ -4,18 +4,21 @@ import type { RouteOverrides } from "./router";
 import type {
   IsEmailOptions,
   StrongPasswordOptions,
-} from "@dzangolab/vue3-form";
+} from "@prefabs.tech/vue3-form";
 
 interface DzangolabVueUserConfig {
   apiRoutes?: {
     changeEmail?: string;
     changePassword?: string;
+    getVerificationStatus?: string;
     login?: string;
     logout?: string;
     passwordReset?: string;
     passwordResetRequest?: string,
     refresh?: string;
+    sendVerificationEmail?: string;
     signup?: string;
+    verifyEmail?: string;
   };
   features?: {
     authProvider?: string;
@@ -24,7 +27,7 @@ interface DzangolabVueUserConfig {
       emailVerification?: boolean;
       termsAndConditions?: {
         display?: boolean;
-        label: DefineComponent | string;
+        route?: string;
         showCheckbox?: boolean;
       };
     };
@@ -42,7 +45,7 @@ interface DzangolabVueUserConfig {
   supportedRoles?: string[];
 }
 
-declare module "@dzangolab/vue3-config" {
+declare module "@prefabs.tech/vue3-config" {
   export interface AppConfig {
     user?: DzangolabVueUserConfig;
   }

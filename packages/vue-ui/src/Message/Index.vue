@@ -1,19 +1,33 @@
 <template>
-  <div v-show="showMessage" class="message">
-    <span v-if="icon || !!slots.icon" class="icon">
-      <slot name="icon">
+  <div v-show="showMessage" :class="['message', severity]">
+    <span
+      v-if="icon || !!slots.icon || showIcon"
+      :class="['icon', { default: !icon && !slots.icon && showIcon }]"
+    >
+      <slot v-if="(icon || !!slots.icon) && showIcon" name="icon">
         <i :class="icon" />
       </slot>
     </span>
 
-    <span class="message-content">{{ message }}</span>
+    <div class="message-content">
+      <slot>
+        <template v-if="!Array.isArray(message)">
+          {{ message }}
+        </template>
+        <template v-else-if="message.length">
+          <ul>
+            <li
+              v-for="(messageData, index) in message"
+              :key="`message-${index}`"
+            >
+              {{ messageData }}
+            </li>
+          </ul>
+        </template>
+      </slot>
+    </div>
 
-    <img
-      v-if="enableClose"
-      src="./../assets/svg/x-mark.svg"
-      class="close-message"
-      @click="onClose()"
-    />
+    <span v-if="enableClose" class="close-message" @click="onClose()" />
   </div>
 </template>
 
@@ -25,6 +39,8 @@ export default {
 
 <script setup lang="ts">
 import { ref, useSlots } from "vue";
+
+import type { PropType } from "vue";
 
 const emits = defineEmits(["close"]);
 
@@ -39,7 +55,17 @@ defineProps({
   },
   message: {
     required: true,
+    type: String || (Array as PropType<string[]>),
+  },
+  severity: {
     type: String,
+    default: "info",
+    validator: (value: string) =>
+      ["danger", "info", "success", "warning"].includes(value),
+  },
+  showIcon: {
+    default: true,
+    type: Boolean,
   },
 });
 

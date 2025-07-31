@@ -29,7 +29,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { Email } from "@dzangolab/vue3-form";
+          import { Email } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -57,7 +57,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Email } from "@dzangolab/vue3-form";
+          import { Email } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -85,10 +85,10 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Email } from "@dzangolab/vue3-form";
+          import { Email } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
-          const input = ref("monorepo@dzangolab.com");
+          const input = ref("monorepo@prefabs.tech.com");
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -116,8 +116,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Email } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { Email } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
           &lt;/script&gt;
@@ -149,7 +149,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, Email } from "@dzangolab/vue3-form";
+          import { Form, Email } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -181,9 +181,9 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, Email } from "@dzangolab/vue3-form";
+          import { Form, Email } from "@prefabs.tech/vue3-form";
           
-          import type { IsEmailOptions } from "@dzangolab/vue3-form";
+          import type { IsEmailOptions } from "@prefabs.tech/vue3-form";
 
           const validationOptions = {
             allow_display_name: false,
@@ -224,9 +224,9 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, Email } from "@dzangolab/vue3-form";
+          import { Form, Email } from "@prefabs.tech/vue3-form";
           
-          import type { EmailErrorMessages, IsEmailOptions } from "@dzangolab/vue3-form";
+          import type { EmailErrorMessages, IsEmailOptions } from "@prefabs.tech/vue3-form";
 
           const validationMessages = {
             required: "The field should not be empty",
@@ -272,7 +272,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, Email } from "@dzangolab/vue3-form";
+          import { Form, Email } from "@prefabs.tech/vue3-form";
           import { z } from "zod";
 
           const inputSchema = z.string()
@@ -292,15 +292,18 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, Email } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, Email } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
 import FormPage from "../FormPage.vue";
 
-import type { EmailErrorMessages, IsEmailOptions } from "@dzangolab/vue3-form";
+import type {
+  EmailErrorMessages,
+  IsEmailOptions,
+} from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
 
@@ -324,7 +327,7 @@ const validationOptions = {
 
 let formData = reactive({
   customValidationInput: ref(),
-  disabled: ref("monorepo@dzangolab.com"),
+  disabled: ref("monorepo@prefabs.tech.com"),
   input: ref(),
   inputWithValidation: ref(),
   noLabelInput: ref(),

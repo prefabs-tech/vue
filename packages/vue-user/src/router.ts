@@ -1,16 +1,14 @@
 import { storeToRefs } from "pinia";
 import { Router } from "vue-router";
 
-import AuthGoogleCallback from "./components/AuthGoogleCallback.vue";
+import AuthSocialLoginCallback from "./components/AuthSocialLoginCallback.vue";
 import useUserStore from "./store";
-import { getVerificationStatus } from "./supertokens";
 import AcceptInvitation from "./views/AcceptInvitation.vue";
 import ChangePassword from "./views/ChangePassword.vue";
 import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
 import Login from "./views/Login.vue";
 import PasswordReset from "./views/PasswordReset.vue";
 import PasswordResetRequest from "./views/PasswordResetRequest.vue";
-import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowledge.vue";
 import Profile from "./views/Profile.vue";
 import Roles from "./views/Roles/Index.vue";
 import Signup from "./views/Signup.vue";
@@ -38,9 +36,14 @@ const _routes = {
     name: "changePassword",
     path: "/change-password",
   },
+  facebook: {
+    component: AuthSocialLoginCallback,
+    name: "authFacebookCallback",
+    path: "/auth/callback/facebook",
+  },
   google: {
-    component: AuthGoogleCallback,
-    name: "authcallback",
+    component: AuthSocialLoginCallback,
+    name: "authGoogleCallback",
     path: "/auth/callback/google",
   },
   login: {
@@ -84,11 +87,6 @@ const _routes = {
     name: "resetPasswordRequest",
     path: "/reset-password-request",
   } as RouteRecordRaw,
-  passwordResetRequestAcknowledge: {
-    component: PasswordResetRequestAcknowledge,
-    name: "resetPasswordRequestAcknowledge",
-    path: "/reset-password-request-acknowledge",
-  },
   verifyEmail: {
     meta: {
       authenticated: true,
@@ -120,6 +118,8 @@ const getRoute = (
 const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   const routes: RouteOverrides | undefined = userConfig?.routes;
 
+  router.addRoute(getRoute(_routes.facebook, routes?.facebook));
+
   router.addRoute(getRoute(_routes.google, routes?.google));
 
   router.addRoute(getRoute(_routes.login, routes?.login));
@@ -141,13 +141,6 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   router.addRoute(getRoute(_routes.profile, routes?.profile));
 
   router.addRoute(getRoute(_routes.roles, routes?.roles));
-
-  router.addRoute(
-    getRoute(
-      _routes.passwordResetRequestAcknowledge,
-      routes?.passwordResetRequestAcknowledge,
-    ),
-  );
 
   router.addRoute(
     getRoute(
@@ -205,26 +198,33 @@ const addAuthenticationGuard = (
     const name = to.name as string;
     const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
     const { user } = storeToRefs(userStore);
-    const { getUser } = userStore;
+    const { getUser, getVerificationStatus } = userStore;
 
     if (!user.value) {
       user.value = await getUser();
     }
 
+    const isSocialLoggedIn = user.value?.thirdParty && userConfig?.socialLogins?.includes(user.value?.thirdParty?.id);
+
     if (meta.authenticated && !user.value) {
       router.push({ name: "login" }); // using next inside async function is not allowed
     }
 
-    if (EmailVerificationEnabled && user.value) {
+    if (isSocialLoggedIn && name === "changePassword") {
+      router.push({ name: "home" });
+    }
+
+    if (meta.authenticated && EmailVerificationEnabled && user.value) {
       const isEmailVerified = await getVerificationStatus();
 
       if (
-        meta.authenticated &&
         !isEmailVerified &&
-        !routesToRedirect.includes(name)
+        ![...routesToRedirect, "profile"].includes(name)
       ) {
         router.push({ name: "verifyEmailReminder" });
-      } else if (isEmailVerified && routesToRedirect.includes(name)) {
+
+        return;
+      } else if (isEmailVerified && routesToRedirect[1] === name) {
         router.push({ name: "home" });
       }
     }
@@ -232,7 +232,12 @@ const addAuthenticationGuard = (
     const isProfileCompleted = !!user.value?.isProfileCompleted;
     const profileCompletionEnabled = user.value?.isProfileCompleted !== undefined;
 
-    if (meta.authenticated && profileCompletionEnabled && !isProfileCompleted && name !== "profile") {
+    if (
+      meta.authenticated &&
+      profileCompletionEnabled &&
+      !isProfileCompleted &&
+      ![...routesToRedirect, "profile"].includes(name)
+    ) {
       router.push({ name: "profile" });
     }
   });

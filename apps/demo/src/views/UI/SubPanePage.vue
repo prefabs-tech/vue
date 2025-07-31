@@ -17,5 +17,5 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { SubPane } from "@dzangolab/vue3-ui";
+import { SubPane } from "@prefabs.tech/vue3-ui";
 </script>

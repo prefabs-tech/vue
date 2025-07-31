@@ -8,6 +8,7 @@
     "footer";
   gap: var(--layout-basic-gap);
   grid-template-rows: auto 1fr auto;
+  height: 100dvh;
   min-height: 100dvh;
 }
 
@@ -96,6 +97,7 @@
   max-width: 100%;
   min-width: 100%;
   grid-area: main;
+  overflow-y: auto;
 }
 
 @media screen and (min-width: 1200px) {

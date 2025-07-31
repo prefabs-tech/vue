@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.modal.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.modal.subtitle')"
+    :title="$t('ui.modal.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -37,7 +41,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const showModal = ref(false);
@@ -82,7 +86,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const showModal = ref(false);
@@ -143,12 +147,59 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const productDetail = [
             ...
           ];
+
+          const showModal = ref(false);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.modal.usage.size") }}</h2>
+
+      <div class="section-content">
+        <ButtonElement
+          :label="$t('ui.modal.label.show')"
+          @click="showSizeModal = true"
+        />
+
+        <Modal
+          :show="showSizeModal"
+          :title="$t('ui.modal.header.productDetail')"
+          size="large"
+          @on:close="showSizeModal = false"
+        >
+          {{ $t("ui.modal.content") }}
+        </Modal>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;ButtonElement
+              label="Show"
+              @click="showModal = true"
+            /&gt;
+
+            &lt;Modal
+              :show="showModal"
+              size="large"
+              title="Product detail"
+              @on:close="showModal = false"
+            &gt;
+              Lorem ipsum...
+            &lt;/Modal&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
+          import { ref } from "vue";
 
           const showModal = ref(false);
           &lt;/script&gt;
@@ -192,8 +243,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { useI18n } from "@dzangolab/vue3-i18n";
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { ref } from "vue";
 
           const { t } = useI18n();
@@ -220,7 +271,7 @@
             <span role="heading">{{ $t("ui.modal.label.login") }}</span>
           </template>
 
-          <Form>
+          <Form class="login-form">
             <Email
               v-model="formData.email"
               :label="$t('form.label.email')"
@@ -292,8 +343,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Email, Form, FormActions, Password } from "@dzangolab/vue3-form";
-          import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+          import { Email, Form, FormActions, Password } from "@prefabs.tech/vue3-form";
+          import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
           import { reactive, ref } from "vue";
 
           const formData = reactive({
@@ -307,20 +358,34 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'ModalProperties' })"
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
-import { Email, Form, FormActions, Password } from "@dzangolab/vue3-form";
-import { ButtonElement, Modal } from "@dzangolab/vue3-ui";
+import { Email, Form, FormActions, Password } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
-const formData = reactive({
-  email: ref(),
-  password: ref(),
-});
+const { t } = useI18n();
+
+const eventsData = [
+  {
+    description: t("ui.modal.documentation.eventDescription.close"),
+    name: "on:close",
+    payload: "-",
+  },
+];
 
 const productDetail = [
   {
@@ -337,9 +402,57 @@ const productDetail = [
   },
 ];
 
+const propsData = [
+  {
+    default: "true",
+    description: t("ui.modal.documentation.propsDescription.dismissOnClickOut"),
+    prop: "dismissOnClickOut",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: t("ui.modal.documentation.propsDescription.show"),
+    prop: "show",
+    type: "Boolean",
+  },
+  {
+    default: "medium",
+    description: t("ui.modal.documentation.propsDescription.size"),
+    prop: "size",
+    type: `"medium" | "large"`,
+  },
+  {
+    default: "-",
+    description: t("ui.modal.documentation.propsDescription.title"),
+    prop: "title",
+    type: "String",
+  },
+];
+
+const slotsData = [
+  {
+    description: t("ui.modal.documentation.slotDescription.default"),
+    name: "default",
+  },
+  {
+    description: t("ui.modal.documentation.slotDescription.footer"),
+    name: "footer",
+  },
+  {
+    description: t("ui.modal.documentation.slotDescription.header"),
+    name: "header",
+  },
+];
+
+const formData = reactive({
+  email: ref(),
+  password: ref(),
+});
+
 const showDisableDismissModal = ref(false);
 const showI18nModal = ref(false);
 const showModal = ref(false);
+const showSizeModal = ref(false);
 const showSlotModal = ref(false);
 const showTitleModal = ref(false);
 </script>
@@ -358,5 +471,9 @@ const showTitleModal = ref(false);
 
 .demo .login-actions {
   margin-bottom: 0;
+}
+
+.demo .dialog.active .login-form {
+  width: 25rem;
 }
 </style>

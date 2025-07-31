@@ -22,7 +22,7 @@ const routes = [
       {
         component: FilesPresentation,
         name: "filesPresentation",
-        path: "files",
+        path: "files-presentation",
       },
       {
         component: FilesTable,

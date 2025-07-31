@@ -91,7 +91,24 @@ const useUserStore = defineStore("user", () => {
     return await doEnableUser(id, apiBaseUrl);
   };
 
-  const getIsFirstUser = async (apiBaseUrl: string) => {
+  const socialSignIn = async (providerId: string, redirectURL: string) => {
+    const selectedAuthProvider = auth();
+
+    if (
+      "doSocialSignIn" in selectedAuthProvider &&
+      typeof selectedAuthProvider.doSocialSignIn === "function"
+    ) {
+      return await selectedAuthProvider.doSocialSignIn(providerId, redirectURL);
+    }
+
+    throw new Error(
+      `${providerId} signin is not supported for the selected auth provider`
+    );
+  };
+
+  const getIsFirstUser = async (
+    apiBaseUrl: string,
+  ) => {
     return await doGetIsFirstUser(apiBaseUrl);
   };
 
@@ -109,16 +126,12 @@ const useUserStore = defineStore("user", () => {
     return data ? JSON.parse(data) : undefined;
   };
 
-  const googleSignIn = async (redirectURL: string) => {
+  const getVerificationStatus = async () => {
     const selectedAuthProvider = auth();
 
-    if ("doGoogleSignIn" in selectedAuthProvider) {
-      await selectedAuthProvider.doGoogleSignIn(redirectURL);
-    }
+    const response = await selectedAuthProvider.doGetVerificationStatus();
 
-    throw new Error(
-      "Google signin is not supported for the selected auth provider",
-    );
+    return response;
   };
 
   const login = async (credentials: LoginCredentials) => {
@@ -180,6 +193,18 @@ const useUserStore = defineStore("user", () => {
     );
   };
 
+  const sendVerificationEmail = async () => {
+    const selectedAuthProvider = auth();
+    
+    if ("doSendVerificationEmail" in selectedAuthProvider) {
+      return selectedAuthProvider.doSendVerificationEmail();
+    }
+
+    throw new Error(
+      "Send verification email is not supported for the selected auth provider"
+    );
+  };
+
   const setInvitation = (invitationData: Invitation | undefined) => {
     invitation.value = invitationData;
   };
@@ -226,6 +251,18 @@ const useUserStore = defineStore("user", () => {
     setUser(response);
   };
 
+  const verifyEmail = async (token?: string) => {
+    const selectedAuthProvider = auth();
+    
+    if ("doVerifyEmail" in selectedAuthProvider) {
+      return await selectedAuthProvider.doVerifyEmail(token || "");
+    }
+
+    throw new Error(
+      "Verify email is not supported for the selected auth provider"
+    );
+  };
+
   return {
     accessToken,
     acceptInvitation,
@@ -234,10 +271,10 @@ const useUserStore = defineStore("user", () => {
     changePassword,
     disableUser,
     enableUser,
-    googleSignIn,
     getIsFirstUser,
     getInvitationByToken,
     getUser,
+    getVerificationStatus,
     invitation,
     login,
     logout,
@@ -246,12 +283,15 @@ const useUserStore = defineStore("user", () => {
     removeUser,
     resetPassword,
     requestPasswordReset,
+    sendVerificationEmail,
     setAuthTokens,
     signUpFirstUser,
     setInvitation,
     setUser,
     signup,
+    socialSignIn,
     user,
+    verifyEmail,
   };
 });
 

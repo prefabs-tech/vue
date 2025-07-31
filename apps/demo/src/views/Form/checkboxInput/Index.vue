@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.checkbox')" class="demo">
+  <FormPage
+    :subtitle="$t('form.subtitle.checkbox')"
+    :title="$t('form.label.checkbox')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -31,7 +35,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CheckboxInput } from "@dzangolab/vue3-form";
+          import { CheckboxInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref();
@@ -64,7 +68,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CheckboxInput } from "@dzangolab/vue3-form";
+          import { CheckboxInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref();
@@ -115,7 +119,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CheckboxInput } from "@dzangolab/vue3-form";
+          import { CheckboxInput } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
           const input = ref(["car"]);
@@ -168,8 +172,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, CheckboxInput } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { Form, CheckboxInput } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
           import { ref } from "vue";
 
           const { t } = useI18n();
@@ -227,6 +231,30 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>
+        {{ $t("common.properties", { value: "CheckboxInputProperties" }) }}
+      </h2>
+      <div class="section-content">
+        <Table
+          :columns-data="propsColumns"
+          :data="propsData"
+          :paginated="false"
+        />
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("common.events") }}</h2>
+      <div class="section-content">
+        <Table
+          :columns-data="eventColumns"
+          :data="eventData"
+          :paginated="false"
+        />
+      </div>
+    </section>
   </FormPage>
 </template>
 
@@ -237,9 +265,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, CheckboxInput } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, CheckboxInput } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
@@ -299,6 +328,116 @@ const dailySynchroOptions = [
   {
     label: t("form.label.other"),
     value: 10,
+  },
+];
+
+const eventColumns = [
+  {
+    accessorKey: "name",
+    header: "Name",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
+const eventData = [
+  {
+    description: "Triggers on single checkbox input state change",
+    id: 1,
+    name: "update:checked",
+  },
+  {
+    description:
+      "Triggers on selected value of multiple checkboxes input change",
+    id: 1,
+    name: "update:modelValue",
+  },
+];
+
+const propsColumns = [
+  {
+    accessorKey: "name",
+    header: "Property",
+  },
+  {
+    accessorKey: "type",
+    header: "Type",
+  },
+  {
+    accessorKey: "default",
+    header: "Default",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
+const propsData = [
+  {
+    default: "false",
+    description: "Determines the checked state of a single checkbox.",
+    id: 1,
+    name: "checked",
+    type: "boolean",
+  },
+  {
+    default: "-",
+    description: "Defines the layout direction for multiple checkboxes.",
+    id: 2,
+    name: "direction",
+    type: '"horizontal" | "vertical"',
+  },
+  {
+    default: "-",
+    description: "Disables the checkbox input.",
+    id: 3,
+    name: "disabled",
+    type: "boolean",
+  },
+  {
+    default: "-",
+    description: "Label for the single checkbox.",
+    id: 4,
+    name: "inputLabel",
+    type: "string",
+  },
+  {
+    default: "-",
+    description: "Label for the group of checkboxes.",
+    id: 5,
+    name: "label",
+    type: "string",
+  },
+  {
+    default: "-",
+    description: "Array of selected values for multiple checkboxes.",
+    id: 6,
+    name: "modelValue",
+    type: "string[]",
+  },
+  {
+    default: "checkbox",
+    description: "The name attribute for the checkbox input.",
+    id: 7,
+    name: "name",
+    type: "string",
+  },
+  {
+    default: "[]",
+    description: "Options for multiple checkboxes.",
+    id: 8,
+    name: "options",
+    type: "Array<{ value, label }>",
+  },
+  {
+    default: "[]",
+    description: "Determines the validation schema for checkbox input",
+    id: 9,
+    name: "schema",
+    type: "ZodType",
   },
 ];
 

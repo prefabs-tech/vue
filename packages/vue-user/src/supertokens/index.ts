@@ -5,7 +5,6 @@ import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpa
 
 import changeEmail from "./change-email";
 import changePassword from "./change-password";
-import googleSignIn from "./google-signin";
 import { isProfileCompleted, verifySessionRoles } from "./helper";
 import login from "./login";
 import logout from "./logout";
@@ -13,12 +12,13 @@ import requestPasswordReset from "./request-password-reset";
 import resendVerificationEmail from "./resend-email-verification";
 import resetPassword from "./reset-password";
 import signup from "./signup";
+import socialSignIn from "./social-signin";
 import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "../constant";
 import useUserStore from "../store";
 import verifyEmail, { getVerificationStatus } from "./verify-email";
 
 import type { UserType } from "../types";
-import type { AppConfig } from "@dzangolab/vue3-config";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const initSupertokens = (config: AppConfig) => {
   useUserStore();
@@ -62,7 +62,6 @@ export {
   changePassword,
   getUser,
   getVerificationStatus,
-  googleSignIn,
   isProfileCompleted,
   isLoggedIn,
   login,
@@ -71,6 +70,7 @@ export {
   resendVerificationEmail,
   resetPassword,
   signup,
+  socialSignIn,
   verifyEmail,
   verifySessionRoles,
 };

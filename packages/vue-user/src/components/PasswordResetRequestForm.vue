@@ -11,8 +11,16 @@
     />
 
     <div class="actions">
-      <LoadingButton
-        :label="t('user.passwordResetRequest.form.actions.submit')"
+      <FormActions
+        :actions="[
+          {
+            id: 'submit',
+            label: t('user.passwordResetRequest.form.actions.submit'),
+          },
+        ]"
+        :loading="loading"
+        alignment="filled"
+        tabindex="0"
       />
     </div>
   </Form>
@@ -25,9 +33,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Email } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { LoadingButton } from "@dzangolab/vue3-ui";
+import { Email, FormActions } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Form } from "vee-validate";
 
 import { useTranslations } from "../index";
@@ -41,6 +48,10 @@ const { t } = useI18n({ messages });
 let payload = {
   email: undefined,
 } as PasswordResetRequestPayload;
+
+defineProps({
+  loading: Boolean,
+});
 
 const emit = defineEmits(["submit"]);
 

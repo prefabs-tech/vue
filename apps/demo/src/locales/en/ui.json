@@ -36,6 +36,7 @@
       "warning": "Warning",
       "wrong": "Wrong"
     },
+    "subtitle": "Badge component is a compact UI element used to display short, contextual information such as status, labels, or icons, with severity and styling support.",
     "title": "Badge",
     "usage": {
       "basic": "Basic",
@@ -69,6 +70,7 @@
       "textOnly": "Text only",
       "warning": "Warning"
     },
+    "subtitle": "The Button component is a flexible and customizable button implementation for Vue applications. It supports various properties for styling, behavior, and functionality, making it suitable for different use cases.",
     "title": "Button",
     "usage": {
       "basic": "Basic",
@@ -96,6 +98,7 @@
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "headerContent": "Lorem ipsum",
     "footerContent": "The standard Lorem Ipsum passage, used since the 1500s",
+    "subtitle": "A versatile container for displaying content in a structured format. It supports slots for custom header, footer, and body content, making it adaptable for various use cases.",
     "title": "Card",
     "usage": {
       "basic": "Basic",
@@ -117,6 +120,7 @@
     "headerContent": {
       "deleteUser": "Delete user"
     },
+    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, body, and footer content via slots.",
     "title": "Confirmation modal",
     "usage": {
       "basic": "Basic",
@@ -147,6 +151,7 @@
     }
   },
   "divider": {
+    "subtitle": "Divider component is a visual separator used to group or divide content with the border line either horizontally or vertically.",
     "title": "Divider",
     "usage": {
       "horizontal": "Horizontal",
@@ -159,6 +164,7 @@
       "name": "Name",
       "user": "User"
     },
+    "subtitle": "The Dropdown component provides an accessible and customizable menu for selecting actions or options. It supports labels, icons, slots for custom triggers and icons, and emits events on selection.",
     "title": "Dropdown",
     "usage": {
       "basic": "Basic",
@@ -170,6 +176,7 @@
   },
   "file": "File",
   "fileCard": {
+    "subtitle": "The FileCard component is a structured card layout that displays file detail with a thumbnail and action buttons.",
     "title": "File card",
     "usage": {
       "basic": "Basic",
@@ -179,6 +186,7 @@
     }
   },
   "filesList": {
+    "subtitle": "The FilesList component displays a collection of files in a list layout using FileCard component, with customizable actions and visibility options.",
     "title": "Files List"
   },
   "getStarted": "Get started",
@@ -186,12 +194,14 @@
     "usage": {
       "basic": "Basic"
     },
+    "subtitle": "GridContainer component is a responsive layout wrapper that arranges its child elements in a flexible grid structure.",
     "title": "Grid container"
   },
   "loading": {
     "buttonLabel": {
       "clickMe": "Click me"
     },
+    "subtitle": "LoadingPage component is a full-screen overlay loader used to indicate a loading state across the entire page.",
     "title": "Loading page",
     "usage": {
       "basic": "Basic"
@@ -201,12 +211,29 @@
   "menu": "Menu",
   "message": {
     "contents": {
-      "content1": "Season sale: Up to 50% off selected items!",
+      "content1": "Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!",
       "content2": "New features just launched! Check them out!",
       "content3": "New Year, New You: Start fresh with our services!",
       "content4": "We value your feedback: take our quick survey!",
       "content5": "Warning: Limited time only! Sale ends soon!"
     },
+    "documentation": {
+      "eventDescription": {
+        "close": "Emitted when the close icon is clicked."
+      },
+      "propsDescription": {
+        "enableClose": "Displays a close icon if true, allowing the message to be dismissed.",
+        "icon": "Icon to display alongside the message.",
+        "message": "The message text, or an array of message texts to displayed in the component.",
+        "severity": "Defines the message background color style.",
+        "showIcon": "Displays a icon before message if true."
+      },
+      "slotDescription": {
+        "default": "Slot for message. Overrides the message content.",
+        "icon": "Slot for custom icon. Overrides the `icon` prop if provided."
+      }
+    },
+    "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
     "title": "Message",
     "usage": {
       "basic": "Basic",
@@ -215,12 +242,30 @@
         "icon": "Icon",
         "iconSlot": "Icon slot"
       },
+      "messageArray": "Array of message",
+      "severity": "Severity",
       "withI18n": "With i18n"
     }
   },
   "messages": "Messages",
   "modal": {
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "documentation": {
+      "eventDescription": {
+        "close": "Emitted when the modal is requested to close (via close icon or outside click)."
+      },
+      "propsDescription": {
+        "dismissOnClickOut":  "Closes the modal when clicking outside the modal content.",
+        "show": "Controls the visibility of the modal.",
+        "size": "Defines the width of the modal.",
+        "title": "Title for the modal. Override by `header` slot if provided."
+      },
+      "slotDescription": {
+        "default": "Main content of the modal body.",
+        "footer": "Footer section of the modal. Placed below the content.",
+        "header": "Custom header content. Overrides `title` if provided."
+      }
+    },
     "header": {
       "productDetail": "Product detail"
     },
@@ -231,10 +276,12 @@
       "show": "Show",
       "viewDetail": "View detail"
     },
+    "subtitle": "A modal dialog component for displaying content in an overlay with support for custom headers, footers, and dismissal logic.",
     "title": "Modal",
     "usage": {
       "basic": "Basic",
       "disableDismiss": "Disabled dismiss on click outside",
+      "size": "Size",
       "slots": "With slots",
       "withTitle": "With title",
       "withI18n": "With i18n"
@@ -248,6 +295,7 @@
       "subtitle": "Page subtitle",
       "titleTag": "Heading tag"
     },
+    "subtitle": "Page component is a layout wrapper used to structure pages with a title, subtitle, toolbar, and loading overlay support.",
     "title": "Page",
     "usage": {
       "basic": "Basic",
@@ -264,16 +312,18 @@
   "popup": {
     "content": "This is a popup",
     "label": {
-      "button": "Click me"
+      "button": "Click me",
+      "show": "Show"
     },
+    "subtitle": "The Popup component is a versatile overlay that displays content relative to a trigger element with automatic or configurable positioning.",
     "title": "Popup",
     "usage": {
       "basic":"Basic",
-      "bottom": "Bottom",
+      "bottom": "With position bottom",
       "customStyle":"Custom style",
-      "left": "Left",
-      "right": "Right",
-      "top": "Top",
+      "left": "With position left",
+      "right": "With position right",
+      "top": "With position top",
       "withI18n": "With i18n"
     }
   },
@@ -286,6 +336,7 @@
       "hockey": "Hockey",
       "volleyball": "Volleyball"
     },
+    "subtitle": "SortableList component is a flexible list that supports drag-and-drop reordering, with support for custom item rendering.",
     "title": "Sortable list",
     "usage": {
       "basic": "Basic",
@@ -293,6 +344,19 @@
     }
   },
   "stepper": {
+    "documentation": {
+      "eventDescription": {
+        "complete": "Emitted when all steps are completed"
+      },
+      "propsDescription": {
+        "nextButton": "Properties for the next button",
+        "previousButton": "properties for the previous button",
+        "steps": "Array of step objects (required)"
+      },
+      "slotDescription": {
+        "step": "Dynamic slot for step content (use step as slot name from steps prop)"
+      }
+    },
     "label": {
       "name": "Name",
       "phone": "Phone",
@@ -302,6 +366,7 @@
       "name": "Enter your name",
       "phone": "Enter your phone"
     },
+    "subtitle": "The Stepper component guides users through a multi-step process with visual progress indicators.",
     "title": "Stepper",
     "usage": {
       "basic": "Basic",
@@ -313,6 +378,50 @@
   "subPane": {
     "title": "SubPane",
     "content": "This is a subpane"
+  },
+  "tabView": {
+    "documentation": {
+      "eventDescription": {
+        "beforeTabChange": "Triggers before tab actually change",
+        "beforeTabClose": "Triggers before tab actually close",
+        "updateActiveKey": "Triggers on active key change",
+        "updateVisibleTabs": "Triggers on visible tabs change"
+      },
+      "propsDescription": {
+        "activeKey": "Active key of TabView.",
+        "enableHashRouting": "Enable hash routing for the tab view URL.",
+        "id": "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
+        "interceptTabChange": "Enable event emitting before tab actually change.",
+        "interceptTabClose": "Enable event emitting before tab actually change.",
+        "lazy": "The lazy prop enables lazy loading.It only loads content for the active tab.",
+        "persistState": "If true, tab state is saved either in localStorage or sessionStorage.",
+        "persistStateStorage": "Storage to save tab state.",
+        "position": "Position of the tab panel header relative to its content.",
+        "tabs": "Array of tab object.",
+        "visibleTabs": "Array of visible tabs."
+      },
+      "slotDescription": {
+        "default": "Content for the tab, matched using the key attribute on each element"
+      }
+    },
+    "subtitle": "The TabView component organizes content into tabbed panels with support for multiple positions, closable tabs, state persistence, and interception handlers for tab changes and closures",
+    "title": "Tab view",
+    "usage": {
+      "basic": "Basic",
+      "closableTab": "Closable tabs",
+      "disableTabState": {
+        "subtitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing :persist-state='false' prop to the component",
+        "title": "State persistence disabled"
+      },
+      "interceptTabChange": "With interception before tab change",
+      "interceptTabClose": "With interception before tab close",
+      "positionBottom": "Bottom tabs",
+      "positionLeft": "Left tabs",
+      "positionRight": "Right tabs",
+      "shareableTab": "Shareable open tab",
+      "withHashRouting": "Hash routing enabled",
+      "withSlot": "With slot for custom content"
+    }
   },
   "tabbed-panel": {
     "basic-usage": "Basic usage",
@@ -326,6 +435,7 @@
         "title": "Tab 2"
       }
     },
+    "depreciation-message": "{'@'}deprecated: Use TabView component from the ui package instead",
     "no-title": "Child elements with no `title` prop will be ignored",
     "position": {
       "bottom": "Bottom",
@@ -345,20 +455,25 @@
   "tooltip": {
     "content":"Tooltip content",
     "label": {
+      "bottom": "Bottom",
       "button": "Click me",
       "custom": "Custom",
-      "delay": "Delay"
-    },
-    "title": "Tooltip",
-    "usage": {
-      "basic":"Basic",
-      "bottom": "Bottom",
-      "clickable": "Clickable",
-      "customStyle":"Custom style",
-      "delay": "With delay",
+      "delay": "Delay",
       "left": "Left",
       "right": "Right",
       "top": "Top"
+    },
+    "subtitle": "The Tooltip component provides contextual information when hovering over an element. It supports various positions, custom styles, and can be triggered by hover or click events.",
+    "title": "Tooltip",
+    "usage": {
+      "basic":"Basic",
+      "bottom": "With position bottom",
+      "clickable": "Clickable",
+      "customStyle":"Custom style",
+      "delay": "With delay",
+      "left": "With position left",
+      "right": "With position right",
+      "top": "With position top"
     }
   },
   "typography": {
@@ -366,6 +481,7 @@
   },
   "youtubeFacade": {
     "alternativeMessage": "Vue basic",
+    "subtitle": "YoutubeFacade component is a lightweight preview for embedding YouTube videos, showing a thumbnail and loading the iframe.",
     "title": "Youtube facade",
     "usage": {
       "aspectRatio": "Aspect ratio",

@@ -1,7 +1,7 @@
 <template>
   <Table
     v-bind="tableOptions"
-    id="table-files"
+    :id="id"
     :columns-data="mergedColumns"
     :data="files"
     :data-action-menu="actionMenuData"
@@ -9,6 +9,8 @@
     :initial-sorting="initialSorting"
     :is-loading="isLoading"
     :is-server-table="isServerTable"
+    :persist-state="persistState"
+    :persist-state-storage="persistStateStorage"
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
     class="table-files"
@@ -37,7 +39,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { formatDateTime } from "@dzangolab/vue3-ui";
+import { formatDateTime } from "@prefabs.tech/vue3-ui";
 import { computed, h } from "vue";
 
 import Table from "../Table.vue";
@@ -48,7 +50,7 @@ import type {
   TableColumnDefinition,
   TRequestJSON,
 } from "../../types";
-import type { IFile, TableMessages } from "@dzangolab/vue3-ui";
+import type { IFile, TableMessages } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
 const props = defineProps({
@@ -69,8 +71,19 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<IFile[]>,
   },
+  id: {
+    default: "files-table",
+    type: String,
+  },
   isLoading: Boolean,
   isServerTable: Boolean,
+  persistState: Boolean,
+  persistStateStorage: {
+    default: "localStorage",
+    type: String,
+    validator: (value: string) =>
+      ["localStorage", "sessionStorage"].includes(value),
+  },
   messages: {
     default: undefined,
     type: Object as PropType<TableMessages>,
@@ -106,20 +119,29 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     accessorKey: "originalFileName",
     enableColumnFilter: true,
     enableSorting: true,
-    filterPlaceholder: props.messages?.searchPlaceholder || "File name example",
-    header: props.messages?.originalFileNameHeader || "File",
+    filterPlaceholder: "File name",
+    header: "File",
   },
   {
     accessorKey: "description",
-    header: props.messages?.descriptionHeader || "Description",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: "Description",
+    header: "Description",
     tooltip: true,
   },
   {
     accessorKey: "size",
-    header: props.messages?.fileSizeHeader || "Size",
+    enableColumnFilter: !props.isServerTable,
+    enableSorting: !props.isServerTable,
+    filterPlaceholder: "Size",
+    header: "Size",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
-    id: "uploadedBy",
+    accessorKey: "uploadedBy",
     cell: ({ row: { original } }) => {
       if (!original.uploadedBy) {
         return h("code", {}, "—");
@@ -133,19 +155,53 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return original.uploadedBy.email;
     },
-    header: props.messages?.uploadedByHeader || "Uploaded by",
+    enableColumnFilter: !props.isServerTable,
+    enableSorting: !props.isServerTable,
+    filterFn: (row, columnId, filterValue) => {
+      const value = row.getValue(columnId) as {
+        givenName?: string;
+        lastName?: string;
+        email?: string;
+      };
+      if (!filterValue || filterValue.length === 0) {
+        return true;
+      }
+
+      const fullName =
+        `${value.givenName || ""} ${value.lastName || ""}`.trim();
+      return (
+        fullName.toLowerCase().includes(filterValue.toLowerCase()) ||
+        (value.email?.toLowerCase().includes(filterValue.toLowerCase()) ??
+          false)
+      );
+    },
+    filterPlaceholder: "Name",
+    header: "Uploaded by",
   },
   {
     accessorKey: "uploadedAt",
     cell: ({ getValue }) => {
       return formatDateTime(getValue() as number);
     },
-    header: props.messages?.uploadedAtHeader || "Uploaded at",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: "Date range",
+    header: "Uploaded at",
+    meta: {
+      filterVariant: "dateRange",
+      serverFilterFn: "between",
+    },
   },
   {
     accessorKey: "downloadCount",
     align: "right",
-    header: props.messages?.downloadCountHeader || "Download count",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: "Number of downloads",
+    header: "Download count",
+    meta: {
+      filterVariant: "range",
+    },
   },
   {
     accessorKey: "lastDownloadedAt",
@@ -156,9 +212,14 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
 
       return h("code", {}, "—");
     },
-    enableColumnFilter: false,
-    enableSorting: false,
-    header: props.messages?.lastDownloadedAtHeader || "Last downloaded at",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: "Date range",
+    header: "Last downloaded at",
+    meta: {
+      filterVariant: "dateRange",
+      serverFilterFn: "between",
+    },
   },
 ];
 

@@ -45,7 +45,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DebouncedInput } from "@dzangolab/vue3-ui";
+import { DebouncedInput } from "@prefabs.tech/vue3-ui";
 import { toFieldValidator } from "@vee-validate/zod";
 import { onClickOutside } from "@vueuse/core";
 import { ErrorMessage, Field } from "vee-validate";

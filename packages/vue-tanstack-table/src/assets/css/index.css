@@ -146,10 +146,6 @@
   padding-right: 2rem;
 }
 
-.table-container .table-wrapper > table tr > th[data-align="right"] {
-  text-align: center;
-}
-
 .table-container .table-wrapper > table tr > th.sortable {
   cursor: pointer;
 }
@@ -160,7 +156,7 @@
 
 .table-container .table-wrapper > table tr > th .sort-state .sort-icon {
   display: inline-block;
-  font-size: 0.9rem;
+  vertical-align: text-bottom;
 }
 
 .table-container .table-wrapper > table tr > th.sortable:active {
@@ -195,16 +191,27 @@
   font-size: 1rem;
 }
 
-.table-wrapper > table tr.filters > th > div > input {
+
+.table-wrapper > table tr.filters > th.range > .number-range-filter {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.table-wrapper > table tr.filters > th > div input {
   width: 100%;
-  min-width: 7rem;
+  min-width: fit-content;
   font-weight: normal;
   background: #ffffff;
 }
 
-.table-wrapper > table tr.filters > th.multiselect > div {
+.table-wrapper > table tr.filters > th.multiselect > div,
+.table-wrapper > table tr.filters > th.select > div {
   background: #ffffff;
   font-weight: normal;
+}
+
+.table-wrapper > table tr.filters > th:last-child .multiselect > ul {
+  right: 0;
 }
 
 .table-wrapper > table tr.filters > th.multiselect > div .input-field-select {

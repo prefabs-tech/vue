@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.sortableList.title')" class="demo-sortable-list">
+  <UiPage
+    :sub-title="$t('ui.sortableList.subtitle')"
+    :title="$t('ui.sortableList.title')"
+    class="demo-sortable-list"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -33,7 +37,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
-            import { SortableList } from "@dzangolab/vue3-ui";
+            import { SortableList } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
   
             const list = ref([
@@ -54,14 +58,35 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'SortableListProperties' })
+      "
+    />
+
+    <section>
+      <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          type List = {
+            id: number | string;
+            data: string | unknown;
+            render?: (data) => VNode;
+          };
+        </SshPre>
+        <!-- eslint-enable -->
+    </section>
   </UiPage>
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement, SortableList } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement, SortableList } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 const { t } = useI18n();
@@ -90,6 +115,25 @@ const list = ref([
 ]);
 
 const mostFavourite = ref<string>();
+
+const eventsData = [
+  {
+    description:
+      "Emitted when the list is reordered via drag and drop. The payload is the updated list.",
+    name: "onDrag",
+    payload: "Array<List>",
+  },
+];
+
+const propsData = [
+  {
+    default: "-",
+    description:
+      "An array of list items to render and sort. Each item must have a unique `id` and `data`. Optionally, a `render` function can be provided to customize rendering.(required)",
+    prop: "list",
+    type: "Array<List>",
+  },
+];
 
 const onDrag = (sortedList: [{ id: number; data: string }]) => {
   mostFavourite.value = sortedList[0].data;

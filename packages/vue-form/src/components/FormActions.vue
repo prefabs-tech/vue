@@ -1,28 +1,24 @@
 <template>
   <div
-    :class="`align-${alignment} direction-${flowDirection}`"
+    :data-alignment="alignment"
+    :data-direction="flowDirection"
+    :data-reverse="reverse"
     class="form-actions"
   >
     <slot>
-      <slot name="cancelButton">
-        <ButtonElement
-          :disabled="loading"
-          :label="cancelLabel"
-          class="cancel-button"
-          type="button"
-          variant="outlined"
-          @click="onCancel"
-        />
-      </slot>
-      <slot name="submitButton">
-        <ButtonElement
-          :disabled="loading"
-          :label="submitLabel"
-          class="submit-button"
-          type="submit"
-          @click="onSubmit"
-        />
-      </slot>
+      <template
+        v-for="(action, index) in parsedActions"
+        :key="`${action.id || action.label}-${index}`"
+      >
+        <slot :name="action.id || action.label">
+          <ButtonElement
+            v-bind="action"
+            :disabled="disabled || loading"
+            :type="action?.type || 'button'"
+            @click="onActionClick(action)"
+          />
+        </slot>
+      </template>
     </slot>
   </div>
 </template>
@@ -34,9 +30,16 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
+import { computed } from "vue";
 
-defineProps({
+import type { PropType } from "vue";
+
+const props = defineProps({
+  actions: {
+    default: () => [],
+    type: Array as PropType<Record<string, unknown>[]>,
+  },
   alignment: {
     default: "right",
     type: String,
@@ -44,6 +47,10 @@ defineProps({
   cancelLabel: {
     default: "Cancel",
     type: String,
+  },
+  disabled: {
+    default: false,
+    type: Boolean,
   },
   flowDirection: {
     default: "horizontal",
@@ -53,52 +60,67 @@ defineProps({
     default: false,
     type: Boolean,
   },
+  reverse: Boolean,
   submitLabel: {
     default: "Submit",
     type: String,
   },
 });
 
-const emit = defineEmits(["cancel", "submit"]);
+const emit = defineEmits<{
+  (event: string, action: Record<string, unknown>): void;
+}>();
 
-const onCancel = () => emit("cancel");
+const defaultActions = [
+  {
+    id: "submit",
+    label: props.submitLabel,
+    type: "submit",
+  },
+  {
+    id: "cancel",
+    label: props.cancelLabel,
+    severity: "secondary",
+    variant: "outlined",
+  },
+];
 
-const onSubmit = () => emit("submit");
+const parsedActions = computed(() => {
+  if (!props.actions.length) {
+    return defaultActions;
+  }
+
+  const mappedActions = new Map<string, Record<string, unknown>>();
+
+  for (const action of props.actions) {
+    mappedActions.set(String(action?.id ?? action?.label ?? ""), action);
+  }
+
+  for (const defaultAction of defaultActions) {
+    if (mappedActions.get(defaultAction.id || defaultAction.label || "")) {
+      const previousAction = mappedActions.get(
+        defaultAction.id || defaultAction.label || "",
+      );
+
+      mappedActions.set(defaultAction.id || defaultAction.label || "", {
+        ...defaultAction,
+        ...previousAction,
+      });
+    }
+  }
+
+  return Array.from(mappedActions.values());
+});
+
+const onActionClick = (action: Record<string, unknown>) => {
+  const eventName = String(
+    action?.id || action?.label || "click",
+  ).toLowerCase();
+
+  emit(eventName, action);
+};
 </script>
 
 <style lang="css">
-.form-actions {
-  display: flex;
-  gap: var(--form-field-gap, 0.5em);
-  margin-bottom: var(--form-margin-bottom, 0);
-  width: 100%;
-}
-
-.form-actions.align-center {
-  justify-content: center;
-}
-
-.form-actions.align-left {
-  justify-content: left;
-}
-
-.form-actions.align-right {
-  justify-content: right;
-}
-
-.form-actions.align-filled {
-  justify-content: space-between;
-}
-
-.form-actions.align-filled button {
-  flex: 1;
-}
-
-.form-actions.direction-horizontal {
-  flex-direction: row;
-}
-
-.form-actions.direction-vertical {
-  flex-direction: column;
-}
+@import "../assets/css/formAction.css";
 </style>

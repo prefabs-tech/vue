@@ -1,0 +1,4 @@
+.tab-view .demo-main section .section-content .tab-button-group{
+  display: flex;
+  gap: 1rem;
+}

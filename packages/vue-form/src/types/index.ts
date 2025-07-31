@@ -1,3 +1,8 @@
+interface CurrencyOption extends SelectOption {
+  code?: string;
+  symbol?: string;
+}
+
 interface EmailErrorMessages {
   invalid?: string;
   required?: string;
@@ -27,10 +32,16 @@ interface PasswordErrorMessages {
   weak?: string;
 }
 
-interface SelectOption extends InputOption {
+interface SelectOption extends Record<string, unknown> {
   disabled?: boolean;
+  label?: string;
+  value?: string | number;
+  groupLabel?: string;
+};
+
+interface GroupedOption {
   label: string;
-  value: string | number;
+  options: SelectOption[];
 }
 
 interface TextErrorMessages {
@@ -39,8 +50,10 @@ interface TextErrorMessages {
 }
 
 export type {
+  CurrencyOption,
   EmailErrorMessages,
   FileExtended,
+  GroupedOption,
   InputOption,
   MonthPickerValue,
   NumberErrorMessages,

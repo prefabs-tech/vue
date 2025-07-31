@@ -12,6 +12,7 @@ const client = (baseURL: string) => {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
+    withCredentials: true
   });
 
   // Response interceptor: Handle token expiration

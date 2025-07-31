@@ -3,6 +3,7 @@ import type { Options as SentryOptions } from "@sentry/core";
 interface AppConfig {
   authBasePath?: string;
   apiBaseUrl: string;
+  appName?: string;
   appTitle: string;
   appVersion: string;
   copyright?: {

@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.message.title')" class="demo-message">
+  <UiPage
+    :sub-title="$t('ui.message.subtitle')"
+    :title="$t('ui.message.title')"
+    class="demo-message"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -14,16 +18,16 @@
       <h2>{{ $t("ui.message.usage.basic") }}</h2>
 
       <div class="section-content">
-        <Message :message="$t('ui.message.contents.content1')" />
+        <Message :message="$t('ui.message.contents.content3')" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Message message="Season sale: Up to 50% off selected items!" /&gt;
+            &lt;Message message="New Year, New You: Start fresh with our services!" /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -49,7 +53,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -79,7 +83,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -92,7 +96,7 @@
       <div class="section-content">
         <Message
           :message="$t('ui.message.contents.content4')"
-          icon="pi pi-comments"
+          :show-icon="false"
           enable-close
           @close="showEnableCloseSection = false"
         />
@@ -101,7 +105,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Message
-              icon="pi pi-comments"
+              :show-icon="false"
               message="We value your feedback: take our quick survey!"
               enable-close
               @close="showEnableCloseSection = false"
@@ -109,7 +113,7 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
+            import { Message } from "@prefabs.tech/vue3-ui";
             import { ref } from "vue";
 
             const showEnableCloseSection = ref(true);
@@ -123,7 +127,7 @@
       <h2>{{ $t("ui.message.usage.withI18n") }}</h2>
 
       <div class="section-content">
-        <Message :message="$t('ui.message.contents.content1')" />
+        <Message :message="$t('ui.message.contents.content2')" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
@@ -132,8 +136,8 @@
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
-            import { useI18n } from "@dzangolab/vue3-i18n";
+            import { Message } from "@prefabs.tech/vue3-ui";
+            import { useI18n } from "@prefabs.tech/vue3-i18n";
 
             const { t } = useI18n();
           &lt;/script&gt;
@@ -141,16 +145,175 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("ui.message.usage.severity") }}</h2>
+
+      <div class="section-content">
+        <Message
+          :message="$t('ui.message.contents.content2')"
+          enable-close
+          severity="info"
+        />
+        <Message
+          :message="$t('ui.message.contents.content3')"
+          enable-close
+          severity="success"
+        />
+        <Message
+          :message="$t('ui.message.contents.content4')"
+          enable-close
+          severity="danger"
+        />
+        <Message
+          :message="$t('ui.message.contents.content5')"
+          enable-close
+          severity="warning"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Message
+              message="New features just launched! Check them out!"
+              enable-close
+              severity="info"
+            /&gt;
+            &lt;Message
+              :message="New Year, New You: Start fresh with our services!"
+              enable-close
+              severity="success"
+            /&gt;
+            &lt;Message
+              :message="We value your feedback: take our quick survey!"
+              enable-close
+              severity="danger"
+            /&gt;
+            &lt;Message
+              :message="Warning: Limited time only! Sale ends soon!"
+              enable-close
+              severity="warning"
+            /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Message } from "@prefabs.tech/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.message.usage.messageArray") }}</h2>
+
+      <div class="section-content">
+        <Message
+          :message="[
+            $t('ui.message.contents.content1'),
+            $t('ui.message.contents.content2'),
+            $t('ui.message.contents.content3'),
+            $t('ui.message.contents.content4'),
+          ]"
+          enable-close
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Message
+              enable-close
+              message="[
+                'Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!',
+                'New features just launched! Check them out!',
+                'New Year, New You: Start fresh with our services!',
+                'We value your feedback: take our quick survey!',
+              ]"
+            /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Message } from "@prefabs.tech/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'MessageProperties' })
+      "
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, Message } from "@dzangolab/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement, Message } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
+const { t } = useI18n();
+
 const showEnableCloseSection = ref(true);
+
+const eventsData = [
+  {
+    description: t("ui.message.documentation.eventDescription.close"),
+    name: "close",
+    payload: "-",
+  },
+];
+
+const propsData = [
+  {
+    default: "false",
+    description: t("ui.message.documentation.propsDescription.enableClose"),
+    prop: "enableClose",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("ui.message.documentation.propsDescription.icon"),
+    prop: "icon",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("ui.message.documentation.propsDescription.message"),
+    prop: "message",
+    type: "String | Array<string>",
+  },
+  {
+    default: `"info"`,
+    description: t("ui.message.documentation.propsDescription.severity"),
+    prop: "severity",
+    type: `"danger" | "info" | "success" | "warning"`,
+  },
+  {
+    default: "true",
+    description: t("ui.message.documentation.propsDescription.showIcon"),
+    prop: "showIcon",
+    type: "Boolean",
+  },
+];
+
+const slotsData = [
+  {
+    description: t("ui.message.documentation.slotDescription.default"),
+    name: "default",
+  },
+  {
+    description: t("ui.message.documentation.slotDescription.icon"),
+    name: "icon",
+  },
+];
 </script>
 
 <style lang="css">

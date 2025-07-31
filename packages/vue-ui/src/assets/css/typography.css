@@ -14,31 +14,25 @@ body {
 
 h1 {
   font-size: calc(1.8 * var(--font-size));
-  margin-bottom: 0.5em;
 }
 
 h2 {
   font-size: calc(1.5 * var(--font-size));
-  margin-bottom: 0.5em;
 }
 
 h3 {
   font-size: calc(1.2 * var(--font-size));
-  margin-bottom: 0.5em;
 }
 
 h4 {
   font-size: calc(1.1 * var(--font-size));
-  margin-bottom: 0.5em;
 }
 
 h5 {
   font-size: var(--font-size);
-  margin-bottom: 0.5em;
   text-transform: uppercase;
 }
 
 h6 {
   font-size: calc(0.9 * var(--font-size));
-  margin-bottom: 0.5em;
 }

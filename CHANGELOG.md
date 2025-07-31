@@ -1,3 +1,46 @@
+# [0.12.0](https://github.com/prefabs-tech/vue/compare/v0.11.0...v0.12.0) (2025-07-25)
+
+
+
+# [0.11.0](https://github.com/dzangolab/vue/compare/v0.10.14...v0.11.0) (2025-07-14)
+
+
+### Features
+
+* add support to option grouping for select ([406fe6a](https://github.com/dzangolab/vue/commit/406fe6aceae58fb9ad512d58e7baf45202dd83a7))
+* add support to search by group ([f714318](https://github.com/dzangolab/vue/commit/f7143188b1afd83efa8f1bb0e1b9bd4a276729d6))
+
+
+
+## [0.10.14](https://github.com/dzangolab/vue/compare/v0.10.13...v0.10.14) (2025-07-03)
+
+
+
+## [0.10.13](https://github.com/dzangolab/vue/compare/v0.10.12...v0.10.13) (2025-05-27)
+
+
+### Bug Fixes
+
+* update tab view component to provided slot content with loop ([#645](https://github.com/dzangolab/vue/issues/645)) ([7c246ca](https://github.com/dzangolab/vue/commit/7c246caf90dfa898bbdf6937f079ccd9f9c0311e))
+
+
+
+## [0.10.12](https://github.com/dzangolab/vue/compare/v0.10.11...v0.10.12) (2025-05-16)
+
+
+
+## [0.10.11](https://github.com/dzangolab/vue/compare/v0.10.10...v0.10.11) (2025-05-05)
+
+
+### Features
+
+* add API path for change password functionality ([#610](https://github.com/dzangolab/vue/issues/610)) ([12485c8](https://github.com/dzangolab/vue/commit/12485c8198b43727c6af42c81d9d186de280b813))
+* add email column filter in invitation table ([#602](https://github.com/dzangolab/vue/issues/602)) ([67fd3cd](https://github.com/dzangolab/vue/commit/67fd3cd556659779c3affa3f1621bd50ce3ff7d9))
+* add support of laravel passport authentication in vue-user ([#484](https://github.com/dzangolab/vue/issues/484)) ([2f4e1b5](https://github.com/dzangolab/vue/commit/2f4e1b5f7ebf3885a4d4ea3c2fd398babe9c487e))
+* add support to sign up to laravel api ([#609](https://github.com/dzangolab/vue/issues/609)) ([d026344](https://github.com/dzangolab/vue/commit/d0263442f3fca11ad2edfc66e26cbed884d50b49))
+
+
+
 ## [0.10.10](https://github.com/dzangolab/vue/compare/v0.10.9...v0.10.10) (2025-03-31)
 
 

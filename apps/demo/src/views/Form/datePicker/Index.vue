@@ -14,18 +14,16 @@
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
       <div class="section-content">
-        <DatePicker v-model="formData.noLabelInput" />
+        <DatePicker v-model="formData.noLabelInput" placeholder="MM/dd/yyyy" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;DatePicker 
-              v-model="input"
-            /&gt;
+            &lt;DatePicker v-model="input" placeholder="MM/dd/yyyy" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -39,6 +37,7 @@
         <DatePicker
           v-model="formData.arrivalDate"
           :label="$t('form.label.arrivalDate')"
+          placeholder="MM/dd/yyyy"
         />
 
         <!-- eslint-disable -->
@@ -47,11 +46,12 @@
             &lt;DatePicker 
               v-model="arrivalDate"
               label="Arrival date"
+              placeholder="MM/dd/yyyy"
             /&gt;
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -77,9 +77,9 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
   
           const dateOfBirth = ref(new Date());
           const { t } = useI18n();
@@ -110,7 +110,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const appointmentDate = ref(new Date());
@@ -141,7 +141,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const presentationDate = ref(new Date());
@@ -172,7 +172,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const dateOfBirth = ref(new Date());
@@ -203,7 +203,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
   
           const startDate = new Date();
           const endDate = startDate;
@@ -241,7 +241,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
   
           const startDate = new Date();
           const endDate = startDate;
@@ -281,7 +281,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
   
           const startDate = new Date();
           const endDate = startDate;
@@ -305,6 +305,7 @@
           :label="$t('form.label.month')"
           format="MMM"
           month-picker
+          placeholder="MMM"
         />
 
         <!-- eslint-disable -->
@@ -315,11 +316,12 @@
               format="MMM"
               label="Month"
               month-picker
+              placeholder="MMM"
             /&gt;
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const month = ref();
@@ -350,7 +352,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const monthAndYear = ref();
@@ -381,7 +383,7 @@
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
   
           const year = ref(new Date().getFullYear()),
@@ -398,6 +400,7 @@
         <DatePicker
           v-model="formData.time"
           :label="$t('form.label.appointmentTime')"
+          placeholder="HH:mm"
           time-picker
         />
 
@@ -407,12 +410,13 @@
             &lt;DatePicker 
               v-model="appointmentTime"
               label="Appointment time"
+              placeholder="HH:mm"
               time-picker
             /&gt;
           &lt;/template&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker } from "@dzangolab/vue3-form";
+          import { DatePicker } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -428,6 +432,7 @@
             v-model="formData.joinedDate"
             :label="$t('form.label.joinedDate')"
             :schema="inputSchema"
+            placeholder="MM/dd/yyyy"
           />
         </Form>
 
@@ -438,11 +443,12 @@
               v-model="joinedDate"
               :schema="inputSchema"
               label="Joined date"
+              placeholder="MM/dd/yyyy"
             /&gt;
           &lt;/Form&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { DatePicker, Form } from "@dzangolab/vue3-form";
+          import { DatePicker, Form } from "@prefabs.tech/vue3-form";
           import { z } from "zod";
   
           const inputSchema = z
@@ -463,9 +469,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DatePicker, Form } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { DatePicker, Form } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

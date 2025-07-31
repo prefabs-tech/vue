@@ -31,7 +31,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Typeahead } from "@dzangolab/vue3-form";
+          import { Typeahead } from "@prefabs.tech/vue3-form";
 
           const suggestionItems = [
             {
@@ -112,7 +112,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Typeahead } from "@dzangolab/vue3-form";
+          import { Typeahead } from "@prefabs.tech/vue3-form";
 
           const suggestionItems = [
             {
@@ -195,7 +195,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Typeahead } from "@dzangolab/vue3-form";
+          import { Typeahead } from "@prefabs.tech/vue3-form";
 
           const suggestionItems = [
             {
@@ -276,8 +276,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Typeahead } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { Typeahead } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
 
@@ -362,7 +362,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Typeahead } from "@dzangolab/vue3-form";
+          import { Typeahead } from "@prefabs.tech/vue3-form";
 
           const suggestionItems = [
             {
@@ -451,7 +451,7 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, Typeahead } from "@dzangolab/vue3-form";
+          import { Form, Typeahead } from "@prefabs.tech/vue3-form";
           import { z } from "zod";
 
           const suggestionItems = [
@@ -522,9 +522,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, Typeahead } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, Typeahead } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

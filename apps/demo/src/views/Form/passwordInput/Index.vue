@@ -29,7 +29,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Password } from "@dzangolab/vue3-form";
+          import { Password } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -57,7 +57,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Password } from "@dzangolab/vue3-form";
+          import { Password } from "@prefabs.tech/vue3-form";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -85,7 +85,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Password } from "@dzangolab/vue3-form";
+          import { Password } from "@prefabs.tech/vue3-form";
           import { ref } from vue;
   
           const input = ref("P@ssw0rd");
@@ -116,8 +116,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Password } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { Password } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
           &lt;/script&gt;
@@ -155,8 +155,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Password } from "@dzangolab/vue3-form";
-          import { useI18n } from "@dzangolab/vue3-i18n";
+          import { Password } from "@prefabs.tech/vue3-form";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
 
           const { t } = useI18n();
           &lt;/script&gt;
@@ -190,9 +190,9 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, Password } from "@dzangolab/vue3-form";
+          import { Form, Password } from "@prefabs.tech/vue3-form";
           
-          import type { StrongPasswordOptions } from "@dzangolab/vue3-form";
+          import type { StrongPasswordOptions } from "@prefabs.tech/vue3-form";
 
           const validationOptions = {
             minLength: 10,
@@ -233,8 +233,8 @@
           &lt;/Form&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Form, Password } from "@dzangolab/vue3-form";
-          import type { PasswordErrorMessages, StrongPasswordOptions } from "@dzangolab/vue3-form";
+          import { Form, Password } from "@prefabs.tech/vue3-form";
+          import type { PasswordErrorMessages, StrongPasswordOptions } from "@prefabs.tech/vue3-form";
 
           const validationMessages = {
             required: "The field should not be empty",
@@ -280,7 +280,7 @@
           &lt;/Form&gt;
   
           &lt;script setup lang="ts"&gt;
-          import { Form, Password } from "@dzangolab/vue3-form";
+          import { Form, Password } from "@prefabs.tech/vue3-form";
           import { z } from "zod";
   
           const inputSchema = z
@@ -308,9 +308,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, Password } from "@dzangolab/vue3-form";
-import { useI18n } from "@dzangolab/vue3-i18n";
-import { ButtonElement } from "@dzangolab/vue3-ui";
+import { Form, Password } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
@@ -319,7 +319,7 @@ import FormPage from "../FormPage.vue";
 import type {
   PasswordErrorMessages,
   StrongPasswordOptions,
-} from "@dzangolab/vue3-form";
+} from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
 

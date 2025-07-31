@@ -1,4 +1,6 @@
-import { prependMessages } from "@dzangolab/vue3-i18n";
+import "./assets/css/index.css";
+
+import { prependMessages } from "@prefabs.tech/vue3-i18n";
 import mitt from "mitt";
 import { inject } from "vue";
 
@@ -10,7 +12,7 @@ import userStore from "./store";
 import initSupertokens from "./supertokens";
 
 import type { DzangolabVueUserPluginOptions } from "./types";
-import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 import type { App, Plugin } from "vue";
 
 const __dzangolabVueUserTranslations = Symbol.for(
@@ -23,7 +25,10 @@ const plugin: Plugin = {
   install: (app: App, options: DzangolabVueUserPluginOptions): void => {
     updateRouter(options.router, options.config?.user);
 
-    initSupertokens(options.config);
+    if (options?.config?.user?.features?.authProvider !== "laravel-passport") {
+      initSupertokens(options.config);
+    }
+
     initAuthProvider(options.config);
 
     const translations = options?.translations
@@ -31,6 +36,7 @@ const plugin: Plugin = {
       : messages;
 
     app.provide(__dzangolabVueUserTranslations, translations);
+    app.provide("dzangolabVueUserTerms", options?.termsComponent);
 
     if (options && options.notification) {
       emitter.on("notify", (message: object | string | unknown) => {

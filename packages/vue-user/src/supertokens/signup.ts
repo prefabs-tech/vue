@@ -33,7 +33,7 @@ const signup = async (
 
     return user;
   } else if (response.status === "FIELD_ERROR") {
-    throw new Error("401");
+    throw new Error("409");
   } else {
     throw new Error("SOMETHING_WRONG");
   }

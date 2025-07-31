@@ -27,7 +27,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Data } from "@dzangolab/vue3-ui";
+          import { Data } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -71,7 +71,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Data } from "@dzangolab/vue3-ui";
+          import { Data } from "@prefabs.tech/vue3-ui";
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -103,7 +103,7 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { Data, GridContainer } from "@dzangolab/vue3-ui";
+          import { Data, GridContainer } from "@prefabs.tech/vue3-ui";
 
           const data = [
             {
@@ -156,8 +156,8 @@
 </template>
 
 <script setup lang="ts">
-import { Table } from "@dzangolab/vue3-tanstack-table";
-import { ButtonElement, Data, GridContainer } from "@dzangolab/vue3-ui";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
+import { ButtonElement, Data, GridContainer } from "@prefabs.tech/vue3-ui";
 
 import UiPage from "../UiPage.vue";
 

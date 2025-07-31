@@ -1,5 +1,5 @@
 import { TABLE_STATE_PREFIX } from "./constants";
-import { getStorage } from "@dzangolab/vue3-ui";
+import { getStorage } from "@prefabs.tech/vue3-ui";
 
 import type {
   CellAlignmentType,
@@ -10,7 +10,7 @@ import type {
   TRequestJSON,
   TSortDirection,
 } from "./types";
-import type { StorageType } from "@dzangolab/vue3-ui";
+import type { StorageType } from "@prefabs.tech/vue3-ui";
 import type { 
   ColumnFiltersState,
   PaginationState,
@@ -135,8 +135,8 @@ export const getRequestJSON = (
       if (Array.isArray(updatedFilterState[0].value)) {
         return {
           key: updatedFilterState[0].id,
-          ...getFilterOperator("in"),
-          value: updatedFilterState[0].value.join(","),
+          ...getFilterOperator(updatedFilterState[0].filterFn || "in"),
+          value: updatedFilterState[0].value.filter((value) => value !== undefined).join(","),
         };
       }
 
@@ -152,8 +152,8 @@ export const getRequestJSON = (
         if (Array.isArray(filter.value)) {
           return {
             key: filter.id,
-            ...getFilterOperator("in"),
-            value: filter.value.join(","),
+            ...getFilterOperator(filter.filterFn || "in"),
+            value: filter.value.filter((value) => value !== undefined).join(","),
           };
         }
 

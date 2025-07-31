@@ -18,6 +18,8 @@
 
       <div class="section-content">
         <InvitationTable
+          id="invitation-table"
+          :apps="apps"
           :columns-data="[
             {
               accessorKey: 'invitedBy',
@@ -30,12 +32,15 @@
           :invitation-modal-title="$t('user.label.inviteUser')"
           :invitations="invitations"
           :visible-columns="visibleColumns"
+          persist-state
         />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;InvitationTable
+              id="invitation-table"
+              :apps="apps"
               :columns-data="[{
                 accessorKey: 'invitedBy',
                 maxWidth: '20rem',
@@ -46,17 +51,18 @@
               :invitations="invitations"
               :visible-columns="visibleColumns"
               invitation-modal-title="Invite a user"
+              persist-state
             /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { InvitationTable } from "@dzangolab/vue3-user";
+          import { InvitationTable } from "@prefabs.tech/vue3-user";
 
           import { invitations } from "../Table/data";
 
           const visibleColumns = [
             "email",
-            "app",
+            "appId",
             "role",
             "invitedBy",
             "expiresAt",
@@ -71,15 +77,16 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement } from "@dzangolab/vue3-ui";
-import { InvitationTable } from "@dzangolab/vue3-user";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
+import { InvitationTable } from "@prefabs.tech/vue3-user";
 
+import { apps } from "./data";
 import UserPage from "./UserPage.vue";
 import { invitations } from "../Table/data";
 
 const visibleColumns = [
   "email",
-  "app",
+  "appId",
   "role",
   "invitedBy",
   "expiresAt",

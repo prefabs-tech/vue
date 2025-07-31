@@ -63,9 +63,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Checkbox } from "@dzangolab/vue3-form";
-import { getStorage, LoadingIcon } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
+import { Checkbox } from "@prefabs.tech/vue3-form";
+import { getStorage, LoadingIcon } from "@prefabs.tech/vue3-ui";
 import {
   getCoreRowModel,
   getFilteredRowModel,
@@ -88,7 +88,7 @@ import {
 import { getRequestJSON, getSavedTableState, saveTableState } from "../utils";
 
 import type { DataActionsMenuItem, PersistentTableState } from "../types";
-import type { StorageType } from "@dzangolab/vue3-ui";
+import type { StorageType } from "@prefabs.tech/vue3-ui";
 import type {
   ColumnDef,
   ColumnFiltersState,
@@ -116,10 +116,6 @@ const props = defineProps({
     default: () => ({}),
     type: Object as () => Record<string, (value: unknown) => unknown>,
   },
-  enableRowSelection: {
-    default: false,
-    type: Boolean,
-  },
   data: {
     type: Array,
     default: () => [],
@@ -133,6 +129,14 @@ const props = defineProps({
   emptyTableMessage: {
     default: undefined,
     type: String,
+  },
+  enableRowSelection: {
+    default: false,
+    type: Boolean,
+  },
+  enableSortingRemoval: {
+    default: false,
+    type: Boolean,
   },
   id: {
     default: undefined,
@@ -285,14 +289,54 @@ const table = computed(() =>
 
       if (props.isServerTable) {
         columnFilters.value = props.columnsData
-          .filter((column) => column.enableColumnFilter)
-          .map((column) => ({
-            id: column.accessorKey,
-            value: columnFilters.value.find(
-              (filter) => filter.id === column.accessorKey,
-            )?.value,
-            filterFn: column?.meta?.serverFilterFn,
-          })) as ColumnFiltersState;
+          .filter(
+            (column) =>
+              column.enableColumnFilter &&
+              (props.visibleColumns.includes(
+                String(column.accessorKey ?? column.id),
+              ) ||
+                !props.visibleColumns.length),
+          )
+          .map((column) => {
+            if (column.meta?.filterVariant === "range") {
+              const rangeFilterValue = columnFilters.value.find(
+                (filter) => filter?.id === column.accessorKey,
+              )?.value as number[];
+
+              const [min, max] = rangeFilterValue || [];
+
+              const filterFn =
+                column.meta?.serverFilterFn ||
+                (typeof min === "number" &&
+                typeof max === "number" &&
+                min <= max
+                  ? "between"
+                  : typeof min === "number" && !max
+                    ? "greaterThanOrEqual"
+                    : typeof max === "number"
+                      ? "lessThanOrEqual"
+                      : null);
+
+              if (filterFn && rangeFilterValue?.length) {
+                return {
+                  filterFn,
+                  id: column.accessorKey,
+                  value: rangeFilterValue,
+                };
+              }
+
+              return;
+            } else {
+              return {
+                filterFn: column?.meta?.serverFilterFn,
+                id: column.accessorKey,
+                value: columnFilters.value.find(
+                  (filter) => filter.id === column.accessorKey,
+                )?.value,
+              };
+            }
+          })
+          .filter(Boolean) as ColumnFiltersState;
 
         fetchData();
       }
@@ -333,6 +377,7 @@ const table = computed(() =>
     },
     columnResizeMode: "onChange",
     data: props.data,
+    enableSortingRemoval: props.enableSortingRemoval,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -405,16 +450,54 @@ const prepareComponent = () => {
       return;
     }
 
-    if (column.meta?.filterVariant === "multiselect") {
+    if (column.meta?.filterVariant === "multiselect" && !column.filterFn) {
       column.filterFn = (row, columnId, filterValue) => {
         if (!filterValue || filterValue.length === 0) {
           return row;
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return filterValue.some((value: any) =>
-          row.getValue<unknown[]>(columnId)?.includes(value),
-        );
+        return filterValue.some((value: string | number | boolean) => {
+          return row.getValue(columnId) == value;
+        });
+      };
+    } else if (column.meta?.filterVariant === "select" && !column.filterFn) {
+      column.filterFn = (row, columnId, filterValue) => {
+        if (filterValue === undefined || filterValue.length === 0) {
+          return true;
+        }
+
+        return String(filterValue) === String(row.getValue(columnId));
+      };
+    } else if (column.meta?.filterVariant === "dateRange" && !column.filterFn) {
+      column.filterFn = (row, columnId, filterValue) => {
+        if (filterValue?.length) {
+          const endDate = new Date(filterValue[1]).setHours(23, 59, 59, 999);
+          const rowData = new Date(row.getValue<string | Date>(columnId));
+          const startDate = new Date(filterValue[0]).setHours(0, 0, 0, 0);
+
+          return rowData.getTime() >= startDate && rowData.getTime() <= endDate;
+        }
+
+        return true;
+      };
+    } else if (column.meta?.filterVariant === "range") {
+      column.filterFn = (row, columnId, filterValue) => {
+        if (!Array.isArray(filterValue)) {
+          return true;
+        }
+
+        const [min, max] = filterValue;
+        const value = row.getValue(columnId) as number;
+
+        if (min && max) {
+          return value >= min && value <= max;
+        } else if (min) {
+          return value >= min;
+        } else if (max) {
+          return value <= max;
+        }
+
+        return true;
       };
     }
 

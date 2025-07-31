@@ -13,12 +13,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@dzangolab/vue3-i18n";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { computed } from "vue";
 
 import { useTranslations } from "../index";
 
-import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 import type { PropType } from "vue";
 
 const props = defineProps({

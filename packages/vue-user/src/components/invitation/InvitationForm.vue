@@ -19,7 +19,7 @@
         v-if="apps?.length || roles?.length"
         v-model="formData.role"
         :disabled="Boolean(!updatedRoles?.length)"
-        :options="updatedRoles"
+        :options="updatedRoles || []"
         :schema="roleSchema"
         label="Role"
         name="role"
@@ -43,11 +43,7 @@
         @update:date="formData.expiresAt = $event"
       />
 
-      <FormActions
-        :submit-label="submitLabel"
-        alignment="filled"
-        @cancel="$emit('cancel')"
-      />
+      <FormActions :submit-label="submitLabel" @cancel="$emit('cancel')" />
     </Form>
   </div>
 </template>
@@ -66,9 +62,12 @@ import {
   Form,
   FormActions,
   SelectInput,
-} from "@dzangolab/vue3-form";
+} from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { computed, ref } from "vue";
 import { z } from "zod";
+
+import { useTranslations } from "../../index";
 
 import type {
   InvitationAppOption,
@@ -83,9 +82,11 @@ const props = defineProps({
     type: Array as PropType<Array<InvitationAppOption>>,
   },
   appSchema: {
-    default: z.number({
-      invalid_type_error: "Please select at least one valid option",
-    }),
+    default: z.coerce
+      .number({
+        invalid_type_error: "Please select at least one valid option",
+      })
+      .gte(1, "Please select at least one valid option"),
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
   },
@@ -131,6 +132,9 @@ const props = defineProps({
 
 const emit = defineEmits(["cancel", "submit"]);
 
+const messages = useTranslations();
+const { t } = useI18n({ messages });
+
 const expiresAfter = ref<number>();
 const formData = ref<InvitationPayload>({} as InvitationPayload);
 
@@ -142,7 +146,10 @@ const updatedApps = computed(() => {
 
   if (appToMove) {
     modifiedApps = modifiedApps.filter((app) => app.origin !== currentOrigin);
-    modifiedApps = [{ ...appToMove, name: "This app" }, ...modifiedApps];
+    modifiedApps = [
+      { ...appToMove, name: t("user.invitation.thisApp") },
+      ...modifiedApps,
+    ];
   }
 
   const modifiedLabels = modifiedApps.map((app) => {
@@ -162,7 +169,7 @@ const updatedApps = computed(() => {
 const updatedRoles = computed(() => {
   if (formData.value?.appId) {
     return props.apps
-      ?.find((app) => app.id === formData.value.appId)
+      ?.find((app) => app.id === Number(formData.value.appId))
       ?.supportedRoles.map((role) => {
         return {
           label: role.name,
@@ -207,9 +214,3 @@ const prepareComponent = () => {
 
 prepareComponent();
 </script>
-
-<style lang="css">
-.invitation-form .form-actions {
-  --form-margin-bottom: 0;
-}
-</style>
