@@ -103,7 +103,28 @@ exports[`SidebarHeaderLayout > matches snapshot 1`] = `
       <!---->
       
     </div>
-    <!---->
+    <div
+      class="footer"
+    >
+      
+      
+      <footer>
+        
+        <!---->
+        
+        
+        
+        
+        <div
+          class="version"
+        >
+          0.1.0
+        </div>
+        
+      </footer>
+      
+      
+    </div>
   </div>
   <main>
     
