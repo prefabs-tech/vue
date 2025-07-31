@@ -3,6 +3,7 @@
     :menu="menu"
     :no-locale-switcher="noLocaleSwitcher"
     :user-menu-location="userMenuLocation"
+    no-sidebar-header
   >
     <template #header>
       <slot name="header"></slot>
@@ -192,11 +193,11 @@ const menu = computed(() => {
 }
 
 .sidebar-header-layout > .sidebar .user-menu-dropdown > .dropdown {
-  opacity: 0;
-  transform: translate3d(0, -40px, 0);
+  transform: translate3d(0, -45px, 0);
   transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+    transform 0.35s ease,
+    visibility 0.2s ease;
+  visibility: hidden;
   width: 100%;
 }
 
@@ -204,8 +205,8 @@ const menu = computed(() => {
   --dropdown-bg-color: #fff;
 
   box-shadow: 0 -2px 12px #0000001a;
-  opacity: 1;
   transform: translate3d(0, -161.5px, 0);
+  visibility: visible;
   width: 100%;
 }
 </style>

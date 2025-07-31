@@ -1,5 +1,8 @@
 <template>
-  <div :class="['layout sidebar-header-layout', { collapsible: collapsible }]">
+  <div
+    :aria-expanded="appHeader?.expanded"
+    :class="['layout sidebar-header-layout', { collapsible: collapsible }]"
+  >
     <slot name="header">
       <AppHeader
         ref="appHeader"
@@ -29,16 +32,12 @@
         <slot v-if="userMenuLocation === 'sidebar'" name="userMenu"></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
-            <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales">
-              <template #icon>
-                <img src="../assets/svg/up-chevron.svg" alt="toggle icon" />
-              </template>
-            </LocaleSwitcher>
+            <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales" />
           </slot>
         </template>
       </template>
 
-      <template #footer>
+      <template v-if="isSidebarExpanded" #footer>
         <slot name="footer">
           <AppFooter />
         </slot>
@@ -63,6 +62,7 @@ import type { PropType } from "vue";
 
 const appHeader = ref();
 const sidebar = ref();
+const isSidebarExpanded = ref<boolean>(!!sidebar.value?.sidebarActive);
 const sidebarLocaleSwitcher = ref<boolean>(false);
 
 defineProps({
@@ -91,6 +91,7 @@ watch(
   (newValue) => {
     if (newValue) {
       sidebar.value.sidebarActive = true;
+      isSidebarExpanded.value = true;
     }
   },
 );
@@ -100,6 +101,7 @@ watch(
   (newValue) => {
     if (!newValue) {
       appHeader.value.expanded = false;
+      isSidebarExpanded.value = false;
     }
   },
 );

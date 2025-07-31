@@ -17,7 +17,7 @@
     "nav nav";
   grid-template-columns: var(--_layout-logo-max-width) 1fr;
   grid-template-rows: auto auto;
-  justify-items: center;
+  justify-items: flex-end;
   padding: var(--_layout-header-padding-v) var(--_layout-header-padding-h);
   position: relative;
   z-index: 100;
@@ -113,6 +113,7 @@
     background-color: var(--header-bg-color);
     border: none;
     display: flex;
+    flex: 1;
     flex-direction: row;
     justify-content: flex-end;
     margin: 0;
@@ -123,7 +124,6 @@
 
   .layout > header > nav[data-expanded="false"] {
     display: flex;
-    flex: 1;
     justify-content: flex-end;
   }
 }

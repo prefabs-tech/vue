@@ -2,14 +2,19 @@
   <header ref="dzangolabVueAppHeader">
     <div v-if="!noToggle" class="toggle" @click="toggle">
       <slot name="toggle">
-        <Icon icon="prime:bars" height="2rem" />
+        <Icon
+          v-if="expanded && !isLargeScren"
+          icon="prime:times"
+          height="2rem"
+        />
+        <Icon v-else icon="prime:bars" height="2rem" />
       </slot>
     </div>
 
     <slot name="logo" class="logo">
       <Logo v-if="!noLogo" :route="home" />
     </slot>
-    <nav :data-expanded="expanded">
+    <nav>
       <slot name="menu">
         <MainMenu
           v-if="layoutConfig?.mainMenu && !noMainMenu"
@@ -37,8 +42,8 @@ export default {
 import { Icon } from "@iconify/vue";
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
-import { onClickOutside } from "@vueuse/core";
-import { ref } from "vue";
+import { useWindowSize } from "@vueuse/core";
+import { ref, computed } from "vue";
 
 import Logo from "./Logo.vue";
 import MainMenu from "./MainMenu.vue";
@@ -51,12 +56,15 @@ defineProps({
 });
 
 const { layout: layoutConfig } = useConfig();
+const { width: windowWidth } = useWindowSize();
 
 const dzangolabVueAppHeader = ref(null);
-const expanded = ref(false);
+const expanded = ref(true);
 
 const home =
   layoutConfig && layoutConfig?.homeRoute ? layoutConfig.homeRoute : undefined;
+
+const isLargeScren = computed(() => windowWidth.value > 576);
 
 const close = () => {
   expanded.value = false;
@@ -65,10 +73,6 @@ const close = () => {
 const toggle = () => {
   expanded.value = !expanded.value;
 };
-
-onClickOutside(dzangolabVueAppHeader, (event) => {
-  expanded.value = false;
-});
 
 defineExpose({
   expanded,

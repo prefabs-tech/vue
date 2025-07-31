@@ -43,7 +43,7 @@
 
 .sidebar .sidebar-menu-wrapper {
   display: flex;
-  flex: 1;
+  flex: unset;
   flex-direction: column;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .sidebar > .header {
-  --_border-color: var(--sidebar-border-color, #dee2e6);
+  --_border-color: var(--sidebar-border-color, #e5e7eb);
   --_padding-h: var(--sidebar-padding-h, 1rem);
   --_padding-v: var(--sidebar-padding-v, 1.5rem);
 
@@ -134,4 +134,10 @@
   padding: 0.25rem;
   top: 1rem;
   width: var(--_width);
+}
+
+@media screen and (min-width: 576px) {
+  .sidebar .sidebar-menu-wrapper {
+    flex: 1;
+  }
 }

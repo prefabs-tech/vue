@@ -49,12 +49,14 @@ nav.menu > ul {
   gap: var(--menu-gap, 0);
   justify-content: flex-start;
   list-style: none;
-  margin-left: var(--menu-margin-left, 0.25em);
   padding: 0;
 }
 
 nav.menu li > a {
-  padding: 0.5rem 0;
+  --_padding-h: var(--nav-item-padding-h, 1rem);
+  --_padding-v: var(--nav-item-padding-v, 0.5rem);
+
+  padding: var(--_padding-v) var(--_padding-h);
 }
 
 nav.menu li.active {
@@ -82,13 +84,6 @@ nav.menu a {
     --_menu-item-border-radius: var(--menu-item-border-radius, 0.325rem);
 
     border-radius: var(--_menu-item-border-radius);
-  }
-
-  nav.menu li > a {
-    --_menu-item-padding-h: var(--menu-item-padding-h, 1rem);
-    --_menu-item-padding-v: var(--menu-item-padding-v, 0.625rem);
-
-    padding: var(--_menu-item-padding-v) var(--_menu-item-padding-h);
   }
 }
 </style>
