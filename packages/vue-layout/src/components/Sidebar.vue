@@ -1,5 +1,8 @@
 <template>
-  <div v-if="!isInactive" :class="['sidebar', { collapsible: collapsible }]">
+  <div
+    v-if="!isInactive || !collapsible"
+    :class="['sidebar', { collapsible: collapsible }]"
+  >
     <div v-if="!noHeader" class="header">
       <div class="logo">
         <Logo />
@@ -8,7 +11,10 @@
         <slot name="title"></slot>
       </div>
       <slot name="toggleIcons">
-        <div class="toggle" @click="sidebarActive = !sidebarActive">
+        <div
+          class="toggle"
+          @click="sidebarActive = !sidebarActive && collapsible"
+        >
           <transition name="sidebar-toggle">
             <img
               v-if="sidebarActive"

@@ -1,5 +1,6 @@
 <template>
   <Layout
+    :collapsible="collapsible"
     :menu="menu"
     :no-locale-switcher="noLocaleSwitcher"
     :user-menu-location="userMenuLocation"
@@ -56,6 +57,10 @@ import useUserStore from "../store";
 import type { MenuItem, SidebarMenu } from "@prefabs.tech/vue3-layout";
 
 defineProps({
+  collapsible: {
+    default: true,
+    type: Boolean,
+  },
   noLocaleSwitcher: Boolean,
   showUserMenu: {
     default: true,

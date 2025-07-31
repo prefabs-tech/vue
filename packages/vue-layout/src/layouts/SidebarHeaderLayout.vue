@@ -7,6 +7,7 @@
       <AppHeader
         ref="appHeader"
         :no-locale-switcher="noLocaleSwitcher"
+        :no-toggle="!collapsible"
         no-main-menu
       >
         <template v-if="userMenuLocation === 'header'" #userMenu>
@@ -19,6 +20,7 @@
     </slot>
     <Sidebar
       ref="sidebar"
+      :collapsible="collapsible"
       :menu="menu"
       :no-header="noSidebarHeader"
       class="layout-sidebar"
