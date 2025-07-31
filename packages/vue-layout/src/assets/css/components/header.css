@@ -99,6 +99,10 @@
     display: flex;
   }
 
+  .layout > header .main-menu {
+    margin-block: 0;
+  }
+
   .layout > header > nav {
     align-items: center;
     background-color: var(--header-bg-color);

@@ -117,7 +117,7 @@
 
 .sidebar-header-layout main {
   padding: var(--layout-default-padding-v, 1.5rem)
-    var(--layout-default-padding-h, 1rem);
+    var(--layout-default-padding-h, 2rem);
   z-index: 99;
 }
 

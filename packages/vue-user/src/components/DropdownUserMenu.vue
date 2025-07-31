@@ -239,4 +239,11 @@ nav.user-menu-dropdown > ul.dropdown > li:not(:has(a)) {
 nav.user-menu-dropdown > ul.dropdown > li svg {
   margin-right: 0.5rem;
 }
+
+@media screen and (min-width: 576px) {
+  nav.user-menu-dropdown > .trigger {
+    --_padding-h: 1rem;
+    --_padding-v: 0.625rem;
+  }
+}
 </style>
