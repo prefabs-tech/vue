@@ -1,8 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-import { auth } from "./auth-provider";
-
 import {
   acceptInvitation as doAcceptInvitation,
   addInvitation as doAddInvitation,
@@ -12,6 +10,7 @@ import {
   getInvitationByToken as doGetInvitation,
   signUpFirstUser as doSignUpFirstUser,
 } from "./api/user";
+import { auth } from "./auth-provider";
 
 import type {
   AuthTokens,
@@ -47,23 +46,40 @@ const useUserStore = defineStore("user", () => {
     return await doAddInvitation(invitationData, apiBaseUrl);
   };
 
-  const changePassword = async (
-    payload: ChangePasswordPayload,
-    apiBaseUrl: string
-  ) => {
+  const changeEmail = async (email: string, apiBaseUrl: string) => {
     const selectedAuthProvider = auth();
 
-    if ("doChangePassword" in selectedAuthProvider) {
-      const response = await selectedAuthProvider.doChangePassword(
-        payload,
-        apiBaseUrl
+    if ("doChangeEmail" in selectedAuthProvider) {
+      const response = await selectedAuthProvider.doChangeEmail(
+        email,
+        apiBaseUrl,
       );
 
       return response;
     }
 
     throw new Error(
-      "Change password is not supported for the selected auth provider"
+      "Change email is not supported for the selected auth provider",
+    );
+  };
+
+  const changePassword = async (
+    payload: ChangePasswordPayload,
+    apiBaseUrl: string,
+  ) => {
+    const selectedAuthProvider = auth();
+
+    if ("doChangePassword" in selectedAuthProvider) {
+      const response = await selectedAuthProvider.doChangePassword(
+        payload,
+        apiBaseUrl,
+      );
+
+      return response;
+    }
+
+    throw new Error(
+      "Change password is not supported for the selected auth provider",
     );
   };
 
@@ -96,10 +112,7 @@ const useUserStore = defineStore("user", () => {
     return await doGetIsFirstUser(apiBaseUrl);
   };
 
-  const getInvitationByToken = async (
-    token: string,
-    apiBaseUrl: string,
-  ) => {
+  const getInvitationByToken = async (token: string, apiBaseUrl: string) => {
     return await doGetInvitation(token, apiBaseUrl);
   };
 
@@ -153,7 +166,7 @@ const useUserStore = defineStore("user", () => {
   };
 
   const requestPasswordReset = async (
-    payload: PasswordResetRequestPayload
+    payload: PasswordResetRequestPayload,
   ): Promise<boolean> => {
     const selectedAuthProvider = auth();
 
@@ -162,12 +175,12 @@ const useUserStore = defineStore("user", () => {
     }
 
     throw new Error(
-      "Request password reset is not supported for the selected auth provider"
+      "Request password reset is not supported for the selected auth provider",
     );
   };
 
   const resetPassword = async (
-    payload: PasswordResetPayload
+    payload: PasswordResetPayload,
   ): Promise<boolean> => {
     const selectedAuthProvider = auth();
 
@@ -176,7 +189,7 @@ const useUserStore = defineStore("user", () => {
     }
 
     throw new Error(
-      "Reset password is not supported for the selected auth provider"
+      "Reset password is not supported for the selected auth provider",
     );
   };
 
@@ -202,7 +215,8 @@ const useUserStore = defineStore("user", () => {
     user.value = userData;
 
     if (user.value && "isProfileCompleted" in selectedAuthProvider) {
-      user.value.isProfileCompleted = await selectedAuthProvider.isProfileCompleted();
+      user.value.isProfileCompleted =
+        await selectedAuthProvider.isProfileCompleted();
     }
 
     localStorage.setItem(USER_KEY, JSON.stringify(user.value));
@@ -228,7 +242,10 @@ const useUserStore = defineStore("user", () => {
     throw new Error("Signup is not supported for the selected auth provider");
   };
 
-  const signUpFirstUser = async (credentials: LoginCredentials, apiBaseUrl: string,): Promise<void> => {
+  const signUpFirstUser = async (
+    credentials: LoginCredentials,
+    apiBaseUrl: string,
+  ): Promise<void> => {
     const response = await doSignUpFirstUser(credentials, apiBaseUrl);
 
     setUser(response);
@@ -250,6 +267,7 @@ const useUserStore = defineStore("user", () => {
     accessToken,
     acceptInvitation,
     addInvitation,
+    changeEmail,
     changePassword,
     disableUser,
     enableUser,
