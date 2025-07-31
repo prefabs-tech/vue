@@ -52,6 +52,13 @@ nav.menu > ul {
   padding: 0;
 }
 
+nav.menu li {
+  --_active-bg: var(--nav-item-active-bg, #eff6ff);
+  --_active-color: var(--nav-item-active-color, #2c2c2c);
+  --_hover-bg: var(--nav-item-hover-bg, #f0f2f7ad);
+  --_hover-color: var(--nav-item-hover-color, #2c2c2c);
+}
+
 nav.menu li > a {
   --_padding-h: var(--nav-item-padding-h, 1rem);
   --_padding-v: var(--nav-item-padding-v, 0.5rem);
@@ -60,11 +67,13 @@ nav.menu li > a {
 }
 
 nav.menu li.active {
-  background-color: var(--menu-bg-color, #e5e5e5);
+  background-color: var(--_active-bg);
+  color: var(--_active-color);
 }
 
-nav.menu li:hover {
-  background-color: var(--menu-highlight-color, #e5e5e5);
+nav.menu li:not(.active):hover {
+  background: var(--_hover-bg);
+  color: var(--_hover-color);
 }
 
 nav.menu a {
@@ -81,9 +90,7 @@ nav.menu a {
   }
 
   nav.menu li {
-    --_menu-item-border-radius: var(--menu-item-border-radius, 0.325rem);
-
-    border-radius: var(--_menu-item-border-radius);
+    border-radius: 0.325rem;
   }
 }
 </style>

@@ -9,7 +9,7 @@ exports[`BasicLayout > matches snapshot 1`] = `
     nolocaleswitcher="false"
     nologo="false"
     nomainmenu="false"
-    notoggle="false"
+    notoggle="true"
   />
   
   <main>

@@ -1,9 +1,9 @@
 <template>
   <header ref="dzangolabVueAppHeader">
-    <div v-if="!noToggle" class="toggle" @click="toggle">
+    <div v-if="!noToggle || !isLargeScreen" class="toggle" @click="toggle">
       <slot name="toggle">
         <Icon
-          v-if="expanded && !isLargeScren"
+          v-if="expanded && !isLargeScreen"
           icon="prime:times"
           height="2rem"
         />
@@ -64,7 +64,7 @@ const expanded = ref(true);
 const home =
   layoutConfig && layoutConfig?.homeRoute ? layoutConfig.homeRoute : undefined;
 
-const isLargeScren = computed(() => windowWidth.value > 576);
+const isLargeScreen = computed(() => windowWidth.value > 576);
 
 const close = () => {
   expanded.value = false;

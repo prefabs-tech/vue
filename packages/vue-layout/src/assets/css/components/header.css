@@ -39,24 +39,14 @@
 .layout > header > nav {
   align-items: stretch;
   background-color: #fff;
-  border-bottom: 1px solid var(--menu-border-color, #000);
   opacity: 1;
   display: flex;
   flex-direction: column;
   gap: var(--menu-gap, 1em);
   grid-area: nav;
   justify-content: flex-start;
-  left: 0;
-  margin-left: calc(-1 * var(--layout-basic-padding-left, 1em));
-  margin-right: calc(-1 * var(--layout-basic-padding-right, 1em));
-  padding-bottom: var(--header-padding-bottom, 1em);
-  padding-left: var(--layout-basic-padding-left, 1em);
-  padding-right: var(--layout-basic-padding-right, 1em);
-  padding-top: var(--header-padding-top, 1em);
-  position: absolute;
-  right: 0;
-  top: var(--header-padding-top, 1em);
   z-index: 1;
+  width: 100%;
 }
 
 .layout > header:not(:has(.logo)):not(:has(.main-menu)) {
@@ -81,7 +71,7 @@
   max-width: var(--_layout-logo-max-width, 150px);
 }
 
-.layout > header .toggle {
+.layout > header > .toggle {
   --_background-color: var(--dz-secondary-color);
 
   align-content: center;
@@ -94,13 +84,14 @@
   width: 2.875rem;
 }
 
-.layout > header .toggle:hover {
+.layout > header > .toggle:hover {
   background-color: 
     color-mix(in srgb, var(--_background-color) 10%, white);
 }
 
 .layout > header .main-menu {
   flex: 1;
+  margin-block: 1rem;
 }
 
 @media screen and (min-width: 576px) {
