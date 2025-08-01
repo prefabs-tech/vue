@@ -52,7 +52,7 @@
 }
 
 .sidebar > .footer {
-  --_bg-color: var(--sidebar-bg-color, transparent);
+  --_bg-color: var(--sidebar-bg-color, #fff);
   --_border-color: var(--sidebar-border-color, #dee2e6);
   --_font-size: var(--sidebar-font-size, 1rem);
   --_gap: var(--footer-gap, 1rem);
