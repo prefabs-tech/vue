@@ -63,14 +63,13 @@ const sideBarMenuToShow = computed(() => {
 <style lang="css">
 .nav-menu > .menu {
   --_border-color: var(--border-color, #dee2e6);
-  --_gap: var(--nav-menu-gap, 0.25rem);
   --_padding-h: var(--padding-h, 0);
   --_padding-v: var(--padding-v, 1rem);
 
   border-bottom: 1px solid var(--_border-color);
   display: flex;
   flex-direction: column;
-  gap: var(--_gap);
+  gap: 0.375rem;
   padding-block: var(--_padding-v);
   padding-left: var(--_padding-h);
 }

@@ -23,6 +23,7 @@
   display: flex;
   gap: 0.75rem;
   height: var(--_height);
+  justify-content: space-between;
   padding: var(--_padding-v) var(--_padding-h);
   text-decoration: none;
   transition:
@@ -83,10 +84,7 @@
 }
 
 .toggle-menu {
-  --_margin-right: 1rem;
   --_width: 1rem;
 
-  margin-left: auto;
-  margin-right: var(--_margin-right);
   width: var(--_width);
 }
