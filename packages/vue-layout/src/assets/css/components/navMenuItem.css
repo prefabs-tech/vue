@@ -45,6 +45,10 @@
   padding-left: 0;
 }
 
+.nav-menu-item > .link > span.item-name {
+  flex: 1;
+}
+
 .nav-menu-item .toggle-menu > svg {
   transition: transform 0.3s ease;
 }
