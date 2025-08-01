@@ -198,10 +198,10 @@ const menu = computed(() => {
 }
 
 .sidebar-header-layout > .sidebar .user-menu-dropdown > .dropdown {
-  transform: translate3d(0, -45px, 0);
+  transform: translate3d(0, -80px, 0);
   transition:
-    transform 0.35s ease,
-    visibility 0.2s ease;
+    transform 0.2s ease,
+    visibility 0.1s ease;
   visibility: hidden;
   width: 100%;
 }
