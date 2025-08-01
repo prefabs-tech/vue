@@ -71,6 +71,11 @@ main:has(.modal.overlay > .dialog.active) {
 }
 
 @media screen and (min-width: 576px) {
+  .modal .dialog.auto {
+    max-width: calc(100% - 2rem);
+    width: max-content;
+  }
+
   .modal .dialog.medium {
     max-width: 32rem;
     min-width: 32rem;
