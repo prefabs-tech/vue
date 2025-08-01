@@ -56,7 +56,7 @@ const handleSubmit = async (payload: ChangePasswordPayload) => {
       if (response) {
         router.push({ name: "home" }).then(() =>
           emitter.emit("notify", {
-            text: t("user.ChangePassword.messages.success"),
+            text: t("user.changePassword.messages.success"),
             type: "success",
           }),
         );
