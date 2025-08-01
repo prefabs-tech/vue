@@ -21,7 +21,7 @@ import { Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import PasswordResetRequestForm from "../components/PasswordResetRequestForm.vue";
-import { useTranslations, emitter } from "../index";
+import { emitter, useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { PasswordResetRequestPayload } from "../types";

@@ -3,6 +3,7 @@
     class="password-reset-email-modal"
     :show="show"
     :title="t('user.passwordReset.modal.placeholder.selectApp')"
+    size="auto"
     @on:close="$emit('hide:modal')"
   >
     <Message
@@ -83,5 +84,11 @@ defineExpose({
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.password-reset-email-modal .dialog {
+  min-width: 32rem;
+  overflow-wrap: anywhere;
+  overflow-y: visible;
 }
 </style>

@@ -64,7 +64,7 @@ import {
   SOCIAL_LOGIN_PROVIDER_FACEBOOK,
   SOCIAL_LOGIN_PROVIDER_GOOGLE,
 } from "../constant";
-import { useTranslations } from "../index";
+import { emitter, useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
@@ -107,8 +107,18 @@ const handleSubmit = async (credentials: LoginCredentials) => {
             (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
-          router.push({ name: "home" });
+          router.push({ name: "home" }).then(() =>
+            emitter.emit("notify", {
+              text: t("user.login.messages.success"),
+              type: "success",
+            }),
+          );
         } else {
+          emitter.emit("notify", {
+            text: t("user.login.messages.permissionDenied"),
+            type: "error",
+          });
+
           removeUser();
         }
       }

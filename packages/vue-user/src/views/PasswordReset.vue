@@ -27,7 +27,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import PasswordResetForm from "../components/PasswordResetForm.vue";
-import { useTranslations } from "../index";
+import { emitter, useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { PasswordResetPayload } from "../types";
@@ -48,7 +48,12 @@ const handleSubmit = async (payload: PasswordResetPayload) => {
 
   await resetPassword(payload)
     .then(() => {
-      router.push({ name: "login" });
+      router.push({ name: "login" }).then(() =>
+        emitter.emit("notify", {
+          text: t("user.passwordReset.messages.success"),
+          type: "success",
+        }),
+      );
     })
     .catch((error) => {
       errorMessage.value = error.message;

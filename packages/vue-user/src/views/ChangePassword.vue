@@ -28,7 +28,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import ChangePasswordForm from "../components/ChangePasswordForm.vue";
-import { useTranslations } from "../index";
+import { emitter, useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { ChangePasswordPayload } from "../types";
@@ -54,7 +54,12 @@ const handleSubmit = async (payload: ChangePasswordPayload) => {
   await changePassword(payload, config?.apiBaseUrl)
     .then((response) => {
       if (response) {
-        router.push({ name: "home" });
+        router.push({ name: "home" }).then(() =>
+          emitter.emit("notify", {
+            text: t("user.changePassword.messages.success"),
+            type: "success",
+          }),
+        );
       }
     })
     .catch((error) => {
