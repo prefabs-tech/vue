@@ -75,6 +75,7 @@
   padding-top: var(--_padding-top);
   text-align: center;
   width: var(--_width);
+  z-index: 2;
 }
 
 .sidebar > .header {
