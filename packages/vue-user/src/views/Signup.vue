@@ -37,7 +37,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import SignupForm from "../components/SignupForm.vue";
-import { useTranslations } from "../index";
+import { emitter, useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
@@ -67,7 +67,12 @@ const handleSubmit = async (credentials: LoginCredentials) => {
     });
 
   if (user.value) {
-    router.push({ name: "home" });
+    router.push({ name: "home" }).then(() => {
+      emitter.emit("notify", {
+        text: t("user.signup.messages.success"),
+        type: "success",
+      });
+    });
   }
 };
 </script>

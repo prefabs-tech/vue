@@ -87,6 +87,9 @@
             "label": "Change password"
           }
         },
+        "messages": {
+          "success": "You have successfully changed your password."
+        },
         "title": "Change password"
       },
       "emailVerification": {
@@ -221,6 +224,7 @@
         },
         "messages": {
           "error": "No email provided by social login. Please use another form of login.",
+          "permissionDenied": "The credentials you input are invalid.",
           "success": "Logged in successfully."
         },
         "social": {
@@ -228,6 +232,9 @@
           "google": "Continue with Google"
         },
         "title": "Log in"
+      },
+      "logout": {
+        "message": "Logged out successfully."
       },
       "menu": {
         "signin": "Log in",
@@ -509,6 +516,9 @@
             "label": "Change password"
           }
         },
+        "messages": {
+          "success": "You have successfully changed your password."
+        },
         "title": "Change password"
       },
       "emailVerification": {
@@ -633,6 +643,7 @@
           "signup": "Inscription"
         },
         "messages": {
+          "permissionDenied": "The credentials you input are invalid.",
           "error": "No email provided by social login. Please use another form of login.",
           "success": "Vous êtes maintenant connecté(e)"
         },
@@ -641,6 +652,9 @@
           "google": "Continue with Google"
         },
         "title": "Connexion"
+      },
+      "logout": {
+        "message": "Logged out successfully."
       },
       "menu": {
         "signin": "Connexion",
