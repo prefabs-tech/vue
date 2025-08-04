@@ -1,3 +1,14 @@
+# [0.13.0](https://github.com/dzangolab/vue/compare/v0.12.0...v0.13.0) (2025-08-04)
+
+
+### Features
+
+* **form:** Show error message for profile update form and update form actions ([#728](https://github.com/dzangolab/vue/issues/728)) ([e12a356](https://github.com/dzangolab/vue/commit/e12a3567658cd93356658f7a0bcc0089dee11766))
+* **ui/modal:** add size prop to modal and update demo with documentation ([#731](https://github.com/dzangolab/vue/issues/731)) ([df52c9d](https://github.com/dzangolab/vue/commit/df52c9ddf3c41f65962a9af10b2a6d3b7ada02f3))
+* **user/password-reset:** add password reset form modal for user view page ([#734](https://github.com/dzangolab/vue/issues/734)) ([cd1be23](https://github.com/dzangolab/vue/commit/cd1be23634d5c20f2c272f1d7105208fcf1b43bc))
+
+
+
 # [0.12.0](https://github.com/prefabs-tech/vue/compare/v0.11.0...v0.12.0) (2025-07-25)
 
 
