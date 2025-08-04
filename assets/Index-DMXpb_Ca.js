@@ -1,1 +1,0 @@
-import{_ as e}from"./LayoutPage.vue_vue_type_style_index_0_lang-D7HkxV6M.js";import{d as o,e as a,o as n}from"./index-DR6bHbim.js";const _={name:"LayoutDemo"},m=o({..._,setup(r){return(t,s)=>(n(),a(e,{title:t.$t("layout.title")},null,8,["title"]))}});export{m as default};
