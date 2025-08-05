@@ -19,10 +19,17 @@
       is-server-table
       @action:select="onActionSelect"
     />
-    <Modal :show="showModal" class="role-modal" @on:close="showModal = false">
+    <Modal :show="showModal" class="role-modal" @on:close="onCancel">
       <template #header>{{
         !!role ? t("roles.form.label.update") : t("roles.form.label.add")
       }}</template>
+      <Message
+        v-if="errorMessage"
+        :message="errorMessage"
+        enable-close
+        severity="danger"
+        @close="errorMessage = undefined"
+      />
 
       <RoleForm
         :loading="loading"
@@ -44,7 +51,12 @@ export default {
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
-import { BadgeComponent, ButtonElement, Modal } from "@prefabs.tech/vue3-ui";
+import {
+  BadgeComponent,
+  ButtonElement,
+  Message,
+  Modal,
+} from "@prefabs.tech/vue3-ui";
 import { h, ref } from "vue";
 
 import RoleForm from "./RoleForm.vue";
@@ -68,6 +80,7 @@ defineProps({
 const rolesStore = useRolesStore();
 const { createRole, deleteRole, getRoles, updateRolePermissions } = rolesStore;
 
+const errorMessage = ref<string>();
 const loading = ref<boolean>(false);
 const role = ref<Role>();
 const rolesData = ref<Role[]>([]);
@@ -129,8 +142,12 @@ const onActionSelect = (rowData: { action: string; data: Role }) => {
 };
 
 const onCancel = () => {
+  errorMessage.value = undefined;
   showModal.value = false;
-  role.value = undefined;
+  role.value = {
+    role: "",
+    permissions: [] as string[],
+  } as Role;
 };
 
 const onCreateRole = () => {
@@ -144,21 +161,21 @@ const onDeleteRole = async (roleData: Role) => {
       prepareComponent();
 
       emitter.emit("notify", {
-        title: t("roles.table.messages.delete.success"),
+        text: t("roles.table.messages.delete.success"),
         type: "success",
       });
     })
     .catch(() => {
       emitter.emit("notify", {
-        title: t("roles.table.messages.delete.error"),
+        text: t("roles.table.messages.delete.error"),
         type: "error",
       });
     });
 };
 
 const onEditRole = (roleData: Role) => {
-  showModal.value = true;
   role.value = roleData;
+  showModal.value = true;
 };
 
 const onSubmit = async (roleData: Role) => {
@@ -169,43 +186,37 @@ const onSubmit = async (roleData: Role) => {
       await updateRolePermissions(roleData, config?.apiBaseUrl).then(() => {
         prepareComponent();
         emitter.emit("notify", {
-          title: t("roles.form.messages.update.success"),
+          text: t("roles.form.messages.update.success"),
           type: "success",
         });
       });
     } else {
       await createRole(roleData, config?.apiBaseUrl).then(() => {
-        role.value = undefined;
         prepareComponent();
         emitter.emit("notify", {
-          title: t("roles.form.messages.add.success"),
+          text: t("roles.form.messages.add.success"),
           type: "success",
         });
       });
     }
+
+    showModal.value = false;
     //eslint-disable-next-line
   } catch (error: any) {
     if (
       !role.value &&
       error?.response?.data?.name === ERROR_ROLE_ALREADY_EXISTS
     ) {
-      emitter.emit("notify", {
-        title: t("roles.form.messages.add.roleAlreadyExists"),
-        type: "error",
-      });
+      errorMessage.value = t("roles.form.messages.add.roleAlreadyExists");
     } else {
-      emitter.emit("notify", {
-        title: t(
-          role.value
-            ? "roles.form.messages.update.error"
-            : "roles.form.messages.add.error",
-        ),
-        type: "error",
-      });
+      errorMessage.value = t(
+        role.value
+          ? "roles.form.messages.update.error"
+          : "roles.form.messages.add.error",
+      );
     }
   } finally {
     loading.value = false;
-    showModal.value = false;
   }
 };
 

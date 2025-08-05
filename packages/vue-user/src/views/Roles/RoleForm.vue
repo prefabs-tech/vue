@@ -95,16 +95,10 @@ watch(
         permissions: [] as string[],
       } as Role);
   },
+  { immediate: true },
 );
 
 const prepareComponent = async () => {
-  formData.value =
-    props.role ||
-    ({
-      role: "",
-      permissions: [] as string[],
-    } as Role);
-
   const response = await getPermissions(config?.apiBaseUrl);
   permissionOptions.value = response?.data?.permissions?.map(
     (permission: string) => ({
