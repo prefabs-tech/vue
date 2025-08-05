@@ -1,5 +1,6 @@
 <template>
   <LayoutPage
+    :sub-title="$t('layout.subtitle.stickyCollapsibleFooter')"
     :title="$t('layout.label.stickyCollapsibleFooter')"
     class="demo sticky-collapsible-footer"
   >
@@ -125,6 +126,14 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'StickyCollapsibleFooterProperties' })
+      "
+      :slots-data="slotsData"
+    />
   </LayoutPage>
 </template>
 
@@ -136,13 +145,33 @@ export default {
 
 <script setup lang="ts">
 import { Input } from "@prefabs.tech/vue3-form";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { StickyCollapsibleFooter } from "@prefabs.tech/vue3-layout";
 import { ButtonElement, Card } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import LayoutPage from "../LayoutPage.vue";
 
+const { t } = useI18n();
+
 const input = ref();
+
+const propsData = [
+  {
+    default: "true",
+    description: t("layout.documentation.propsDescription.fixed"),
+    prop: "fixed",
+    type: "Boolean",
+  },
+];
+
+const slotsData = [
+  {
+    description: t("layout.documentation.slotDescription.default"),
+    name: "default",
+  },
+];
 
 const showAlert = (message: string) => {
   if (message) {
