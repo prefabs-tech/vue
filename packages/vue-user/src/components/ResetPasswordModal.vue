@@ -42,6 +42,8 @@ import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, Modal, Message } from "@prefabs.tech/vue3-ui";
 import { ref, watch } from "vue";
 
+import { useTranslations } from "../index";
+
 import type { SelectOption } from "@prefabs.tech/vue3-form";
 import type { PropType } from "vue";
 
@@ -60,7 +62,8 @@ const props = defineProps({
 
 const emit = defineEmits(["hide:modal", "submit"]);
 
-const { t } = useI18n();
+const messages = useTranslations();
+const { t } = useI18n({ messages });
 
 const message = ref<string | undefined>(props.errorMessage);
 const appId = ref<number>();

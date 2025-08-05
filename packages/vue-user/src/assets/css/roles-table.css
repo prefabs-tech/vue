@@ -18,3 +18,8 @@
   min-width: 4rem;
   max-width: 4rem;
 }
+
+.role-modal > .dialog {
+  overflow-wrap: anywhere;
+  overflow-y: unset;
+}
