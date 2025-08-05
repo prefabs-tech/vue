@@ -1,5 +1,13 @@
 {
   "basic": "Basic",
+  "documentation": {
+    "propsDescription": {
+      "fixed": "Fix the footer to the button of viewport."
+    },
+    "slotDescription": {
+      "default": "Slot for custom footer content."
+    }
+  },
   "label": {
     "bodyContent": "Body content",
     "cancel": "Cancel",
@@ -17,5 +25,8 @@
   },
   "sidebarHeader": "Sidebar header",
   "sidebarOnly": "Sidebar only",
+  "subtitle": {
+    "stickyCollapsibleFooter": "StickyCollapsibleFooter component is a flexible footer container that collapses automatically and appears on hover at the bottom of the page."
+  },
   "title": "Layout library"
 }
