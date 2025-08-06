@@ -90,11 +90,6 @@ const handleSubmit = async (credentials: LoginCredentials) => {
               setUser(response);
 
               router.push({ name: "home" });
-
-              emitter.emit("notify", {
-                text: t("user.login.messages.success"),
-                type: "success",
-              });
             }
           })
           .catch((error) => {
