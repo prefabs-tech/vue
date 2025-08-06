@@ -3,6 +3,7 @@
     :collapsible="collapsible"
     :menu="menu"
     :no-locale-switcher="noLocaleSwitcher"
+    :no-sidebar="!user"
     :user-menu-location="userMenuLocation"
     no-sidebar-header
   >
