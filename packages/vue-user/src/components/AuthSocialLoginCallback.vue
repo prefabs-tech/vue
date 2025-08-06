@@ -58,11 +58,6 @@ onMounted(async () => {
     ) {
       setUser(response.user as UserType);
 
-      emitter.emit("notify", {
-        text: t("user.login.messages.success"),
-        type: "success",
-      });
-
       router.push({ name: "home" });
     } else {
       emitter.emit("notify", {

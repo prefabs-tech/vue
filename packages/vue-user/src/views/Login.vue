@@ -107,12 +107,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
             (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
-          router.push({ name: "home" }).then(() =>
-            emitter.emit("notify", {
-              text: t("user.login.messages.success"),
-              type: "success",
-            }),
-          );
+          router.push({ name: "home" });
         } else {
           emitter.emit("notify", {
             text: t("user.login.messages.permissionDenied"),
