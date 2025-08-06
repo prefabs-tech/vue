@@ -14,7 +14,12 @@
     <nav class="links">
       <p class="resend-email">
         {{ t("user.passwordResetAcknowledge.label.notReceived") }}
-        <RouterLink :to="{ name: 'resetPasswordRequest' }">
+        <RouterLink
+          :to="{
+            name: 'resetPasswordRequest',
+            query: { email: route?.query?.email },
+          }"
+        >
           {{ t("user.passwordResetAcknowledge.actions.resend") }}
         </RouterLink>
       </p>
@@ -67,7 +72,10 @@ const redirectCountDown = () => {
       redirectCountDown();
     }, 1000);
   } else {
-    router.push({ name: "resetPasswordRequest" });
+    router.push({
+      name: "resetPasswordRequest",
+      query: { email: route.query.email },
+    });
   }
 };
 
