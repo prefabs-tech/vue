@@ -6,21 +6,7 @@ exports[`SidebarHeaderLayout > matches snapshot 1`] = `
 >
   
   <header>
-    <div
-      class="toggle"
-    >
-      
-      <svg
-        aria-hidden="true"
-        height="2rem"
-        role="img"
-        viewBox="0 0 16 16"
-        width="2rem"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-      />
-      
-    </div>
+    <!---->
     
     <div
       class="logo"
@@ -60,72 +46,7 @@ exports[`SidebarHeaderLayout > matches snapshot 1`] = `
     </nav>
   </header>
   
-  <div
-    class="sidebar collapsible layout-sidebar"
-  >
-    <!---->
-    <div
-      class="sidebar-menu-wrapper"
-    >
-      
-      
-      <ul
-        class="nav"
-      >
-        
-        <nav
-          class="nav-menu"
-        >
-          <!---->
-        </nav>
-        
-        
-        
-        
-        <div
-          class="after-nav"
-        />
-        
-        
-        
-      </ul>
-      
-      
-      
-      <div
-        class="after-sidebar"
-      />
-      
-      
-      
-      <user-menu-stub />
-      
-      <!---->
-      
-    </div>
-    <div
-      class="footer"
-    >
-      
-      
-      <footer>
-        
-        <!---->
-        
-        
-        
-        
-        <div
-          class="version"
-        >
-          0.1.0
-        </div>
-        
-      </footer>
-      
-      
-    </div>
-  </div>
+  <!---->
   <main>
     
     
