@@ -7,7 +7,7 @@
       <AppHeader
         ref="appHeader"
         :no-locale-switcher="noLocaleSwitcher"
-        :no-toggle="!collapsible"
+        :no-toggle="!collapsible || noSidebar"
         no-main-menu
       >
         <template v-if="userMenuLocation === 'header'" #userMenu>
@@ -19,6 +19,7 @@
       </AppHeader>
     </slot>
     <Sidebar
+      v-if="!noSidebar"
       ref="sidebar"
       :collapsible="collapsible"
       :menu="menu"
@@ -76,6 +77,10 @@ defineProps({
     type: Array as PropType<SidebarMenu[]>,
   },
   noLocaleSwitcher: Boolean,
+  noSidebar: {
+    default: false,
+    type: Boolean,
+  },
   noSidebarHeader: {
     default: false,
     type: Boolean,
@@ -90,7 +95,7 @@ defineProps({
 watch(
   () => appHeader.value?.expanded,
   (newValue) => {
-    if (newValue) {
+    if (newValue && sidebar.value) {
       sidebar.value.sidebarActive = true;
     }
   },
@@ -99,7 +104,7 @@ watch(
 watch(
   () => sidebar.value?.sidebarActive,
   (newValue) => {
-    if (!newValue) {
+    if (!newValue && sidebar.value) {
       appHeader.value.expanded = false;
     }
   },
