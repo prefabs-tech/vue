@@ -12,6 +12,12 @@
       :loading="loading"
       @submit="handleSubmit"
     />
+
+    <div class="links">
+      <router-link :to="{ name: 'login' }" class="login">
+        {{ t("user.passwordResetRequest.links.login") }}
+      </router-link>
+    </div>
   </Page>
 </template>
 
