@@ -1,8 +1,10 @@
 .auth {
+  --_auth-page-gap: var(--auth-page-gap, 2rem);
+
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: var(--auth-page-gap, 0.5em);
+  gap: var(--_auth-page-gap);
   margin: 0 auto;
   width: var(--auth-page-width, 100%);
 }
@@ -46,7 +48,7 @@
 .auth > .page-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   max-width: 430px;
   width: 100%;
 }
