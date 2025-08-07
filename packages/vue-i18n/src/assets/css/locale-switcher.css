@@ -40,7 +40,7 @@ nav.locale-switcher > .locale-trigger > span {
 }
 
 nav.locale-switcher > ul.dropdown {
-  --_bg-color: var(--locale-switcher-bg-color, #fff)
+  --_bg-color: var(--locale-switcher-bg-color, #fff);
   --_border: var(--locale-switcher-border, 1px solid #e5e5e5);
   --_min-width: var(--locale-switcher-width, 10rem);
 
