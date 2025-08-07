@@ -1,5 +1,5 @@
 .page {
-  --_page-gap: var(--page-gap, 0.5rem);
+  --_page-gap: var(--page-gap, 1.5rem);
 
   display: flex;
   flex-direction: column;
@@ -10,10 +10,6 @@
   justify-items: center;
   margin: auto;
   max-width: var(--page-max-width);
-}
-
-.page > .page-content {
-  margin-top: 1rem;
 }
 
 .page > .page-header {
