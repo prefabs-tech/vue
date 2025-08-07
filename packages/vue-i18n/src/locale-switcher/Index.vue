@@ -22,7 +22,11 @@
         class="truncated"
         @click="changeLocale(l)"
       >
-        <LocaleOption :locale="l" :name="translateLocale(l)" />
+        <LocaleOption
+          :locale="l"
+          :name="translateLocale(l)"
+          :show-badges="showBadges"
+        />
       </li>
     </ul>
   </nav>
@@ -45,6 +49,13 @@ import useLocaleStore from "../store";
 
 import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { Locale } from "vue-i18n";
+
+defineProps({
+  showBadges: {
+    default: true,
+    type: Boolean,
+  },
+});
 
 const { availableLocales, locale, t } = useI18n();
 

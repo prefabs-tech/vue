@@ -1,5 +1,8 @@
 <template>
-  <div class="locale"><Badge :locale="locale" /> {{ name }}</div>
+  <div class="locale">
+    <Badge v-if="showBadges" :locale="locale" />
+    {{ name }}
+  </div>
 </template>
 
 <script lang="ts">
@@ -21,6 +24,10 @@ defineProps({
   name: {
     required: true,
     type: String as PropType<string>,
+  },
+  showBadges: {
+    default: true,
+    type: Boolean,
   },
 });
 </script>
