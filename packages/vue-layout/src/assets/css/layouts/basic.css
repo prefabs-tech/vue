@@ -79,7 +79,7 @@
   }
 
   .layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {
-    --locale-switcher-width: 9rem;
+    --locale-switcher-width: 10rem;
   }
 
   .layout.basic nav.locale-switcher>.locale-trigger {
