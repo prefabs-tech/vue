@@ -41,6 +41,7 @@ exports[`SidebarHeaderLayout > matches snapshot 1`] = `
       
       <locale-switcher-stub
         class="locales"
+        showbadges="true"
       />
       
     </nav>
