@@ -5,7 +5,19 @@
   >
     <slot name="instructions"></slot>
 
-    <PasswordResetRequestForm :loading="loading" @submit="handleSubmit" />
+    <PasswordResetRequestForm
+      :email="
+        typeof route?.query?.email === 'string' ? route?.query?.email : ''
+      "
+      :loading="loading"
+      @submit="handleSubmit"
+    />
+
+    <div class="links">
+      <router-link :to="{ name: 'login' }" class="login">
+        {{ t("user.passwordResetRequest.links.login") }}
+      </router-link>
+    </div>
   </Page>
 </template>
 
@@ -19,14 +31,18 @@ export default {
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 import PasswordResetRequestForm from "../components/PasswordResetRequestForm.vue";
-import { emitter, useTranslations } from "../index";
+import { useTranslations } from "../index";
 import useUserStore from "../store";
 
 import type { PasswordResetRequestPayload } from "../types";
 
 const messages = useTranslations();
+
+const route = useRoute();
+const router = useRouter();
 
 const { t } = useI18n({ messages });
 
@@ -40,9 +56,9 @@ const handleSubmit = async (payload: PasswordResetRequestPayload) => {
   await requestPasswordReset(payload)
     .then((response) => {
       if (response) {
-        emitter.emit("notify", {
-          text: t("user.passwordResetRequest.messages.success"),
-          type: "success",
+        router.push({
+          name: "resetPasswordRequestAcknowledge",
+          query: { email: payload.email },
         });
       }
     })
