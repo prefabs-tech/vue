@@ -20,6 +20,7 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue",
     "lint:fix": "eslint . --ext .vue --fix",
+    "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage",
     "test:component": "vitest --environment jsdom run component/",

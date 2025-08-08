@@ -100,7 +100,7 @@
 
       <div class="section-content">
         <Email
-          v-model="formData.input"
+          v-model="formData.i18nInput"
           :label="t('form.label.email')"
           :placeholder="t('form.placeholder.email')"
         />
@@ -162,7 +162,7 @@
       <div class="section-content">
         <Form>
           <Email
-            v-model="formData.inputWithValidation"
+            v-model="formData.validationOptionInput"
             :label="$t('form.label.email')"
             :options="validationOptions"
             :placeholder="$t('form.placeholder.email')"
@@ -328,9 +328,11 @@ const validationOptions = {
 let formData = reactive({
   customValidationInput: ref(),
   disabled: ref("monorepo@prefabs.tech.com"),
+  i18nInput: ref(),
   input: ref(),
   inputWithValidation: ref(),
   noLabelInput: ref(),
   textInput: ref(),
+  validationOptionInput: ref(),
 });
 </script>

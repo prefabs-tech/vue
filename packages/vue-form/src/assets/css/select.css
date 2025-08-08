@@ -1,3 +1,7 @@
+.field:has(.multiselect):not(:has(.multiselect-options)) {
+  overflow: hidden;
+}
+
 .multiselect {
   position: relative;
   width: 100%;

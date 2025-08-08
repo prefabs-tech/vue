@@ -13,6 +13,7 @@
       <div class="password-input">
         <input
           v-bind="field"
+          :id="name"
           :class="{
             invalid: meta.touched && !meta.valid,
             valid: meta.dirty && meta.valid,
