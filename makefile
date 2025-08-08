@@ -32,6 +32,10 @@ run:
 	@printf "\033[0;32m>>> Run demo app\033[0m\n"
 	pnpm dev
 
+snapshot-update:
+	@printf "\033[0;32m>>> Update snapshot files\033[0m\n"
+	pnpm -r run snapshot:update
+
 sort-package:
 	@printf "\033[0;32m>>> Format package.json\033[0m\n"
 	pnpm sort-package

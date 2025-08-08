@@ -132,19 +132,5 @@ const handleChange = (event: Event) => {
 </script>
 
 <style lang="css">
-.field.checkbox > label {
-  font-size: var(--form-label-font-size, 1em);
-  margin-bottom: 0.75rem;
-}
-
-.field.checkbox > .checkbox-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.field.checkbox > .checkbox-group.direction-horizontal {
-  flex-direction: row;
-  gap: 1.5rem;
-}
+@import "../assets/css/checkbox-input.css";
 </style>

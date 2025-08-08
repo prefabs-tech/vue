@@ -25,68 +25,42 @@ exports[`Typeahead > matches snapshot 1`] = `
   </div>
   <!--v-if-->
   
-  <ul
-    class="suggestion-list"
-  >
+  <ul>
     
-    <li
-      class="suggestion"
-    >
+    <li>
       Roslabel - A fragrant flower often associated with romance
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Tulip - A bright, cup-shaped flower popular in spring
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Daisy - A simple, white flower with a yellow center
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Sunflower - A tall plant with a large, yellow flower head
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Lily - An elegant flower often used in bouquets
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Orchid - An exotic flower with a unique shape
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Marigold - A vibrant, orange or yellow flower
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Lavender - A fragrant flower known for its calming scent
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Peony - A lush, full flower often used in weddings
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Chrysanthemum - A hardy flower with a variety of colors
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Daffodil - A bright, yellow flower that blooms in spring
     </li>
-    <li
-      class="suggestion"
-    >
+    <li>
       Hydrangea - A large, cluster-like flower that changes color
     </li>
     
