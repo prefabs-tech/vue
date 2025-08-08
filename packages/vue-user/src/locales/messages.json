@@ -292,6 +292,9 @@
           }
         },
         "description": "We will send you an email to reset your password",
+        "links": {
+          "login": "Back to login"
+        },
         "messages": {
           "success": "Please check your provided email to reset your password."
         },
@@ -712,6 +715,9 @@
           }
         },
         "description": "We will send you an email to reset your password",
+        "links": {
+          "login": "Back to login"
+        },
         "messages": {
           "success": "Please check your provided email to reset your password."
         },
