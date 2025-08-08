@@ -1,0 +1,16 @@
+.checkbox-wrapper {
+  align-items: baseline;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.checkbox-wrapper > input[type="checkbox"] {
+  accent-color: var(--field-background-color, #007aff);
+  cursor: pointer;
+  transform: scale(1.5);
+  width: auto;
+}
+
+.checkbox-wrapper > input[type="checkbox"]:disabled {
+  cursor: default;
+}
