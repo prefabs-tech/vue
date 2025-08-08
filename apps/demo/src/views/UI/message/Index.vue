@@ -35,51 +35,63 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.message.usage.icons.icon") }}</h2>
+      <h2>{{ $t("ui.message.usage.severity") }}</h2>
 
       <div class="section-content">
         <Message
           :message="$t('ui.message.contents.content2')"
-          icon="pi pi-android"
+          enable-close
+          severity="info"
+        />
+        <Message
+          :message="$t('ui.message.contents.content3')"
+          enable-close
+          severity="success"
+        />
+        <Message
+          :message="$t('ui.message.contents.content4')"
+          enable-close
+          severity="danger"
+        />
+        <Message
+          :message="$t('ui.message.contents.content5')"
+          enable-close
+          severity="warning"
+        />
+        <Message
+          :message="$t('ui.message.contents.content4')"
+          enable-close
+          severity="tip"
         />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Message
-              icon="pi pi-android"
               message="New features just launched! Check them out!"
+              enable-close
+              severity="info"
             /&gt;
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Message } from "@prefabs.tech/vue3-ui";
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.message.usage.icons.iconSlot") }}</h2>
-
-      <div class="section-content">
-        <Message :message="$t('ui.message.contents.content3')">
-          <template #icon>
-            <i class="fa-regular fa-bell" />
-          </template>
-        </Message>
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
             &lt;Message
-              message="New Year, New You: Start fresh with our services!"
-            &gt;
-              &lt;template #icon&gt;
-                &lt;i class="fa-regular fa-bell" /&gt;
-              &lt;/template&gt;
-            &lt;/Message&gt;
+              :message="New Year, New You: Start fresh with our services!"
+              enable-close
+              severity="success"
+            /&gt;
+            &lt;Message
+              :message="We value your feedback: take our quick survey!"
+              enable-close
+              severity="danger"
+            /&gt;
+            &lt;Message
+              :message="Warning: Limited time only! Sale ends soon!"
+              enable-close
+              severity="warning"
+            /&gt;
+            &lt;Message
+              :message="We value your feedback: take our quick survey!"
+              enable-close
+              severity="tip"
+            /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
@@ -147,53 +159,51 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.message.usage.severity") }}</h2>
+      <h2>{{ $t("ui.message.usage.icons.icon") }}</h2>
 
       <div class="section-content">
         <Message
           :message="$t('ui.message.contents.content2')"
-          enable-close
-          severity="info"
-        />
-        <Message
-          :message="$t('ui.message.contents.content3')"
-          enable-close
-          severity="success"
-        />
-        <Message
-          :message="$t('ui.message.contents.content4')"
-          enable-close
-          severity="danger"
-        />
-        <Message
-          :message="$t('ui.message.contents.content5')"
-          enable-close
-          severity="warning"
+          icon="pi pi-android"
         />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Message
+              icon="pi pi-android"
               message="New features just launched! Check them out!"
-              enable-close
-              severity="info"
             /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Message } from "@prefabs.tech/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.message.usage.icons.iconSlot") }}</h2>
+
+      <div class="section-content">
+        <Message :message="$t('ui.message.contents.content3')">
+          <template #icon>
+            <i class="fa-regular fa-bell" />
+          </template>
+        </Message>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
             &lt;Message
-              :message="New Year, New You: Start fresh with our services!"
-              enable-close
-              severity="success"
-            /&gt;
-            &lt;Message
-              :message="We value your feedback: take our quick survey!"
-              enable-close
-              severity="danger"
-            /&gt;
-            &lt;Message
-              :message="Warning: Limited time only! Sale ends soon!"
-              enable-close
-              severity="warning"
-            /&gt;
+              message="New Year, New You: Start fresh with our services!"
+            &gt;
+              &lt;template #icon&gt;
+                &lt;i class="fa-regular fa-bell" /&gt;
+              &lt;/template&gt;
+            &lt;/Message&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
