@@ -17,6 +17,11 @@ const router = createRouter({
     },
     {
       component: Test,
+      name: "resetPasswordRequest",
+      path: "/reset-password-request",
+    },
+    {
+      component: Test,
       path: "/",
     },
   ],

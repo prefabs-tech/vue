@@ -277,6 +277,17 @@
         },
         "title": "Reset password"
       },
+      "passwordResetAcknowledge": {
+        "actions": {
+          "resend": "Resend"
+        },
+        "content": "We are processing your request to reset the password for email {0}. If a user account exists for this email address, it will receive in the next few minutes an email containing instructions on how to reset their password.",
+        "label": {
+          "notReceived": "Not received yet? ",
+          "redirect": "Redirecting automatically in {0} seconds"
+        },
+        "title": "Resetting your password"
+      },
       "passwordResetRequest": {
         "form": {
           "actions": {
@@ -292,6 +303,9 @@
           }
         },
         "description": "We will send you an email to reset your password",
+        "links": {
+          "login": "Back to login"
+        },
         "messages": {
           "success": "Please check your provided email to reset your password."
         },
@@ -697,6 +711,17 @@
         },
         "title": "Reset password (fr)"
       },
+      "passwordResetAcknowledge": {
+        "actions": {
+          "resend": "Resend"
+        },
+        "content": "We are processing your request to reset the password for email {0}. If a user account exists for this email address, it will receive in the next few minutes an email containing instructions on how to reset their password.",
+        "label": {
+          "notReceived": "Not received yet? ",
+          "redirect": "Redirecting automatically in {0} seconds"
+        },
+        "title": "Resetting your password"
+      },
       "passwordResetRequest": {
         "form": {
           "actions": {
@@ -712,6 +737,9 @@
           }
         },
         "description": "We will send you an email to reset your password",
+        "links": {
+          "login": "Back to login"
+        },
         "messages": {
           "success": "Please check your provided email to reset your password."
         },
