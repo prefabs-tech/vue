@@ -132,5 +132,5 @@ const onUpdate = (
 </script>
 
 <style lang="css">
-@import "../assets/css/datePicker.css";
+@import "../assets/css/date-picker.css";
 </style>
