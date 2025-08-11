@@ -24,6 +24,7 @@
   --dz-alternate-color: #0284c7;
   --dz-danger-color: #dc3545;
   --dz-success-color: #22c55e;
+  --dz-tip-color: #b6af10;
   --dz-warning-color: #ea580c;
 
   --font-size-max: 1rem;
@@ -36,6 +37,7 @@
   --message-danger-color: var(--dz-danger-color);
   --message-info-color: var(--dz-primary-color);
   --message-success-color: var(--dz-success-color);
+  --message-tip-color: var(--dz-tip-color);
   --message-warning-color: var(--dz-warning-color);
 
   --nav-item-active-bg: #eff6ff;
