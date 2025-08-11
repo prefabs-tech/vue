@@ -122,7 +122,9 @@ const fieldSchema = toFieldValidator(
 const showPassword = ref<boolean>(false);
 
 const onClick = () => {
-  showPassword.value = !showPassword.value;
+  if (!props.disabled) {
+    showPassword.value = !showPassword.value;
+  }
 };
 
 const onInput = (event: Event) => {

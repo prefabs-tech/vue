@@ -27,6 +27,8 @@
 .editable-content > .card.full {
   --_width: 100%;
   --_height: 100%;
+
+  min-height: 8rem;
 }
 
 .editable-content > .card:has(.content) {
@@ -42,10 +44,9 @@
   width: 100%;
 }
 
-.editable-content > .card .field {
+.editable-content > .card .field,
+.editable-content > .card .field > textarea {
   height: 100%;
-  margin-bottom: 0;
-  width: 100%;
 }
 
 .editable-content > .card .resize-both textarea {

@@ -30,7 +30,14 @@ form .field .valid input:not(.multiselect-search > input)  {
   background-size: 1rem;
 }
 
-form .field input:is(.invalid, .valid):focus-within {
+form .field textarea.valid,
+form .field textarea.invalid {
+  background-position: right calc(0.75 * var(--_padding-inline, 0.75rem) + 1rem)
+    center;
+}
+
+form .field input:is(.invalid, .valid):focus-within,
+form .field textarea:is(.invalid, .valid):focus-within {
   outline: none;
 }
 
@@ -45,5 +52,5 @@ form input[type="number"]:is(.invalid, .valid)::-webkit-outer-spin-button {
 
 form span[role="alert"] {
   color: var(--color-alert-danger, red);
-  font-size: var(--form-input-error-font-size, 0.8em);
+  font-size: var(--field-error-font-size, 0.8rem);
 }

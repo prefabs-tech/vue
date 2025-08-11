@@ -122,5 +122,5 @@ const onActionClick = (action: Record<string, unknown>) => {
 </script>
 
 <style lang="css">
-@import "../assets/css/formAction.css";
+@import "../assets/css/form-action.css";
 </style>

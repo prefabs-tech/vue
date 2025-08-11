@@ -45,7 +45,7 @@
 }
 
 .typeahead > ul > li:hover,
-.typeahead > ul > li:focused {
+.typeahead > ul > li.focused {
   background-color: var(--_option-background-color-hover);
 }
 

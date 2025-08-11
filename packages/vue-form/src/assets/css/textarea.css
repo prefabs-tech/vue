@@ -21,7 +21,7 @@
 
 .field textarea:disabled {
   --_background-color: var(--field-bg-color-disabled, #f8f8f8);
-  
+
   cursor: not-allowed;
   opacity: 0.8;
   resize: none;
