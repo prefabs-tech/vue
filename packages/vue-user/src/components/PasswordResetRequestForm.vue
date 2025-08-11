@@ -45,15 +45,19 @@ const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
-let payload = {
-  email: undefined,
-} as PasswordResetRequestPayload;
-
-defineProps({
+const props = defineProps({
+  email: {
+    default: undefined,
+    type: String,
+  },
   loading: Boolean,
 });
 
 const emit = defineEmits(["submit"]);
+
+let payload = {
+  email: props.email,
+} as PasswordResetRequestPayload;
 
 const onSubmit = (payload: PasswordResetRequestPayload) => {
   emit("submit", payload);

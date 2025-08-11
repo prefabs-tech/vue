@@ -56,6 +56,7 @@ import { useConfig } from "@prefabs.tech/vue3-config";
 import { Email, FormActions, Input, Password } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Form } from "vee-validate";
+import { reactive } from "vue";
 
 import { LOGIN_TYPE_USERNAME } from "../constant";
 import { useTranslations } from "../index";
@@ -68,11 +69,11 @@ const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
-let credentials = {
+const credentials = reactive({
   email: undefined,
   password: undefined,
   username: undefined,
-} as Partial<LoginCredentials>;
+}) as Partial<LoginCredentials>;
 
 const emit = defineEmits(["submit"]);
 
@@ -85,5 +86,9 @@ defineProps({
     type: Boolean,
     default: false,
   },
+});
+
+defineExpose({
+  credentials,
 });
 </script>
