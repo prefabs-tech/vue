@@ -10,8 +10,11 @@
       {{ label }}
     </label>
     <div
-      :class="{ disabled: disabled }"
-      class="multiselect-input"
+      :class="[
+        { disabled: disabled },
+        { focused: showDropdownMenu },
+        'multiselect-input',
+      ]"
       @click="toggleDropdown"
     >
       <DebouncedInput

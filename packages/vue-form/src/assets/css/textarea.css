@@ -4,30 +4,25 @@
   --_border-radius: var(--border-radius);
   --_padding-block: var(--field-padding-block, 0.5rem);
   --_padding-inline: var(--field-padding-inline, 0.75rem);
-  --_outline: none;
 }
 
-.field input {
+.field textarea {
   background-color: var(--_background-color);
-  border-radius: var(--_border-radius);
   border: 1px solid var(--_border-color);
-  outline: var(--_outline);
+  border-radius: var(--_border-radius);
   padding-block: var(--_padding-block);
   padding-inline: var(--_padding-inline);
   width: 100%;
 }
 
-.field input:not(input[type="checkbox"]):focus-within {
-  --_outline: 1px solid var(--dz-primary-color);
+.field textarea:focus-within {
+  outline: 1px solid var(--dz-primary-color);
 }
 
-.field input[type="radio"] {
-  height: fit-content;
-}
-
-.field input:disabled {
+.field textarea:disabled {
   --_background-color: var(--field-bg-color-disabled, #f8f8f8);
-  
+
   cursor: not-allowed;
   opacity: 0.8;
+  resize: none;
 }

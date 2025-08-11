@@ -1,10 +1,8 @@
 :root {
-  --form-input-bg-color-disabled: #f7f7f7;
-  --form-input-border-color: #ccc;
-  --form-input-border-color-disabled: #ccc;
-  --form-input-border-color-highlight: #555;
-  --form-input-color-disabled: #555;
-  --form-input-error-font-size: 0.8em;
-  --form-input-padding-h: 0.75em;
-  --form-input-padding-v: 0.65em;
+  --field-bg-color-disabled: #f8f8f8;
+  --field-bg-color: transparent;
+  --field-icon-color: #7b7676;
+  --field-padding-block: 0.5rem;
+  --field-padding-inline: 0.75rem;
+  --field-placeholder-color: #7b7676;
 }

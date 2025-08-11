@@ -97,7 +97,7 @@
 
       <div class="section-content">
         <TextareaInput
-          v-model="formData.input"
+          v-model="formData.i18nInput"
           :label="$t('form.label.textarea')"
           :placeholder="$t('form.placeholder.textarea')"
         />
@@ -320,6 +320,7 @@ let formData = reactive({
   customRowsColsInput: ref(),
   customValidationInput: ref(),
   disabled: ref("Disabled textarea input"),
+  i18nInput: ref(),
   input: ref(),
   inputWithValidation: ref(),
   noLabelInput: ref(),

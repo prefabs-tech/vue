@@ -1,6 +1,6 @@
 :root {
   --popup-bg-color: #fff;
-  --popup-border-radius: 0.25rem;
+  --popup-border-radius: calc(var(--border-radius) * 1.5);
   --popup-text-color: #000;
 }
 
