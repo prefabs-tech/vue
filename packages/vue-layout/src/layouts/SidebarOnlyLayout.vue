@@ -9,7 +9,11 @@
         <slot name="afterSidebarMenu"></slot>
         <slot name="userMenu"></slot>
         <slot name="locales">
-          <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales">
+          <LocaleSwitcher
+            v-if="!noLocaleSwitcher"
+            :show-badges="showBadges"
+            class="locales"
+          >
             <template #icon>
               <img src="../assets/svg/up-chevron.svg" alt="toggle icon" />
             </template>
@@ -28,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 
 import AppFooter from "../components/AppFooter.vue";
@@ -35,6 +40,10 @@ import Sidebar from "../components/Sidebar.vue";
 
 import type { SidebarMenu } from "../types";
 import type { PropType } from "vue";
+
+const { layout: layoutConfig } = useConfig();
+
+const showBadges = layoutConfig?.localeSwitcher?.showBadges;
 
 defineProps({
   menu: {

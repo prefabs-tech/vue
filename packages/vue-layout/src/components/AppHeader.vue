@@ -26,7 +26,11 @@
       <slot name="userMenu"></slot>
       <slot name="addon" />
       <slot name="locales">
-        <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales" />
+        <LocaleSwitcher
+          v-if="!noLocaleSwitcher"
+          :show-badges="showBadges"
+          class="locales"
+        />
       </slot>
     </nav>
   </header>
@@ -63,6 +67,7 @@ const expanded = ref(true);
 
 const home =
   layoutConfig && layoutConfig?.homeRoute ? layoutConfig.homeRoute : undefined;
+const showBadges = layoutConfig?.localeSwitcher?.showBadges;
 
 const isLargeScreen = computed(() => windowWidth.value > 576);
 
