@@ -47,7 +47,7 @@ import { Icon } from "@iconify/vue";
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { useWindowSize } from "@vueuse/core";
-import { ref, computed } from "vue";
+import { computed, ref, onUnmounted } from "vue";
 
 import Logo from "./Logo.vue";
 import MainMenu from "./MainMenu.vue";
@@ -75,9 +75,25 @@ const close = () => {
   expanded.value = false;
 };
 
+const handleResize = () => {
+  if (window.innerWidth >= 576) {
+    expanded.value = true;
+  } else {
+    expanded.value = false;
+  }
+};
+
 const toggle = () => {
   expanded.value = !expanded.value;
 };
+
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
+});
+
+window.addEventListener("resize", handleResize);
+
+handleResize();
 
 defineExpose({
   expanded,
