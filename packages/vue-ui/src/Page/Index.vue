@@ -20,7 +20,28 @@
       </div>
 
       <div class="page-toolbar">
-        <slot name="toolbar"></slot>
+        <slot name="toolbar">
+          <template v-if="toolbarActionMenu?.length && !isLargeScreen">
+            <Dropdown
+              v-if="toolbarActionMenu?.length > 1"
+              :menu="toolbarActionMenu"
+            />
+
+            <ButtonElement v-else v-bind="toolbarActionMenu[0]" />
+          </template>
+          <template v-else-if="toolbarActionMenu?.length">
+            <template
+              v-for="(actionMenu, index) in toolbarActionMenu"
+              :key="`${actionMenu?.label}-${index}`"
+            >
+              <ButtonElement
+                v-if="actionMenu.display !== false"
+                v-bind="actionMenu"
+                :icon-left="String(actionMenu?.icon ?? actionMenu?.iconLeft)"
+              />
+            </template>
+          </template>
+        </slot>
       </div>
     </div>
 
@@ -39,10 +60,18 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useWindowSize } from "@vueuse/core";
+import { computed } from "vue";
+
 import BadgeComponent from "../Badge/Index.vue";
+import ButtonElement from "../Button/Index.vue";
+import Dropdown from "../Dropdown/Index.vue";
 import LoadingPage from "../LoadingPage/Index.vue";
 
+import type { ActionMenuItem } from "../types/page";
 import type { PropType } from "vue";
+
+const { width: windowWidth } = useWindowSize();
 
 defineProps({
   centered: Boolean,
@@ -67,5 +96,11 @@ defineProps({
     default: undefined,
     type: String,
   },
+  toolbarActionMenu: {
+    default: () => [],
+    type: Array as PropType<ActionMenuItem[]>,
+  },
 });
+
+const isLargeScreen = computed(() => windowWidth.value > 576);
 </script>
