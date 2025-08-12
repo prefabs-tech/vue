@@ -1,7 +1,9 @@
 .layout header .addon {
+  --_padding-h: var(--nav-item-padding-h, 1rem);
+  --_padding-v: var(--nav-item-padding-v, .5rem);
+
   display: block;
-  padding: var(--layout-menu-item-padding-v, 0.625rem)
-    var(--layout-menu-item-padding-h, 1rem);
+  padding: var(--_padding-v) var(--_padding-h);
 }
 
 .layout header .addon:hover {
@@ -13,7 +15,7 @@
   content: none;
 }
 
-@media screen and (min-width: 60rem) {
+@media screen and (min-width: 576px) {
   .layout header .addon {
     display: block;
     padding: 0;

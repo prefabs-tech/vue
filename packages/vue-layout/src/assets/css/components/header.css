@@ -1,48 +1,39 @@
 .layout > header {
-  --header-bg-color: transparent;
-  --header-border-color: var(--border-color, #e5e7eb);
-  --header-font-size: var(--font-size);
-  --header-gap: 1.5rem;
+  --_layout-header-bg: var(--layout-header-bg, transparent);
+  --_layout-header-border: var(
+      --layout-header-border,
+      1px solid var(--border-color, #e5e7eb)
+    );
+  --_layout-header-color: var(--dz-layout-header-color, #2c2c2c);
+  --_layout-header-gap: var(--layout-header-gap, 1.5rem);;
+  --_layout-header-logo-max-width: var(--layout-header-logo-max-width, 8rem);
   --_layout-header-padding-h: var(--layout-header-padding-h, 1rem);
   --_layout-header-padding-v: var(--layout-header-padding-v, 1rem);
-  --_layout-logo-max-width: var(--layout-logo-max-width, 150px);
 
   align-items: center;
-  border-bottom: 1px solid var(--header-border-color);
+  background: var(--_layout-header-bg);
+  border-bottom: var(--_layout-header-border);
+  color: var(--_layout-header-color);
   display: grid;
-  font-size: var(--header-font-size);
-  gap: 0 var(--header-gap);
+  gap: 0.25rem;
   grid-template-areas:
     "logo toggle"
     "nav nav";
-  grid-template-columns: var(--_layout-logo-max-width) 1fr;
+  grid-template-columns: var(--_layout-header-logo-max-width) 1fr;
   grid-template-rows: auto auto;
   justify-items: flex-end;
   padding: var(--_layout-header-padding-v) var(--_layout-header-padding-h);
   position: relative;
-  z-index: 100;
-}
-
-.layout > header::before {
-  content: "";
-  background-color: var(--header-bg-color);
-  box-shadow: 0 0 0 100vmax var(--header-bg-color);
-  clip-path: inset(calc(-1 * var(--header-padding-top)) -100vmax calc(-1 * var(--header-padding-bottom, 1em)) -100vmax);
-  grid-column: 1 / span 2;
-  grid-row: 1 / 1;
-  height: 100%;
-  position: absolute;
   width: 100%;
-  z-index: -1;
+  z-index: 100;
 }
 
 .layout > header > nav {
   align-items: stretch;
-  background-color: #fff;
   opacity: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--menu-gap, 1em);
+  gap: 0.25rem;
   grid-area: nav;
   justify-content: flex-start;
   z-index: 1;
@@ -97,6 +88,7 @@
 @media screen and (min-width: 576px) {
   .layout > header {
     display: flex;
+    gap: var(--_layout-header-gap);
   }
 
   .layout > header .main-menu {
@@ -105,11 +97,11 @@
 
   .layout > header > nav {
     align-items: center;
-    background-color: var(--header-bg-color);
     border: none;
     display: flex;
     flex: 1;
     flex-direction: row;
+    gap: var(--_layout-header-gap);
     justify-content: flex-end;
     margin: 0;
     padding: 0;

@@ -10,7 +10,17 @@
       </div>
       <span class="truncated">
         <slot name="icon">
-          <img src="../assets/svg/chevron-down.svg" alt="locale" />
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 15.25a.74.74 0 0 1-.53-.22l-5-5A.75.75 0 0 1 7.53 9L12 13.44L16.47 9a.75.75 0 0 1 1.06 1l-5 5a.74.74 0 0 1-.53.25"
+              fill="currentColor"
+            />
+          </svg>
         </slot>
       </span>
     </div>

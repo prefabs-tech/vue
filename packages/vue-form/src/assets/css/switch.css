@@ -28,6 +28,7 @@
 .switch input:before {
   background-color: #fff;
   border-radius: 50%;
+  bottom: 10%;
   content: "";
   height: 1.5rem;
   left: 0.25rem;

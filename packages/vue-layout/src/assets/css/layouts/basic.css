@@ -24,13 +24,7 @@
 }
 
 .layout.basic > header {
-  --header-logo-max-width: 120px;
-
   grid-area: header;
-}
-
-.layout.basic > header > nav {
-  gap: 0.25rem;
 }
 
 .layout.basic[aria-expanded=false] > header > nav {
@@ -62,14 +56,6 @@
   .layout.basic > :is(footer, main) {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-
-  .layout.basic > header {
-    --header-logo-max-width: 150px;
-  }
-
-  .layout.basic > header > nav {
-    gap: var(--header-gap, 1.5rem);
   }
 
   .layout.basic nav.user-menu-dropdown > ul.dropdown,
