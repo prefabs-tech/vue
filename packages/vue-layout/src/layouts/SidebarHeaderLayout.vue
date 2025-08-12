@@ -35,7 +35,11 @@
         <slot v-if="userMenuLocation === 'sidebar'" name="userMenu"></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
-            <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales" />
+            <LocaleSwitcher
+              v-if="!noLocaleSwitcher"
+              :show-badges="showBadges"
+              class="locales"
+            />
           </slot>
         </template>
       </template>
@@ -53,6 +57,7 @@
 </template>
 
 <script setup lang="ts">
+import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { ref, watch, onUnmounted } from "vue";
 
@@ -62,6 +67,10 @@ import Sidebar from "../components/Sidebar.vue";
 
 import type { SidebarMenu } from "../types";
 import type { PropType } from "vue";
+
+const { layout: layoutConfig } = useConfig();
+
+const showBadges = layoutConfig?.localeSwitcher?.showBadges;
 
 const appHeader = ref();
 const sidebar = ref();

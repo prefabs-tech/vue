@@ -4,6 +4,9 @@ import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 
 interface PrefabsTechVue3LayoutConfig {
   homeRoute?: "home" | string;
+  localeSwitcher: {
+    showBadges: true,
+  },
   logo?: string;
   logoAlt?: string;
   logoRoute?: string;
