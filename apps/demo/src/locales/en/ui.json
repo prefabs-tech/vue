@@ -308,8 +308,8 @@
       "slotDescription": {
         "default": "Main content of the page.",
         "subtitle": "Custom subtitle slot. Replaces the `subTitle` prop.",
-        "toolbar": "Toolbar area on the top-right of the page header.",
-        "titleTag": "Custom title tag slot. Replaces the `titleTag` prop."
+        "titleTag": "Custom title tag slot. Replaces the `titleTag` prop.",
+        "toolbar": "Toolbar area on the top-right of the page header."
       }
     },
     "label": {
