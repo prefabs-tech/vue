@@ -53,11 +53,6 @@
 }
 
 @media screen and (min-width: 576px) {
-  .layout.basic > :is(footer, main) {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
   .layout.basic nav.user-menu-dropdown > ul.dropdown,
   .layout.basic nav.locale-switcher > ul.dropdown
   {
