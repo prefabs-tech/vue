@@ -10,7 +10,10 @@
       />
     </template>
 
-    <Message :message="t('ui.tabbed-panel.depreciation-message')" />
+    <Message
+      :enable-close="false"
+      :message="t('ui.tabbed-panel.depreciation-message')"
+    />
 
     <TabbedPanel class="colorized shadow">
       <BasicUsage :title="t('ui.tabbed-panel.basic-usage')" />
