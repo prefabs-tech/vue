@@ -31,6 +31,9 @@
             <ButtonElement
               v-else
               v-bind="visibleActions[0]"
+              :icon-left="
+                String(visibleActions[0]?.icon ?? visibleActions[0]?.iconLeft)
+              "
               @click="onActionClick(visibleActions[0])"
             />
           </template>
@@ -70,7 +73,7 @@ import ButtonElement from "../Button/Index.vue";
 import Dropdown from "../Dropdown/Index.vue";
 import LoadingPage from "../LoadingPage/Index.vue";
 
-import type { ToolbarActionsMenu } from "../types/page";
+import type { ToolbarActionMenu } from "../types/page";
 import type { PropType } from "vue";
 
 const { width: windowWidth } = useWindowSize();
@@ -98,9 +101,9 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
-  toolbarActionMenu: {
+  toolbarActionsMenu: {
     default: () => [],
-    type: Array as PropType<ToolbarActionsMenu[]>,
+    type: Array as PropType<ToolbarActionMenu[]>,
   },
 });
 
@@ -109,10 +112,10 @@ const emit = defineEmits(["action:click"]);
 const isLargeScreen = computed(() => windowWidth.value > 576);
 
 const visibleActions = computed(() =>
-  props.toolbarActionMenu.filter((action) => action.display !== false),
+  props.toolbarActionsMenu.filter((action) => action.display !== false),
 );
 
-const onActionClick = (actionMenu: ToolbarActionsMenu) => {
+const onActionClick = (actionMenu: ToolbarActionMenu) => {
   emit("action:click", actionMenu);
 };
 </script>

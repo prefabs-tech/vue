@@ -4,4 +4,4 @@ import ButtonElement from "../Button/Index.vue";
 
 type ButtonElementProps = ExtractPropTypes<(typeof ButtonElement)["__props"]>;
 
-export interface ToolbarActionsMenu extends DropdownMenu, ButtonElementProps {}
+export interface ToolbarActionMenu extends DropdownMenu, ButtonElementProps {}
