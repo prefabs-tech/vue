@@ -46,7 +46,7 @@ const emits = defineEmits(["close"]);
 
 defineProps({
   enableClose: {
-    default: false,
+    default: true,
     type: Boolean,
   },
   icon: {
