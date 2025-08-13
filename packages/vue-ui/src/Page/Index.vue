@@ -21,25 +21,27 @@
 
       <div class="page-toolbar">
         <slot name="toolbar">
-          <template v-if="toolbarActionMenu?.length && !isLargeScreen">
+          <template v-if="visibleActions?.length && !isLargeScreen">
             <Dropdown
-              v-if="toolbarActionMenu?.length > 1"
-              :menu="toolbarActionMenu"
+              v-if="visibleActions?.length > 1"
+              :menu="visibleActions"
+              @select="onActionClick($event)"
             />
 
-            <ButtonElement v-else v-bind="toolbarActionMenu[0]" />
+            <ButtonElement
+              v-else
+              v-bind="visibleActions[0]"
+              @click="onActionClick(visibleActions[0])"
+            />
           </template>
-          <template v-else-if="toolbarActionMenu?.length">
-            <template
-              v-for="(actionMenu, index) in toolbarActionMenu"
+          <template v-else-if="visibleActions?.length">
+            <ButtonElement
+              v-for="(actionMenu, index) in visibleActions"
+              v-bind="actionMenu"
               :key="`${actionMenu?.label}-${index}`"
-            >
-              <ButtonElement
-                v-if="actionMenu.display !== false"
-                v-bind="actionMenu"
-                :icon-left="String(actionMenu?.icon ?? actionMenu?.iconLeft)"
-              />
-            </template>
+              :icon-left="String(actionMenu?.icon ?? actionMenu?.iconLeft)"
+              @click="onActionClick(actionMenu)"
+            />
           </template>
         </slot>
       </div>
@@ -68,12 +70,12 @@ import ButtonElement from "../Button/Index.vue";
 import Dropdown from "../Dropdown/Index.vue";
 import LoadingPage from "../LoadingPage/Index.vue";
 
-import type { ActionMenuItem } from "../types/page";
+import type { ToolbarActionsMenu } from "../types/page";
 import type { PropType } from "vue";
 
 const { width: windowWidth } = useWindowSize();
 
-defineProps({
+const props = defineProps({
   centered: Boolean,
   loading: Boolean,
   subTitle: {
@@ -98,9 +100,19 @@ defineProps({
   },
   toolbarActionMenu: {
     default: () => [],
-    type: Array as PropType<ActionMenuItem[]>,
+    type: Array as PropType<ToolbarActionsMenu[]>,
   },
 });
 
+const emit = defineEmits(["action:click"]);
+
 const isLargeScreen = computed(() => windowWidth.value > 576);
+
+const visibleActions = computed(() =>
+  props.toolbarActionMenu.filter((action) => action.display !== false),
+);
+
+const onActionClick = (actionMenu: ToolbarActionsMenu) => {
+  emit("action:click", actionMenu);
+};
 </script>

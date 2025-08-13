@@ -36,7 +36,94 @@
 
     <section>
       <div class="section-content">
-        <Page :title="$t('ui.page.usage.toolbar')" title-element="h2">
+        <Page
+          :title="$t('ui.page.usage.toolbar')"
+          :toolbar-action-menu="actions"
+          title-element="h2"
+          @action:click="onActionClick($event)"
+        >
+          {{ pageContent }}
+        </Page>
+
+        <ConfirmationModal
+          v-if="showDeleteModal"
+          @on:close="showDeleteModal = false"
+          @on:confirm="onConfirmDelete"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Page
+              :toolbar-action-menu="actions"
+              title="With toolbar"
+            &gt;
+              &lbrace;&lbrace; pageContent &rbrace;&rbrace;
+            &lt;/Page&gt;
+
+            &lt;ConfirmationModal
+              v-if="showDeleteModal"
+              @on:close="showDeleteModal = false"
+              @on:confirm="onConfirmDelete"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ButtonElement, ConfirmationModal, Page } from "@prefabs.tech/vue3-ui";
+          import { ref } from "vue";
+
+          import type { ToolbarActionsMenu } from "@prefabs.tech/vue3-ui";
+
+          const actions = [
+            {
+              icon: "pi pi-plus",
+              key: "add",
+              label: "Add",
+            },
+            {
+              icon: "pi pi-pencil",
+              key: "edit",
+              label: "Edit",
+            },
+            {
+              class: "danger",
+              icon: "pi pi-trash",
+              key: "delete",
+              label: "Delete",
+              severity: "danger",
+            },
+          ];
+
+          const pageContent = ref&lt;string&gt;("{{ t("ui.page.label.content") }}");
+          const showDeleteModal = ref&lt;boolean&gt;(false);
+
+          const onActionClick = (actionMenu: ToolbarActionsMenu) => {
+            switch(actionMenu?.key) {
+              case "add":
+                pageContent.value = "{{ t("ui.page.label.addContent") }}";
+                break;
+              case "edit":
+                pageContent.value = "{{ t("ui.page.label.editContent") }}";
+                break;
+              case "delete":
+                showDeleteModal.value = true;
+                break;
+            }
+          };
+
+          const onConfirmDelete = () => {
+            pageContent.value = "{{ t('ui.page.label.deleteContent') }}";
+            showDeleteModal.value = false;
+          }
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <div class="section-content">
+        <Page :title="$t('ui.page.usage.toolbarSlot')" title-element="h2">
           {{ $t("ui.page.label.content") }}
 
           <template #toolbar>
@@ -245,14 +332,31 @@
       :props-table-title="$t('common.properties', { value: 'PageProperties' })"
       :slots-data="slotsData"
     />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface ToolbarActionsMenu extends DropdownMenu, ButtonElementProps {}
+    </SshPre>
+    <!-- eslint-enable -->
   </UiPage>
 </template>
 
 <script setup lang="ts">
-import { BadgeComponent, ButtonElement, Page } from "@prefabs.tech/vue3-ui";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import {
+  BadgeComponent,
+  ButtonElement,
+  ConfirmationModal,
+  Page,
+} from "@prefabs.tech/vue3-ui";
+import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
+
+import type { ToolbarActionsMenu } from "@prefabs.tech/vue3-ui";
+
+const { t } = useI18n();
 
 const propsData = [
   {
@@ -292,6 +396,12 @@ const propsData = [
     prop: "titleTag",
     type: "String",
   },
+  {
+    default: "-",
+    description: "Toolbar actions menu on the top-right of the page header.",
+    prop: "toolbarActionMenu",
+    type: "ToolbarActionsMenu",
+  },
 ];
 
 const slotsData = [
@@ -312,6 +422,48 @@ const slotsData = [
     name: "titleTag",
   },
 ];
+
+const actions = [
+  {
+    icon: "pi pi-plus",
+    key: "add",
+    label: "Add",
+  },
+  {
+    icon: "pi pi-pencil",
+    key: "edit",
+    label: "Edit",
+  },
+  {
+    class: "danger",
+    icon: "pi pi-trash",
+    key: "delete",
+    label: "Delete",
+    severity: "danger",
+  },
+];
+
+const pageContent = ref<string>(t("ui.page.label.content"));
+const showDeleteModal = ref<boolean>(false);
+
+const onActionClick = (actionMenu: ToolbarActionsMenu) => {
+  switch (actionMenu?.key) {
+    case "add":
+      pageContent.value = t("ui.page.label.addContent");
+      break;
+    case "edit":
+      pageContent.value = t("ui.page.label.editContent");
+      break;
+    case "delete":
+      showDeleteModal.value = true;
+      break;
+  }
+};
+
+const onConfirmDelete = () => {
+  pageContent.value = t("ui.page.label.deleteContent");
+  showDeleteModal.value = false;
+};
 </script>
 
 <style lang="css">

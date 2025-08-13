@@ -293,8 +293,11 @@
   "overlay": "Overlay",
   "page": {
     "label": {
+      "addContent": "Add page content",
       "content": "Page content",
+      "deleteContent": "Content has been deleted.",
       "edit": "Edit",
+      "editContent": "Edit page content",
       "subtitle": "Page subtitle",
       "titleTag": "Heading tag"
     },
@@ -308,7 +311,8 @@
       "titleElement": "With title element",
       "titleTag": "With title tag",
       "titleTagSlot": "With title tag slot",
-      "toolbar": "With toolbar"
+      "toolbar": "With toolbar",
+      "toolbarSlot": "With toolbar slot"
     }
   },
   "panel": "Panel",
