@@ -23,11 +23,19 @@ exports[`SelectInput > matches snapshot 1`] = `
     >
       
       <div
-        class="selected-options"
+        aria-label="tooltip"
+        class="tooltip-container selected-options"
       >
-        
-        FR, FE
-        
+        <div
+          class="tooltip-trigger"
+        >
+          
+          
+          FR, FE
+          
+          
+        </div>
+        <!---->
       </div>
       
       <span

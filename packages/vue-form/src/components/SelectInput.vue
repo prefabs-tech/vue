@@ -81,7 +81,10 @@ const props = defineProps({
     type: Boolean,
   },
   enableCustomSearch: Boolean,
-  enableTooltip: Boolean,
+  enableTooltip: {
+    default: true,
+    type: Boolean,
+  },
   hasSortedOptions: {
     default: true,
     type: Boolean,
