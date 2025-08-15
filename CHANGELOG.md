@@ -1,3 +1,12 @@
+# [0.14.0](https://github.com/prefabs-tech/vue/compare/v0.13.0...v0.14.0) (2025-08-15)
+
+
+### Features
+
+* **ui/message:** add tip severity option and update demo ([#754](https://github.com/prefabs-tech/vue/issues/754)) ([acff3a2](https://github.com/prefabs-tech/vue/commit/acff3a2031bd44f0d01979aac8eae41c003fa458))
+
+
+
 # [0.13.0](https://github.com/dzangolab/vue/compare/v0.12.0...v0.13.0) (2025-08-04)
 
 
