@@ -168,6 +168,15 @@
   width: 100%;
 }
 
+.multiselect .selected-options > .tooltip-trigger {
+  max-width: 100%;
+  width: max-content;
+}
+
+.multiselect:has(.disabled) .selected-options > .tooltip-trigger {
+  cursor: not-allowed;
+}
+
 .multiselect .selected-options-wrapper {
   height: 0;
   min-height: 0;
