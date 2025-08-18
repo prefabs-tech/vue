@@ -4,9 +4,7 @@
     :class="['sidebar', { collapsible: collapsible }]"
   >
     <div v-if="!noHeader" class="header">
-      <div class="logo">
-        <Logo />
-      </div>
+      <Logo />
       <div class="title">
         <slot name="title"></slot>
       </div>

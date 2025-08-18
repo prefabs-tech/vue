@@ -69,25 +69,20 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     
     <nav
       class="locale-switcher locales"
-      data-v-368e3886=""
     >
       <div
         class="locale-trigger"
-        data-v-368e3886=""
       >
         <div
           class="locale truncated"
-          data-v-368e3886=""
         >
           English (US)
         </div>
         <span
           class="truncated"
-          data-v-368e3886=""
         >
           
           <svg
-            data-v-368e3886=""
             height="24"
             viewBox="0 0 24 24"
             width="24"
@@ -95,7 +90,6 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
           >
             <path
               d="M12 15.25a.74.74 0 0 1-.53-.22l-5-5A.75.75 0 0 1 7.53 9L12 13.44L16.47 9a.75.75 0 0 1 1.06 1l-5 5a.74.74 0 0 1-.53.25"
-              data-v-368e3886=""
               fill="currentColor"
             />
           </svg>
@@ -104,16 +98,13 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
       </div>
       <ul
         class="dropdown"
-        data-v-368e3886=""
       >
         
         <li
           class="truncated"
-          data-v-368e3886=""
         >
           <div
             class="locale"
-            data-v-368e3886=""
             data-v-3d8a4124=""
           >
             <span
@@ -129,11 +120,9 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
         </li>
         <li
           class="truncated"
-          data-v-368e3886=""
         >
           <div
             class="locale"
-            data-v-368e3886=""
             data-v-3d8a4124=""
           >
             <span

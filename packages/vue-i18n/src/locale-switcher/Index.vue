@@ -104,6 +104,6 @@ onClickOutside(dzangolabVueI18nLocaleSwitcher, (event) => {
 });
 </script>
 
-<style scoped>
+<style lang="css">
 @import "../assets/css/locale-switcher.css";
 </style>

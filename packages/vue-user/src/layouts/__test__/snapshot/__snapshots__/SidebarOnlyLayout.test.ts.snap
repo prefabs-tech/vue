@@ -13,27 +13,23 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
       <div
         class="logo"
       >
-        <div
-          class="logo"
+        
+        <a
+          class=""
+          href="/"
         >
-          
-          <a
-            class=""
-            href="/"
+          <span
+            class="logo-default"
           >
-            <span
-              class="logo-default"
-            >
-              <span>
-                T
-              </span>
-              <span>
-                Test app
-              </span>
+            <span>
+              T
             </span>
-          </a>
-          
-        </div>
+            <span>
+              Test app
+            </span>
+          </span>
+        </a>
+        
       </div>
       <div
         class="title"

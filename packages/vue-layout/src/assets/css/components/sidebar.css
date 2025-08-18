@@ -43,7 +43,7 @@
 
 .sidebar .sidebar-menu-wrapper {
   display: flex;
-  flex: unset;
+  flex: 1;
   flex-direction: column;
 }
 
@@ -80,8 +80,8 @@
 
 .sidebar > .header {
   --_border-color: var(--sidebar-border-color, #e5e7eb);
-  --_padding-h: var(--sidebar-padding-h, 1rem);
-  --_padding-v: var(--sidebar-padding-v, 1.5rem);
+  --_padding-h: var(--layout-header-padding-h, 1rem);
+  --_padding-v: var(--layout-header-padding-v, 1rem);
 
   align-items: center;
   border-bottom: 1px solid var(--_border-color);

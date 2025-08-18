@@ -23,7 +23,7 @@
       ref="sidebar"
       :collapsible="collapsible"
       :menu="menu"
-      :no-header="noSidebarHeader"
+      :no-header="isLargeScreen"
       class="layout-sidebar"
     >
       <template #afterNavLinks>
@@ -59,7 +59,8 @@
 <script setup lang="ts">
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
-import { ref, watch, onUnmounted } from "vue";
+import { useWindowSize } from "@vueuse/core";
+import { computed, ref, watch, onUnmounted } from "vue";
 
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
@@ -71,6 +72,8 @@ import type { PropType } from "vue";
 const { layout: layoutConfig } = useConfig();
 
 const showBadges = layoutConfig?.localeSwitcher?.showBadges;
+
+const { width: windowWidth } = useWindowSize();
 
 const appHeader = ref();
 const sidebar = ref();
@@ -90,16 +93,14 @@ defineProps({
     default: false,
     type: Boolean,
   },
-  noSidebarHeader: {
-    default: false,
-    type: Boolean,
-  },
   userMenuLocation: {
     default: "sidebar",
     type: String,
     validator: (value: string) => ["header", "sidebar"].includes(value),
   },
 });
+
+const isLargeScreen = computed(() => windowWidth.value > 576);
 
 watch(
   () => appHeader.value?.expanded,
