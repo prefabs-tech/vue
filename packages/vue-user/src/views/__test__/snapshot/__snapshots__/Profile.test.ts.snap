@@ -29,6 +29,7 @@ exports[`Profile > matches snapshot in en 1`] = `
       class="page-toolbar"
     >
       
+      <!---->
       
     </div>
   </div>
@@ -73,6 +74,7 @@ exports[`Profile > matches snapshot in fr 1`] = `
       class="page-toolbar"
     >
       
+      <!---->
       
     </div>
   </div>

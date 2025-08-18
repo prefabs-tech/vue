@@ -1,5 +1,5 @@
 <template>
-  <div class="date-picker">
+  <div class="field date-picker">
     <label v-if="label" for="date-picker">
       {{ label }}
     </label>
@@ -13,7 +13,6 @@
         v-bind="{ ...filteredAttributes, ...field }"
         :auto-apply="autoApply"
         :class="[
-          'field',
           {
             invalid: meta.touched && !meta.valid,
             valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
@@ -133,5 +132,5 @@ const onUpdate = (
 </script>
 
 <style lang="css">
-@import "../assets/css/datePicker.css";
+@import "../assets/css/date-picker.css";
 </style>

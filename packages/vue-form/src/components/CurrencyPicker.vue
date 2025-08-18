@@ -140,5 +140,5 @@ const onSearchInput = (value: string) => {
 </script>
 
 <style lang="css">
-@import "../assets/css/currencyPicker.css";
+@import "../assets/css/currency-picker.css";
 </style>

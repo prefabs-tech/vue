@@ -29,6 +29,7 @@ exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
       class="page-toolbar"
     >
       
+      <!---->
       
     </div>
   </div>
@@ -86,6 +87,7 @@ exports[`EmailVerificationReminder > matches snapshot in fr 1`] = `
       class="page-toolbar"
     >
       
+      <!---->
       
     </div>
   </div>

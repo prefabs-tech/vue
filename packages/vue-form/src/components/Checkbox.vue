@@ -58,23 +58,5 @@ const onChange = (event: Event) => {
 </script>
 
 <style lang="css">
-.checkbox-wrapper {
-  align-items: baseline;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.checkbox-wrapper > input[type="checkbox"] {
-  accent-color: var(--field-background-color, #007aff);
-  transform: scale(1.5);
-}
-
-.checkbox-wrapper > input[type="checkbox"]:disabled {
-  cursor: default;
-}
-
-.checkbox-wrapper > input[type="checkbox"]:focus,
-.checkbox-wrapper > input[type="checkbox"]:focus-visible {
-  box-shadow: none;
-}
+@import "../assets/css/checkbox.css";
 </style>

@@ -25,15 +25,10 @@ const { t } = useI18n({ messages });
 </script>
 
 <style lang="css">
-.page.profile > main {
+.page.profile > .page-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 2rem;
   padding: 0;
-}
-
-.profile .account-info {
-  margin-bottom: 1rem;
 }
 </style>

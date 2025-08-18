@@ -1,3 +1,21 @@
+.field {
+  --_background-color: var(--field-bg-color, transparent);
+  --_background-color-disabled: var(--field-bg-color-disabled, #f8f8f8);
+  --_border-color: var(--border-color);
+  --_border-radius: var(--border-radius);
+  --_icon-color: var(--field-icon-color, #7b7676);
+  --_padding-block: var(--field-padding-block, 0.5rem);
+  --_padding-inline: var(--field-padding-inline, 0.75rem);
+  --_placeholder-color: var(--field-placeholder-color, #7b7676);
+  --_options-menu-background-color: var(--list-menu-bg-color, #ffffff);
+  --_option-background-color-hover: var(--list-item-bg-hover, #ededed);
+  --_option-background-color-active: var(--list-item-bg-active, #ededed);
+}
+
+.field:has(.multiselect):not(:has(.multiselect-options)) {
+  overflow: hidden;
+}
+
 .multiselect {
   position: relative;
   width: 100%;
@@ -6,10 +24,13 @@
 .multiselect > .multiselect-options {
   background-color: #fff;
   border-top: none;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 1px 1px 5px 1px #ccc;
   display: flex;
   flex-direction: column;
   margin: 0;
+  margin-top: 4px;
   max-height: 12.5rem;
   min-width: 12rem;
   overflow-y: auto;
@@ -29,26 +50,22 @@
   width: 100%;
 }
 
-.multiselect>.multiselect-input {
-  --_bg-color: transparent;
-  --_border-color: var(--form-input-border-color, #555);
-  --_border-radius: var(--form-input-border-radius, 0.25em);
-  --_color: inherit;
-  --_padding-h: var(--padding-h, 0.75em);
-  --_padding-v: var(--form-input-padding-v, 0.65em);
-  --_height: var(--form-input-height, 2.8em);
-
+.multiselect > .multiselect-input {
   align-items: center;
-  background-color: var(--_bg-color);
+  background-color: var(--_background-color);
   border: 1px solid var(--_border-color);
   border-radius: var(--_border-radius);
   display: flex;
-  color: var(--_color);
   cursor: pointer;
-  height: var(--_height);
   justify-content: space-between;
-  padding: var(--_padding-v) var(--_padding-h);
+  padding-block: var(--_padding-block);
+  padding-inline: var(--_padding-inline);
   user-select: none;
+}
+
+.multiselect:not(.invalid, .valid) > .multiselect-input.focused,
+.multiselect:not(.invalid, .valid) > .multiselect-input:focus {
+  outline: 1px solid var(--dz-primary-color);
 }
 
 .multiselect .multiselect-input:has(.multiselect-search) {
@@ -60,22 +77,19 @@
 .multiselect .multiselect-input > .multiselect-search > input {
   border-color: transparent;
   box-shadow: none;
+  padding: 0;
 }
 
 .multiselect .multiselect-input > .multiselect-search > input:focus-within {
   outline: none;
 }
 
-.multiselect>.multiselect-input.disabled {
-  --_bg-color: var(--form-input-bg-color-disabled, #f7f7f7);
-  --_border-color: var(--form-input-border-color-disabled, #ccc);
-  --_color: var(--form-input-color-disabled, #555);
+.multiselect > .multiselect-input.disabled {
+  --_background-color: var(--_background-color-disabled);
 
-  cursor: default;
-}
-
-.multiselect>.multiselect-input:focus {
-  box-shadow: 0 0 0 0.25rem #32323240;
+  color: var(--field-color-disabled, #7b7676);
+  cursor: not-allowed;
+  opacity: 0.8;
 }
 
 .multiselect.invalid .multiselect-input {
@@ -83,25 +97,20 @@
 }
 
 .multiselect > .multiselect-options > ul > li {
+  align-items: baseline;
   background-color: var(--_multiselect-selected-bg-color);
-  border-radius: var(--form-input-border-radius, 0.25em);
+  border-radius: var(--_border-radius);
   cursor: pointer;
   display: flex;
-  gap: 0.5em;
-  padding: 0.5rem 0.65rem;
+  gap: 0.5rem;
+  padding-block: var(--_padding-block);
+  padding-inline: var(--_padding-inline);
+  transition: background-color var(--transition-duration) linear;
 }
 
 .multiselect ul>li[disabled="true"] {
-  color: var(--field-option-disabled-color, #7b7676);
+  color: var(--field-color-disabled, #7b7676);
   cursor: not-allowed;
-}
-
-.multiselect ul > li > span, .multiselect span.multiselect-placeholder {
-  overflow: hidden;
-  text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
 }
 
 .multiselect > .multiselect-options > ul > li input {
@@ -148,13 +157,24 @@
   --_border-color: var(--color-alert-success, #198754);
 }
 
+.multiselect span.multiselect-placeholder,
 .multiselect .selected-options,
-.multiselect .selected-options > .tooltip-trigger {
+.multiselect .selected-options > .tooltip-trigger,
+.multiselect ul > li > span {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
+}
+
+.multiselect .selected-options > .tooltip-trigger {
+  max-width: 100%;
+  width: max-content;
+}
+
+.multiselect:has(.disabled) .selected-options > .tooltip-trigger {
+  cursor: not-allowed;
 }
 
 .multiselect .selected-options-wrapper {
@@ -180,7 +200,7 @@
 }
 
 .multiselect .multiselect-input>.action-items > svg {
-  color: var(--field-icon-color, #b5b5b5);
+  color: var(--_icon-color);
   cursor: pointer;
-  min-width: 1.5rem;
+  min-width: 1.25rem;
 }

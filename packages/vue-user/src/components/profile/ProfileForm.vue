@@ -115,7 +115,3 @@ const onSubmit = async (data: UpdateProfileInputType) => {
     });
 };
 </script>
-
-<style lang="css">
-@import "../../assets/css/profile/profile-form.css";
-</style>

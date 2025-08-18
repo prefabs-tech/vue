@@ -185,7 +185,7 @@ const props = defineProps({
   showColumnAction: Boolean,
   showResetButton: Boolean,
   singleActionMode: {
-    default: "button",
+    default: "menu",
     type: String,
     validator: (value: string) => ["button", "menu"].includes(value),
   },

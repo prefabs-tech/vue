@@ -10,7 +10,17 @@
       </div>
       <span class="truncated">
         <slot name="icon">
-          <img src="../assets/svg/chevron-down.svg" alt="locale" />
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 15.25a.74.74 0 0 1-.53-.22l-5-5A.75.75 0 0 1 7.53 9L12 13.44L16.47 9a.75.75 0 0 1 1.06 1l-5 5a.74.74 0 0 1-.53.25"
+              fill="currentColor"
+            />
+          </svg>
         </slot>
       </span>
     </div>
@@ -22,7 +32,11 @@
         class="truncated"
         @click="changeLocale(l)"
       >
-        <LocaleOption :locale="l" :name="translateLocale(l)" />
+        <LocaleOption
+          :locale="l"
+          :name="translateLocale(l)"
+          :show-badges="showBadges"
+        />
       </li>
     </ul>
   </nav>
@@ -45,6 +59,13 @@ import useLocaleStore from "../store";
 
 import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { Locale } from "vue-i18n";
+
+defineProps({
+  showBadges: {
+    default: true,
+    type: Boolean,
+  },
+});
 
 const { availableLocales, locale, t } = useI18n();
 
@@ -84,93 +105,5 @@ onClickOutside(dzangolabVueI18nLocaleSwitcher, (event) => {
 </script>
 
 <style scoped>
-nav.locale-switcher {
-  --_hover-bg: var(--nav-item-hover-bg, #f0f2f7ad);
-  --_hover-color: var(--nav-item-hover-color, #2c2c2c);
-
-  border-radius: 0.325rem;
-  cursor: pointer;
-  padding: 0;
-  position: relative;
-  width: var(--locale-switcher-width, 9rem);
-}
-
-nav.locale-switcher.expanded,
-nav.locale-switcher:hover {
-  background: var(--_hover-bg);
-  color: var(--_hover-color);
-}
-
-nav.locale-switcher > .locale-trigger {
-  align-items: center;
-  display: flex;
-  gap: 0;
-  justify-content: space-between;
-  padding: var(--locale-switcher-padding-v, 0.625rem)
-    var(--locale-switcher-padding-h, 1rem);
-}
-
-.locale {
-  flex: 1;
-}
-
-nav > .locale-trigger > span {
-  align-self: start;
-  font-size: 1.5rem;
-  line-height: 1.25rem;
-  text-align: center;
-  width: 1.25rem;
-}
-
-nav > ul.dropdown {
-  background-color: var(--locale-switcher-bg-color, #fff);
-  border: var(--locale-switcher-border, 1px solid #e5e5e5);
-  border-radius: var(--locale-switcher-border-radius, 5px);
-  box-shadow: 0 2px 5px #0000001a;
-  display: none;
-  list-style: none;
-  min-width: var(--locale-switcher-min-width, 160px);
-  padding-inline-start: 0;
-  padding: 0.15rem 0;
-  position: absolute;
-  right: 0;
-  top: 120%;
-  z-index: var(--locale-switcher-z-index, 9999);
-}
-
-nav.expanded ul {
-  display: block;
-}
-
-nav > .dropdown > li {
-  --_hover-bg: var(--nav-item-hover-bg, #f0f2f7ad);
-  --_hover-color: var(--nav-item-hover-color, #2c2c2c);
-
-  cursor: pointer;
-  list-style: none;
-  padding: 0.7rem 1.25rem;
-}
-
-nav li.current {
-  display: none;
-}
-
-nav.expanded li:hover {
-  background: var(--_hover-bg);
-  color: var(--_hover-color);
-}
-
-.truncated {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-nav .truncated > img {
-  transition: transform 0.3s ease;
-}
-
-nav.expanded .truncated > img {
-  transform: rotate(180deg);
-}
+@import "../assets/css/locale-switcher.css";
 </style>

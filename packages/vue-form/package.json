@@ -1,6 +1,6 @@
 {
   "name": "@prefabs.tech/vue3-form",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Vue Form plugin",
   "license": "MIT",
   "type": "module",
@@ -14,11 +14,14 @@
   "main": "./dist/PrefabsTechVue3Form.umd.js",
   "module": "./dist/PrefabsTechVue3Form.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue",
     "lint:fix": "eslint . --ext .vue --fix",
+    "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage --passWithNoTests",
     "test:component": "vitest --environment jsdom run component/ --passWithNoTests",
@@ -32,7 +35,7 @@
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.2.0",
     "@prefabs.tech/tsconfig": "0.2.0",
-    "@prefabs.tech/vue3-ui": "0.13.0",
+    "@prefabs.tech/vue3-ui": "0.14.0",
     "@types/node": "22.13.5",
     "@types/validator": "13.12.2",
     "@typescript-eslint/eslint-plugin": "8.24.1",

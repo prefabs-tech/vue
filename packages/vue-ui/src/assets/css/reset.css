@@ -40,7 +40,9 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+  color: var(--color);
+  font-family:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", Oxygen, Ubuntu;
   line-height: 1.5;;
   min-height: 100dvh;
@@ -53,7 +55,7 @@ a {
 }
 
 a[target="_blank"]::after {
-  content: url('https://api.iconify.design/tabler/external-link.svg');
+  content: url("https://api.iconify.design/tabler/external-link.svg");
   padding-left: 0.25rem;
   padding-right: 0;
   padding-top: 0.1rem;

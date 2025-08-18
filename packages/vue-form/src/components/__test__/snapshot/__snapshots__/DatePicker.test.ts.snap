@@ -2,7 +2,7 @@
 
 exports[`DatePicker > matches snapshot 1`] = `
 <div
-  class="date-picker"
+  class="field date-picker"
 >
   <label
     for="date-picker"
@@ -19,7 +19,7 @@ exports[`DatePicker > matches snapshot 1`] = `
     autocomplete="off"
     autoposition="true"
     canceltext="Cancel"
-    class="field"
+    class=""
     clearable="true"
     dark="false"
     disabled="false"

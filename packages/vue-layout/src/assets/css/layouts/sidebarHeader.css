@@ -90,7 +90,6 @@
 .layout.sidebar-header-layout > header {
   --header-padding-h: 1rem;
 
-  background-color: #fff;
   grid-area: header;
   position: sticky;
   top: 0;

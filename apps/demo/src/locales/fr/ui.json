@@ -292,9 +292,32 @@
   },
   "overlay": "Overlay",
   "page": {
+    "documentation": {
+      "eventDescription": {
+        "actionClick": "Emitted when toolbar action menu is clicked."
+      },
+      "propsDescription": {
+        "centered": "Aligns the content in the center.",
+        "loading": "Displays a loading overlay within the page content.",
+        "subTitle": "The subtitle text displayed below the title.",
+        "title": "The main title text displayed at the top of the page.",
+        "titleElement": "HTML tag to be used for the title element.",
+        "titleTag": "Optional label displayed next to the title, typically rendered as a badge.",
+        "toolbarActionMenu": "Toolbar actions menu on the top-right of the page header."
+      },
+      "slotDescription": {
+        "default": "Main content of the page.",
+        "subtitle": "Custom subtitle slot. Replaces the `subTitle` prop.",
+        "titleTag": "Custom title tag slot. Replaces the `titleTag` prop.",
+        "toolbar": "Toolbar area on the top-right of the page header."
+      }
+    },
     "label": {
+      "addContent": "Add page content",
       "content": "Page content",
+      "deleteContent": "Content has been deleted.",
       "edit": "Edit",
+      "editContent": "Edit page content",
       "subtitle": "Page subtitle",
       "titleTag": "Heading tag"
     },
@@ -308,7 +331,8 @@
       "titleElement": "With title element",
       "titleTag": "With title tag",
       "titleTagSlot": "With title tag slot",
-      "toolbar": "With toolbar"
+      "toolbar": "With toolbar",
+      "toolbarSlot": "With toolbar slot"
     }
   },
   "panel": "Panel",

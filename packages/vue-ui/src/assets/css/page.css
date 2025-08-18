@@ -1,5 +1,5 @@
 .page {
-  --_page-gap: var(--page-gap, 0.5rem);
+  --_page-gap: var(--page-gap, 1.5rem);
 
   display: flex;
   flex-direction: column;
@@ -12,19 +12,17 @@
   max-width: var(--page-max-width);
 }
 
-.page > .page-content {
-  margin-top: 1rem;
-}
-
 .page > .page-header {
-  display: grid;
+  align-items: flex-start;
+  display: flex;
   gap: var(--_page-gap);
-  grid-template-columns: 100%;
+  justify-content: space-between;
 }
 
 .page > .page-header > .page-title-wrapper {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: var(--page-gap, 0.5rem);
   overflow-wrap: break-word;
 }
@@ -44,10 +42,6 @@
 }
 
 @media (min-width: 576px) {
-  .page > .page-header {
-    grid-template-columns: repeat(2, minmax(0, auto));
-  }
-
   .page > .page-header > .page-toolbar {
     height: fit-content;
     justify-content: flex-end;

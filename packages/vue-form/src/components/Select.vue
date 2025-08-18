@@ -10,8 +10,11 @@
       {{ label }}
     </label>
     <div
-      :class="{ disabled: disabled }"
-      class="multiselect-input"
+      :class="[
+        { disabled: disabled },
+        { focused: showDropdownMenu },
+        'multiselect-input',
+      ]"
       @click="toggleDropdown"
     >
       <DebouncedInput
@@ -201,7 +204,10 @@ const props = defineProps({
   },
   disableGroupSelect: Boolean,
   enableCustomSearch: Boolean,
-  enableTooltip: Boolean,
+  enableTooltip: {
+    default: true,
+    type: Boolean,
+  },
   hasSortedOptions: {
     default: true,
     type: Boolean,

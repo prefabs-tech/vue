@@ -24,18 +24,12 @@
   --dz-alternate-color: #0284c7;
   --dz-danger-color: #dc3545;
   --dz-success-color: #22c55e;
+  --dz-tip-color: #b6af10;
   --dz-warning-color: #ea580c;
 
   --font-size-max: 1rem;
   --font-size-min: 1rem;
   --font-size-val: 2.5vw;
-
-  --form-input-border-color: #e5e7eb;
-  --form-input-border-color-highlight: #e5e7eb;
-  --form-input-error-font-size: 0.8em;
-  --form-input-margin-bottom: 1em;
-  --form-input-padding-h: 0.5em;
-  --form-input-padding-v: 0.5em;
 
   --loading-button-bg-color: #1c4786;
   --loading-button-color: #ffffff;
@@ -43,6 +37,7 @@
   --message-danger-color: var(--dz-danger-color);
   --message-info-color: var(--dz-primary-color);
   --message-success-color: var(--dz-success-color);
+  --message-tip-color: var(--dz-tip-color);
   --message-warning-color: var(--dz-warning-color);
 
   --nav-item-active-bg: #eff6ff;

@@ -7,7 +7,7 @@
       <AppHeader
         ref="appHeader"
         :no-locale-switcher="noLocaleSwitcher"
-        :no-toggle="!collapsible"
+        :no-toggle="!collapsible || noSidebar"
         no-main-menu
       >
         <template v-if="userMenuLocation === 'header'" #userMenu>
@@ -19,6 +19,7 @@
       </AppHeader>
     </slot>
     <Sidebar
+      v-if="!noSidebar"
       ref="sidebar"
       :collapsible="collapsible"
       :menu="menu"
@@ -34,7 +35,11 @@
         <slot v-if="userMenuLocation === 'sidebar'" name="userMenu"></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
-            <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales" />
+            <LocaleSwitcher
+              v-if="!noLocaleSwitcher"
+              :show-badges="showBadges"
+              class="locales"
+            />
           </slot>
         </template>
       </template>
@@ -52,6 +57,7 @@
 </template>
 
 <script setup lang="ts">
+import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { ref, watch, onUnmounted } from "vue";
 
@@ -61,6 +67,10 @@ import Sidebar from "../components/Sidebar.vue";
 
 import type { SidebarMenu } from "../types";
 import type { PropType } from "vue";
+
+const { layout: layoutConfig } = useConfig();
+
+const showBadges = layoutConfig?.localeSwitcher?.showBadges;
 
 const appHeader = ref();
 const sidebar = ref();
@@ -76,6 +86,10 @@ defineProps({
     type: Array as PropType<SidebarMenu[]>,
   },
   noLocaleSwitcher: Boolean,
+  noSidebar: {
+    default: false,
+    type: Boolean,
+  },
   noSidebarHeader: {
     default: false,
     type: Boolean,
@@ -90,7 +104,7 @@ defineProps({
 watch(
   () => appHeader.value?.expanded,
   (newValue) => {
-    if (newValue) {
+    if (newValue && sidebar.value) {
       sidebar.value.sidebarActive = true;
     }
   },
@@ -99,7 +113,7 @@ watch(
 watch(
   () => sidebar.value?.sidebarActive,
   (newValue) => {
-    if (!newValue) {
+    if (!newValue && sidebar.value) {
       appHeader.value.expanded = false;
     }
   },

@@ -24,13 +24,7 @@
 }
 
 .layout.basic > header {
-  --header-logo-max-width: 120px;
-
   grid-area: header;
-}
-
-.layout.basic > header > nav {
-  gap: 0.25rem;
 }
 
 .layout.basic[aria-expanded=false] > header > nav {
@@ -59,19 +53,6 @@
 }
 
 @media screen and (min-width: 576px) {
-  .layout.basic > :is(footer, main) {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .layout.basic > header {
-    --header-logo-max-width: 150px;
-  }
-
-  .layout.basic > header > nav {
-    gap: var(--header-gap, 1.5rem);
-  }
-
   .layout.basic nav.user-menu-dropdown > ul.dropdown,
   .layout.basic nav.locale-switcher > ul.dropdown
   {
@@ -79,7 +60,7 @@
   }
 
   .layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {
-    --locale-switcher-width: 9rem;
+    --locale-switcher-width: 10rem;
   }
 
   .layout.basic nav.locale-switcher>.locale-trigger {

@@ -10,7 +10,11 @@
 
     <slot name="instructions"></slot>
 
-    <LoginForm :loading="loading" @submit="handleSubmit" />
+    <LoginForm
+      ref="prefabsTechLoginForm"
+      :loading="loading"
+      @submit="handleSubmit"
+    />
 
     <div class="links">
       <router-link
@@ -20,7 +24,15 @@
       >
         {{ t("user.login.links.signup") }}
       </router-link>
-      <router-link :to="{ name: 'resetPasswordRequest' }" class="reset">
+      <router-link
+        :to="{
+          name: 'resetPasswordRequest',
+          ...(prefabsTechLoginForm?.credentials?.email
+            ? { query: { email: prefabsTechLoginForm.credentials.email } }
+            : {}),
+        }"
+        class="reset"
+      >
         {{ t("user.login.links.forgotPassword") }}
       </router-link>
     </div>
@@ -86,6 +98,7 @@ const router = useRouter();
 
 const errorMessage = ref<string>();
 const loading = ref(false);
+const prefabsTechLoginForm = ref();
 
 const handleSubmit = async (credentials: LoginCredentials) => {
   loading.value = true;
@@ -107,12 +120,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
             (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
-          router.push({ name: "home" }).then(() =>
-            emitter.emit("notify", {
-              text: t("user.login.messages.success"),
-              type: "success",
-            }),
-          );
+          router.push({ name: "home" });
         } else {
           emitter.emit("notify", {
             text: t("user.login.messages.permissionDenied"),

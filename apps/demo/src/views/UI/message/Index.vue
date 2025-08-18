@@ -18,16 +18,103 @@
       <h2>{{ $t("ui.message.usage.basic") }}</h2>
 
       <div class="section-content">
-        <Message :message="$t('ui.message.contents.content3')" />
+        <Message
+          :message="$t('ui.message.contents.content2')"
+          severity="info"
+        />
+        <Message
+          :message="$t('ui.message.contents.content3')"
+          severity="success"
+        />
+        <Message
+          :message="$t('ui.message.contents.content4')"
+          severity="danger"
+        />
+        <Message
+          :message="$t('ui.message.contents.content5')"
+          severity="warning"
+        />
+        <Message :message="$t('ui.message.contents.content4')" severity="tip" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Message message="New Year, New You: Start fresh with our services!" /&gt;
+            &lt;Message
+              message="New features just launched! Check them out!"
+              severity="info"
+            /&gt;
+            &lt;Message
+              :message="New Year, New You: Start fresh with our services!"
+              severity="success"
+            /&gt;
+            &lt;Message
+              :message="We value your feedback: take our quick survey!"
+              severity="danger"
+            /&gt;
+            &lt;Message
+              :message="Warning: Limited time only! Sale ends soon!"
+              severity="warning"
+            /&gt;
+            &lt;Message
+              :message="We value your feedback: take our quick survey!"
+              severity="tip"
+            /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt;
             import { Message } from "@prefabs.tech/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.message.usage.enableClose") }}</h2>
+
+      <div class="section-content">
+        <Message
+          :enable-close="false"
+          :message="$t('ui.message.contents.content4')"
+          :show-icon="false"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Message
+              :enable-close="false"
+              :show-icon="false"
+              message="We value your feedback: take our quick survey!"
+            /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Message } from "@prefabs.tech/vue3-ui";
+            import { ref } from "vue";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.message.usage.withI18n") }}</h2>
+
+      <div class="section-content">
+        <Message :message="$t('ui.message.contents.content2')" />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Message :message="t('ui.message.description')" /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Message } from "@prefabs.tech/vue3-ui";
+            import { useI18n } from "@prefabs.tech/vue3-i18n";
+
+            const { t } = useI18n();
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -91,120 +178,6 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.message.usage.enableClose") }}</h2>
-
-      <div class="section-content">
-        <Message
-          :message="$t('ui.message.contents.content4')"
-          :show-icon="false"
-          enable-close
-          @close="showEnableCloseSection = false"
-        />
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Message
-              :show-icon="false"
-              message="We value your feedback: take our quick survey!"
-              enable-close
-              @close="showEnableCloseSection = false"
-            /&gt;
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Message } from "@prefabs.tech/vue3-ui";
-            import { ref } from "vue";
-
-            const showEnableCloseSection = ref(true);
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.message.usage.withI18n") }}</h2>
-
-      <div class="section-content">
-        <Message :message="$t('ui.message.contents.content2')" />
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Message :message="t('ui.message.description')" /&gt;
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Message } from "@prefabs.tech/vue3-ui";
-            import { useI18n } from "@prefabs.tech/vue3-i18n";
-
-            const { t } = useI18n();
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.message.usage.severity") }}</h2>
-
-      <div class="section-content">
-        <Message
-          :message="$t('ui.message.contents.content2')"
-          enable-close
-          severity="info"
-        />
-        <Message
-          :message="$t('ui.message.contents.content3')"
-          enable-close
-          severity="success"
-        />
-        <Message
-          :message="$t('ui.message.contents.content4')"
-          enable-close
-          severity="danger"
-        />
-        <Message
-          :message="$t('ui.message.contents.content5')"
-          enable-close
-          severity="warning"
-        />
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Message
-              message="New features just launched! Check them out!"
-              enable-close
-              severity="info"
-            /&gt;
-            &lt;Message
-              :message="New Year, New You: Start fresh with our services!"
-              enable-close
-              severity="success"
-            /&gt;
-            &lt;Message
-              :message="We value your feedback: take our quick survey!"
-              enable-close
-              severity="danger"
-            /&gt;
-            &lt;Message
-              :message="Warning: Limited time only! Sale ends soon!"
-              enable-close
-              severity="warning"
-            /&gt;
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Message } from "@prefabs.tech/vue3-ui";
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
       <h2>{{ $t("ui.message.usage.messageArray") }}</h2>
 
       <div class="section-content">
@@ -215,14 +188,12 @@
             $t('ui.message.contents.content3'),
             $t('ui.message.contents.content4'),
           ]"
-          enable-close
         />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Message
-              enable-close
               message="[
                 'Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!',
                 'New features just launched! Check them out!',
@@ -254,14 +225,11 @@
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, Message } from "@prefabs.tech/vue3-ui";
-import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 const { t } = useI18n();
-
-const showEnableCloseSection = ref(true);
 
 const eventsData = [
   {
@@ -273,7 +241,7 @@ const eventsData = [
 
 const propsData = [
   {
-    default: "false",
+    default: "true",
     description: t("ui.message.documentation.propsDescription.enableClose"),
     prop: "enableClose",
     type: "Boolean",
@@ -294,7 +262,7 @@ const propsData = [
     default: `"info"`,
     description: t("ui.message.documentation.propsDescription.severity"),
     prop: "severity",
-    type: `"danger" | "info" | "success" | "warning"`,
+    type: `"danger" | "info" | "success" | "tip" | "warning"`,
   },
   {
     default: "true",
@@ -315,27 +283,3 @@ const slotsData = [
   },
 ];
 </script>
-
-<style lang="css">
-.custom-message {
-  --_background-color: #faedc4;
-  --_border-color: #816204;
-  --_message-color: #816204;
-}
-
-.demo-message .container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.demo-message section {
-  margin-bottom: 2.5em;
-}
-
-.demo-message .section-content {
-  display: grid;
-  gap: 1.5rem;
-}
-</style>

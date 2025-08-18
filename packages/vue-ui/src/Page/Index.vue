@@ -20,7 +20,33 @@
       </div>
 
       <div class="page-toolbar">
-        <slot name="toolbar"></slot>
+        <slot name="toolbar">
+          <template v-if="visibleActions?.length && !isLargeScreen">
+            <Dropdown
+              v-if="visibleActions?.length > 1"
+              :menu="visibleActions"
+              @select="onActionClick($event)"
+            />
+
+            <ButtonElement
+              v-else
+              v-bind="visibleActions[0]"
+              :icon-left="
+                String(visibleActions[0]?.icon ?? visibleActions[0]?.iconLeft)
+              "
+              @click="onActionClick(visibleActions[0])"
+            />
+          </template>
+          <template v-else-if="visibleActions?.length">
+            <ButtonElement
+              v-for="(actionMenu, index) in visibleActions"
+              v-bind="actionMenu"
+              :key="`${actionMenu?.label}-${index}`"
+              :icon-left="String(actionMenu?.icon ?? actionMenu?.iconLeft)"
+              @click="onActionClick(actionMenu)"
+            />
+          </template>
+        </slot>
       </div>
     </div>
 
@@ -39,12 +65,20 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useWindowSize } from "@vueuse/core";
+import { computed } from "vue";
+
 import BadgeComponent from "../Badge/Index.vue";
+import ButtonElement from "../Button/Index.vue";
+import Dropdown from "../Dropdown/Index.vue";
 import LoadingPage from "../LoadingPage/Index.vue";
 
+import type { ToolbarActionMenu } from "../types/page";
 import type { PropType } from "vue";
 
-defineProps({
+const { width: windowWidth } = useWindowSize();
+
+const props = defineProps({
   centered: Boolean,
   loading: Boolean,
   subTitle: {
@@ -67,5 +101,21 @@ defineProps({
     default: undefined,
     type: String,
   },
+  toolbarActionsMenu: {
+    default: () => [],
+    type: Array as PropType<ToolbarActionMenu[]>,
+  },
 });
+
+const emit = defineEmits(["action:click"]);
+
+const isLargeScreen = computed(() => windowWidth.value > 576);
+
+const visibleActions = computed(() =>
+  props.toolbarActionsMenu.filter((action) => action.display !== false),
+);
+
+const onActionClick = (actionMenu: ToolbarActionMenu) => {
+  emit("action:click", actionMenu);
+};
 </script>
