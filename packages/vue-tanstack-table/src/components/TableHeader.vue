@@ -153,7 +153,8 @@
             <div class="number-range-filter">
               <NumberInput
                 :model-value="
-                  Array.isArray(getColumnFilterValue(column))
+                  Array.isArray(getColumnFilterValue(column)) &&
+                  getColumnFilterValue(column)[0] !== null
                     ? Number(getColumnFilterValue(column)[0])
                     : undefined
                 "
@@ -163,7 +164,8 @@
               />
               <NumberInput
                 :model-value="
-                  Array.isArray(getColumnFilterValue(column))
+                  Array.isArray(getColumnFilterValue(column)) &&
+                  getColumnFilterValue(column)[1] !== null
                     ? Number(getColumnFilterValue(column)[1])
                     : undefined
                 "
