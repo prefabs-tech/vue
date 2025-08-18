@@ -1,5 +1,6 @@
 import { TABLE_STATE_PREFIX } from "./constants";
 import { getStorage } from "@prefabs.tech/vue3-ui";
+import { FILTER_FUNCTIONS_ENUM, FILTER_OPERATORS_ENUM } from "./enums";
 
 import type {
   CellAlignmentType,
@@ -30,51 +31,49 @@ export const formatNumber = ({
   return formatter.format(value);
 };
 
-
-const getFilterOperator = (
-  filterFunction: TFilterFunction,
-): { operator: string; not?: boolean } => {
+const getFilterOperator = (filterFunction: TFilterFunction) => {
   switch (filterFunction) {
-    case "contains":
-      return { operator: "ct" };
-    case "startsWith":
-      return { operator: "sw" };
-    case "endsWith":
-      return { operator: "ew" };
-    case "equals":
-      return { operator: "eq" };
-    case "notEqual":
-      return { operator: "eq", not: true };
-    case "greaterThan":
-      return { operator: "gt" };
-    case "greaterThanOrEqual":
-      return { operator: "gte" };
-    case "lessThanOrEqual":
-      return { operator: "lte" };
-    case "lessThan":
-      return { operator: "lt" };
-    case "in":
-      return { operator: "in" };
-    case "notIn":
-      return { operator: "in", not: true };
-    case "between":
-      return { operator: "bt" };
-    case "notBetween":
-      return { operator: "bt", not: true };
-    case "isNull":
-      return { operator: "null" };
-    case "isNotNull":
-      return { operator: "null", not: true };
-    case "isEmpty":
-      return { operator: "empty" };
-    case "isNotEmpty":
-      return { operator: "empty", not: true };
-    case "like":
-      return { operator: "like" };
-    case "notLike":
-      return { operator: "like", not: true };
+    case FILTER_FUNCTIONS_ENUM.CONTAINS:
+      return { operator: FILTER_OPERATORS_ENUM.CONTAINS };
+    case FILTER_FUNCTIONS_ENUM.STARTS_WITH:
+      return { operator: FILTER_OPERATORS_ENUM.STARTS_WITH };
+    case FILTER_FUNCTIONS_ENUM.ENDS_WITH:
+      return { operator: FILTER_OPERATORS_ENUM.ENDS_WITH };
+    case FILTER_FUNCTIONS_ENUM.EQUALS:
+      return { operator: FILTER_OPERATORS_ENUM.EQUALS };
+    case FILTER_FUNCTIONS_ENUM.NOT_EQUAL:
+      return { operator: FILTER_OPERATORS_ENUM.EQUALS, not: true };
+    case FILTER_FUNCTIONS_ENUM.GREATER_THAN:
+      return { operator: FILTER_OPERATORS_ENUM.GREATER_THAN };
+    case FILTER_FUNCTIONS_ENUM.GREATER_THAN_OR_EQUAL:
+      return { operator: FILTER_OPERATORS_ENUM.GREATER_THAN_OR_EQUAL };
+    case FILTER_FUNCTIONS_ENUM.LESS_THAN:
+      return { operator: FILTER_OPERATORS_ENUM.LESS_THAN };
+    case FILTER_FUNCTIONS_ENUM.LESS_THAN_OR_EQUAL:
+      return { operator: FILTER_OPERATORS_ENUM.LESS_THAN_OR_EQUAL };
+    case FILTER_FUNCTIONS_ENUM.IS_NULL:
+      return { operator: FILTER_OPERATORS_ENUM.NULL };
+    case FILTER_FUNCTIONS_ENUM.IS_NOT_NULL:
+      return { operator: FILTER_OPERATORS_ENUM.NULL, not: true };
+    case FILTER_FUNCTIONS_ENUM.IS_EMPTY:
+      return { operator: FILTER_OPERATORS_ENUM.EMPTY };
+    case FILTER_FUNCTIONS_ENUM.IS_NOT_EMPTY:
+      return { operator: FILTER_OPERATORS_ENUM.EMPTY, not: true };
+    case FILTER_FUNCTIONS_ENUM.LIKE:
+      return { operator: FILTER_OPERATORS_ENUM.LIKE };
+    case FILTER_FUNCTIONS_ENUM.NOT_LIKE:
+      return { operator: FILTER_OPERATORS_ENUM.LIKE, not: true };
+    case FILTER_FUNCTIONS_ENUM.IN:
+      return { operator: FILTER_OPERATORS_ENUM.IN };
+    case FILTER_FUNCTIONS_ENUM.NOT_IN:
+      return { operator: FILTER_OPERATORS_ENUM.IN, not: true };
+    case FILTER_FUNCTIONS_ENUM.BETWEEN:
+      return { operator: FILTER_OPERATORS_ENUM.BETWEEN };
+    case FILTER_FUNCTIONS_ENUM.NOT_BETWEEN:
+      return { operator: FILTER_OPERATORS_ENUM.BETWEEN, not: true };
+
     default:
-      return { operator: "ct" };
+      throw new Error(`Unhandled filter function: ${filterFunction}`);
   }
 };
 
