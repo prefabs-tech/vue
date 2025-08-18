@@ -12,7 +12,8 @@ import type {
   TSortDirection,
 } from "./types";
 import type { StorageType } from "@prefabs.tech/vue3-ui";
-import type { 
+import type {
+  ColumnFilter,
   ColumnFiltersState,
   PaginationState,
   SortingState,
@@ -108,6 +109,40 @@ export const getAlignValue = ({
   }
 };
 
+const getRangeFilter = (filterState: ColumnFilter) => {
+  const values = (filterState.value as string[]).filter((value) =>
+    isDefined(value),
+  );
+
+  if (values.length < 1) {
+    return null;
+  }
+
+  if (filterState.filterFn === FILTER_FUNCTIONS_ENUM.BETWEEN) {
+    return values.length > 1
+      ? {
+          key: filterState.id,
+          ...getFilterOperator(filterState.filterFn),
+          value: values.slice(0, 2).join(","),
+        }
+      : null;
+  }
+
+  if (filterState.filterFn && !isRangeFilter(filterState.filterFn)) {
+    return {
+      key: filterState.id,
+      ...getFilterOperator(filterState.filterFn),
+      value: values[0],
+    };
+  }
+
+  return {
+    key: filterState.id,
+    ...getFilterOperator(filterState.filterFn || FILTER_FUNCTIONS_ENUM.IN),
+    value: values.join(","),
+  };
+};
+
 export const getRequestJSON = (
   sortingState?: SortingState,
   filterState?: ColumnFiltersState,
@@ -118,7 +153,9 @@ export const getRequestJSON = (
 
     const updatedFilterState = filterState.filter((filter) => {
       if (Array.isArray(filter.value)) {
-        return filter.value.length > 0;
+        const values = filter.value.filter((value) => isDefined(value));
+
+        return values.length > 0;
       }
 
       if (typeof filter.value === "string") {
@@ -132,16 +169,12 @@ export const getRequestJSON = (
 
     if (updatedFilterState.length === 1) {
       if (Array.isArray(updatedFilterState[0].value)) {
-        return {
-          key: updatedFilterState[0].id,
-          ...getFilterOperator(updatedFilterState[0].filterFn || "in"),
-          value: updatedFilterState[0].value.filter((value) => value !== undefined).join(","),
-        };
+        return getRangeFilter(updatedFilterState[0]);
       }
 
       return {
         key: updatedFilterState[0].id,
-        ...getFilterOperator(updatedFilterState[0].filterFn || "contains"),
+        ...getFilterOperator(updatedFilterState[0].filterFn || FILTER_FUNCTIONS_ENUM.CONTAINS),
         value: String(updatedFilterState[0].value),
       };
     }
@@ -149,16 +182,12 @@ export const getRequestJSON = (
     return {
       AND: updatedFilterState.map((filter) => {
         if (Array.isArray(filter.value)) {
-          return {
-            key: filter.id,
-            ...getFilterOperator(filter.filterFn || "in"),
-            value: filter.value.filter((value) => value !== undefined).join(","),
-          };
+          return getRangeFilter(filter);
         }
 
         return {
           key: filter.id,
-          ...getFilterOperator(filter.filterFn || "contains"),
+          ...getFilterOperator(filter.filterFn || FILTER_FUNCTIONS_ENUM.CONTAINS),
           value: String(filter.value),
         };
       }),
@@ -250,4 +279,17 @@ export const clearSavedTableStates = (
       storage.removeItem(key);
     }
   });
+};
+
+export const isRangeFilter = (filterFunction: TFilterFunction) => {
+  return [
+    FILTER_FUNCTIONS_ENUM.IN,
+    FILTER_FUNCTIONS_ENUM.NOT_IN,
+    FILTER_FUNCTIONS_ENUM.BETWEEN,
+    FILTER_FUNCTIONS_ENUM.NOT_BETWEEN,
+  ].includes(filterFunction as FILTER_FUNCTIONS_ENUM);
+};
+
+export const isDefined = <T>(value: T | undefined | null) => {
+  return value !== undefined && value !== null;
 };
