@@ -693,6 +693,7 @@
           ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
           :paginated="false"
+          single-action-mode="button"
           @action:click="(data) => {}"
         />
 
@@ -709,6 +710,7 @@
               ]"
               :initial-sorting="[{ id: 'email', desc: false }]"
               :paginated="false"
+              single-action-mode="button"
               @action:click="(data) => {}"
             /&gt;
           &lt;/template&gt;
