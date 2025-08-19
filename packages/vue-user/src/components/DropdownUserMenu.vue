@@ -68,7 +68,11 @@
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 15.25a.74.74 0 0 1-.53-.22l-5-5A.75.75 0 0 1 7.53 9L12 13.44L16.47 9a.75.75 0 0 1 1.06 1l-5 5a.74.74 0 0 1-.53.25"
+            d="M12 21A9 9 0 0 1 5.64 5.64a.74.74 0 0 1 1.06 0a.75.75 0 0 1 0 1.06a7.5 7.5 0 1 0 10.6 10.6a7.48 7.48 0 0 0 0-10.6a.75.75 0 0 1 0-1.06a.74.74 0 0 1 1.06 0A9 9 0 0 1 12 21"
+            fill="currentColor"
+          />
+          <path
+            d="M12 12.75a.76.76 0 0 1-.75-.75V4a.75.75 0 0 1 1.5 0v8a.76.76 0 0 1-.75.75"
             fill="currentColor"
           />
         </svg>
@@ -159,7 +163,7 @@ nav.user-menu-dropdown span.toggle {
   font-size: 1.5rem;
   line-height: 1.25rem;
   text-align: center;
-  width: 1.5rem;
+  width: 1rem;
 }
 
 nav.user-menu-dropdown.expanded,

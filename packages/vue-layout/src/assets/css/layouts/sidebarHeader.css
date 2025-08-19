@@ -56,19 +56,6 @@
   --locale-switcher-hover-color: var(--nav-item-hover-bg, #f0f2f7ad);
 }
 
-.sidebar-header-layout .sidebar-menu-wrapper .locales .truncated > svg {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
-}
-
-.sidebar-header-layout
-  .sidebar-menu-wrapper
-  .locales.expanded
-  .truncated
-  > svg {
-  transform: rotate(0);
-}
-
 .sidebar-header-layout .sidebar-menu-wrapper .locales ul.dropdown {
   --locale-switcher-bg-color: var(--sidebar-bg-color, #fff);
   --locale-switcher-border: none;
