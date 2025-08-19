@@ -159,13 +159,11 @@ nav.user-menu-dropdown > .trigger {
 }
 
 nav.user-menu-dropdown span.toggle {
-  align-self: center;
-  display: block;
+  align-self: start;
   font-size: 1.5rem;
   line-height: 1.25rem;
-  margin-left: 0.5rem;
   text-align: center;
-  width: 1.25rem;
+  width: 1rem;
 }
 
 nav.user-menu-dropdown.expanded,

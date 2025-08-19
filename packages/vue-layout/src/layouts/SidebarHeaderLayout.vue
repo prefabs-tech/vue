@@ -1,10 +1,13 @@
 <template>
   <div
-    :aria-expanded="appHeader?.expanded"
+    :aria-expanded="
+      isLargeScreen ? appHeader?.expanded : sidebar?.sidebarActive
+    "
     :class="['layout sidebar-header-layout', { collapsible: collapsible }]"
   >
     <slot name="header">
       <AppHeader
+        v-show="isLargeScreen"
         ref="appHeader"
         :no-locale-switcher="noLocaleSwitcher"
         :no-toggle="!collapsible || noSidebar"
@@ -19,11 +22,11 @@
       </AppHeader>
     </slot>
     <Sidebar
-      v-if="!noSidebar"
+      v-if="!noSidebar || !isLargeScreen"
       ref="sidebar"
-      :collapsible="collapsible"
+      :collapsible="collapsible && isLargeScreen"
       :menu="menu"
-      :no-header="noSidebarHeader"
+      :no-header="isLargeScreen"
       class="layout-sidebar"
     >
       <template #afterNavLinks>
@@ -32,7 +35,10 @@
 
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
-        <slot v-if="userMenuLocation === 'sidebar'" name="userMenu"></slot>
+        <slot
+          v-if="userMenuLocation === 'sidebar' && !noSidebar"
+          name="userMenu"
+        ></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
             <LocaleSwitcher
@@ -59,7 +65,8 @@
 <script setup lang="ts">
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
-import { ref, watch, onUnmounted } from "vue";
+import { useWindowSize } from "@vueuse/core";
+import { computed, ref, onUnmounted, onMounted } from "vue";
 
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
@@ -71,6 +78,8 @@ import type { PropType } from "vue";
 const { layout: layoutConfig } = useConfig();
 
 const showBadges = layoutConfig?.localeSwitcher?.showBadges;
+
+const { width: windowWidth } = useWindowSize();
 
 const appHeader = ref();
 const sidebar = ref();
@@ -90,10 +99,6 @@ defineProps({
     default: false,
     type: Boolean,
   },
-  noSidebarHeader: {
-    default: false,
-    type: Boolean,
-  },
   userMenuLocation: {
     default: "sidebar",
     type: String,
@@ -101,31 +106,29 @@ defineProps({
   },
 });
 
-watch(
-  () => appHeader.value?.expanded,
-  (newValue) => {
-    if (newValue && sidebar.value) {
-      sidebar.value.sidebarActive = true;
-    }
-  },
-);
-
-watch(
-  () => sidebar.value?.sidebarActive,
-  (newValue) => {
-    if (!newValue && sidebar.value) {
-      appHeader.value.expanded = false;
-    }
-  },
-);
+const isLargeScreen = computed(() => windowWidth.value > 576);
 
 const handleResize = () => {
   if (window.innerWidth >= 576) {
     sidebarLocaleSwitcher.value = false;
+
+    if (sidebar.value) {
+      sidebar.value.sidebarActive = true;
+    }
   } else {
     sidebarLocaleSwitcher.value = true;
+
+    if (sidebar.value) {
+      sidebar.value.sidebarActive = false;
+    }
   }
 };
+
+onMounted(() => {
+  if (window.innerWidth < 576 && sidebar.value) {
+    sidebar.value.sidebarActive = false;
+  }
+});
 
 onUnmounted(() => {
   window.removeEventListener("resize", handleResize);

@@ -5,7 +5,6 @@
     :no-locale-switcher="noLocaleSwitcher"
     :no-sidebar="!user"
     :user-menu-location="userMenuLocation"
-    no-sidebar-header
   >
     <template #header>
       <slot name="header"></slot>

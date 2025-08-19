@@ -36,7 +36,7 @@ nav.locale-switcher > .locale-trigger > span {
   font-size: 1.5rem;
   line-height: 1.25rem;
   text-align: center;
-  width: 1.5rem;
+  width: 1rem;
 }
 
 nav.locale-switcher > ul.dropdown {
@@ -95,5 +95,5 @@ nav.locale-switcher > .dropdown > li.current {
 }
 
 nav.locale-switcher.expanded .truncated > svg {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }

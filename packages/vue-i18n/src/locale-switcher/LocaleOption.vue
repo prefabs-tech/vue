@@ -32,7 +32,7 @@ defineProps({
 });
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .locale {
   align-items: center;
   display: flex;
