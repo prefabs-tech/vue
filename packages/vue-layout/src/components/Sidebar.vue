@@ -1,30 +1,34 @@
 <template>
-  <div
-    v-if="!isInactive || !collapsible"
-    :class="['sidebar', { collapsible: collapsible }]"
-  >
+  <div v-if="!isInactive" :class="['sidebar', { collapsible: collapsible }]">
     <div v-if="!noHeader" class="header">
       <Logo />
       <div class="title">
         <slot name="title"></slot>
       </div>
       <slot name="toggleIcons">
-        <div
-          class="toggle"
-          @click="sidebarActive = !sidebarActive && collapsible"
-        >
+        <div class="toggle" @click="sidebarActive = !sidebarActive">
           <transition name="sidebar-toggle">
-            <img
+            <svg
               v-if="sidebarActive"
-              alt="minimize sidebar"
-              src="../assets/svg/left-chevron.svg"
-            />
-            <img
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m13.06 12l4.42-4.42a.75.75 0 1 0-1.06-1.06L12 10.94L7.58 6.52a.75.75 0 0 0-1.06 1.06L10.94 12l-4.42 4.42a.75.75 0 0 0 0 1.06a.75.75 0 0 0 1.06 0L12 13.06l4.42 4.42a.75.75 0 0 0 1.06 0a.75.75 0 0 0 0-1.06Z"
+                fill="currentColor"
+              />
+            </svg>
+            <svg
               v-else
               class="extend"
-              alt="extend sidebar"
-              src="../assets/svg/right-chevron.svg"
-            />
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 12.75H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 0 1.5m0-4.5H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 0 1.5m0 9H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 0 1.5"
+                fill="currentColor"
+              />
+            </svg>
           </transition>
         </div>
       </slot>
@@ -83,7 +87,7 @@ const props = defineProps({
 });
 
 const isInactive = computed(() => {
-  if (!sidebarActive.value) {
+  if (!sidebarActive.value && props.collapsible) {
     return !props.menu?.filter((item) => !!item.shortName)?.length;
   }
 
