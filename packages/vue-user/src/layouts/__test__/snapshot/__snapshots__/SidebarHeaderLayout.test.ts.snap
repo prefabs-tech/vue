@@ -3,7 +3,6 @@
 exports[`SidebarHeaderLayout > matches snapshot 1`] = `
 <div
   class="layout sidebar-header-layout collapsible"
-  no-sidebar-header=""
 >
   
   <header>
