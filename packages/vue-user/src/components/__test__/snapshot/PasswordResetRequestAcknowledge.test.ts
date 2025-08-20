@@ -1,31 +1,23 @@
+import configPlugin from "@prefabs.tech/vue3-config";
 import i18Plugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { LoadingButton, LoadingIcon } from "@prefabs.tech/vue3-ui";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { createPinia } from "pinia";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { useRouter } from "vue-router";
+import { describe, it, expect } from "vitest";
 
-import appConfig from "../../../components/__test__/config";
+import appConfig from "../config";
 import PasswordResetRequestAcknowledge from "../../PasswordResetRequestAcknowledge.vue";
+
+import router from "../../../views/__test__/router";
 
 import type { VueWrapper } from "@vue/test-utils";
 
-vi.mock("vue-router");
-
-describe("PasswordResetRequestAcknowledge", async () => {
+describe("PasswordResetRequestAcknowledge", () => {
   const pinia = createPinia();
 
   const { setLocale } = useLocaleStore(appConfig.slug);
 
   const locales = ["en", "fr"];
-
-  useRouter.mockReturnValue({
-    push: vi.fn(),
-  });
-
-  beforeEach(() => {
-    useRouter().push.mockReset();
-  });
 
   for (const locale of locales) {
     setLocale(locale);
@@ -37,6 +29,12 @@ describe("PasswordResetRequestAcknowledge", async () => {
           LoadingIcon,
         },
         plugins: [
+          [
+            configPlugin,
+            {
+              config: appConfig,
+            },
+          ],
           pinia,
           [
             i18Plugin,
@@ -44,6 +42,7 @@ describe("PasswordResetRequestAcknowledge", async () => {
               config: appConfig,
             },
           ],
+          router,
         ],
         stubs: {
           RouterLink: RouterLinkStub,
@@ -51,12 +50,8 @@ describe("PasswordResetRequestAcknowledge", async () => {
       },
     });
 
-    await wrapper.find("button").trigger("click");
-
-    it("Redirects to login page", () => {
-      expect(useRouter().push).toHaveBeenCalledWith({
-        name: "login",
-      });
+    it("matches snapshot in " + locale, () => {
+      expect(wrapper.element).toMatchSnapshot();
     });
   }
 });

@@ -277,6 +277,17 @@
         },
         "title": "Reset password"
       },
+      "passwordResetAcknowledge": {
+        "actions": {
+          "resend": "Resend"
+        },
+        "label": {
+          "notReceived": "Didn't receive the email? ",
+          "resendIn": "Resend in {0}"
+        },
+        "message": "An email with a link to reset your password was sent to {0}. Follow the instructions in the email to access your account.",
+        "title": "Check your email"
+      },
       "passwordResetRequest": {
         "form": {
           "actions": {
@@ -699,6 +710,17 @@
           }
         },
         "title": "Reset password (fr)"
+      },
+      "passwordResetAcknowledge": {
+        "actions": {
+          "resend": "Resend"
+        },
+        "label": {
+          "notReceived": "Didn't receive the email? ",
+          "resendIn": "Resend in {0}"
+        },
+        "message": "An email with a link to reset your password was sent to {0}. Follow the instructions in the email to access your account.",
+        "title": "Check your email"
       },
       "passwordResetRequest": {
         "form": {

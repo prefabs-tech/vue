@@ -1,5 +1,6 @@
 .page {
   --_page-gap: var(--page-gap, 1.5rem);
+  --_page-max-width: var(--page-centered-max-width, 954px);
 
   display: flex;
   flex-direction: column;
@@ -9,7 +10,7 @@
 .page[data-centered="true"] {
   justify-items: center;
   margin: auto;
-  max-width: var(--page-max-width);
+  max-width: var(--_page-max-width);
 }
 
 .page > .page-header {

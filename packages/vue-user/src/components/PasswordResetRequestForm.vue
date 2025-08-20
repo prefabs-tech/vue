@@ -53,11 +53,11 @@ const props = defineProps({
   loading: Boolean,
 });
 
-const emit = defineEmits(["submit"]);
-
 let payload = {
   email: props.email,
 } as PasswordResetRequestPayload;
+
+const emit = defineEmits(["submit"]);
 
 const onSubmit = (payload: PasswordResetRequestPayload) => {
   emit("submit", payload);
