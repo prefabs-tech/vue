@@ -37,7 +37,11 @@
       <slot> </slot>
       <ul class="nav">
         <slot name="links">
-          <NavMenu :menu="menu" :sidebar-active="sidebarActive" />
+          <NavMenu
+            :menu="menu"
+            :sidebar-active="sidebarActive"
+            @select:menu="$emit('select:menu')"
+          />
         </slot>
         <slot name="afterNavLinks"></slot>
       </ul>
@@ -85,6 +89,8 @@ const props = defineProps({
     type: Boolean,
   },
 });
+
+defineEmits(["select:menu"]);
 
 const isInactive = computed(() => {
   if (!sidebarActive.value && props.collapsible) {

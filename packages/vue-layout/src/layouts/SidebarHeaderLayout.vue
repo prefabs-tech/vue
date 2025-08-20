@@ -28,6 +28,7 @@
       :menu="menu"
       :no-header="isLargeScreen"
       class="layout-sidebar"
+      @select:menu="onSelectMenu"
     >
       <template #afterNavLinks>
         <slot name="afterNavLinks"></slot>
@@ -124,6 +125,12 @@ const handleResize = () => {
   }
 };
 
+const onSelectMenu = () => {
+  if (!isLargeScreen.value) {
+    sidebar.value.sidebarActive = false;
+  }
+};
+
 onMounted(() => {
   if (window.innerWidth < 576 && sidebar.value) {
     sidebar.value.sidebarActive = false;
@@ -137,6 +144,10 @@ onUnmounted(() => {
 window.addEventListener("resize", handleResize);
 
 handleResize();
+
+defineExpose({
+  onSelectMenu,
+});
 </script>
 
 <style lang="css">

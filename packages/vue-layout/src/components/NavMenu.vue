@@ -6,6 +6,7 @@
         :key="menuItem.name + '-' + index"
         :item="menuItem"
         :sidebar-active="sidebarActive"
+        @select:menu="$emit('select:menu')"
       />
     </div>
   </nav>
@@ -36,6 +37,8 @@ const props = defineProps({
     type: Boolean,
   },
 });
+
+defineEmits(["select:menu"]);
 
 const sideBarMenuToShow = computed(() => {
   return props.menu

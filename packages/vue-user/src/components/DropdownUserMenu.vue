@@ -28,7 +28,7 @@
       </span>
     </div>
     <ul class="dropdown">
-      <li v-if="!isSocialLoggedIn">
+      <li v-if="!isSocialLoggedIn" @click="$emit('select:menu')">
         <router-link class="user-menu-link" :to="{ name: 'changePassword' }">
           <svg
             height="24"
@@ -44,7 +44,7 @@
           {{ $t("app.header.menu.changePassword") }}
         </router-link>
       </li>
-      <li>
+      <li @click="$emit('select:menu')">
         <router-link :to="{ name: 'profile' }">
           <svg
             height="24"
@@ -60,7 +60,7 @@
           {{ $t("app.header.menu.profile") }}
         </router-link>
       </li>
-      <li class="option" @click="$emit('logout')">
+      <li class="option" @click="[$emit('logout'), $emit('select:menu')]">
         <svg
           height="24"
           viewBox="0 0 24 24"
@@ -98,7 +98,7 @@ import type { PropType } from "vue";
 
 const expanded = ref(false);
 
-defineEmits(["logout"]);
+defineEmits(["logout", "select:menu"]);
 
 const props = defineProps({
   user: {

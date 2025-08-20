@@ -1,5 +1,6 @@
 <template>
   <Layout
+    ref="prefabsTechLayout"
     :collapsible="collapsible"
     :menu="menu"
     :no-locale-switcher="noLocaleSwitcher"
@@ -15,7 +16,10 @@
     </template>
 
     <template #userMenu>
-      <UserMenu v-if="showUserMenu">
+      <UserMenu
+        v-if="showUserMenu"
+        @select:menu="prefabsTechLayout.onSelectMenu"
+      >
         <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
           <slot name="userMenuTrigger"></slot>
         </template>
@@ -48,7 +52,7 @@ export default {
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { SidebarHeaderLayout as Layout } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 
 import UserMenu from "../components/UserMenu.vue";
@@ -83,6 +87,8 @@ const { layout: layoutConfig } = useConfig();
 const router = useRouter();
 
 const allRoutes = router.getRoutes();
+
+const prefabsTechLayout = ref();
 
 const menu = computed(() => {
   let menuItems = layoutConfig?.mainMenu || [];

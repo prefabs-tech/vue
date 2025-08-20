@@ -3,6 +3,7 @@
     v-if="user"
     class="user-menu"
     :user="user"
+    @select:menu="$emit('select:menu')"
     @logout="handleLogout"
   >
     <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
@@ -34,9 +35,12 @@ const { logout } = userStore;
 
 const router = useRouter();
 
+const emit = defineEmits(["select:menu"]);
+
 const handleLogout = async () => {
   await logout();
 
   router.push({ name: "login" });
+  emit("select:menu");
 };
 </script>

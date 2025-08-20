@@ -44,6 +44,7 @@
           :key="child.name + '-' + index"
           :item="child"
           :sidebar-active="sidebarActive"
+          @select:menu="$emit('select:menu')"
         />
       </div>
     </transition>
@@ -78,6 +79,8 @@ const props = defineProps({
     type: Boolean,
   },
 });
+
+const emit = defineEmits(["select:menu"]);
 
 const route = useRoute();
 const router = useRouter();
@@ -128,8 +131,10 @@ const getRouteNameFromPath = (path: string) => {
 const onClick = () => {
   if (props.item.routeName) {
     router.push({ name: props.item.routeName });
+    emit("select:menu");
   } else if (!props.item.routeName && !props.item.children?.length) {
     router.push({ name: currentParentRouteName.value });
+    emit("select:menu");
   } else {
     showChildren.value = !showChildren.value;
   }
