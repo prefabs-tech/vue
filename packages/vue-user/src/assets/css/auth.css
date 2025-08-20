@@ -16,28 +16,12 @@
 }
 
 .auth .links a {
-  color: var(--auth-page-link-color, #1c4786);
+  color: var(--dz-primary-color);
   text-decoration: none;
 }
 
-.auth .links a:only-child {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.auth.password-reset-acknowledge .redirect {
-  font-size: 80%;
-  font-style: italic;
-}
-
-.auth.password-reset-acknowledge .email {
-  font-weight: bold;
-}
-
-.auth.password-reset-acknowledge .seconds {
-  font-size: 150%;
-  font-style: normal;
-  font-weight: bold;
+.auth .links a:hover {
+  text-decoration: underline;
 }
 
 .auth .social-login-wrapper > button {
@@ -49,8 +33,11 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 430px;
   width: 100%;
+}
+
+.auth.page:not(.password-reset-acknowledge) > .page-content {
+  max-width: 430px;
 }
 
 .auth.verify-email, .auth.verify-email-reminder {

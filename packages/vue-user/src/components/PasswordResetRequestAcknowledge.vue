@@ -38,7 +38,6 @@ import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { formatDuration } from "@prefabs.tech/vue3-ui";
 import { onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
 
 import { useTranslations } from "../index";
 
@@ -49,8 +48,6 @@ const { user: userConfig } = useConfig() as AppConfig;
 const messages = useTranslations();
 
 const { t } = useI18n({ messages });
-
-const route = useRoute();
 
 defineProps({
   email: {
@@ -66,10 +63,6 @@ const timer = ref<number>(
 );
 
 const redirectCountDown = () => {
-  if (!route.query.email) {
-    timer.value = 0;
-  }
-
   setTimeout(() => {
     timer.value--;
     redirectCountDown();
@@ -86,6 +79,10 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.acknowledgement-content .email {
+  font-weight: 600;
 }
 
 .acknowledgement-content .resend {

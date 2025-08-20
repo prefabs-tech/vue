@@ -11,6 +11,7 @@
         ? 'password-reset-acknowledge'
         : 'password-reset-request',
     ]"
+    centered
   >
     <slot name="instructions"></slot>
 
