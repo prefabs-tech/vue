@@ -13,7 +13,6 @@
   --_layout-sidebar-collapsed-width: var(--layout-sidebar-collapsed-width, 0);
   
   grid-area: header;
-  position: absolute;
   transition: width 0.3s ease-in-out;
   z-index: 100;
 }
@@ -42,6 +41,7 @@
   --_width: 100%;
 
   height: 100dvh;
+  position: absolute;
 }
 
 .layout.sidebar-header-layout > header {
@@ -141,6 +141,7 @@
     --_width: var(--sidebar-width, 16rem);
 
     height: auto;
+    position: relative;
   }
 
   .layout.sidebar-header-layout[aria-expanded="false"] > .layout-sidebar {
