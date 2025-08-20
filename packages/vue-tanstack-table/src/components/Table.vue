@@ -74,6 +74,7 @@ import {
 } from "@tanstack/vue-table";
 import { computed, h, ref, watch } from "vue";
 
+import { FILTER_FUNCTIONS_ENUM } from "../enums";
 import Pagination from "./Pagination.vue";
 import TableBody from "./TableBody.vue";
 import TableDataActions from "./TableDataActions.vue";
@@ -309,11 +310,11 @@ const table = computed(() =>
                 (typeof min === "number" &&
                 typeof max === "number" &&
                 min <= max
-                  ? "between"
+                  ? FILTER_FUNCTIONS_ENUM.BETWEEN
                   : typeof min === "number" && !max
-                    ? "greaterThanOrEqual"
+                    ? FILTER_FUNCTIONS_ENUM.GREATER_THAN_OR_EQUAL
                     : typeof max === "number"
-                      ? "lessThanOrEqual"
+                      ? FILTER_FUNCTIONS_ENUM.LESS_THAN_OR_EQUAL
                       : null);
 
               if (filterFn && rangeFilterValue?.length) {
