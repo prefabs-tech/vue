@@ -86,10 +86,17 @@ onMounted(() => {
 }
 
 .acknowledgement-content .resend {
+  align-items: baseline;
   display: flex;
   font-style: italic;
-  align-items: baseline;
   gap: 0.25rem;
+}
+
+.acknowledgement-content .resend .disabled {
+  color: var(--color);
+  cursor: not-allowed;
+  opacity: 0.8;
+  text-decoration: none;
 }
 
 .acknowledgement-content .resend .resend-link {
@@ -99,12 +106,5 @@ onMounted(() => {
 
 .acknowledgement-content .resend .resend-link:hover {
   text-decoration: underline;
-}
-
-.acknowledgement-content .resend .disabled {
-  color: var(--color);
-  cursor: not-allowed;
-  opacity: 0.8;
-  text-decoration: none;
 }
 </style>

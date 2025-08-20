@@ -1,16 +1,16 @@
 <template>
   <Page
-    :title="
-      showAknowledgement
-        ? t('user.passwordResetAcknowledge.title')
-        : t('user.passwordResetRequest.title')
-    "
     :class="[
       'auth',
       showAknowledgement
         ? 'password-reset-acknowledge'
         : 'password-reset-request',
     ]"
+    :title="
+      showAknowledgement
+        ? t('user.passwordResetAcknowledge.title')
+        : t('user.passwordResetRequest.title')
+    "
     centered
   >
     <slot name="instructions"></slot>
