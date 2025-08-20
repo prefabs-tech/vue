@@ -5,10 +5,10 @@ import { mount, RouterLinkStub } from "@vue/test-utils";
 import { createPinia } from "pinia";
 import { describe, it, expect } from "vitest";
 
-import appConfig from "@/components/__test__/config";
-import PasswordResetRequestAcknowledge from "@/views/PasswordResetRequestAcknowledge.vue";
+import appConfig from "../config";
+import PasswordResetRequestAcknowledge from "../../PasswordResetRequestAcknowledge.vue";
 
-import router from "../router";
+import router from "../../../views/__test__/router";
 
 import type { VueWrapper } from "@vue/test-utils";
 

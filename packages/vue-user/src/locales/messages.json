@@ -281,12 +281,12 @@
         "actions": {
           "resend": "Resend"
         },
-        "content": "We are processing your request to reset the password for email {0}. If a user account exists for this email address, it will receive in the next few minutes an email containing instructions on how to reset their password.",
+        "message": "An email with a link to reset your password was sent to {0}. Follow the instructions in the email to access your account.",
         "label": {
-          "notReceived": "Not received yet? ",
-          "redirect": "Redirecting automatically in {0} seconds"
+          "notReceived": "Didn't receive the email? ",
+          "resendIn": "Resend in {0}"
         },
-        "title": "Resetting your password"
+        "title": "Check your email"
       },
       "passwordResetRequest": {
         "form": {
@@ -715,12 +715,12 @@
         "actions": {
           "resend": "Resend"
         },
-        "content": "We are processing your request to reset the password for email {0}. If a user account exists for this email address, it will receive in the next few minutes an email containing instructions on how to reset their password.",
+        "message": "An email with a link to reset your password was sent to {0}. Follow the instructions in the email to access your account.",
         "label": {
-          "notReceived": "Not received yet? ",
-          "redirect": "Redirecting automatically in {0} seconds"
+          "notReceived": "Didn't receive the email? ",
+          "resendIn": "Resend in {0}"
         },
-        "title": "Resetting your password"
+        "title": "Check your email"
       },
       "passwordResetRequest": {
         "form": {

@@ -1,16 +1,30 @@
 <template>
   <Page
-    :title="t('user.passwordResetRequest.title')"
-    class="auth password-reset-request"
+    :title="
+      showAknowledgement
+        ? t('user.passwordResetAcknowledge.title')
+        : t('user.passwordResetRequest.title')
+    "
+    :class="[
+      'auth',
+      showAknowledgement
+        ? 'password-reset-acknowledge'
+        : 'password-reset-request',
+    ]"
   >
     <slot name="instructions"></slot>
 
     <PasswordResetRequestForm
-      :email="
-        typeof route?.query?.email === 'string' ? route?.query?.email : ''
-      "
+      v-if="!showAknowledgement"
+      :email="email"
       :loading="loading"
       @submit="handleSubmit"
+    />
+
+    <PasswordResetRequestAcknowledge
+      v-else
+      :email="email"
+      @resend="showAknowledgement = false"
     />
 
     <div class="links">
@@ -31,8 +45,9 @@ export default {
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 
+import PasswordResetRequestAcknowledge from "../components/PasswordResetRequestAcknowledge.vue";
 import PasswordResetRequestForm from "../components/PasswordResetRequestForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
@@ -42,24 +57,23 @@ import type { PasswordResetRequestPayload } from "../types";
 const messages = useTranslations();
 
 const route = useRoute();
-const router = useRouter();
 
 const { t } = useI18n({ messages });
 
+const email = ref<string>(route?.query?.email as string);
 const loading = ref<boolean>(false);
+const showAknowledgement = ref<boolean>(false);
 
 const { requestPasswordReset } = useUserStore();
 
 const handleSubmit = async (payload: PasswordResetRequestPayload) => {
+  email.value = payload.email as string;
   loading.value = true;
 
   await requestPasswordReset(payload)
     .then((response) => {
       if (response) {
-        router.push({
-          name: "resetPasswordRequestAcknowledge",
-          query: { email: payload.email },
-        });
+        showAknowledgement.value = true;
       }
     })
     .finally(() => {

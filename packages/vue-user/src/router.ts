@@ -9,7 +9,6 @@ import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
 import Login from "./views/Login.vue";
 import PasswordReset from "./views/PasswordReset.vue";
 import PasswordResetRequest from "./views/PasswordResetRequest.vue";
-import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowledge.vue";
 import Profile from "./views/Profile.vue";
 import Roles from "./views/Roles/Index.vue";
 import Signup from "./views/Signup.vue";
@@ -88,11 +87,6 @@ const _routes = {
     name: "resetPasswordRequest",
     path: "/reset-password-request",
   } as RouteRecordRaw,
-  passwordResetRequestAcknowledge: {
-    component: PasswordResetRequestAcknowledge,
-    name: "resetPasswordRequestAcknowledge",
-    path: "/reset-password-request-acknowledge",
-  },
   verifyEmail: {
     meta: {
       authenticated: true,
@@ -147,13 +141,6 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   router.addRoute(getRoute(_routes.profile, routes?.profile));
 
   router.addRoute(getRoute(_routes.roles, routes?.roles));
-
-  router.addRoute(
-    getRoute(
-      _routes.passwordResetRequestAcknowledge,
-      routes?.passwordResetRequestAcknowledge,
-    ),
-  );
 
   router.addRoute(
     getRoute(
