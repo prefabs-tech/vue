@@ -21,6 +21,14 @@
     />
 
     <Input
+      v-model="formValues.middleNames"
+      :label="t('user.profile.form.middleName.label')"
+      :placeholder="t('user.profile.form.middleName.placeholder')"
+      name="middleNames"
+      type="text"
+    />
+
+    <Input
       v-model="formValues.surname"
       :label="t('user.profile.form.lastName.label')"
       :placeholder="t('user.profile.form.lastName.placeholder')"
@@ -68,6 +76,7 @@ const { user } = storeToRefs(userStore);
 
 const formValues = reactive({
   givenName: user.value?.givenName || "",
+  middleNames: user.value?.middleNames || "",
   surname: user.value?.surname || "",
 });
 
@@ -78,6 +87,7 @@ const loading = ref<boolean>(false);
 const isDirty = computed(() => {
   return (
     formValues.givenName !== user.value?.givenName ||
+    formValues.middleNames !== user.value?.middleNames ||
     formValues.surname !== user.value?.surname
   );
 });

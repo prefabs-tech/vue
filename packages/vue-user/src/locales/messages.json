@@ -349,6 +349,10 @@
           "messages": {
             "error": "Something went wrong. Please try again",
             "success": "Profile updated successfully"
+          },
+          "middleName": {
+            "label": "Middle name",
+            "placeholder": "Enter your middle name"
           }
         },
         "title": "Profile"
@@ -783,6 +787,10 @@
           "messages": {
             "error": "Something went wrong. Please try again",
             "success": "Profile updated successfully"
+          },
+          "middleName": {
+            "label": "Middle name",
+            "placeholder": "Enter your middle name"
           }
         },
       "title": "Profil"
