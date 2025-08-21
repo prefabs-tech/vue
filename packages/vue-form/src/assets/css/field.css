@@ -2,7 +2,7 @@
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--_gap);
   width: 100%;
 }
 
@@ -17,6 +17,6 @@ fieldset {
 }
 
 fieldset legend {
-  font-size: var(--form-label-font-size, 1em);
-  margin-bottom: 0.75rem;
+  font-size: var(--form-label-font-size, 1rem);
+  margin-bottom: var(--_gap);
 }

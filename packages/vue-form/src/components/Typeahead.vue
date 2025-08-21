@@ -25,16 +25,18 @@
       />
       <ErrorMessage v-if="!filteredSuggestions.length" :name="name" />
     </Field>
-    <ul v-if="showSuggestions">
-      <li
-        v-for="suggestion in filteredSuggestions"
-        :key="suggestion.label"
-        :disabled="suggestion.disabled"
-        @click="onSelect(suggestion)"
-      >
-        {{ suggestion.label }}
-      </li>
-    </ul>
+    <div v-if="showSuggestions" class="menu-wrapper">
+      <ul>
+        <li
+          v-for="suggestion in filteredSuggestions"
+          :key="suggestion.label"
+          :disabled="suggestion.disabled"
+          @click="onSelect(suggestion)"
+        >
+          {{ suggestion.label }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 

@@ -57,7 +57,7 @@ const props = defineProps({
     type: Boolean,
   },
   direction: {
-    default: undefined,
+    default: "vertical",
     type: String,
     validator: (value: string) => ["vertical", "horizontal"].includes(value),
   },

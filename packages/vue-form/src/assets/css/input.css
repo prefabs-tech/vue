@@ -2,6 +2,7 @@
   --_background-color: var(--field-bg-color, transparent);
   --_border-color: var(--border-color);
   --_border-radius: var(--border-radius);
+  --_gap: var(--field-gap, 0.5rem);
   --_padding-block: var(--field-padding-block, 0.5rem);
   --_padding-inline: var(--field-padding-inline, 0.75rem);
   --_outline: none;

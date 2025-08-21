@@ -19,10 +19,15 @@
 }
 
 .switch input:after {
+  --_color: var(--color);
+
+  color: var(--_color);
   content: attr(data-off);
   font-weight: 500;
   padding-inline: 0.5rem;
   text-align: end;
+  margin-block: -0.25rem;
+  width: 100%;
 }
 
 .switch input:before {
@@ -40,6 +45,8 @@
 }
 
 .switch input:checked:after {
+  --_color: #fff;
+
   content: attr(data-on);
   text-align: start;
 }
