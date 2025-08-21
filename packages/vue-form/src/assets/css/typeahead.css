@@ -12,13 +12,12 @@
   --_option-background-color-active: var(--list-item-bg-active, #ededed);
 }
 
-.typeahead {
+.typeahead .menu-wrapper {
   position: relative;
-  display: inline-block;
   width: 100%;
 }
 
-.typeahead > ul {
+.typeahead ul {
   background-color: #fff;
   border: 1px solid var(--border-color);
   border-radius: calc(var(--border-radius) * 1.5);
@@ -35,7 +34,7 @@
   z-index: 999;
 }
 
-.typeahead > ul > li {
+.typeahead ul > li {
   border-radius: var(--_border-radius);
   cursor: pointer;
   display: flex;
@@ -44,12 +43,12 @@
   transition: background-color var(--transition-duration) linear;
 }
 
-.typeahead > ul > li:hover,
-.typeahead > ul > li.focused {
+.typeahead ul > li:hover,
+.typeahead ul > li.focused {
   background-color: var(--_option-background-color-hover);
 }
 
-.typeahead > ul > li.disabled {
+.typeahead ul > li.disabled {
   opacity: 0.8;
   cursor: not-allowed;
 }

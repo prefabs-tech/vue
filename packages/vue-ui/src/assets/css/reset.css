@@ -24,7 +24,7 @@ dd {
   margin: 0;
 }
 
-input[type="checkbox"],
+input[type="checkbox"]:not(.switch-input),
 input[type="radio"] {
   margin: 3px 3px 0 6px;
 }

@@ -91,15 +91,3 @@ const onChange = (event: Event) => {
   emit("update:modelValue", Boolean(value));
 };
 </script>
-
-<style lang="css">
-.switch-input {
-  --_switch-field-direction: var(--switch-field-direction, row);
-  --_switch-field-gap: var(--form-field-gap, 0.75rem);
-
-  display: flex;
-  flex-direction: var(--_switch-field-direction);
-  gap: var(--_switch-field-gap);
-  width: max-content;
-}
-</style>
