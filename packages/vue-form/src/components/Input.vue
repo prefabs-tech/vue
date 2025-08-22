@@ -55,7 +55,7 @@ const props = defineProps({
     type: String as PropType<string | null | undefined>,
   },
   name: {
-    default: "name",
+    default: "input",
     required: false,
     type: String as PropType<string>,
   },
@@ -64,9 +64,7 @@ const props = defineProps({
     type: String,
   },
   schema: {
-    default: () => {
-      return {};
-    },
+    default: () => ({}),
     required: false,
     type: Object as PropType<z.ZodType<string | number | object>>,
   },
