@@ -32,6 +32,7 @@ interface ChangePasswordPayload {
 type UpdateProfileInputType = {
   email: string;
   givenName: string;
+  middleNames?: string;
   surname: string;
 };
 
