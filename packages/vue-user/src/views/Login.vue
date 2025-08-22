@@ -120,17 +120,14 @@ const handleSubmit = async (credentials: LoginCredentials) => {
             (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
-          // 🔥 ADD THIS: Check for pending redirect before default home redirect
+          // Check for pending redirect before default home redirect
           const redirectTo = sessionStorage.getItem("redirectAfterLogin");
 
           if (redirectTo) {
-            // Clear the stored redirect
             sessionStorage.removeItem("redirectAfterLogin");
 
-            // Redirect to the stored path (invitation link)
             router.push(redirectTo);
           } else {
-            // Default redirect after login
             router.push({ name: "home" });
           }
         } else {
