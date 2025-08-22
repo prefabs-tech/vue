@@ -351,8 +351,8 @@
             "success": "Profile updated successfully"
           },
           "middleName": {
-            "label": "Middle name",
-            "placeholder": "Enter your middle name"
+            "label": "Middle name(s)",
+            "placeholder": "Enter your middle name(s)"
           }
         },
         "title": "Profile"
@@ -789,8 +789,8 @@
             "success": "Profile updated successfully"
           },
           "middleName": {
-            "label": "Middle name",
-            "placeholder": "Enter your middle name"
+            "label": "Middle name(s)",
+            "placeholder": "Enter your middle name(s)"
           }
         },
       "title": "Profil"
