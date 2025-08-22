@@ -2,18 +2,18 @@
 
 exports[`Input > matches snapshot 1`] = `
 <div
-  class="field name"
+  class="field input"
 >
   <label
-    for="name"
+    for="input"
   >
     Input
   </label>
   
   <input
     class=""
-    id="input-field-name"
-    name="name"
+    id="input-field-input"
+    name="input"
     placeholder="Placeholder"
     tabindex="0"
     type="text"

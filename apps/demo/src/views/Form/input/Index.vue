@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.input')" class="demo">
+  <FormPage
+    :subtitle="t('form.subtitle.input')"
+    :title="$t('form.label.input')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -198,6 +202,12 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'InputProperties' })"
+    />
   </FormPage>
 </template>
 
@@ -214,13 +224,67 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
 
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "string | null | undefined",
+  },
+];
+
 const inputSchema = z
   .string()
   .min(3, { message: t("form.errors.input.min", { length: 3 }) });
+
+const propsData = [
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "String | null | undefined",
+  },
+  {
+    default: '"input"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number | object>",
+  },
+  {
+    default: '"text"',
+    description: t("form.documentation.propsDescription.input.type"),
+    prop: "type",
+    type: "String",
+  },
+];
 
 let formData = reactive({
   disabled: ref("monorepo@gmail.com"),
