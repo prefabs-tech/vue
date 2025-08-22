@@ -1,3 +1,18 @@
+# [0.15.0](https://github.com/prefabs-tech/vue/compare/v0.14.0...v0.15.0) (2025-08-22)
+
+
+### Bug Fixes
+
+* **table:** fix table range filter issue on refresh ([#766](https://github.com/prefabs-tech/vue/issues/766)) ([e9648cb](https://github.com/prefabs-tech/vue/commit/e9648cb277780aac78c37f8a9182df99df198364))
+
+
+### Features
+
+* **user/profile:** add support to update middle name ([#772](https://github.com/prefabs-tech/vue/issues/772)) ([bbcab1b](https://github.com/prefabs-tech/vue/commit/bbcab1ba613774b5bbdb73a9b972f27dcb01d214))
+* **user:** add support to show reset password request acknowledgement page on request reset ([#750](https://github.com/prefabs-tech/vue/issues/750)) ([bcad1f2](https://github.com/prefabs-tech/vue/commit/bcad1f2f2e01d2c69e4c6dfec1ce24a40c9ce8b8))
+
+
+
 # [0.14.0](https://github.com/prefabs-tech/vue/compare/v0.13.0...v0.14.0) (2025-08-15)
 
 
