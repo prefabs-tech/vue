@@ -212,7 +212,8 @@ import { getAlignValue } from "../utils";
 
 import type { Column, Table } from "@tanstack/vue-table";
 
-defineProps({
+const props = defineProps({
+  highlightActiveColumn: Boolean,
   inputDebounceTime: {
     default: undefined,
     type: Number,
@@ -228,9 +229,10 @@ defineProps({
 });
 
 const activeColumnClass = (column: Column<unknown, unknown>) => {
-  return column.getIsSorted() === "asc" ||
-    column.getIsSorted() === "desc" ||
-    column.getIsFiltered()
+  return props.highlightActiveColumn &&
+    (column.getIsSorted() === "asc" ||
+      column.getIsSorted() === "desc" ||
+      column.getIsFiltered())
     ? "highlight"
     : "";
 };

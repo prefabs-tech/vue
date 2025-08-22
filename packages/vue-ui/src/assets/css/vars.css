@@ -1,4 +1,7 @@
 :root {
+  --active-bg: #eff6ff;
+  --active-color: var(--dz-primary-color);
+
   --background-color: #f9f8fa;
   --border-color: #e5e7eb;
   --border-radius: 0.375rem;
@@ -31,6 +34,9 @@
   --font-size-min: 1rem;
   --font-size-val: 2.5vw;
 
+  --hover-bg: #f0f2f7ad;
+  --hover-color: var(color);
+
   --loading-button-bg-color: #1c4786;
   --loading-button-color: #ffffff;
 
@@ -40,15 +46,15 @@
   --message-tip-color: var(--dz-tip-color);
   --message-warning-color: var(--dz-warning-color);
 
-  --nav-item-active-bg: #eff6ff;
-  --nav-item-active-color: var(--dz-primary-color);
+  --nav-item-active-bg: var(--active-bg);
+  --nav-item-active-color: var(--active-color);
   --nav-item-border-radius: 0;
   --nav-item-color: var(--color);
-  --nav-item-hover-bg: #f0f2f7ad;
-  --nav-item-hover-color: var(--dz-nav-item-color);
+  --nav-item-hover-bg: var(--hover-bg);
+  --nav-item-hover-color: var(--hover-color);
   --nav-item-padding-h: 2rem;
   --nav-item-padding-v: 0.5rem;
-  --nav-menu-label-color: var(--dz-nav-item-color);
+  --nav-menu-label-color: var(--color);
   --nav-menu-padding-h: 0;
   --nav-menu-padding-v: 1rem;
   --nav-menu-separator-color: var(--border-color);
