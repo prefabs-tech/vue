@@ -2,12 +2,12 @@
 
 :root {
   --table-border: 1px solid rgb(226, 226, 226);
-  --table-header-bg: #f0f2f7ad;
+  --table-header-bg: var(--hover-bg, #f0f2f7ad);
   --table-overlay-bg: rgba(255, 255, 255, 0.6);
-  --table-header-active-bg: rgb(232, 240, 255);
-  --table-row-hover-bg: #318aff0f;
+  --table-header-active-bg: var(--active-bg, #eff6ff);
+  --table-row-hover-bg: var(--hover-bg, #f0f2f7ad);
   --table-column-padding: 0.8rem;
-  --table-row-selected-bg: rgb(240, 245, 255);
+  --table-row-selected-bg: var(--active-bg, #eff6ff);
   --table-body-bg: transparent;
   --table-stripe-color: transparent;
   --table-actions-column-width: 4rem;
