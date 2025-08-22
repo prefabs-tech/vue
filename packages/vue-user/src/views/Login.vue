@@ -120,7 +120,19 @@ const handleSubmit = async (credentials: LoginCredentials) => {
             (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
-          router.push({ name: "home" });
+          // 🔥 ADD THIS: Check for pending redirect before default home redirect
+          const redirectTo = sessionStorage.getItem("redirectAfterLogin");
+
+          if (redirectTo) {
+            // Clear the stored redirect
+            sessionStorage.removeItem("redirectAfterLogin");
+
+            // Redirect to the stored path (invitation link)
+            router.push(redirectTo);
+          } else {
+            // Default redirect after login
+            router.push({ name: "home" });
+          }
         } else {
           emitter.emit("notify", {
             text: t("user.login.messages.permissionDenied"),

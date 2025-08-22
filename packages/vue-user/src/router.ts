@@ -207,7 +207,10 @@ const addAuthenticationGuard = (
     const isSocialLoggedIn = user.value?.thirdParty && userConfig?.socialLogins?.includes(user.value?.thirdParty?.id);
 
     if (meta.authenticated && !user.value) {
+      sessionStorage.setItem('redirectAfterLogin', to.fullPath);
       router.push({ name: "login" }); // using next inside async function is not allowed
+
+      return; 
     }
 
     if (isSocialLoggedIn && name === "changePassword") {
