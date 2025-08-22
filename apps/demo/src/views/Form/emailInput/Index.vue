@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.email')" class="demo">
+  <FormPage
+    :subtitle="t('form.subtitle.email')"
+    :title="$t('form.label.email')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -282,6 +286,20 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'EmailProperties' })"
+    />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface EmailErrorMessages {
+        invalid?: string;
+        required?: string;
+      }
+    </SshPre>
   </FormPage>
 </template>
 
@@ -298,6 +316,7 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 import type {
@@ -307,9 +326,68 @@ import type {
 
 const { t } = useI18n();
 
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.email.modelValue"),
+    name: "update:modelValue",
+    payload: "string | null | undefined",
+  },
+];
+
 const inputSchema = z
   .string()
   .email({ message: t("form.errors.email.invalid") });
+
+const propsData = [
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.email.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: `{ required: "Email address is required", invalid: "Please provide a valid email address" }`,
+    description: t("form.documentation.propsDescription.email.errorMessages"),
+    prop: "errorMessages",
+    type: "EmailErrorMessages",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.email.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.email.modelValue"),
+    prop: "modelValue",
+    type: "String | null | undefined",
+  },
+  {
+    default: '"email"',
+    description: t("form.documentation.propsDescription.email.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.email.options"),
+    prop: "options",
+    type: "IsEmailOptions",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.email.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.email.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number | object>",
+  },
+];
 
 const validationMessages = {
   required: t("form.errors.input.required"),

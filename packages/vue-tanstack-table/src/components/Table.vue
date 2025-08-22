@@ -25,6 +25,7 @@
     <div class="table-wrapper">
       <table :style="`width: ${table.getCenterTotalSize()}`">
         <TableHeader
+          :highlight-active-column="highlightActiveHeaderColumn"
           :input-debounce-time="inputDebounceTime"
           :is-filter-row-visible="isFilterRowVisible"
           :table="table"
@@ -138,6 +139,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  highlightActiveHeaderColumn: Boolean,
   id: {
     default: undefined,
     type: String,
