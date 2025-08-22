@@ -2,6 +2,25 @@
   "actions": {
     "submit": "Submit"
   },
+  "documentation": {
+    "eventDescription": {
+      "email": {
+        "modelValue": "Emitted when the input value changes (v-model support)."
+      }
+    },
+    "propsDescription": {
+      "email": {
+        "disabled": "If true, the input will be disabled and non-interactive.",
+        "errorMessages": "Custom error messages for validation.",
+        "label": "Text label to display above the input field.",
+        "modelValue": "The current value of the input (v-model support).",
+        "name": "Name attribute for the input field and validation.",
+        "options": "Options for email validation using validator.js.",
+        "placeholder": "Placeholder text for the input field.",
+        "schema": "Custom Zod schema for validation (overrides default email validation)."
+      }
+    }
+  },
   "errors": {
     "checkbox": {
       "min": "Please select at least {min} options"
@@ -186,7 +205,8 @@
   },
   "submittedValue": "Submitted value",
   "subtitle": {
-    "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts."
+    "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
+    "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding."
   },
   "title": "Form library"
 }

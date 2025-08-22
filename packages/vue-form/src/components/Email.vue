@@ -72,9 +72,7 @@ const props = defineProps({
     type: String as PropType<string>,
   },
   options: {
-    default: () => {
-      return {};
-    },
+    default: () => ({}),
     required: false,
     type: Object as PropType<IsEmailOptions>,
   },
