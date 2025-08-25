@@ -5,4 +5,6 @@
   --field-padding-block: 0.5rem;
   --field-padding-inline: 0.75rem;
   --field-placeholder-color: #7b7676;
+  --list-item-bg-active: var(--active-bg);
+  --list-item-bg-hover: var(--hover-bg);
 }

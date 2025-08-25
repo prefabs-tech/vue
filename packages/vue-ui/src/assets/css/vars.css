@@ -1,5 +1,5 @@
 :root {
-  --active-bg: #eff6ff;
+  --active-bg: var(--highlight-bg);
   --active-color: var(--dz-primary-color);
 
   --background-color: #f9f8fa;
@@ -34,7 +34,8 @@
   --font-size-min: 1rem;
   --font-size-val: 2.5vw;
 
-  --hover-bg: #f0f2f7ad;
+  --highlight-bg: #eff6ff;
+  --hover-bg: var(--highlight-bg);
   --hover-color: var(color);
 
   --loading-button-bg-color: #1c4786;

@@ -149,17 +149,16 @@ nav.user-menu-dropdown > .trigger {
   --_padding-h: var(--layout-nav-item-padding-h, 1rem);
   --_padding-v: var(--layout-nav-item-padding-v, 0.625rem);
 
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-direction: row;
-  gap: 0;
+  gap: 0.325rem;
   justify-content: space-between;
   padding: var(--_padding-v) var(--_padding-h);
   z-index: 99;
 }
 
 nav.user-menu-dropdown span.toggle {
-  align-self: start;
   font-size: 1.5rem;
   line-height: 1.25rem;
   text-align: center;

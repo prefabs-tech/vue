@@ -24,7 +24,7 @@
   --layout-header-bg: transparent;
   --layout-header-border: 1px solid var(--border-color, #e5e7eb);
   --layout-header-color: var(--color, #374151);
-  --layout-header-gap: 1.5rem;
+  --layout-header-gap: 1rem;
   --layout-header-logo-max-width: var(--layout-logo-max-width);
   --layout-header-max-width: 1920px;
   --layout-header-padding-h: var(--layout-main-padding-h, 1rem);

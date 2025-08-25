@@ -37,7 +37,7 @@
 }
 
 .popup-trigger[aria-expanded="true"] .dropdown-menu-trigger {
-  background-color: var(--dropdown-container-bg-color, #e5e5e5);
+  background-color: var(--highlight-color, #eff6ff);
   border-radius: 5px;
 }
 
@@ -70,7 +70,7 @@ ul.dropdown-menu li[aria-disabled="true"] {
 }
 
 ul.dropdown-menu li:hover {
-  background-color: var(--dropdown-bg-color-hover, #e5e5e5);
+  background-color: var(--hover-color, #eff6ff);
 }
 
 ul.dropdown-menu li .menu-item > i {
@@ -79,7 +79,7 @@ ul.dropdown-menu li .menu-item > i {
 
 @media screen and (min-width: 576px) {
   .dropdown-menu-trigger:hover {
-    background-color: var(--dropdown-container-bg-color-hover, #e5e5e5);
+    background-color: var(--hover-color, #eff6ff);
     border-radius: 5px;
   }
 }

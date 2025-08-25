@@ -32,7 +32,6 @@ nav.locale-switcher > .locale-trigger {
 }
 
 nav.locale-switcher > .locale-trigger > span {
-  align-self: start;
   font-size: 1.5rem;
   line-height: 1.25rem;
   text-align: center;
