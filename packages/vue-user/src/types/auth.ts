@@ -55,6 +55,7 @@ interface UserType extends EmailPasswordUserType {
   isProfileCompleted?: boolean;
   lastLoginAt: number;
   middleNames: string | null;
+  name: string | null;
   roles: string[] | UserRole[];
   signedUpAt: number;
   surname: string | null;
