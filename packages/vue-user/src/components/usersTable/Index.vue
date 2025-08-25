@@ -186,11 +186,11 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
   },
   {
     accessorFn: (original: UserType) => {
-      return (
-        (original.givenName ? original.givenName : "") +
-          (original.middleNames ? " " + original.middleNames : "") +
-          (original.surname ? " " + original.surname : "") || "-"
-      );
+      return original.name?.trim()
+        ? original.name
+        : (original.givenName ? original.givenName : "") +
+            (original.middleNames ? " " + original.middleNames : "") +
+            (original.surname ? " " + original.surname : "") || "-";
     },
     accessorKey: "name",
     cell: ({ getValue }) => getValue(),
