@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.number')" class="demo">
+  <FormPage
+    :subtitle="t('form.subtitle.number')"
+    :title="$t('form.label.number')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -251,6 +255,22 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'NumberInputProperties' })
+      "
+    />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface NumberErrorMessages {
+        invalid?: string;
+        required?: string;
+      }
+    </SshPre>
   </FormPage>
 </template>
 
@@ -267,6 +287,7 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 import type {
@@ -276,10 +297,69 @@ import type {
 
 const { t } = useI18n();
 
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "number | undefined",
+  },
+];
+
 const inputSchema = z.coerce
   .number({ invalid_type_error: t("form.errors.number.invalid") })
   .gte(1, t("form.errors.number.invalid"))
   .lte(100, t("form.errors.number.invalid"));
+
+const propsData = [
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: `{ required: "The field is required", invalid: "Please provide a valid integer field" }`,
+    description: t("form.documentation.propsDescription.input.errorMessages"),
+    prop: "errorMessages",
+    type: "NumberErrorMessages",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "undefined",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "number | null | undefined",
+  },
+  {
+    default: '"number"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.options"),
+    prop: "options",
+    type: "IsIntOptions",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number>",
+  },
+];
 
 const validationMessages = {
   invalid: t("form.errors.number.invalid"),

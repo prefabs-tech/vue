@@ -328,7 +328,7 @@ const { t } = useI18n();
 
 const eventsData = [
   {
-    description: t("form.documentation.eventDescription.email.modelValue"),
+    description: t("form.documentation.eventDescription.input.modelValue"),
     name: "update:modelValue",
     payload: "string | null | undefined",
   },
@@ -341,49 +341,49 @@ const inputSchema = z
 const propsData = [
   {
     default: "false",
-    description: t("form.documentation.propsDescription.email.disabled"),
+    description: t("form.documentation.propsDescription.input.disabled"),
     prop: "disabled",
     type: "Boolean",
   },
   {
     default: `{ required: "Email address is required", invalid: "Please provide a valid email address" }`,
-    description: t("form.documentation.propsDescription.email.errorMessages"),
+    description: t("form.documentation.propsDescription.input.errorMessages"),
     prop: "errorMessages",
     type: "EmailErrorMessages",
   },
   {
     default: "-",
-    description: t("form.documentation.propsDescription.email.label"),
+    description: t("form.documentation.propsDescription.input.label"),
     prop: "label",
     type: "String",
   },
   {
     default: "-",
-    description: t("form.documentation.propsDescription.email.modelValue"),
+    description: t("form.documentation.propsDescription.input.modelValue"),
     prop: "modelValue",
     type: "String | null | undefined",
   },
   {
     default: '"email"',
-    description: t("form.documentation.propsDescription.email.name"),
+    description: t("form.documentation.propsDescription.input.name"),
     prop: "name",
     type: "String",
   },
   {
     default: "-",
-    description: t("form.documentation.propsDescription.email.options"),
+    description: t("form.documentation.propsDescription.input.options"),
     prop: "options",
     type: "IsEmailOptions",
   },
   {
     default: "-",
-    description: t("form.documentation.propsDescription.email.placeholder"),
+    description: t("form.documentation.propsDescription.input.placeholder"),
     prop: "placeholder",
     type: "String",
   },
   {
     default: "-",
-    description: t("form.documentation.propsDescription.email.schema"),
+    description: t("form.documentation.propsDescription.input.schema"),
     prop: "schema",
     type: "z.ZodType<string | number | object>",
   },
