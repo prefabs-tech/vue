@@ -56,3 +56,7 @@ form span[role="alert"] {
   color: var(--color-alert-danger, red);
   font-size: var(--field-error-font-size, 0.8rem);
 }
+
+.message.danger + form {
+  margin-top: 1rem;
+}

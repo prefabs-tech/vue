@@ -7,17 +7,14 @@
 }
 
 .layout header .addon:hover {
+  background-color: var(--nav-item-hover-bg, #eff6ff);
+  border-radius: 0.325rem;
+  color: var(--nav-item-hover-color, #2c2c2c);
   cursor: pointer;
-  text-decoration: underline;
-}
-
-.layout header .addon a[target="_blank"]::after {
-  content: none;
 }
 
 @media screen and (min-width: 576px) {
   .layout header .addon {
     display: block;
-    padding: 0;
   }
 }

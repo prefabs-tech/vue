@@ -5,7 +5,7 @@
       1px solid var(--border-color, #e5e7eb)
     );
   --_layout-header-color: var(--dz-layout-header-color, #2c2c2c);
-  --_layout-header-gap: var(--layout-header-gap, 1.5rem);;
+  --_layout-header-gap: var(--layout-header-gap, 1rem);;
   --_layout-header-logo-max-width: var(--layout-header-logo-max-width, 8rem);
   --_layout-header-padding-h: var(--layout-header-padding-h, 1rem);
   --_layout-header-padding-v: var(--layout-header-padding-v, 1rem);

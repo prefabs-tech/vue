@@ -8,8 +8,8 @@
   --_padding-inline: var(--field-padding-inline, 0.75rem);
   --_placeholder-color: var(--field-placeholder-color, #7b7676);
   --_options-menu-background-color: var(--list-menu-bg-color, #ffffff);
-  --_option-background-color-hover: var(--list-item-bg-hover, #ededed);
-  --_option-background-color-active: var(--list-item-bg-active, #ededed);
+  --_option-background-color-hover: var(--list-item-bg-hover, #eff6ff);
+  --_option-background-color-active: var(--list-item-bg-active, #eff6ff);
 }
 
 .field:has(.multiselect):not(:has(.multiselect-options)) {
@@ -119,20 +119,17 @@
   width: auto;
 }
 
-.multiselect > .multiselect-options > ul > li.selected,
 .multiselect > .multiselect-options > ul > li:not(.multiselect-group):hover,
 .multiselect > .multiselect-options > ul:not(.single-select) > li.multiselect-group:not(.disabled-group-select):hover {
-  --_multiselect-selected-bg-color: var(
-    --multiselect-selected-bg-color,
-    #e5e5e5
-  );
+  --_multiselect-selected-bg-color: var(--_option-background-color-hover);
+}
+
+.multiselect > .multiselect-options > ul > li.selected {
+  --_multiselect-selected-bg-color: var(--_option-background-color-active);
 }
 
 .multiselect > .multiselect-options > ul > li.focused {
-  --_multiselect-selected-bg-color: var(
-    --multiselect-selected-bg-color,
-    #e5e5e5
-  );
+  --_multiselect-selected-bg-color: var(--_option-background-color-active)
 
   opacity: 0.8;
 }
