@@ -1,10 +1,11 @@
 <template>
-  <OriginalBasicLayout
-    :aria-expanded="appHeader?.expanded"
-    :no-locale-switcher="noLocaleSwitcher"
-  >
+  <OriginalBasicLayout :aria-expanded="appHeader?.expanded">
     <template #header>
-      <AppHeader ref="appHeader" no-toggle>
+      <AppHeader
+        ref="appHeader"
+        :no-locale-switcher="noLocaleSwitcher"
+        no-toggle
+      >
         <template #logo>
           <Logo :route="home" />
         </template>
