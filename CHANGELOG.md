@@ -3,7 +3,7 @@
 
 ### Features
 
-* implement the feature of redirecting to a certain route after l… ([#776](https://github.com/dzangolab/vue/issues/776)) ([ee01f07](https://github.com/dzangolab/vue/commit/ee01f07144704480af36d02e98fc89ba133dc327))
+* **user/login:** implement the feature of redirecting to a certain route after l… ([#776](https://github.com/dzangolab/vue/issues/776)) ([ee01f07](https://github.com/dzangolab/vue/commit/ee01f07144704480af36d02e98fc89ba133dc327))
 
 
 
