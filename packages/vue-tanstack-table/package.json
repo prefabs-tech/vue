@@ -13,9 +13,7 @@
   "main": "./dist/PrefabsTechVue3TanstackTable.umd.js",
   "module": "./dist/PrefabsTechVue3TanstackTable.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue",
