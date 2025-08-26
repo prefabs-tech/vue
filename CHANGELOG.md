@@ -1,3 +1,12 @@
+# [0.16.0](https://github.com/dzangolab/vue/compare/v0.15.0...v0.16.0) (2025-08-26)
+
+
+### Features
+
+* implement the feature of redirecting to a certain route after l… ([#776](https://github.com/dzangolab/vue/issues/776)) ([ee01f07](https://github.com/dzangolab/vue/commit/ee01f07144704480af36d02e98fc89ba133dc327))
+
+
+
 # [0.15.0](https://github.com/prefabs-tech/vue/compare/v0.14.0...v0.15.0) (2025-08-22)
 
 
