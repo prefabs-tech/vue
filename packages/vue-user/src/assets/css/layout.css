@@ -1,0 +1,10 @@
+.layout > header nav.user-menu-dropdown > ul.dropdown {
+  --_border-color: transparent;
+
+  border: 1px solid var(--_border-color);
+  overflow-y: hidden;
+}
+
+.layout > header nav.user-menu-dropdown.expanded > ul.dropdown {
+  --_border-color: var(--border-color, transparent)
+}

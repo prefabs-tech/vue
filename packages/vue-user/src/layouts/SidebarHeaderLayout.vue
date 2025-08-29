@@ -18,7 +18,7 @@
     <template #userMenu>
       <UserMenu
         v-if="showUserMenu"
-        @select:menu="prefabsTechLayout.onSelectMenu"
+        @select:menu="prefabsTechLayout?.onSelectMenu"
       >
         <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
           <slot name="userMenuTrigger"></slot>

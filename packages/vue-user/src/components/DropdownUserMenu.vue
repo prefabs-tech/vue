@@ -182,12 +182,12 @@ nav.user-menu-dropdown span.toggle > svg {
 
 nav.user-menu-dropdown > ul.dropdown {
   border-radius: var(--dropdown-border-radius, 5px);
-  inset: 0px auto auto 0px;
+  inset: 0 auto auto 0;
   list-style: none;
   max-height: 0;
   min-width: 160px;
   position: absolute;
-  transform: translate3d(0, 48.5px, 0px);
+  transform: translate3d(0, 56px, 0px);
   transition: max-height 0.3s ease-out;
   width: max-content;
   z-index: var(--dropdown-z-index, 2);
@@ -195,6 +195,7 @@ nav.user-menu-dropdown > ul.dropdown {
 
 nav.user-menu-dropdown.expanded > ul.dropdown {
   background-color: var(--dropdown-bg-color, #fff);
+  box-shadow: 1px 1px 5px 1px #e5e5e5;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;

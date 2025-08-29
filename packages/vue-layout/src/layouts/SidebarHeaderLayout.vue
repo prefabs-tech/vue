@@ -9,11 +9,15 @@
       <AppHeader
         v-show="isLargeScreen"
         ref="appHeader"
+        :class="{ 'no-locale-switcher-header': noLocaleSwitcher }"
         :no-locale-switcher="noLocaleSwitcher"
         :no-toggle="!collapsible || noSidebar"
         no-main-menu
       >
-        <template v-if="userMenuLocation === 'header'" #userMenu>
+        <template
+          v-if="userMenuLocation === 'header' && isLargeScreen"
+          #userMenu
+        >
           <slot name="userMenu"></slot>
         </template>
         <template #locales>
@@ -36,10 +40,7 @@
 
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
-        <slot
-          v-if="userMenuLocation === 'sidebar' && !noSidebar"
-          name="userMenu"
-        ></slot>
+        <slot v-if="renderSidebarUserMenu" name="userMenu"></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
             <LocaleSwitcher
@@ -86,7 +87,7 @@ const appHeader = ref();
 const sidebar = ref();
 const sidebarLocaleSwitcher = ref<boolean>(false);
 
-defineProps({
+const props = defineProps({
   collapsible: {
     default: true,
     type: Boolean,
@@ -108,6 +109,13 @@ defineProps({
 });
 
 const isLargeScreen = computed(() => windowWidth.value > 576);
+
+const renderSidebarUserMenu = computed(() => {
+  return (
+    (props.userMenuLocation === "sidebar" || !isLargeScreen.value) &&
+    !props.noSidebar
+  );
+});
 
 const handleResize = () => {
   if (window.innerWidth >= 576) {
