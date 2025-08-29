@@ -116,6 +116,10 @@
   --locale-switcher-badge-bg-color: #60a7f3;
 }
 
+.sidebar-header-layout > .no-locale-switcher-header nav.user-menu-dropdown>ul.dropdown {
+  inset: 0 0 auto auto;
+}
+
 .sidebar-header-layout .sidebar-menu-wrapper .user-menu {
   padding-block: 1rem;
 }

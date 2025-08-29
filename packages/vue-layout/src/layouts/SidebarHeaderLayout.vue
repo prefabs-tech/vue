@@ -9,11 +9,15 @@
       <AppHeader
         v-show="isLargeScreen"
         ref="appHeader"
+        :class="{ 'no-locale-switcher-header': noLocaleSwitcher }"
         :no-locale-switcher="noLocaleSwitcher"
         :no-toggle="!collapsible || noSidebar"
         no-main-menu
       >
-        <template v-if="userMenuLocation === 'header'" #userMenu>
+        <template
+          v-if="userMenuLocation === 'header' && isLargeScreen"
+          #userMenu
+        >
           <slot name="userMenu"></slot>
         </template>
         <template #locales>
@@ -37,7 +41,9 @@
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
         <slot
-          v-if="userMenuLocation === 'sidebar' && !noSidebar"
+          v-if="
+            (userMenuLocation === 'sidebar' || !isLargeScreen) && !noSidebar
+          "
           name="userMenu"
         ></slot>
         <template v-if="sidebarLocaleSwitcher">

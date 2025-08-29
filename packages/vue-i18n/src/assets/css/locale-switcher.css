@@ -40,26 +40,30 @@ nav.locale-switcher > .locale-trigger > span {
 
 nav.locale-switcher > ul.dropdown {
   --_bg-color: var(--locale-switcher-bg-color, #fff);
-  --_border: var(--locale-switcher-border, 1px solid #e5e5e5);
   --_min-width: var(--locale-switcher-width, 10rem);
 
   background-color: var(--_bg-color);
   border: var(--_border);
   border-radius: 0.325rem;
-  box-shadow: 0 2px 5px #0000001a;
-  display: none;
+  max-height: 0;
+  inset: 0 0 auto auto;
   list-style: none;
   min-width: var(--_min-width);
+  overflow-y: hidden;
   padding-inline-start: 0;
-  padding: 0.15rem 0;
   position: absolute;
-  right: 0;
-  top: 120%;
+  transform: translate3d(0, 56px, 0px);
+  transition: max-height 0.3s ease-out;
   z-index: 1000;
 }
 
 nav.locale-switcher.expanded ul {
-  display: block;
+  --_border: var(--locale-switcher-border, 1px solid #e5e5e5);
+
+  box-shadow: 1px 1px 5px 1px #e5e5e5;
+  height: auto;
+  max-height: 30rem;
+  padding-block: 0.15rem;
 }
 
 nav.locale-switcher > .dropdown > li {
