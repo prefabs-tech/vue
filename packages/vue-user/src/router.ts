@@ -160,9 +160,10 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   }
 };
 
-const redirectRoutes = (router: Router) => {
-  router.beforeEach((to, from, next) => {
+const redirectRoutes = async (router: Router) => {
+  router.beforeEach(async (to) => {
     const userStore = useUserStore();
+    const { isLoggedIn } = userStore;
     const { user } = storeToRefs(userStore);
 
     const routesToRedirect = [
@@ -175,10 +176,8 @@ const redirectRoutes = (router: Router) => {
     ];
     const name = to.name as string;
 
-    if (user.value && routesToRedirect.includes(name)) {
-      next({ name: "profile" });
-    } else {
-      next();
+    if (user.value && await isLoggedIn() && routesToRedirect.includes(name)) {
+      router.push({ name: "profile" });
     }
   });
 };
@@ -197,6 +196,7 @@ const addAuthenticationGuard = (
 
     const name = to.name as string;
     const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
+    const { isLoggedIn } = userStore;
     const { user } = storeToRefs(userStore);
     const { getUser, getVerificationStatus } = userStore;
 
@@ -206,11 +206,9 @@ const addAuthenticationGuard = (
 
     const isSocialLoggedIn = user.value?.thirdParty && userConfig?.socialLogins?.includes(user.value?.thirdParty?.id);
 
-    if (meta.authenticated && !user.value) {
+    if (meta.authenticated && (!user.value || !await isLoggedIn())) {
       sessionStorage.setItem('redirectAfterLogin', to.fullPath);
       router.push({ name: "login" }); // using next inside async function is not allowed
-
-      return; 
     }
 
     if (isSocialLoggedIn && name === "changePassword") {

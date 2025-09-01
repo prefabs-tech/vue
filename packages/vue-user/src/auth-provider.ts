@@ -146,6 +146,7 @@ const providers = {
     doSignup: supertokens.signup,
     doSocialSignIn: supertokens.socialSignIn,
     doVerifyEmail: supertokens.verifyEmail,
+    isLoggedIn: supertokens.isLoggedIn,
     isProfileCompleted: supertokens.isProfileCompleted,
     verifySessionRoles: supertokens.verifySessionRoles,
   },

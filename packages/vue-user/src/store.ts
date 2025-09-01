@@ -134,6 +134,28 @@ const useUserStore = defineStore("user", () => {
     return response;
   };
 
+  const isLoggedIn = async () => {
+    try {
+      const selectedAuthProvider = auth();
+      
+      if ("isLoggedIn" in selectedAuthProvider) {
+        const sessionExists = await selectedAuthProvider.isLoggedIn();
+  
+        if (!sessionExists) {
+          logout();
+  
+          return false;
+        }
+  
+        return true;
+      }
+  
+      return !!user.value
+    } catch (error) {
+      return false;
+    }
+  };
+
   const login = async (credentials: LoginCredentials) => {
     const selectedAuthProvider = auth();
 
@@ -275,6 +297,7 @@ const useUserStore = defineStore("user", () => {
     getInvitationByToken,
     getUser,
     getVerificationStatus,
+    isLoggedIn,
     invitation,
     login,
     logout,

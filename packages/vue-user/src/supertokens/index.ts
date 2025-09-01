@@ -26,7 +26,20 @@ const initSupertokens = (config: AppConfig) => {
   // eslint-disable-next-line
   const recipeList: Array<any> = [
     ThirdPartyEmailPassword.init(),
-    Session.init(),
+    Session.init({
+      // eslint-disable-next-line
+      onHandleEvent: async (context: any) => {
+        if (
+          (context.action === "UNAUTHORISED" ||
+            context.action === "SESSION_EXPIRED") &&
+          (await isLoggedIn())
+        ) {
+          Session.attemptRefreshingSession().catch((error) => {
+            return Promise.reject(error);
+          });
+        }
+      },
+    }),
   ];
 
   if (config.user?.features?.signUp?.emailVerification) {
