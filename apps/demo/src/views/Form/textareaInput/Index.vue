@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.textarea')" class="demo">
+  <FormPage
+    :subtitle="t('form.subtitle.textarea')"
+    :title="$t('form.label.textarea')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -223,7 +227,7 @@
             &lt;TextareaInput 
               v-model="courseTitle"
               :schema="inputSchema"
-              label="Textarea""
+              label="Textarea"
               placeholder="Enter course title"
               name="input"
             /&gt;
@@ -234,7 +238,7 @@
           import { z } from "zod";
 
           const inputSchema = z.string()
-            .min(15, { message: "Title must be at least 15 character(s)"") });
+            .min(15, { message: "Title must be at least 15 character(s)" });
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -262,7 +266,7 @@
             &lt;TextareaInput 
               v-model="input"
               class="textarea-field"
-              cols="100",
+              cols="100"
               label="Textarea"
               placeholder="Enter input"
               rows="5"
@@ -283,6 +287,22 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'TextareaInputProperties' })
+      "
+    />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface TextErrorMessages {
+        invalid?: string;
+        required?: string;
+      }
+    </SshPre>
   </FormPage>
 </template>
 
@@ -299,13 +319,85 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
 
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "string | number | string[] | undefined",
+  },
+];
+
 const inputSchema = z
   .string()
   .min(15, { message: t("form.errors.input.min", { length: 15 }) });
+
+const propsData = [
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.textarea.cols"),
+    prop: "cols",
+    type: "number | undefined",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: `{ required: "The field is required", invalid: "Please provide a valid input data" }`,
+    description: t("form.documentation.propsDescription.input.errorMessages"),
+    prop: "errorMessages",
+    type: "TextErrorMessages",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "string | number | string[] | undefined",
+  },
+  {
+    default: '"text"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.options"),
+    prop: "options",
+    type: "IsTextOptions",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.textarea.rows"),
+    prop: "rows",
+    type: "number | undefined",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number>",
+  },
+];
 
 const validationMessages = {
   required: t("form.errors.input.required"),
