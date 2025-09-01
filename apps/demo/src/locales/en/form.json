@@ -15,10 +15,15 @@
         "label": "Text label to display above the input field.",
         "modelValue": "The current value of the input (v-model support).",
         "name": "Name attribute for the input field and validation.",
-        "options": "Options for email validation using validator.js.",
+        "options": "Options for input validation using validator.js.",
         "placeholder": "Placeholder text for the input field.",
         "schema": "Custom Zod schema for validation.",
         "type": "HTML input type (text, password, email, etc.)."
+      }
+    },
+    "slotDescription": {
+      "password": {
+        "icon": "Slot for custom icon inside the password input field."
       }
     }
   },
@@ -209,7 +214,8 @@
     "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
     "input": "A versatile form input component with validation support using Zod and vee-validate",
-    "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation."
+    "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
+    "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding."
   },
   "title": "Form library"
 }

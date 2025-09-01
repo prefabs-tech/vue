@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.password')" class="demo">
+  <FormPage
+    :subtitle="t('form.subtitle.password')"
+    :title="$t('form.label.password')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -298,6 +302,23 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'PasswordProperties' })
+      "
+      :slots-data="slotsData"
+    />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface PasswordErrorMessages {
+        required?: string;
+        weak?: string;
+      }
+    </SshPre>
   </FormPage>
 </template>
 
@@ -314,6 +335,7 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 import type {
@@ -322,6 +344,14 @@ import type {
 } from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
+
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "string | null | undefined",
+  },
+];
 
 const inputSchema = z
   .string({
@@ -333,6 +363,65 @@ const inputSchema = z
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
     t("form.errors.password.invalid"),
   );
+
+const propsData = [
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: `{ required: "A password is required", weak: "This password is too weak" }`,
+    description: t("form.documentation.propsDescription.input.errorMessages"),
+    prop: "errorMessages",
+    type: "PasswordErrorMessages",
+  },
+  {
+    default: "null",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "string | null | undefined",
+  },
+  {
+    default: "null",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "string | null | undefined",
+  },
+  {
+    default: '"password"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "{}",
+    description: t("form.documentation.propsDescription.input.options"),
+    prop: "options",
+    type: "StrongPasswordOptions",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "{}",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number | object>",
+  },
+];
+
+const slotsData = [
+  {
+    description: t("form.documentation.slotDescription.password.icon"),
+    name: "icon",
+    props: "{ showPassword: boolean }",
+  },
+];
 
 const validationMessages = {
   required: t("form.errors.input.required"),

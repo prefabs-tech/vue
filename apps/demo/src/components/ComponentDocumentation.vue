@@ -93,6 +93,10 @@ const slotsColumns = [
     header: t("common.name"),
   },
   {
+    accessorKey: "props",
+    header: t("common.props"),
+  },
+  {
     accessorKey: "description",
     header: t("common.description"),
   },

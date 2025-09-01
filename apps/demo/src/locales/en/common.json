@@ -8,6 +8,7 @@
   "menu": "Menu",
   "name": "Name",
   "payload": "Payload",
+  "props": "Props",
   "properties": "Props: {value}",
   "property": "Property",
   "slots": "Slots",
