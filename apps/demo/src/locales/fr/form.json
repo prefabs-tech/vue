@@ -215,7 +215,8 @@
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
     "input": "A versatile form input component with validation support using Zod and vee-validate",
     "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
-    "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding."
+    "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
+    "text": "The text input component is a form field that allows users to enter and edit textual content with validation"
   },
   "title": "Form library[fr]"
 }
