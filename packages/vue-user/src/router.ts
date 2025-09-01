@@ -209,8 +209,6 @@ const addAuthenticationGuard = (
     if (meta.authenticated && !user.value) {
       sessionStorage.setItem('redirectAfterLogin', to.fullPath);
       router.push({ name: "login" }); // using next inside async function is not allowed
-
-      return; 
     }
 
     if (isSocialLoggedIn && name === "changePassword") {
@@ -218,7 +216,15 @@ const addAuthenticationGuard = (
     }
 
     if (meta.authenticated && EmailVerificationEnabled && user.value) {
-      const isEmailVerified = await getVerificationStatus();
+      let isEmailVerified;
+
+      try {
+        isEmailVerified = await getVerificationStatus();
+      } catch (error) {
+        if (!user.value) {
+          router.push({ name: "login" });
+        }
+      }
 
       if (
         !isEmailVerified &&

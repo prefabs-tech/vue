@@ -134,6 +134,16 @@ const useUserStore = defineStore("user", () => {
     return response;
   };
 
+  const isLoggedIn = async () => {
+    const selectedAuthProvider = auth();
+    
+    if ("isLoggedIn" in selectedAuthProvider) {
+      return await selectedAuthProvider.isLoggedIn();
+    }
+
+    return !!user.value
+  };
+
   const login = async (credentials: LoginCredentials) => {
     const selectedAuthProvider = auth();
 
@@ -214,12 +224,14 @@ const useUserStore = defineStore("user", () => {
 
     user.value = userData;
 
-    if (user.value && "isProfileCompleted" in selectedAuthProvider) {
-      user.value.isProfileCompleted =
-        await selectedAuthProvider.isProfileCompleted();
+    if (user.value) {
+      if ("isProfileCompleted" in selectedAuthProvider) {
+        user.value.isProfileCompleted =
+          await selectedAuthProvider.isProfileCompleted();
+      }
+  
+      localStorage.setItem(USER_KEY, JSON.stringify(user.value));
     }
-
-    localStorage.setItem(USER_KEY, JSON.stringify(user.value));
   };
 
   const setAuthTokens = (authTokens: AuthTokens) => {
@@ -275,6 +287,7 @@ const useUserStore = defineStore("user", () => {
     getInvitationByToken,
     getUser,
     getVerificationStatus,
+    isLoggedIn,
     invitation,
     login,
     logout,
