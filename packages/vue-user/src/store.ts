@@ -135,25 +135,13 @@ const useUserStore = defineStore("user", () => {
   };
 
   const isLoggedIn = async () => {
-    try {
-      const selectedAuthProvider = auth();
-      
-      if ("isLoggedIn" in selectedAuthProvider) {
-        const sessionExists = await selectedAuthProvider.isLoggedIn();
-  
-        if (!sessionExists) {
-          logout();
-  
-          return false;
-        }
-  
-        return true;
-      }
-  
-      return !!user.value
-    } catch (error) {
-      return false;
+    const selectedAuthProvider = auth();
+    
+    if ("isLoggedIn" in selectedAuthProvider) {
+      return await selectedAuthProvider.isLoggedIn();
     }
+
+    return !!user.value
   };
 
   const login = async (credentials: LoginCredentials) => {
@@ -236,12 +224,14 @@ const useUserStore = defineStore("user", () => {
 
     user.value = userData;
 
-    if (user.value && "isProfileCompleted" in selectedAuthProvider) {
-      user.value.isProfileCompleted =
-        await selectedAuthProvider.isProfileCompleted();
+    if (user.value) {
+      if ("isProfileCompleted" in selectedAuthProvider) {
+        user.value.isProfileCompleted =
+          await selectedAuthProvider.isProfileCompleted();
+      }
+  
+      localStorage.setItem(USER_KEY, JSON.stringify(user.value));
     }
-
-    localStorage.setItem(USER_KEY, JSON.stringify(user.value));
   };
 
   const setAuthTokens = (authTokens: AuthTokens) => {

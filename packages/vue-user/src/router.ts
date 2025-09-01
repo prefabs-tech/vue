@@ -161,9 +161,8 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
 };
 
 const redirectRoutes = async (router: Router) => {
-  router.beforeEach(async (to) => {
+  router.beforeEach((to, from, next) => {
     const userStore = useUserStore();
-    const { isLoggedIn } = userStore;
     const { user } = storeToRefs(userStore);
 
     const routesToRedirect = [
@@ -176,8 +175,10 @@ const redirectRoutes = async (router: Router) => {
     ];
     const name = to.name as string;
 
-    if (user.value && await isLoggedIn() && routesToRedirect.includes(name)) {
-      router.push({ name: "profile" });
+    if (user.value && routesToRedirect.includes(name)) {
+      next({ name: "profile" });
+    } else {
+      next();
     }
   });
 };
@@ -196,7 +197,6 @@ const addAuthenticationGuard = (
 
     const name = to.name as string;
     const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
-    const { isLoggedIn } = userStore;
     const { user } = storeToRefs(userStore);
     const { getUser, getVerificationStatus } = userStore;
 
@@ -206,7 +206,7 @@ const addAuthenticationGuard = (
 
     const isSocialLoggedIn = user.value?.thirdParty && userConfig?.socialLogins?.includes(user.value?.thirdParty?.id);
 
-    if (meta.authenticated && (!user.value || !await isLoggedIn())) {
+    if (meta.authenticated && !user.value) {
       sessionStorage.setItem('redirectAfterLogin', to.fullPath);
       router.push({ name: "login" }); // using next inside async function is not allowed
     }
@@ -216,7 +216,15 @@ const addAuthenticationGuard = (
     }
 
     if (meta.authenticated && EmailVerificationEnabled && user.value) {
-      const isEmailVerified = await getVerificationStatus();
+      let isEmailVerified;
+
+      try {
+        isEmailVerified = await getVerificationStatus();
+      } catch (error) {
+        if (!user.value) {
+          router.push({ name: "login" });
+        }
+      }
 
       if (
         !isEmailVerified &&

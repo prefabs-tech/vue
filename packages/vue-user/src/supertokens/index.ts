@@ -57,7 +57,22 @@ const initSupertokens = (config: AppConfig) => {
 };
 
 const isLoggedIn = async () => {
-  return await Session.doesSessionExist();
+  try {
+    const sessionExists =  await Session.doesSessionExist();
+    
+    if (!sessionExists) {
+      logout();
+  
+      const { setUser } = useUserStore();
+      setUser(undefined);
+  
+      return false;
+    }
+  
+    return true;
+  } catch (error) {
+    return false;
+  }
 };
 
 const getUser = async (): Promise<UserType | undefined> => {
