@@ -396,7 +396,7 @@ const propsData = [
     type: "String",
   },
   {
-    default: "{}",
+    default: "-",
     description: t("form.documentation.propsDescription.input.options"),
     prop: "options",
     type: "StrongPasswordOptions",
@@ -408,7 +408,7 @@ const propsData = [
     type: "String",
   },
   {
-    default: "{}",
+    default: "-",
     description: t("form.documentation.propsDescription.input.schema"),
     prop: "schema",
     type: "z.ZodType<string | number | object>",
