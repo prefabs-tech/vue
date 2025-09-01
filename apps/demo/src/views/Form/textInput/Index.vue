@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.textInput')" class="demo">
+  <FormPage
+    :subtitle="t('form.subtitle.text')"
+    :title="$t('form.label.textInput')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -240,6 +244,22 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'TextInputProperties' })
+      "
+    />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface TextErrorMessages {
+        invalid?: string;
+        required?: string;
+      }
+    </SshPre>
   </FormPage>
 </template>
 
@@ -256,13 +276,73 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
 
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "string | null | undefined",
+  },
+];
+
 const inputSchema = z
   .string()
   .length(5, { message: t("form.errors.input.length", { length: 5 }) });
+
+const propsData = [
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: `{ invalid: "Please provide a valid input data", required: "The field is required", }`,
+    description: t("form.documentation.propsDescription.input.errorMessages"),
+    prop: "errorMessages",
+    type: "TextErrorMessages",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "String | null | undefined",
+  },
+  {
+    default: '"text_input"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.options"),
+    prop: "options",
+    type: "Object",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number | object>",
+  },
+];
 
 const validationMessages = {
   required: t("form.errors.input.required"),
