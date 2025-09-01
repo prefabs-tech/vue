@@ -61,8 +61,6 @@ const isLoggedIn = async () => {
     const sessionExists =  await Session.doesSessionExist();
     
     if (!sessionExists) {
-      logout();
-  
       const { setUser } = useUserStore();
       setUser(undefined);
   

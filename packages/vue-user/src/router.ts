@@ -160,7 +160,7 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   }
 };
 
-const redirectRoutes = async (router: Router) => {
+const redirectRoutes = (router: Router) => {
   router.beforeEach((to, from, next) => {
     const userStore = useUserStore();
     const { user } = storeToRefs(userStore);
