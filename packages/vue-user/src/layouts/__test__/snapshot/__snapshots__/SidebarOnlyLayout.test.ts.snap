@@ -149,7 +149,9 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
       
       
       
-      <user-menu-stub />
+      <user-menu-stub
+        usermenuitems=""
+      />
       
       
       <locale-switcher-stub

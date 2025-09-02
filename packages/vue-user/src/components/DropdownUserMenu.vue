@@ -41,7 +41,7 @@
               fill="currentColor"
             />
           </svg>
-          {{ $t("app.header.menu.changePassword") }}
+          {{ t("app.header.menu.changePassword") }}
         </router-link>
       </li>
       <li @click="$emit('select:menu')">
@@ -57,7 +57,17 @@
               fill="currentColor"
             />
           </svg>
-          {{ $t("app.header.menu.profile") }}
+          {{ t("app.header.menu.profile") }}
+        </router-link>
+      </li>
+      <li
+        v-for="item in props.userMenuItems"
+        :key="item.route"
+        @click="$emit('select:menu')"
+      >
+        <router-link :to="{ name: item.name }">
+          <i :class="item.icon + ' menu-icon'"></i>
+          {{ item.label }}
         </router-link>
       </li>
       <li class="option" @click="[$emit('logout'), $emit('select:menu')]">
@@ -76,7 +86,7 @@
             fill="currentColor"
           />
         </svg>
-        {{ $t("app.header.menu.logout") }}
+        {{ t("app.header.menu.logout") }}
       </li>
     </ul>
   </nav>
@@ -90,13 +100,19 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@prefabs.tech/vue3-config";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { onClickOutside } from "@vueuse/core";
 import { computed, ref } from "vue";
 
+import { useTranslations } from "../index";
+
 import type { UserType } from "../types";
+import type { UserMenuItem } from "../types/userMenu";
 import type { PropType } from "vue";
 
 const expanded = ref(false);
+const messages = useTranslations();
+const { t } = useI18n({ messages });
 
 defineEmits(["logout", "select:menu"]);
 
@@ -104,6 +120,10 @@ const props = defineProps({
   user: {
     required: true,
     type: Object as PropType<UserType>,
+  },
+  userMenuItems: {
+    default: () => [],
+    type: Array as PropType<UserMenuItem[]>,
   },
 });
 
@@ -200,7 +220,7 @@ nav.user-menu-dropdown.expanded > ul.dropdown {
   flex-direction: column;
   gap: 0.25rem;
   height: auto;
-  max-height: 10rem;
+  max-height: 13rem;
   padding: 0.15rem 0;
   padding-inline-start: 0;
 }
@@ -236,6 +256,14 @@ nav.user-menu-dropdown > ul.dropdown > li:not(:has(a)) {
 
 nav.user-menu-dropdown > ul.dropdown > li svg {
   margin-right: 0.5rem;
+}
+
+nav.user-menu-dropdown > ul.dropdown > li i {
+  align-items: center;
+  display: flex;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  padding: 0.2rem;
 }
 
 @media screen and (min-width: 576px) {
