@@ -16,7 +16,7 @@
           <MainMenu class="main-menu" :routes="routes" />
         </template>
         <template #userMenu>
-          <UserMenu v-if="showUserMenu">
+          <UserMenu v-if="showUserMenu" :user-menu-items="userMenuItems">
             <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
               <slot name="userMenuTrigger"></slot>
             </template>
@@ -93,6 +93,10 @@ const routes = computed(() => {
   }
 
   return layoutConfig?.mainMenu as MenuItem[];
+});
+
+const userMenuItems = computed(() => {
+  return layoutConfig?.userMenu || [];
 });
 </script>
 
