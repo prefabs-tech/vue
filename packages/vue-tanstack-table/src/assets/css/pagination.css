@@ -1,5 +1,5 @@
 :root {
-  --pagination-bg-color: #f8f9fa;
+  --pagination-bg-color: var(--table-header-footer-bg, transparent);
   --pagination-padding: 0.8rem;
   --pagination-gap: 0.5rem;
   --pagination-buttons-bg-color: var(--dz-primary-color);
@@ -64,8 +64,8 @@
 }
 
 .items-per-page-control select {
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
+  background: var(--table-header-footer-bg, transparent);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
 }
 
