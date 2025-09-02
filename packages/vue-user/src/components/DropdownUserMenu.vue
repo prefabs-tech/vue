@@ -122,8 +122,8 @@ const props = defineProps({
     type: Object as PropType<UserType>,
   },
   userMenuItems: {
-    type: Array as PropType<UserMenuItem[]>,
     default: () => [],
+    type: Array as PropType<UserMenuItem[]>,
   },
 });
 
