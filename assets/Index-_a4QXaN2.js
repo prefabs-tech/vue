@@ -1,0 +1,1 @@
+import{_ as t}from"./TablePage.vue_vue_type_style_index_0_lang-DmZFiG_9.js";import{d as o,e as a,o as n}from"./index-BOw3R0Gy.js";const _={name:"TableDemo"},m=o({..._,setup(l){return(e,r)=>(n(),a(t,{title:e.$t("table.title")},null,8,["title"]))}});export{m as default};
