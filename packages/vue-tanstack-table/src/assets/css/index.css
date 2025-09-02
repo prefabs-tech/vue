@@ -159,10 +159,6 @@
   vertical-align: text-bottom;
 }
 
-.table-container .table-wrapper > table tr > th.sortable:active {
-  background: var(--table-header-active-bg);
-}
-
 .table-container .table-wrapper > table tr > th.highlight,
 .table-container .table-wrapper > table tr > td.highlight {
   background: var(--table-header-active-bg);
