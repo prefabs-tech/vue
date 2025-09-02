@@ -475,7 +475,7 @@
         <Table :columns-data="columns" :data="data">
           <template #footer>
             <tr>
-              <td>
+              <td :colspan="columns.length">
                 {{ `${$t("table.label.totalRecords")}: ${data.length ?? "0"}` }}
               </td>
             </tr>
@@ -488,7 +488,7 @@
             &lt;Table :columns-data="columns" :data="data"&gt;
               &lt;template #footer&gt;
                 &lt;tr&gt;
-                  &lt;td&gt;
+                  &lt;td :colspan="columns.length"&gt;
                     &lbrace;&lbrace; `Total records: ${data.length ?? "0"}` &rbrace;&rbrace;
                   &lt;/td&gt;
                 &lt;/tr&gt;

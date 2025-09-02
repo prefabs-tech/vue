@@ -2,7 +2,7 @@
 
 :root {
   --table-border: 1px solid rgb(226, 226, 226);
-  --table-header-bg: var(--hover-bg, #f0f2f7ad);
+  --table-header-bg: var(--table-header-footer-bg, transparent);
   --table-overlay-bg: rgba(255, 255, 255, 0.6);
   --table-header-active-bg: var(--active-bg, #eff6ff);
   --table-row-hover-bg: var(--hover-bg, #f0f2f7ad);
@@ -81,6 +81,10 @@
 
 .table-container .table-wrapper > table > tbody {
   background: var(--table-body-bg);
+}
+
+.table-container .table-wrapper > table > tfoot > tr {
+  background: var(--table-header-footer-bg, transparent);
 }
 
 .table-container .toolbar,
