@@ -16,7 +16,7 @@
       <div class="section-content">
         <FilesPresentation
           :files="files"
-          :locale="locale"
+          :locale="String(locale)"
           :visible-file-details="[
             'originalFileName',
             'description',
@@ -41,7 +41,7 @@
           &lt;template&gt;
             &lt;FilesPresentation
               :files="files"
-              :locale="locale"
+              :locale="String(locale)"
               :visible-file-details="[
                 'originalFileName',
                 'description',

@@ -18,12 +18,12 @@
       <h2>{{ $t("ui.fileCard.usage.basic") }}</h2>
 
       <div class="section-content">
-        <FileCard :file="file" :locale="locale" />
+        <FileCard :file="file" :locale="String(locale)" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;FileCard :file="file" :locale="locale" /&gt;
+            &lt;FileCard :file="file" :locale="String(locale)" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -54,12 +54,12 @@
       <h2>{{ $t("ui.fileCard.usage.messages") }}</h2>
 
       <div class="section-content">
-        <FileCard :file="file" :locale="locale" :messages="messages" />
+        <FileCard :file="file" :locale="String(locale)" :messages="messages" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;FileCard :file="file" :locale="locale" :messages="messages" /&gt;
+            &lt;FileCard :file="file" :locale="String(locale)" :messages="messages" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -103,7 +103,7 @@
           :archive-button-props="archiveButtonProperties"
           :delete-button-props="deleteButtonProperties"
           :download-button-props="downloadButtonProperties"
-          :locale="locale"
+          :locale="String(locale)"
           :file="file"
           :share-button-props="shareButtonProperties"
           :view-button-props="viewButtonProperties"
@@ -116,7 +116,7 @@
             :archive-button-props="archiveButtonProps"
             :delete-button-props="deleteButtonProps"
             :download-button-props="downloadButtonProps"
-            :locale="locale"
+            :locale="String(locale)"
             :file="file"
             :share-button-props="shareButtonProps"
             :view-button-props="viewButtonProps"
@@ -182,7 +182,7 @@
             view: true,
           }"
           :file="file"
-          :locale="locale"
+          :locale="String(locale)"
           :visibility-detail="{
             actions: true,
             description: false,
@@ -207,7 +207,7 @@
                 view: true,
               }"
               :file="file"
-              :locale="locale"
+              :locale="String(locale)"
               :visibility-detail="{
                 actions: true,
                 description: false,
