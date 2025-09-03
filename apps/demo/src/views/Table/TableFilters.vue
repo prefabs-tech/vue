@@ -99,6 +99,7 @@
           :columns-data="customFilterColumns"
           :data="formatDemoData"
           :initial-sorting="[{ id: 'quantity', desc: true }]"
+          :locale="String(locale)"
           :paginated="false"
           :table-options="{
             filterFns: {
@@ -116,6 +117,7 @@
               :columns-data="customFilterColumns"
               :data="data"
               :initial-sorting="[{ id: 'quantity', desc: true }]"
+              :locale="String(locale)"
               :paginated="false"
               :table-options="{
                 filterFns: {
@@ -134,7 +136,7 @@
 
           import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
-          const { t } = useI18n();
+          const { locale, t } = useI18n();
 
           const customFilterColumns = [
             {
@@ -440,7 +442,7 @@ import type {
   TableColumnDefinition,
 } from "@prefabs.tech/vue3-tanstack-table";
 
-const { t } = useI18n();
+const { locale, t } = useI18n();
 
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {

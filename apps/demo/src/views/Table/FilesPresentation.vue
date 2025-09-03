@@ -16,6 +16,7 @@
       <div class="section-content">
         <FilesPresentation
           :files="files"
+          :locale="locale"
           :visible-file-details="[
             'originalFileName',
             'description',
@@ -40,6 +41,7 @@
           &lt;template&gt;
             &lt;FilesPresentation
               :files="files"
+              :locale="locale"
               :visible-file-details="[
                 'originalFileName',
                 'description',
@@ -61,10 +63,13 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
           import { FilesPresentation } from "@prefabs.tech/vue3-tanstack-table";
     
           import type { IFile } from "@prefabs.tech/vue3-ui";
 
+          const { locale } = useI18n();
+          
           const files = [
             {
               description: "File description",
@@ -123,6 +128,7 @@
             view: true,
           }"
           :files="files"
+          :locale="locale"
           :visible-file-details="[
             'originalFileName',
             'description',
@@ -151,6 +157,7 @@
                 view: true,
               }"
               :files="files"
+              :locale="locale"
               :visible-file-details="[
                 'originalFileName',
                 'description',
@@ -168,9 +175,12 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
           import { FilesPresentation } from "@prefabs.tech/vue3-tanstack-table";
     
           import type { IFile } from "@prefabs.tech/vue3-ui";
+
+          const { locale } = useI18n();
 
           const files = [
             {
@@ -226,12 +236,15 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { FilesPresentation } from "@prefabs.tech/vue3-tanstack-table";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import TablePage from "./TablePage.vue";
 
 import type { IFile } from "@prefabs.tech/vue3-ui";
+
+const { locale } = useI18n();
 
 const files = [
   {

@@ -10,6 +10,7 @@
       :download-button-props="downloadButtonProps"
       :edit-description-button-props="editDescriptionButtonProps"
       :file="file"
+      :locale="locale"
       :messages="messages"
       :share-button-props="shareButtonProps"
       :show-thumbnail="showThumbnail"
@@ -73,6 +74,10 @@ defineProps({
   files: {
     required: true,
     type: Array as PropType<IFile[]>,
+  },
+  locale: {
+    default: undefined,
+    type: String,
   },
   messages: {
     default: () => {},
