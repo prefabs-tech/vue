@@ -39,6 +39,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { formatDateTime } from "@prefabs.tech/vue3-ui";
 import { computed, h } from "vue";
 
@@ -114,6 +115,8 @@ const emit = defineEmits([
   "update:request",
 ]);
 
+const { locale } = useI18n();
+
 const defaultColumns: TableColumnDefinition<IFile>[] = [
   {
     accessorKey: "originalFileName",
@@ -181,7 +184,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
   {
     accessorKey: "uploadedAt",
     cell: ({ getValue }) => {
-      return formatDateTime(getValue() as number);
+      return formatDateTime(getValue() as number, locale?.value);
     },
     enableColumnFilter: true,
     enableSorting: true,
@@ -207,7 +210,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     accessorKey: "lastDownloadedAt",
     cell: ({ getValue }) => {
       if (getValue()) {
-        return formatDateTime(getValue() as number);
+        return formatDateTime(getValue() as number, locale?.value);
       }
 
       return h("code", {}, "—");
