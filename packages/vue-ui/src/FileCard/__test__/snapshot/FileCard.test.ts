@@ -33,8 +33,8 @@ describe("FileCard", () => {
           [i18Plugin, { config }],
         ],
         stubs: {
-          ButtonElement: true,
-          Card: true,
+          ButtonElement: "<button-stub></button-stub>",
+          Card: "<card-stub><slot></slot></card-stub>",
           ConfirmationFileActions: true,
         },
       },
