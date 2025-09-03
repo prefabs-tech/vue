@@ -208,7 +208,7 @@ nav.user-menu-dropdown > ul.dropdown {
   min-width: 160px;
   position: absolute;
   transform: translate3d(0, 56px, 0px);
-  transition: max-height 0.3s ease-out;
+  transition: max-height 0.1s ease;
   width: max-content;
   z-index: var(--dropdown-z-index, 2);
 }
@@ -220,7 +220,7 @@ nav.user-menu-dropdown.expanded > ul.dropdown {
   flex-direction: column;
   gap: 0.25rem;
   height: auto;
-  max-height: 13rem;
+  max-height: 20rem;
   padding: 0.15rem 0;
   padding-inline-start: 0;
 }
