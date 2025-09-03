@@ -1,3 +1,18 @@
+# [0.17.0](https://github.com/prefabs-tech/vue/compare/v0.16.0...v0.17.0) (2025-09-03)
+
+
+### Bug Fixes
+
+* **user:** update page route navigation when user logged out ([#784](https://github.com/prefabs-tech/vue/issues/784)) ([1b60cec](https://github.com/prefabs-tech/vue/commit/1b60cec0b010d7a5c6a2a879ce5387ad7ef79060))
+* **vue-user tests:** update SidebarHeaderLayout snapshot to reflect header changes ([701d7aa](https://github.com/prefabs-tech/vue/commit/701d7aac1fcebe3ff6a3e159b6dddfe4122b09bf))
+
+
+### Features
+
+* **vue-user/menu:** updated user menu with dynamic menu items ([#790](https://github.com/prefabs-tech/vue/issues/790)) ([4eec3e8](https://github.com/prefabs-tech/vue/commit/4eec3e8b1a309cb04d6dfb91f51d9bd183ed78e2))
+
+
+
 # [0.16.0](https://github.com/dzangolab/vue/compare/v0.15.0...v0.16.0) (2025-08-26)
 
 
