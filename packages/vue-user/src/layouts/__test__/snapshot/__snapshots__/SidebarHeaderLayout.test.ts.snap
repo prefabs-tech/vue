@@ -5,9 +5,7 @@ exports[`SidebarHeaderLayout > matches snapshot 1`] = `
   class="layout sidebar-header-layout collapsible"
 >
   
-  <header
-    class=""
-  >
+  <header>
     <!---->
     
     <div
