@@ -77,6 +77,10 @@ const props = defineProps({
   },
   isLoading: Boolean,
   isServerTable: Boolean,
+  locale: {
+    default: undefined,
+    type: String,
+  },
   persistState: Boolean,
   persistStateStorage: {
     default: "localStorage",
@@ -181,7 +185,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
   {
     accessorKey: "uploadedAt",
     cell: ({ getValue }) => {
-      return formatDateTime(getValue() as number);
+      return formatDateTime(getValue() as number, props.locale);
     },
     enableColumnFilter: true,
     enableSorting: true,
@@ -207,7 +211,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     accessorKey: "lastDownloadedAt",
     cell: ({ getValue }) => {
       if (getValue()) {
-        return formatDateTime(getValue() as number);
+        return formatDateTime(getValue() as number, props.locale);
       }
 
       return h("code", {}, "—");

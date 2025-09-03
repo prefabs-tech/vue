@@ -49,6 +49,7 @@
             },
           ]"
           :initial-sorting="[{ id: 'originalFileName', desc: true }]"
+          :locale="String(locale)"
           :table-options="{
             paginationOptions: {
               itemsPerPageControlLabel: $t('table.label.rowsPerPage'),
@@ -116,6 +117,7 @@
                 },
               ]"
               :initial-sorting="[{ id: 'originalFileName', desc: true }]"
+              :locale="String(locale)"
               :table-options="{
                 paginationOptions: {
                   itemsPerPageControlLabel: $t('table.label.rowsPerPage'),
@@ -147,9 +149,12 @@
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
           import { FilesTable } from "@prefabs.tech/vue3-tanstack-table";
-    
+
           import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
+          
+          const { locale } = useI18n();
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -165,8 +170,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { FilesTable } from "@prefabs.tech/vue3-tanstack-table";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import TablePage from "./TablePage.vue";
+
+const { locale } = useI18n();
 </script>

@@ -91,7 +91,7 @@ const config = useConfig() as AppConfig;
 
 const messages = useTranslations();
 
-const { t } = useI18n({ messages });
+const { locale, t } = useI18n({ messages });
 
 const userStore = useUserStore();
 const { addInvitation, disableUser, enableUser } = userStore;
@@ -246,7 +246,9 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
     accessorKey: "signedUpAt",
     header: t("user.table.defaultColumns.signedUpAt"),
     cell: ({ row }: { row: { original: UserType } }) =>
-      row.original.signedUpAt ? formatDate(row.original.signedUpAt) : "-",
+      row.original.signedUpAt
+        ? formatDate(row.original.signedUpAt, locale?.value)
+        : "-",
     enableColumnFilter: true,
     enableSorting: true,
     meta: {

@@ -80,7 +80,7 @@
 
             <div v-if="visibilityDetail.uploadedAt" class="uploaded-at">
               <span>{{ messages?.uploadedAtHeader || "Uploaded at" }}</span>
-              <span>{{ formatDateTime(file.uploadedAt) }}</span>
+              <span>{{ formatDateTime(file.uploadedAt, locale) }}</span>
             </div>
           </div>
 
@@ -103,7 +103,9 @@
               <span>{{
                 messages?.lastDownloadedAtHeader || "Last download:"
               }}</span>
-              <span>{{ formatDate(Number(file.lastDownloadedAt)) }}</span>
+              <span>{{
+                formatDate(Number(file.lastDownloadedAt), locale)
+              }}</span>
             </div>
           </div>
         </div>
@@ -298,6 +300,10 @@ const props = defineProps({
   file: {
     type: Object as PropType<IFile>,
     required: true,
+  },
+  locale: {
+    default: undefined,
+    type: String,
   },
   messages: {
     default: () => {},

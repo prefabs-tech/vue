@@ -104,10 +104,6 @@ import type {
 } from "@prefabs.tech/vue3-tanstack-table";
 import type { PropType } from "vue";
 
-const messages = useTranslations();
-
-const { t } = useI18n({ messages });
-
 const props = defineProps({
   appFilterOptions: {
     default: () => [],
@@ -194,6 +190,9 @@ const emit = defineEmits([
   "on:submitInvitation",
   "update:request",
 ]);
+
+const messages = useTranslations();
+const { locale, t } = useI18n({ messages });
 
 const showModal = ref<boolean>(false);
 
@@ -347,7 +346,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
   },
   {
     accessorKey: "expiresAt",
-    cell: ({ getValue }) => formatDateTime(getValue() as string),
+    cell: ({ getValue }) => formatDateTime(getValue() as string, locale?.value),
     enableColumnFilter: true,
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.expiresAt"),

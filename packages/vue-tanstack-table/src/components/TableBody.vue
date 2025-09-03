@@ -82,6 +82,10 @@ const props = defineProps({
     type: String,
   },
   enableRowSelection: Boolean,
+  locale: {
+    default: undefined,
+    type: String,
+  },
   table: {
     required: true,
     type: Object as () => Table<unknown>,
@@ -104,28 +108,28 @@ const getFormattedValueContext = (cell: Cell<unknown, unknown>) => {
       number: (value: any) =>
         formatNumber({
           value: Number(value),
-          locale: numberOptions?.locale,
+          locale: numberOptions?.locale ?? props.locale,
           formatOptions: numberOptions?.formatOptions,
         }) as NoInfer<never>,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       date: (value: any) =>
         formatDate(
           value,
-          dateOptions?.locale,
+          dateOptions?.locale ?? props.locale,
           dateOptions?.formatOptions,
         ) as NoInfer<never>,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       datetime: (value: any) =>
         formatDateTime(
           value,
-          dateOptions?.locale,
+          dateOptions?.locale ?? props.locale,
           dateOptions?.formatOptions,
         ) as NoInfer<never>,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       currency: (value: any) =>
         formatNumber({
           value: Number(value),
-          locale: numberOptions?.locale,
+          locale: numberOptions?.locale ?? props.locale,
           formatOptions: {
             style: "currency",
             currency: "USD",

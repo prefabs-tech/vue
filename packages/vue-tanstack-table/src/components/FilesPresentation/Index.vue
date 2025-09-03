@@ -5,6 +5,7 @@
     :action-buttons-visibility="actionButtonsVisibility"
     :files="files"
     :file-detail-visibility="listVisibleFileDetails"
+    :locale="locale"
     :messages="messages"
     @action:archive="emitAction('archive', $event)"
     @action:delete="emitAction('delete', $event)"
@@ -22,6 +23,7 @@
     :download-file="actionButtonsVisibility.download"
     :edit-description="actionButtonsVisibility.edit"
     :files="files"
+    :locale="locale"
     :messages="messages"
     :share-file="actionButtonsVisibility.share"
     :view-file="actionButtonsVisibility.view"
@@ -73,6 +75,10 @@ const props = defineProps({
   listProps: {
     default: () => {},
     type: Object,
+  },
+  locale: {
+    default: undefined,
+    type: String,
   },
   presentation: {
     default: () => "list",

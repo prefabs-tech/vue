@@ -18,18 +18,21 @@
       <h2>{{ $t("ui.fileCard.usage.basic") }}</h2>
 
       <div class="section-content">
-        <FileCard :file="file" />
+        <FileCard :file="file" :locale="String(locale)" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;FileCard :file="file" /&gt;
+            &lt;FileCard :file="file" :locale="String(locale)" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
           import { FileCard } from "@prefabs.tech/vue3-ui";
 
-          import type { IFile } from "@prefabs.tech/vue3-ui";
+          import type { FileMessages, IFile } from "@prefabs.tech/vue3-ui";
+
+          const { locale } = useI18n();
 
           const file = {
             description: "This is a file",
@@ -51,18 +54,21 @@
       <h2>{{ $t("ui.fileCard.usage.messages") }}</h2>
 
       <div class="section-content">
-        <FileCard :file="file" :messages="messages" />
+        <FileCard :file="file" :locale="String(locale)" :messages="messages" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;FileCard :file="file" :messages="messages" /&gt;
+            &lt;FileCard :file="file" :locale="String(locale)" :messages="messages" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
           import { FileCard } from "@prefabs.tech/vue3-ui";
 
           import type { FileMessages, IFile } from "@prefabs.tech/vue3-ui";
+
+          const { locale } = useI18n();
 
           const file = {
             ...
@@ -97,6 +103,7 @@
           :archive-button-props="archiveButtonProperties"
           :delete-button-props="deleteButtonProperties"
           :download-button-props="downloadButtonProperties"
+          :locale="String(locale)"
           :file="file"
           :share-button-props="shareButtonProperties"
           :view-button-props="viewButtonProperties"
@@ -109,6 +116,7 @@
             :archive-button-props="archiveButtonProps"
             :delete-button-props="deleteButtonProps"
             :download-button-props="downloadButtonProps"
+            :locale="String(locale)"
             :file="file"
             :share-button-props="shareButtonProps"
             :view-button-props="viewButtonProps"
@@ -116,9 +124,12 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
           import { FileCard } from "@prefabs.tech/vue3-ui";
 
           import type { FileMessages, IFile } from "@prefabs.tech/vue3-ui";
+
+          const { locale } = useI18n();
 
           const archiveButtonProps = {
             severity: "warning",
@@ -171,6 +182,7 @@
             view: true,
           }"
           :file="file"
+          :locale="String(locale)"
           :visibility-detail="{
             actions: true,
             description: false,
@@ -195,6 +207,7 @@
                 view: true,
               }"
               :file="file"
+              :locale="String(locale)"
               :visibility-detail="{
                 actions: true,
                 description: false,
@@ -209,9 +222,12 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
           import { FileCard } from "@prefabs.tech/vue3-ui";
 
           import type { IFile } from "@prefabs.tech/vue3-ui";
+
+          const { locale } = useI18n();
 
           const file = {
             ...
@@ -268,12 +284,15 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, FileCard } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 import type { FileMessages, IFile } from "@prefabs.tech/vue3-ui";
+
+const { locale } = useI18n();
 
 const archiveButtonProperties = {
   severity: "warning",
