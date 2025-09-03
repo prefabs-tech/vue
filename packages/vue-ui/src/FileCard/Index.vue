@@ -80,7 +80,7 @@
 
             <div v-if="visibilityDetail.uploadedAt" class="uploaded-at">
               <span>{{ messages?.uploadedAtHeader || "Uploaded at" }}</span>
-              <span>{{ formatDateTime(file.uploadedAt, String(locale)) }}</span>
+              <span>{{ formatDateTime(file.uploadedAt, locale) }}</span>
             </div>
           </div>
 
@@ -104,7 +104,7 @@
                 messages?.lastDownloadedAtHeader || "Last download:"
               }}</span>
               <span>{{
-                formatDate(Number(file.lastDownloadedAt), String(locale))
+                formatDate(Number(file.lastDownloadedAt), locale)
               }}</span>
             </div>
           </div>
@@ -259,7 +259,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ref } from "vue";
 
 import ButtonElement from "../Button/Index.vue";
@@ -302,6 +301,10 @@ const props = defineProps({
     type: Object as PropType<IFile>,
     required: true,
   },
+  locale: {
+    default: undefined,
+    type: String,
+  },
   messages: {
     default: () => {},
     type: Object as PropType<FileMessages>,
@@ -343,8 +346,6 @@ const emit = defineEmits([
   "on:share",
   "on:view",
 ]);
-
-const { locale } = useI18n();
 
 const showArchiveConfirmation = ref<boolean>(false);
 const showDeleteConfirmation = ref<boolean>(false);

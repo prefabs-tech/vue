@@ -65,7 +65,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { formatDate, formatDateTime, Tooltip } from "@prefabs.tech/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
@@ -83,13 +82,15 @@ const props = defineProps({
     type: String,
   },
   enableRowSelection: Boolean,
+  locale: {
+    default: undefined,
+    type: String,
+  },
   table: {
     required: true,
     type: Object as () => Table<unknown>,
   },
 });
-
-const { locale } = useI18n();
 
 const getFormattedValueContext = (cell: Cell<unknown, unknown>) => {
   const cellContext = cell.getContext();
@@ -107,28 +108,28 @@ const getFormattedValueContext = (cell: Cell<unknown, unknown>) => {
       number: (value: any) =>
         formatNumber({
           value: Number(value),
-          locale: numberOptions?.locale ?? locale?.value,
+          locale: numberOptions?.locale ?? props.locale,
           formatOptions: numberOptions?.formatOptions,
         }) as NoInfer<never>,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       date: (value: any) =>
         formatDate(
           value,
-          dateOptions?.locale ?? locale?.value,
+          dateOptions?.locale ?? props.locale,
           dateOptions?.formatOptions,
         ) as NoInfer<never>,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       datetime: (value: any) =>
         formatDateTime(
           value,
-          dateOptions?.locale ?? locale?.value,
+          dateOptions?.locale ?? props.locale,
           dateOptions?.formatOptions,
         ) as NoInfer<never>,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       currency: (value: any) =>
         formatNumber({
           value: Number(value),
-          locale: numberOptions?.locale ?? locale?.value,
+          locale: numberOptions?.locale ?? props.locale,
           formatOptions: {
             style: "currency",
             currency: "USD",

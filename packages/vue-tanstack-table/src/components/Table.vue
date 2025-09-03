@@ -33,6 +33,7 @@
         <TableBody
           :custom-formatters="customFormatters"
           :empty-table-message="emptyTableMessage"
+          :locale="locale"
           :table="table"
         />
         <tfoot v-if="$slots.footer">
@@ -158,6 +159,10 @@ const props = defineProps({
   },
   isLoading: Boolean,
   isServerTable: Boolean,
+  locale: {
+    default: undefined,
+    type: String,
+  },
   paginated: {
     default: true,
     type: Boolean,

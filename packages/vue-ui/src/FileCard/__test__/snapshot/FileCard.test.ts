@@ -1,4 +1,3 @@
-import i18Plugin from "@prefabs.tech/vue3-i18n";
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
@@ -18,20 +17,8 @@ describe("FileCard", () => {
       uploadedBy: { givenName: "Test", lastName: "user" },
     } as IFile;
 
-    const config = {
-      i18n: {
-        fallbackLocale: "en",
-        messages: {},
-        supportedLocales: ["en", "fr"],
-      },
-      slug: "app",
-    };
-
     const wrapper: VueWrapper = mount(FileCard, {
       global: {
-        plugins: [
-          [i18Plugin, { config }],
-        ],
         stubs: {
           ButtonElement: "<button-stub></button-stub>",
           Card: "<card-stub><slot></slot></card-stub>",
