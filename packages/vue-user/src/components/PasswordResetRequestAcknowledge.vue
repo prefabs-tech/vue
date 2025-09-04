@@ -11,11 +11,8 @@
     <div class="resend">
       <span>{{ t("user.passwordResetAcknowledge.label.notReceived") }}</span>
 
-      <div
-        :class="{ disabled: timer > 0 }"
-        @click="timer <= 0 ? $emit('resend') : null"
-      >
-        <span class="inline-link">
+      <div :class="{ disabled: timer > 0 }">
+        <span class="inline-link" @click="timer <= 0 ? $emit('resend') : ''">
           {{ t("user.passwordResetAcknowledge.actions.resend") }}
         </span>
         <span v-if="timer > 0" class="timer">
