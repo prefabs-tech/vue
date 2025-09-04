@@ -11,18 +11,12 @@
     <div class="resend">
       <span>{{ t("user.passwordResetAcknowledge.label.notReceived") }}</span>
 
-      <i18n-t
-        v-if="timer > 0"
-        class="resen-timer disabled"
-        keypath="user.passwordResetAcknowledge.label.resendIn"
-        tag="span"
-      >
-        {{ formatDuration(timer) }}
-      </i18n-t>
-
-      <span v-else class="resend-link" @click="$emit('resend')">
-        {{ t("user.passwordResetAcknowledge.actions.resend") }}
-      </span>
+      <div class="resend-timer" @click="timer <= 0 ? $emit('resend') : null">
+        <span :class="[{ disabled: timer > 0 }, 'inline-link']">
+          {{ t("user.passwordResetAcknowledge.actions.resend") }}
+          <template v-if="timer > 0"> ({{ formatDuration(timer) }}) </template>
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -64,6 +58,10 @@ const timer = ref<number>(
 
 const redirectCountDown = () => {
   setTimeout(() => {
+    if (timer.value <= 0) {
+      return;
+    }
+
     timer.value--;
     redirectCountDown();
   }, 1000);
@@ -88,7 +86,6 @@ onMounted(() => {
 .acknowledgement-content .resend {
   align-items: baseline;
   display: flex;
-  font-style: italic;
   gap: 0.25rem;
 }
 
@@ -99,12 +96,12 @@ onMounted(() => {
   text-decoration: none;
 }
 
-.acknowledgement-content .resend .resend-link {
+.acknowledgement-content .resend .inline-link:not(.disabled) {
   color: var(--dz-primary-color, #007aff);
   cursor: pointer;
 }
 
-.acknowledgement-content .resend .resend-link:hover {
+.acknowledgement-content .resend .inline-link:not(.disabled):hover {
   text-decoration: underline;
 }
 </style>
