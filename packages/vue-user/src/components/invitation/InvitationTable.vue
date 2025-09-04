@@ -11,6 +11,7 @@
     :empty-table-message="t('user.invitation.table.emptyMessage')"
     :initial-sorting="initialSorting"
     :is-server-table="isServerTable"
+    :locale="String(locale)"
     :pagination-options="{
       pageInputLabel: t('user.invitation.table.pagination.pageInputLabel'),
       itemsPerPageControlLabel: t(

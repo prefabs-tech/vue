@@ -9,6 +9,7 @@
     :initial-sorting="initialSorting"
     :is-loading="isLoading"
     :is-server-table="isServerTable"
+    :locale="String(locale)"
     :persist-state="persistState"
     :persist-state-storage="persistStateStorage"
     :total-records="totalRecords"
