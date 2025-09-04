@@ -9,6 +9,7 @@
     :initial-sorting="initialSorting"
     :is-loading="isLoading"
     :is-server-table="isServerTable"
+    :locale="String(locale)"
     :pagination-options="{
       pageInputLabel: t('user.table.pagination.pageInputLabel'),
       itemsPerPageControlLabel: t('user.table.pagination.rowsPerPage'),

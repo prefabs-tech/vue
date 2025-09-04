@@ -13,6 +13,7 @@
       :data="rolesData"
       :data-action-menu="actionMenuData"
       :empty-table-message="t('roles.table.emptyMessage')"
+      :locale="String(locale)"
       :paginated="false"
       class="table-roles"
       :is-loading="isLoading"
@@ -71,7 +72,7 @@ import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
 const config = useConfig() as AppConfig;
 
 const messages = useTranslations();
-const { t } = useI18n({ messages });
+const { locale, t } = useI18n({ messages });
 
 defineProps({
   isLoading: Boolean,
