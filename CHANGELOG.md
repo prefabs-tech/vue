@@ -1,3 +1,12 @@
+# [0.18.0](https://github.com/dzangolab/vue/compare/v0.17.0...v0.18.0) (2025-09-04)
+
+
+### Features
+
+* **vue-user/user menu dropdown:** update the styling of user menu dropdown ([#795](https://github.com/dzangolab/vue/issues/795)) ([17f56cb](https://github.com/dzangolab/vue/commit/17f56cbb60f04cc8d05d427e06cea88faa795b20))
+
+
+
 # [0.17.0](https://github.com/prefabs-tech/vue/compare/v0.16.0...v0.17.0) (2025-09-03)
 
 
