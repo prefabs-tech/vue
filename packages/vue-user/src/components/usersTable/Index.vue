@@ -19,7 +19,7 @@
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
     class="table-users"
-    single-action-mode="menu"
+    actions-mode="menu"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
   >

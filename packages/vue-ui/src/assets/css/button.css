@@ -94,6 +94,11 @@
   visibility: hidden;
 }
 
+.button.loading .icon-left,
+.button.loading .icon-right {
+  display: flex;
+}
+
 .button.medium {
   --_button-font-size: 1rem;
   --_button-padding: var(--button-medium-padding);

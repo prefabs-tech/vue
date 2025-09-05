@@ -96,6 +96,11 @@
   border: var(--table-border);
 }
 
+.table-container .table-wrapper > table > tbody > tr > td .data-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
 .table-container .pagination {
   border-top: none;
 }

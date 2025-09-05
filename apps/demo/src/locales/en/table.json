@@ -54,6 +54,7 @@
     "filteredActions": "With actions menu items filtered based on row data logic",
     "footer": "With footer",
     "listMode": "List presentation mode",
+    "multipleButtonAction": "With multiple button action",
     "pagination": "With pagination",
     "persistentInstruction": "Use the id and persistState props to make the table remember states such as sorting, filtering, and visible columns, even after a page refresh.",
     "persistentState": "With persistent state",
