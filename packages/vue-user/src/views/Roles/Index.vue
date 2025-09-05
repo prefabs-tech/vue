@@ -15,6 +15,8 @@
       :empty-table-message="t('roles.table.emptyMessage')"
       :locale="String(locale)"
       :paginated="false"
+      :persist-state="persistState"
+      :persist-state-storage="persistStateStorage"
       class="table-roles"
       :is-loading="isLoading"
       is-server-table
@@ -76,6 +78,16 @@ const { locale, t } = useI18n({ messages });
 
 defineProps({
   isLoading: Boolean,
+  persistState: {
+    default: true,
+    type: Boolean,
+  },
+  persistStateStorage: {
+    default: "localStorage",
+    type: String,
+    validator: (value: string) =>
+      ["localStorage", "sessionStorage"].includes(value),
+  },
 });
 
 const rolesStore = useRolesStore();

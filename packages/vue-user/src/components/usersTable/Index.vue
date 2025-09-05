@@ -133,7 +133,10 @@ const props = defineProps({
   },
   isLoading: Boolean,
   isServerTable: Boolean,
-  persistState: Boolean,
+  persistState: {
+    default: true,
+    type: Boolean,
+  },
   persistStateStorage: {
     default: "localStorage",
     type: String,
