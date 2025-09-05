@@ -68,7 +68,6 @@
           delete-file
           download-file
           edit-description
-          persist-state
           share-file
           view-file
           @action:archive="() => {}"
@@ -136,7 +135,6 @@
               delete-file
               download-file
               edit-description
-              persist-state
               share-file
               view-file
               @action:archive="() => {}"

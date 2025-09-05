@@ -20,7 +20,7 @@
           :columns-data="columns"
           :data="data"
           :initial-sorting="[{ id: 'email', desc: true }]"
-          persist-state
+          :persist-state="true"
           show-column-action
         />
 
@@ -32,7 +32,7 @@
               :columns-data="columns"
               :data="data"
               :initial-sorting="[{ id: 'email', desc: true }]"
-              persist-state
+              :persist-state="true"
             /&gt;
           &lt;/template&gt;
     

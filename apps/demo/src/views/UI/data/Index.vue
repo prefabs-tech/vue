@@ -140,6 +140,7 @@
         :columns-data="propsColumns"
         :data="propsData"
         :paginated="false"
+        :persist-state="false"
       />
     </section>
 
@@ -150,6 +151,7 @@
         :columns-data="slotsColumns"
         :data="slotsData"
         :paginated="false"
+        :persist-state="false"
       />
     </section>
   </UiPage>

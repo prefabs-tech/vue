@@ -2,13 +2,23 @@
   <section v-if="propsData.length">
     <h2>{{ propsTableTitle ?? $t("common.properties") }}</h2>
 
-    <Table :columns-data="propsColumns" :data="propsData" :paginated="false" />
+    <Table
+      :columns-data="propsColumns"
+      :data="propsData"
+      :paginated="false"
+      :persist-state="false"
+    />
   </section>
 
   <section v-if="slotsData.length">
     <h2>{{ $t("common.slots") }}</h2>
 
-    <Table :columns-data="slotsColumns" :data="slotsData" :paginated="false" />
+    <Table
+      :columns-data="slotsColumns"
+      :data="slotsData"
+      :paginated="false"
+      :persist-state="false"
+    />
   </section>
 
   <section v-if="eventsData.length">
@@ -18,6 +28,7 @@
       :columns-data="eventsColumns"
       :data="eventsData"
       :paginated="false"
+      :persist-state="false"
     />
   </section>
 </template>
