@@ -101,6 +101,11 @@ import type {
 import type { PropType } from "vue";
 
 const props = defineProps({
+  actionsMode: {
+    default: "auto",
+    type: String,
+    validator: (value: string) => ["auto", "buttons", "menu"].includes(value),
+  },
   dataActionMenu: {
     default: () => [],
     type: Array as PropType<DataActionsMenuItem[]>,
@@ -192,11 +197,6 @@ const props = defineProps({
   },
   showColumnAction: Boolean,
   showResetButton: Boolean,
-  singleActionMode: {
-    default: "menu",
-    type: String,
-    validator: (value: string) => ["button", "menu"].includes(value),
-  },
   tableOptions: {
     default: () => ({}),
     type: Object,
@@ -216,7 +216,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits([
-  "action:click",
   "action:select",
   "change:rowSelection",
   "update:request",
@@ -532,8 +531,7 @@ const prepareComponent = () => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           data: row.original as Record<string, any>,
           displayActions: props.displayActions,
-          singleActionMode: props.singleActionMode,
-          "onAction:click": () => emit("action:click", row.original),
+          mode: props.actionsMode,
           "onAction:select": (action: DataActionsMenuItem) =>
             emit("action:select", {
               action: action?.key || action?.label,

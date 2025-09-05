@@ -1,17 +1,20 @@
 <template>
   <div v-if="showActionsMenu" class="data-actions">
-    <ButtonElement
-      v-if="showSingleButton"
-      :disabled="filteredItems[0].disabled"
-      :icon-left="filteredItems[0].icon"
-      :label="filteredItems[0].label"
-      rounded
-      variant="textOnly"
-      @click="$emit('action:click')"
-    />
+    <template v-if="showButtons">
+      <ButtonElement
+        v-for="(item, index) in filteredItems"
+        :key="`mode-button-${index}`"
+        :disabled="item.disabled"
+        :icon-left="item.icon"
+        :label="item.label"
+        rounded
+        variant="textOnly"
+        @click="onSelectAction(item)"
+      />
+    </template>
 
     <Dropdown
-      v-else-if="filteredItems.length"
+      v-else-if="showMenu"
       :menu="filteredItems"
       @select="onSelectAction"
     >
@@ -75,14 +78,14 @@ const props = defineProps({
       boolean | ((data: object) => boolean)
     >,
   },
-  singleActionMode: {
-    default: "button",
+  mode: {
+    default: "auto",
     type: String,
-    validator: (value: string) => ["button", "menu"].includes(value),
+    validator: (value: string) => ["auto", "buttons", "menu"].includes(value),
   },
 });
 
-const emit = defineEmits(["action:click", "action:select"]);
+const emit = defineEmits(["action:select"]);
 
 const showConfirmation = ref(false);
 const selectedAction = ref<DataActionsMenuItem>();
@@ -103,17 +106,22 @@ const filteredItems = computed(() =>
     .filter((action) => action.display),
 );
 
-const showSingleButton = computed(
-  () =>
-    filteredItems.value.length === 1 &&
-    filteredItems.value[0].icon &&
-    props.singleActionMode === "button",
-);
-
 const showActionsMenu = computed(() =>
   typeof props.displayActions === "function"
     ? props.displayActions(props.data)
     : props.displayActions,
+);
+
+const showButtons = computed(
+  () =>
+    (filteredItems.value?.length && props.mode === "buttons") ||
+    (props.mode === "auto" && filteredItems.value?.length === 1),
+);
+
+const showMenu = computed(
+  () =>
+    (filteredItems.value?.length && props.mode === "menu") ||
+    (props.mode === "auto" && filteredItems.value?.length > 1),
 );
 
 const onConfirmAction = () => {

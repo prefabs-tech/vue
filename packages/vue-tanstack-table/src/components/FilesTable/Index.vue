@@ -15,7 +15,6 @@
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
     class="table-files"
-    @action:click="onActionClick"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
   >
@@ -311,22 +310,6 @@ const mergedColumns = computed(() => [
       ),
   ),
 ]);
-
-const onActionClick = (data: IFile) => {
-  if (props.archiveFile) {
-    emit("action:archive", data);
-  } else if (props.downloadFile) {
-    emit("action:download", data);
-  } else if (props.editDescription) {
-    emit("action:edit", data);
-  } else if (props.shareFile) {
-    emit("action:share", data);
-  } else if (props.viewFile) {
-    emit("action:view", data);
-  } else if (props.deleteFile) {
-    emit("action:delete", data);
-  }
-};
 
 const onActionSelect = (rowData: { action: string; data: IFile }) => {
   switch (rowData.action) {
