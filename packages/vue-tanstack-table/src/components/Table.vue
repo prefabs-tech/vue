@@ -520,11 +520,19 @@ const prepareComponent = () => {
       align: "center",
       enableColumnFilter: false,
       enableSorting: false,
-      header: () =>
-        h(Icon, {
+      header: () => {
+        if (
+          props.dataActionMenu?.length > 2 &&
+          props.actionsMode === "buttons"
+        ) {
+          return "Actions";
+        }
+
+        return h(Icon, {
           icon: "prime:cog",
           width: "24",
-        }),
+        });
+      },
       cell: ({ row }) =>
         h(TableDataActions, {
           actions: props.dataActionMenu,

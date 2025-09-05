@@ -3,7 +3,9 @@
     <template v-if="showButtons">
       <ButtonElement
         v-for="(item, index) in filteredItems"
+        v-bind="item"
         :key="`mode-button-${index}`"
+        :class="item.class"
         :disabled="item.disabled"
         :icon-left="item.icon"
         :label="item.label"
