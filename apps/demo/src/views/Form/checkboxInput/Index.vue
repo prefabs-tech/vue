@@ -241,6 +241,7 @@
           :columns-data="propsColumns"
           :data="propsData"
           :paginated="false"
+          :persist-state="false"
         />
       </div>
     </section>
@@ -252,6 +253,7 @@
           :columns-data="eventColumns"
           :data="eventData"
           :paginated="false"
+          :persist-state="false"
         />
       </div>
     </section>

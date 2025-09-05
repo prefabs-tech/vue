@@ -32,7 +32,6 @@
           :invitation-modal-title="$t('user.label.inviteUser')"
           :invitations="invitations"
           :visible-columns="visibleColumns"
-          persist-state
         />
 
         <!-- eslint-disable -->
@@ -51,7 +50,6 @@
               :invitations="invitations"
               :visible-columns="visibleColumns"
               invitation-modal-title="Invite a user"
-              persist-state
             /&gt;
           &lt;/template&gt;
 

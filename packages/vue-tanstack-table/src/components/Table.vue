@@ -171,7 +171,10 @@ const props = defineProps({
     default: () => ({}),
     type: Object,
   },
-  persistState: Boolean,
+  persistState: {
+    default: true,
+    type: Boolean,
+  },
   persistStateStorage: {
     default: "localStorage",
     type: String,

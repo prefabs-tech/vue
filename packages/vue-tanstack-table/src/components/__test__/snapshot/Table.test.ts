@@ -15,6 +15,7 @@ describe("Table", () => {
         },
       },
       props: {
+        id: "test-table",
         isServerTable: true,
         showColumnAction: true,
         showResetButton: true,

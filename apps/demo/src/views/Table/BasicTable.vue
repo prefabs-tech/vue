@@ -15,6 +15,7 @@
 
       <div class="section-content">
         <Table
+          id="basic"
           :columns-data="columns"
           :data="data.slice(0, 15)"
           :paginated="false"
@@ -24,6 +25,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="basic"
               :columns-data="columns"
               :data="data"
               :paginated="false"
@@ -103,12 +105,12 @@
       <h2>{{ $t("table.usage.pagination") }}</h2>
 
       <div class="section-content">
-        <Table :columns-data="columns" :data="data" />
+        <Table id="pagination" :columns-data="columns" :data="data" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Table :columns-data="columns" :data="data" /&gt;
+            &lt;Table id="pagination" :columns-data="columns" :data="data" /&gt;
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
@@ -183,6 +185,7 @@
 
       <div class="section-content">
         <Table
+          id="sortable"
           :columns-data="sortableColumns"
           :data="data"
           :initial-sorting="[{ id: 'email', desc: false }]"
@@ -193,6 +196,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="sortable"
               :columns-data="sortableColumns"
               :data="data"
               :initial-sorting="[{ id: 'email', desc: false }]"
@@ -228,6 +232,7 @@
 
       <div class="section-content">
         <Table
+          id="row-selection"
           :columns-data="columns"
           :data="data.slice(0, 5)"
           :initial-sorting="[{ id: 'email', desc: false }]"
@@ -238,6 +243,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="row-selection"
               :columns-data="columns"
               :data="data"
               :initial-sorting="[{ id: 'email', desc: false }]"
@@ -268,6 +274,7 @@
 
       <div class="section-content">
         <Table
+          id="tooltip"
           :columns-data="columnsWithTooltip"
           :data="data.slice(0, 5)"
           :initial-sorting="[{ id: 'email', desc: false }]"
@@ -278,6 +285,7 @@
         <SshPre language="html-vue">
             &lt;template&gt;
               &lt;Table
+                id="tooltip"
                 :columns-data="columnsWithTooltip"
                 :data="data"
                 :initial-sorting="[{ id: 'email', desc: false }]"
@@ -318,6 +326,7 @@
 
       <div class="section-content">
         <Table
+          id="alignment"
           :columns-data="alignmentColumns"
           :data="data.slice(0, 5)"
           :initial-sorting="[{ id: 'email', desc: false }]"
@@ -328,6 +337,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="alignment"
               :columns-data="alignmentColumns"
               :data="data"
               :initial-sorting="[{ id: 'email', desc: false }]"
@@ -395,6 +405,7 @@
 
       <div class="section-content">
         <Table
+          id="column-action"
           :columns-data="columns"
           :data="data.slice(0, 5)"
           :initial-sorting="[{ id: 'email', desc: false }]"
@@ -405,6 +416,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="column-action"
               :columns-data="columns"
               :data="data"
               :initial-sorting="[{ id: 'email', desc: false }]"
@@ -435,6 +447,7 @@
 
       <div class="section-content">
         <Table
+          id="title"
           :columns-data="columns"
           :data="data.slice(0, 5)"
           :title-info="{ text: $t('table.label.users'), align: 'left' }"
@@ -444,6 +457,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table 
+              id="title"
               :columns-data="columns"
               :data="data"
               :title-info="{ text: 'Users', align: 'left' }"
@@ -472,7 +486,7 @@
       <h2>{{ $t("table.usage.footer") }}</h2>
 
       <div class="section-content">
-        <Table :columns-data="columns" :data="data">
+        <Table id="footer" :columns-data="columns" :data="data">
           <template #footer>
             <tr>
               <td :colspan="columns.length">
@@ -485,7 +499,7 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Table :columns-data="columns" :data="data"&gt;
+            &lt;Table id="footer" :columns-data="columns" :data="data"&gt;
               &lt;template #footer&gt;
                 &lt;tr&gt;
                   &lt;td :colspan="columns.length"&gt;
@@ -519,6 +533,7 @@
 
       <div class="section-content">
         <Table
+          id="vertical-border"
           :column-action-button-label="$t('table.label.order')"
           :columns-data="columns"
           :data="data"
@@ -532,6 +547,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="vertical-border"
               :column-action-button-label="$t('table.label.columnAction')"
               :columns-data="columns"
               :data="data"
@@ -579,6 +595,7 @@
 
       <div class="section-content">
         <Table
+          id="horizontal-border"
           :column-action-button-label="$t('table.label.order')"
           :columns-data="columns"
           :data="data"
@@ -592,6 +609,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="horizontal-border"
               :column-action-button-label="$t('table.label.columnAction')"
               :columns-data="columns"
               :data="data"
@@ -631,7 +649,11 @@
       <h2>{{ $t("table.usage.customToolbar") }}</h2>
 
       <div class="section-content">
-        <Table :columns-data="columns" :data="data.slice(0, 5)">
+        <Table
+          id="custom-toolbar"
+          :columns-data="columns"
+          :data="data.slice(0, 5)"
+        >
           <template #toolbar>
             <span v-if="showDate">{{ formatDateTime(Date()) }}</span>
             <ButtonElement
@@ -644,7 +666,7 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Table :columns-data="columns" :data="data"&gt;
+            &lt;Table id="custom-toolbar" :columns-data="columns" :data="data"&gt;
               &lt;template #toolbar&gt;
                 &lt;span v-if="showDate"&gt;
                   &lbrace;&lbrace; formatDateTime(Date()) &rbrace;&rbrace;
@@ -684,6 +706,7 @@
 
       <div class="section-content">
         <Table
+          id="single-action"
           :columns-data="columns"
           :data="data.slice(10, 15)"
           :data-action-menu="[
@@ -701,6 +724,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="single-action"
               :columns-data="columns"
               :data="data.splice(10, 15)" 
               :data-action-menu="[
@@ -738,6 +762,7 @@
 
       <div class="section-content">
         <Table
+          id="builtin-actions"
           :columns-data="columns"
           :data="data.slice(10, 15)"
           :data-action-menu="[
@@ -771,6 +796,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="builtin-actions"
               :columns-data="columns"
               :data="data.splice(10, 15)" 
               :data-action-menu="[
@@ -824,6 +850,7 @@
 
       <div class="section-content">
         <Table
+          id="filtered-actions"
           :columns-data="columns"
           :data="data.slice(10, 15)"
           :data-action-menu="[
@@ -858,6 +885,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="filtered-actions"
               :columns-data="columns"
               :data="data.splice(10, 15)" 
               :data-action-menu="[
@@ -913,6 +941,7 @@
 
       <div class="section-content">
         <Table
+          id="single-action-menu"
           :columns-data="columns"
           :data="data.slice(10, 15)"
           :data-action-menu="[
@@ -929,6 +958,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="single-action-menu"
               :columns-data="columns"
               :data="data.splice(10, 15)" 
               :data-action-menu="[
@@ -966,6 +996,7 @@
 
       <div class="section-content">
         <Table
+          id="cell-data-formatting"
           :columns-data="formattedTableColumns"
           :data="formatDemoData"
           :initial-sorting="[{ id: 'quantity', desc: true }]"
@@ -976,6 +1007,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="cell-data-formatting"
               :columns-data="columns"
               :data="data"
               :initial-sorting="[{ id: 'quantity', desc: true }]"
@@ -1079,6 +1111,7 @@
 
       <div class="section-content">
         <Table
+          id="custom-cell-data-formatting"
           :columns-data="customFormattedTableColumns"
           :custom-formatters="{
             currency: (value) => `$${value}`,
@@ -1093,6 +1126,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="custom-cell-data-formatting"
               :columns-data="columns"
               :custom-formatters="{
                 currency: (value) => `$${value}`,
@@ -1180,6 +1214,7 @@
 
       <div class="section-content">
         <Table
+          id="center-aligned-content"
           :columns-data="centerAlignedTableColumns"
           :data="data.slice(10, 15)"
           :initial-sorting="[{ id: 'email', desc: false }]"
@@ -1190,6 +1225,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="center-aligned-content"
               :columns-data="centerAlignedTableColumns"
               :data="data.slice(10, 15)"
               :initial-sorting="[{ id: 'email', desc: false }]"

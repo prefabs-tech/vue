@@ -14,12 +14,12 @@
       <h2>{{ $t("table.usage.filterableColumn") }}</h2>
 
       <div class="section-content">
-        <Table :columns-data="columns" :data="data" />
+        <Table id="filterable-column" :columns-data="columns" :data="data" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Table :columns-data="columns" :data="data" /&gt;
+            &lt;Table id="filterable-column" :columns-data="columns" :data="data" /&gt;
           &lt;/template&gt;
     
           &lt;script setup lang="ts"&gt;
@@ -96,6 +96,7 @@
 
       <div class="section-content">
         <Table
+          id="custom-static-filter"
           :columns-data="customFilterColumns"
           :data="formatDemoData"
           :initial-sorting="[{ id: 'quantity', desc: true }]"
@@ -114,6 +115,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="custom-static-filter"
               :columns-data="customFilterColumns"
               :data="data"
               :initial-sorting="[{ id: 'quantity', desc: true }]"
@@ -294,6 +296,7 @@
 
       <div class="section-content">
         <Table
+          id="custom-filter"
           :columns-data="customColumns"
           :data="data.slice(10, 15)"
           :initial-sorting="[{ id: 'email', desc: false }]"
@@ -304,6 +307,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
+              id="custom-filter"
               :columns-data="customColumns"
               :data="data.slice(10, 15)"
               :initial-sorting="[{ id: 'email', desc: false }]"
@@ -367,6 +371,7 @@
 
       <div class="section-content">
         <Table
+          id="equal-server-filter"
           :columns-data="equalFilterColumns"
           :data="data.slice(10, 15)"
           :initial-sorting="[{ id: 'email', desc: false }]"
@@ -377,7 +382,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Table
-              :columns-data="equalFilterColumns"
+              id="equal-server-filter"              :columns-data="equalFilterColumns"
               :data="data.slice(10, 15)"
               :initial-sorting="[{ id: 'email', desc: false }]"
               is-server-table

@@ -3,6 +3,7 @@
 exports[`Table > matches snapshot 1`] = `
 <div
   class="table-container"
+  id="test-table"
 >
   <!--v-if-->
   <span
