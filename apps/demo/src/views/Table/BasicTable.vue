@@ -712,12 +712,13 @@
           :data-action-menu="[
             {
               icon: 'pi pi-eye',
+              key: 'show',
             },
           ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
           :paginated="false"
-          single-action-mode="button"
-          @action:click="(data) => {}"
+          actions-mode="buttons"
+          @action:select="(data) => {}"
         />
 
         <!-- eslint-disable -->
@@ -730,12 +731,105 @@
               :data-action-menu="[
                 {
                   icon: 'pi pi-eye',
+                  key: 'show',
                 },
               ]"
               :initial-sorting="[{ id: 'email', desc: false }]"
               :paginated="false"
-              single-action-mode="button"
-              @action:click="(data) => {}"
+              actions-mode="buttons"
+              @action:select="(data) => {}"
+            /&gt;
+          &lt;/template&gt;
+    
+          &lt;script setup lang="ts"&gt;
+          import { Table } from "@prefabs.tech/vue3-tanstack-table";
+
+          import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
+    
+          const columns: Array&lt;TableColumnDefinition&gt; = [
+            ...
+          ];
+  
+          const data = [
+            ...
+          ]
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("table.usage.multipleButtonAction") }}</h2>
+
+      <div class="section-content">
+        <Table
+          :columns-data="columns"
+          :data="data.slice(10, 15)"
+          :data-action-menu="[
+            {
+              icon: 'pi pi-eye',
+              key: 'show',
+            },
+            {
+              icon: 'pi pi-pencil',
+              key: 'edit',
+            },
+            {
+              icon: 'pi pi-share-alt',
+              key: 'share',
+            },
+            {
+              confirmationOptions: {
+                header: $t('table.label.confirmation'),
+                body: $t('table.label.deleteRecordMessage'),
+              },
+              icon: 'pi pi-trash',
+              key: 'delete',
+              requireConfirmationModal: true,
+              severity: 'danger',
+            },
+          ]"
+          :initial-sorting="[{ id: 'email', desc: false }]"
+          :paginated="false"
+          actions-mode="buttons"
+          @action:select="(data) => {}"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Table
+              :columns-data="columns"
+              :data="data.splice(10, 15)" 
+              :data-action-menu="[
+                {
+                  icon: 'pi pi-eye',
+                  key: 'show',
+                },
+                {
+                  icon: 'pi pi-pencil',
+                  key: 'edit',
+                },
+                {
+                  icon: 'pi pi-share-alt',
+                  key: 'share',
+                },
+                {
+                  confirmationOptions: {
+                    header: 'Are you sure!',
+                    body: 'You are going to delete this data.',
+                  },
+                  icon: 'pi pi-trash',
+                  key: 'delete',
+                  requireConfirmationModal: true,
+                  severity: 'danger',
+                },
+              ]"
+              :initial-sorting="[{ id: 'email', desc: false }]"
+              :paginated="false"
+              actions-mode="buttons"
+              @action:select="(data) => {}"
             /&gt;
           &lt;/template&gt;
     
@@ -878,6 +972,7 @@
             },
           ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
+          actions-mode="menu"
           @action:select="(rowData) => {}"
         />
 
@@ -913,7 +1008,7 @@
                 },
               ]"
               :initial-sorting="[{ id: 'email', desc: false }]"
-              :paginated="false"
+              actions-mode="menu"
               @action:select="(rowData) => {}"
             /&gt;
           &lt;/template&gt;
@@ -950,7 +1045,7 @@
             },
           ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
-          single-action-mode="menu"
+          actions-mode="menu"
           @action:select="(rowData) => {}"
         />
 
@@ -968,7 +1063,7 @@
               ]"
               :initial-sorting="[{ id: 'email', desc: false }]"
               :paginated="false"
-              single-action-mode="menu"
+              actions-mode="menu"
               @action:select="(rowData) => {}"
             /&gt;
           &lt;/template&gt;
