@@ -59,7 +59,11 @@
           v-for="menuItem in filteredMenu"
           :key="menuItem.label"
           :aria-disabled="menuItem.disabled ? 'true' : 'false'"
-          :class="[{ disabled: menuItem.disabled }, menuItem.class]"
+          :class="[
+            { disabled: menuItem.disabled },
+            menuItem.class,
+            menuItem?.severity,
+          ]"
           class="menu-item"
           tabindex="0"
           @click="onSelect(menuItem)"
