@@ -160,9 +160,12 @@
   },
   "dropdown": {
     "label": {
+      "delete": "Delete",
+      "edit": "Edit",
       "email": "Email",
       "name": "Name",
-      "user": "User"
+      "user": "User",
+      "view": "View"
     },
     "subtitle": "The Dropdown component provides an accessible and customizable menu for selecting actions or options. It supports labels, icons, slots for custom triggers and icons, and emits events on selection.",
     "title": "Dropdown",
@@ -171,6 +174,7 @@
       "customStyle":"Custom style",
       "email": "monorepo@dzangolab.com",
       "name": "Monorepo",
+      "severity": "Severity",
       "withSlot": "With slot"
     }
   },

@@ -52,14 +52,37 @@ ul.dropdown-menu {
 }
 
 ul.dropdown-menu li {
-  padding: 0.7rem 1.25rem;
-  cursor: pointer;
+  --_color: var(--color);
+
+  color: var(--_color);
   background-color: white;
+  cursor: pointer;
+  padding: 0.7rem 1.25rem;
   transition: all var(--transition-duration) ease 0s;
 }
 
+ul.dropdown-menu li.alternate {
+  --_color: var(--dz-alternate-color, #0284c7);
+}
+
 ul.dropdown-menu li.danger {
-  color: var(--dz-danger-color, #dc3545);
+  --_color: var(--dz-danger-color, #dc3545);
+}
+
+ul.dropdown-menu li.primary {
+  --_color: var(--dz-primary-color, #007aff);
+}
+
+ul.dropdown-menu li.secondary {
+  --_color: var(--dz-secondary-color, #475569);
+}
+
+ul.dropdown-menu li.success {
+  --_color: var(--dz-success-color, #22c55e);
+}
+
+ul.dropdown-menu li.warning {
+  --_color: var(--dz-warning-color, #ea580c);
 }
 
 ul.dropdown-menu li[aria-disabled="true"] {

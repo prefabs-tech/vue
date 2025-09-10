@@ -108,6 +108,49 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.dropdown.usage.severity") }}</h2>
+
+      <div class="section-content">
+        <Dropdown :menu="severityMenu">
+          <i class="pi pi-cog" />
+        </Dropdown>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Dropdown :menu="menu"&gt;
+              &lt;i class="pi pi-cog" /&gt;
+            &lt;/Dropdown&gt;
+
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Dropdown } from "@prefabs.tech/vue3-ui";
+
+          const menu = [
+            {
+              label: "View",
+              severity: "primary",
+              value: "view",
+            },
+            {
+              label: "Edit",
+              severity: "warning",
+              value: "edit",
+            },
+            {
+              label: "Delete",
+              severity: "danger",
+              value: "delete",
+            },
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.dropdown.usage.withSlot") }}</h2>
 
       <div class="section-content">
@@ -180,6 +223,7 @@
               icon?: string;
               key?: string;
               label?: string;
+              severity?: 'alternate' | 'danger' | 'primary' | 'secondary' | 'success' | 'warning';
               value?: string | number;
             }
           </SshPre>
@@ -190,6 +234,7 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, Dropdown } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
@@ -198,7 +243,9 @@ import UiPage from "../UiPage.vue";
 
 import type { DropdownMenu } from "@prefabs.tech/vue3-ui";
 
-const menu = ref([
+const { t } = useI18n();
+
+const menu = [
   {
     disabled: true,
     icon: "pi pi-lock",
@@ -206,7 +253,25 @@ const menu = ref([
     value: "password",
   },
   { icon: "pi pi-user", label: "Profile", value: "profile" },
-]);
+];
+
+const severityMenu = [
+  {
+    label: t("ui.dropdown.label.view"),
+    severity: "primary",
+    value: "view",
+  },
+  {
+    label: t("ui.dropdown.label.edit"),
+    severity: "warning",
+    value: "edit",
+  },
+  {
+    label: t("ui.dropdown.label.delete"),
+    severity: "danger",
+    value: "delete",
+  },
+];
 
 const showProfile = ref<boolean>(false);
 
