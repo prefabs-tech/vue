@@ -115,25 +115,6 @@
           <i class="pi pi-cog" />
         </Dropdown>
 
-        <template v-if="showProfile">
-          <div class="email">
-            <span class="label">
-              {{ $t("ui.dropdown.label.email") }}
-            </span>
-            <span class="value">
-              {{ ": " + $t("ui.dropdown.usage.email") }}
-            </span>
-          </div>
-          <div class="name">
-            <span class="label">
-              {{ $t("ui.dropdown.label.name") }}
-            </span>
-            <span class="value">
-              {{ ": " + $t("ui.dropdown.usage.name") }}
-            </span>
-          </div>
-        </template>
-
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
@@ -156,11 +137,6 @@
               label: "Edit",
               severity: "warning",
               value: "edit",
-            },
-            {
-              label: "Share",
-              severity: "alternate",
-              value: "share",
             },
             {
               label: "Delete",
@@ -258,6 +234,7 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, Dropdown } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
@@ -265,6 +242,8 @@ import ComponentDocumentation from "../../../components/ComponentDocumentation.v
 import UiPage from "../UiPage.vue";
 
 import type { DropdownMenu } from "@prefabs.tech/vue3-ui";
+
+const { t } = useI18n();
 
 const menu = [
   {
@@ -278,22 +257,17 @@ const menu = [
 
 const severityMenu = [
   {
-    label: "View",
+    label: t("ui.dropdown.label.view"),
     severity: "primary",
     value: "view",
   },
   {
-    label: "Edit",
+    label: t("ui.dropdown.label.edit"),
     severity: "warning",
     value: "edit",
   },
   {
-    label: "Share",
-    severity: "alternate",
-    value: "share",
-  },
-  {
-    label: "Delete",
+    label: t("ui.dropdown.label.delete"),
     severity: "danger",
     value: "delete",
   },
