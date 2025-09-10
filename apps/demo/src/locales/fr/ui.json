@@ -171,6 +171,7 @@
       "customStyle":"Custom style",
       "email": "monorepo@dzangolab.com",
       "name": "Monorepo",
+      "severity": "Severity",
       "withSlot": "With slot"
     }
   },

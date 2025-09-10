@@ -108,6 +108,73 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.dropdown.usage.severity") }}</h2>
+
+      <div class="section-content">
+        <Dropdown :menu="severityMenu">
+          <i class="pi pi-cog" />
+        </Dropdown>
+
+        <template v-if="showProfile">
+          <div class="email">
+            <span class="label">
+              {{ $t("ui.dropdown.label.email") }}
+            </span>
+            <span class="value">
+              {{ ": " + $t("ui.dropdown.usage.email") }}
+            </span>
+          </div>
+          <div class="name">
+            <span class="label">
+              {{ $t("ui.dropdown.label.name") }}
+            </span>
+            <span class="value">
+              {{ ": " + $t("ui.dropdown.usage.name") }}
+            </span>
+          </div>
+        </template>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Dropdown :menu="menu"&gt;
+              &lt;i class="pi pi-cog" /&gt;
+            &lt;/Dropdown&gt;
+
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Dropdown } from "@prefabs.tech/vue3-ui";
+
+          const menu = [
+            {
+              label: "View",
+              severity: "primary",
+              value: "view",
+            },
+            {
+              label: "Edit",
+              severity: "warning",
+              value: "edit",
+            },
+            {
+              label: "Share",
+              severity: "alternate",
+              value: "share",
+            },
+            {
+              label: "Delete",
+              severity: "danger",
+              value: "delete",
+            },
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("ui.dropdown.usage.withSlot") }}</h2>
 
       <div class="section-content">
@@ -180,6 +247,7 @@
               icon?: string;
               key?: string;
               label?: string;
+              severity?: 'alternate' | 'danger' | 'primary' | 'secondary' | 'success' | 'warning';
               value?: string | number;
             }
           </SshPre>
@@ -198,7 +266,7 @@ import UiPage from "../UiPage.vue";
 
 import type { DropdownMenu } from "@prefabs.tech/vue3-ui";
 
-const menu = ref([
+const menu = [
   {
     disabled: true,
     icon: "pi pi-lock",
@@ -206,7 +274,30 @@ const menu = ref([
     value: "password",
   },
   { icon: "pi pi-user", label: "Profile", value: "profile" },
-]);
+];
+
+const severityMenu = [
+  {
+    label: "View",
+    severity: "primary",
+    value: "view",
+  },
+  {
+    label: "Edit",
+    severity: "warning",
+    value: "edit",
+  },
+  {
+    label: "Share",
+    severity: "alternate",
+    value: "share",
+  },
+  {
+    label: "Delete",
+    severity: "danger",
+    value: "delete",
+  },
+];
 
 const showProfile = ref<boolean>(false);
 

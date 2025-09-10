@@ -764,6 +764,7 @@
 
       <div class="section-content">
         <Table
+          id="multiple-button-action"
           :columns-data="columns"
           :data="data.slice(10, 15)"
           :data-action-menu="[
