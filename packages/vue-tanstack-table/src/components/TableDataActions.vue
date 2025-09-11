@@ -3,12 +3,12 @@
     <template v-if="showButtons">
       <ButtonElement
         v-for="(item, index) in filteredItems"
-        v-bind="item"
+        v-bind="{ ...item, label: undefined }"
         :key="`mode-button-${index}`"
         :class="item.class"
         :disabled="item.disabled"
         :icon-left="item.icon"
-        :label="item.label"
+        :title="item.label"
         rounded
         variant="textOnly"
         @click="onSelectAction(item)"
@@ -70,6 +70,10 @@ const props = defineProps({
     type: Array as PropType<DataActionsMenuItem[]>,
     required: true,
   },
+  autoModeCount: {
+    default: 1,
+    type: Number,
+  },
   data: {
     default: () => ({}),
     type: Object,
@@ -117,13 +121,15 @@ const showActionsMenu = computed(() =>
 const showButtons = computed(
   () =>
     (filteredItems.value?.length && props.mode === "buttons") ||
-    (props.mode === "auto" && filteredItems.value?.length === 1),
+    (props.mode === "auto" &&
+      filteredItems.value?.length <= props.autoModeCount),
 );
 
 const showMenu = computed(
   () =>
     (filteredItems.value?.length && props.mode === "menu") ||
-    (props.mode === "auto" && filteredItems.value?.length > 1),
+    (props.mode === "auto" &&
+      filteredItems.value?.length > props.autoModeCount),
 );
 
 const onConfirmAction = () => {

@@ -951,16 +951,19 @@
           :data-action-menu="[
             {
               display: (rowData) => rowData.id !== 12,
+              icon: 'pi pi-eye',
               label: $t('table.label.view'),
             },
             {
               disabled: true,
-              display: (rowData) => rowData.id !== 12,
+              display: (rowData) => ![11, 12].includes(rowData.id),
+              icon: 'pi pi-pencil',
               label: $t('table.label.edit'),
             },
             {
               disabled: (rowData) => rowData.id !== 11,
-              display: (rowData) => rowData.id !== 12,
+              display: (rowData) => ![11, 12].includes(rowData.id),
+              icon: 'pi pi-share-alt',
               label: $t('table.label.share'),
             },
             {
@@ -968,12 +971,14 @@
                 header: $t('table.label.confirmation'),
                 body: $t('table.label.deleteRecordMessage'),
               },
+              icon: 'pi pi-trash',
               label: $t('table.label.delete'),
               requireConfirmationModal: true,
+              severity: 'danger',
             },
           ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
-          actions-mode="menu"
+          :auto-mode-count="2"
           @action:select="(rowData) => {}"
         />
 
@@ -1009,7 +1014,6 @@
                 },
               ]"
               :initial-sorting="[{ id: 'email', desc: false }]"
-              actions-mode="menu"
               @action:select="(rowData) => {}"
             /&gt;
           &lt;/template&gt;
