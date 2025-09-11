@@ -24,8 +24,12 @@ const login = async (
   try {
     response = await emailPasswordSignIn(data);
     // eslint-disable-next-line
-  } catch (error) {
-    throw new Error("SOMETHING_WRONG");
+  } catch (error: any) {
+    if (error?.status === 401) {
+      throw new Error("401");
+    }
+
+    throw new Error('SOMETHING_WRONG');
   }
 
   if (response.status === "OK") {
