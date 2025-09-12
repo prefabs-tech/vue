@@ -132,7 +132,8 @@
 }
 
 .table-container .table-wrapper > table tr > td[data-align="center"],
-.table-container .table-wrapper > table tr > th[data-align="center"] {
+.table-container .table-wrapper > table tr > th[data-align="center"],
+.table-container .table-wrapper > table tr > th[data-align="right"] {
   text-align: center;
 }
 

@@ -8,7 +8,8 @@
         :class="item.class"
         :disabled="item.disabled"
         :icon-left="item.icon"
-        :label="item.label"
+        :label="!item.icon ? item.label : ''"
+        :title="item.label"
         rounded
         variant="textOnly"
         @click="onSelectAction(item)"
@@ -70,6 +71,10 @@ const props = defineProps({
     type: Array as PropType<DataActionsMenuItem[]>,
     required: true,
   },
+  autoModeCount: {
+    default: 1,
+    type: Number,
+  },
   data: {
     default: () => ({}),
     type: Object,
@@ -117,13 +122,13 @@ const showActionsMenu = computed(() =>
 const showButtons = computed(
   () =>
     (filteredItems.value?.length && props.mode === "buttons") ||
-    (props.mode === "auto" && filteredItems.value?.length === 1),
+    (props.mode === "auto" && props.actions?.length <= props.autoModeCount),
 );
 
 const showMenu = computed(
   () =>
     (filteredItems.value?.length && props.mode === "menu") ||
-    (props.mode === "auto" && filteredItems.value?.length > 1),
+    (props.mode === "auto" && props.actions?.length > props.autoModeCount),
 );
 
 const onConfirmAction = () => {
