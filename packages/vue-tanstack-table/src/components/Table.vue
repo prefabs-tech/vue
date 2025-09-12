@@ -106,6 +106,10 @@ const props = defineProps({
     type: String,
     validator: (value: string) => ["auto", "buttons", "menu"].includes(value),
   },
+  autoModeCount: {
+    default: 1,
+    type: Number,
+  },
   dataActionMenu: {
     default: () => [],
     type: Array as PropType<DataActionsMenuItem[]>,
@@ -524,13 +528,6 @@ const prepareComponent = () => {
       enableColumnFilter: false,
       enableSorting: false,
       header: () => {
-        if (
-          props.dataActionMenu?.length > 2 &&
-          props.actionsMode === "buttons"
-        ) {
-          return "Actions";
-        }
-
         return h(Icon, {
           icon: "prime:cog",
           width: "24",
@@ -539,6 +536,7 @@ const prepareComponent = () => {
       cell: ({ row }) =>
         h(TableDataActions, {
           actions: props.dataActionMenu,
+          autoModeCount: props.autoModeCount,
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           data: row.original as Record<string, any>,
           displayActions: props.displayActions,
