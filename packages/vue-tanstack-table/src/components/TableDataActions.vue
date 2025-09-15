@@ -1,6 +1,6 @@
 <template>
   <div v-if="showActionsMenu" class="data-actions">
-    <template v-if="showButtons">
+    <template v-if="mode === 'buttons'">
       <ButtonElement
         v-for="(item, index) in filteredItems"
         v-bind="item"
@@ -17,7 +17,7 @@
     </template>
 
     <Dropdown
-      v-else-if="showMenu"
+      v-else-if="mode === 'menu'"
       :menu="filteredItems"
       @select="onSelectAction"
     >
@@ -86,9 +86,9 @@ const props = defineProps({
     >,
   },
   mode: {
-    default: "auto",
+    default: undefined,
     type: String,
-    validator: (value: string) => ["auto", "buttons", "menu"].includes(value),
+    validator: (value: string) => ["buttons", "menu"].includes(value),
   },
 });
 
@@ -113,22 +113,11 @@ const filteredItems = computed(() =>
     .filter((action) => action.display),
 );
 
-const showActionsMenu = computed(() =>
-  typeof props.displayActions === "function"
-    ? props.displayActions(props.data)
-    : props.displayActions,
-);
-
-const showButtons = computed(
+const showActionsMenu = computed(
   () =>
-    (filteredItems.value?.length && props.mode === "buttons") ||
-    (props.mode === "auto" && props.actions?.length <= props.autoModeCount),
-);
-
-const showMenu = computed(
-  () =>
-    (filteredItems.value?.length && props.mode === "menu") ||
-    (props.mode === "auto" && props.actions?.length > props.autoModeCount),
+    (typeof props.displayActions === "function"
+      ? props.displayActions(props.data)
+      : props.displayActions) && filteredItems.value?.length,
 );
 
 const onConfirmAction = () => {
