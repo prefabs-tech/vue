@@ -4,7 +4,7 @@
     :collapsible="collapsible"
     :menu="menu"
     :no-locale-switcher="noLocaleSwitcher"
-    :no-sidebar="!user"
+    :no-sidebar="noSidebar"
     :user-menu-location="userMenuLocation"
   >
     <template #header>
@@ -66,6 +66,7 @@ defineProps({
     type: Boolean,
   },
   noLocaleSwitcher: Boolean,
+  noSidebar: Boolean,
   showUserMenu: {
     default: true,
     required: false,
