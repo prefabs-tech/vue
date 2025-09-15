@@ -4,9 +4,7 @@ exports[`TableDataActions > matches snapshot 1`] = `
 <div
   class="data-actions"
 >
-  <dropdown-stub
-    menu="[object Object],[object Object],[object Object],[object Object]"
-  />
+  <!--v-if-->
   
   <confirmation-modal-stub
     disablebody="false"
