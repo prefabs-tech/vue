@@ -1,3 +1,19 @@
+# [0.19.0](https://github.com/prefabs-tech/vue/compare/v0.18.0...v0.19.0) (2025-09-15)
+
+
+### Bug Fixes
+
+* **user/login:** show appropriate error message for disallowed users ([#803](https://github.com/prefabs-tech/vue/issues/803)) ([97b380d](https://github.com/prefabs-tech/vue/commit/97b380d581efb0ee067a7f7c767ed362fb19eefd))
+
+
+### Features
+
+* **table:** support different action mode for table and update related demo ([#800](https://github.com/prefabs-tech/vue/issues/800)) ([d892d66](https://github.com/prefabs-tech/vue/commit/d892d66268877262cc7f5a0909dddf841b5abc0c))
+* **table:** update auto action mode to be configurable ([#806](https://github.com/prefabs-tech/vue/issues/806)) ([28dedf2](https://github.com/prefabs-tech/vue/commit/28dedf2d99b6e26989b0809776b6b12b3a35d2bb))
+* **ui/dropdown:** add support to severity for dropdown menu ([#801](https://github.com/prefabs-tech/vue/issues/801)) ([e35b173](https://github.com/prefabs-tech/vue/commit/e35b17312ef0351bd1c4c7a4865365bdbfa6f86a))
+
+
+
 # [0.18.0](https://github.com/dzangolab/vue/compare/v0.17.0...v0.18.0) (2025-09-04)
 
 
