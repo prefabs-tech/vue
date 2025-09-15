@@ -1,5 +1,7 @@
 # [0.19.0](https://github.com/prefabs-tech/vue/compare/v0.18.0...v0.19.0) (2025-09-15)
 
+### Breaking Changes
+* **feat(user/layout)!:** update sidebar header layout to accept no sidebar prop
 
 ### Bug Fixes
 
