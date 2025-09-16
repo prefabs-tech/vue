@@ -175,6 +175,8 @@ const onDrop = (
     };
 
     errorMessage.value = errorCodeMap[firstError.code] ?? firstError?.message;
+  } else {
+    errorMessage.value = undefined;
   }
 
   if (inputFiles.value.length) {

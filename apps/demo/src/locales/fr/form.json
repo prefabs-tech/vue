@@ -47,6 +47,12 @@
     "email": {
       "invalid": "Please provide a valid email {list}[fr]"
     },
+    "file": {
+      "invalid": "Please upload valid images {format}",
+      "maxFiles": "Please upload max {max} files",
+      "maxSize": "Please upload files smaller than {max}",
+      "minSize": "Please upload files larger than {min}"
+    },
     "input": {
       "length": "Input must be exactly {length} characters long[fr]",
       "min": "Title must be at least {length} character(s)[fr]",
