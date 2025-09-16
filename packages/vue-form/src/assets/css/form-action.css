@@ -30,6 +30,11 @@
     justify-content: flex-end;
   }
 
+  .form-actions[data-alignment="center"],
+  .form-actions[data-alignment="filled"] {
+    flex-direction: row-reverse;
+  }
+
   .form-actions[data-alignment="filled"] button {
     flex: 1;
   }
