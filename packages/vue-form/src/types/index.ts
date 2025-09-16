@@ -8,6 +8,13 @@ interface EmailErrorMessages {
   required?: string;
 }
 
+interface FileErrorMessages {
+  invalid?: string;
+  maxSize?: string;
+  minSize?: string;
+  maxFiles?: string
+}
+
 interface FileExtended extends File {
   description?: string;
 }
@@ -52,6 +59,7 @@ interface TextErrorMessages {
 export type {
   CurrencyOption,
   EmailErrorMessages,
+  FileErrorMessages,
   FileExtended,
   GroupedOption,
   InputOption,

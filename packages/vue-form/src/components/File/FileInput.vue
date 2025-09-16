@@ -55,7 +55,8 @@ import { useDropzone } from "vue3-dropzone";
 
 import SelectedFile from "./SelectedFile.vue";
 
-import type { FileExtended } from "../../types/index";
+import type { FileErrorMessages, FileExtended } from "../../types/index";
+import type { PropType } from "vue";
 import type { FileRejectReason } from "vue3-dropzone";
 
 const props = defineProps({
@@ -86,6 +87,11 @@ const props = defineProps({
   dropzoneOptions: {
     default: () => ({}),
     type: Object,
+  },
+  errorMessages: {
+    default: undefined,
+    required: false,
+    type: Object as PropType<FileErrorMessages>,
   },
   enableDescription: Boolean,
   inputMethod: {
@@ -159,10 +165,17 @@ const onDrop = (
   }
 
   const firstError = rejectReasons[0]?.errors[0];
-  errorMessage.value =
-    firstError && typeof firstError === "object" && "message" in firstError
-      ? firstError.message
-      : undefined;
+
+  if (firstError && typeof firstError === "object" && "code" in firstError) {
+    const errorCodeMap: Record<string, string | undefined> = {
+      "file-invalid-type": props.errorMessages?.invalid,
+      "file-too-large": props.errorMessages?.maxSize,
+      "file-too-small": props.errorMessages?.minSize,
+      "too-many-files": props.errorMessages?.maxFiles,
+    };
+
+    errorMessage.value = errorCodeMap[firstError.code] ?? firstError?.message;
+  }
 
   if (inputFiles.value.length) {
     emit("on:filesUpdate", inputFiles.value);
