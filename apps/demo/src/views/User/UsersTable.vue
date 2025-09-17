@@ -30,7 +30,7 @@
               :initial-sorting="[{ id: 'email', desc: false }]"
               :users="users"
               :visible-columns="visibleColumns"
-              invitation-modal-title="Invite a user"
+              invitation-modal-title="Invite user"
             /&gt;
           &lt;/template&gt;
 
