@@ -65,7 +65,7 @@
   padding: var(--layout-default-padding-v, 1.5rem)
     var(--layout-default-padding-h, 2rem);
   transition: all 0.3s ease-in-out;
-  z-index: 99;
+  z-index: 999;
 }
 
 .layout.sidebar-header-layout footer {
