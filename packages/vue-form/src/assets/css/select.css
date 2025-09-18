@@ -59,9 +59,12 @@
   user-select: none;
 }
 
+.multiselect:focus-visible,
 .multiselect:not(.invalid, .valid) > .multiselect-input.focused,
 .multiselect:not(.invalid, .valid) > .multiselect-input:focus {
   border: 1px solid var(--dz-primary-color);
+  border-radius: var(--_border-radius);
+  outline: none;
 }
 
 .multiselect .multiselect-input:has(.multiselect-search) {
