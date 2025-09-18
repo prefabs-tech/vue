@@ -696,26 +696,28 @@ const updateDropdownPosition = () => {
   if (!dzangolabVueSelectTrigger.value) {
     return;
   }
-  const rect = dzangolabVueSelectTrigger.value.getBoundingClientRect();
+
+  const trigger = dzangolabVueSelectTrigger.value;
+  const rect = trigger.getBoundingClientRect();
   const viewWidth = window.innerWidth;
 
   const spaceLeft = rect.left;
   const spaceRight = viewWidth - rect.right;
-  const dropdownWidth = rect.width;
+  const shouldExpand =
+    rect.width <= 200 && (spaceRight >= rect.width || spaceLeft >= rect.width);
 
   dropdownStyle.top = `${rect.bottom + window.scrollY}px`;
-
   dropdownStyle.maxWidth = `${rect.width}px`;
   dropdownStyle.minWidth = `${rect.width}px`;
 
-  if (rect.width <= 200 && spaceRight >= dropdownWidth) {
-    dropdownStyle.left = `${rect.left + window.scrollX}px`;
-    dropdownStyle.right = "auto";
-    dropdownStyle.minWidth = "200px";
-    dropdownStyle.maxWidth = "240px";
-  } else if (rect.width <= 200 && spaceLeft >= dropdownWidth) {
-    dropdownStyle.left = "auto";
-    dropdownStyle.right = `${viewWidth - rect.right + window.scrollX}px`;
+  if (shouldExpand) {
+    const isRightSpaceAvailable = spaceRight >= rect.width;
+    dropdownStyle.left = isRightSpaceAvailable
+      ? `${rect.left + window.scrollX}px`
+      : "auto";
+    dropdownStyle.right = isRightSpaceAvailable
+      ? "auto"
+      : `${viewWidth - rect.right + window.scrollX}px`;
     dropdownStyle.minWidth = "200px";
     dropdownStyle.maxWidth = "240px";
   } else {
