@@ -13,10 +13,6 @@
   --_option-background-color-active: var(--list-item-bg-active, #eff6ff);
 }
 
-.field:has(.multiselect):not(:has(.multiselect-options)) {
-  overflow: hidden;
-}
-
 .multiselect {
   position: relative;
   width: 100%;
@@ -129,7 +125,7 @@
 }
 
 .multiselect-options > ul > li.focused {
-  --_multiselect-selected-bg-color: var(--_option-background-color-active)
+  --_multiselect-selected-bg-color: var(--_option-background-color-active);
 
   opacity: 0.8;
 }
