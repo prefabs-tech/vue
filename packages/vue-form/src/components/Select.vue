@@ -10,6 +10,7 @@
       {{ label }}
     </label>
     <div
+      ref="dzangolabVueSelectTrigger"
       :class="[
         { disabled: disabled },
         { focused: showDropdownMenu },
@@ -81,102 +82,114 @@
         </svg>
       </span>
     </div>
-    <div v-if="showDropdownMenu && !disabled" class="multiselect-options">
+    <Teleport to="body">
       <div
-        :class="[
-          'selected-options-wrapper',
-          { visible: selectedOptions.length },
-        ]"
+        v-if="showDropdownMenu && !disabled"
+        ref="dzangolabMultiselectOptions"
+        :style="dropdownStyle"
+        class="multiselect-options"
       >
-        <component
-          v-bind="enableTooltip ? tooltipOptions : {}"
-          :is="enableTooltip ? Tooltip : 'div'"
-          class="selected-options"
-        >
-          <slot name="selection">
-            {{ selectedLabels }}
-          </slot>
-
-          <template v-if="enableTooltip" #content>
-            {{ selectedLabels }}
-          </template>
-        </component>
-        <Divider />
-      </div>
-
-      <ul
-        :class="multiple ? 'multiple-select' : 'single-select'"
-        role="list"
-        @mouseenter="enableOptionNavigation = false"
-        @keydown.tab.stop.prevent="toggleDropdown"
-      >
-        <li
-          v-if="multiple && !searchInput"
-          ref="dzangolabVueSelectAll"
+        <div
           :class="[
-            {
-              focused:
-                focusedOptionIndex === selectAllIndex && enableOptionNavigation,
-            },
-            'multiselect-option select-all-option',
+            'selected-options-wrapper',
+            { visible: selectedOptions.length },
           ]"
-          @click="onSelectAll()"
         >
-          <Checkbox
-            :model-value="isAllSelected"
-            @update:model-value="onMultiSelect()"
-          />
-          <span>Select all</span>
-        </li>
-
-        <template v-for="(option, index) in sortedOptions" :key="option.label">
-          <li
-            v-if="option.groupLabel && shouldRenderGroupHeader(option, index)"
-            :class="[
-              'multiselect-group',
-              { 'disabled-group-select': disableGroupSelect },
-            ]"
-            @click="
-              canSelectGroup && option.groupLabel
-                ? onSelectGroup(option.groupLabel)
-                : ''
-            "
+          <component
+            v-bind="enableTooltip ? tooltipOptions : {}"
+            :is="enableTooltip ? Tooltip : 'div'"
+            class="selected-options"
           >
-            <Checkbox
-              v-if="canSelectGroup"
-              :model-value="isGroupSelected(option.groupLabel)"
-              @update:model-value="onMultiSelect()"
-            />
-            <slot :name="option.groupLabel">
-              {{ option.groupLabel }}
+            <slot name="selection">
+              {{ selectedLabels }}
             </slot>
-          </li>
 
+            <template v-if="enableTooltip" #content>
+              {{ selectedLabels }}
+            </template>
+          </component>
+          <Divider />
+        </div>
+
+        <ul
+          :class="multiple ? 'multiple-select' : 'single-select'"
+          role="list"
+          @mouseenter="enableOptionNavigation = false"
+          @keydown.tab.stop.prevent="toggleDropdown"
+        >
           <li
-            :ref="setOptionReference(index)"
+            v-if="multiple && !searchInput"
+            ref="dzangolabVueSelectAll"
             :class="[
               {
-                focused: focusedOptionIndex === index && enableOptionNavigation,
-                selected: isSelected(option) && !multiple,
+                focused:
+                  focusedOptionIndex === selectAllIndex &&
+                  enableOptionNavigation,
               },
-              'multiselect-option',
+              'multiselect-option select-all-option',
             ]"
-            :disabled="option.disabled"
-            @click="!option.disabled ? onSelect($event, option) : ''"
+            @click="onSelectAll()"
           >
             <Checkbox
-              v-if="multiple"
-              :disabled="option.disabled"
-              :model-value="isSelected(option)"
+              :model-value="isAllSelected"
               @update:model-value="onMultiSelect()"
             />
-            <slot :name="option.label">
-              <span>{{ option.label }}</span>
-            </slot>
+            <span>Select all</span>
           </li>
-        </template>
-      </ul>
-    </div>
+
+          <template
+            v-for="(option, index) in sortedOptions"
+            :key="option.label"
+          >
+            <li
+              v-if="option.groupLabel && shouldRenderGroupHeader(option, index)"
+              :class="[
+                'multiselect-group',
+                { 'disabled-group-select': disableGroupSelect },
+              ]"
+              @click="
+                canSelectGroup && option.groupLabel
+                  ? onSelectGroup(option.groupLabel)
+                  : ''
+              "
+            >
+              <Checkbox
+                v-if="canSelectGroup"
+                :model-value="isGroupSelected(option.groupLabel)"
+                @update:model-value="onMultiSelect()"
+              />
+              <slot :name="option.groupLabel">
+                {{ option.groupLabel }}
+              </slot>
+            </li>
+
+            <li
+              :ref="setOptionReference(index)"
+              :class="[
+                {
+                  focused:
+                    focusedOptionIndex === index && enableOptionNavigation,
+                  selected: isSelected(option) && !multiple,
+                },
+                'multiselect-option',
+              ]"
+              :disabled="option.disabled"
+              @click="!option.disabled ? onSelect($event, option) : ''"
+            >
+              <Checkbox
+                v-if="multiple"
+                :disabled="option.disabled"
+                :model-value="isSelected(option)"
+                @update:model-value="onMultiSelect()"
+              />
+              <slot :name="option.label">
+                <span>{{ option.label }}</span>
+              </slot>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </Teleport>
   </div>
 </template>
 
@@ -189,7 +202,16 @@ export default {
 <script setup lang="ts">
 import { DebouncedInput, Divider, Tooltip } from "@prefabs.tech/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
-import { computed, nextTick, onMounted, ref, toRefs, watch } from "vue";
+import {
+  computed,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  reactive,
+  ref,
+  toRefs,
+  watch,
+} from "vue";
 
 import { normalizeOptions } from "../utils";
 import Checkbox from "./Checkbox.vue";
@@ -257,7 +279,9 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
 const { multiple, placeholder } = toRefs(props);
+const dropdownStyle = reactive<Record<string, string>>({});
 const dzangolabVueFormSelect = ref(null);
+const dzangolabMultiselectOptions = ref<HTMLElement | null>(null);
 const dzangolabVueSearchInput = ref();
 const dzangolabVueSelectAll = ref();
 const dzangolabVueFormSelectOptions = ref<(HTMLElement | null)[]>([]);
@@ -267,8 +291,13 @@ const searchInput: Ref<string | undefined> = ref();
 const selectAllIndex = -1;
 const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
+const dzangolabVueSelectTrigger = ref<HTMLElement | null>(null);
 
 onClickOutside(dzangolabVueFormSelect, (event) => {
+  if (dzangolabMultiselectOptions.value?.contains(event.target as Node)) {
+    return;
+  }
+
   showDropdownMenu.value = false;
   searchInput.value = undefined;
 });
@@ -356,6 +385,12 @@ watch(
     prepareComponent();
   },
 );
+
+watch(showDropdownMenu, (value) => {
+  if (value) {
+    updateDropdownPosition();
+  }
+});
 
 const focusSearchInput = async () => {
   await nextTick();
@@ -657,8 +692,48 @@ const toggleDropdown = () => {
   }
 };
 
+const updateDropdownPosition = () => {
+  if (!dzangolabVueSelectTrigger.value) {
+    return;
+  }
+  const rect = dzangolabVueSelectTrigger.value.getBoundingClientRect();
+  const viewWidth = window.innerWidth;
+
+  const spaceLeft = rect.left;
+  const spaceRight = viewWidth - rect.right;
+  const dropdownWidth = rect.width;
+
+  dropdownStyle.top = `${rect.bottom + window.scrollY}px`;
+
+  dropdownStyle.maxWidth = `${rect.width}px`;
+  dropdownStyle.minWidth = `${rect.width}px`;
+
+  if (rect.width <= 200 && spaceRight >= dropdownWidth) {
+    dropdownStyle.left = `${rect.left + window.scrollX}px`;
+    dropdownStyle.right = "auto";
+    dropdownStyle.minWidth = "200px";
+    dropdownStyle.maxWidth = "240px";
+  } else if (rect.width <= 200 && spaceLeft >= dropdownWidth) {
+    dropdownStyle.left = "auto";
+    dropdownStyle.right = `${viewWidth - rect.right + window.scrollX}px`;
+    dropdownStyle.minWidth = "200px";
+    dropdownStyle.maxWidth = "240px";
+  } else {
+    dropdownStyle.left = `${spaceLeft}px`;
+    dropdownStyle.right = `${spaceRight}px`;
+  }
+};
+
 onMounted(() => {
   prepareComponent();
+
+  window.addEventListener("scroll", updateDropdownPosition, true);
+  window.addEventListener("resize", updateDropdownPosition);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", updateDropdownPosition, true);
+  window.removeEventListener("resize", updateDropdownPosition);
 });
 </script>
 

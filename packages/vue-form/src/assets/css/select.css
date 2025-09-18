@@ -1,4 +1,5 @@
-.field {
+.field,
+.multiselect-options {
   --_background-color: var(--field-bg-color, transparent);
   --_background-color-disabled: var(--field-bg-color-disabled, #f8f8f8);
   --_border-color: var(--border-color);
@@ -21,7 +22,7 @@
   width: 100%;
 }
 
-.multiselect > .multiselect-options {
+.multiselect-options {
   background-color: #fff;
   border-top: none;
   border: 1px solid var(--border-color);
@@ -36,11 +37,11 @@
   overflow-y: auto;
   padding: 0.75rem 0.65rem;
   position: absolute;
-  width: 100%;
-  z-index: 1000;
+  width: max-content;
+  z-index: 9999;
 }
 
-.multiselect > .multiselect-options > ul {
+.multiselect-options > ul {
   display: flex;
   flex-direction: column;
   list-style-type: none;
@@ -65,7 +66,7 @@
 
 .multiselect:not(.invalid, .valid) > .multiselect-input.focused,
 .multiselect:not(.invalid, .valid) > .multiselect-input:focus {
-  outline: 1px solid var(--dz-primary-color);
+  border: 1px solid var(--dz-primary-color);
 }
 
 .multiselect .multiselect-input:has(.multiselect-search) {
@@ -96,7 +97,7 @@
   --_border-color: var(--color-alert-danger, #dc3545);
 }
 
-.multiselect > .multiselect-options > ul > li {
+.multiselect-options > ul > li {
   align-items: baseline;
   background-color: var(--_multiselect-selected-bg-color);
   border-radius: var(--_border-radius);
@@ -108,39 +109,39 @@
   transition: background-color var(--transition-duration) linear;
 }
 
-.multiselect ul>li[disabled="true"] {
+.multiselect-options ul>li[disabled="true"] {
   color: var(--field-color-disabled, #7b7676);
   cursor: not-allowed;
 }
 
-.multiselect > .multiselect-options > ul > li input {
+.multiselect-options > ul > li input {
   box-shadow: none;
   height: fit-content;
   width: auto;
 }
 
-.multiselect > .multiselect-options > ul > li:not(.multiselect-group):hover,
-.multiselect > .multiselect-options > ul:not(.single-select) > li.multiselect-group:not(.disabled-group-select):hover {
+.multiselect-options > ul > li:not(.multiselect-group):hover,
+.multiselect-options > ul:not(.single-select) > li.multiselect-group:not(.disabled-group-select):hover {
   --_multiselect-selected-bg-color: var(--_option-background-color-hover);
 }
 
-.multiselect > .multiselect-options > ul > li.selected {
+.multiselect-options > ul > li.selected {
   --_multiselect-selected-bg-color: var(--_option-background-color-active);
 }
 
-.multiselect > .multiselect-options > ul > li.focused {
+.multiselect-options > ul > li.focused {
   --_multiselect-selected-bg-color: var(--_option-background-color-active)
 
   opacity: 0.8;
 }
 
-.multiselect > .multiselect-options > ul > li.multiselect-group {
+.multiselect-options > ul > li.multiselect-group {
   color: #555;
   font-weight: 600;
   margin-top: 0.5rem;
 }
 
-.multiselect > .multiselect-options > ul:has(.multiselect-group) > li:not(.select-all-option, .multiselect-group) {
+.multiselect-options > ul:has(.multiselect-group) > li:not(.select-all-option, .multiselect-group) {
   margin-left: 0.5rem;
 }
 
@@ -155,8 +156,10 @@
 }
 
 .multiselect span.multiselect-placeholder,
-.multiselect .selected-options,
-.multiselect .selected-options > .tooltip-trigger,
+.multiselect-input .selected-options,
+.multiselect-options .selected-options,
+.multiselect-input .selected-options > .tooltip-trigger,
+.multiselect-options .selected-options > .tooltip-trigger,
 .multiselect ul > li > span {
   display: block;
   overflow: hidden;
@@ -165,16 +168,17 @@
   width: 100%;
 }
 
-.multiselect .selected-options > .tooltip-trigger {
+.multiselect-input .selected-options > .tooltip-trigger,
+.multiselect-options .selected-options > .tooltip-trigger {
   max-width: 100%;
   width: max-content;
 }
 
-.multiselect:has(.disabled) .selected-options > .tooltip-trigger {
+.multiselect-input.disabled .selected-options > .tooltip-trigger {
   cursor: not-allowed;
 }
 
-.multiselect .selected-options-wrapper {
+.multiselect-options .selected-options-wrapper {
   height: 0;
   min-height: 0;
   opacity: 0;
@@ -182,7 +186,7 @@
   transition: min-height 0.3s ease, height 0.3s ease, opacity 0.3s ease;
 }
 
-.multiselect .selected-options-wrapper.visible {
+.multiselect-options .selected-options-wrapper.visible {
   height: 3rem;
   min-height: 3rem;
   opacity: 1;

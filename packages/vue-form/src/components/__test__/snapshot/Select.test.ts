@@ -32,10 +32,6 @@ describe("MultiSelect", () => {
       },
     });
 
-    const multiselectOption = wrapper.find(".multiselect-option");
-
-    await multiselectOption.trigger("click");
-
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -53,10 +49,6 @@ describe("MultiSelect", () => {
         placeholder: "Select a value",
       },
     });
-
-    const multiselectInput = wrapper.find(".multiselect-input");
-
-    await multiselectInput.trigger("click");
 
     expect(wrapper.element).toMatchSnapshot();
   });
