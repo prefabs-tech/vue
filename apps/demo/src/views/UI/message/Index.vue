@@ -18,45 +18,42 @@
       <h2>{{ $t("ui.message.usage.basic") }}</h2>
 
       <div class="section-content">
+        <Message :message="$t('ui.message.contents.info')" severity="info" />
         <Message
-          :message="$t('ui.message.contents.content2')"
-          severity="info"
-        />
-        <Message
-          :message="$t('ui.message.contents.content3')"
+          :message="$t('ui.message.contents.success')"
           severity="success"
         />
         <Message
-          :message="$t('ui.message.contents.content4')"
+          :message="$t('ui.message.contents.danger')"
           severity="danger"
         />
         <Message
-          :message="$t('ui.message.contents.content5')"
+          :message="$t('ui.message.contents.warning')"
           severity="warning"
         />
-        <Message :message="$t('ui.message.contents.content4')" severity="tip" />
+        <Message :message="$t('ui.message.contents.tip')" severity="tip" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Message
-              message="New features just launched! Check them out!"
+              message="Your profile has been updated. Changes may take a few minutes to appear across all devices."
               severity="info"
             /&gt;
             &lt;Message
-              :message="New Year, New You: Start fresh with our services!"
+              :message="Payment received! Your order is now being processed and you’ll receive a confirmation email shortly."
               severity="success"
             /&gt;
             &lt;Message
-              :message="We value your feedback: take our quick survey!"
+              :message="Invalid credentials. Please check your email or password and try again."
               severity="danger"
             /&gt;
             &lt;Message
-              :message="Warning: Limited time only! Sale ends soon!"
+              :message="Your session is about to expire in 2 minutes. Save your work to avoid losing changes."
               severity="warning"
             /&gt;
             &lt;Message
-              :message="We value your feedback: take our quick survey!"
+              :message="Use a password with at least 8 characters to make your password stronger."
               severity="tip"
             /&gt;
           &lt;/template&gt;

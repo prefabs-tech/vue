@@ -219,7 +219,12 @@
       "content2": "New features just launched! Check them out!",
       "content3": "New Year, New You: Start fresh with our services!",
       "content4": "We value your feedback: take our quick survey!",
-      "content5": "Warning: Limited time only! Sale ends soon!"
+      "content5": "Warning: Limited time only! Sale ends soon!",
+      "danger": "Invalid credentials. Please check your email or password and try again.",
+      "info": "Your profile has been updated. Changes may take a few minutes to appear across all devices.",
+      "success": "Payment received! Your order is now being processed and you’ll receive a confirmation email shortly.",
+      "tip": "Use a password with at least 8 characters to make your password stronger.",
+      "warning": "Your session is about to expire in 2 minutes. Save your work to avoid losing changes."
     },
     "documentation": {
       "eventDescription": {
