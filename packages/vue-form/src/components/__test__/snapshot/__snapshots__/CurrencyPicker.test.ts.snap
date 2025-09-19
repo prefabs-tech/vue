@@ -63,7 +63,8 @@ exports[`CurrencyPicker > matches snapshot 1`] = `
           </svg>
         </span>
       </div>
-      <!--v-if-->
+      <!--teleport start-->
+      <!--teleport end-->
     </div>
     <!---->
     

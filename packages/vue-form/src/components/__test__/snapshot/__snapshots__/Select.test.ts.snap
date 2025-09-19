@@ -65,174 +65,8 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
       </svg>
     </span>
   </div>
-  <div
-    class="multiselect-options"
-  >
-    <div
-      class="selected-options-wrapper visible"
-    >
-      <div
-        aria-label="tooltip"
-        class="tooltip-container selected-options"
-      >
-        <div
-          class="tooltip-trigger"
-        >
-          
-          
-          FR, DE, BE, FE, RE
-          
-          
-        </div>
-        <!---->
-      </div>
-      <div
-        class="divider"
-        data-aria-orientation="horizontal"
-        role="separator"
-      />
-    </div>
-    <ul
-      class="multiple-select"
-      role="list"
-    >
-      <li
-        class="multiselect-option select-all-option"
-      >
-        <div
-          class="checkbox-wrapper"
-        >
-          <input
-            checked=""
-            id="checkbox"
-            name="checkbox"
-            type="checkbox"
-          />
-          <!--v-if-->
-        </div>
-        <span>
-          Select all
-        </span>
-      </li>
-      
-      
-      <!--v-if-->
-      <li
-        class="multiselect-option"
-      >
-        <div
-          class="checkbox-wrapper"
-        >
-          <input
-            checked=""
-            id="checkbox"
-            name="checkbox"
-            type="checkbox"
-          />
-          <!--v-if-->
-        </div>
-        
-        <span>
-          BE
-        </span>
-        
-      </li>
-      
-      
-      <!--v-if-->
-      <li
-        class="multiselect-option"
-      >
-        <div
-          class="checkbox-wrapper"
-        >
-          <input
-            checked=""
-            id="checkbox"
-            name="checkbox"
-            type="checkbox"
-          />
-          <!--v-if-->
-        </div>
-        
-        <span>
-          DE
-        </span>
-        
-      </li>
-      
-      
-      <!--v-if-->
-      <li
-        class="multiselect-option"
-      >
-        <div
-          class="checkbox-wrapper"
-        >
-          <input
-            checked=""
-            id="checkbox"
-            name="checkbox"
-            type="checkbox"
-          />
-          <!--v-if-->
-        </div>
-        
-        <span>
-          FE
-        </span>
-        
-      </li>
-      
-      
-      <!--v-if-->
-      <li
-        class="multiselect-option"
-      >
-        <div
-          class="checkbox-wrapper"
-        >
-          <input
-            checked=""
-            id="checkbox"
-            name="checkbox"
-            type="checkbox"
-          />
-          <!--v-if-->
-        </div>
-        
-        <span>
-          FR
-        </span>
-        
-      </li>
-      
-      
-      <!--v-if-->
-      <li
-        class="multiselect-option"
-      >
-        <div
-          class="checkbox-wrapper"
-        >
-          <input
-            checked=""
-            id="checkbox"
-            name="checkbox"
-            type="checkbox"
-          />
-          <!--v-if-->
-        </div>
-        
-        <span>
-          RE
-        </span>
-        
-      </li>
-      
-      
-    </ul>
-  </div>
+  <!--teleport start-->
+  <!--teleport end-->
 </div>
 `;
 
@@ -247,19 +81,25 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     Select
   </label>
   <div
-    class="focused multiselect-input"
+    class="multiselect-input"
   >
+    
     <div
-      class="field debounce-input multiselect-search"
+      aria-label="tooltip"
+      class="tooltip-container selected-options"
     >
-      <input
-        aria-label="input"
-        class="input-field"
-        placeholder="Select a value"
-        type="text"
-        value=""
-      />
+      <div
+        class="tooltip-trigger"
+      >
+        
+        
+        FR
+        
+        
+      </div>
+      <!---->
     </div>
+    
     <span
       class="action-items"
     >
@@ -301,106 +141,7 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
       </svg>
     </span>
   </div>
-  <div
-    class="multiselect-options"
-  >
-    <div
-      class="selected-options-wrapper visible"
-    >
-      <div
-        aria-label="tooltip"
-        class="tooltip-container selected-options"
-      >
-        <div
-          class="tooltip-trigger"
-        >
-          
-          
-          FR
-          
-          
-        </div>
-        <!---->
-      </div>
-      <div
-        class="divider"
-        data-aria-orientation="horizontal"
-        role="separator"
-      />
-    </div>
-    <ul
-      class="single-select"
-      role="list"
-    >
-      <!--v-if-->
-      
-      
-      <!--v-if-->
-      <li
-        class="multiselect-option"
-      >
-        <!--v-if-->
-        
-        <span>
-          BE
-        </span>
-        
-      </li>
-      
-      
-      <!--v-if-->
-      <li
-        class="multiselect-option"
-      >
-        <!--v-if-->
-        
-        <span>
-          DE
-        </span>
-        
-      </li>
-      
-      
-      <!--v-if-->
-      <li
-        class="multiselect-option"
-      >
-        <!--v-if-->
-        
-        <span>
-          FE
-        </span>
-        
-      </li>
-      
-      
-      <!--v-if-->
-      <li
-        class="selected multiselect-option"
-      >
-        <!--v-if-->
-        
-        <span>
-          FR
-        </span>
-        
-      </li>
-      
-      
-      <!--v-if-->
-      <li
-        class="multiselect-option"
-      >
-        <!--v-if-->
-        
-        <span>
-          RE
-        </span>
-        
-      </li>
-      
-      
-    </ul>
-  </div>
+  <!--teleport start-->
+  <!--teleport end-->
 </div>
 `;
