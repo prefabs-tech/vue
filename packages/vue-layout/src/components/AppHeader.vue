@@ -14,7 +14,7 @@
     <slot name="logo" class="logo">
       <Logo v-if="!noLogo" :route="home" />
     </slot>
-    <nav>
+    <nav :data-expanded="expanded">
       <slot name="menu">
         <MainMenu
           v-if="layoutConfig?.mainMenu && !noMainMenu"

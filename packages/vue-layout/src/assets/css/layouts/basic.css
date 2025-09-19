@@ -13,6 +13,13 @@
   overflow: hidden;
 }
 
+.layout.basic[aria-expanded=true] {
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
 .layout.basic > :is(footer, header, main) {
   margin: 0 auto;
   max-width: var(--layout-basic-max-width);
@@ -25,10 +32,6 @@
 
 .layout.basic > header {
   grid-area: header;
-}
-
-.layout.basic[aria-expanded=false] > header > nav {
-  display: none;
 }
 
 .layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {

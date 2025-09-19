@@ -1,5 +1,6 @@
 .layout > header {
   --_layout-header-bg: var(--layout-header-bg, transparent);
+  --_layout-header-sidebar-bg: var(--layout-header-sidebar-bg, #fff);
   --_layout-header-border: var(
       --layout-header-border,
       1px solid var(--border-color, #e5e7eb)
@@ -29,15 +30,25 @@
 }
 
 .layout > header > nav {
-  align-items: stretch;
-  opacity: 1;
-  display: flex;
+  --_padding-h: var(--nav-item-padding-h, 1rem);
+  --_padding-v: var(--nav-item-padding-v, .5rem);
+
+  background: var(--_layout-header-sidebar-bg);
   flex-direction: column;
-  gap: 0.25rem;
-  grid-area: nav;
-  justify-content: flex-start;
-  z-index: 1;
+  gap: 0.5rem;
+  height: 100vh;
+  left: 0;
+  padding: var(--_padding-v) var(--_padding-h);
+  position: absolute;
+  top: calc(100% + 1px);
+  transform: translateX(-100%);
+  transition: transform var(--transition-duration) ease-in-out;
   width: 100%;
+  z-index: 999;
+}
+
+.layout > header > nav[data-expanded="true"] {
+  transform: translateX(0);
 }
 
 .layout > header:not(:has(.logo)):not(:has(.main-menu)) {
@@ -51,10 +62,6 @@
 
   padding-left: var(--_padding-left);
   width: 100%;
-}
-
-.layout > header > nav[data-expanded="false"] {
-  display: none;
 }
 
 .layout > header .logo {
@@ -89,6 +96,7 @@
   .layout > header {
     display: flex;
     gap: var(--_layout-header-gap);
+    position: relative;
   }
 
   .layout > header .main-menu {
@@ -96,17 +104,16 @@
   }
 
   .layout > header > nav {
-    align-items: center;
-    border: none;
     display: flex;
-    flex: 1;
-    flex-direction: row;
+    background: tvar(--_layout-header-bg);
     gap: var(--_layout-header-gap);
-    justify-content: flex-end;
-    margin: 0;
+    flex-direction: row;
+    height: auto;
+    position: unset;
+    max-width: none;
     padding: 0;
-    position: relative;
-    top: 0;
+    transform: none;
+    transition: none;
   }
 
   .layout > header > nav[data-expanded="false"] {

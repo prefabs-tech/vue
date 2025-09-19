@@ -37,7 +37,9 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     
   </div>
   
-  <nav>
+  <nav
+    data-expanded="true"
+  >
     
     <nav
       class="menu main-menu"

@@ -46,7 +46,9 @@ exports[`SidebarHeaderLayout > matches snapshot 1`] = `
       
     </div>
     
-    <nav>
+    <nav
+      data-expanded="true"
+    >
       
       <!---->
       
