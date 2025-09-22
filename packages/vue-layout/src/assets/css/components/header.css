@@ -30,13 +30,10 @@
 }
 
 .layout > header > nav {
-  --_padding-h: var(--nav-item-padding-h, 1rem);
-  --_padding-v: var(--nav-item-padding-v, .5rem);
-
   background: var(--_layout-header-sidebar-bg);
-  height: 100dvh;
+  justify-content: flex-end;
+  max-height: 100dvh;
   left: 0;
-  padding: var(--_padding-v) var(--_padding-h);
   position: absolute;
   top: calc(100% + 1px);
   transform: translateX(-100%);
@@ -107,7 +104,7 @@
     background: var(--_layout-header-bg);
     gap: var(--_layout-header-gap);
     flex-direction: row;
-    height: auto;
+    height: auto !important;
     position: unset;
     max-width: none;
     padding: 0;

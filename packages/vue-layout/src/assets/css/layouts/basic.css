@@ -38,6 +38,14 @@
   --locale-switcher-width: 100%;
 }
 
+.layout.basic[aria-expanded=true] > header .locale-switcher .truncated > svg {
+  transform: rotate(-180deg);
+}
+
+.layout.basic[aria-expanded=true] > header .locale-switcher.expanded .truncated > svg {
+  transform: rotate(0);
+}
+
 .layout.basic nav.user-menu-dropdown > ul.dropdown,
 .layout.basic nav.locale-switcher > ul.dropdown {
   width: 100%;

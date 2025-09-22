@@ -1,5 +1,5 @@
 <template>
-  <ResponsiveMenu :routes="routes" />
+  <ResponsiveMenu :routes="routes" @change-route="$emit('select:menu')" />
 </template>
 
 <script lang="ts">
@@ -17,6 +17,10 @@ import { computed } from "vue";
 import { useTranslations } from "../index";
 
 import type { AppConfig } from "@prefabs.tech/vue3-config";
+
+defineEmits<{
+  (e: "select:menu"): void;
+}>();
 
 const config = useConfig() as AppConfig;
 

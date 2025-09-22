@@ -76,10 +76,21 @@ const close = () => {
 };
 
 const handleResize = () => {
+  const header = document.querySelector(".layout > header") as HTMLElement;
+  const nav = document.querySelector(".layout > header > nav") as HTMLElement;
+
   if (window.innerWidth >= 576) {
     expanded.value = true;
   } else {
+    if (!header || !nav || isLargeScreen.value) {
+      return;
+    }
+
+    const headerHeight = header?.offsetHeight;
+    const viewportHeight = window.innerHeight;
+
     expanded.value = false;
+    nav.style.height = `${viewportHeight - headerHeight}px`;
   }
 };
 
@@ -89,9 +100,11 @@ const toggle = () => {
 
 onUnmounted(() => {
   window.removeEventListener("resize", handleResize);
+  window.removeEventListener("load", handleResize);
 });
 
 window.addEventListener("resize", handleResize);
+window.addEventListener("load", handleResize);
 
 handleResize();
 

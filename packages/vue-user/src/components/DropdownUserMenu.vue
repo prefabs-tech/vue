@@ -207,7 +207,7 @@ nav.user-menu-dropdown > ul.dropdown {
   max-height: 0;
   min-width: 160px;
   position: absolute;
-  transform: translate3d(0, 56px, 0px);
+  transform: translate3d(0, 48px, 0px);
   transition: max-height 0.1s ease;
   width: max-content;
   z-index: var(--dropdown-z-index, 2);
@@ -270,6 +270,10 @@ nav.user-menu-dropdown > ul.dropdown > li i {
   nav.user-menu-dropdown > .trigger {
     --_padding-h: 1rem;
     --_padding-v: 0.625rem;
+  }
+
+  nav.user-menu-dropdown > ul.dropdown {
+    transform: translate3d(0, 56px, 0px);
   }
 }
 </style>

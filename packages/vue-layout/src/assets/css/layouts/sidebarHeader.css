@@ -14,7 +14,7 @@
   
   grid-area: header;
   transition: width 0.3s ease-in-out;
-  z-index: 100;
+  z-index: 101;
 }
 
 .layout.sidebar-header-layout > .layout-sidebar > .sidebar-menu-wrapper,
@@ -65,7 +65,7 @@
   padding: var(--layout-default-padding-v, 1.5rem)
     var(--layout-default-padding-h, 2rem);
   transition: all 0.3s ease-in-out;
-  z-index: 999;
+  z-index: 100;
 }
 
 .layout.sidebar-header-layout footer {
