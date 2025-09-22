@@ -57,6 +57,8 @@ nav.menu li {
   --_active-color: var(--nav-item-active-color, #2c2c2c);
   --_hover-bg: var(--nav-item-hover-bg, #f0f2f7ad);
   --_hover-color: var(--nav-item-hover-color, #2c2c2c);
+
+  border-radius: 0.325rem;
 }
 
 nav.menu li > a {
@@ -87,10 +89,6 @@ nav.menu a {
     align-items: center;
     flex-direction: row;
     gap: var(--menu-gap, 0.25rem);
-  }
-
-  nav.menu li {
-    border-radius: 0.325rem;
   }
 }
 </style>
