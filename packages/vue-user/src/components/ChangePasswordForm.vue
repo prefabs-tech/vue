@@ -23,6 +23,7 @@
     />
 
     <Password
+      v-if="hasConfirmPasswordFeature"
       v-model="payload.confirmPassword"
       :label="t('user.changePassword.form.confirmPassword.label')"
       :schema="confirmPasswordSchema"
@@ -52,6 +53,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useConfig } from "@prefabs.tech/vue3-config";
 import { FormActions, Password } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Form } from "vee-validate";
@@ -65,6 +67,7 @@ import type { PropType } from "vue";
 
 const messages = useTranslations();
 
+const config = useConfig();
 const { t } = useI18n({ messages });
 
 defineProps({
@@ -94,6 +97,9 @@ defineProps({
 });
 
 const emit = defineEmits(["submit"]);
+
+const hasConfirmPasswordFeature =
+  config?.user?.features?.confirmPassword ?? false;
 
 const confirmPasswordSchema = z
   .string({
