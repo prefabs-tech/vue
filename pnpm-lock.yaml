@@ -36,25 +36,25 @@ importers:
         specifier: 3.4.1
         version: 3.4.1(vue@3.5.13(typescript@5.5.4))
       '@prefabs.tech/vue3-config':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../../packages/vue-config
       '@prefabs.tech/vue3-form':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../../packages/vue-form
       '@prefabs.tech/vue3-i18n':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../../packages/vue-i18n
       '@prefabs.tech/vue3-layout':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../../packages/vue-layout
       '@prefabs.tech/vue3-tanstack-table':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../../packages/vue-tanstack-table
       '@prefabs.tech/vue3-ui':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../../packages/vue-ui
       '@prefabs.tech/vue3-user':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../../packages/vue-user
       pinia:
         specifier: 3.0.1
@@ -267,7 +267,7 @@ importers:
         specifier: 0.2.0
         version: 0.2.0(@types/node@22.13.5)
       '@prefabs.tech/vue3-ui':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-ui
       '@types/node':
         specifier: 22.13.5
@@ -376,7 +376,7 @@ importers:
         specifier: 0.2.0
         version: 0.2.0(@types/node@22.13.5)
       '@prefabs.tech/vue3-config':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-config
       '@types/node':
         specifier: 22.13.5
@@ -463,13 +463,13 @@ importers:
         specifier: 0.2.0
         version: 0.2.0(@types/node@22.13.5)
       '@prefabs.tech/vue3-config':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-config
       '@prefabs.tech/vue3-i18n':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-i18n
       '@prefabs.tech/vue3-ui':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-ui
       '@types/node':
         specifier: 22.13.5
@@ -560,10 +560,10 @@ importers:
         specifier: 0.2.0
         version: 0.2.0(@types/node@22.13.5)
       '@prefabs.tech/vue3-form':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-form
       '@prefabs.tech/vue3-ui':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-ui
       '@types/node':
         specifier: 22.13.5
@@ -735,22 +735,22 @@ importers:
         specifier: 0.2.0
         version: 0.2.0(@types/node@22.13.5)
       '@prefabs.tech/vue3-config':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-config
       '@prefabs.tech/vue3-form':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-form
       '@prefabs.tech/vue3-i18n':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-i18n
       '@prefabs.tech/vue3-layout':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-layout
       '@prefabs.tech/vue3-tanstack-table':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-tanstack-table
       '@prefabs.tech/vue3-ui':
-        specifier: 0.19.0
+        specifier: 0.20.0
         version: link:../vue-ui
       '@types/node':
         specifier: 22.13.5

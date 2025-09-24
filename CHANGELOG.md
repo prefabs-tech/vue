@@ -1,3 +1,17 @@
+# [0.20.0](https://github.com/prefabs-tech/vue/compare/v0.19.0...v0.20.0) (2025-09-24)
+
+
+### Bug Fixes
+
+* **form/form-action:** update buttons alignment  for filled form actions ([#811](https://github.com/prefabs-tech/vue/issues/811)) ([5e713af](https://github.com/prefabs-tech/vue/commit/5e713af6fc60e2295b79423ef41af15b25106461))
+
+
+### Features
+
+* **form/file-input:** add support to custom error for file input ([#810](https://github.com/prefabs-tech/vue/issues/810)) ([38d19bb](https://github.com/prefabs-tech/vue/commit/38d19bb1714a3e89da24550b23597a33985fc1f0))
+
+
+
 # [0.19.0](https://github.com/prefabs-tech/vue/compare/v0.18.0...v0.19.0) (2025-09-15)
 
 ### Breaking Changes
