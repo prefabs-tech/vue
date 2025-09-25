@@ -30,10 +30,13 @@
 }
 
 .layout > header > nav {
+  --_padding-v: 1rem;
+
   background: var(--_layout-header-sidebar-bg);
   justify-content: flex-end;
   max-height: 100dvh;
   left: 0;
+  padding-block: var(--_padding-v);
   position: absolute;
   top: calc(100% + 1px);
   transform: translateX(-100%);
@@ -84,7 +87,6 @@
 
 .layout > header .main-menu {
   flex: 1;
-  margin-block: 1rem;
 }
 
 @media screen and (min-width: 576px) {
@@ -94,10 +96,6 @@
     position: relative;
   }
 
-  .layout > header .main-menu {
-    margin-block: 0;
-  }
-
   .layout > header > nav {
     align-items: center;
     display: flex;
@@ -105,6 +103,7 @@
     gap: var(--_layout-header-gap);
     flex-direction: row;
     height: auto !important;
+    padding: 0;
     position: unset;
     max-width: none;
     padding: 0;
