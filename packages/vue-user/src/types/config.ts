@@ -22,6 +22,7 @@ interface DzangolabVueUserConfig {
   };
   features?: {
     authProvider?: string;
+    confirmPassword?: boolean;
     forgotPasswordResendTimeInSeconds?: number;
     loginType?: "email" | "username";
     signUp?: {

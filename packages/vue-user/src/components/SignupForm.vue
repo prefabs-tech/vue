@@ -23,6 +23,7 @@
     />
 
     <Password
+      v-if="hasConfirmPasswordFeature"
       :label="t('user.signup.form.confirmation.label')"
       name="confirmation"
     />
@@ -78,7 +79,7 @@ import {
   passwordSchema,
 } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { toFormValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { storeToRefs } from "pinia";
 import { Form } from "vee-validate";
 import { inject, onMounted, reactive, ref } from "vue";
@@ -101,6 +102,9 @@ const emit = defineEmits(["submit"]);
 const config = useConfig();
 
 const customTermsAndCondition = inject("dzangolabVueUserTerms");
+
+const hasConfirmPasswordFeature =
+  config?.user?.features?.confirmPassword ?? false;
 
 const messages = useTranslations();
 
@@ -137,25 +141,38 @@ let fieldSchema: Record<string, any> = {
     },
     config?.user?.options?.password,
   ),
-  confirmation: passwordSchema(
-    {
-      required: t("user.signup.form.password.errors.required"),
-      weak: t("user.signup.form.password.errors.weak"),
-    },
-    { minLength: 0 },
-  ),
 };
 
-const validationSchema = toFormValidator(
-  z.object(fieldSchema).refine(
-    (data) => {
-      return data.password === data.confirmation;
-    },
-    {
-      message: t("user.signup.form.confirmation.errors.match"),
-      path: ["confirmation"],
-    },
-  ),
+const validationSchema = toTypedSchema(
+  hasConfirmPasswordFeature
+    ? z
+        .object({
+          ...fieldSchema,
+          password: passwordSchema(
+            {
+              required: t("user.signup.form.password.errors.required"),
+              weak: t("user.signup.form.password.errors.weak"),
+            },
+            config?.user?.options?.password,
+          ),
+          confirmation: passwordSchema(
+            {
+              required: t("user.signup.form.password.errors.required"),
+              weak: t("user.signup.form.password.errors.weak"),
+            },
+            { minLength: 0 },
+          ),
+        })
+        .refine(
+          (data) => {
+            return data.password === data.confirmation;
+          },
+          {
+            message: t("user.signup.form.confirmation.errors.match"),
+            path: ["confirmation"],
+          },
+        )
+    : z.object(fieldSchema),
 );
 
 const disableButton = ref<boolean>(true);
