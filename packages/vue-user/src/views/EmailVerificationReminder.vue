@@ -10,7 +10,7 @@
 
     <p class="resend-email">
       {{ t("user.emailVerification.messages.resendEmailInfo") }}
-      <RouterLink to="#" @click="handleResend">
+      <RouterLink to="" @click="handleResend">
         {{ t("user.emailVerification.button.label") }}
       </RouterLink>
     </p>

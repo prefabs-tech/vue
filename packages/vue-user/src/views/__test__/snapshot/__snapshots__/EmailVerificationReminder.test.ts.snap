@@ -47,7 +47,7 @@ exports[`EmailVerificationReminder > matches snapshot in en 1`] = `
     >
       Not received yet? 
       <routerlink
-        to="#"
+        to=""
       >
         Resend
       </routerlink>
@@ -105,7 +105,7 @@ exports[`EmailVerificationReminder > matches snapshot in fr 1`] = `
     >
       Not received yet? 
       <routerlink
-        to="#"
+        to=""
       >
         Resend
       </routerlink>
