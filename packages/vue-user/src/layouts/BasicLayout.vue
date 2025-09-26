@@ -13,10 +13,18 @@
           <slot name="addon" />
         </template>
         <template #menu>
-          <MainMenu class="main-menu" :routes="routes" />
+          <MainMenu
+            class="main-menu"
+            :routes="routes"
+            @close="appHeader.expanded = false"
+          />
         </template>
         <template #userMenu>
-          <UserMenu v-if="showUserMenu" :user-menu-items="userMenuItems">
+          <UserMenu
+            v-if="showUserMenu"
+            :user-menu-items="userMenuItems"
+            @select:menu="appHeader.expanded = false"
+          >
             <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
               <slot name="userMenuTrigger"></slot>
             </template>

@@ -98,7 +98,7 @@
 
 .sidebar > .header > .toggle {
   cursor: pointer;
-  width: var(--sidebar-toggle-icon-width, 1.5rem);
+  width: var(--sidebar-toggle-icon-width, 2rem);
 }
 
 .sidebar-toggle-enter-active {

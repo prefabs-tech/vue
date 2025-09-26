@@ -1,5 +1,6 @@
 .layout > header {
   --_layout-header-bg: var(--layout-header-bg, transparent);
+  --_layout-header-sidebar-bg: var(--layout-header-sidebar-bg, #fff);
   --_layout-header-border: var(
       --layout-header-border,
       1px solid var(--border-color, #e5e7eb)
@@ -29,15 +30,23 @@
 }
 
 .layout > header > nav {
-  align-items: stretch;
-  opacity: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  grid-area: nav;
-  justify-content: flex-start;
-  z-index: 1;
+  --_padding-v: 1rem;
+
+  background: var(--_layout-header-sidebar-bg);
+  justify-content: flex-end;
+  max-height: 100dvh;
+  left: 0;
+  padding-block: var(--_padding-v);
+  position: absolute;
+  top: calc(100% + 1px);
+  transform: translateX(-100%);
+  transition: transform var(--transition-duration, 0.15s) ease-in-out;
   width: 100%;
+  z-index: 999;
+}
+
+.layout > header > nav[data-expanded="true"] {
+  transform: translateX(0);
 }
 
 .layout > header:not(:has(.logo)):not(:has(.main-menu)) {
@@ -51,10 +60,6 @@
 
   padding-left: var(--_padding-left);
   width: 100%;
-}
-
-.layout > header > nav[data-expanded="false"] {
-  display: none;
 }
 
 .layout > header .logo {
@@ -82,31 +87,28 @@
 
 .layout > header .main-menu {
   flex: 1;
-  margin-block: 1rem;
 }
 
 @media screen and (min-width: 576px) {
   .layout > header {
     display: flex;
     gap: var(--_layout-header-gap);
-  }
-
-  .layout > header .main-menu {
-    margin-block: 0;
+    position: relative;
   }
 
   .layout > header > nav {
     align-items: center;
-    border: none;
     display: flex;
-    flex: 1;
-    flex-direction: row;
+    background: var(--_layout-header-bg);
     gap: var(--_layout-header-gap);
-    justify-content: flex-end;
-    margin: 0;
+    flex-direction: row;
+    height: auto !important;
     padding: 0;
-    position: relative;
-    top: 0;
+    position: unset;
+    max-width: none;
+    padding: 0;
+    transform: none;
+    transition: none;
   }
 
   .layout > header > nav[data-expanded="false"] {

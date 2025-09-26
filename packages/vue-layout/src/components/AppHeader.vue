@@ -14,7 +14,7 @@
     <slot name="logo" class="logo">
       <Logo v-if="!noLogo" :route="home" />
     </slot>
-    <nav>
+    <nav :data-expanded="expanded">
       <slot name="menu">
         <MainMenu
           v-if="layoutConfig?.mainMenu && !noMainMenu"
@@ -47,7 +47,7 @@ import { Icon } from "@iconify/vue";
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { useWindowSize } from "@vueuse/core";
-import { computed, ref, onUnmounted } from "vue";
+import { computed, ref, onMounted, onUnmounted } from "vue";
 
 import Logo from "./Logo.vue";
 import MainMenu from "./MainMenu.vue";
@@ -76,10 +76,21 @@ const close = () => {
 };
 
 const handleResize = () => {
+  const header = document.querySelector(".layout > header") as HTMLElement;
+  const nav = document.querySelector(".layout > header > nav") as HTMLElement;
+
   if (window.innerWidth >= 576) {
     expanded.value = true;
   } else {
+    if (!header || !nav || isLargeScreen.value) {
+      return;
+    }
+
+    const headerHeight = header?.offsetHeight;
+    const viewportHeight = window.innerHeight;
+
     expanded.value = false;
+    nav.style.height = `${viewportHeight - headerHeight}px`;
   }
 };
 
@@ -87,14 +98,17 @@ const toggle = () => {
   expanded.value = !expanded.value;
 };
 
-onUnmounted(() => {
-  window.removeEventListener("resize", handleResize);
+onMounted(() => {
+  window.addEventListener("resize", handleResize);
+  window.addEventListener("load", handleResize);
+
+  handleResize();
 });
 
-window.addEventListener("resize", handleResize);
-
-handleResize();
-
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
+  window.removeEventListener("load", handleResize);
+});
 defineExpose({
   expanded,
 });

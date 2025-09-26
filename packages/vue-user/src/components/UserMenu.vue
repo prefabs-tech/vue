@@ -11,7 +11,7 @@
       <slot name="userMenuTrigger"></slot>
     </template>
   </DropdownUserMenu>
-  <SignInUpMenu v-else class="user-menu" />
+  <SignInUpMenu v-else class="user-menu" @select:menu="$emit('select:menu')" />
 </template>
 
 <script lang="ts">

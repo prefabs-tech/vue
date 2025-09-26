@@ -13,6 +13,13 @@
   overflow: hidden;
 }
 
+.layout.basic[aria-expanded=true] {
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
 .layout.basic > :is(footer, header, main) {
   margin: 0 auto;
   max-width: var(--layout-basic-max-width);
@@ -27,12 +34,16 @@
   grid-area: header;
 }
 
-.layout.basic[aria-expanded=false] > header > nav {
-  display: none;
-}
-
 .layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {
   --locale-switcher-width: 100%;
+}
+
+.layout.basic[aria-expanded=true] > header .locale-switcher .truncated > svg {
+  transform: rotate(-180deg);
+}
+
+.layout.basic[aria-expanded=true] > header .locale-switcher.expanded .truncated > svg {
+  transform: rotate(0);
 }
 
 .layout.basic nav.user-menu-dropdown > ul.dropdown,
