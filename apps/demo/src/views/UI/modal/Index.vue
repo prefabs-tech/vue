@@ -62,7 +62,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.modal.usage.disableDismiss") }}</h2>
+      <h2>{{ $t("ui.modal.usage.enableDismiss") }}</h2>
 
       <div class="section-content">
         <div class="container">
@@ -73,9 +73,9 @@
         </div>
 
         <Modal
-          :dismiss-on-click-out="false"
           :show="showDisableDismissModal"
           :title="$t('ui.modal.header.productDetail')"
+          dismiss-on-click-out
           @on:close="showDisableDismissModal = false"
         >
           <div
@@ -97,8 +97,8 @@
             /&gt;
 
             &lt;Modal
-              :dismiss-on-click-out="false"
               :show="showModal"
+              dismiss-on-click-out
               title="Product detail"
               @on:close="showModal = false"
             &gt;
@@ -433,7 +433,7 @@ const productDetail = [
 
 const propsData = [
   {
-    default: "true",
+    default: "false",
     description: t("ui.modal.documentation.propsDescription.dismissOnClickOut"),
     prop: "dismissOnClickOut",
     type: "Boolean",
