@@ -6,7 +6,7 @@
   },
   "label": {
     "basic": "Basic",
-    "disableDismiss": "Disable dismiss on click outside",
+    "enableDismiss": "Enable dismiss on click outside",
     "invitationForm": "Invitation form",
     "invitationModal": "Invitation modal",
     "invitationTable": "Invitation table",
