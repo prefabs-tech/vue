@@ -116,7 +116,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("user.label.disableDismiss") }}</h2>
+      <h2>{{ $t("user.label.enableDismiss") }}</h2>
 
       <div class="section-content">
         <ButtonElement
@@ -125,9 +125,9 @@
         />
 
         <InvitationModal
-          :dismiss-on-click-out="false"
           :show="showDisableDismissModal"
           :title="$t('user.label.inviteUser')"
+          dismiss-on-click-out
           @on:close="showDisableDismissModal = false"
           @submit="onSubmit"
         />
@@ -141,8 +141,8 @@
             /&gt;
 
             &lt;InvitationModal
-              :dismiss-on-click-out="false"
               :show="showModal"
+              dismiss-on-click-out
               title="Invite user"
               @on:close="showModal = false"
               @submit="onSubmit"

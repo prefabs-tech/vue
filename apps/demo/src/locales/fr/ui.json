@@ -292,7 +292,7 @@
     "title": "Modal",
     "usage": {
       "basic": "Basic",
-      "disableDismiss": "Disabled dismiss on click outside",
+      "enableDismiss": "Enable dismiss on click outside",
       "size": "Size",
       "slots": "With slots",
       "withTitle": "With title",

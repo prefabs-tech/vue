@@ -52,7 +52,7 @@ defineProps({
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
   },
   dismissOnClickOut: {
-    default: true,
+    default: false,
     type: Boolean,
   },
   expiresAfterSchema: {

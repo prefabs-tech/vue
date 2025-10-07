@@ -49,7 +49,7 @@ const emits = defineEmits(["on:close"]);
 
 const props = defineProps({
   dismissOnClickOut: {
-    default: true,
+    default: false,
     type: Boolean,
   },
   show: {
