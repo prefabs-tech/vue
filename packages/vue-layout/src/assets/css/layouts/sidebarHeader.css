@@ -52,7 +52,7 @@
   position: sticky;
   row-gap: 0;
   top: 0;
-  z-index: 100;
+  z-index: 101;
 }
 
 .layout.sidebar-header-layout > header > nav {
@@ -66,6 +66,10 @@
     var(--layout-default-padding-h, 2rem);
   transition: all 0.3s ease-in-out;
   z-index: 100;
+}
+
+.layout.sidebar-header-layout > main:has(.modal .modal-wrapper) {
+  z-index: 999;
 }
 
 .layout.sidebar-header-layout footer {

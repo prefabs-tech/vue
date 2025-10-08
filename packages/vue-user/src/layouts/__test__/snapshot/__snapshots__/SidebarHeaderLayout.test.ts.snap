@@ -38,7 +38,9 @@ exports[`SidebarHeaderLayout > matches snapshot 1`] = `
           <span>
             T
           </span>
-          <span>
+          <span
+            title="Test app"
+          >
             Test app
           </span>
         </span>
