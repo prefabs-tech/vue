@@ -50,7 +50,7 @@
     </template>
     <template v-else>
       <tr>
-        <td>
+        <td :colspan="table.getAllColumns()?.length" class="empty-table">
           {{ emptyTableMessage }}
         </td>
       </tr>
