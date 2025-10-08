@@ -15,14 +15,10 @@
   background: var(--_layout-header-bg);
   border-bottom: var(--_layout-header-border);
   color: var(--_layout-header-color);
-  display: grid;
+  display: flex;
+  flex-direction: row-reverse;
   gap: 0.25rem;
-  grid-template-areas:
-    "logo toggle"
-    "nav nav";
-  grid-template-columns: var(--_layout-header-logo-max-width) 1fr;
-  grid-template-rows: auto auto;
-  justify-items: flex-end;
+  justify-content: space-between;
   padding: var(--_layout-header-padding-v) var(--_layout-header-padding-h);
   position: relative;
   width: 100%;
@@ -64,7 +60,6 @@
 
 .layout > header .logo {
   grid-area: logo;
-  max-width: var(--_layout-logo-max-width, 150px);
 }
 
 .layout > header > .toggle {
@@ -91,7 +86,7 @@
 
 @media screen and (min-width: 576px) {
   .layout > header {
-    display: flex;
+    flex-direction: row;
     gap: var(--_layout-header-gap);
     position: relative;
   }

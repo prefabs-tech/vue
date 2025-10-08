@@ -90,9 +90,6 @@
 }
 
 .sidebar > .header > .logo {
-  --_max-width: var(--sidebar-logo-max-width, 150px);
-
-  max-width: var(--_max-width);
   width: 100%;
 }
 
