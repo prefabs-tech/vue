@@ -142,6 +142,7 @@
               :placeholder="column.columnDef.filterPlaceholder"
               name="`date-range-${column.columnDef.accessorKey}`"
               range
+              teleport
               @update:model-value="
                 column.setFilterValue(getFormattedDateRange($event))
               "
