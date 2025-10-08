@@ -1,3 +1,19 @@
+# [0.21.0](https://github.com/prefabs-tech/vue/compare/v0.20.0...v0.21.0) (2025-10-08)
+
+
+### Bug Fixes
+
+* **layout/basic:** update layout to show  menu in sidebar for mobile view ([#816](https://github.com/prefabs-tech/vue/issues/816)) ([39ce68c](https://github.com/prefabs-tech/vue/commit/39ce68cb68068e37bc37d3c03d59d247da9b68da))
+* **layout:** update logo max width and sidebar header layout style ([#821](https://github.com/prefabs-tech/vue/issues/821)) ([fc00b37](https://github.com/prefabs-tech/vue/commit/fc00b37dc8398275bd93f75e903b2b646b0f0406))
+* **user/email-verification:** update router link to display proper resend notification ([#819](https://github.com/prefabs-tech/vue/issues/819)) ([2dcb70e](https://github.com/prefabs-tech/vue/commit/2dcb70e07d16385d9eed773fdaff98d30063f3c6))
+
+
+### Features
+
+* **user/signup:** update signup and change password form confirm password field to be configurable ([#818](https://github.com/prefabs-tech/vue/issues/818)) ([815c3ef](https://github.com/prefabs-tech/vue/commit/815c3ef37c2cb2f971727db058e21813b859340f))
+
+
+
 # [0.20.0](https://github.com/prefabs-tech/vue/compare/v0.19.0...v0.20.0) (2025-09-24)
 
 
