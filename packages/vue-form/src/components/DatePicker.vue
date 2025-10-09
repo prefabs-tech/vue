@@ -10,6 +10,7 @@
       :rules="fieldSchema"
     >
       <VueDatePicker
+        ref="dzangolabVueDatePicker"
         v-bind="{ ...filteredAttributes, ...field }"
         :auto-apply="autoApply"
         :class="[
@@ -23,6 +24,7 @@
         :format="format"
         :model-value="modelValue"
         :placeholder="placeholder"
+        :teleport="teleport"
         tabindex="0"
         @update:model-value="onUpdate"
       />
@@ -42,7 +44,7 @@ import { toFieldValidator } from "@vee-validate/zod";
 import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import { ErrorMessage, Field } from "vee-validate";
-import { computed, useAttrs } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref, useAttrs } from "vue";
 import { z } from "zod";
 
 import type { MonthPickerValue } from "../types";
@@ -101,9 +103,15 @@ const props = defineProps({
     required: false,
     type: Object as PropType<z.ZodType<string | number | Date | object>>,
   },
+  teleport: {
+    default: undefined,
+    type: [Boolean, String] as PropType<boolean | string>,
+  },
 });
 
 const emit = defineEmits(["update:modelValue"]);
+
+const dzangolabVueDatePicker = ref();
 
 const attributes = useAttrs();
 
@@ -117,6 +125,10 @@ const filteredAttributes = computed(() => {
   return rest;
 });
 
+const closeOnScroll = () => {
+  dzangolabVueDatePicker.value?.closeMenu?.();
+};
+
 const onUpdate = (
   date:
     | string
@@ -129,6 +141,18 @@ const onUpdate = (
 ) => {
   emit("update:modelValue", date);
 };
+
+onMounted(() => {
+  if (props.teleport) {
+    window.addEventListener("scroll", closeOnScroll, true);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (props.teleport) {
+    window.removeEventListener("scroll", closeOnScroll, true);
+  }
+});
 </script>
 
 <style lang="css">
