@@ -7,6 +7,7 @@
     />
 
     <Password
+      v-if="hasConfirmPasswordFeature"
       :label="t('user.passwordReset.form.confirmation.label')"
       name="confirmation"
     />
@@ -37,7 +38,7 @@ export default {
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { FormActions, Password, passwordSchema } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { toFormValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { Form } from "vee-validate";
 import { useRoute, useRouter } from "vue-router";
 import { z } from "zod";
@@ -58,38 +59,47 @@ const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
+const hasConfirmPasswordFeature =
+  config?.user?.features?.confirmPassword ?? false;
+
 let payload = {
   password: undefined,
   token: undefined,
 } as PasswordResetPayload;
 
-const validationSchema = toFormValidator(
-  z
-    .object({
-      password: passwordSchema(
-        {
-          required: t("user.passwordReset.form.password.errors.required"),
-          weak: t("user.passwordReset.form.password.errors.weak"),
-        },
-        config?.user?.options?.password,
-      ),
-      confirmation: passwordSchema(
-        {
-          required: t("user.passwordReset.form.password.errors.required"),
-          weak: t("user.passwordReset.form.password.errors.weak"),
-        },
-        {},
-      ),
-    })
-    .refine(
-      (data) => {
-        return data.password === data.confirmation;
-      },
-      {
-        message: t("user.passwordReset.form.confirmation.errors.match"),
-        path: ["confirmation"],
-      },
-    ),
+const fieldSchema = {
+  password: passwordSchema(
+    {
+      required: t("user.passwordReset.form.password.errors.required"),
+      weak: t("user.passwordReset.form.password.errors.weak"),
+    },
+    config?.user?.options?.password,
+  ),
+};
+
+const validationSchema = toTypedSchema(
+  hasConfirmPasswordFeature
+    ? z
+        .object({
+          ...fieldSchema,
+          confirmation: passwordSchema(
+            {
+              required: t("user.passwordReset.form.password.errors.required"),
+              weak: t("user.passwordReset.form.password.errors.weak"),
+            },
+            {},
+          ),
+        })
+        .refine(
+          (data) => {
+            return data.password === data.confirmation;
+          },
+          {
+            message: t("user.passwordReset.form.confirmation.errors.match"),
+            path: ["confirmation"],
+          },
+        )
+    : z.object(fieldSchema),
 );
 
 const route = useRoute();
