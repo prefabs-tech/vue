@@ -17,6 +17,11 @@ const config: AppConfig = {
     dsn: "tbd",
   },
   slug: "app",
+  user: {
+    features: {
+      confirmPassword: true,
+    }
+  },
   websiteDomain: "test",
 };
 
