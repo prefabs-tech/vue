@@ -104,7 +104,8 @@ const props = defineProps({
   actionsMode: {
     default: "auto",
     type: String,
-    validator: (value: string) => ["auto", "buttons", "menu"].includes(value),
+    validator: (value: string) =>
+      ["auto", "buttons", "dropdown"].includes(value),
   },
   autoModeCount: {
     default: 1,
@@ -533,7 +534,7 @@ const prepareComponent = () => {
       props.actionsMode === "auto" &&
       props.dataActionMenu?.length > props.autoModeCount
     ) {
-      mode = "menu";
+      mode = "dropdown";
     }
 
     columns.push({

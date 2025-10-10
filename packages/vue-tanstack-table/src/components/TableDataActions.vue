@@ -17,7 +17,7 @@
     </template>
 
     <Dropdown
-      v-else-if="mode === 'menu'"
+      v-else-if="mode === 'dropdown'"
       :menu="filteredItems"
       @select="onSelectAction"
     >
@@ -88,7 +88,7 @@ const props = defineProps({
   mode: {
     default: undefined,
     type: String,
-    validator: (value: string) => ["buttons", "menu"].includes(value),
+    validator: (value: string) => ["buttons", "dropdown"].includes(value),
   },
 });
 
