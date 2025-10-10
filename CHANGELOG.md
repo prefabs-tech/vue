@@ -1,3 +1,13 @@
+# [0.22.0](https://github.com/prefabs-tech/vue/compare/v0.21.0...v0.22.0) (2025-10-10)
+
+
+### Features
+
+* **form/datepicker:** add support to teleport for date picker component ([#824](https://github.com/prefabs-tech/vue/issues/824)) ([24bbe9d](https://github.com/prefabs-tech/vue/commit/24bbe9d5d327b83d2c734297913700f3f698d9fc))
+* **user/password-reset:** update confirm password field to be configurable ([#825](https://github.com/prefabs-tech/vue/issues/825)) ([985afc7](https://github.com/prefabs-tech/vue/commit/985afc778a1e0f20ead3b226fce651436aa0657a))
+
+
+
 # [0.21.0](https://github.com/prefabs-tech/vue/compare/v0.20.0...v0.21.0) (2025-10-08)
 
 
