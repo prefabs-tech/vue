@@ -198,7 +198,7 @@ const addAuthenticationGuard = (
     const name = to.name as string;
     const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
     const { user } = storeToRefs(userStore);
-    const { getUser, getVerificationStatus } = userStore;
+    const { getUser } = userStore;
 
     if (!user.value) {
       user.value = await getUser();
@@ -216,18 +216,10 @@ const addAuthenticationGuard = (
     }
 
     if (meta.authenticated && EmailVerificationEnabled && user.value) {
-      let isEmailVerified;
-
-      try {
-        isEmailVerified = await getVerificationStatus();
-      } catch (error) {
-        if (!user.value) {
-          router.push({ name: "login" });
-        }
-      }
+      let isEmailVerified = userStore.isEmailVerified;
 
       if (
-        !isEmailVerified &&
+        isEmailVerified === false &&
         ![...routesToRedirect, "profile"].includes(name)
       ) {
         router.push({ name: "verifyEmailReminder" });
