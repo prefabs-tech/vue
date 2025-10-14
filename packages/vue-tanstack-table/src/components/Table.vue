@@ -523,20 +523,6 @@ const prepareComponent = () => {
   });
 
   if (props.dataActionMenu?.length) {
-    let mode = props.actionsMode;
-
-    if (
-      props.actionsMode === "auto" &&
-      props.dataActionMenu?.length <= props.autoModeCount
-    ) {
-      mode = "buttons";
-    } else if (
-      props.actionsMode === "auto" &&
-      props.dataActionMenu?.length > props.autoModeCount
-    ) {
-      mode = "dropdown";
-    }
-
     columns.push({
       accessorKey: "actions",
       align: "center",
@@ -555,7 +541,7 @@ const prepareComponent = () => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           data: row.original as Record<string, any>,
           displayActions: props.displayActions,
-          mode: mode,
+          mode: props.actionsMode,
           "onAction:select": (action: DataActionsMenuItem) =>
             emit("action:select", {
               action: action?.key || action?.label,

@@ -1,6 +1,6 @@
 <template>
   <div v-if="showActionsMenu" class="data-actions">
-    <template v-if="mode === 'buttons'">
+    <template v-if="showButtons">
       <ButtonElement
         v-for="(item, index) in filteredItems"
         v-bind="item"
@@ -17,7 +17,7 @@
     </template>
 
     <Dropdown
-      v-else-if="mode === 'dropdown'"
+      v-else-if="showDropdown"
       :menu="filteredItems"
       @select="onSelectAction"
     >
@@ -88,7 +88,8 @@ const props = defineProps({
   mode: {
     default: undefined,
     type: String,
-    validator: (value: string) => ["buttons", "dropdown"].includes(value),
+    validator: (value: string) =>
+      ["auto", "buttons", "dropdown"].includes(value),
   },
 });
 
@@ -118,6 +119,20 @@ const showActionsMenu = computed(
     (typeof props.displayActions === "function"
       ? props.displayActions(props.data)
       : props.displayActions) && filteredItems.value?.length,
+);
+
+const showButtons = computed(
+  () =>
+    (filteredItems.value?.length && props.mode === "buttons") ||
+    (props.mode === "auto" &&
+      filteredItems.value?.length <= props.autoModeCount),
+);
+
+const showDropdown = computed(
+  () =>
+    (filteredItems.value?.length && props.mode === "dropdown") ||
+    (props.mode === "auto" &&
+      filteredItems.value?.length > props.autoModeCount),
 );
 
 const onConfirmAction = () => {
