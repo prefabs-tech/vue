@@ -14,6 +14,7 @@
   cursor: pointer;
   outline: none;
   transform: scale(1.5);
+  width: max-content;
 }
 
 .radio>.radio-button-wrapper input[type="radio"]:disabled {

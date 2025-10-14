@@ -35,7 +35,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { toFieldValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
 
@@ -88,7 +88,7 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = Object.keys(props.schema).length
-  ? toFieldValidator(props.schema)
+  ? toTypedSchema(props.schema)
   : null;
 
 const onChange = (event: Event) => {
