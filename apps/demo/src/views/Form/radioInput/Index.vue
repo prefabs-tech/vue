@@ -165,6 +165,7 @@
             :label="$t('form.label.gender')"
             :options="genderOptions"
             :schema="inputSchema"
+            name="gender"
           />
 
           <ButtonElement :label="t('form.label.submit')" />
@@ -179,6 +180,7 @@
                 :options="genderOptions"
                 :schema="inputSchema"
                 label="Gender"
+                name="gender"
               /&gt;
 
               &lt;ButtonElement label="Submit" /&gt;
@@ -189,9 +191,11 @@
           import { Form, RadioInput } from "@prefabs.tech/vue3-form";
           import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
-          const inputSchema = z.string({
-            required_error: "Please choose one option",
-          });
+          const inputSchema = z
+            .string({
+              required_error: "Please choose one option",
+            })
+            .nonempty({ message: "Please choose one option" });
 
           const genderOptions = [
             {
@@ -228,9 +232,11 @@ import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
 
-const inputSchema = z.string({
-  required_error: t("form.errors.radio.required"),
-});
+const inputSchema = z
+  .string({
+    required_error: t("form.errors.radio.required"),
+  })
+  .nonempty({ message: t("form.errors.radio.required") });
 
 let formData = reactive({
   disabled: ref("car"),
