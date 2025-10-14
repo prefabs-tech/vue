@@ -60,7 +60,7 @@
     "persistentState": "With persistent state",
     "rowSelection": "With row selection",
     "singleAction": "With single action button",
-    "singleActionMenu": "With single action menu",
+    "singleActionMenu": "With single action dropdown menu",
     "sortable": "With sortable column",
     "tableMode": "Table presentation mode",
     "title": "With title",

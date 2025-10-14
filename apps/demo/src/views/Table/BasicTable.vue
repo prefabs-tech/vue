@@ -973,7 +973,7 @@
             },
           ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
-          actions-mode="menu"
+          actions-mode="dropdown"
           @action:select="(rowData) => {}"
         />
 
@@ -1009,7 +1009,7 @@
                 },
               ]"
               :initial-sorting="[{ id: 'email', desc: false }]"
-              actions-mode="menu"
+              actions-mode="dropdown"
               @action:select="(rowData) => {}"
             /&gt;
           &lt;/template&gt;
@@ -1046,7 +1046,7 @@
             },
           ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
-          actions-mode="menu"
+          actions-mode="dropdown"
           @action:select="(rowData) => {}"
         />
 
@@ -1064,7 +1064,7 @@
               ]"
               :initial-sorting="[{ id: 'email', desc: false }]"
               :paginated="false"
-              actions-mode="menu"
+              actions-mode="dropdown"
               @action:select="(rowData) => {}"
             /&gt;
           &lt;/template&gt;
