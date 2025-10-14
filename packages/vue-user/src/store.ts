@@ -26,6 +26,7 @@ const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
   const invitation = ref<Invitation>();
+  const isEmailVerified = ref<boolean>();
   const user = ref<UserType | undefined>(undefined);
   const accessToken = ref(localStorage.getItem("accessToken") || null);
   const refreshToken = ref(localStorage.getItem("refreshToken") || null);
@@ -130,6 +131,8 @@ const useUserStore = defineStore("user", () => {
     const selectedAuthProvider = auth();
 
     const response = await selectedAuthProvider.doGetVerificationStatus();
+
+    isEmailVerified.value = !!response;
 
     return response;
   };
@@ -288,6 +291,7 @@ const useUserStore = defineStore("user", () => {
     getUser,
     getVerificationStatus,
     isLoggedIn,
+    isEmailVerified,
     invitation,
     login,
     logout,
