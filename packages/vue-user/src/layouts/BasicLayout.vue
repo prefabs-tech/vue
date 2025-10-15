@@ -59,7 +59,6 @@ import UserMenu from "../components/UserMenu.vue";
 import useUserStore from "../store";
 
 import type { MenuItem } from "@prefabs.tech/vue3-layout";
-import type { RouteMeta } from "vue-router";
 
 defineProps({
   noLocaleSwitcher: Boolean,
@@ -95,22 +94,8 @@ const allRoutes = router.getRoutes();
 const routes = computed(() => {
   const menuItems = layoutConfig?.mainMenu ?? [];
 
-  const mainMenuRoutes = allRoutes
-    .filter((route) => menuItems.some((item) => item.route === route.name))
-    .map((route) => ({
-      ...route,
-      meta: {
-        ...route.meta,
-        display:
-          typeof route.meta?.display === "function"
-            ? route.meta.display(user.value)
-            : (route.meta?.display ?? true),
-      } as RouteMeta,
-    }))
-    .filter((route) => route.meta.display);
-
   return menuItems.filter((item) => {
-    const matchedRoute = mainMenuRoutes.find((r) => r.name === item.route);
+    const matchedRoute = allRoutes.find((r) => r.name === item.route);
 
     if (!matchedRoute) {
       return false;
