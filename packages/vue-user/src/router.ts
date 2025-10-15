@@ -173,7 +173,7 @@ const filterRoutes = (router: Router) => {
 
     const shouldDisplay = typeof meta.display === "function"
       ? meta.display(user.value)
-      : meta.display ?? true;
+      : meta.display;
 
     if (!shouldDisplay) {
       router.removeRoute(route.name);
