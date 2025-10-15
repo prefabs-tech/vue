@@ -160,6 +160,28 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   }
 };
 
+const filterRoutes = (router: Router) => {
+  const routeList = router.getRoutes().filter(route => route.meta?.display !== undefined);
+
+  for (const route of routeList) {
+    if (!route.name) continue;
+
+    const meta = route.meta as RouteMeta;
+
+    const userStore = useUserStore();
+    const { user } = storeToRefs(userStore);
+
+    const shouldDisplay = typeof meta.display === "function"
+      ? meta.display(user.value)
+      : meta.display ?? true;
+
+    if (!shouldDisplay) {
+      router.removeRoute(route.name);
+    }
+  }
+};
+
+
 const redirectRoutes = (router: Router) => {
   router.beforeEach((to, from, next) => {
     const userStore = useUserStore();
@@ -246,6 +268,8 @@ const addAuthenticationGuard = (
 
 const updateRouter = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   addRoutes(router, userConfig);
+
+  filterRoutes(router);
 
   addAuthenticationGuard(router, userConfig);
 
