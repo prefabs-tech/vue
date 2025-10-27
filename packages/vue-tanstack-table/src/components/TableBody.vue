@@ -65,10 +65,15 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { formatDate, formatDateTime, Tooltip } from "@prefabs.tech/vue3-ui";
+import { Tooltip } from "@prefabs.tech/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
-import { formatNumber, getAlignValue } from "../utils";
+import {
+  formatDate,
+  formatDateTime,
+  formatNumber,
+  getAlignValue,
+} from "../utils";
 
 import type { Cell, NoInfer, Table } from "@tanstack/vue-table";
 

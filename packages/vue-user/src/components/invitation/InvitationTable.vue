@@ -350,7 +350,15 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
   },
   {
     accessorKey: "expiresAt",
-    cell: ({ getValue }) => formatDateTime(getValue() as string, locale?.value),
+    cell: ({ getValue }) =>
+      formatDateTime(getValue() as string, locale?.value, {
+        day: "2-digit",
+        hour: "2-digit",
+        hour12: false,
+        minute: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      }),
     enableColumnFilter: true,
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.expiresAt"),
