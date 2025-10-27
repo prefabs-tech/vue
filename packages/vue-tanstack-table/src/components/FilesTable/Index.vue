@@ -39,9 +39,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { formatDateTime } from "@prefabs.tech/vue3-ui";
 import { computed, h } from "vue";
 
+import { formatDateTime } from "../../utils";
 import Table from "../Table.vue";
 
 import type {

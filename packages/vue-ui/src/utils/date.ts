@@ -46,5 +46,5 @@ export const formatDateTime = (
     dateTimeFormatOptions,
   );
 
-  return formattedDateTime === "Invalid Date" ? null : formattedDateTime;
+  return formattedDateTime === "Invalid Date" ? null : formattedDateTime.replace(",", "");
 };

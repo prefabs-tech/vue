@@ -1,5 +1,5 @@
 import { TABLE_STATE_PREFIX } from "./constants";
-import { getStorage } from "@prefabs.tech/vue3-ui";
+import { formatDate as baseFormatDate, formatDateTime as baseFormatDateTime, getStorage } from "@prefabs.tech/vue3-ui";
 import { FILTER_FUNCTIONS_ENUM, FILTER_OPERATORS_ENUM } from "./enums";
 
 import type {
@@ -19,6 +19,19 @@ import type {
   SortingState,
 } from "@tanstack/vue-table";
 
+const defaultDateOptions: Intl.DateTimeFormatOptions = {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+};
+
+const defaultDateTimeOptions: Intl.DateTimeFormatOptions = {
+  ...defaultDateOptions,
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+};
+
 export const formatNumber = ({
   value,
   locale = "en-GB",
@@ -30,6 +43,26 @@ export const formatNumber = ({
   const formatter = new Intl.NumberFormat(locale, formatOptions);
 
   return formatter.format(value);
+};
+
+export const formatDate = (
+  date: number | string,
+  locale?: string,
+  options?: Intl.DateTimeFormatOptions,
+) => {
+  const dateFormatOptions = { ...defaultDateOptions, ...options };
+
+  return baseFormatDate(date, locale, dateFormatOptions);
+};
+
+export const formatDateTime = (
+  date: number | string,
+  locale?: string,
+  options?: Intl.DateTimeFormatOptions,
+) => {
+  const dateTimeFormatOptions = { ...defaultDateTimeOptions, ...options };
+
+  return baseFormatDateTime(date, locale, dateTimeFormatOptions);
 };
 
 const getFilterOperator = (filterFunction: TFilterFunction) => {
