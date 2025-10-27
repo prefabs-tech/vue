@@ -50,7 +50,7 @@ export const formatDate = (
   locale?: string,
   options?: Intl.DateTimeFormatOptions,
 ) => {
-  const dateFormatOptions = { ...defaultDateOptions, ...options };
+  const dateFormatOptions = options ?? defaultDateOptions;
 
   return baseFormatDate(date, locale, dateFormatOptions);
 };
@@ -60,7 +60,7 @@ export const formatDateTime = (
   locale?: string,
   options?: Intl.DateTimeFormatOptions,
 ) => {
-  const dateTimeFormatOptions = { ...defaultDateTimeOptions, ...options };
+  const dateTimeFormatOptions = options ?? defaultDateTimeOptions;
 
   return baseFormatDateTime(date, locale, dateTimeFormatOptions);
 };
