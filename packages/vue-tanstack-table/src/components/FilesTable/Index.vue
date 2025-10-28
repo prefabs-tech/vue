@@ -41,7 +41,6 @@ export default {
 <script setup lang="ts">
 import { computed, h } from "vue";
 
-import { formatDateTime } from "../../utils";
 import Table from "../Table.vue";
 
 import type {
@@ -187,9 +186,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
   },
   {
     accessorKey: "uploadedAt",
-    cell: ({ getValue }) => {
-      return formatDateTime(getValue() as number, props.locale);
-    },
+    dataType: "datetime",
     enableColumnFilter: true,
     enableSorting: true,
     filterPlaceholder: "Date range",
@@ -212,13 +209,7 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
   },
   {
     accessorKey: "lastDownloadedAt",
-    cell: ({ getValue }) => {
-      if (getValue()) {
-        return formatDateTime(getValue() as number, props.locale);
-      }
-
-      return h("code", {}, "—");
-    },
+    dataType: "datetime",
     enableColumnFilter: true,
     enableSorting: true,
     filterPlaceholder: "Date range",

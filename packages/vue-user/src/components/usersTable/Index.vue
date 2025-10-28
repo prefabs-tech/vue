@@ -55,11 +55,7 @@ export default {
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
-import {
-  BadgeComponent,
-  ButtonElement,
-  formatDate,
-} from "@prefabs.tech/vue3-ui";
+import { BadgeComponent, ButtonElement } from "@prefabs.tech/vue3-ui";
 import { computed, h, ref, toRef } from "vue";
 
 import {
@@ -249,14 +245,7 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
   {
     accessorKey: "signedUpAt",
     header: t("user.table.defaultColumns.signedUpAt"),
-    cell: ({ row }: { row: { original: UserType } }) =>
-      row.original.signedUpAt
-        ? formatDate(row.original.signedUpAt, locale?.value, {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          })
-        : "-",
+    dataType: "date",
     enableColumnFilter: true,
     enableSorting: true,
     meta: {

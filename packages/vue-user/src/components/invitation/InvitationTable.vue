@@ -74,7 +74,6 @@ import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import {
   BadgeComponent,
   ButtonElement,
-  formatDateTime,
   LoadingPage,
 } from "@prefabs.tech/vue3-ui";
 import { computed, h, ref } from "vue";
@@ -350,15 +349,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
   },
   {
     accessorKey: "expiresAt",
-    cell: ({ getValue }) =>
-      formatDateTime(getValue() as string, locale?.value, {
-        day: "2-digit",
-        hour: "2-digit",
-        hour12: false,
-        minute: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      }),
+    dataType: "datetime",
     enableColumnFilter: true,
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.expiresAt"),
