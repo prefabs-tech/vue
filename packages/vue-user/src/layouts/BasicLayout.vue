@@ -107,3 +107,12 @@ const userMenuItems = computed(() => {
   return layoutConfig?.userMenu || [];
 });
 </script>
+
+<style lang="css">
+.layout.basic
+  nav:not(:has(.locale-switcher.locales))
+  > nav.user-menu-dropdown
+  > ul.dropdown {
+  inset: 0 0 auto auto;
+}
+</style>
