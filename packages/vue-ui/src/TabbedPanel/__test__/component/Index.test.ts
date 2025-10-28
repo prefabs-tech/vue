@@ -39,7 +39,7 @@ describe("TabbedPanel", () => {
 
   it("should show correct tab on click", async () => {
     const firstTab = wrapper.find(
-      ".tabbed-panel ul[role='tablist'] li:first-child button",
+      ".tabbed-panel ul[role='tablist'] li button",
     );
     await firstTab.trigger("click");
 
@@ -49,14 +49,11 @@ describe("TabbedPanel", () => {
   });
 
   it("should show correct tab on multiple tab click", async () => {
-    const firstTab = wrapper.find(
-      ".tabbed-panel ul[role='tablist'] li:first-child button",
+    const tabs = wrapper.findAll(
+      ".tabbed-panel ul[role='tablist'] li button",
     );
-    const secondTab = wrapper.find(
-      ".tabbed-panel ul[role='tablist'] li:last-child button",
-    );
-    await firstTab.trigger("click");
-    await secondTab.trigger("click");
+    await tabs[0].trigger("click");
+    await tabs[1].trigger("click");
 
     expect(wrapper.find(".tabbed-panel .tabbed-pane p").text()).toBe(
       contents.second.content,
