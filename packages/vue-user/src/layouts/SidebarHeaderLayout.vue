@@ -94,46 +94,50 @@ const prefabsTechLayout = ref();
 const menu = computed(() => {
   let menuItems = layoutConfig?.mainMenu || [];
 
-  if (!user.value) {
-    menuItems = menuItems?.filter((item: MenuItem) => {
-      const route = allRoutes.find((r) => {
-        if (r.name === item.route && !r.meta?.authenticated) {
-          return true;
-        }
+  menuItems = menuItems.filter((item: MenuItem) => {
+    const hasValidRoute = (routeName?: string, checkAuth = true) => {
+      const route = allRoutes.find((r) => r.name === routeName);
 
-        if (item.children?.length) {
-          return (item.children as MenuItem[]).some((child: MenuItem) => {
-            return allRoutes.some(
-              (cr) => cr.name === child.route && !cr.meta?.authenticated,
-            );
-          });
-        }
-
+      if (!route) {
         return false;
-      });
+      }
 
-      return !!route;
-    }) as MenuItem[];
-  }
+      if (!checkAuth && route.meta?.authenticated) {
+        return false;
+      }
 
-  return menuItems.map((item: MenuItem) => {
-    return {
-      hide: item?.hide,
-      icon: item?.icon,
-      name: item.name,
-      routeName: item.route,
-      shortName: item?.shortName,
-      children: item?.children?.map((childItem: MenuItem) => {
-        return {
-          hide: childItem?.hide,
-          icon: childItem?.icon,
-          name: childItem.name,
-          routeName: childItem.route,
-          shortName: childItem?.shortName,
-        };
-      }),
+      return true;
     };
-  }) as SidebarMenu[];
+
+    const isValidItem = (menuItem: MenuItem, checkAuth = true): boolean => {
+      if (hasValidRoute(menuItem.route, checkAuth)) {
+        return true;
+      }
+
+      return (
+        menuItem.children?.some((child) =>
+          hasValidRoute(child.route, checkAuth),
+        ) ?? false
+      );
+    };
+
+    return isValidItem(item, !!user.value);
+  });
+
+  return menuItems.map((item: MenuItem) => ({
+    hide: item?.hide,
+    icon: item?.icon,
+    name: item.name,
+    routeName: item.route,
+    shortName: item?.shortName,
+    children: item.children?.map((child: MenuItem) => ({
+      hide: child?.hide,
+      icon: child?.icon,
+      name: child.name,
+      routeName: child.route,
+      shortName: child?.shortName,
+    })),
+  })) as SidebarMenu[];
 });
 </script>
 

@@ -92,15 +92,17 @@ const router = useRouter();
 const allRoutes = router.getRoutes();
 
 const routes = computed(() => {
-  if (!user.value) {
-    return layoutConfig?.mainMenu?.filter((item) => {
-      const route = allRoutes.find((r) => r.name === item.route);
+  const menuItems = layoutConfig?.mainMenu ?? [];
 
-      return route && !route.meta?.authenticated;
-    }) as MenuItem[];
-  }
+  return menuItems.filter((item) => {
+    const matchedRoute = allRoutes.find((r) => r.name === item.route);
 
-  return layoutConfig?.mainMenu as MenuItem[];
+    if (!matchedRoute) {
+      return false;
+    }
+
+    return !user.value ? !matchedRoute.meta?.authenticated : true;
+  }) as MenuItem[];
 });
 
 const userMenuItems = computed(() => {
