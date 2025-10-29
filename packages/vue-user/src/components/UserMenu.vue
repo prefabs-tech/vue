@@ -21,6 +21,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useConfig } from "@prefabs.tech/vue3-config";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 
@@ -29,6 +30,7 @@ import SignInUpMenu from "./SignInUpMenu.vue";
 import useUserStore from "../store";
 
 import type { UserMenuItem } from "../types/userMenu";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { PropType } from "vue";
 
 defineProps({
@@ -37,6 +39,8 @@ defineProps({
     default: () => [],
   },
 });
+
+const config = useConfig() as AppConfig;
 
 const userStore = useUserStore();
 
@@ -49,9 +53,10 @@ const router = useRouter();
 const emit = defineEmits(["select:menu"]);
 
 const handleLogout = async () => {
+  const logoutRedirectRoute = config.user?.logoutRedirectRoute || "login";
   await logout();
 
-  router.push({ name: "login" });
+  router.push({ name: logoutRedirectRoute });
   emit("select:menu");
 };
 </script>

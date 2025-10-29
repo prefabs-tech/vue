@@ -35,6 +35,7 @@ interface DzangolabVueUserConfig {
     };
     updateEmail?: boolean;
   };
+  logoutRedirectRoute?: string;
   password?: {
     minLength: number;
   };
