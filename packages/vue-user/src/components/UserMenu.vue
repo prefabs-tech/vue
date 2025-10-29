@@ -53,8 +53,7 @@ const router = useRouter();
 const emit = defineEmits(["select:menu"]);
 
 const handleLogout = async () => {
-  const logoutRedirectRoute =
-    config.user?.features?.logoutRedirectRoute || "login";
+  const logoutRedirectRoute = config.user?.logoutRedirectRoute || "login";
   await logout();
 
   router.push({ name: logoutRedirectRoute });

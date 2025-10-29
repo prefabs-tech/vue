@@ -25,7 +25,6 @@ interface DzangolabVueUserConfig {
     confirmPassword?: boolean;
     forgotPasswordResendTimeInSeconds?: number;
     loginType?: "email" | "username";
-    logoutRedirectRoute?: string;
     signUp?: {
       emailVerification?: boolean;
       termsAndConditions?: {
@@ -36,6 +35,7 @@ interface DzangolabVueUserConfig {
     };
     updateEmail?: boolean;
   };
+  logoutRedirectRoute?: string;
   password?: {
     minLength: number;
   };
