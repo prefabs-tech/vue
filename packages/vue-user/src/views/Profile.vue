@@ -1,7 +1,11 @@
 <template>
   <Page :title="t('user.profile.title')" class="profile">
     <AccountInfo />
-    <ProfileForm />
+    <ProfileForm>
+      <template #additionalFields>
+        <slot name="additionalFields" />
+      </template>
+    </ProfileForm>
   </Page>
 </template>
 
