@@ -34,6 +34,7 @@ type UpdateProfileInputType = {
   givenName: string;
   middleNames?: string;
   surname: string;
+  [key: string]: unknown;
 };
 
 interface User extends EmailPasswordUserType {

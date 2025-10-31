@@ -39,7 +39,7 @@
       type="text"
     />
 
-    <slot name="additionalFields" />
+    <slot />
 
     <FormActions
       :loading="loading || !isDirty"
@@ -83,9 +83,9 @@ const { user } = storeToRefs(userStore);
 let fieldsSchema = {
   givenName: z
     .string()
-    .min(1, t("profile.form.validations.firstName.required")),
+    .min(1, t("user.profile.form.firstName.messages.required")),
   middleNames: z.string().optional(),
-  surname: z.string().min(1, t("profile.form.validations.lastName.required")),
+  surname: z.string().min(1, t("profile.form.lastName.messages.required")),
 };
 
 const formValues = reactive({

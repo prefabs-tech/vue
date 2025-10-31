@@ -2,9 +2,7 @@
   <Page :title="t('user.profile.title')" class="profile">
     <AccountInfo />
     <ProfileForm>
-      <template #additionalFields>
-        <slot name="additionalFields" />
-      </template>
+      <slot />
     </ProfileForm>
   </Page>
 </template>
