@@ -21,6 +21,7 @@
         <Input
           v-model="formData.noLabelInput"
           :placeholder="$t('form.placeholder.username')"
+          name="basic"
           type="text"
         />
 
@@ -50,6 +51,7 @@
           v-model="formData.input"
           :label="$t('form.label.username')"
           :placeholder="$t('form.placeholder.username')"
+          name="labeled"
         />
 
         <!-- eslint-disable -->
@@ -81,6 +83,7 @@
           v-model="formData.passwordInput"
           :label="$t('form.label.password')"
           :placeholder="$t('form.placeholder.password')"
+          name="password"
           type="password"
         />
 
@@ -110,8 +113,9 @@
         <Input
           v-model="formData.disabled"
           :label="$t('form.label.email')"
-          type="email"
           disabled
+          name="disabled"
+          type="email"
         />
 
         <!-- eslint-disable -->

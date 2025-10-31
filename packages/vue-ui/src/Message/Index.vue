@@ -55,7 +55,7 @@ defineProps({
   },
   message: {
     required: true,
-    type: String || (Array as PropType<string[]>),
+    type: [String, Array] as PropType<string | string[]>,
   },
   severity: {
     type: String,
