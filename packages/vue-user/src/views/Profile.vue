@@ -1,7 +1,9 @@
 <template>
   <Page :title="t('user.profile.title')" class="profile">
     <AccountInfo />
-    <ProfileForm />
+    <ProfileForm>
+      <slot />
+    </ProfileForm>
   </Page>
 </template>
 

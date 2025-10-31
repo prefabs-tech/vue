@@ -339,10 +339,16 @@
             "update": "Update"
           },
           "firstName": {
+            "messages": {
+              "required": "First name is required."
+            },
             "label": "First name",
             "placeholder": "Enter your first name"
           },
           "lastName": {
+            "messages": {
+              "required": "Last name is required."
+            },
             "label": "Last name",
             "placeholder": "Enter your last name"
           },
@@ -777,10 +783,16 @@
             "update": "Update"
           },
           "firstName": {
+            "messages": {
+              "required": "First name is required."
+            },
             "label": "First name",
             "placeholder": "Enter your first name"
           },
           "lastName": {
+            "messages": {
+              "required": "Last name is required."
+            },
             "label": "Last name",
             "placeholder": "Enter your last name"
           },

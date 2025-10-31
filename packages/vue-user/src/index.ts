@@ -11,6 +11,7 @@ import messages from "./locales/messages.json";
 import updateRouter from "./router";
 import userStore from "./store";
 import initSupertokens from "./supertokens";
+import Profile from "./views/Profile.vue";
 
 import type { DzangolabVueUserPluginOptions } from "./types";
 import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
@@ -70,6 +71,8 @@ export default plugin;
 export { client, userStore, useTranslations, emitter };
 
 export * from "./api/roles";
+
+export { Profile };
 
 export * from "./components";
 

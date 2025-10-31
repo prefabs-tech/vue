@@ -12,11 +12,15 @@ export default {
 
 <script setup lang="ts">
 import { Form } from "vee-validate";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const emit = defineEmits(["submit"]);
 
 const dzangolabVueForm = ref();
+
+const meta = computed(() => {
+  return dzangolabVueForm.value?.getMeta();
+});
 
 const getFieldMeta = (fieldName: string) => {
   return dzangolabVueForm.value?.getMeta(fieldName);
@@ -33,6 +37,7 @@ const onSubmit = (data: object) => {
 defineExpose({
   getFieldMeta,
   getFieldValue,
+  meta: meta,
   resetForm: () => dzangolabVueForm.value?.resetForm(),
 });
 </script>
