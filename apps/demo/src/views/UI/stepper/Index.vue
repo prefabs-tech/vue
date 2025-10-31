@@ -310,7 +310,7 @@ const propsData = [
   },
   {
     default: "-",
-    description: t("ui.stepper.documentation.propsDescription.PreviousButton"),
+    description: t("ui.stepper.documentation.propsDescription.previousButton"),
     prop: "previousButtonProperties",
     type: "ActionButtonProperties",
   },

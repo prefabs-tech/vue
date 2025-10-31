@@ -19,7 +19,7 @@
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
     class="table-users"
-    actions-mode="menu"
+    actions-mode="dropdown"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
   >
@@ -364,19 +364,19 @@ const onDisableUser = async (id: string) => {
         emit("fetch:users");
 
         emitter.emit("notify", {
-          text: t("users.messages.disable.success"),
+          text: t("user.messages.disable.success"),
           type: "success",
         });
       } else {
         emitter.emit("notify", {
-          text: t("users.messages.disable.error"),
+          text: t("user.messages.disable.error"),
           type: "success",
         });
       }
     })
     .catch(() => {
       emitter.emit("notify", {
-        text: t("users.messages.disable.error"),
+        text: t("user.messages.disable.error"),
         type: "error",
       });
     });
@@ -389,19 +389,19 @@ const onEnableUser = async (id: string) => {
         emit("fetch:users");
 
         emitter.emit("notify", {
-          text: t("users.messages.enable.success"),
+          text: t("user.messages.enable.success"),
           type: "success",
         });
       } else {
         emitter.emit("notify", {
-          text: t("users.messages.enable.error"),
+          text: t("user.messages.enable.error"),
           type: "success",
         });
       }
     })
     .catch(() => {
       emitter.emit("notify", {
-        text: t("users.messages.enable.error"),
+        text: t("user.messages.enable.error"),
         type: "error",
       });
     });
@@ -412,14 +412,14 @@ const onSubmitInvitation = async (formData: InvitationPayload) => {
     .then((response) => {
       if (response) {
         emitter.emit("notify", {
-          text: t("invitations.messages.invite.success"),
+          text: t("user.invitation.messages.invite.success"),
           type: "success",
         });
       }
     })
     .catch(() => {
       emitter.emit("notify", {
-        text: t("invitations.messages.invite.error"),
+        text: t("user.invitation.messages.invite.error"),
         type: "error",
       });
     });
