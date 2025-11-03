@@ -52,7 +52,7 @@ const props = defineProps({
   },
   modelValue: {
     default: "",
-    type: String as PropType<string | null | undefined>,
+    type: [String, Number] as PropType<string | number | null | undefined>,
   },
   name: {
     default: "input",
