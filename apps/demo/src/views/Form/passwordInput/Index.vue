@@ -21,6 +21,7 @@
         <Password
           v-model="formData.noLabelInput"
           :placeholder="$t('form.placeholder.password')"
+          name="basic"
         />
 
         <!-- eslint-disable -->
@@ -48,6 +49,7 @@
           v-model="formData.input"
           :label="$t('form.label.password')"
           :placeholder="$t('form.placeholder.password')"
+          name="labeled"
         />
 
         <!-- eslint-disable -->
@@ -76,6 +78,7 @@
           v-model="formData.disabled"
           :label="$t('form.label.password')"
           disabled
+          name="disabled"
         />
 
         <!-- eslint-disable -->
@@ -107,6 +110,7 @@
           v-model="formData.input"
           :label="$t('form.label.password')"
           :placeholder="$t('form.placeholder.password')"
+          name="i18n"
         />
 
         <!-- eslint-disable -->
@@ -138,6 +142,7 @@
           v-model="formData.input"
           :label="$t('form.label.password')"
           :placeholder="$t('form.placeholder.password')"
+          name="icon-slot"
         >
           <template #icon="{ showPassword }">
             <i :class="`pi ${showPassword ? 'pi-eye' : 'pi-eye-slash'}`" />
@@ -179,6 +184,7 @@
             :label="$t('form.label.password')"
             :options="validationOptions"
             :placeholder="$t('form.placeholder.password')"
+            name="validation"
           />
         </Form>
 
@@ -221,6 +227,7 @@
             :error-messages="validationMessages"
             :options="validationOptions"
             :placeholder="$t('form.placeholder.password')"
+            name="custom-error"
           />
         </Form>
 
@@ -267,7 +274,7 @@
             :label="$t('form.label.password')"
             :placeholder="$t('form.placeholder.password')"
             :schema="inputSchema"
-            name="custom_input"
+            name="custom-input"
           />
         </Form>
 

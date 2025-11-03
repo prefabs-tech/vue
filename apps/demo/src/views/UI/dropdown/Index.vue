@@ -317,7 +317,7 @@ const slotsData = [
 ];
 
 const onSelect = (item: DropdownMenu) => {
-  if (item === menu.value[1]) {
+  if (item === menu[1]) {
     showProfile.value = true;
   }
 };
