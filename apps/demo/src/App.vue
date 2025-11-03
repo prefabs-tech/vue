@@ -17,7 +17,6 @@
     </template>
     <router-view />
   </Layout>
-  <notifications />
 </template>
 
 <script setup lang="ts">
