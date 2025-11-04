@@ -65,6 +65,9 @@ const config: AppConfig = {
     environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
   },
   slug: import.meta.env.VITE_APP_SLUG as string,
+  toastNotification: {
+    position: "top-center",
+  },
   user: {
     options: {
       email: {

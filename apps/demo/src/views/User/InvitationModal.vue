@@ -438,11 +438,11 @@
 </template>
 
 <script setup lang="ts">
-import { notify } from "@kyvg/vue3-notification";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { InvitationModal } from "@prefabs.tech/vue3-user";
 import { ref } from "vue";
+import { toast } from "vue3-toastify";
 
 import UserPage from "./UserPage.vue";
 
@@ -503,8 +503,7 @@ const apps = [
 ];
 
 const onSubmit = (formData: InvitationPayload) => {
-  notify({
-    text: t("user.message.invitation.success", { user: formData.email }),
+  toast(t("user.message.invitation.success", { user: formData.email }), {
     type: "success",
   });
 
