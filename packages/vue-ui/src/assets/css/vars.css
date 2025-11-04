@@ -63,4 +63,12 @@
   --page-max-width: 550px;
 
   --menu-border-color: #e5e7eb;
+
+  --stepper-active-color: var(--dz-primary-color);
+  --stepper-completed-border-color: var(--dz-primary-color);
+  --stepper-line-border-color: var(--border-color, #e5e7eb);
+  --stepper-number-color: #ffffff;
+  --stepper-number-border-color: var(--border-color, #e5e7eb);
+  --stepper-label-color: #6b7280;
+  --stepper-label-active-color: #000000;
 }

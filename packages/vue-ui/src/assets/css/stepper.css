@@ -1,50 +1,46 @@
 .stepper {
+  --_active-bg: var(--stepper-active-color, #007aff);
+  --_bg-color: var(--stepper-bg-color, #fff);
+  --_completed-border-color: var(--stepper-completed-border-color, #007aff);
+  --_number-border-color: var(--stepper-number-border-color);
+
   position: relative;
 }
 
 .stepper .actions {
-  --_margin-top: var(--stepper-margin-top, 2rem);
-
   display: flex;
   gap: 1rem;
-  margin-top: var(--_margin-top);
+  margin-top: 2rem;
 }
 
 .step {
-  align-items: center;
+  align-items: start;
   cursor: pointer;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  margin-right: 20px;
 }
 
 .steps {
-  --_margin-top: var(--stepper-margin-top, 2rem);
-
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--_margin-top);
+  margin-bottom: 2rem;
 }
 
-.steps::after {
-  --_border-color: var(--stepper-border-color, #b5b5b5);
-
-  border-top: 1px solid var(--_border-color);
+.steps > .step::before {
+  border-top: 1px solid var(--stepper-line-border-color);
   content: " ";
   display: block;
+  left: 1rem;
   position: absolute;
-  margin-inline: 2rem;
-  top: 12%;
-  width: 95%;
+  top: 2rem;
+  width: 75%;
   z-index: 0;
 }
 
 .step-number {
-  --_bg-color: var(--stepper-bg-color, #fff);
-  --_border-color: var(--stepper-border-color, #b5b5b5);
-
   background-color: var(--_bg-color);
-  border: 1px solid var(--_border-color);
+  border: 1px solid var(--_number-border-color);
   border-radius: 2rem;
   display: inline-block;
   margin: 0.25rem;
@@ -54,22 +50,24 @@
 }
 
 .step-number.active {
-  --_bg-color: var(--stepper-active-bg-color, #007aff);
+  background-color: var(--_active-bg);
+  color: var(--stepper-number-color, #fff);
+}
 
-  background-color: var(--_bg-color);
-  color: #fff;
+.step-label {
+  color: var(--stepper-label-color);
 }
 
 .step-label.active {
-  font-weight: bold;
+  color: var(--stepper-label-active-color);
+  font-weight: 500;
 }
-.step-number.completed {
-  --_border-color: var(--stepper-completed-border-color, #007aff);
 
-  border-color: var(--_border-color);
+.step-number.completed {
+  border-color: var(--_completed-border-color);
   padding: 0.9rem;
 }
 
 .step.active .step-number {
-  font-weight: bold;
+  font-weight: 500;
 }
