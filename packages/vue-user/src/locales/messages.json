@@ -801,10 +801,6 @@
             "success": "Email updated successfully.",
             "verify": "Verify email to complete the email update."
           },
-          "tabs": {
-            "credentials": "Credentials",
-            "profile": "My profile"
-          },
           "title": "Update email"
         },
         "errors": {
@@ -836,6 +832,10 @@
             "label": "Middle name(s)",
             "placeholder": "Enter your middle name(s)"
           }
+        },
+        "tabs": {
+          "credentials": "Credentials",
+          "profile": "My profile"
         },
       "title": "Profil"
       },

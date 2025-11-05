@@ -34,8 +34,9 @@
       <FormActions
         :actions="[
           {
-            id: 'submit',
+            id: 'change-password',
             label: t('user.changePassword.form.submit.label'),
+            type: 'submit',
           },
         ]"
         :loading="loading"
