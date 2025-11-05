@@ -37,8 +37,61 @@ exports[`Profile > matches snapshot in en 1`] = `
     class="page-content"
   >
     
-    <account-info-stub />
-    <profile-form-stub />
+    <div
+      class="tabbed-panel top"
+      id="profile-tabs"
+    >
+      <div
+        aria-orientation="horizontal"
+        role="tablist"
+      >
+        
+        <button
+          aria-label="My profile"
+          aria-selected="true"
+          class="active"
+          id="profile"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="My profile"
+          >
+            My profile
+          </span>
+          <!---->
+        </button>
+        <button
+          aria-label="Credentials"
+          aria-selected="false"
+          class=""
+          id="credentials"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="Credentials"
+          >
+            Credentials
+          </span>
+          <!---->
+        </button>
+        
+      </div>
+      <div
+        role="tabpanel"
+      >
+        
+        
+        <div>
+          <profile-form-stub />
+        </div>
+        
+        
+      </div>
+    </div>
     
     <!---->
   </div>
@@ -82,8 +135,61 @@ exports[`Profile > matches snapshot in fr 1`] = `
     class="page-content"
   >
     
-    <account-info-stub />
-    <profile-form-stub />
+    <div
+      class="tabbed-panel top"
+      id="profile-tabs"
+    >
+      <div
+        aria-orientation="horizontal"
+        role="tablist"
+      >
+        
+        <button
+          aria-label="My profile"
+          aria-selected="true"
+          class="active"
+          id="profile"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="My profile"
+          >
+            My profile
+          </span>
+          <!---->
+        </button>
+        <button
+          aria-label="Credentials"
+          aria-selected="false"
+          class=""
+          id="credentials"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="Credentials"
+          >
+            Credentials
+          </span>
+          <!---->
+        </button>
+        
+      </div>
+      <div
+        role="tabpanel"
+      >
+        
+        
+        <div>
+          <profile-form-stub />
+        </div>
+        
+        
+      </div>
+    </div>
     
     <!---->
   </div>

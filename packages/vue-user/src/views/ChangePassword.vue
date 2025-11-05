@@ -1,17 +1,15 @@
 <template>
-  <Page :title="t('user.changePassword.title')" class="auth change-password">
-    <Message
-      v-if="errorMessage"
-      :message="t(`user.changePassword.errors.${errorMessage}`)"
-      enable-close
-      severity="danger"
-      @close="errorMessage = undefined"
-    />
+  <Message
+    v-if="errorMessage"
+    :message="t(`user.changePassword.errors.${errorMessage}`)"
+    enable-close
+    severity="danger"
+    @close="errorMessage = undefined"
+  />
 
-    <slot name="instructions"></slot>
+  <slot></slot>
 
-    <ChangePasswordForm :loading="loading" @submit="handleSubmit" />
-  </Page>
+  <ChangePasswordForm :loading="loading" @submit="handleSubmit" />
 </template>
 
 <script lang="ts">
@@ -23,7 +21,7 @@ export default {
 <script setup lang="ts">
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { Message, Page } from "@prefabs.tech/vue3-ui";
+import { Message } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
