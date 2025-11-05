@@ -4,7 +4,6 @@ import { Router } from "vue-router";
 import AuthSocialLoginCallback from "./components/AuthSocialLoginCallback.vue";
 import useUserStore from "./store";
 import AcceptInvitation from "./views/AcceptInvitation.vue";
-import ChangePassword from "./views/ChangePassword.vue";
 import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
 import Login from "./views/Login.vue";
 import PasswordReset from "./views/PasswordReset.vue";
@@ -28,14 +27,6 @@ const _routes = {
     name: "acceptInvitation",
     path: "/signup/token/:token?",
   } as RouteRecordRaw,
-  changePassword: {
-    meta: {
-      authenticated: true,
-    } as RouteMeta,
-    component: ChangePassword,
-    name: "changePassword",
-    path: "/change-password",
-  },
   facebook: {
     component: AuthSocialLoginCallback,
     name: "authFacebookCallback",
@@ -142,13 +133,6 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
 
   router.addRoute(getRoute(_routes.roles, routes?.roles));
 
-  router.addRoute(
-    getRoute(
-      _routes.changePassword,
-      routes?.changePassword,
-    ),
-  );
-
   router.addRoute(getRoute(_routes.acceptInvitation, routes?.acceptInvitation));
 
   if (userConfig?.features?.signUp?.emailVerification) {
@@ -231,10 +215,6 @@ const addAuthenticationGuard = (
     if (meta.authenticated && !user.value) {
       sessionStorage.setItem('redirectAfterLogin', to.fullPath);
       router.push({ name: "login" }); // using next inside async function is not allowed
-    }
-
-    if (isSocialLoggedIn && name === "changePassword") {
-      router.push({ name: "home" });
     }
 
     if (meta.authenticated && EmailVerificationEnabled && user.value) {

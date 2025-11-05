@@ -9,15 +9,11 @@
         <template v-else-if="tab.key === tabList[1].key">
           <AccountInfo />
 
-          <ChangePassword>
+          <ChangePassword v-if="!isSocialLogin">
             <template #instructions>
               <slot name="changePasswordInstructions"></slot>
             </template>
           </ChangePassword>
-        </template>
-
-        <template v-else>
-          <slot :name="tab.key"></slot>
         </template>
       </div>
     </TabView>
@@ -31,15 +27,18 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Page, TabView } from "@prefabs.tech/vue3-ui";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 import ChangePassword from "./ChangePassword.vue";
 import AccountInfo from "../components/profile/AccountInfo.vue";
 import ProfileForm from "../components/profile/ProfileForm.vue";
 import { useTranslations } from "../index";
+import useUserStore from "../store";
 
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { Tab } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
@@ -50,14 +49,25 @@ const props = defineProps({
   },
 });
 
-const messages = useTranslations();
+const config = useConfig() as AppConfig;
 
+const messages = useTranslations();
 const { t } = useI18n({ messages });
+
+const userStore = useUserStore();
+const { user } = userStore;
 
 const tabList = ref<Tab[]>([
   { key: "profile", label: t("user.profile.tabs.profile") },
   { key: "credentials", label: t("user.profile.tabs.credentials") },
 ]);
+
+const isSocialLogin = computed(() => {
+  return (
+    user?.thirdParty &&
+    config.user?.socialLogins?.includes(user?.thirdParty?.id)
+  );
+});
 
 const prepapareComponent = () => {
   if (props.additionalTabs.length) {
