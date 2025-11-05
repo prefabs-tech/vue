@@ -7,7 +7,7 @@
     @close="errorMessage = undefined"
   />
 
-  <slot></slot>
+  <slot name="instructions"></slot>
 
   <ChangePasswordForm :loading="loading" @submit="handleSubmit" />
 </template>
