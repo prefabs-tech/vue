@@ -11,7 +11,9 @@ import messages from "./locales/messages.json";
 import updateRouter from "./router";
 import userStore from "./store";
 import initSupertokens from "./supertokens";
-import Profile from "./views/Profile.vue";
+import ChangePassword from "./views/ChangePassword.vue";
+import ProfileLegacy from "./views/Profile.vue";
+import Profile from "./views/Profile/Index.vue";
 
 import type { DzangolabVueUserPluginOptions } from "./types";
 import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
@@ -72,7 +74,7 @@ export { client, userStore, useTranslations, emitter };
 
 export * from "./api/roles";
 
-export { Profile };
+export { ChangePassword, Profile, ProfileLegacy };
 
 export * from "./components";
 

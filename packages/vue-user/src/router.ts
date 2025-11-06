@@ -8,7 +8,7 @@ import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
 import Login from "./views/Login.vue";
 import PasswordReset from "./views/PasswordReset.vue";
 import PasswordResetRequest from "./views/PasswordResetRequest.vue";
-import Profile from "./views/Profile.vue";
+import Profile from "./views/Profile/Index.vue";
 import Roles from "./views/Roles/Index.vue";
 import Signup from "./views/Signup.vue";
 import SignupFirstUser from "./views/SignupFirstUser.vue";
