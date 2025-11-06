@@ -1,12 +1,18 @@
 <template>
   <Page :title="t('user.profile.title')" class="profile">
-    <TabView id="profile-tabs" :active-key="tabList[0].key" :tabs="tabList">
+    <TabView
+      id="profile-tabs"
+      :active-key="activeKey"
+      :tabs="tabList"
+      :visible-tabs="visibleTabs"
+      enable-hash-routing
+    >
       <div v-for="tab in tabList" :key="tab.key" :class="tab.key">
-        <ProfileForm v-if="tab.key === tabList[0].key">
+        <ProfileForm v-if="tab.key === 'profile'">
           <slot name="profileFields" />
         </ProfileForm>
 
-        <template v-else-if="tab.key === tabList[1].key">
+        <template v-else-if="tab.key === 'credentials'">
           <AccountInfo />
 
           <div class="change-password"></div>
@@ -44,9 +50,17 @@ import type { Tab } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  activeKey: {
+    default: "profile",
+    type: String,
+  },
   additionalTabs: {
     default: () => [],
     type: Array as PropType<Tab[]>,
+  },
+  visibleTabs: {
+    default: () => [],
+    type: Array as PropType<string[]>,
   },
 });
 

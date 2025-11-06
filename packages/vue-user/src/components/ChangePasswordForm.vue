@@ -40,7 +40,7 @@
           },
         ]"
         :loading="loading"
-        alignment="filled"
+        alignment="left"
         tabindex="0"
       />
     </div>
