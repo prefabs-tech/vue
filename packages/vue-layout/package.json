@@ -1,6 +1,6 @@
 {
   "name": "@prefabs.tech/vue3-layout",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "description": "Vue3 Layout Plugin",
   "type": "module",
   "exports": {
@@ -29,9 +29,9 @@
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.2.0",
     "@prefabs.tech/tsconfig": "0.2.0",
-    "@prefabs.tech/vue3-config": "0.22.0",
-    "@prefabs.tech/vue3-i18n": "0.22.0",
-    "@prefabs.tech/vue3-ui": "0.22.0",
+    "@prefabs.tech/vue3-config": "0.23.0",
+    "@prefabs.tech/vue3-i18n": "0.23.0",
+    "@prefabs.tech/vue3-ui": "0.23.0",
     "@iconify/vue": "4.3.0",
     "@types/node": "22.13.5",
     "@typescript-eslint/eslint-plugin": "8.24.1",
@@ -59,9 +59,9 @@
     "vue-tsc": "1.2.0"
   },
   "peerDependencies": {
-    "@prefabs.tech/vue3-config": "0.22.0",
-    "@prefabs.tech/vue3-i18n": "0.22.0",
-    "@prefabs.tech/vue3-ui": "0.22.0",
+    "@prefabs.tech/vue3-config": "0.23.0",
+    "@prefabs.tech/vue3-i18n": "0.23.0",
+    "@prefabs.tech/vue3-ui": "0.23.0",
     "@vueuse/core": ">=9.4.0",
     "vue": ">=3.2",
     "vue-router": ">=4.0"
