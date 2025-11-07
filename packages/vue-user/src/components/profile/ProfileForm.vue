@@ -85,7 +85,7 @@ let fieldsSchema = {
     .string()
     .min(1, t("user.profile.form.firstName.messages.required")),
   middleNames: z.string().optional(),
-  surname: z.string().min(1, t("profile.form.lastName.messages.required")),
+  surname: z.string().min(1, t("user.profile.form.lastName.messages.required")),
 };
 
 const formValues = reactive({

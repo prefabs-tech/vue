@@ -373,6 +373,10 @@
             "placeholder": "Enter your middle name(s)"
           }
         },
+        "tabs": {
+          "credentials": "Credentials",
+          "profile": "My profile"
+        },
         "title": "Profile"
       },
       "signup": {
@@ -828,6 +832,10 @@
             "label": "Middle name(s)",
             "placeholder": "Enter your middle name(s)"
           }
+        },
+        "tabs": {
+          "credentials": "Credentials",
+          "profile": "My profile"
         },
       "title": "Profil"
       },

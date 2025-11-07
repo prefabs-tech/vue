@@ -84,3 +84,5 @@ export type {
   IFile,
   TableMessages
 } from "./types";
+
+export type { Tab } from "./TabView/types";

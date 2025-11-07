@@ -28,22 +28,6 @@
       </span>
     </div>
     <ul class="dropdown">
-      <li v-if="!isSocialLoggedIn" @click="$emit('select:menu')">
-        <router-link class="user-menu-link" :to="{ name: 'changePassword' }">
-          <svg
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17 10.25h-.25V8a4.75 4.75 0 0 0-9.5 0v2.25H7A2.75 2.75 0 0 0 4.25 13v5A2.75 2.75 0 0 0 7 20.75h10A2.75 2.75 0 0 0 19.75 18v-5A2.75 2.75 0 0 0 17 10.25M8.75 8a3.25 3.25 0 0 1 6.5 0v2.25h-6.5Zm9.5 10A1.25 1.25 0 0 1 17 19.25H7A1.25 1.25 0 0 1 5.75 18v-5A1.25 1.25 0 0 1 7 11.75h10A1.25 1.25 0 0 1 18.25 13Z"
-              fill="currentColor"
-            />
-          </svg>
-          {{ t("app.header.menu.changePassword") }}
-        </router-link>
-      </li>
       <li @click="$emit('select:menu')">
         <router-link :to="{ name: 'profile' }">
           <svg
@@ -99,10 +83,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { onClickOutside } from "@vueuse/core";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 
 import { useTranslations } from "../index";
 
@@ -126,14 +109,6 @@ const props = defineProps({
     type: Array as PropType<UserMenuItem[]>,
   },
 });
-
-const config = useConfig();
-
-const isSocialLoggedIn = computed(
-  () =>
-    props.user?.thirdParty &&
-    config?.user?.socialLogins?.includes(props.user?.thirdParty?.id),
-);
 
 const toggle = () => {
   expanded.value = !expanded.value;

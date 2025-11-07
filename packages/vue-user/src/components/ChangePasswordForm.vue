@@ -34,12 +34,13 @@
       <FormActions
         :actions="[
           {
-            id: 'submit',
+            id: 'change-password',
             label: t('user.changePassword.form.submit.label'),
+            type: 'submit',
           },
         ]"
         :loading="loading"
-        alignment="filled"
+        alignment="left"
         tabindex="0"
       />
     </div>
