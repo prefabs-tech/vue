@@ -1,6 +1,6 @@
 {
   "name": "@prefabs.tech/vue3-ui",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "description": "Vue3 UI Component Library",
   "type": "module",
   "exports": {

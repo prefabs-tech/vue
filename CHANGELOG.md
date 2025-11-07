@@ -1,3 +1,20 @@
+# [0.23.0](https://github.com/prefabs-tech/vue/compare/v0.22.0...v0.23.0) (2025-11-07)
+
+
+### Bug Fixes
+
+* **user/basic-layout:** adjust user menu dropdown positioning when no locale switcher ([#836](https://github.com/prefabs-tech/vue/issues/836)) ([0fbce62](https://github.com/prefabs-tech/vue/commit/0fbce625e398d19f4e87248f483247ded75541aa))
+* **user:** update route guard and email verification status in user store ([#827](https://github.com/prefabs-tech/vue/issues/827)) ([b14d45e](https://github.com/prefabs-tech/vue/commit/b14d45efc8c36d82947c4d4f815893ffd94b585e))
+
+
+### Features
+
+* **user/profile:** add support to additional field and fields validation schema ([#838](https://github.com/prefabs-tech/vue/issues/838)) ([c47e76a](https://github.com/prefabs-tech/vue/commit/c47e76aa524039b571b55a484c98d2b0974f9410))
+* **user/profile:** add tabbed interface for profile and credentials sections with additional tab support ([#842](https://github.com/prefabs-tech/vue/issues/842)) ([e54930d](https://github.com/prefabs-tech/vue/commit/e54930dea0753745454c7603bd923f4bc7a6c1e5))
+* **user:** update logout redirect route to be configurable ([#837](https://github.com/prefabs-tech/vue/issues/837)) ([444dfdb](https://github.com/prefabs-tech/vue/commit/444dfdb92bf9c786fc34587d64ab720acac93441))
+
+
+
 # [0.22.0](https://github.com/prefabs-tech/vue/compare/v0.21.0...v0.22.0) (2025-10-10)
 
 
