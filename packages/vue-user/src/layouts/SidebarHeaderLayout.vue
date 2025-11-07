@@ -221,7 +221,7 @@ const menu = computed(() => {
   --dropdown-bg-color: #fff;
 
   box-shadow: 0 -2px 12px #0000001a;
-  transform: translate3d(0, -161.5px, 0);
+  transform: translate3d(0, -106px, 0);
   visibility: visible;
   width: 100%;
 }
