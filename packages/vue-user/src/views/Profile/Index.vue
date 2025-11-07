@@ -8,19 +8,30 @@
       enable-hash-routing
     >
       <div v-for="tab in tabList" :key="tab.key" :class="tab.key">
-        <ProfileForm v-if="tab.key === 'profile'">
-          <slot name="profileFields" />
-        </ProfileForm>
+        <template v-if="tab.key === 'profile'">
+          <slot name="profile">
+            <ProfileForm>
+              <slot name="profileFields" />
+            </ProfileForm>
+          </slot>
+        </template>
 
         <template v-else-if="tab.key === 'credentials'">
-          <AccountInfo />
+          <slot name="credentials">
+            <section>
+              <h2>{{ t("user.profile.accountInfo.title") }}</h2>
+              <AccountInfo />
+            </section>
 
-          <div class="change-password"></div>
-          <ChangePasswordTab v-if="!isSocialLogin">
-            <template #instructions>
-              <slot name="changePasswordInstructions"></slot>
-            </template>
-          </ChangePasswordTab>
+            <section>
+              <h2>{{ t("user.changePassword.title") }}</h2>
+              <ChangePasswordTab v-if="!isSocialLogin">
+                <template #instructions>
+                  <slot name="changePasswordInstructions"></slot>
+                </template>
+              </ChangePasswordTab>
+            </section>
+          </slot>
         </template>
       </div>
     </TabView>
@@ -49,7 +60,16 @@ import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { Tab } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
+type ProfileTabsLabels = {
+  profile?: string;
+  credentials?: string;
+};
+
 const props = defineProps({
+  defaultTabsLabels: {
+    default: () => ({}),
+    type: Object as PropType<ProfileTabsLabels>,
+  },
   activeKey: {
     default: "profile",
     type: String,
@@ -73,8 +93,15 @@ const userStore = useUserStore();
 const { user } = userStore;
 
 const tabList = ref<Tab[]>([
-  { key: "profile", label: t("user.profile.tabs.profile") },
-  { key: "credentials", label: t("user.profile.tabs.credentials") },
+  {
+    key: "profile",
+    label: props.defaultTabsLabels.profile || t("user.profile.tabs.profile"),
+  },
+  {
+    key: "credentials",
+    label:
+      props.defaultTabsLabels.credentials || t("user.profile.tabs.credentials"),
+  },
 ]);
 
 const isSocialLogin = computed(() => {
@@ -104,6 +131,12 @@ prepapareComponent();
 .page.profile .tabbed-panel .credentials {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+}
+
+.page.profile .tabbed-panel h2,
+.page.profile .tabbed-panel h2 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 </style>
