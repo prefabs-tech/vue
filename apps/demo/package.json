@@ -1,7 +1,7 @@
 {
   "name": "@prefabs.tech/vue3-demo",
   "homepage": "https://app-ofvi39.ws0.12deg.io/vue/",
-  "version": "0.23.0",
+  "version": "0.23.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,13 +16,13 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@prefabs.tech/vue3-config": "0.23.0",
-    "@prefabs.tech/vue3-form": "0.23.0",
-    "@prefabs.tech/vue3-i18n": "0.23.0",
-    "@prefabs.tech/vue3-layout": "0.23.0",
-    "@prefabs.tech/vue3-tanstack-table": "0.23.0",
-    "@prefabs.tech/vue3-ui": "0.23.0",
-    "@prefabs.tech/vue3-user": "0.23.0",
+    "@prefabs.tech/vue3-config": "0.23.1",
+    "@prefabs.tech/vue3-form": "0.23.1",
+    "@prefabs.tech/vue3-i18n": "0.23.1",
+    "@prefabs.tech/vue3-layout": "0.23.1",
+    "@prefabs.tech/vue3-tanstack-table": "0.23.1",
+    "@prefabs.tech/vue3-ui": "0.23.1",
+    "@prefabs.tech/vue3-user": "0.23.1",
     "@fortawesome/fontawesome-free": "6.7.2",
     "@iconify/vue": "4.3.0",
     "pinia": "3.0.1",

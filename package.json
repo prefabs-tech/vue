@@ -1,6 +1,6 @@
 {
   "name": "@prefabs.tech/vue",
-  "version": "0.23.0",
+  "version": "0.23.1",
   "private": true,
   "scripts": {
     "build": "turbo run build",

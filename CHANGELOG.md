@@ -1,3 +1,12 @@
+## [0.23.1](https://github.com/prefabs-tech/vue/compare/v0.23.0...v0.23.1) (2025-11-10)
+
+
+### Bug Fixes
+
+* update locale prop binding in files table and sidebar usermenu css ([#845](https://github.com/prefabs-tech/vue/issues/845)) ([0e21a27](https://github.com/prefabs-tech/vue/commit/0e21a272a804f27aa1ee3fdb7a28f779c52f3b57))
+
+
+
 # [0.23.0](https://github.com/prefabs-tech/vue/compare/v0.22.0...v0.23.0) (2025-11-07)
 
 
