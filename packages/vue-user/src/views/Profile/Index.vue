@@ -25,11 +25,11 @@
 
             <section>
               <h2>{{ t("user.profile.updatePassword.title") }}</h2>
-              <ChangePasswordTab v-if="!isSocialLogin">
+              <ChangePassword v-if="!isSocialLogin">
                 <template #instructions>
                   <slot name="changePasswordInstructions"></slot>
                 </template>
-              </ChangePasswordTab>
+              </ChangePassword>
             </section>
           </slot>
         </template>
@@ -50,8 +50,8 @@ import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Page, TabView } from "@prefabs.tech/vue3-ui";
 import { computed } from "vue";
 
-import ChangePasswordTab from "./ChangePasswordTab.vue";
 import AccountInfo from "../../components/profile/AccountInfo.vue";
+import ChangePassword from "../../components/profile/ChangePassword.vue";
 import ProfileForm from "../../components/profile/ProfileForm.vue";
 import { useTranslations } from "../../index";
 import useUserStore from "../../store";
