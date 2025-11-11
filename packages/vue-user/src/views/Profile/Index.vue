@@ -60,16 +60,12 @@ import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { Tab } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
-type ProfileTabsLabels = {
-  profile?: string;
-  credentials?: string;
-};
+type DefaultTabs = Record<
+  "profile" | "credentials",
+  Omit<Tab, "children" | "key">
+>;
 
 const props = defineProps({
-  defaultTabsLabels: {
-    default: () => ({}),
-    type: Object as PropType<ProfileTabsLabels>,
-  },
   activeKey: {
     default: "profile",
     type: String,
@@ -77,6 +73,10 @@ const props = defineProps({
   additionalTabs: {
     default: () => [],
     type: Array as PropType<Tab[]>,
+  },
+  defaultTabsProperties: {
+    default: () => ({}),
+    type: Object as PropType<DefaultTabs>,
   },
   visibleTabs: {
     default: () => [],
@@ -94,13 +94,20 @@ const { user } = userStore;
 
 const tabList = ref<Tab[]>([
   {
+    closable: props.defaultTabsProperties?.profile?.closable ?? false,
+    icon: props.defaultTabsProperties?.profile?.icon ?? undefined,
     key: "profile",
-    label: props.defaultTabsLabels.profile || t("user.profile.tabs.profile"),
+    label:
+      props.defaultTabsProperties?.profile?.label ||
+      t("user.profile.tabs.profile"),
   },
   {
+    closable: props.defaultTabsProperties?.credentials?.closable ?? false,
+    icon: props.defaultTabsProperties?.credentials?.icon ?? undefined,
     key: "credentials",
     label:
-      props.defaultTabsLabels.credentials || t("user.profile.tabs.credentials"),
+      props.defaultTabsProperties?.credentials?.label ||
+      t("user.profile.tabs.credentials"),
   },
 ]);
 
