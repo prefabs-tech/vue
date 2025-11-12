@@ -3,11 +3,11 @@
     <TabView
       id="profile-tabs"
       :active-key="activeKey"
-      :tabs="tabList"
+      :tabs="mergedTabs"
       :visible-tabs="visibleTabs"
       enable-hash-routing
     >
-      <div v-for="tab in tabList" :key="tab.key" :class="tab.key">
+      <div v-for="tab in mergedTabs" :key="tab.key" :class="tab.key">
         <template v-if="tab.key === 'profile'">
           <slot name="profile">
             <ProfileForm>
@@ -24,12 +24,12 @@
             </section>
 
             <section>
-              <h2>{{ t("user.changePassword.title") }}</h2>
-              <ChangePasswordTab v-if="!isSocialLogin">
+              <h2>{{ t("user.profile.updatePassword.title") }}</h2>
+              <ChangePassword v-if="!isSocialLogin">
                 <template #instructions>
                   <slot name="changePasswordInstructions"></slot>
                 </template>
-              </ChangePasswordTab>
+              </ChangePassword>
             </section>
           </slot>
         </template>
@@ -40,7 +40,7 @@
 
 <script lang="ts">
 export default {
-  name: "Profile",
+  name: "ProfileTabsPage",
 };
 </script>
 
@@ -48,10 +48,10 @@ export default {
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Page, TabView } from "@prefabs.tech/vue3-ui";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
-import ChangePasswordTab from "./ChangePasswordTab.vue";
 import AccountInfo from "../../components/profile/AccountInfo.vue";
+import ChangePassword from "../../components/profile/ChangePassword.vue";
 import ProfileForm from "../../components/profile/ProfileForm.vue";
 import { useTranslations } from "../../index";
 import useUserStore from "../../store";
@@ -60,21 +60,12 @@ import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { Tab } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
-type ProfileTabsLabels = {
-  profile?: string;
-  credentials?: string;
-};
-
 const props = defineProps({
-  defaultTabsLabels: {
-    default: () => ({}),
-    type: Object as PropType<ProfileTabsLabels>,
-  },
   activeKey: {
     default: "profile",
     type: String,
   },
-  additionalTabs: {
+  tabs: {
     default: () => [],
     type: Array as PropType<Tab[]>,
   },
@@ -92,17 +83,16 @@ const { t } = useI18n({ messages });
 const userStore = useUserStore();
 const { user } = userStore;
 
-const tabList = ref<Tab[]>([
+const defaultTabs = [
   {
     key: "profile",
-    label: props.defaultTabsLabels.profile || t("user.profile.tabs.profile"),
+    label: t("user.profile.tabs.profile"),
   },
   {
     key: "credentials",
-    label:
-      props.defaultTabsLabels.credentials || t("user.profile.tabs.credentials"),
+    label: t("user.profile.tabs.credentials"),
   },
-]);
+] as Tab[];
 
 const isSocialLogin = computed(() => {
   return (
@@ -111,13 +101,15 @@ const isSocialLogin = computed(() => {
   );
 });
 
-const prepapareComponent = () => {
-  if (props.additionalTabs.length) {
-    tabList.value.push(...props.additionalTabs);
-  }
-};
-
-prepapareComponent();
+const mergedTabs = computed(() => [
+  ...defaultTabs.map((defaultTab) => {
+    const override = props.tabs.find((tab) => tab.key === defaultTab.key);
+    return override ? { ...defaultTab, ...override } : defaultTab;
+  }),
+  ...props.tabs.filter(
+    (tab) => !defaultTabs.some((defaultTab) => defaultTab.key === tab.key),
+  ),
+]);
 </script>
 
 <style lang="css">
@@ -131,12 +123,12 @@ prepapareComponent();
 .page.profile .tabbed-panel .credentials {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .page.profile .tabbed-panel h2,
 .page.profile .tabbed-panel h2 {
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 </style>

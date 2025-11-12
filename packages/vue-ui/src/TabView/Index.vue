@@ -12,7 +12,7 @@
         tabindex="0"
         @click="onClickTab(item.key)"
       >
-        <img v-if="item?.icon" :src="item?.icon" class="icon" />
+        <i v-if="item?.icon" :class="['icon', item?.icon]" />
         <span :title="item.label">{{ item.label }}</span>
         <svg
           v-if="item.closable"

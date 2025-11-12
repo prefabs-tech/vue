@@ -9,7 +9,7 @@
 
 <script lang="ts">
 export default {
-  name: "Profile",
+  name: "ProfilePage",
 };
 </script>
 
@@ -17,9 +17,9 @@ export default {
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Page } from "@prefabs.tech/vue3-ui";
 
-import AccountInfo from "../components/profile/AccountInfo.vue";
-import ProfileForm from "../components/profile/ProfileForm.vue";
-import { useTranslations } from "../index";
+import AccountInfo from "../../components/profile/AccountInfo.vue";
+import ProfileForm from "../../components/profile/ProfileForm.vue";
+import { useTranslations } from "../../index";
 
 const messages = useTranslations();
 

@@ -4,7 +4,7 @@ import { createPinia } from "pinia";
 import { describe, it, expect } from "vitest";
 
 import appConfig from "../../../components/__test__/config";
-import Profile from "../../Profile.vue";
+import Profile from "../../Profile/ProfilePage.vue";
 import router from "../router";
 
 import type { VueWrapper } from "@vue/test-utils";

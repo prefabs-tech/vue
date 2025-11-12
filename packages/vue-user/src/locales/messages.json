@@ -377,7 +377,10 @@
           "credentials": "Credentials",
           "profile": "My profile"
         },
-        "title": "Profile"
+        "title": "Profile",
+        "updatePassword": {
+          "title": "Update password"
+        }
       },
       "signup": {
         "errors": {
@@ -837,7 +840,10 @@
           "credentials": "Credentials",
           "profile": "My profile"
         },
-      "title": "Profil"
+      "title": "Profil",
+      "updatePassword": {
+        "title": "Update password"
+      }
       },
       "signup": {
         "errors": {
