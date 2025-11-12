@@ -18,6 +18,7 @@
     <template #userMenu>
       <UserMenu
         v-if="showUserMenu"
+        :user-menu-items="userMenuItems"
         @select:menu="prefabsTechLayout?.onSelectMenu"
       >
         <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
@@ -138,6 +139,10 @@ const menu = computed(() => {
       shortName: child?.shortName,
     })),
   })) as SidebarMenu[];
+});
+
+const userMenuItems = computed(() => {
+  return layoutConfig?.userMenu || [];
 });
 </script>
 
