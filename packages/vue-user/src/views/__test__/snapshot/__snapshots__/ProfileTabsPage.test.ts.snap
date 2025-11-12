@@ -1,0 +1,269 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProfileTabsPage > matches snapshot in en 1`] = `
+<div
+  class="page profile"
+  data-centered="false"
+>
+  <div
+    class="page-header"
+  >
+    <div
+      class="page-title-wrapper"
+    >
+      <div
+        class="title"
+      >
+        <h1>
+          Profile
+        </h1>
+        
+        <!---->
+        
+      </div>
+      
+      <!---->
+      
+    </div>
+    <div
+      class="page-toolbar"
+    >
+      
+      <!---->
+      
+    </div>
+  </div>
+  <div
+    class="page-content"
+  >
+    
+    <div
+      class="tabbed-panel top"
+      id="profile-tabs"
+    >
+      <div
+        aria-orientation="horizontal"
+        role="tablist"
+      >
+        
+        <button
+          aria-label="My profile"
+          aria-selected="true"
+          class="active"
+          id="profile"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="My profile"
+          >
+            My profile
+          </span>
+          <!---->
+        </button>
+        <button
+          aria-label="Credentials"
+          aria-selected="false"
+          class=""
+          id="credentials"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="Credentials"
+          >
+            Credentials
+          </span>
+          <!---->
+        </button>
+        <button
+          aria-label="Tab 1"
+          aria-selected="false"
+          class=""
+          id="tab1"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="Tab 1"
+          >
+            Tab 1
+          </span>
+          <!---->
+        </button>
+        <button
+          aria-label="Tab 2"
+          aria-selected="false"
+          class=""
+          id="tab2"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="Tab 2"
+          >
+            Tab 2
+          </span>
+          <!---->
+        </button>
+        
+      </div>
+      <div
+        role="tabpanel"
+      >
+        
+        
+        <div
+          class="profile"
+        >
+          
+          <profile-form-stub />
+          
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`ProfileTabsPage > matches snapshot in fr 1`] = `
+<div
+  class="page profile"
+  data-centered="false"
+>
+  <div
+    class="page-header"
+  >
+    <div
+      class="page-title-wrapper"
+    >
+      <div
+        class="title"
+      >
+        <h1>
+          Profil
+        </h1>
+        
+        <!---->
+        
+      </div>
+      
+      <!---->
+      
+    </div>
+    <div
+      class="page-toolbar"
+    >
+      
+      <!---->
+      
+    </div>
+  </div>
+  <div
+    class="page-content"
+  >
+    
+    <div
+      class="tabbed-panel top"
+      id="profile-tabs"
+    >
+      <div
+        aria-orientation="horizontal"
+        role="tablist"
+      >
+        
+        <button
+          aria-label="My profile"
+          aria-selected="true"
+          class="active"
+          id="profile"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="My profile"
+          >
+            My profile
+          </span>
+          <!---->
+        </button>
+        <button
+          aria-label="Credentials"
+          aria-selected="false"
+          class=""
+          id="credentials"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="Credentials"
+          >
+            Credentials
+          </span>
+          <!---->
+        </button>
+        <button
+          aria-label="Tab 1"
+          aria-selected="false"
+          class=""
+          id="tab1"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="Tab 1"
+          >
+            Tab 1
+          </span>
+          <!---->
+        </button>
+        <button
+          aria-label="Tab 2"
+          aria-selected="false"
+          class=""
+          id="tab2"
+          role="tab"
+          tabindex="0"
+        >
+          <!---->
+          <span
+            title="Tab 2"
+          >
+            Tab 2
+          </span>
+          <!---->
+        </button>
+        
+      </div>
+      <div
+        role="tabpanel"
+      >
+        
+        
+        <div
+          class="profile"
+        >
+          
+          <profile-form-stub />
+          
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    <!---->
+  </div>
+</div>
+`;
