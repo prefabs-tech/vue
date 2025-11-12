@@ -49,7 +49,7 @@
         :key="item.route"
         @click="$emit('select:menu')"
       >
-        <router-link :to="{ name: item.name }">
+        <router-link :to="{ name: item.route }">
           <i :class="item.icon + ' menu-icon'"></i>
           {{ item.label }}
         </router-link>

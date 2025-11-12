@@ -1,7 +1,7 @@
 <template>
   <Layout :menu="menu" :no-locale-switcher="noLocaleSwitcher">
     <template #userMenu>
-      <UserMenu v-if="showUserMenu">
+      <UserMenu v-if="showUserMenu" :user-menu-items="userMenuItems">
         <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
           <slot name="userMenuTrigger"></slot>
         </template>
@@ -108,6 +108,10 @@ const menu = computed(() => {
       shortName: child?.shortName,
     })),
   })) as SidebarMenu[];
+});
+
+const userMenuItems = computed(() => {
+  return layoutConfig?.userMenu || [];
 });
 </script>
 

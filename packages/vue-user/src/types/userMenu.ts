@@ -1,6 +1,5 @@
 export interface UserMenuItem {
-  icon: string;
+  icon?: string;
   label: string;
-  name: string;
   route: string;
 }
