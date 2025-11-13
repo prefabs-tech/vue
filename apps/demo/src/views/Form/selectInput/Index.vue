@@ -256,6 +256,53 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.serverSideSelect") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.customSearchSelect"
+          :label="$t('form.label.country')"
+          :loading="loading"
+          :options="customSearchSelectOptions"
+          :placeholder="$t('form.placeholder.country')"
+          enable-custom-search
+          @update:search-input="fetchCountry"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :loading="loading"
+              :options="options"
+              enable-custom-search
+              label="Country"
+              placeholder="Select a country"
+              @update:search-input="fetchCountry"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@prefabs.tech/vue3-form";
+          import { ref } from "vue";
+
+          const loading = ref&lt;boolean&gt;(false);
+          const options = ref([]);
+
+          const fetchCountry = (searchInput) => {
+            loading.value = true;
+            ...
+            options.value = response?.data;
+            loading.value = false;
+          }
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.selectExtensive") }}</h2>
 
       <div class="section-content">
@@ -786,6 +833,7 @@ const inputSchema = z
 
 let formData = reactive({
   customLabelSelect: ref(),
+  customSearchSelect: ref(),
   disabled: ref("NP"),
   disabledMultiselect: ref(["FR", "NP"]),
   disabledSortInput: ref(),
@@ -803,6 +851,9 @@ let formData = reactive({
   selectExtensive: ref(),
   tooltipMultiselect: ref([]),
 });
+
+const customSearchSelectOptions = ref([]);
+const loading = ref<boolean>(false);
 
 const options = ref([
   { label: t("form.label.france"), value: "FR" },
@@ -837,6 +888,26 @@ const groupedOptions = ref([
     ],
   },
 ]);
+
+const fetchCountry = (searchInput?: string) => {
+  loading.value = true;
+
+  setTimeout(() => {
+    if (!searchInput) {
+      customSearchSelectOptions.value = options.value;
+    } else {
+      customSearchSelectOptions.value = options.value?.filter((option) =>
+        String(option.label)
+          .toLowerCase()
+          .includes(String(searchInput).toLowerCase()),
+      );
+    }
+
+    loading.value = false;
+  }, 1000);
+};
+
+fetchCountry();
 </script>
 
 <style lang="css">
