@@ -21,6 +21,7 @@
         :enable-tooltip="enableTooltip"
         :has-sorted-options="hasSortedOptions"
         :label-key="labelKey"
+        :loading="loading"
         :model-value="modelValue"
         :multiple="multiple"
         :options="options"
@@ -98,6 +99,7 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
+  loading: Boolean,
   maxSelection: {
     default: undefined,
     type: Number as PropType<number | undefined>,

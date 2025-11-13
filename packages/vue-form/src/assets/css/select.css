@@ -46,6 +46,16 @@
   width: 100%;
 }
 
+.multiselect-options > .loading-container {
+  display: flex;
+  justify-content: center;
+  padding-block: 0.75rem;
+}
+
+.multiselect-options > .loading-container > .loading {
+  color: var(--field-icon-color, #7b7676);
+}
+
 .multiselect > .multiselect-input {
   align-items: center;
   background-color: var(--_background-color);
