@@ -260,13 +260,15 @@
 
       <div class="section-content">
         <SelectInput
-          v-model="formData.customSearchSelect"
-          :label="$t('form.label.country')"
+          v-model="formData.roleSelect"
+          :label="$t('form.label.role')"
           :loading="loading"
-          :options="customSearchSelectOptions"
-          :placeholder="$t('form.placeholder.country')"
+          :options="rolesOptions"
+          :placeholder="$t('form.placeholder.role')"
           enable-custom-search
-          @update:search-input="fetchCountry"
+          label-key="name"
+          value-key="id"
+          @update:search-input="fetchRoles"
         />
 
         <!-- eslint-disable -->
@@ -277,9 +279,11 @@
               :loading="loading"
               :options="options"
               enable-custom-search
-              label="Country"
-              placeholder="Select a country"
-              @update:search-input="fetchCountry"
+              label="Role"
+              label-key="name"
+              placeholder="Select a role"
+              value-key="id"
+              @update:search-input="fetchRoles"
             /&gt;
           &lt;/template&gt;
 
@@ -290,10 +294,10 @@
           const loading = ref&lt;boolean&gt;(false);
           const options = ref([]);
 
-          const fetchCountry = (searchInput) => {
+          const fetchRoles= (searchInput) => {
             loading.value = true;
             ...
-            options.value = response?.data;
+            options.value = response;
             loading.value = false;
           }
           &lt;/script&gt;
@@ -835,7 +839,6 @@ const inputSchema = z
 
 let formData = reactive({
   customLabelSelect: ref(),
-  customSearchSelect: ref(),
   disabled: ref("NP"),
   disabledMultiselect: ref(["FR", "NP"]),
   disabledSortInput: ref(),
@@ -850,12 +853,13 @@ let formData = reactive({
   multiselectGrouping: ref([]),
   multiselectKeysInput: ref([]),
   noLabelInput: ref(),
+  roleSelect: ref(),
   selectExtensive: ref(),
   tooltipMultiselect: ref([]),
 });
 
-const customSearchSelectOptions = ref([] as SelectOption[]);
 const loading = ref<boolean>(false);
+const rolesOptions = ref([] as SelectOption[]);
 
 const options = ref([
   { label: t("form.label.france"), value: "FR" },
@@ -891,16 +895,24 @@ const groupedOptions = ref([
   },
 ] as GroupedOption[]);
 
-const fetchCountry = async (searchInput?: string) => {
+const fetchRoles = async (searchInput?: string) => {
   loading.value = true;
+
+  const roles = [
+    { id: "1", name: "Superadmin" },
+    { id: "2", name: "Admin" },
+    { disabled: true, id: "3", name: "Guest" },
+    { id: "4", name: "Maintainer" },
+    { id: "5", name: "User" },
+  ];
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   if (!searchInput) {
-    customSearchSelectOptions.value = options.value;
+    rolesOptions.value = roles;
   } else {
-    customSearchSelectOptions.value = options.value?.filter((option) =>
-      String(option.label)
+    rolesOptions.value = roles?.filter((option) =>
+      String(option.name)
         .toLowerCase()
         .includes(String(searchInput).toLowerCase()),
     );
@@ -909,7 +921,7 @@ const fetchCountry = async (searchInput?: string) => {
   loading.value = false;
 };
 
-fetchCountry();
+fetchRoles();
 </script>
 
 <style lang="css">
