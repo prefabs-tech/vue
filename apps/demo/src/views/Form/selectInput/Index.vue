@@ -824,6 +824,8 @@ import { z } from "zod";
 import { countries } from "../data";
 import FormPage from "../FormPage.vue";
 
+import type { GroupedOption, SelectOption } from "@prefabs.tech/vue3-form";
+
 const { t } = useI18n();
 
 const inputSchema = z
@@ -852,7 +854,7 @@ let formData = reactive({
   tooltipMultiselect: ref([]),
 });
 
-const customSearchSelectOptions = ref([]);
+const customSearchSelectOptions = ref([] as SelectOption[]);
 const loading = ref<boolean>(false);
 
 const options = ref([
@@ -861,7 +863,7 @@ const options = ref([
   { disabled: true, label: t("form.label.belgium"), value: "BE" },
   { label: t("form.label.nepal"), value: "NP" },
   { label: t("form.label.india"), value: "IN" },
-]);
+] as SelectOption[]);
 
 const countryOptions = ref([
   { code: "FR", country: t("form.label.france") },
@@ -869,7 +871,7 @@ const countryOptions = ref([
   { code: "BE", country: t("form.label.belgium"), disabled: true },
   { code: "NP", country: t("form.label.nepal") },
   { code: "IN", country: t("form.label.india") },
-]);
+] as SelectOption[]);
 
 const groupedOptions = ref([
   {
@@ -887,24 +889,24 @@ const groupedOptions = ref([
       { label: t("form.label.india"), value: "IN" },
     ],
   },
-]);
+] as GroupedOption[]);
 
-const fetchCountry = (searchInput?: string) => {
+const fetchCountry = async (searchInput?: string) => {
   loading.value = true;
 
-  setTimeout(() => {
-    if (!searchInput) {
-      customSearchSelectOptions.value = options.value;
-    } else {
-      customSearchSelectOptions.value = options.value?.filter((option) =>
-        String(option.label)
-          .toLowerCase()
-          .includes(String(searchInput).toLowerCase()),
-      );
-    }
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    loading.value = false;
-  }, 1000);
+  if (!searchInput) {
+    customSearchSelectOptions.value = options.value;
+  } else {
+    customSearchSelectOptions.value = options.value?.filter((option) =>
+      String(option.label)
+        .toLowerCase()
+        .includes(String(searchInput).toLowerCase()),
+    );
+  }
+
+  loading.value = false;
 };
 
 fetchCountry();
