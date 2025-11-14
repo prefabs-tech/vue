@@ -111,7 +111,12 @@
           <Divider />
         </div>
 
+        <div v-if="loading" class="loading-container">
+          <LoadingIcon />
+        </div>
+
         <ul
+          v-else
           :class="multiple ? 'multiple-select' : 'single-select'"
           role="list"
           @mouseenter="enableOptionNavigation = false"
@@ -200,7 +205,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DebouncedInput, Divider, Tooltip } from "@prefabs.tech/vue3-ui";
+import {
+  DebouncedInput,
+  Divider,
+  LoadingIcon,
+  Tooltip,
+} from "@prefabs.tech/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import {
   computed,
@@ -243,6 +253,7 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
+  loading: Boolean,
   modelValue: {
     default: () => [],
     required: false,
