@@ -101,9 +101,15 @@ export type FormatNumberType = {
   value: number;
 };
 
+type ConfirmationOptions = {
+  body?: string;
+  footer?: string;
+  header?: string;
+};
+
 export type DataActionsMenuItem = {
   class?: string;
-  confirmationOptions?: { body?: string; footer?: string; header?: string };
+  confirmationOptions?: ConfirmationOptions | ((data: any) => ConfirmationOptions);
   disabled?: boolean | ((data: any) => boolean);
   display?: boolean | ((data: any) => boolean);
   key?: string;
