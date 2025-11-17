@@ -256,6 +256,57 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.serverSideSelect") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.roleSelect"
+          :label="$t('form.label.role')"
+          :loading="loading"
+          :options="rolesOptions"
+          :placeholder="$t('form.placeholder.role')"
+          enable-custom-search
+          label-key="name"
+          value-key="id"
+          @update:search-input="fetchRoles"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :loading="loading"
+              :options="options"
+              enable-custom-search
+              label="Role"
+              label-key="name"
+              placeholder="Select a role"
+              value-key="id"
+              @update:search-input="fetchRoles"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@prefabs.tech/vue3-form";
+          import { ref } from "vue";
+
+          const loading = ref&lt;boolean&gt;(false);
+          const options = ref([]);
+
+          const fetchRoles= (searchInput) => {
+            loading.value = true;
+            ...
+            options.value = response;
+            loading.value = false;
+          }
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.selectExtensive") }}</h2>
 
       <div class="section-content">
@@ -777,6 +828,8 @@ import { z } from "zod";
 import { countries } from "../data";
 import FormPage from "../FormPage.vue";
 
+import type { GroupedOption, SelectOption } from "@prefabs.tech/vue3-form";
+
 const { t } = useI18n();
 
 const inputSchema = z
@@ -800,9 +853,13 @@ let formData = reactive({
   multiselectGrouping: ref([]),
   multiselectKeysInput: ref([]),
   noLabelInput: ref(),
+  roleSelect: ref(),
   selectExtensive: ref(),
   tooltipMultiselect: ref([]),
 });
+
+const loading = ref<boolean>(false);
+const rolesOptions = ref([] as SelectOption[]);
 
 const options = ref([
   { label: t("form.label.france"), value: "FR" },
@@ -810,7 +867,7 @@ const options = ref([
   { disabled: true, label: t("form.label.belgium"), value: "BE" },
   { label: t("form.label.nepal"), value: "NP" },
   { label: t("form.label.india"), value: "IN" },
-]);
+] as SelectOption[]);
 
 const countryOptions = ref([
   { code: "FR", country: t("form.label.france") },
@@ -818,7 +875,7 @@ const countryOptions = ref([
   { code: "BE", country: t("form.label.belgium"), disabled: true },
   { code: "NP", country: t("form.label.nepal") },
   { code: "IN", country: t("form.label.india") },
-]);
+] as SelectOption[]);
 
 const groupedOptions = ref([
   {
@@ -836,7 +893,35 @@ const groupedOptions = ref([
       { label: t("form.label.india"), value: "IN" },
     ],
   },
-]);
+] as GroupedOption[]);
+
+const fetchRoles = async (searchInput?: string) => {
+  loading.value = true;
+
+  const roles = [
+    { id: "1", name: "Superadmin" },
+    { id: "2", name: "Admin" },
+    { disabled: true, id: "3", name: "Guest" },
+    { id: "4", name: "Maintainer" },
+    { id: "5", name: "User" },
+  ];
+
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  if (!searchInput) {
+    rolesOptions.value = roles;
+  } else {
+    rolesOptions.value = roles?.filter((option) =>
+      String(option.name)
+        .toLowerCase()
+        .includes(String(searchInput).toLowerCase()),
+    );
+  }
+
+  loading.value = false;
+};
+
+fetchRoles();
 </script>
 
 <style lang="css">
