@@ -33,15 +33,30 @@
         @on:confirm="onConfirmAction"
       >
         <template v-if="selectedConfirmationOptions?.header" #header>
-          <p>{{ selectedConfirmationOptions?.header }}</p>
+          <p v-if="typeof selectedConfirmationOptions?.header === 'string'">
+            {{ selectedConfirmationOptions?.header }}
+          </p>
+          <component
+            :is="selectedConfirmationOptions?.header"
+            v-else
+          ></component>
         </template>
 
         <template v-if="selectedConfirmationOptions?.body" #body>
-          <p>{{ selectedConfirmationOptions?.body }}</p>
+          <p v-if="typeof selectedConfirmationOptions?.body === 'string'">
+            {{ selectedConfirmationOptions?.body }}
+          </p>
+          <component :is="selectedConfirmationOptions?.body" v-else></component>
         </template>
 
         <template v-if="selectedConfirmationOptions?.footer" #footer>
-          <p>{{ selectedConfirmationOptions?.footer }}</p>
+          <p v-if="typeof selectedConfirmationOptions?.footer === 'string'">
+            {{ selectedConfirmationOptions?.footer }}
+          </p>
+          <component
+            :is="selectedConfirmationOptions?.footer"
+            v-else
+          ></component>
         </template>
       </ConfirmationModal>
     </slot>

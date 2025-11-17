@@ -102,9 +102,9 @@ export type FormatNumberType = {
 };
 
 type ConfirmationOptions = {
-  body?: string;
-  footer?: string;
-  header?: string;
+  body?: string | VNode;
+  footer?: string | VNode;
+  header?: string | VNode;
 };
 
 export type DataActionsMenuItem = {
