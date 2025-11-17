@@ -7,6 +7,7 @@
     "dateRange": "Date range",
     "delete": "Delete",
     "deleteRecordMessage": "You are going to delete this data.",
+    "deleteUserMessage": "You are going to delete the user {user}.",
     "disabled": "Disabled",
     "edit": "Edit",
     "enabled": "Enabled",

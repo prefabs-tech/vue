@@ -32,16 +32,31 @@
         @on:close="showConfirmation = false"
         @on:confirm="onConfirmAction"
       >
-        <template v-if="selectedAction?.confirmationOptions?.header" #header>
-          <p>{{ selectedAction?.confirmationOptions?.header }}</p>
+        <template v-if="selectedConfirmationOptions?.header" #header>
+          <p v-if="typeof selectedConfirmationOptions?.header === 'string'">
+            {{ selectedConfirmationOptions?.header }}
+          </p>
+          <component
+            :is="selectedConfirmationOptions?.header"
+            v-else
+          ></component>
         </template>
 
-        <template v-if="selectedAction?.confirmationOptions?.body" #body>
-          <p>{{ selectedAction?.confirmationOptions?.body }}</p>
+        <template v-if="selectedConfirmationOptions?.body" #body>
+          <p v-if="typeof selectedConfirmationOptions?.body === 'string'">
+            {{ selectedConfirmationOptions?.body }}
+          </p>
+          <component :is="selectedConfirmationOptions?.body" v-else></component>
         </template>
 
-        <template v-if="selectedAction?.confirmationOptions?.footer" #footer>
-          <p>{{ selectedAction?.confirmationOptions?.footer }}</p>
+        <template v-if="selectedConfirmationOptions?.footer" #footer>
+          <p v-if="typeof selectedConfirmationOptions?.footer === 'string'">
+            {{ selectedConfirmationOptions?.footer }}
+          </p>
+          <component
+            :is="selectedConfirmationOptions?.footer"
+            v-else
+          ></component>
         </template>
       </ConfirmationModal>
     </slot>
@@ -113,6 +128,16 @@ const filteredItems = computed(() =>
     }))
     .filter((action) => action.display),
 );
+
+const selectedConfirmationOptions = computed(() => {
+  const options = selectedAction.value?.confirmationOptions;
+
+  if (!options) {
+    return;
+  }
+
+  return typeof options === "function" ? options(props.data) : options;
+});
 
 const showActionsMenu = computed(
   () =>

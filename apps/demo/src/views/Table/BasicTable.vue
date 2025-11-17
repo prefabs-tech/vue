@@ -873,9 +873,13 @@
               label: $t('table.label.share'),
             },
             {
-              confirmationOptions: {
-                body: $t('table.label.deleteRecordMessage'),
-                header: $t('table.label.confirmation'),
+              confirmationOptions: (rowData) => {
+                return {
+                  body: $t('table.label.deleteUserMessage', {
+                    user: rowData?.name,
+                  }),
+                  header: $t('table.label.confirmation'),
+                };
               },
               label: $t('table.label.delete'),
               requireConfirmationModal: true,
@@ -907,9 +911,13 @@
                   disabled: (rowData) => rowData.id !== 11,
                 },
                 {
-                  confirmationOptions: {
-                    header: 'Are you sure!',
-                    body: 'You are going to delete this data.',
+                  confirmationOptions: (rowData) => {
+                    return {
+                      body: $t('table.label.deleteUserMessage', {
+                        user: rowData?.name,
+                      }),
+                      header: $t('table.label.confirmation'),
+                    };
                   },
                   label: 'Delete',
                   requireConfirmationModal: true,'
@@ -964,9 +972,17 @@
               label: $t('table.label.share'),
             },
             {
-              confirmationOptions: {
-                header: $t('table.label.confirmation'),
-                body: $t('table.label.deleteRecordMessage'),
+              confirmationOptions: (rowData) => {
+                return {
+                  body: h(
+                    resolveComponent('i18n-t'),
+                    { keypath: 'table.label.deleteUserMessage', tag: 'p' },
+                    {
+                      user: h('strong', rowData?.name || ''),
+                    },
+                  ),
+                  header: $t('table.label.confirmation'),
+                };
               },
               label: $t('table.label.delete'),
               requireConfirmationModal: true,
@@ -1000,9 +1016,17 @@
                   label: 'Share',
                 },
                 {
-                  confirmationOptions: {
-                    header: 'Are you sure!',
-                    body: 'You are going to delete this data.',
+                  confirmationOptions: (rowData) => {
+                    return {
+                      body: h(
+                        resolveComponent('i18n-t'),
+                        { keypath: 'table.label.deleteUserMessage', tag: 'p' },
+                        {
+                          user: h('strong', rowData?.name || ''),
+                        },
+                      ),
+                      header: $t('table.label.confirmation'),
+                    };
                   },
                   label: 'Delete',
                   requireConfirmationModal: true,'
@@ -1016,6 +1040,7 @@
     
           &lt;script setup lang="ts"&gt;
           import { Table } from "@prefabs.tech/vue3-tanstack-table";
+          import { h, resolveComponent } from "vue";
 
           import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
     
@@ -1427,7 +1452,7 @@ import {
   ButtonElement,
   formatDateTime,
 } from "@prefabs.tech/vue3-ui";
-import { ref, h } from "vue";
+import { h, ref, resolveComponent } from "vue";
 
 import { city, data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
