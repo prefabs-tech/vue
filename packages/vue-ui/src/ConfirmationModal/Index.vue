@@ -22,7 +22,7 @@
 
       <p class="dialog-content">
         <slot name="icon">
-          <i :class="icon" />
+          <i v-if="icon" :class="icon" />
         </slot>
         <slot name="message">
           {{ message }}
@@ -32,16 +32,16 @@
       <div class="dialog-footer">
         <slot name="footer">
           <ButtonElement
-            v-bind="cancelButtonsOptions"
-            :label="cancelButtonsOptions?.label ?? 'No'"
-            :severity="cancelButtonsOptions?.severity ?? 'secondary'"
-            :variant="cancelButtonsOptions?.variant ?? 'outlined'"
+            v-bind="cancelButtonOptions"
+            :label="cancelButtonOptions?.label ?? 'No'"
+            :severity="cancelButtonOptions?.severity ?? 'secondary'"
+            :variant="cancelButtonOptions?.variant ?? 'outlined'"
             @click="handleClose()"
           />
 
           <ButtonElement
-            v-bind="acceptButtonsOptions"
-            :label="acceptButtonsOptions?.label ?? 'Yes'"
+            v-bind="acceptButtonOptions"
+            :label="acceptButtonOptions?.label ?? 'Yes'"
             @click="handleConfirm()"
           />
         </slot>
@@ -65,11 +65,11 @@ import ButtonElement from "../Button/Index.vue";
 const emits = defineEmits(["on:confirm", "on:close"]);
 
 const props = defineProps({
-  acceptButtonsOptions: {
+  acceptButtonOptions: {
     default: () => ({}),
     type: Object,
   },
-  cancelButtonsOptions: {
+  cancelButtonOptions: {
     default: () => ({}),
     type: Object,
   },
@@ -81,7 +81,7 @@ const props = defineProps({
     default: "pi pi-times",
     type: String,
   },
-  closeOnClickOutside: {
+  dismissOnClickOut: {
     default: true,
     type: Boolean,
   },
@@ -91,7 +91,7 @@ const props = defineProps({
   },
   icon: {
     default: "pi pi-exclamation-triangle",
-    type: String,
+    type: [Boolean, String],
   },
   message: {
     default: "Are you sure you want to proceed?",
@@ -103,7 +103,7 @@ const dzangolabVueDialog = ref<HTMLDialogElement>();
 const dzangolabVueDialogContainer = ref<HTMLElement>();
 
 onClickOutside(dzangolabVueDialogContainer, (event) => {
-  if (props.closable && props.closeOnClickOutside) {
+  if (props.closable && props.dismissOnClickOut) {
     handleClose();
   }
 });

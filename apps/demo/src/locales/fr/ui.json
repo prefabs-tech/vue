@@ -114,24 +114,43 @@
       "confirmDelete": "Are you sure to delete user? (fr)"
     },
     "buttonLabel": {
-      "cancel": "Cancel",
-      "confirm": "Confirm",
-      "delete": "Delete"
+      "cancel": "Cancel (fr)",
+      "confirm": "Confirm (fr)",
+      "delete": "Delete (fr)"
+    },
+    "documentation": {
+      "eventDescription": {
+        "close": "Emitted when the modal is closed. (fr)",
+        "confirm": "Emitted when the confirm button is clicked. (fr)"
+      },
+      "propsDescription": {
+        "acceptOptions": "Properties of the accept button. (fr)",
+        "cancelOptions": "Properties of the cancel button. (fr)",
+        "closable": "If true, shows close button on top right of the modal. (fr)",
+        "closeIcon": "Overrides top right close icon. (fr)",
+        "dismissOnClickOut": "Closes the modal when clicking outside the modal content. (fr)",
+        "header": "Override the modal header content. (fr)",
+        "icon": "Override the icon before modal message content. (fr)",
+        "message": "Override the modal message content. (fr)"
+      },
+      "slotDescription": {
+        "closeIcon": "Overrides the default close icon. (fr)",
+        "footer": "Overrides the default footer content. (fr)",
+        "header": "Overrides the default header content. (fr)",
+        "icon": "Overrides the default message icon. (fr)",
+        "message": "Overrides the default message content. (fr)"
+      }
     },
     "headerContent": {
-      "confirm": "Confirmation required (fr)",
-      "deleteUser": "Delete user (fr)"
+      "confirm": "Confirmation required",
+      "deleteUser": "Delete user"
     },
-    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, body, and footer content via slots.",
+    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, message, and footer content via props and slots.",
     "title": "Confirmation modal",
     "usage": {
       "basic": "Basic",
-      "customStyle":"Custom style",
-      "disableBody": "Disable body",
-      "disableFooter": "Disable footer",
-      "disableHeader": "Disable header",
+      "buttonOptions": "With button options",
       "slots": "With slots",
-      "withDivider": "With divider",
       "withI18n": "With i18n"
     }
   },

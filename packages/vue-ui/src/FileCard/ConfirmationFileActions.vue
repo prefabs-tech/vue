@@ -8,7 +8,7 @@
       <template #header>
         {{ archiveConfirmationHeader }}
       </template>
-      <template #body>
+      <template #message>
         {{ archiveConfirmationMessage }}
       </template>
     </ConfirmationModal>
@@ -20,7 +20,7 @@
       <template #header>
         {{ deleteConfirmationHeader }}
       </template>
-      <template #body>
+      <template #message>
         {{ deleteConfirmationMessage }}
       </template>
     </ConfirmationModal>

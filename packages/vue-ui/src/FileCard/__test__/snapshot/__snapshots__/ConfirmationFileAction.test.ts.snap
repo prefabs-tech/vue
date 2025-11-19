@@ -5,21 +5,21 @@ exports[`ConfirmationFileActions > matches snapshot 1`] = `
   class="confirmation-file-actions"
 >
   <confirmation-modal-stub
-    acceptbuttonsoptions="[object Object]"
-    cancelbuttonsoptions="[object Object]"
+    acceptbuttonoptions="[object Object]"
+    cancelbuttonoptions="[object Object]"
     closable="true"
     closeicon="pi pi-times"
-    closeonclickoutside="true"
+    dismissonclickout="true"
     header="Confirmation required"
     icon="pi pi-exclamation-triangle"
     message="Are you sure you want to proceed?"
   />
   <confirmation-modal-stub
-    acceptbuttonsoptions="[object Object]"
-    cancelbuttonsoptions="[object Object]"
+    acceptbuttonoptions="[object Object]"
+    cancelbuttonoptions="[object Object]"
     closable="true"
     closeicon="pi pi-times"
-    closeonclickoutside="true"
+    dismissonclickout="true"
     header="Confirmation required"
     icon="pi pi-exclamation-triangle"
     message="Are you sure you want to proceed?"
