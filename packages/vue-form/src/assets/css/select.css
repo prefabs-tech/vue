@@ -36,6 +36,11 @@
   z-index: 9999;
 }
 
+
+.multiselect-options .no-options {
+  opacity: 0.8;
+}
+
 .multiselect-options > ul {
   display: flex;
   flex-direction: column;

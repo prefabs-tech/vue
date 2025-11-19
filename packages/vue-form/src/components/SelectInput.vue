@@ -16,6 +16,7 @@
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid && fieldSchema,
         }"
+        :custom-search-helper-text="customSearchHelperText"
         :disabled="disabled"
         :enable-custom-search="enableCustomSearch"
         :enable-tooltip="enableTooltip"
@@ -24,6 +25,7 @@
         :loading="loading"
         :model-value="modelValue"
         :multiple="multiple"
+        :no-options-message="noOptionsMessage"
         :options="options"
         :placeholder="placeholder"
         :show-remove-selection="showRemoveSelection"
@@ -77,6 +79,10 @@ import type { GroupedOption, SelectOption } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  customSearchHelperText: {
+    default: undefined,
+    type: String,
+  },
   disabled: {
     default: false,
     type: Boolean,
@@ -123,6 +129,10 @@ const props = defineProps({
     default: "select",
     required: false,
     type: String as PropType<string>,
+  },
+  noOptionsMessage: {
+    default: undefined,
+    type: String,
   },
   options: {
     required: true,

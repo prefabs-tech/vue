@@ -261,8 +261,10 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.roleSelect"
+          :custom-search-helper-text="$t('form.label.customSearchHelper')"
           :label="$t('form.label.role')"
           :loading="loading"
+          :no-options-message="$t('form.label.noRoleOptions')"
           :options="rolesOptions"
           :placeholder="$t('form.placeholder.role')"
           enable-custom-search
@@ -276,12 +278,14 @@
           &lt;template&gt;
             &lt;SelectInput 
               v-model="input"
+              :custom-search-helper-text="$t('form.label.customSearchHelper')"
+              :label="$t('form.label.role')"
               :loading="loading"
+              :no-options-message="$t('form.label.noRoleOptions')"
               :options="options"
+              :placeholder="$t('form.placeholder.role')"
               enable-custom-search
-              label="Role"
               label-key="name"
-              placeholder="Select a role"
               value-key="id"
               @update:search-input="fetchRoles"
             /&gt;
@@ -895,7 +899,11 @@ const groupedOptions = ref([
   },
 ] as GroupedOption[]);
 
-const fetchRoles = async (searchInput?: string) => {
+const fetchRoles = async (searchInput: string) => {
+  if (!searchInput) {
+    return;
+  }
+
   loading.value = true;
 
   const roles = [
@@ -908,20 +916,14 @@ const fetchRoles = async (searchInput?: string) => {
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  if (!searchInput) {
-    rolesOptions.value = roles;
-  } else {
-    rolesOptions.value = roles?.filter((option) =>
-      String(option.name)
-        .toLowerCase()
-        .includes(String(searchInput).toLowerCase()),
-    );
-  }
+  rolesOptions.value = roles?.filter((option) =>
+    String(option.name)
+      .toLowerCase()
+      .includes(String(searchInput).toLowerCase()),
+  );
 
   loading.value = false;
 };
-
-fetchRoles();
 </script>
 
 <style lang="css">
