@@ -1,54 +1,53 @@
 <template>
-  <div :class="modalClassName">
-    <div class="modal-wrapper">
-      <div ref="dzangolabVueModal" class="modal-container">
-        <div :class="['modal-header', { 'disabled-header': disableHeader }]">
-          <slot v-if="!disableHeader" name="header">
-            <span>Confirmation required</span>
-          </slot>
+  <dialog ref="dzangolabVueDialog" class="dialog">
+    <div ref="dzangolabVueDialogContainer" class="dialog-container">
+      <div class="dialog-header">
+        <slot name="header">
+          <span class="title">{{ header }}</span>
+        </slot>
 
-          <svg
+        <slot v-if="closable" name="closeIcon">
+          <ButtonElement
+            v-if="closable"
+            :icon-left="closeIcon"
             aria-label="close modal"
-            height="1em"
-            tabindex="0"
-            width="1em"
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
+            rounded
+            severity="secondary"
+            size="small"
+            variant="textOnly"
             @click="handleClose()"
-          >
-            <path
-              fill="currentColor"
-              d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94z"
-            />
-          </svg>
-        </div>
+          />
+        </slot>
+      </div>
 
-        <div v-if="!disableBody" class="modal-body">
-          <slot name="body">
-            <p>Are you sure you want to proceed?</p>
-          </slot>
-        </div>
+      <p class="dialog-content">
+        <slot name="icon">
+          <i :class="icon" />
+        </slot>
+        <slot name="message">
+          {{ message }}
+        </slot>
+      </p>
 
-        <div class="modal-footer">
-          <slot name="footer">
-            <ButtonElement
-              size="small"
-              label="Cancel"
-              severity="secondary"
-              @click="handleClose()"
-            />
+      <div class="dialog-footer">
+        <slot name="footer">
+          <ButtonElement
+            v-bind="cancelButtonsOptions"
+            :label="cancelButtonsOptions?.label ?? 'No'"
+            :severity="cancelButtonsOptions?.severity ?? 'secondary'"
+            :variant="cancelButtonsOptions?.variant ?? 'outlined'"
+            @click="handleClose()"
+          />
 
-            <ButtonElement
-              size="small"
-              label="Confirm"
-              severity="primary"
-              @click="handleConfirm()"
-            />
-          </slot>
-        </div>
+          <ButtonElement
+            v-bind="acceptButtonsOptions"
+            :label="acceptButtonsOptions?.label ?? 'Yes'"
+            @click="handleConfirm()"
+          />
+        </slot>
       </div>
     </div>
-  </div>
+  </dialog>
 </template>
 
 <script lang="ts">
@@ -59,42 +58,66 @@ export default {
 
 <script setup lang="ts">
 import { onClickOutside } from "@vueuse/core";
-import { computed, ref } from "vue";
+import { nextTick, onMounted, ref } from "vue";
 
 import ButtonElement from "../Button/Index.vue";
 
 const emits = defineEmits(["on:confirm", "on:close"]);
 
 const props = defineProps({
-  divider: {
-    default: false,
+  acceptButtonsOptions: {
+    default: () => ({}),
+    type: Object,
+  },
+  cancelButtonsOptions: {
+    default: () => ({}),
+    type: Object,
+  },
+  closable: {
+    default: true,
     type: Boolean,
   },
-  disableBody: {
-    default: false,
+  closeIcon: {
+    default: "pi pi-times",
+    type: String,
+  },
+  closeOnClickOutside: {
+    default: true,
     type: Boolean,
   },
-  disableHeader: {
-    default: false,
-    type: Boolean,
+  header: {
+    default: "Confirmation required",
+    type: String,
+  },
+  icon: {
+    default: "pi pi-exclamation-triangle",
+    type: String,
+  },
+  message: {
+    default: "Are you sure you want to proceed?",
+    type: String,
   },
 });
 
-const dzangolabVueModal = ref();
+const dzangolabVueDialog = ref<HTMLDialogElement>();
+const dzangolabVueDialogContainer = ref<HTMLElement>();
 
-onClickOutside(dzangolabVueModal, (event) => {
-  handleClose();
+onClickOutside(dzangolabVueDialogContainer, (event) => {
+  if (props.closable && props.closeOnClickOutside) {
+    handleClose();
+  }
 });
 
-const modalClassName = computed(() => {
-  return ["modal", props.divider && "divided-modal"].filter(Boolean).join(" ");
-});
-
-function handleConfirm() {
+const handleConfirm = () => {
   emits("on:confirm");
-}
+};
 
-function handleClose() {
+const handleClose = () => {
   emits("on:close");
-}
+};
+
+onMounted(async () => {
+  await nextTick();
+  dzangolabVueDialog.value?.showModal();
+});
 </script>

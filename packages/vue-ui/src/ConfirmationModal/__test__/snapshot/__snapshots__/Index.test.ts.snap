@@ -1,89 +1,97 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ConfirmationModal > matches snapshot 1`] = `
-<div
-  class="modal divided-modal"
+<dialog
+  class="dialog"
 >
   <div
-    class="modal-wrapper"
+    class="dialog-container"
   >
     <div
-      class="modal-container"
+      class="dialog-header"
     >
-      <div
-        class="modal-header"
+      
+      <span
+        class="title"
       >
-        
-        <span>
-          Confirmation required
-        </span>
-        
-        <svg
-          aria-label="close modal"
-          height="1em"
-          tabindex="0"
-          viewBox="0 0 16 16"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        Confirmation required
+      </span>
+      
+      
+      <button
+        aria-label="close modal"
+        class="button secondary small text-only icon-only rounded"
+        role="button"
+      >
+        <span
+          class="icon-left"
         >
-          <path
-            d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94z"
-            fill="currentColor"
+          
+          <i
+            class="pi pi-times"
           />
-        </svg>
-      </div>
-      <div
-        class="modal-body"
+          
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+        <!--v-if-->
+      </button>
+      
+    </div>
+    <p
+      class="dialog-content"
+    >
+      
+      <i
+        class="pi pi-exclamation-triangle"
+      />
+      
+      
+      Are you sure you want to proceed?
+      
+    </p>
+    <div
+      class="dialog-footer"
+    >
+      
+      <button
+        aria-label="button"
+        class="button secondary medium outlined"
+        role="button"
       >
-        
-        <p>
-          Are you sure you want to proceed?
-        </p>
-        
-      </div>
-      <div
-        class="modal-footer"
+        <!--v-if-->
+        <div
+          class="label"
+        >
+          
+          <span>
+            No
+          </span>
+          
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </button>
+      <button
+        aria-label="button"
+        class="button primary medium filled"
+        role="button"
       >
-        
-        <button
-          aria-label="button"
-          class="button secondary small filled"
-          role="button"
+        <!--v-if-->
+        <div
+          class="label"
         >
-          <!--v-if-->
-          <div
-            class="label"
-          >
-            
-            <span>
-              Cancel
-            </span>
-            
-          </div>
-          <!--v-if-->
-          <!--v-if-->
-        </button>
-        <button
-          aria-label="button"
-          class="button primary small filled"
-          role="button"
-        >
-          <!--v-if-->
-          <div
-            class="label"
-          >
-            
-            <span>
-              Confirm
-            </span>
-            
-          </div>
-          <!--v-if-->
-          <!--v-if-->
-        </button>
-        
-      </div>
+          
+          <span>
+            Yes
+          </span>
+          
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </button>
+      
     </div>
   </div>
-</div>
+</dialog>
 `;

@@ -7,9 +7,14 @@ exports[`TableDataActions > matches snapshot 1`] = `
   <!--v-if-->
   
   <confirmation-modal-stub
-    disablebody="false"
-    disableheader="false"
+    acceptbuttonsoptions="[object Object]"
+    cancelbuttonsoptions="[object Object]"
+    closable="true"
+    closeicon="pi pi-times"
     divider="false"
+    header="Confirmation required"
+    icon="pi pi-exclamation-triangle"
+    message="Are you sure you want to proceed?"
   />
   
 </div>

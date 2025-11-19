@@ -29,6 +29,8 @@
 
         <ConfirmationModal
           v-if="showModal"
+          :header="$t('ui.confirmationModal.headerContent.confirm')"
+          :message="$t('ui.confirmationModal.bodyContent.confirm')"
           @on:close="showModal = false"
           @on:confirm="onConfirm()"
         />
@@ -46,6 +48,8 @@
   
             &lt;ConfirmationModal
               v-if="showModal"
+              header="Confirm"
+              message="Are you sure you want to proceed?"
               @on:close="showModal = false"
               @on:confirm="onConfirm()"
             /&gt;

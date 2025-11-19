@@ -110,6 +110,7 @@
   },
   "confirmationModal": {
     "bodyContent": {
+      "confirm": "Are you sure you want to proceed?",
       "confirmDelete": "Are you sure to delete user?"
     },
     "buttonLabel": {
@@ -118,6 +119,7 @@
       "delete": "Delete"
     },
     "headerContent": {
+      "confirm": "Confirmation required",
       "deleteUser": "Delete user"
     },
     "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, body, and footer content via slots.",
