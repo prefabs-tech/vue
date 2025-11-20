@@ -110,6 +110,7 @@
   },
   "confirmationModal": {
     "bodyContent": {
+      "confirm": "Are you sure you want to proceed?",
       "confirmDelete": "Are you sure to delete user?"
     },
     "buttonLabel": {
@@ -117,19 +118,39 @@
       "confirm": "Confirm",
       "delete": "Delete"
     },
+    "documentation": {
+      "eventDescription": {
+        "close": "Emitted when the modal is closed.",
+        "confirm": "Emitted when the confirm button is clicked."
+      },
+      "propsDescription": {
+        "acceptOptions": "Properties of the accept button.",
+        "cancelOptions": "Properties of the cancel button.",
+        "closable": "If true, shows close button on top right of the modal.",
+        "closeIcon": "Overrides top right close icon.",
+        "dismissOnClickOut": "Closes the modal when clicking outside the modal content.",
+        "header": "Override the modal header content.",
+        "icon": "Override the icon before modal message content.",
+        "message": "Override the modal message content."
+      },
+      "slotDescription": {
+        "closeIcon": "Overrides the default close icon.",
+        "footer": "Overrides the default footer content.",
+        "header": "Overrides the default header content.",
+        "icon": "Overrides the default message icon.",
+        "message": "Overrides the default message content."
+      }
+    },
     "headerContent": {
+      "confirm": "Confirmation required",
       "deleteUser": "Delete user"
     },
-    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, body, and footer content via slots.",
+    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, message, and footer content via props and slots.",
     "title": "Confirmation modal",
     "usage": {
       "basic": "Basic",
-      "customStyle":"Custom style",
-      "disableBody": "Disable body",
-      "disableFooter": "Disable footer",
-      "disableHeader": "Disable header",
+      "buttonOptions": "With button options",
       "slots": "With slots",
-      "withDivider": "With divider",
       "withI18n": "With i18n"
     }
   },

@@ -1,79 +1,78 @@
-.modal.divided-modal .modal-body,
-.modal.divided-modal .modal-header {
-  border-bottom: 1px solid var(--border-color, #dee2e6);
+:root {
+  --dz-dialog-background-color: rgba(255, 255, 255, 1);
+  --dz-dialog-overlay-color: rgba(0, 0, 0, 0.3);
 }
 
-.modal {
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  height: 100%;
-  left: 0;
-  position: fixed;
-  top: 0;
-  transition: opacity 0.3s ease;
-  width: 100%;
-  z-index: 1;
-}
-
-.modal .modal-body {
-  padding: 1em;
-}
-
-.modal .modal-container {
-  --_border-radius: var(--modal-border-radius, 0.3rem);
-
-  background-color: #fff;
-  border-radius: var(--_border-radius);
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.33);
-  display: flex;
+.dialog {
+  background-color: var(--dz-dialog-background-color);
+  border-radius: 0.3rem;
+  border: none;
+  box-shadow: 0 1px 3px var(--dz-dialog-overlay-color);
   flex-direction: column;
-  margin: 0 auto;
-  overflow-x: hidden;
-  transition: all 0.3s ease;
-  width: max-content;
-  max-height: 80vh;
-  min-width: 23em;
+  gap: 1rem;
+  margin: auto;
+  padding: 0;
 }
 
-.modal .modal-footer {
+.dialog[open] {
+  animation: open var(--transition-duration) forwards;
   display: flex;
-  gap: 1em;
-  margin-left: auto;
-  padding: 1em;
 }
 
-.modal .modal-header.disabled-header {
-  padding-bottom: 0.1rem;
+.dialog::backdrop {
+  background: var(--dz-dialog-overlay-color);
 }
 
-.modal .modal-header {
-  --_background-color: var(--bg-color, #ffffff);
-  --_text-color: var(--modal-text-color, #000000);
+.dialog > .dialog-container {
+  padding: 1rem 1.5rem 1.5rem;
+}
 
-  align-items: center;
-  background-color: var(--_background-color);
-  color: var(--_text-color);
+.dialog > .dialog-container > .dialog-header {
   display: flex;
-  font-size: 1.5em;
-  font-weight: 700;
-  gap: 1em;
+  gap: 2rem;
   justify-content: space-between;
-  padding: 0.5em;
 }
 
-.modal .modal-header svg {
-  --_icon-color: var(--icon-color, #000000);
-
-  color: var(--_icon-color);
-  cursor: pointer;
-  margin-left: auto;
+.dialog > .dialog-container > .dialog-header > .title {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-.modal .modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
+.dialog > .dialog-container > .dialog-header > .button i {
+  padding: 0.65rem !important;
 }
 
-main:has(.modal .modal-wrapper) {
-  z-index: 999 !important;
+.dialog > .dialog-container > .dialog-header > .button:focus {
+  outline: none;
+}
+
+.dialog > .dialog-container > .dialog-content {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.dialog > .dialog-container > .dialog-content > i {
+  font-size: 2rem;
+}
+
+.dialog > .dialog-container > .dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

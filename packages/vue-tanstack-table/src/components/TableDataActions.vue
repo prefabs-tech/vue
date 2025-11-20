@@ -42,7 +42,7 @@
           ></component>
         </template>
 
-        <template v-if="selectedConfirmationOptions?.body" #body>
+        <template v-if="selectedConfirmationOptions?.body" #message>
           <p v-if="typeof selectedConfirmationOptions?.body === 'string'">
             {{ selectedConfirmationOptions?.body }}
           </p>
