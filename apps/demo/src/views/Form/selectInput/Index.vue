@@ -899,9 +899,27 @@ const groupedOptions = ref([
   },
 ] as GroupedOption[]);
 
-const fetchRoles = async (searchInput: string) => {
-  if (!searchInput) {
-    return;
+const fetchRoles = async (searchInput?: string) => {
+  const payload = {
+    filters: {
+      OR: [],
+    },
+  };
+
+  if (searchInput?.trim()) {
+    payload.filters.OR.push({
+      key: "name",
+      operator: "ct",
+      value: searchInput,
+    });
+  }
+
+  if (formData?.roleSelect) {
+    payload.filters.OR.push({
+      key: "id",
+      operator: "in",
+      value: formData?.roleSelect,
+    });
   }
 
   loading.value = true;
@@ -916,14 +934,27 @@ const fetchRoles = async (searchInput: string) => {
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  rolesOptions.value = roles?.filter((option) =>
-    String(option.name)
-      .toLowerCase()
-      .includes(String(searchInput).toLowerCase()),
+  const filtered = roles.filter((role) =>
+    payload.filters.OR.some((filter) => {
+      if (filter.key === "name" && filter.operator === "ct") {
+        return String(role.name)
+          .toLowerCase()
+          .includes(String(filter.value).toLowerCase());
+      }
+
+      if (filter.key === "id" && filter.operator === "in") {
+        return filter.value.includes(role.id);
+      }
+
+      return false;
+    }),
   );
 
+  rolesOptions.value = filtered;
   loading.value = false;
 };
+
+fetchRoles();
 </script>
 
 <style lang="css">

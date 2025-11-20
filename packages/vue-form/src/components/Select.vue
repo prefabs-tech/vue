@@ -410,7 +410,7 @@ const sortedOptions = computed(() => {
 });
 
 watch(
-  () => props.modelValue,
+  () => [props.modelValue, normalizedOptions.value],
   () => {
     prepareComponent();
   },
@@ -670,11 +670,19 @@ const onUnselect = (event: Event, option?: SelectOption) => {
 };
 
 const prepareComponent = () => {
-  if (multiple.value && Array.isArray(props.modelValue)) {
+  if (
+    multiple.value &&
+    Array.isArray(props.modelValue) &&
+    (normalizedOptions.value?.length || selectedOptions.value?.length)
+  ) {
     selectedOptions.value = props.modelValue.map((value) => {
       return getSelectedOption(value as string | number);
     }) as SelectOption[];
-  } else if (props.modelValue && !Array.isArray(props.modelValue)) {
+  } else if (
+    props.modelValue &&
+    !Array.isArray(props.modelValue) &&
+    (normalizedOptions.value?.length || selectedOptions.value?.length)
+  ) {
     selectedOptions.value = [
       getSelectedOption(props.modelValue),
     ] as SelectOption[];
