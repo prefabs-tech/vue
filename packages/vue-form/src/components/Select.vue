@@ -115,84 +115,95 @@
           <LoadingIcon />
         </div>
 
-        <ul
-          v-else
-          :class="multiple ? 'multiple-select' : 'single-select'"
-          role="list"
-          @mouseenter="enableOptionNavigation = false"
-          @keydown.tab.stop.prevent="toggleDropdown"
-        >
-          <li
-            v-if="multiple && !searchInput"
-            ref="dzangolabVueSelectAll"
-            :class="[
-              {
-                focused:
-                  focusedOptionIndex === selectAllIndex &&
-                  enableOptionNavigation,
-              },
-              'multiselect-option select-all-option',
-            ]"
-            @click="onSelectAll()"
-          >
-            <Checkbox
-              :model-value="isAllSelected"
-              @update:model-value="onMultiSelect()"
-            />
-            <span>Select all</span>
-          </li>
-
-          <template
-            v-for="(option, index) in sortedOptions"
-            :key="option.label"
+        <template v-else>
+          <span v-if="!filteredOptions?.length" class="no-options">
+            {{
+              !searchInput && enableCustomSearch
+                ? customSearchHelperText
+                : noOptionsMessage
+            }}
+          </span>
+          <ul
+            v-else
+            :class="multiple ? 'multiple-select' : 'single-select'"
+            role="list"
+            @mouseenter="enableOptionNavigation = false"
+            @keydown.tab.stop.prevent="toggleDropdown"
           >
             <li
-              v-if="option.groupLabel && shouldRenderGroupHeader(option, index)"
-              :class="[
-                'multiselect-group',
-                { 'disabled-group-select': disableGroupSelect },
-              ]"
-              @click="
-                canSelectGroup && option.groupLabel
-                  ? onSelectGroup(option.groupLabel)
-                  : ''
-              "
-            >
-              <Checkbox
-                v-if="canSelectGroup"
-                :model-value="isGroupSelected(option.groupLabel)"
-                @update:model-value="onMultiSelect()"
-              />
-              <slot :name="option.groupLabel">
-                {{ option.groupLabel }}
-              </slot>
-            </li>
-
-            <li
-              :ref="setOptionReference(index)"
+              v-if="multiple && !searchInput"
+              ref="dzangolabVueSelectAll"
               :class="[
                 {
                   focused:
-                    focusedOptionIndex === index && enableOptionNavigation,
-                  selected: isSelected(option) && !multiple,
+                    focusedOptionIndex === selectAllIndex &&
+                    enableOptionNavigation,
                 },
-                'multiselect-option',
+                'multiselect-option select-all-option',
               ]"
-              :disabled="option.disabled"
-              @click="!option.disabled ? onSelect($event, option) : ''"
+              @click="onSelectAll()"
             >
               <Checkbox
-                v-if="multiple"
-                :disabled="option.disabled"
-                :model-value="isSelected(option)"
+                :model-value="isAllSelected"
                 @update:model-value="onMultiSelect()"
               />
-              <slot :name="option.label">
-                <span>{{ option.label }}</span>
-              </slot>
+              <span>Select all</span>
             </li>
-          </template>
-        </ul>
+
+            <template
+              v-for="(option, index) in sortedOptions"
+              :key="option.label"
+            >
+              <li
+                v-if="
+                  option.groupLabel && shouldRenderGroupHeader(option, index)
+                "
+                :class="[
+                  'multiselect-group',
+                  { 'disabled-group-select': disableGroupSelect },
+                ]"
+                @click="
+                  canSelectGroup && option.groupLabel
+                    ? onSelectGroup(option.groupLabel)
+                    : ''
+                "
+              >
+                <Checkbox
+                  v-if="canSelectGroup"
+                  :model-value="isGroupSelected(option.groupLabel)"
+                  @update:model-value="onMultiSelect()"
+                />
+                <slot :name="option.groupLabel">
+                  {{ option.groupLabel }}
+                </slot>
+              </li>
+
+              <li
+                :ref="setOptionReference(index)"
+                :class="[
+                  {
+                    focused:
+                      focusedOptionIndex === index && enableOptionNavigation,
+                    selected: isSelected(option) && !multiple,
+                  },
+                  'multiselect-option',
+                ]"
+                :disabled="option.disabled"
+                @click="!option.disabled ? onSelect($event, option) : ''"
+              >
+                <Checkbox
+                  v-if="multiple"
+                  :disabled="option.disabled"
+                  :model-value="isSelected(option)"
+                  @update:model-value="onMultiSelect()"
+                />
+                <slot :name="option.label">
+                  <span>{{ option.label }}</span>
+                </slot>
+              </li>
+            </template>
+          </ul>
+        </template>
       </div>
     </Teleport>
   </div>
@@ -230,6 +241,10 @@ import type { GroupedOption, SelectOption } from "../types";
 import type { ComponentPublicInstance, PropType, Ref } from "vue";
 
 const props = defineProps({
+  customSearchHelperText: {
+    default: "Please type to search...",
+    type: String,
+  },
   disabled: {
     default: false,
     type: Boolean,
@@ -264,6 +279,10 @@ const props = defineProps({
   multiple: {
     default: false,
     type: Boolean,
+  },
+  noOptionsMessage: {
+    default: "No options available",
+    type: String,
   },
   options: {
     required: true,
@@ -391,7 +410,7 @@ const sortedOptions = computed(() => {
 });
 
 watch(
-  () => props.modelValue,
+  () => [props.modelValue, normalizedOptions.value],
   () => {
     prepareComponent();
   },
@@ -651,11 +670,19 @@ const onUnselect = (event: Event, option?: SelectOption) => {
 };
 
 const prepareComponent = () => {
-  if (multiple.value && Array.isArray(props.modelValue)) {
+  if (
+    multiple.value &&
+    Array.isArray(props.modelValue) &&
+    (normalizedOptions.value?.length || selectedOptions.value?.length)
+  ) {
     selectedOptions.value = props.modelValue.map((value) => {
       return getSelectedOption(value as string | number);
     }) as SelectOption[];
-  } else if (props.modelValue && !Array.isArray(props.modelValue)) {
+  } else if (
+    props.modelValue &&
+    !Array.isArray(props.modelValue) &&
+    (normalizedOptions.value?.length || selectedOptions.value?.length)
+  ) {
     selectedOptions.value = [
       getSelectedOption(props.modelValue),
     ] as SelectOption[];
