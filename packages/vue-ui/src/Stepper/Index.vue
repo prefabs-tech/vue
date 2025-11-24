@@ -6,16 +6,22 @@
         :key="index"
         :class="[
           'step',
-          { active: index === activeIndex, completed: index < activeIndex },
+          {
+            active: index === activeStepIndex,
+            completed: index < activeStepIndex,
+          },
         ]"
       >
         <span
           :class="[
             'step-number',
-            { active: index === activeIndex, completed: index < activeIndex },
+            {
+              active: index === activeStepIndex,
+              completed: index < activeStepIndex,
+            },
           ]"
         >
-          <template v-if="index < activeIndex">
+          <template v-if="index < activeStepIndex">
             <img src="../assets/svg/tick-mark.svg" />
           </template>
           <template v-else>
@@ -24,7 +30,7 @@
         </span>
         <span
           v-if="stepItem.label"
-          :class="{ active: index === activeIndex }"
+          :class="{ active: index === activeStepIndex }"
           class="step-label"
         >
           {{ stepItem.label }}
@@ -32,46 +38,53 @@
       </li>
     </ul>
 
-    <template v-for="(stepItem, index) in steps" :key="index">
-      <div v-if="index === activeIndex && stepItem.content" class="content">
-        <slot :name="stepItem?.step">
-          {{ stepItem.content }}
+    <template v-if="!controlled">
+      <template v-for="(stepItem, index) in steps" :key="index">
+        <div
+          v-if="index === activeStepIndex && stepItem.content"
+          class="content"
+        >
+          <slot :name="stepItem?.step">
+            {{ stepItem.content }}
+          </slot>
+        </div>
+      </template>
+
+      <div class="actions">
+        <slot name="actions">
+          <ButtonElement
+            :disabled="disablePrevious || previousButtonProperties?.disabled"
+            :icon-left="previousButtonProperties?.iconLeft"
+            :icon-right="previousButtonProperties?.iconRight"
+            :label="previousButtonProperties?.label ?? 'Previous'"
+            :rounded="previousButtonProperties?.rounded"
+            :severity="previousButtonProperties?.severity"
+            :size="previousButtonProperties?.size"
+            :variant="previousButtonProperties?.variant ?? 'outlined'"
+            @click="onPrevious"
+          />
+          <ButtonElement
+            :disabled="disableNext || nextButtonProperties?.disabled"
+            :icon-left="nextButtonProperties?.iconLeft"
+            :icon-right="nextButtonProperties?.iconRight"
+            :label="
+              activeStepIndex === steps.length - 1
+                ? 'Finish'
+                : (nextButtonProperties?.label ?? 'Next')
+            "
+            :rounded="nextButtonProperties?.rounded"
+            :severity="
+              activeStepIndex === steps.length - 1
+                ? 'success'
+                : (nextButtonProperties?.severity ?? 'primary')
+            "
+            :size="nextButtonProperties?.size"
+            :variant="nextButtonProperties?.variant"
+            @click="onNext"
+          />
         </slot>
       </div>
     </template>
-
-    <div class="actions">
-      <ButtonElement
-        :disabled="disablePrevious || previousButtonProperties?.disabled"
-        :icon-left="previousButtonProperties?.iconLeft"
-        :icon-right="previousButtonProperties?.iconRight"
-        :label="previousButtonProperties?.label ?? 'Previous'"
-        :rounded="previousButtonProperties?.rounded"
-        :severity="previousButtonProperties?.severity"
-        :size="previousButtonProperties?.size"
-        :variant="previousButtonProperties?.variant ?? 'outlined'"
-        @click="onPrevious"
-      />
-      <ButtonElement
-        :disabled="disableNext || nextButtonProperties?.disabled"
-        :icon-left="nextButtonProperties?.iconLeft"
-        :icon-right="nextButtonProperties?.iconRight"
-        :label="
-          activeIndex === steps.length - 1
-            ? 'Finish'
-            : (nextButtonProperties?.label ?? 'Next')
-        "
-        :rounded="nextButtonProperties?.rounded"
-        :severity="
-          activeIndex === steps.length - 1
-            ? 'success'
-            : (nextButtonProperties?.severity ?? 'primary')
-        "
-        :size="nextButtonProperties?.size"
-        :variant="nextButtonProperties?.variant"
-        @click="onNext"
-      />
-    </div>
   </div>
 </template>
 
@@ -82,7 +95,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 
 import { ButtonElement } from "../index";
 
@@ -90,6 +103,14 @@ import type { ActionButtonProperties, StepProperties } from "../types/stepper";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  activeIndex: {
+    default: 0,
+    type: Number,
+  },
+  controlled: {
+    default: false,
+    type: Boolean,
+  },
   nextButtonProperties: {
     default: null,
     type: Object as PropType<ActionButtonProperties>,
@@ -106,13 +127,23 @@ const props = defineProps({
 
 const emit = defineEmits(["complete"]);
 
-const activeIndex = ref<number>(0);
+const activeStepIndex = ref<number>(0);
 const disableNext = ref<boolean>(false);
 const disablePrevious = ref<boolean>(true);
 
+watchEffect(() => {
+  if (props.controlled) {
+    activeStepIndex.value = props.activeIndex;
+  }
+});
+
 const onNext = () => {
-  if (activeIndex.value < props.steps.length - 1) {
-    activeIndex.value++;
+  if (props.controlled) {
+    return;
+  }
+
+  if (activeStepIndex.value < props.steps.length - 1) {
+    activeStepIndex.value++;
     disablePrevious.value = false;
   } else {
     emit("complete");
@@ -120,15 +151,27 @@ const onNext = () => {
 };
 
 const onPrevious = () => {
-  if (activeIndex.value > 0) {
-    activeIndex.value--;
+  if (props.controlled) {
+    return;
+  }
+
+  if (activeStepIndex.value > 0) {
+    activeStepIndex.value--;
     disableNext.value = false;
   }
 
-  if (!activeIndex.value) {
+  if (!activeStepIndex.value) {
     disablePrevious.value = true;
   }
 };
+
+defineExpose({
+  activeStepIndex,
+  disableNext,
+  disablePrevious,
+  onNext,
+  onPrevious,
+});
 </script>
 
 <style lang="css" scoped>

@@ -71,6 +71,7 @@ exports[`Stepper > matches snapshot 1`] = `
   </ul>
   
   
+  
   <div
     class="content"
     data-v-8f3c25f9=""
@@ -91,6 +92,7 @@ exports[`Stepper > matches snapshot 1`] = `
     class="actions"
     data-v-8f3c25f9=""
   >
+    
     <button
       aria-label="button"
       class="button primary medium outlined disabled"
@@ -130,6 +132,8 @@ exports[`Stepper > matches snapshot 1`] = `
       <!--v-if-->
       <!--v-if-->
     </button>
+    
   </div>
+  
 </div>
 `;

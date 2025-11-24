@@ -406,6 +406,8 @@
         "complete": "Emitted when all steps are completed"
       },
       "propsDescription": {
+        "activeIndex": "Index of the currently active step for controlled stepper.",
+        "controlled": "If true, the stepper is controlled from the parent component using the activeIndex prop.",
         "nextButton": "Properties for the next button",
         "previousButton": "properties for the previous button",
         "steps": "Array of step objects (required)"
@@ -416,6 +418,8 @@
     },
     "label": {
       "name": "Name",
+      "next": "Next",
+      "previous": "Previous",
       "phone": "Phone",
       "price": "Price"
     },
@@ -429,6 +433,7 @@
       "basic": "Basic",
       "buttonProperties": "Action buttons properties",
       "complete": "Are you sure you want to complete the process?",
+      "controlled": "Controlled",
       "withSlot": "With slot"
     }
   },

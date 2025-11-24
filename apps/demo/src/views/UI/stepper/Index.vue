@@ -228,6 +228,109 @@
       </div>
     </section>
 
+    <section>
+      <h2>{{ $t("ui.stepper.usage.controlled") }}</h2>
+
+      <div class="section-content">
+        <Stepper :active-index="activeIndex" :steps="list" controlled />
+
+        <div class="demo-stepper-content-wrapper">
+          {{ renderStepContent(activeIndex) }}
+        </div>
+
+        <div class="demo-stepper-buttons-wrapper">
+          <ButtonElement
+            :disabled="activeIndex === 0"
+            :label="$t('ui.stepper.label.previous')"
+            variant="outlined"
+            @click="onPrevious"
+          />
+          <ButtonElement
+            :disabled="activeIndex === list.length - 1"
+            :label="$t('ui.stepper.label.next')"
+            @click="onNext"
+          />
+        </div>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Stepper
+              :active-index="activeIndex"
+              :steps="list"
+              controlled
+            /&gt;
+
+            &lt;div class="demo-stepper-content-wrapper"&gt;
+              &lbrace;&lbrace; renderStepContent(activeIndex) &rbrace;&rbrace;
+            &lt;/div&gt;
+
+            &lt;div class="demo-stepper-buttons-wrapper"&gt;
+              &lt;ButtonElement
+                :disabled="activeIndex === 0"
+                label="Previous"
+                variant="outlined"
+                @click="onPrevious"
+              /&gt;
+              &lt;ButtonElement
+                :disabled="activeIndex === list.length - 1"
+                label="Next"
+                @click="onNext"
+              /&gt;
+            &lt;/div&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Stepper } from "@prefabs.tech/vue3-ui";
+          import { ref } from "vue";
+
+          const activeIndex = ref&lt;number&gt;(0);
+
+          const list = [
+            {
+              label: "Personal",
+            },
+            {
+              label: "Children",
+            },
+            {
+              label: "Payment",
+            },
+            {
+              label: "Confirmation",
+            },
+          ];
+
+          const onNext = () => {
+            if (activeIndex.value < (list.length - 1)) {
+              activeIndex.value++;
+            }
+          };
+
+          const onPrevious = () => {
+            if (activeIndex.value > 0) {
+              activeIndex.value--;
+            }
+          };
+
+          const renderStepContent = (step: number) => {
+            switch (step) {
+              case 0:
+                return "Please enter personal details";
+              case 1:
+                return "Please enter family details";
+              case 2:
+                return "Please enter payment details";
+              case 3:
+                return "Do you wish to continue?";
+            }
+          };
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
     <ComponentDocumentation
       :events-data="eventsData"
       :props-data="propsData"
@@ -263,7 +366,7 @@
 import { TextInput, NumberInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, Stepper } from "@prefabs.tech/vue3-ui";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
@@ -273,6 +376,7 @@ const { t } = useI18n();
 
 const router = useRouter();
 
+const activeIndex = ref<number>(0);
 const formData = reactive({
   name: null,
   phone: null,
@@ -284,6 +388,21 @@ const eventsData = [
     description: t("ui.stepper.documentation.eventDescription.complete"),
     name: "complete",
     payload: "-",
+  },
+];
+
+const list = [
+  {
+    label: "Personal",
+  },
+  {
+    label: "Children",
+  },
+  {
+    label: "Payment",
+  },
+  {
+    label: "Confirmation",
   },
 ];
 
@@ -302,6 +421,18 @@ const previousButtonProperties = {
 };
 
 const propsData = [
+  {
+    default: "0",
+    description: t("ui.stepper.documentation.propsDescription.activeIndex"),
+    prop: "activeIndex",
+    type: "Number",
+  },
+  {
+    default: "false",
+    description: t("ui.stepper.documentation.propsDescription.controlled"),
+    prop: "controlled",
+    type: "Boolean",
+  },
   {
     default: "-",
     description: t("ui.stepper.documentation.propsDescription.nextButton"),
@@ -355,4 +486,44 @@ const steps = [
 const onFinish = () => {
   router.push("/ui");
 };
+
+const onNext = () => {
+  if (activeIndex.value < list.length - 1) {
+    activeIndex.value++;
+  }
+};
+
+const onPrevious = () => {
+  if (activeIndex.value > 0) {
+    activeIndex.value--;
+  }
+};
+
+const renderStepContent = (step: number) => {
+  switch (step) {
+    case 0:
+      return "Please enter personal details";
+    case 1:
+      return "Please enter family details";
+    case 2:
+      return "Please enter payment details";
+    case 3:
+      return "Do you wish to continue?";
+  }
+};
 </script>
+
+<style lang="css">
+.demo-stepper-content-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.demo-stepper-buttons-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+</style>
