@@ -1,4 +1,7 @@
+import { VNode } from "vue";
+
 interface StepProperties {
+  completedStepIcon?: string | VNode;
   content?: string;
   label?: string;
   step?: number | string;

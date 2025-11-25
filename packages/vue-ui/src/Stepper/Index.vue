@@ -22,7 +22,14 @@
           ]"
         >
           <template v-if="index < activeStepIndex">
-            <img src="../assets/svg/tick-mark.svg" />
+            <template v-if="stepItem?.completedStepIcon">
+              <i
+                v-if="typeof stepItem?.completedStepIcon === 'string'"
+                :class="stepItem?.completedStepIcon"
+              ></i>
+              <component :is="stepItem?.completedStepIcon" v-else />
+            </template>
+            <img v-else src="../assets/svg/tick-mark.svg" />
           </template>
           <template v-else>
             {{ stepItem.step || index + 1 }}
