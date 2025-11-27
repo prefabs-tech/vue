@@ -403,11 +403,14 @@
   "stepper": {
     "documentation": {
       "eventDescription": {
-        "complete": "Emitted when all steps are completed"
+        "complete": "Emitted when all steps are completed",
+        "updateActiveIndex": "Emitted when the active step index is updated"
       },
       "propsDescription": {
         "activeIndex": "Index of the currently active step for controlled stepper.",
-        "controlled": "If true, the stepper is controlled from the parent component using the activeIndex prop.",
+        "align": "Alignment of the stepper steps.",
+        "direction": "Direction of the stepper, either horizontal or vertical.",
+        "hideButtons": "If true, the default stepper buttons are hidden.",
         "nextButton": "Properties for the next button",
         "previousButton": "properties for the previous button",
         "steps": "Array of step objects (required)"
@@ -431,10 +434,11 @@
     "title": "Stepper",
     "usage": {
       "basic": "Basic",
-      "buttonProperties": "Action buttons properties",
       "complete": "Are you sure you want to complete the process?",
-      "controlled": "Controlled",
-      "withSlot": "With slot"
+      "controlled": "Controlled content",
+      "withSlot": "With slot",
+      "vertical": "Vertical",
+      "verticalControlled": "Vertical with controlled content"
     }
   },
   "subPane": {
