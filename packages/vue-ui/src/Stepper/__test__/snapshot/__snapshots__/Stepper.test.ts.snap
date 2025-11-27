@@ -2,137 +2,144 @@
 
 exports[`Stepper > matches snapshot 1`] = `
 <div
-  class="stepper"
-  data-v-8f3c25f9=""
+  class="stepper start horizontal"
 >
   <ul
     class="steps"
-    data-v-8f3c25f9=""
   >
     
     <li
       class="step active"
-      data-v-8f3c25f9=""
     >
       <span
         class="step-number active"
-        data-v-8f3c25f9=""
       >
         
         1
         
       </span>
-      <span
-        class="active step-label"
-        data-v-8f3c25f9=""
+      <div
+        class="step-content-wrapper"
       >
-        Step 1
-      </span>
+        <span
+          class="active step-label"
+        >
+          Step 1
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
     </li>
     <li
       class="step"
-      data-v-8f3c25f9=""
     >
       <span
         class="step-number"
-        data-v-8f3c25f9=""
       >
         
         2
         
       </span>
-      <span
-        class="step-label"
-        data-v-8f3c25f9=""
+      <div
+        class="step-content-wrapper"
       >
-        Step 2
-      </span>
+        <span
+          class="step-label"
+        >
+          Step 2
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
     </li>
     <li
       class="step"
-      data-v-8f3c25f9=""
     >
       <span
         class="step-number"
-        data-v-8f3c25f9=""
       >
         
         3
         
       </span>
-      <span
-        class="step-label"
-        data-v-8f3c25f9=""
+      <div
+        class="step-content-wrapper"
       >
-        Step 3
-      </span>
+        <span
+          class="step-label"
+        >
+          Step 3
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
     </li>
     
   </ul>
   
-  
-  
   <div
-    class="content"
-    data-v-8f3c25f9=""
+    class="content-wrapper"
   >
     
-    This is first step.
     
-  </div>
-  
-  
-  <!--v-if-->
-  
-  
-  <!--v-if-->
-  
-  
-  <div
-    class="actions"
-    data-v-8f3c25f9=""
-  >
-    
-    <button
-      aria-label="button"
-      class="button primary medium outlined disabled"
-      data-v-8f3c25f9=""
-      disabled=""
-      role="button"
+    <div
+      class="content"
     >
-      <!--v-if-->
-      <div
-        class="label"
-      >
-        
-        <span>
-          Previous
-        </span>
-        
-      </div>
-      <!--v-if-->
-      <!--v-if-->
-    </button>
-    <button
-      aria-label="button"
-      class="button primary medium filled"
-      data-v-8f3c25f9=""
-      role="button"
-    >
-      <!--v-if-->
-      <div
-        class="label"
-      >
-        
-        <span>
-          Next
-        </span>
-        
-      </div>
-      <!--v-if-->
-      <!--v-if-->
-    </button>
+      
+      
+      This is first step.
+      
+      
+    </div>
     
+    
+    <!--v-if-->
+    
+    
+    <!--v-if-->
+    
+    
+    <div
+      class="actions"
+    >
+      <button
+        aria-label="button"
+        class="button primary medium outlined disabled"
+        disabled=""
+        role="button"
+      >
+        <!--v-if-->
+        <div
+          class="label"
+        >
+          
+          <span>
+            Previous
+          </span>
+          
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </button>
+      <button
+        aria-label="button"
+        class="button primary medium filled"
+        role="button"
+      >
+        <!--v-if-->
+        <div
+          class="label"
+        >
+          
+          <span>
+            Next
+          </span>
+          
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </button>
+    </div>
   </div>
   
 </div>
