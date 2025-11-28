@@ -71,22 +71,20 @@
       </li>
     </ul>
 
-    <template v-if="props.direction === 'horizontal'">
-      <StepperContent
-        v-if="activeStep?.content"
-        :active-index="activeStepIndex"
-        :hide-buttons="hideButtons"
-        :next-button-properties="nextButtonProperties"
-        :previous-button-properties="previousButtonProperties"
-        :steps="steps"
-        @click:next="onNext"
-        @click:previous="onPrevious"
-      >
-        <template #[activeStep.step]>
-          <slot :name="activeStep.step"></slot>
-        </template>
-      </StepperContent>
-    </template>
+    <StepperContent
+      v-if="props.direction === 'horizontal' && activeStep?.content"
+      :active-index="activeStepIndex"
+      :hide-buttons="hideButtons"
+      :next-button-properties="nextButtonProperties"
+      :previous-button-properties="previousButtonProperties"
+      :steps="steps"
+      @click:next="onNext"
+      @click:previous="onPrevious"
+    >
+      <template #[activeStep.step]>
+        <slot :name="activeStep.step"></slot>
+      </template>
+    </StepperContent>
   </div>
 </template>
 

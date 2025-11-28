@@ -76,7 +76,6 @@ exports[`Stepper > matches snapshot 1`] = `
     </li>
     
   </ul>
-  
   <div
     class="content-wrapper"
   >
@@ -141,6 +140,5 @@ exports[`Stepper > matches snapshot 1`] = `
       </button>
     </div>
   </div>
-  
 </div>
 `;
