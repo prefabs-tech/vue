@@ -52,10 +52,11 @@ import {
   MainMenu,
 } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
-import { computed, ref } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import { useRouter } from "vue-router";
 
 import UserMenu from "../components/UserMenu.vue";
+import { normalizeRouteDisplay } from "../router";
 import useUserStore from "../store";
 
 import type { MenuItem } from "@prefabs.tech/vue3-layout";
@@ -95,18 +96,22 @@ const routes = computed(() => {
   const menuItems = layoutConfig?.mainMenu ?? [];
 
   return menuItems.filter((item) => {
-    const matchedRoute = allRoutes.find((r) => r.name === item.route);
+    const route = allRoutes.find(
+      (r) => r.name === item.route && r.meta?.display !== false,
+    );
 
-    if (!matchedRoute) {
-      return false;
-    }
-
-    return !user.value ? !matchedRoute.meta?.authenticated : true;
+    return !user.value ? route && !route.meta?.authenticated : route;
   }) as MenuItem[];
 });
 
 const userMenuItems = computed(() => {
   return layoutConfig?.userMenu || [];
+});
+
+watchEffect(() => {
+  if (user.value) {
+    normalizeRouteDisplay(router);
+  }
 });
 </script>
 

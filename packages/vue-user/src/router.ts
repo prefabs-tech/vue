@@ -144,7 +144,7 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   }
 };
 
-const filterRoutes = (router: Router) => {
+export const normalizeRouteDisplay = (router: Router) => {
   const routeList = router.getRoutes().filter(route => route.meta?.display !== undefined);
 
   for (const route of routeList) {
@@ -154,13 +154,14 @@ const filterRoutes = (router: Router) => {
 
     const userStore = useUserStore();
     const { user } = storeToRefs(userStore);
+    const { getUser } = userStore;
 
-    const shouldDisplay = typeof meta.display === "function"
-      ? meta.display(user.value)
-      : meta.display;
+    if (!user.value) {
+      user.value = getUser();
+    }
 
-    if (!shouldDisplay) {
-      router.removeRoute(route.name);
+    if (typeof meta.display === "function") {
+      meta.display = meta.display(user.value);
     }
   }
 };
@@ -180,6 +181,10 @@ const redirectRoutes = (router: Router) => {
       "resetPasswordRequest",
     ];
     const name = to.name as string;
+
+    if (to.meta.display === false) {
+      return next(from.fullPath);
+    }
 
     if (user.value && routesToRedirect.includes(name)) {
       next({ name: "profile" });
@@ -249,7 +254,7 @@ const addAuthenticationGuard = (
 const updateRouter = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   addRoutes(router, userConfig);
 
-  filterRoutes(router);
+  normalizeRouteDisplay(router);
 
   addAuthenticationGuard(router, userConfig);
 

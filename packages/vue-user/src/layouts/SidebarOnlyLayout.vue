@@ -34,10 +34,11 @@ export default {
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { SidebarOnlyLayout as Layout } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
-import { computed } from "vue";
+import { computed, watchEffect } from "vue";
 import { useRouter } from "vue-router";
 
 import UserMenu from "../components/UserMenu.vue";
+import { normalizeRouteDisplay } from "../router";
 import useUserStore from "../store";
 
 import type { MenuItem, SidebarMenu } from "@prefabs.tech/vue3-layout";
@@ -66,7 +67,9 @@ const menu = computed(() => {
 
   menuItems = menuItems.filter((item: MenuItem) => {
     const hasValidRoute = (routeName?: string, checkAuth = true) => {
-      const route = allRoutes.find((r) => r.name === routeName);
+      const route = allRoutes.find(
+        (r) => r.name === routeName && r.meta?.display !== false,
+      );
 
       if (!route) {
         return false;
@@ -112,6 +115,12 @@ const menu = computed(() => {
 
 const userMenuItems = computed(() => {
   return layoutConfig?.userMenu || [];
+});
+
+watchEffect(() => {
+  if (user.value) {
+    normalizeRouteDisplay(router);
+  }
 });
 </script>
 
