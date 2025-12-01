@@ -385,6 +385,8 @@ const table = computed(() =>
           ? updaterOrValue(sorting.value)
           : updaterOrValue;
 
+      pagination.value.pageIndex = DEFAULT_PAGE_INDEX;
+
       if (props.isServerTable) {
         fetchData();
       }
