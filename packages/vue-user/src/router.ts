@@ -144,7 +144,7 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   }
 };
 
-const filterRoutes = (router: Router) => {
+export const filterRoutes = (router: Router) => {
   const routeList = router.getRoutes().filter(route => route.meta?.display !== undefined);
 
   for (const route of routeList) {
@@ -154,10 +154,17 @@ const filterRoutes = (router: Router) => {
 
     const userStore = useUserStore();
     const { user } = storeToRefs(userStore);
+    const { getUser } = userStore;
 
-    const shouldDisplay = typeof meta.display === "function"
-      ? meta.display(user.value)
-      : meta.display;
+    if (!user.value) {
+      user.value = getUser();
+    }
+
+    let shouldDisplay = typeof meta.display === "boolean" ? meta.display : true;
+
+    if (typeof meta.display === "function" && user.value) {
+      shouldDisplay = meta.display(user.value);
+    }
 
     if (!shouldDisplay) {
       router.removeRoute(route.name);
