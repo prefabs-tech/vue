@@ -48,12 +48,14 @@ const handleSubmit = async (payload: PasswordResetPayload) => {
 
   await resetPassword(payload)
     .then(() => {
-      router.push({ name: "login" }).then(() =>
-        emitter.emit("notify", {
-          text: t("user.passwordReset.messages.success"),
-          type: "success",
-        }),
-      );
+      // eslint-disable-next-line
+      router.hasRoute("login") &&
+        router.push({ name: "login" }).then(() =>
+          emitter.emit("notify", {
+            text: t("user.passwordReset.messages.success"),
+            type: "success",
+          }),
+        );
     })
     .catch((error) => {
       errorMessage.value = error.message;

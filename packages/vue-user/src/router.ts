@@ -221,7 +221,7 @@ const addAuthenticationGuard = (
 
     if (meta.authenticated && !user.value) {
       sessionStorage.setItem('redirectAfterLogin', to.fullPath);
-      router.push({ name: "login" }); // using next inside async function is not allowed
+      router.hasRoute("login") && router.push({ name: "login" }); // using next inside async function is not allowed
     }
 
     if (meta.authenticated && EmailVerificationEnabled && user.value) {
@@ -229,12 +229,13 @@ const addAuthenticationGuard = (
 
       if (
         isEmailVerified === false &&
-        ![...routesToRedirect, "profile"].includes(name)
+        ![...routesToRedirect, "profile"].includes(name) &&
+        router.hasRoute("verifyEmailReminder")
       ) {
         router.push({ name: "verifyEmailReminder" });
 
         return;
-      } else if (isEmailVerified && routesToRedirect[1] === name) {
+      } else if (isEmailVerified && routesToRedirect[1] === name && router.hasRoute("home")) {
         router.push({ name: "home" });
       }
     }
@@ -246,7 +247,8 @@ const addAuthenticationGuard = (
       meta.authenticated &&
       profileCompletionEnabled &&
       !isProfileCompleted &&
-      ![...routesToRedirect, "profile"].includes(name)
+      ![...routesToRedirect, "profile"].includes(name) &&
+      router.hasRoute("profile")
     ) {
       router.push({ name: "profile" });
     }

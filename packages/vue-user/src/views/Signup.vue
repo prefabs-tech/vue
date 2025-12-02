@@ -66,7 +66,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
       loading.value = false;
     });
 
-  if (user.value) {
+  if (user.value && router.hasRoute("home")) {
     router.push({ name: "home" }).then(() => {
       emitter.emit("notify", {
         text: t("user.signup.messages.success"),
