@@ -90,13 +90,11 @@ const home = computed(() => {
 
 const router = useRouter();
 
-const allRoutes = router.getRoutes();
-
 const routes = computed(() => {
   const menuItems = layoutConfig?.mainMenu ?? [];
 
   return menuItems.filter((item) => {
-    const matchedRoute = allRoutes.find((r) => r.name === item.route);
+    const matchedRoute = router.getRoutes().find((r) => r.name === item.route);
 
     if (!matchedRoute) {
       return false;

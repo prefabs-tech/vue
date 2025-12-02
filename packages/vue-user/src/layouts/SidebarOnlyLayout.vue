@@ -60,14 +60,12 @@ const { layout: layoutConfig } = useConfig();
 
 const router = useRouter();
 
-const allRoutes = router.getRoutes();
-
 const menu = computed(() => {
   let menuItems = layoutConfig?.mainMenu || [];
 
   menuItems = menuItems.filter((item: MenuItem) => {
     const hasValidRoute = (routeName?: string, checkAuth = true) => {
-      const route = allRoutes.find((r) => r.name === routeName);
+      const route = router.getRoutes().find((r) => r.name === routeName);
 
       if (!route) {
         return false;
