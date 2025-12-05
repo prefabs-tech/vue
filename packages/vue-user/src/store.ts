@@ -159,14 +159,13 @@ const useUserStore = defineStore("user", () => {
     const selectedAuthProvider = auth();
 
     await selectedAuthProvider.doLogout().then(() => {
+      removeUser();
       user.value = undefined;
 
       // FIXME [SS 17 MARCH 2023]
       document.cookie =
         "sFrontToken=; Max-Age=0; path=/; domain=" + location.hostname;
     });
-
-    removeUser();
   };
 
   const removeAuthTokens = () => {
