@@ -18,7 +18,8 @@
 </template>
 
 <script setup>
-import { ref, watch, computed } from "vue";
+import { ref } from "vue";
+
 import countriesData from "./country_picker/countries.json";
 
 const props = defineProps({
@@ -38,15 +39,15 @@ const props = defineProps({
 
 const emit = defineEmits(["change", "update:value"]);
 
-const selectedCountry = ref(props.value);
+const selectedCountry = ref(props.value || "NP");
 const countries = ref(countriesData);
 
-const getCountryName = country => {
+const getCountryName = (country) => {
   // Default to English if the requested locale is not available
   return country.i18n[props.locale] || country.i18n.en;
 };
 
-const handleChange = event => {
+const handleChange = (event) => {
   const value = event.target.value;
   selectedCountry.value = value;
   emit("change", value);

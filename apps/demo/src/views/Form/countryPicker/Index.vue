@@ -20,7 +20,10 @@
           :placeholder="$t('form.placeholder.country')"
         />
         <div v-if="selectedCountry" class="mt-4 p-4 bg-gray-100 rounded">
-          Selected Country: {{ countries.find((c) => c.value === selectedCountry)?.label || 'None' }}
+          Selected Country:
+          {{
+            countries.find((c) => c.value === selectedCountry)?.label || "None"
+          }}
         </div>
       </div>
     </section>
@@ -29,7 +32,6 @@
 
 <script setup lang="ts">
 import { CountryPicker } from "@prefabs.tech/vue3-form";
-import { ref } from "vue";
-import FormPage from "../FormPage.vue";
 
+import FormPage from "../FormPage.vue";
 </script>
