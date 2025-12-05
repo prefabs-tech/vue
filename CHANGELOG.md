@@ -1,3 +1,13 @@
+## [0.24.1](https://github.com/prefabs-tech/vue/compare/v0.24.0...v0.24.1) (2025-12-05)
+
+
+### Bug Fixes
+
+* fix yaml syntax error ([4f23290](https://github.com/prefabs-tech/vue/commit/4f23290fe5b33a5c42875e8fb5e65ca4188663dd))
+* **user/layout:** update router display filter logic to update routes on user data change ([#866](https://github.com/prefabs-tech/vue/issues/866)) ([9c854f0](https://github.com/prefabs-tech/vue/commit/9c854f0f910e272be033afa7c6590d29e7343dfc))
+
+
+
 # [0.24.0](https://github.com/prefabs-tech/vue/compare/v0.23.1...v0.24.0) (2025-12-05)
 
 
