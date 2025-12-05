@@ -44,7 +44,8 @@ onMounted(async () => {
       type: "error",
     });
 
-    router.push({ name: "login" });
+    // eslint-disable-next-line
+    router.hasRoute("login") && router.push({ name: "login" });
 
     return;
   }
@@ -58,14 +59,16 @@ onMounted(async () => {
     ) {
       setUser(response.user as UserType);
 
-      router.push({ name: "home" });
+      // eslint-disable-next-line
+      router.hasRoute("home") && router.push({ name: "home" });
     } else {
       emitter.emit("notify", {
         text: t("user.login.messages.error"),
         type: "error",
       });
 
-      router.push({ name: "login" });
+      // eslint-disable-next-line
+      router.hasRoute("login") && router.push({ name: "login" });
     }
   }
 

@@ -126,9 +126,11 @@ const handleSubmit = async (credentials: LoginCredentials) => {
           if (redirectTo) {
             sessionStorage.removeItem("redirectAfterLogin");
 
-            router.push(redirectTo);
+            // eslint-disable-next-line
+            router.hasRoute(redirectTo) && router.push(redirectTo);
           } else {
-            router.push({ name: "home" });
+            // eslint-disable-next-line
+            router.hasRoute("home") && router.push({ name: "home" });
           }
         } else {
           emitter.emit("notify", {
@@ -161,7 +163,11 @@ const prepareComponent = async () => {
     const firstUserSignupEnabled =
       userRoutes?.signup?.disabled && !userRoutes?.signupFirstUser?.disabled;
 
-    if (response?.signUp && firstUserSignupEnabled) {
+    if (
+      response?.signUp &&
+      firstUserSignupEnabled &&
+      router.hasRoute("signupFirstUser")
+    ) {
       router.push({ name: "signupFirstUser" });
     }
   } catch {

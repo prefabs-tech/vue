@@ -52,10 +52,11 @@ import {
   MainMenu,
 } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
 import UserMenu from "../components/UserMenu.vue";
+import { filterRoutes } from "../router";
 import useUserStore from "../store";
 
 import type { MenuItem } from "@prefabs.tech/vue3-layout";
@@ -88,14 +89,13 @@ const home = computed(() => {
 });
 
 const router = useRouter();
-
 const allRoutes = router.getRoutes();
 
 const routes = computed(() => {
   const menuItems = layoutConfig?.mainMenu ?? [];
 
   return menuItems.filter((item) => {
-    const matchedRoute = allRoutes.find((r) => r.name === item.route);
+    const matchedRoute = router.getRoutes().find((r) => r.name === item.route);
 
     if (!matchedRoute) {
       return false;
@@ -108,6 +108,11 @@ const routes = computed(() => {
 const userMenuItems = computed(() => {
   return layoutConfig?.userMenu || [];
 });
+
+watch(
+  () => user.value,
+  () => filterRoutes(router, allRoutes),
+);
 </script>
 
 <style lang="css">

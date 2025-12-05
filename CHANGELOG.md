@@ -1,3 +1,26 @@
+## [0.24.1](https://github.com/prefabs-tech/vue/compare/v0.24.0...v0.24.1) (2025-12-05)
+
+
+### Bug Fixes
+
+* fix yaml syntax error ([4f23290](https://github.com/prefabs-tech/vue/commit/4f23290fe5b33a5c42875e8fb5e65ca4188663dd))
+* **user/layout:** update router display filter logic to update routes on user data change ([#866](https://github.com/prefabs-tech/vue/issues/866)) ([9c854f0](https://github.com/prefabs-tech/vue/commit/9c854f0f910e272be033afa7c6590d29e7343dfc))
+
+
+
+# [0.24.0](https://github.com/prefabs-tech/vue/compare/v0.23.1...v0.24.0) (2025-12-05)
+
+
+### Features
+
+* **form/select:** add support to show loading icon while fetching options ([#851](https://github.com/prefabs-tech/vue/issues/851)) ([3b3f7c3](https://github.com/prefabs-tech/vue/commit/3b3f7c3933c8f8e92597b4323ef7f2b0f3580060))
+* **form/select:** add suppport to display no options message and custom search helper text ([#854](https://github.com/prefabs-tech/vue/issues/854)) ([0eb17d5](https://github.com/prefabs-tech/vue/commit/0eb17d510f094b6079a92a1f556d745980175e04))
+* **table:** allow confirmation modal actions to receive the corresponding row data ([#852](https://github.com/prefabs-tech/vue/issues/852)) ([dfc9164](https://github.com/prefabs-tech/vue/commit/dfc9164cca880c74b007ced7ce3026eb7a6c7335))
+* **ui/stepper:** Add support vertical stepper with align, controlled content feature ([#857](https://github.com/prefabs-tech/vue/issues/857)) ([7b43820](https://github.com/prefabs-tech/vue/commit/7b4382079d26dd7603e0b163581b353ea8fa14f1))
+* **user/layout:** update sidebar layouts to support additional user menu ([#849](https://github.com/prefabs-tech/vue/issues/849)) ([6479743](https://github.com/prefabs-tech/vue/commit/6479743fedefc375bf076104c560ced58cff1e7c))
+
+
+
 ## [0.23.1](https://github.com/prefabs-tech/vue/compare/v0.23.0...v0.23.1) (2025-11-10)
 
 

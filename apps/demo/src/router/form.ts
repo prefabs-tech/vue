@@ -15,7 +15,7 @@ const SwitchInput = () => import("@/views/Form/switchInput/Index.vue");
 const TextareaInput = () => import("@/views/Form/textareaInput/Index.vue");
 const TextInput = () => import("@/views/Form/textInput/Index.vue");
 const Typeahead = () => import("@/views/Form/typeahead/Index.vue");
-
+const CountryPicker = () => import("../../../../packages/vue-form/src/components/country_picker/index.vue");
 const routes = [
   {
     path: "/form",
@@ -26,10 +26,16 @@ const routes = [
         path: "checkbox-input",
       },
       {
+        component: CountryPicker,
+        name: "countryPicker",
+        path: "country-picker",
+      },
+      {
         component: CurrencyPicker,
         name: "currencyPicker",
         path: "currency-picker",
       },
+      
       {
         component: DatePicker,
         name: "datePicker",

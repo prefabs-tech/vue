@@ -130,10 +130,12 @@ const getRouteNameFromPath = (path: string) => {
 
 const onClick = () => {
   if (props.item.routeName) {
-    router.push({ name: props.item.routeName });
+    // eslint-disable-next-line
+    router.hasRoute(props.item.routeName) && router.push({ name: props.item.routeName });
     emit("select:menu");
   } else if (!props.item.routeName && !props.item.children?.length) {
-    router.push({ name: currentParentRouteName.value });
+    // eslint-disable-next-line
+    router.hasRoute(currentParentRouteName.value) && router.push({ name: currentParentRouteName.value });
     emit("select:menu");
   } else {
     showChildren.value = !showChildren.value;

@@ -89,7 +89,8 @@ const handleSubmit = async (credentials: LoginCredentials) => {
             if (response) {
               setUser(response);
 
-              router.push({ name: "home" });
+              // eslint-disable-next-line
+              router.hasRoute("home") && router.push({ name: "home" });
             }
           })
           .catch((error) => {
