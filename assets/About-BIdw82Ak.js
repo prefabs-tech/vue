@@ -1,1 +1,0 @@
-import{_ as o,L as n,e as a,o as s}from"./index-B6N9A8ln.js";const c={name:"About"};function r(t,p,_,l,u,i){const e=n("Page");return s(),a(e,{title:t.$t("about.title")},null,8,["title"])}const m=o(c,[["render",r]]);export{m as default};
