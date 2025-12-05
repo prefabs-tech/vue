@@ -34,7 +34,7 @@ export default {
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { SidebarOnlyLayout as Layout } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
-import { computed, watchEffect } from "vue";
+import { computed, watch } from "vue";
 import { useRouter } from "vue-router";
 
 import UserMenu from "../components/UserMenu.vue";
@@ -59,6 +59,7 @@ const { user } = storeToRefs(userStore);
 const { layout: layoutConfig } = useConfig();
 
 const router = useRouter();
+const allRoutes = router.getRoutes();
 
 const menu = computed(() => {
   let menuItems = layoutConfig?.mainMenu || [];
@@ -113,11 +114,10 @@ const userMenuItems = computed(() => {
   return layoutConfig?.userMenu || [];
 });
 
-watchEffect(() => {
-  if (user.value) {
-    filterRoutes(router);
-  }
-});
+watch(
+  () => user.value,
+  () => filterRoutes(router, allRoutes),
+);
 </script>
 
 <style lang="css">

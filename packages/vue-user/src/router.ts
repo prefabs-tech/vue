@@ -19,7 +19,7 @@ import type {
   RouteOverride,
   RouteOverrides,
 } from "./types";
-import type { RouteMeta, RouteRecordRaw } from "vue-router";
+import type { RouteMeta, RouteRecord, RouteRecordRaw } from "vue-router";
 
 const _routes = {
   acceptInvitation: {
@@ -144,11 +144,15 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   }
 };
 
-export const filterRoutes = (router: Router) => {
-  const routeList = router.getRoutes().filter(route => route.meta?.display !== undefined);
+export const filterRoutes = (router: Router, routes?: RouteRecord[]) => {
+  const routeList = (routes || router.getRoutes()).filter(route => route.meta?.display !== undefined);
 
   for (const route of routeList) {
     if (!route.name) continue;
+
+    if (!router.hasRoute(route.name)) {
+      router.addRoute(route);
+    }
 
     const meta = route.meta as RouteMeta;
 
