@@ -56,7 +56,9 @@ const handleLogout = async () => {
   const logoutRedirectRoute = config.user?.logoutRedirectRoute || "login";
   await logout();
 
-  router.push({ name: logoutRedirectRoute });
+  // eslint-disable-next-line
+  router.hasRoute(logoutRedirectRoute) &&
+    router.push({ name: logoutRedirectRoute });
   emit("select:menu");
 };
 </script>

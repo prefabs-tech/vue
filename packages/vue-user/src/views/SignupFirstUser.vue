@@ -62,7 +62,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
         type: "success",
       });
 
-      if (user.value) {
+      if (user.value && router.hasRoute("home")) {
         router.push({ name: "home" });
       } else {
         emitter.emit("notify", {
@@ -70,7 +70,8 @@ const handleSubmit = async (credentials: LoginCredentials) => {
           type: "error",
         });
 
-        router.push({ name: "login" });
+        // eslint-disable-next-line
+        router.hasRoute("login") && router.push({ name: "login" });
       }
     })
     .catch(() => {
@@ -87,7 +88,7 @@ const prepareComponent = async () => {
   try {
     const response = await getIsFirstUser(config.apiBaseUrl);
 
-    if (!response?.signUp) {
+    if (!response?.signUp && router.hasRoute("login")) {
       router.push({ name: "login" });
     }
   } catch (error) {

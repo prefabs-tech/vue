@@ -53,7 +53,7 @@ const handleSubmit = async (payload: ChangePasswordPayload) => {
 
   await changePassword(payload, config?.apiBaseUrl)
     .then((response) => {
-      if (response) {
+      if (response && router.hasRoute("home")) {
         router.push({ name: "home" }).then(() =>
           emitter.emit("notify", {
             text: t("user.changePassword.messages.success"),

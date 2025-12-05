@@ -113,7 +113,7 @@ const onSubmit = (payload: PasswordResetPayload) => {
         ? route.params.token
         : undefined;
 
-  if (!payload.token) {
+  if (!payload.token && router.hasRoute("login")) {
     router.push({ name: "login" });
   } else {
     emit("submit", payload);
