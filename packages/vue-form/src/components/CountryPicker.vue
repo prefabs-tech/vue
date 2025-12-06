@@ -1,17 +1,12 @@
 <template>
   <div class="country-picker">
-    <select
-      v-model="selectedCountry"
-      class="form-select"
-      :name="name"
-      @change="handleChange"
-    >
+    <select v-model="selectedCountry" class="form-select" :name="name">
       <option
         v-for="country in countries"
         :key="country.code"
         :value="country.code"
       >
-        {{ getCountryName(country) }}
+        {{ country.i18n[locale] }}
       </option>
     </select>
   </div>
@@ -36,23 +31,8 @@ const props = defineProps({
     default: "",
   },
 });
-
-const emit = defineEmits(["change", "update:value"]);
-
 const selectedCountry = ref(props.value || "NP");
 const countries = ref(countriesData);
-
-const getCountryName = (country) => {
-  // Default to English if the requested locale is not available
-  return country.i18n[props.locale] || country.i18n.en;
-};
-
-const handleChange = (event) => {
-  const value = event.target.value;
-  selectedCountry.value = value;
-  emit("change", value);
-  emit("update:value", value);
-};
 </script>
 
 <style>
