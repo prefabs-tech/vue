@@ -98,6 +98,10 @@ const menu = [
         routeName: "checkboxInput",
       },
       {
+        name: t("form.label.countryPicker"),
+        routeName: "countryPicker",
+      },
+      {
         name: t("form.label.currencyPicker"),
         routeName: "currencyPicker",
       },
