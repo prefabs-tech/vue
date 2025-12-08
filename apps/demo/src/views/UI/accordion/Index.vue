@@ -32,7 +32,10 @@
 
     <section>
       <h2>{{ $t("ui.accordion.icons.toggle") }}</h2>
-      <DemoAccordion class="show-toggle-icon" />
+      <DemoAccordion
+        active-icon="pi pi-chevron-up"
+        inactive-icon="pi pi-chevron-down"
+      />
     </section>
 
     <section>

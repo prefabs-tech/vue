@@ -16,12 +16,25 @@
           :aria-expanded="index === active ? true : false"
           @click="handleClick(index)"
         >
-          <img
-            v-show="slot?.props?.icon"
-            :src="slot?.props?.icon"
-            class="icon"
+          <component
+            :is="
+              typeof slot?.props?.icon === 'string' ? 'i' : slot?.props?.icon
+            "
+            :class="
+              typeof slot?.props?.icon === 'string' ? slot.props.icon : 'icon'
+            "
           />
           <span>{{ slot?.props?.title }}</span>
+          <component
+            :is="typeof activeIcon === 'string' ? 'i' : activeIcon"
+            v-if="active === index"
+            :class="typeof activeIcon === 'string' ? activeIcon : 'icon'"
+          />
+          <component
+            :is="typeof inactiveIcon === 'string' ? 'i' : inactiveIcon"
+            v-else
+            :class="typeof inactiveIcon === 'string' ? inactiveIcon : 'icon'"
+          />
         </button>
       </header>
       <Transition appear name="expand">
@@ -42,9 +55,13 @@ export default {
 <script lang="ts" setup>
 import { ref, useSlots } from "vue";
 
-import type { PropType } from "vue";
+import type { PropType, VNode } from "vue";
 
 const props = defineProps({
+  activeIcon: {
+    default: undefined,
+    type: [String, Function] as PropType<string | (() => VNode)>,
+  },
   canSelfCollapse: {
     default: false,
     required: false,
@@ -59,6 +76,10 @@ const props = defineProps({
     default: "vertical",
     required: false,
     type: String as PropType<"vertical" | "horizontal">,
+  },
+  inactiveIcon: {
+    default: undefined,
+    type: [String, Function] as PropType<string | (() => VNode)>,
   },
 });
 

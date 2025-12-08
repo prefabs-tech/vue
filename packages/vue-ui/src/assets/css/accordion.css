@@ -64,6 +64,7 @@
 
 .accordion > section > header > button > span {
   text-align: left;
+  flex-grow: 1;
 }
 
 .accordion > section > .pane {

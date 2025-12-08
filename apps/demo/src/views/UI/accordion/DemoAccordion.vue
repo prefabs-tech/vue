@@ -1,5 +1,5 @@
 <template>
-  <Accordion>
+  <Accordion :active-icon="activeIcon" :inactive-icon="inactiveIcon">
     <div title="Sagittis a curabitur">
       <p>
         A viverra adipiscing consequat vel non potenti ac vel consectetur
@@ -65,4 +65,17 @@ export default {
 import { Accordion } from "@prefabs.tech/vue3-ui";
 
 import TestComponent from "./TestComponent.vue";
+
+import type { PropType, VNode } from "vue";
+
+defineProps({
+  activeIcon: {
+    default: undefined,
+    type: [String, Function] as PropType<string | (() => VNode)>,
+  },
+  inactiveIcon: {
+    default: undefined,
+    type: [String, Function] as PropType<string | (() => VNode)>,
+  },
+});
 </script>
