@@ -89,7 +89,6 @@ const home = computed(() => {
 });
 
 const router = useRouter();
-const allRoutes = router.getRoutes();
 
 const routes = computed(() => {
   const menuItems = layoutConfig?.mainMenu ?? [];
@@ -111,7 +110,7 @@ const userMenuItems = computed(() => {
 
 watch(
   () => user.value,
-  () => filterRoutes(router, allRoutes),
+  () => filterRoutes(router),
 );
 </script>
 
