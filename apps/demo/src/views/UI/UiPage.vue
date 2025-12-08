@@ -176,6 +176,10 @@ const menu = [
       },
     ],
   },
+  {
+    name: t("form.label.countryPicker"),
+    routeName: "countryPicker",
+  },
 ];
 </script>
 

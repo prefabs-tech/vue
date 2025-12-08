@@ -102,7 +102,7 @@
     "title": "Card",
     "usage": {
       "basic": "Basic",
-      "customStyle":"Custom style",
+      "customStyle": "Custom style",
       "slots": "With slots",
       "withI18n": "With i18n",
       "withTitle": "With title"
@@ -192,7 +192,7 @@
     "title": "Dropdown",
     "usage": {
       "basic": "Basic",
-      "customStyle":"Custom style",
+      "customStyle": "Custom style",
       "email": "monorepo{'@'}dzangolab.com",
       "name": "Monorepo",
       "severity": "Severity",
@@ -231,6 +231,10 @@
     "usage": {
       "basic": "Basic"
     }
+  },
+  "label": {
+    "countryPicker": "Country picker",
+    "basicInput": "Basic"
   },
   "misc": "Misc",
   "menu": "Menu",
@@ -285,7 +289,7 @@
         "close": "Emitted when the modal is requested to close (via close icon or outside click)."
       },
       "propsDescription": {
-        "dismissOnClickOut":  "Closes the modal when clicking outside the modal content.",
+        "dismissOnClickOut": "Closes the modal when clicking outside the modal content.",
         "show": "Controls the visibility of the modal.",
         "size": "Defines the width of the modal.",
         "title": "Title for the modal. Override by `header` slot if provided."
@@ -375,9 +379,9 @@
     "subtitle": "The Popup component is a versatile overlay that displays content relative to a trigger element with automatic or configurable positioning.",
     "title": "Popup",
     "usage": {
-      "basic":"Basic",
+      "basic": "Basic",
       "bottom": "With position bottom",
-      "customStyle":"Custom style",
+      "customStyle": "Custom style",
       "left": "With position left",
       "right": "With position right",
       "top": "With position top",
@@ -519,7 +523,7 @@
   },
   "title": "UI library",
   "tooltip": {
-    "content":"Tooltip content",
+    "content": "Tooltip content",
     "label": {
       "bottom": "Bottom",
       "button": "Click me",
@@ -532,10 +536,10 @@
     "subtitle": "The Tooltip component provides contextual information when hovering over an element. It supports various positions, custom styles, and can be triggered by hover or click events.",
     "title": "Tooltip",
     "usage": {
-      "basic":"Basic",
+      "basic": "Basic",
       "bottom": "With position bottom",
       "clickable": "Clickable",
-      "customStyle":"Custom style",
+      "customStyle": "Custom style",
       "delay": "With delay",
       "left": "With position left",
       "right": "With position right",
