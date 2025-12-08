@@ -102,10 +102,6 @@ const menu = [
         routeName: "currencyPicker",
       },
       {
-        name: t("form.label.countryPicker"),
-        routeName: "countryPicker",
-      },
-      {
         name: t("form.label.radio"),
         routeName: "radioInput",
       },
