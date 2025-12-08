@@ -1,3 +1,17 @@
+# [0.25.0](https://github.com/prefabs-tech/vue/compare/v0.24.1...v0.25.0) (2025-12-08)
+
+
+### Bug Fixes
+
+* **user:** update router to support adding removed routes when required ([#868](https://github.com/prefabs-tech/vue/issues/868)) ([a9fc6e4](https://github.com/prefabs-tech/vue/commit/a9fc6e44d2e7afc9a0ee794281f1b7cd8337ec70))
+
+
+### Features
+
+* add countries.json ([#870](https://github.com/prefabs-tech/vue/issues/870)) ([a2289f3](https://github.com/prefabs-tech/vue/commit/a2289f30f1e74af52615f0420dd7674bfa6658be))
+
+
+
 ## [0.24.1](https://github.com/prefabs-tech/vue/compare/v0.24.0...v0.24.1) (2025-12-05)
 
 
