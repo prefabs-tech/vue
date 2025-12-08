@@ -2,6 +2,7 @@ const CheckboxInput = () => import("@/views/Form/checkboxInput/Index.vue");
 const DatePicker = () => import("@/views/Form/datePicker/Index.vue");
 const DaysInput = () => import("@/views/Form/daysInput/Index.vue");
 const CurrencyPicker = () => import("@/views/Form/currencyPicker/Index.vue");
+const CountryPicker = () => import("@/views/Form/countryPicker/Index.vue");
 const EditableContent = () => import("@/views/Form/editableContent/Index.vue");
 const Email = () => import("@/views/Form/emailInput/Index.vue");
 const FileInput = () => import("@/views/Form/fileInput/Index.vue");
@@ -24,6 +25,11 @@ const routes = [
         component: CheckboxInput,
         name: "checkboxInput",
         path: "checkbox-input",
+      },
+      {
+        component: CountryPicker,
+        name: "countryPicker",
+        path: "country-picker",
       },
       {
         component: CurrencyPicker,
