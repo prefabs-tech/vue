@@ -58,7 +58,7 @@
       "min": "Title must be at least {length} character(s)",
       "required": "The field should not be empty"
     },
-    "multiselect":  {
+    "multiselect": {
       "invalid": "Please select atleast one valid option"
     },
     "number": {
@@ -98,7 +98,6 @@
     "consequences": "Consequences",
     "contentElement": "Content element",
     "country": "Country",
-    "countryPicker": "Country picker",
     "currencyPicker": "Currency picker",
     "currencyPickerExtensive": "Currency picker with extensive options",
     "customColsRowsInput": "With cols and rows props",
@@ -196,7 +195,7 @@
     "withGrouping": "With grouping",
     "withI18n": "With i18n",
     "withLabelValueKeys": "With label and value keys",
-    "withOnOffLabel":  "With on off label",
+    "withOnOffLabel": "With on off label",
     "withSearch": "With search",
     "withSelectOptions": "With select input options",
     "withTooltip": "Multiselect with tooltip",
