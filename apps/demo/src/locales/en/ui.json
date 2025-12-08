@@ -154,6 +154,12 @@
       "withI18n": "With i18n"
     }
   },
+  "countryPicker": {
+    "label": {
+      "title": "Country picker",
+      "basicInput": "Basic"
+    }
+  },
   "data": {
     "label": {
       "email": "Email",
@@ -231,10 +237,6 @@
     "usage": {
       "basic": "Basic"
     }
-  },
-  "label": {
-    "countryPicker": "Country picker",
-    "basicInput": "Basic"
   },
   "misc": "Misc",
   "menu": "Menu",

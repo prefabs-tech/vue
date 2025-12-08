@@ -86,4 +86,4 @@ export type {
 } from "./types";
 
 export type { Tab } from "./TabView/types";
-export { default as CountryPicker } from "./FormWidgets/country-picker/CountryPicker.vue";
+export { default as CountryPicker } from "./FormWidgets/country-picker/Index.vue";

@@ -1,7 +1,7 @@
 <template>
-  <Uipage :title="$t('ui.label.countryPicker')">
+  <Uipage :title="$t('ui.countryPicker.label.title')">
     <section>
-      <h2>{{ $t("ui.label.basicInput") }}</h2>
+      <h2>{{ $t("ui.countryPicker.label.basicInput") }}</h2>
 
       <div class="section-content">
         <CountryPicker />
