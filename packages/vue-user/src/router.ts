@@ -106,6 +106,8 @@ const getRoute = (
   } as RouteRecordRaw;
 };
 
+let allRoutes: RouteRecord[] = [];
+
 const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   const routes: RouteOverrides | undefined = userConfig?.routes;
 
@@ -144,8 +146,8 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   }
 };
 
-export const filterRoutes = (router: Router, routes?: RouteRecord[]) => {
-  const routeList = (routes || router.getRoutes()).filter(route => route.meta?.display !== undefined);
+export const filterRoutes = (router: Router) => {
+  const routeList = allRoutes?.filter(route => route.meta?.display !== undefined);
 
   for (const route of routeList) {
     if (!route.name) continue;
@@ -261,6 +263,8 @@ const addAuthenticationGuard = (
 
 const updateRouter = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   addRoutes(router, userConfig);
+  
+  allRoutes = router.getRoutes();
 
   filterRoutes(router);
 

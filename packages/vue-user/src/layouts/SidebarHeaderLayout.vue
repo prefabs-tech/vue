@@ -88,7 +88,6 @@ const { user } = storeToRefs(userStore);
 const { layout: layoutConfig } = useConfig();
 
 const router = useRouter();
-const allRoutes = router.getRoutes();
 
 const prefabsTechLayout = ref();
 
@@ -147,7 +146,7 @@ const userMenuItems = computed(() => {
 
 watch(
   () => user.value,
-  () => filterRoutes(router, allRoutes),
+  () => filterRoutes(router),
 );
 </script>
 
