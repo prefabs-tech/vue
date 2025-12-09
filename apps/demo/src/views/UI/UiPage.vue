@@ -176,6 +176,10 @@ const menu = [
       },
     ],
   },
+  {
+    name: t("ui.countryPicker.label.title"),
+    routeName: "countryPicker",
+  },
 ];
 </script>
 
