@@ -1,238 +1,239 @@
 {
-  "actions": {
-    "submit": "Submit"
+ "actions": {
+  "submit": "Submit"
+ },
+ "documentation": {
+  "eventDescription": {
+   "input": {
+    "modelValue": "Emitted when the input value changes (v-model support)."
+   }
   },
-  "documentation": {
-    "eventDescription": {
-      "input": {
-        "modelValue": "Emitted when the input value changes (v-model support)."
-      }
-    },
-    "propsDescription": {
-      "input": {
-        "disabled": "If true, the input will be disabled and non-interactive.",
-        "errorMessages": "Custom error messages for validation.",
-        "label": "Text label to display above the input field.",
-        "modelValue": "The current value of the input (v-model support).",
-        "name": "Name attribute for the input field and validation.",
-        "options": "Options for input validation using validator.js.",
-        "placeholder": "Placeholder text for the input field.",
-        "schema": "Custom Zod schema for validation.",
-        "type": "HTML input type (text, password, email, etc.)."
-      },
-      "textarea": {
-        "cols": "Number of visible text columns for the textarea.",
-        "rows": "Number of visible text rows for the textarea."
-      }
-    },
-    "slotDescription": {
-      "password": {
-        "icon": "Slot for custom icon inside the password input field."
-      }
-    }
+  "propsDescription": {
+   "input": {
+    "disabled": "If true, the input will be disabled and non-interactive.",
+    "errorMessages": "Custom error messages for validation.",
+    "label": "Text label to display above the input field.",
+    "modelValue": "The current value of the input (v-model support).",
+    "name": "Name attribute for the input field and validation.",
+    "options": "Options for input validation using validator.js.",
+    "placeholder": "Placeholder text for the input field.",
+    "schema": "Custom Zod schema for validation.",
+    "type": "HTML input type (text, password, email, etc.)."
+   },
+   "textarea": {
+    "cols": "Number of visible text columns for the textarea.",
+    "rows": "Number of visible text rows for the textarea."
+   }
   },
-  "errors": {
-    "checkbox": {
-      "min": "Please select at least {min} options"
-    },
-    "currencyPicker": {
-      "invalid": "Please select at least one valid option"
-    },
-    "daysInput": {
-      "invalid": "Please provide number of days within a year"
-    },
-    "datePicker": {
-      "invalid": "Please provide a present or past date"
-    },
-    "email": {
-      "invalid": "Please provide a valid email {list}"
-    },
-    "file": {
-      "invalid": "Please upload valid images {format}",
-      "maxFiles": "Please upload max {max} files",
-      "maxSize": "Please upload files smaller than {max}",
-      "minSize": "Please upload files larger than {min}"
-    },
-    "input": {
-      "length": "Input must be exactly {length} characters long",
-      "min": "Title must be at least {length} character(s)",
-      "required": "The field should not be empty"
-    },
-    "multiselect":  {
-      "invalid": "Please select atleast one valid option"
-    },
-    "number": {
-      "invalid": "Please provide a number between 1 to 100",
-      "required": "The field is required"
-    },
-    "password": {
-      "invalid": "Please provide a strong password",
-      "min": "Password must be at least {length} character(s)"
-    },
-    "radio": {
-      "required": "Please choose one option"
-    },
-    "select": {
-      "invalid": "Please select a valid option",
-      "required": "The select field is required"
-    },
-    "switch": {
-      "invalid": "The switch value must be true"
-    }
+  "slotDescription": {
+   "password": {
+    "icon": "Slot for custom icon inside the password input field."
+   }
+  }
+ },
+ "errors": {
+  "checkbox": {
+   "min": "Please select at least {min} options"
   },
-  "label": {
-    "accept": "Accept the terms and conditions to proceed",
-    "append": "Append mode",
-    "appointmentDate": "Appointment date",
-    "appointmentTime": "Appointment time",
-    "arrivalDate": "Arrival date",
-    "asia": "Asia",
-    "assumptions": "Assumptions",
-    "availableDatetime": "Available datetime",
-    "basicInput": "Basic",
-    "belgium": "Belgium",
-    "bike": "Bike",
-    "buttonOptions": "Button options",
-    "car": "Car",
-    "checkbox": "Checkbox input",
-    "consequences": "Consequences",
-    "contentElement": "Content element",
-    "country": "Country",
-    "currencyPicker": "Currency picker",
-    "currencyPickerExtensive": "Currency picker with extensive options",
-    "customColsRowsInput": "With cols and rows props",
-    "customErrorMessageInput": "With custom error message",
-    "customFormat": "Custom format",
-    "customLabel": "With custom label",
-    "customSearchHelper": "Please type to search roles...",
-    "customValidationInput": "With custom validation",
-    "customStyleInput": "Custom style",
-    "dailySynchro": "Select the sections that should be in the daily synchro",
-    "dateOfBirth": "Date of birth",
-    "datePicker": "Date picker",
-    "dateRange": "Date range",
-    "dateTime": "Date and time",
-    "dateTimePicker": "Datetime picker",
-    "daysInput": "Days input",
-    "debouncedTypeahead": "With debounce time prop",
-    "deliverableList": "A list of your daily deliverables",
-    "disabled": "Disabled",
-    "disableWeekDays": "Disable week days",
-    "disabledMultiselect": "Disabled multiselect",
-    "disableSort": "Disable alphabetical sorting",
-    "dropzone": "Dropzone",
-    "dropzoneOptions": "Dropzone options",
-    "editableContent": "Editable content",
-    "email": "Email",
-    "expiresAfter": "Expires after",
-    "europe": "Europe",
-    "female": "Female",
-    "fileInput": "File input",
-    "france": "France",
-    "gender": "Gender",
-    "generalQuestions": "General questions",
-    "germany": "Germany",
-    "getStarted": "Get started",
-    "iconSlot": "Icon slot",
-    "india": "India",
-    "input": "Input",
-    "inputWithType": "With type prop",
-    "inputWithValidation": "With validation",
-    "inputWithValidationOptions": "With validation options",
-    "invalid": "Show invalid state",
-    "joinedDate": "Joined date",
-    "labelInput": "With label",
-    "language": "Language",
-    "male": "Male",
-    "minMaxValidation": "With min max options validation",
-    "misc": "Misc",
-    "month": "Month",
-    "monthAndYear": "Month and year",
-    "monthAndYearPicker": "Month and year picker",
-    "monthPicker": "Month picker",
-    "multiCalendars": "Multicalendar",
-    "multiCheckbox": "Multiple checkbox input",
-    "multiple": "Multiple files",
-    "multiselect": "Multiselect",
-    "multiselectExtensive": "Multiselect with extensive options",
-    "multiselectGrouping": "Multiselect with grouping",
-    "multiselectSearch": "Multiselect with search",
-    "multiselectWithKeys": "Multiselect with label and value keys",
-    "nepal": "Nepal",
-    "next": "Next",
-    "no": "No",
-    "noRoleOptions": "No role options available",
-    "number": "Number",
-    "one": "One",
-    "other": "Other",
-    "password": "Password",
-    "pickupDate": "Pickup date",
-    "presentationDate": "Presentation date",
-    "radio": "Radio input",
-    "reportDate": "Report date",
-    "role": "Role",
-    "size": "Size",
-    "select": "Select",
-    "selectExtensive": "With extensive options",
-    "selection": "Selection",
-    "selectLabelOrder": "Option label order",
-    "serverSideSelect": "With server-side data",
-    "solutions": "Solutions",
-    "submit": "Submit",
-    "summary": "Summary",
-    "switch": "Switch",
-    "textarea": "Textarea",
-    "textInput": "Text input",
-    "three": "Three",
-    "timePicker": "Time picker",
-    "title": "Title",
-    "truck": "Truck",
-    "two": "Two",
-    "typeahead": "Typeahead",
-    "username": "Username",
-    "valid": "Show valid state",
-    "vehicle": "Vehicle",
-    "withGrouping": "With grouping",
-    "withI18n": "With i18n",
-    "withLabelValueKeys": "With label and value keys",
-    "withOnOffLabel":  "With on off label",
-    "withSearch": "With search",
-    "withSelectOptions": "With select input options",
-    "withTooltip": "Multiselect with tooltip",
-    "workInProgress": "Work in progress",
-    "year": "Year",
-    "yearPicker": "Year picker",
-    "yes": "Yes"
+  "currencyPicker": {
+   "invalid": "Please select at least one valid option"
   },
-  "placeholder": {
-    "countries": "Select countries",
-    "country": "Select a country",
-    "currency": "Select a currency",
-    "days": "Enter number of days",
-    "email": "Enter a email",
-    "input": "Enter input",
-    "language": "Select a language",
-    "languages": "Select languages",
-    "multiSelect": "Select multiple value",
-    "number": "Enter a number",
-    "password": "Enter a password",
-    "role": "Select a role",
-    "search": "Search...",
-    "select": "Select a value",
-    "textarea": "Enter textarea input",
-    "textInput": "Enter text input",
-    "title": "Enter course title",
-    "username": "Enter username"
+  "daysInput": {
+   "invalid": "Please provide number of days within a year"
   },
-  "submittedValue": "Submitted value",
-  "subtitle": {
-    "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
-    "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
-    "input": "A versatile form input component with validation support using Zod and vee-validate",
-    "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
-    "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
-    "text": "The text input component is a form field that allows users to enter and edit textual content with validation",
-    "textarea": "The textarea input component is a multi-line text input field that allows users to enter and edit larger blocks of text, with support for validation, error messages, and customizable properties such as rows and columns."
+  "datePicker": {
+   "invalid": "Please provide a present or past date"
   },
-  "title": "Form library"
+  "email": {
+   "invalid": "Please provide a valid email {list}"
+  },
+  "file": {
+   "invalid": "Please upload valid images {format}",
+   "maxFiles": "Please upload max {max} files",
+   "maxSize": "Please upload files smaller than {max}",
+   "minSize": "Please upload files larger than {min}"
+  },
+  "input": {
+   "length": "Input must be exactly {length} characters long",
+   "min": "Title must be at least {length} character(s)",
+   "required": "The field should not be empty"
+  },
+  "multiselect": {
+   "invalid": "Please select atleast one valid option"
+  },
+  "number": {
+   "invalid": "Please provide a number between 1 to 100",
+   "required": "The field is required"
+  },
+  "password": {
+   "invalid": "Please provide a strong password",
+   "min": "Password must be at least {length} character(s)"
+  },
+  "radio": {
+   "required": "Please choose one option"
+  },
+  "select": {
+   "invalid": "Please select a valid option",
+   "required": "The select field is required"
+  },
+  "switch": {
+   "invalid": "The switch value must be true"
+  }
+ },
+ "label": {
+  "accept": "Accept the terms and conditions to proceed",
+  "append": "Append mode",
+  "appointmentDate": "Appointment date",
+  "appointmentTime": "Appointment time",
+  "arrivalDate": "Arrival date",
+  "asia": "Asia",
+  "assumptions": "Assumptions",
+  "availableDatetime": "Available datetime",
+  "basicInput": "Basic",
+  "belgium": "Belgium",
+  "bike": "Bike",
+  "buttonOptions": "Button options",
+  "car": "Car",
+  "checkbox": "Checkbox input",
+  "consequences": "Consequences",
+  "contentElement": "Content element",
+  "country": "Country",
+  "countryPicker": "Country picker",
+  "currencyPicker": "Currency picker",
+  "currencyPickerExtensive": "Currency picker with extensive options",
+  "customColsRowsInput": "With cols and rows props",
+  "customErrorMessageInput": "With custom error message",
+  "customFormat": "Custom format",
+  "customLabel": "With custom label",
+  "customSearchHelper": "Please type to search roles...",
+  "customValidationInput": "With custom validation",
+  "customStyleInput": "Custom style",
+  "dailySynchro": "Select the sections that should be in the daily synchro",
+  "dateOfBirth": "Date of birth",
+  "datePicker": "Date picker",
+  "dateRange": "Date range",
+  "dateTime": "Date and time",
+  "dateTimePicker": "Datetime picker",
+  "daysInput": "Days input",
+  "debouncedTypeahead": "With debounce time prop",
+  "deliverableList": "A list of your daily deliverables",
+  "disabled": "Disabled",
+  "disableWeekDays": "Disable week days",
+  "disabledMultiselect": "Disabled multiselect",
+  "disableSort": "Disable alphabetical sorting",
+  "dropzone": "Dropzone",
+  "dropzoneOptions": "Dropzone options",
+  "editableContent": "Editable content",
+  "email": "Email",
+  "expiresAfter": "Expires after",
+  "europe": "Europe",
+  "female": "Female",
+  "fileInput": "File input",
+  "france": "France",
+  "gender": "Gender",
+  "generalQuestions": "General questions",
+  "germany": "Germany",
+  "getStarted": "Get started",
+  "iconSlot": "Icon slot",
+  "india": "India",
+  "input": "Input",
+  "inputWithType": "With type prop",
+  "inputWithValidation": "With validation",
+  "inputWithValidationOptions": "With validation options",
+  "invalid": "Show invalid state",
+  "joinedDate": "Joined date",
+  "labelInput": "With label",
+  "language": "Language",
+  "male": "Male",
+  "minMaxValidation": "With min max options validation",
+  "misc": "Misc",
+  "month": "Month",
+  "monthAndYear": "Month and year",
+  "monthAndYearPicker": "Month and year picker",
+  "monthPicker": "Month picker",
+  "multiCalendars": "Multicalendar",
+  "multiCheckbox": "Multiple checkbox input",
+  "multiple": "Multiple files",
+  "multiselect": "Multiselect",
+  "multiselectExtensive": "Multiselect with extensive options",
+  "multiselectGrouping": "Multiselect with grouping",
+  "multiselectSearch": "Multiselect with search",
+  "multiselectWithKeys": "Multiselect with label and value keys",
+  "nepal": "Nepal",
+  "next": "Next",
+  "no": "No",
+  "noRoleOptions": "No role options available",
+  "number": "Number",
+  "one": "One",
+  "other": "Other",
+  "password": "Password",
+  "pickupDate": "Pickup date",
+  "presentationDate": "Presentation date",
+  "radio": "Radio input",
+  "reportDate": "Report date",
+  "role": "Role",
+  "size": "Size",
+  "select": "Select",
+  "selectExtensive": "With extensive options",
+  "selection": "Selection",
+  "selectLabelOrder": "Option label order",
+  "serverSideSelect": "With server-side data",
+  "solutions": "Solutions",
+  "submit": "Submit",
+  "summary": "Summary",
+  "switch": "Switch",
+  "textarea": "Textarea",
+  "textInput": "Text input",
+  "three": "Three",
+  "timePicker": "Time picker",
+  "title": "Title",
+  "truck": "Truck",
+  "two": "Two",
+  "typeahead": "Typeahead",
+  "username": "Username",
+  "valid": "Show valid state",
+  "vehicle": "Vehicle",
+  "withGrouping": "With grouping",
+  "withI18n": "With i18n",
+  "withLabelValueKeys": "With label and value keys",
+  "withOnOffLabel": "With on off label",
+  "withSearch": "With search",
+  "withSelectOptions": "With select input options",
+  "withTooltip": "Multiselect with tooltip",
+  "workInProgress": "Work in progress",
+  "year": "Year",
+  "yearPicker": "Year picker",
+  "yes": "Yes"
+ },
+ "placeholder": {
+  "countries": "Select countries",
+  "country": "Select a country",
+  "currency": "Select a currency",
+  "days": "Enter number of days",
+  "email": "Enter a email",
+  "input": "Enter input",
+  "language": "Select a language",
+  "languages": "Select languages",
+  "multiSelect": "Select multiple value",
+  "number": "Enter a number",
+  "password": "Enter a password",
+  "role": "Select a role",
+  "search": "Search...",
+  "select": "Select a value",
+  "textarea": "Enter textarea input",
+  "textInput": "Enter text input",
+  "title": "Enter course title",
+  "username": "Enter username"
+ },
+ "submittedValue": "Submitted value",
+ "subtitle": {
+  "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
+  "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
+  "input": "A versatile form input component with validation support using Zod and vee-validate",
+  "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
+  "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
+  "text": "The text input component is a form field that allows users to enter and edit textual content with validation",
+  "textarea": "The textarea input component is a multi-line text input field that allows users to enter and edit larger blocks of text, with support for validation, error messages, and customizable properties such as rows and columns."
+ },
+ "title": "Form library"
 }

@@ -20,3 +20,4 @@ export { default as SwitchInput } from "./SwitchInput.vue";
 export { default as TextareaInput } from "./TextareaInput.vue";
 export { default as TextInput } from "./TextInput.vue";
 export { default as Typeahead } from "./Typeahead.vue";
+export { default as CountryPicker } from "./country-picker/Index.vue";
