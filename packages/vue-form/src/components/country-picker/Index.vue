@@ -40,9 +40,3 @@ const countryOptions = computed(() => {
   }));
 });
 </script>
-
-<style>
-.country-picker {
-  width: 100%;
-}
-</style>
