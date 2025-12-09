@@ -177,7 +177,7 @@ const menu = [
     ],
   },
   {
-    name: t("ui.label.countryPicker"),
+    name: t("ui.countryPicker.label.title"),
     routeName: "countryPicker",
   },
 ];
