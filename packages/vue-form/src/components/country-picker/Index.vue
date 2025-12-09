@@ -16,27 +16,27 @@ import SelectInput from "../SelectInput.vue";
 import countriesData from "./countries.json";
 
 const props = defineProps({
-  name: {
-    type: String,
-    default: "country",
-  },
   locale: {
-    type: String,
     default: "en",
+    type: String,
+  },
+  name: {
+    default: "country",
+    type: String,
   },
   value: {
-    type: [String, Number],
     default: "NP",
+    type: [String, Number],
   },
 });
 
-const selectedCountry = ref(props.value);
 const countries = ref(countriesData);
+const selectedCountry = ref(props.value);
 
 const countryOptions = computed(() => {
   return countries.value.map((country) => ({
-    value: country.code,
     label: country.i18n[props.locale] || country.code,
+    value: country.code,
   }));
 });
 </script>
