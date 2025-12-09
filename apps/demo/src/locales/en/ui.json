@@ -1,565 +1,565 @@
 {
-  "accordion": {
-    "basic": "Basic usage",
-    "can-self-collapse": " With canSelfCollapse = true",
-    "custom-toggle-icons": "Custom toggle icons",
-    "defaultIndex": "With defaultIndex = 1",
-    "horizontal": {
-      "basic": "Horizontal orientation",
-      "separate": "Horizontal orientation with separate sections"
-    },
-    "icons": {
-      "css": "With CSS icons",
-      "custom": "Custom toggle icons",
-      "slot": "With icon slot",
-      "toggle": "Show toggle icons"
-    },
-    "separate": "Separate sections",
-    "slot-without-title": "Slots without 'title' prop are ignored",
-    "title": "Accordion"
+ "accordion": {
+  "basic": "Basic usage",
+  "can-self-collapse": " With canSelfCollapse = true",
+  "custom-toggle-icons": "Custom toggle icons",
+  "defaultIndex": "With defaultIndex = 1",
+  "horizontal": {
+   "basic": "Horizontal orientation",
+   "separate": "Horizontal orientation with separate sections"
   },
-  "badge": {
-    "label": {
-      "addedIn": "Added in v0.6.5",
-      "alternate": "Alternate",
-      "basic": "Basic",
-      "correct": "Correct",
-      "custom": "Custom",
-      "danger": "Danger",
-      "fullWidth": "Full width",
-      "locked": "Locked",
-      "primary": "Primary",
-      "rounded": "Rounded",
-      "secondary": "Secondary",
-      "success": "Success",
-      "unLocked": "Unlocked",
-      "warning": "Warning",
-      "wrong": "Wrong"
-    },
-    "subtitle": "Badge component is a compact UI element used to display short, contextual information such as status, labels, or icons, with severity and styling support.",
-    "title": "Badge",
-    "usage": {
-      "basic": "Basic",
-      "customStyle": "Custom style",
-      "icon": "Icon",
-      "iconAndLabel": "Icon and label",
-      "iconElement": "Icon slot",
-      "iconPackage": "Different packages icon",
-      "rounded": "Rounded",
-      "severity": "Severity",
-      "withI18n": "With i18n"
-    }
+  "icons": {
+   "css": "With CSS icons",
+   "custom": "Custom toggle icons",
+   "slot": "With icon slot",
+   "toggle": "Show toggle icons"
   },
-  "button": {
-    "label": {
-      "alternate": "Alternate",
-      "back": "Back",
-      "clickMe": "Click me",
-      "danger": "Danger",
-      "default": "Default",
-      "home": "Home",
-      "large": "Large",
-      "medium": "Medium",
-      "next": "Next",
-      "outlined": "Outlined",
-      "primary": "Primary",
-      "secondary": "Secondary",
-      "small": "Small",
-      "submit": "Submit",
-      "success": "Success",
-      "textOnly": "Text only",
-      "warning": "Warning"
-    },
-    "subtitle": "The Button component is a flexible and customizable button implementation for Vue applications. It supports various properties for styling, behavior, and functionality, making it suitable for different use cases.",
-    "title": "Button",
-    "usage": {
-      "basic": "Basic",
-      "contentSlot": "Button content slot",
-      "disabled": "Disabled",
-      "icons": {
-        "icon": "Icon",
-        "iconAndLabel": "Icon and label",
-        "iconElement": "Icon slot",
-        "iconPackage": "Different packages icon"
-      },
-      "loading": "Loading",
-      "outlined": "Outlined",
-      "redirect": "Redirect",
-      "severity": "Severity",
-      "size": "Size",
-      "text": "Text",
-      "tooltip": "Button with tooltip",
-      "variant": "Variant",
-      "withI18n": "With i18n"
-    }
+  "separate": "Separate sections",
+  "slot-without-title": "Slots without 'title' prop are ignored",
+  "title": "Accordion"
+ },
+ "badge": {
+  "label": {
+   "addedIn": "Added in v0.6.5",
+   "alternate": "Alternate",
+   "basic": "Basic",
+   "correct": "Correct",
+   "custom": "Custom",
+   "danger": "Danger",
+   "fullWidth": "Full width",
+   "locked": "Locked",
+   "primary": "Primary",
+   "rounded": "Rounded",
+   "secondary": "Secondary",
+   "success": "Success",
+   "unLocked": "Unlocked",
+   "warning": "Warning",
+   "wrong": "Wrong"
   },
-  "buttons": "Buttons",
-  "card": {
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "headerContent": "Lorem ipsum",
-    "footerContent": "The standard Lorem Ipsum passage, used since the 1500s",
-    "subtitle": "A versatile container for displaying content in a structured format. It supports slots for custom header, footer, and body content, making it adaptable for various use cases.",
-    "title": "Card",
-    "usage": {
-      "basic": "Basic",
-      "customStyle": "Custom style",
-      "slots": "With slots",
-      "withI18n": "With i18n",
-      "withTitle": "With title"
-    }
-  },
-  "confirmationModal": {
-    "bodyContent": {
-      "confirm": "Are you sure you want to proceed?",
-      "confirmDelete": "Are you sure to delete user?"
-    },
-    "buttonLabel": {
-      "cancel": "Cancel",
-      "confirm": "Confirm",
-      "delete": "Delete"
-    },
-    "documentation": {
-      "eventDescription": {
-        "close": "Emitted when the modal is closed.",
-        "confirm": "Emitted when the confirm button is clicked."
-      },
-      "propsDescription": {
-        "acceptOptions": "Properties of the accept button.",
-        "cancelOptions": "Properties of the cancel button.",
-        "closable": "If true, shows close button on top right of the modal.",
-        "closeIcon": "Overrides top right close icon.",
-        "dismissOnClickOut": "Closes the modal when clicking outside the modal content.",
-        "header": "Override the modal header content.",
-        "icon": "Override the icon before modal message content.",
-        "message": "Override the modal message content."
-      },
-      "slotDescription": {
-        "closeIcon": "Overrides the default close icon.",
-        "footer": "Overrides the default footer content.",
-        "header": "Overrides the default header content.",
-        "icon": "Overrides the default message icon.",
-        "message": "Overrides the default message content."
-      }
-    },
-    "headerContent": {
-      "confirm": "Confirmation required",
-      "deleteUser": "Delete user"
-    },
-    "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, message, and footer content via props and slots.",
-    "title": "Confirmation modal",
-    "usage": {
-      "basic": "Basic",
-      "buttonOptions": "With button options",
-      "slots": "With slots",
-      "withI18n": "With i18n"
-    }
-  },
-  "countryPicker": {
-    "label": {
-      "title": "Country picker",
-      "basicInput": "Basic"
-    }
-  },
-  "data": {
-    "label": {
-      "email": "Email",
-      "name": "Name",
-      "revenue": "Revenue",
-      "visitors": "Visitors"
-    },
-    "subtitle": "The Data component is a reusable Vue component designed to display a labeled value.",
-    "title": "Data",
-    "usage": {
-      "basic": "Basic",
-      "displayObject": "Display value from object",
-      "separatorSlot": "With separator slot",
-      "statMode": "Stat mode",
-      "structuredData": "Rendering structured data"
-    }
-  },
-  "divider": {
-    "subtitle": "Divider component is a visual separator used to group or divide content with the border line either horizontally or vertically.",
-    "title": "Divider",
-    "usage": {
-      "horizontal": "Horizontal",
-      "vertical": "Vertical"
-    }
-  },
-  "dropdown": {
-    "label": {
-      "delete": "Delete",
-      "edit": "Edit",
-      "email": "Email",
-      "name": "Name",
-      "user": "User",
-      "view": "View"
-    },
-    "subtitle": "The Dropdown component provides an accessible and customizable menu for selecting actions or options. It supports labels, icons, slots for custom triggers and icons, and emits events on selection.",
-    "title": "Dropdown",
-    "usage": {
-      "basic": "Basic",
-      "customStyle": "Custom style",
-      "email": "monorepo{'@'}dzangolab.com",
-      "name": "Monorepo",
-      "severity": "Severity",
-      "withSlot": "With slot"
-    }
-  },
-  "file": "File",
-  "fileCard": {
-    "subtitle": "The FileCard component is a structured card layout that displays file detail with a thumbnail and action buttons.",
-    "title": "File card",
-    "usage": {
-      "basic": "Basic",
-      "buttonProps": "Action button's props",
-      "messages": "Custom messages",
-      "visibilityDetail": "With visibility detail"
-    }
-  },
-  "filesList": {
-    "subtitle": "The FilesList component displays a collection of files in a list layout using FileCard component, with customizable actions and visibility options.",
-    "title": "Files List"
-  },
-  "getStarted": "Get started",
-  "gridContainer": {
-    "usage": {
-      "basic": "Basic"
-    },
-    "subtitle": "GridContainer component is a responsive layout wrapper that arranges its child elements in a flexible grid structure.",
-    "title": "Grid container"
-  },
-  "loading": {
-    "buttonLabel": {
-      "clickMe": "Click me"
-    },
-    "subtitle": "LoadingPage component is a full-screen overlay loader used to indicate a loading state across the entire page.",
-    "title": "Loading page",
-    "usage": {
-      "basic": "Basic"
-    }
-  },
-  "misc": "Misc",
-  "menu": "Menu",
-  "message": {
-    "contents": {
-      "content1": "Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!",
-      "content2": "New features just launched! Check them out!",
-      "content3": "New Year, New You: Start fresh with our services!",
-      "content4": "We value your feedback: take our quick survey!",
-      "content5": "Warning: Limited time only! Sale ends soon!",
-      "danger": "Invalid credentials. Please check your email or password and try again.",
-      "info": "Your profile has been updated. Changes may take a few minutes to appear across all devices.",
-      "success": "Payment received! Your order is now being processed and you’ll receive a confirmation email shortly.",
-      "tip": "Use a password with at least 8 characters to make your password stronger.",
-      "warning": "Your session is about to expire in 2 minutes. Save your work to avoid losing changes."
-    },
-    "documentation": {
-      "eventDescription": {
-        "close": "Emitted when the close icon is clicked."
-      },
-      "propsDescription": {
-        "enableClose": "Displays a close icon if true, allowing the message to be dismissed.",
-        "icon": "Icon to display alongside the message.",
-        "message": "The message text, or an array of message texts to displayed in the component.",
-        "severity": "Defines the message background color style.",
-        "showIcon": "Displays a icon before message if true."
-      },
-      "slotDescription": {
-        "default": "Slot for message. Overrides the message content.",
-        "icon": "Slot for custom icon. Overrides the `icon` prop if provided."
-      }
-    },
-    "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
-    "title": "Message",
-    "usage": {
-      "basic": "Basic",
-      "enableClose": "Enable close",
-      "icons": {
-        "icon": "Icon",
-        "iconSlot": "Icon slot"
-      },
-      "messageArray": "Array of message",
-      "severity": "Severity",
-      "withI18n": "With i18n"
-    }
-  },
-  "messages": "Messages",
-  "modal": {
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "documentation": {
-      "eventDescription": {
-        "close": "Emitted when the modal is requested to close (via close icon or outside click)."
-      },
-      "propsDescription": {
-        "dismissOnClickOut": "Closes the modal when clicking outside the modal content.",
-        "show": "Controls the visibility of the modal.",
-        "size": "Defines the width of the modal.",
-        "title": "Title for the modal. Override by `header` slot if provided."
-      },
-      "slotDescription": {
-        "default": "Main content of the modal body.",
-        "footer": "Footer section of the modal. Placed below the content.",
-        "header": "Custom header content. Overrides `title` if provided."
-      }
-    },
-    "header": {
-      "productDetail": "Product detail"
-    },
-    "label": {
-      "auto": "Auto",
-      "forgotPassword": "Forgot password?",
-      "large": "Large",
-      "login": "Login",
-      "medium": "Medium",
-      "open": "Open",
-      "show": "Show",
-      "viewDetail": "View detail"
-    },
-    "subtitle": "A modal dialog component for displaying content in an overlay with support for custom headers, footers, and dismissal logic.",
-    "title": "Modal",
-    "usage": {
-      "basic": "Basic",
-      "enableDismiss": "Enable dismiss on click outside",
-      "size": "Size",
-      "slots": "With slots",
-      "withTitle": "With title",
-      "withI18n": "With i18n"
-    }
-  },
-  "overlay": "Overlay",
-  "page": {
-    "documentation": {
-      "eventDescription": {
-        "actionClick": "Emitted when toolbar action menu is clicked."
-      },
-      "propsDescription": {
-        "centered": "Aligns the content in the center.",
-        "loading": "Displays a loading overlay within the page content.",
-        "subTitle": "The subtitle text displayed below the title.",
-        "title": "The main title text displayed at the top of the page.",
-        "titleElement": "HTML tag to be used for the title element.",
-        "titleTag": "Optional label displayed next to the title, typically rendered as a badge.",
-        "toolbarActionMenu": "Toolbar actions menu on the top-right of the page header."
-      },
-      "slotDescription": {
-        "default": "Main content of the page.",
-        "subtitle": "Custom subtitle slot. Replaces the `subTitle` prop.",
-        "titleTag": "Custom title tag slot. Replaces the `titleTag` prop.",
-        "toolbar": "Toolbar area on the top-right of the page header."
-      }
-    },
-    "label": {
-      "addContent": "Add page content",
-      "content": "Page content",
-      "deleteContent": "Content has been deleted.",
-      "edit": "Edit",
-      "editContent": "Edit page content",
-      "subtitle": "Page subtitle",
-      "titleTag": "Heading tag"
-    },
-    "subtitle": "Page component is a layout wrapper used to structure pages with a title, subtitle, toolbar, and loading overlay support.",
-    "title": "Page",
-    "usage": {
-      "basic": "Basic",
-      "centerAligned": "With center aligned contents",
-      "subtitle": "With subtitle",
-      "subtitleSlot": "With subtitle slot",
-      "titleElement": "With title element",
-      "titleTag": "With title tag",
-      "titleTagSlot": "With title tag slot",
-      "toolbar": "With toolbar",
-      "toolbarSlot": "With toolbar slot"
-    }
-  },
-  "panel": "Panel",
-  "popup": {
-    "content": "This is a popup",
-    "label": {
-      "button": "Click me",
-      "show": "Show"
-    },
-    "subtitle": "The Popup component is a versatile overlay that displays content relative to a trigger element with automatic or configurable positioning.",
-    "title": "Popup",
-    "usage": {
-      "basic": "Basic",
-      "bottom": "With position bottom",
-      "customStyle": "Custom style",
-      "left": "With position left",
-      "right": "With position right",
-      "top": "With position top",
-      "withI18n": "With i18n"
-    }
-  },
-  "sortableList": {
-    "games": {
-      "basketball": "Basketball",
-      "cricket": "Cricket",
-      "favourite": "{sport} is your most favorite sport.",
-      "football": "Football",
-      "hockey": "Hockey",
-      "volleyball": "Volleyball"
-    },
-    "subtitle": "SortableList component is a flexible list that supports drag-and-drop reordering, with support for custom item rendering.",
-    "title": "Sortable list",
-    "usage": {
-      "basic": "Basic",
-      "sortSport": "Sort sports from most to least favorite"
-    }
-  },
-  "stepper": {
-    "documentation": {
-      "eventDescription": {
-        "complete": "Emitted when all steps are completed",
-        "updateActiveIndex": "Emitted when the active step index is updated"
-      },
-      "propsDescription": {
-        "activeIndex": "Index of the currently active step for controlled stepper.",
-        "align": "Alignment of the stepper steps.",
-        "direction": "Direction of the stepper, either horizontal or vertical.",
-        "hideButtons": "If true, the default stepper buttons are hidden.",
-        "nextButton": "Properties for the next button",
-        "previousButton": "properties for the previous button",
-        "steps": "Array of step objects (required)"
-      },
-      "slotDescription": {
-        "step": "Dynamic slot for step content (use step as slot name from steps prop)"
-      }
-    },
-    "label": {
-      "name": "Name",
-      "next": "Next",
-      "previous": "Previous",
-      "phone": "Phone",
-      "price": "Price"
-    },
-    "placeholder": {
-      "name": "Enter your name",
-      "phone": "Enter your phone"
-    },
-    "subtitle": "The Stepper component guides users through a multi-step process with visual progress indicators.",
-    "title": "Stepper",
-    "usage": {
-      "basic": "Basic",
-      "complete": "Are you sure you want to complete the process?",
-      "controlled": "Controlled content",
-      "withSlot": "With slot",
-      "vertical": "Vertical",
-      "verticalControlled": "Vertical with controlled content"
-    }
-  },
-  "subPane": {
-    "title": "SubPane",
-    "content": "This is a subpane"
-  },
-  "tabView": {
-    "documentation": {
-      "eventDescription": {
-        "beforeTabChange": "Triggers before tab actually change",
-        "beforeTabClose": "Triggers before tab actually close",
-        "updateActiveKey": "Triggers on active key change",
-        "updateVisibleTabs": "Triggers on visible tabs change"
-      },
-      "propsDescription": {
-        "activeKey": "Active key of TabView.",
-        "enableHashRouting": "Enable hash routing for the tab view URL.",
-        "id": "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
-        "interceptTabChange": "Enable event emitting before tab actually change.",
-        "interceptTabClose": "Enable event emitting before tab actually change.",
-        "lazy": "The lazy prop enables lazy loading.It only loads content for the active tab.",
-        "persistState": "If true, tab state is saved either in localStorage or sessionStorage.",
-        "persistStateStorage": "Storage to save tab state.",
-        "position": "Position of the tab panel header relative to its content.",
-        "tabs": "Array of tab object.",
-        "visibleTabs": "Array of visible tabs."
-      },
-      "slotDescription": {
-        "default": "Content for the tab, matched using the key attribute on each element"
-      }
-    },
-    "subtitle": "The TabView component organizes content into tabbed panels with support for multiple positions, closable tabs, state persistence, and interception handlers for tab changes and closures",
-    "title": "Tab view",
-    "usage": {
-      "basic": "Basic",
-      "closableTab": "Closable tabs",
-      "disableTabState": {
-        "subtitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing :persist-state='false' prop to the component",
-        "title": "State persistence disabled"
-      },
-      "interceptTabChange": "With interception before tab change",
-      "interceptTabClose": "With interception before tab close",
-      "positionBottom": "Bottom tabs",
-      "positionLeft": "Left tabs",
-      "positionRight": "Right tabs",
-      "shareableTab": "Shareable open tab",
-      "withHashRouting": "Hash routing enabled",
-      "withSlot": "With slot for custom content"
-    }
-  },
-  "tabbed-panel": {
-    "basic-usage": "Basic usage",
-    "contents": {
-      "first": {
-        "content": "This is the first tab ",
-        "title": "Tab 1"
-      },
-      "second": {
-        "content": "This is the second tab",
-        "title": "Tab 2"
-      }
-    },
-    "depreciation-message": "{'@'}deprecated: Use TabView component from the ui package instead",
-    "no-title": "Child elements with no `title` prop will be ignored",
-    "position": {
-      "bottom": "Bottom",
-      "left": "Left",
-      "right": "Right",
-      "top": "Top (default)"
-    },
-    "title": "Tabbed Panel",
-    "with-color": "With color",
-    "with-color-and-shadow": "With color and shadow",
-    "with-custom-icons": "With custom icons"
-  },
-  "tanstack-table": {
-    "title": "Tanstack table"
-  },
-  "title": "UI library",
-  "tooltip": {
-    "content": "Tooltip content",
-    "label": {
-      "bottom": "Bottom",
-      "button": "Click me",
-      "custom": "Custom",
-      "delay": "Delay",
-      "left": "Left",
-      "right": "Right",
-      "top": "Top"
-    },
-    "subtitle": "The Tooltip component provides contextual information when hovering over an element. It supports various positions, custom styles, and can be triggered by hover or click events.",
-    "title": "Tooltip",
-    "usage": {
-      "basic": "Basic",
-      "bottom": "With position bottom",
-      "clickable": "Clickable",
-      "customStyle": "Custom style",
-      "delay": "With delay",
-      "left": "With position left",
-      "right": "With position right",
-      "top": "With position top"
-    }
-  },
-  "typography": {
-    "title": "Typography"
-  },
-  "youtubeFacade": {
-    "alternativeMessage": "Vue basic",
-    "subtitle": "YoutubeFacade component is a lightweight preview for embedding YouTube videos, showing a thumbnail and loading the iframe.",
-    "title": "Youtube facade",
-    "usage": {
-      "aspectRatio": "Aspect ratio",
-      "basic": "Basic",
-      "customStyle": "Custom style",
-      "customThumbnail": "Custom thumbnail"
-    }
+  "subtitle": "Badge component is a compact UI element used to display short, contextual information such as status, labels, or icons, with severity and styling support.",
+  "title": "Badge",
+  "usage": {
+   "basic": "Basic",
+   "customStyle": "Custom style",
+   "icon": "Icon",
+   "iconAndLabel": "Icon and label",
+   "iconElement": "Icon slot",
+   "iconPackage": "Different packages icon",
+   "rounded": "Rounded",
+   "severity": "Severity",
+   "withI18n": "With i18n"
   }
+ },
+ "button": {
+  "label": {
+   "alternate": "Alternate",
+   "back": "Back",
+   "clickMe": "Click me",
+   "danger": "Danger",
+   "default": "Default",
+   "home": "Home",
+   "large": "Large",
+   "medium": "Medium",
+   "next": "Next",
+   "outlined": "Outlined",
+   "primary": "Primary",
+   "secondary": "Secondary",
+   "small": "Small",
+   "submit": "Submit",
+   "success": "Success",
+   "textOnly": "Text only",
+   "warning": "Warning"
+  },
+  "subtitle": "The Button component is a flexible and customizable button implementation for Vue applications. It supports various properties for styling, behavior, and functionality, making it suitable for different use cases.",
+  "title": "Button",
+  "usage": {
+   "basic": "Basic",
+   "contentSlot": "Button content slot",
+   "disabled": "Disabled",
+   "icons": {
+    "icon": "Icon",
+    "iconAndLabel": "Icon and label",
+    "iconElement": "Icon slot",
+    "iconPackage": "Different packages icon"
+   },
+   "loading": "Loading",
+   "outlined": "Outlined",
+   "redirect": "Redirect",
+   "severity": "Severity",
+   "size": "Size",
+   "text": "Text",
+   "tooltip": "Button with tooltip",
+   "variant": "Variant",
+   "withI18n": "With i18n"
+  }
+ },
+ "buttons": "Buttons",
+ "card": {
+  "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "headerContent": "Lorem ipsum",
+  "footerContent": "The standard Lorem Ipsum passage, used since the 1500s",
+  "subtitle": "A versatile container for displaying content in a structured format. It supports slots for custom header, footer, and body content, making it adaptable for various use cases.",
+  "title": "Card",
+  "usage": {
+   "basic": "Basic",
+   "customStyle": "Custom style",
+   "slots": "With slots",
+   "withI18n": "With i18n",
+   "withTitle": "With title"
+  }
+ },
+ "confirmationModal": {
+  "bodyContent": {
+   "confirm": "Are you sure you want to proceed?",
+   "confirmDelete": "Are you sure to delete user?"
+  },
+  "buttonLabel": {
+   "cancel": "Cancel",
+   "confirm": "Confirm",
+   "delete": "Delete"
+  },
+  "documentation": {
+   "eventDescription": {
+    "close": "Emitted when the modal is closed.",
+    "confirm": "Emitted when the confirm button is clicked."
+   },
+   "propsDescription": {
+    "acceptOptions": "Properties of the accept button.",
+    "cancelOptions": "Properties of the cancel button.",
+    "closable": "If true, shows close button on top right of the modal.",
+    "closeIcon": "Overrides top right close icon.",
+    "dismissOnClickOut": "Closes the modal when clicking outside the modal content.",
+    "header": "Override the modal header content.",
+    "icon": "Override the icon before modal message content.",
+    "message": "Override the modal message content."
+   },
+   "slotDescription": {
+    "closeIcon": "Overrides the default close icon.",
+    "footer": "Overrides the default footer content.",
+    "header": "Overrides the default header content.",
+    "icon": "Overrides the default message icon.",
+    "message": "Overrides the default message content."
+   }
+  },
+  "headerContent": {
+   "confirm": "Confirmation required",
+   "deleteUser": "Delete user"
+  },
+  "subtitle": "A modal dialog used to prompt users for confirmation before proceeding with an action. Supports customization of header, message, and footer content via props and slots.",
+  "title": "Confirmation modal",
+  "usage": {
+   "basic": "Basic",
+   "buttonOptions": "With button options",
+   "slots": "With slots",
+   "withI18n": "With i18n"
+  }
+ },
+ "countryPicker": {
+  "label": {
+   "basicInput": "Basic",
+   "title": "Country picker"
+  }
+ },
+ "data": {
+  "label": {
+   "email": "Email",
+   "name": "Name",
+   "revenue": "Revenue",
+   "visitors": "Visitors"
+  },
+  "subtitle": "The Data component is a reusable Vue component designed to display a labeled value.",
+  "title": "Data",
+  "usage": {
+   "basic": "Basic",
+   "displayObject": "Display value from object",
+   "separatorSlot": "With separator slot",
+   "statMode": "Stat mode",
+   "structuredData": "Rendering structured data"
+  }
+ },
+ "divider": {
+  "subtitle": "Divider component is a visual separator used to group or divide content with the border line either horizontally or vertically.",
+  "title": "Divider",
+  "usage": {
+   "horizontal": "Horizontal",
+   "vertical": "Vertical"
+  }
+ },
+ "dropdown": {
+  "label": {
+   "delete": "Delete",
+   "edit": "Edit",
+   "email": "Email",
+   "name": "Name",
+   "user": "User",
+   "view": "View"
+  },
+  "subtitle": "The Dropdown component provides an accessible and customizable menu for selecting actions or options. It supports labels, icons, slots for custom triggers and icons, and emits events on selection.",
+  "title": "Dropdown",
+  "usage": {
+   "basic": "Basic",
+   "customStyle": "Custom style",
+   "email": "monorepo{'@'}dzangolab.com",
+   "name": "Monorepo",
+   "severity": "Severity",
+   "withSlot": "With slot"
+  }
+ },
+ "file": "File",
+ "fileCard": {
+  "subtitle": "The FileCard component is a structured card layout that displays file detail with a thumbnail and action buttons.",
+  "title": "File card",
+  "usage": {
+   "basic": "Basic",
+   "buttonProps": "Action button's props",
+   "messages": "Custom messages",
+   "visibilityDetail": "With visibility detail"
+  }
+ },
+ "filesList": {
+  "subtitle": "The FilesList component displays a collection of files in a list layout using FileCard component, with customizable actions and visibility options.",
+  "title": "Files List"
+ },
+ "getStarted": "Get started",
+ "gridContainer": {
+  "usage": {
+   "basic": "Basic"
+  },
+  "subtitle": "GridContainer component is a responsive layout wrapper that arranges its child elements in a flexible grid structure.",
+  "title": "Grid container"
+ },
+ "loading": {
+  "buttonLabel": {
+   "clickMe": "Click me"
+  },
+  "subtitle": "LoadingPage component is a full-screen overlay loader used to indicate a loading state across the entire page.",
+  "title": "Loading page",
+  "usage": {
+   "basic": "Basic"
+  }
+ },
+ "misc": "Misc",
+ "menu": "Menu",
+ "message": {
+  "contents": {
+   "content1": "Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!",
+   "content2": "New features just launched! Check them out!",
+   "content3": "New Year, New You: Start fresh with our services!",
+   "content4": "We value your feedback: take our quick survey!",
+   "content5": "Warning: Limited time only! Sale ends soon!",
+   "danger": "Invalid credentials. Please check your email or password and try again.",
+   "info": "Your profile has been updated. Changes may take a few minutes to appear across all devices.",
+   "success": "Payment received! Your order is now being processed and you’ll receive a confirmation email shortly.",
+   "tip": "Use a password with at least 8 characters to make your password stronger.",
+   "warning": "Your session is about to expire in 2 minutes. Save your work to avoid losing changes."
+  },
+  "documentation": {
+   "eventDescription": {
+    "close": "Emitted when the close icon is clicked."
+   },
+   "propsDescription": {
+    "enableClose": "Displays a close icon if true, allowing the message to be dismissed.",
+    "icon": "Icon to display alongside the message.",
+    "message": "The message text, or an array of message texts to displayed in the component.",
+    "severity": "Defines the message background color style.",
+    "showIcon": "Displays a icon before message if true."
+   },
+   "slotDescription": {
+    "default": "Slot for message. Overrides the message content.",
+    "icon": "Slot for custom icon. Overrides the `icon` prop if provided."
+   }
+  },
+  "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
+  "title": "Message",
+  "usage": {
+   "basic": "Basic",
+   "enableClose": "Enable close",
+   "icons": {
+    "icon": "Icon",
+    "iconSlot": "Icon slot"
+   },
+   "messageArray": "Array of message",
+   "severity": "Severity",
+   "withI18n": "With i18n"
+  }
+ },
+ "messages": "Messages",
+ "modal": {
+  "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "documentation": {
+   "eventDescription": {
+    "close": "Emitted when the modal is requested to close (via close icon or outside click)."
+   },
+   "propsDescription": {
+    "dismissOnClickOut": "Closes the modal when clicking outside the modal content.",
+    "show": "Controls the visibility of the modal.",
+    "size": "Defines the width of the modal.",
+    "title": "Title for the modal. Override by `header` slot if provided."
+   },
+   "slotDescription": {
+    "default": "Main content of the modal body.",
+    "footer": "Footer section of the modal. Placed below the content.",
+    "header": "Custom header content. Overrides `title` if provided."
+   }
+  },
+  "header": {
+   "productDetail": "Product detail"
+  },
+  "label": {
+   "auto": "Auto",
+   "forgotPassword": "Forgot password?",
+   "large": "Large",
+   "login": "Login",
+   "medium": "Medium",
+   "open": "Open",
+   "show": "Show",
+   "viewDetail": "View detail"
+  },
+  "subtitle": "A modal dialog component for displaying content in an overlay with support for custom headers, footers, and dismissal logic.",
+  "title": "Modal",
+  "usage": {
+   "basic": "Basic",
+   "enableDismiss": "Enable dismiss on click outside",
+   "size": "Size",
+   "slots": "With slots",
+   "withTitle": "With title",
+   "withI18n": "With i18n"
+  }
+ },
+ "overlay": "Overlay",
+ "page": {
+  "documentation": {
+   "eventDescription": {
+    "actionClick": "Emitted when toolbar action menu is clicked."
+   },
+   "propsDescription": {
+    "centered": "Aligns the content in the center.",
+    "loading": "Displays a loading overlay within the page content.",
+    "subTitle": "The subtitle text displayed below the title.",
+    "title": "The main title text displayed at the top of the page.",
+    "titleElement": "HTML tag to be used for the title element.",
+    "titleTag": "Optional label displayed next to the title, typically rendered as a badge.",
+    "toolbarActionMenu": "Toolbar actions menu on the top-right of the page header."
+   },
+   "slotDescription": {
+    "default": "Main content of the page.",
+    "subtitle": "Custom subtitle slot. Replaces the `subTitle` prop.",
+    "titleTag": "Custom title tag slot. Replaces the `titleTag` prop.",
+    "toolbar": "Toolbar area on the top-right of the page header."
+   }
+  },
+  "label": {
+   "addContent": "Add page content",
+   "content": "Page content",
+   "deleteContent": "Content has been deleted.",
+   "edit": "Edit",
+   "editContent": "Edit page content",
+   "subtitle": "Page subtitle",
+   "titleTag": "Heading tag"
+  },
+  "subtitle": "Page component is a layout wrapper used to structure pages with a title, subtitle, toolbar, and loading overlay support.",
+  "title": "Page",
+  "usage": {
+   "basic": "Basic",
+   "centerAligned": "With center aligned contents",
+   "subtitle": "With subtitle",
+   "subtitleSlot": "With subtitle slot",
+   "titleElement": "With title element",
+   "titleTag": "With title tag",
+   "titleTagSlot": "With title tag slot",
+   "toolbar": "With toolbar",
+   "toolbarSlot": "With toolbar slot"
+  }
+ },
+ "panel": "Panel",
+ "popup": {
+  "content": "This is a popup",
+  "label": {
+   "button": "Click me",
+   "show": "Show"
+  },
+  "subtitle": "The Popup component is a versatile overlay that displays content relative to a trigger element with automatic or configurable positioning.",
+  "title": "Popup",
+  "usage": {
+   "basic": "Basic",
+   "bottom": "With position bottom",
+   "customStyle": "Custom style",
+   "left": "With position left",
+   "right": "With position right",
+   "top": "With position top",
+   "withI18n": "With i18n"
+  }
+ },
+ "sortableList": {
+  "games": {
+   "basketball": "Basketball",
+   "cricket": "Cricket",
+   "favourite": "{sport} is your most favorite sport.",
+   "football": "Football",
+   "hockey": "Hockey",
+   "volleyball": "Volleyball"
+  },
+  "subtitle": "SortableList component is a flexible list that supports drag-and-drop reordering, with support for custom item rendering.",
+  "title": "Sortable list",
+  "usage": {
+   "basic": "Basic",
+   "sortSport": "Sort sports from most to least favorite"
+  }
+ },
+ "stepper": {
+  "documentation": {
+   "eventDescription": {
+    "complete": "Emitted when all steps are completed",
+    "updateActiveIndex": "Emitted when the active step index is updated"
+   },
+   "propsDescription": {
+    "activeIndex": "Index of the currently active step for controlled stepper.",
+    "align": "Alignment of the stepper steps.",
+    "direction": "Direction of the stepper, either horizontal or vertical.",
+    "hideButtons": "If true, the default stepper buttons are hidden.",
+    "nextButton": "Properties for the next button",
+    "previousButton": "properties for the previous button",
+    "steps": "Array of step objects (required)"
+   },
+   "slotDescription": {
+    "step": "Dynamic slot for step content (use step as slot name from steps prop)"
+   }
+  },
+  "label": {
+   "name": "Name",
+   "next": "Next",
+   "previous": "Previous",
+   "phone": "Phone",
+   "price": "Price"
+  },
+  "placeholder": {
+   "name": "Enter your name",
+   "phone": "Enter your phone"
+  },
+  "subtitle": "The Stepper component guides users through a multi-step process with visual progress indicators.",
+  "title": "Stepper",
+  "usage": {
+   "basic": "Basic",
+   "complete": "Are you sure you want to complete the process?",
+   "controlled": "Controlled content",
+   "withSlot": "With slot",
+   "vertical": "Vertical",
+   "verticalControlled": "Vertical with controlled content"
+  }
+ },
+ "subPane": {
+  "title": "SubPane",
+  "content": "This is a subpane"
+ },
+ "tabView": {
+  "documentation": {
+   "eventDescription": {
+    "beforeTabChange": "Triggers before tab actually change",
+    "beforeTabClose": "Triggers before tab actually close",
+    "updateActiveKey": "Triggers on active key change",
+    "updateVisibleTabs": "Triggers on visible tabs change"
+   },
+   "propsDescription": {
+    "activeKey": "Active key of TabView.",
+    "enableHashRouting": "Enable hash routing for the tab view URL.",
+    "id": "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
+    "interceptTabChange": "Enable event emitting before tab actually change.",
+    "interceptTabClose": "Enable event emitting before tab actually change.",
+    "lazy": "The lazy prop enables lazy loading.It only loads content for the active tab.",
+    "persistState": "If true, tab state is saved either in localStorage or sessionStorage.",
+    "persistStateStorage": "Storage to save tab state.",
+    "position": "Position of the tab panel header relative to its content.",
+    "tabs": "Array of tab object.",
+    "visibleTabs": "Array of visible tabs."
+   },
+   "slotDescription": {
+    "default": "Content for the tab, matched using the key attribute on each element"
+   }
+  },
+  "subtitle": "The TabView component organizes content into tabbed panels with support for multiple positions, closable tabs, state persistence, and interception handlers for tab changes and closures",
+  "title": "Tab view",
+  "usage": {
+   "basic": "Basic",
+   "closableTab": "Closable tabs",
+   "disableTabState": {
+    "subtitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing :persist-state='false' prop to the component",
+    "title": "State persistence disabled"
+   },
+   "interceptTabChange": "With interception before tab change",
+   "interceptTabClose": "With interception before tab close",
+   "positionBottom": "Bottom tabs",
+   "positionLeft": "Left tabs",
+   "positionRight": "Right tabs",
+   "shareableTab": "Shareable open tab",
+   "withHashRouting": "Hash routing enabled",
+   "withSlot": "With slot for custom content"
+  }
+ },
+ "tabbed-panel": {
+  "basic-usage": "Basic usage",
+  "contents": {
+   "first": {
+    "content": "This is the first tab ",
+    "title": "Tab 1"
+   },
+   "second": {
+    "content": "This is the second tab",
+    "title": "Tab 2"
+   }
+  },
+  "depreciation-message": "{'@'}deprecated: Use TabView component from the ui package instead",
+  "no-title": "Child elements with no `title` prop will be ignored",
+  "position": {
+   "bottom": "Bottom",
+   "left": "Left",
+   "right": "Right",
+   "top": "Top (default)"
+  },
+  "title": "Tabbed Panel",
+  "with-color": "With color",
+  "with-color-and-shadow": "With color and shadow",
+  "with-custom-icons": "With custom icons"
+ },
+ "tanstack-table": {
+  "title": "Tanstack table"
+ },
+ "title": "UI library",
+ "tooltip": {
+  "content": "Tooltip content",
+  "label": {
+   "bottom": "Bottom",
+   "button": "Click me",
+   "custom": "Custom",
+   "delay": "Delay",
+   "left": "Left",
+   "right": "Right",
+   "top": "Top"
+  },
+  "subtitle": "The Tooltip component provides contextual information when hovering over an element. It supports various positions, custom styles, and can be triggered by hover or click events.",
+  "title": "Tooltip",
+  "usage": {
+   "basic": "Basic",
+   "bottom": "With position bottom",
+   "clickable": "Clickable",
+   "customStyle": "Custom style",
+   "delay": "With delay",
+   "left": "With position left",
+   "right": "With position right",
+   "top": "With position top"
+  }
+ },
+ "typography": {
+  "title": "Typography"
+ },
+ "youtubeFacade": {
+  "alternativeMessage": "Vue basic",
+  "subtitle": "YoutubeFacade component is a lightweight preview for embedding YouTube videos, showing a thumbnail and loading the iframe.",
+  "title": "Youtube facade",
+  "usage": {
+   "aspectRatio": "Aspect ratio",
+   "basic": "Basic",
+   "customStyle": "Custom style",
+   "customThumbnail": "Custom thumbnail"
+  }
+ }
 }
