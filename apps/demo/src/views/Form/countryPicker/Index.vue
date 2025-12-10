@@ -26,7 +26,7 @@
             /&gt;
           &lt;/template&gt;
                   
-          &lt;script setup&gt;
+          &lt;script setup lang="ts"&gt;
           import { CountryPicker } from '@prefabs.tech/vue3-form';
           import { ref } from 'vue';
                   
@@ -36,7 +36,7 @@
         <!-- eslint-enable -->
       </div>
     </section>
-     <section>
+    <section>
       <h2>{{ $t("form.label.multiselect") }}</h2>
 
       <div class="section-content">
