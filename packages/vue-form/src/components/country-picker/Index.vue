@@ -31,13 +31,13 @@ const props = defineProps({
     default: "country",
     type: String,
   },
-  value: {
-    default: null,
-    type: [String, Number],
-  },
   placeholder: {
     default: undefined,
     type: String,
+  },
+  value: {
+    default: null,
+    type: [String, Number],
   },
 });
 

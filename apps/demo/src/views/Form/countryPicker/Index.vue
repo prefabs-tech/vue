@@ -68,10 +68,10 @@
         <!-- eslint-enable -->
       </div>
     </section>
-     <section>
+    <section>
       <h2>{{ $t("form.label.overwrite") }}</h2>
       <CountryPicker />
-      </section>
+    </section>
   </FormPage>
 </template>
 
