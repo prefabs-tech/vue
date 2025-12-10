@@ -2,8 +2,10 @@
   <div class="country-picker">
     <SelectInput
       v-model="selectedCountry"
+      :model-value="modelValue"
       :name="name"
       :options="countryOptions"
+      :placeholder="placeholder"
       class="form-select"
     />
   </div>
@@ -25,8 +27,12 @@ const props = defineProps({
     type: String,
   },
   value: {
-    default: "NP",
+    default: null,
     type: [String, Number],
+  },
+  placeholder: {
+    default: undefined,
+    type: String,
   },
 });
 
