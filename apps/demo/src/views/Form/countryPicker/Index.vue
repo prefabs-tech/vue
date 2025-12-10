@@ -36,6 +36,38 @@
         <!-- eslint-enable -->
       </div>
     </section>
+     <section>
+      <h2>{{ $t("form.label.multiselect") }}</h2>
+
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.multiselect"
+          :placeholder="$t('form.placeholder.country')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;CountryPicker
+              v-model="input"
+              multiple
+              placeholder="Select Countries"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { CountryPicker } from "@prefabs.tech/vue3-form";
+          import { ref } from "vue";
+
+          const input = ref();
+
+        
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
   </FormPage>
 </template>
 
@@ -48,5 +80,6 @@ import FormPage from "../FormPage.vue";
 
 const formData = reactive({
   basic: undefined,
+  multiselect: undefined,
 });
 </script>

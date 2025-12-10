@@ -3,6 +3,7 @@
     <SelectInput
       v-model="selectedCountry"
       :model-value="modelValue"
+      :multiple="multiple"
       :name="name"
       :options="countryOptions"
       :placeholder="placeholder"
@@ -21,6 +22,10 @@ const props = defineProps({
   locale: {
     default: "en",
     type: String,
+  },
+  multiple: {
+    default: false,
+    type: Boolean,
   },
   name: {
     default: "country",
