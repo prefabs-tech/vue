@@ -18,12 +18,20 @@
           :placeholder="$t('form.placeholder.country')"
         />
         <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt; &lt;CountryPicker v-model="input"
-          :placeholder="Select a country" /&gt; &lt;/template&gt; &lt;script
-          setup lang="ts"&gt; import { CountryPicker } from
-          '@prefabs.tech/vue3-form'; import { ref } from 'vue'; const input =
-          ref(); &lt;/script&gt;
+       <SshPre language="html-vue">
+         &lt;template&gt;
+            &lt;CountryPicker
+              v-model="input"
+              :placeholder="Select a country"
+            /&gt;
+          &lt;/template&gt;
+                  
+          &lt;script setup lang="ts"&gt;
+          import { CountryPicker } from '@prefabs.tech/vue3-form';
+          import { ref } from 'vue';
+                  
+          const input = ref();
+          &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
       </div>
@@ -40,11 +48,22 @@
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;template&gt; &lt;CountryPicker v-model="input" multiple
-          placeholder="Select Countries" /&gt; &lt;/template&gt; &lt;script
-          setup lang="ts"&gt; import { CountryPicker } from
-          "@prefabs.tech/vue3-form"; import { ref } from "vue"; const input =
-          ref(); &lt;/script&gt;
+          &lt;template&gt;
+            &lt;CountryPicker
+              v-model="input"
+              multiple
+              placeholder="Select Countries"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { CountryPicker } from "@prefabs.tech/vue3-form";
+          import { ref } from "vue";
+
+          const input = ref();
+
+        
+          &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
       </div>
