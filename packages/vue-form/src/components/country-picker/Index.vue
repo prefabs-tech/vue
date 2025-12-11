@@ -53,12 +53,14 @@ const props = defineProps({
 });
 
 const countries = ref(countriesData);
-const mergedCountries = computed(() =>
-  mergeCountryData(countries.value, props.overrides),
-);
 const selectedCountry = ref<string | number | (string | number)[] | undefined>(
   props.value ?? undefined,
 );
+
+const mergedCountries = computed(() =>
+  mergeCountryData(countries.value, props.overrides),
+);
+
 const countryOptions = computed(() => {
   return mergedCountries.value.map((item) => {
     const label = item.i18n?.[props.locale] ?? item.i18n?.en ?? item.code;
