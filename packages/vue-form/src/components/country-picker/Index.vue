@@ -36,6 +36,12 @@ const props = defineProps({
     default: "country",
     type: String,
   },
+  overrides: {
+    default: () => [],
+    type: Array as PropType<
+      { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
+    >,
+  },
   placeholder: {
     default: undefined,
     type: String,
@@ -44,16 +50,32 @@ const props = defineProps({
     default: undefined,
     type: [String, Number] as PropType<string | number | undefined>,
   },
-  overrides: {
-    default: () => [],
-    type: Array as PropType<
-      { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
-    >,
-  },
 });
 
 const countries = ref(countriesData);
+const mergedCountries = computed(() =>
+  mergeCountryData(countries.value, props.overrides),
+);
+const selectedCountry = ref<string | number | (string | number)[] | undefined>(
+  props.value ?? undefined,
+);
+const countryOptions = computed(() => {
+  return mergedCountries.value.map((item) => {
+    const label = item.i18n?.[props.locale] ?? item.i18n?.en ?? item.code;
 
+    return {
+      label,
+      value: item.code,
+      ...item,
+    };
+  });
+});
+const emit = defineEmits<{
+  (
+    event: "update:modelValue",
+    value: string | number | (string | number)[] | null,
+  ): void;
+}>();
 function mergeCountryData(
   base: { code: string; i18n: { en: string; fr: string; th: string } }[],
   overrides: {
@@ -88,36 +110,8 @@ function mergeCountryData(
       });
     }
   });
-
   return Array.from(map.values());
 }
-
-const mergedCountries = computed(() =>
-  mergeCountryData(countries.value, props.overrides),
-);
-
-const selectedCountry = ref<string | number | (string | number)[] | undefined>(
-  props.value ?? undefined,
-);
-const countryOptions = computed(() => {
-  return mergedCountries.value.map((item) => {
-    const label = item.i18n?.[props.locale] ?? item.i18n?.en ?? item.code;
-
-    return {
-      value: item.code,
-      label,
-      ...item,
-    };
-  });
-});
-
-const emit = defineEmits<{
-  (
-    event: "update:modelValue",
-    value: string | number | (string | number)[] | null,
-  ): void;
-}>();
-
 watch(
   selectedCountry,
   (value: string | number | (string | number)[] | undefined) => {
