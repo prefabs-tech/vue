@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.accordion.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.accordion.subtitle')"
+    :title="$t('ui.accordion.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -87,6 +91,14 @@
         </template>
       </DemoAccordion>
     </section>
+
+    <ComponentDocumentation
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'AccordionProperties' })
+      "
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
@@ -97,11 +109,57 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import DemoAccordion from "./DemoAccordion.vue";
 import DemoAccordionWithIcons from "./DemoAccordionWithIcons.vue";
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 import "@/assets/css/ui/accordion.css";
+
+const { t } = useI18n();
+
+const propsData = [
+  {
+    default: "-",
+    description: t("ui.accordion.documentation.propsDescription.activeIcon"),
+    prop: "activeIcon",
+    type: "String | VNode",
+  },
+  {
+    default: "false",
+    description: t(
+      "ui.accordion.documentation.propsDescription.canSelfCollapse",
+    ),
+    prop: "canSelfCollapse",
+    type: "Boolean",
+  },
+  {
+    default: "0",
+    description: t("ui.accordion.documentation.propsDescription.defaultIndex"),
+    prop: "defaultIndex",
+    type: "Number",
+  },
+  {
+    default: "vertical",
+    description: t("ui.accordion.documentation.propsDescription.direction"),
+    prop: "direction",
+    type: "vertical | horizontal",
+  },
+  {
+    default: "-",
+    description: t("ui.accordion.documentation.propsDescription.inactiveIcon"),
+    prop: "inactiveIcon",
+    type: "String | VNode",
+  },
+];
+
+const slotsData = [
+  {
+    description: t("ui.accordion.documentation.slotDescription.default"),
+    name: "default",
+  },
+];
 </script>
