@@ -1,3 +1,12 @@
+# [0.26.0](https://github.com/prefabs-tech/vue/compare/v0.25.0...v0.26.0) (2025-12-11)
+
+
+### Features
+
+* add country picker in form ([#875](https://github.com/prefabs-tech/vue/issues/875)) ([c35260b](https://github.com/prefabs-tech/vue/commit/c35260b5b94622eb61be22ac8404133c193e1211))
+
+
+
 # [0.25.0](https://github.com/prefabs-tech/vue/compare/v0.24.1...v0.25.0) (2025-12-08)
 
 
