@@ -70,12 +70,14 @@ const countryOptions = computed(() => {
     };
   });
 });
+
 const emit = defineEmits<{
   (
     event: "update:modelValue",
     value: string | number | (string | number)[] | null,
   ): void;
 }>();
+
 function mergeCountryData(
   base: { code: string; i18n: { en: string; fr: string; th: string } }[],
   overrides: {
@@ -112,6 +114,7 @@ function mergeCountryData(
   });
   return Array.from(map.values());
 }
+
 watch(
   selectedCountry,
   (value: string | number | (string | number)[] | undefined) => {
