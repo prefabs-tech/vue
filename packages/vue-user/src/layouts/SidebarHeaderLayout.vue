@@ -92,6 +92,7 @@ const router = useRouter();
 const prefabsTechLayout = ref();
 
 const menu = computed(() => {
+  const isLoggedIn = !!user.value;
   let menuItems = layoutConfig?.mainMenu || [];
 
   menuItems = menuItems.filter((item: MenuItem) => {
@@ -121,7 +122,7 @@ const menu = computed(() => {
       );
     };
 
-    return isValidItem(item, !!user.value);
+    return isValidItem(item, isLoggedIn);
   });
 
   return menuItems.map((item: MenuItem) => ({
