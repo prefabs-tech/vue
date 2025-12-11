@@ -63,8 +63,8 @@
 }
 
 .accordion > section > header > button > span {
-  text-align: left;
   flex-grow: 1;
+  text-align: left;
 }
 
 .accordion > section > .pane {
@@ -136,14 +136,14 @@
 }
 
 .accordion.horizontal .expand-enter-from, .accordion.horizontal .expand-leave-to {
+  max-width: 0;
   opacity: 0;
   overflow: hidden;
-  max-width: 0;
 }
 
 .accordion.horizontal .expand-enter-to, .accordion.horizontal .expand-leave-from {
-  opacity: 1;
   max-width: 100dvh;
+  opacity: 1;
   overflow-y: auto;
 }
 
