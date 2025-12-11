@@ -64,7 +64,6 @@ const emit = defineEmits<{
 const countries = ref(countriesData);
 
 const mergedCountries = computed<CountryOption[]>(() => {
-  // If custom data is provided, use it directly
   if (props.data.length > 0) {
     return props.data.map((item) => ({
       code: item.code,
@@ -76,7 +75,6 @@ const mergedCountries = computed<CountryOption[]>(() => {
     }));
   }
 
-  // Otherwise use the default countries
   return [...countries.value];
 });
 
@@ -88,7 +86,6 @@ const countryOptions = computed<SelectOption[]>(() =>
   })),
 );
 
-// Handle v-model updates
 const updateModelValue = (
   value: string | number | (string | number)[] | undefined,
 ) => {
