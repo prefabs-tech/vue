@@ -98,6 +98,7 @@
     "consequences": "Consequences",
     "contentElement": "Content element",
     "country": "Country",
+    "customData": "Custom data",
     "currencyPicker": "Currency picker",
     "currencyPickerExtensive": "Currency picker with extensive options",
     "customColsRowsInput": "With cols and rows props[fr]",

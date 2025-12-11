@@ -2,7 +2,14 @@ interface CurrencyOption extends SelectOption {
   code?: string;
   symbol?: string;
 }
-
+interface CountryOption {
+  code: string;
+  i18n: {
+    en: string;
+    fr: string;
+    th: string;
+  };
+}
 interface EmailErrorMessages {
   invalid?: string;
   required?: string;
@@ -12,7 +19,7 @@ interface FileErrorMessages {
   invalid?: string;
   maxSize?: string;
   minSize?: string;
-  maxFiles?: string
+  maxFiles?: string;
 }
 
 interface FileExtended extends File {
@@ -44,7 +51,7 @@ interface SelectOption extends Record<string, unknown> {
   label?: string;
   value?: string | number;
   groupLabel?: string;
-};
+}
 
 interface GroupedOption {
   label: string;
@@ -58,6 +65,7 @@ interface TextErrorMessages {
 
 export type {
   CurrencyOption,
+  CountryOption,
   EmailErrorMessages,
   FileErrorMessages,
   FileExtended,

@@ -1,31 +1,33 @@
 <template>
   <div class="country-picker">
     <SelectInput
-      v-model="selectedCountry"
+      :model-value="modelValue"
       :multiple="multiple"
       :name="name"
       :options="countryOptions"
       :placeholder="placeholder"
       class="form-select"
+      @update:model-value="updateModelValue"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, type PropType } from "vue";
+import { ref, computed, type PropType } from "vue";
 
 import SelectInput from "../SelectInput.vue";
 import countriesData from "./countries.json";
 
+import type { CountryOption, SelectOption } from "../../types";
 const props = defineProps({
   locale: {
     default: "en",
     type: String as PropType<"en" | "fr" | "th">,
   },
   modelValue: {
-    default: null,
-    type: [String, Number, Array, null] as PropType<
-      string | number | (string | number)[] | null
+    default: undefined,
+    type: [String, Number, Array] as PropType<
+      string | number | (string | number)[] | undefined
     >,
   },
   multiple: {
@@ -36,7 +38,7 @@ const props = defineProps({
     default: "country",
     type: String,
   },
-  overrides: {
+  data: {
     default: () => [],
     type: Array as PropType<
       { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
@@ -52,82 +54,44 @@ const props = defineProps({
   },
 });
 
-const countries = ref(countriesData);
-const selectedCountry = ref<string | number | (string | number)[] | undefined>(
-  props.value ?? undefined,
-);
-
-const mergedCountries = computed(() =>
-  mergeCountryData(countries.value, props.overrides),
-);
-
-const countryOptions = computed(() => {
-  return mergedCountries.value.map((item) => {
-    const label = item.i18n?.[props.locale] ?? item.i18n?.en ?? item.code;
-
-    return {
-      label,
-      value: item.code,
-      ...item,
-    };
-  });
-});
-
 const emit = defineEmits<{
   (
     event: "update:modelValue",
-    value: string | number | (string | number)[] | null,
+    value: string | number | (string | number)[] | undefined,
   ): void;
 }>();
 
-function mergeCountryData(
-  base: { code: string; i18n: { en: string; fr: string; th: string } }[],
-  overrides: {
-    code: string;
-    i18n?: Partial<{ en: string; fr: string; th: string }>;
-  }[],
-) {
-  const map = new Map<string, (typeof base)[0]>();
+const countries = ref(countriesData);
 
-  base.forEach((c) => map.set(c.code, { ...c }));
+const mergedCountries = computed<CountryOption[]>(() => {
+  // If custom data is provided, use it directly
+  if (props.data.length > 0) {
+    return props.data.map((item) => ({
+      code: item.code,
+      i18n: {
+        en: item.i18n?.en || "",
+        fr: item.i18n?.fr || "",
+        th: item.i18n?.th || "",
+      },
+    }));
+  }
 
-  overrides.forEach((item) => {
-    const existing = map.get(item.code);
+  // Otherwise use the default countries
+  return [...countries.value];
+});
 
-    if (existing) {
-      map.set(item.code, {
-        ...existing,
-        ...item,
-        i18n: {
-          ...existing.i18n,
-          ...(item.i18n || {}),
-        },
-      });
-    } else {
-      map.set(item.code, {
-        ...item,
-        i18n: {
-          en: item.i18n?.en ?? "",
-          fr: item.i18n?.fr ?? "",
-          th: item.i18n?.th ?? "",
-        },
-      });
-    }
-  });
-  return Array.from(map.values());
-}
-
-watch(
-  selectedCountry,
-  (value: string | number | (string | number)[] | undefined) => {
-    emit("update:modelValue", value ?? null);
-  },
+const countryOptions = computed<SelectOption[]>(() =>
+  mergedCountries.value.map((item) => ({
+    label: item.i18n?.[props.locale] ?? item.i18n.en ?? item.code,
+    value: item.code,
+    ...item,
+  })),
 );
 
-watch(
-  () => props.modelValue,
-  (value) => {
-    selectedCountry.value = value ?? undefined;
-  },
-);
+// Handle v-model updates
+const updateModelValue = (
+  value: string | number | (string | number)[] | undefined,
+) => {
+  emit("update:modelValue", value);
+};
 </script>

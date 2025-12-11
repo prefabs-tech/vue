@@ -68,12 +68,14 @@
     <section>
       <h2>{{ $t("form.label.customData") }}</h2>
       <div class="section-content">
-        <CountryPicker
-          v-model="formData.multiselect"
-          :placeholder="$t('form.placeholder.country')"
-          :overrides="countryOverrides"
-          multiple
-        />
+        <div class="mb-4">
+          <CountryPicker
+            v-model="formData.custom"
+            :placeholder="$t('form.placeholder.country')"
+            :data="data"
+            multiple
+          />
+        </div>
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
@@ -82,7 +84,7 @@
               v-model="input"
               multiple
               placeholder="Select Countries"
-              :overrides="countryOverrides"
+              :data="data"
             /&gt;
           &lt;/template&gt;
 
@@ -92,31 +94,31 @@
 
           const input = ref&lt;string[]&gt;([]);
 
-          const countryOverrides = [
+          const data = [
             {
               code: "US",
               i18n: {
-                en: "United States of America",
+                en: "United States",
                 fr: "États-Unis",
-                th: "สหรัฐอเมริกา",
+                th: "สหรัฐอเมริกา"
               },
             },
             {
               code: "FR",
               i18n: {
-                en: "France (overwritten)",
-                fr: "France (modifié)",
-                th: "ฝรั่งเศส",
+                en: "France",
+                fr: "France",
+                th: "ฝรั่งเศส"
               },
             },
             {
-              code: "XX",
+              code: "JP",
               i18n: {
-                en: "Testland",
-                fr: "Pays Test",
-                th: "ประเทศทดสอบ",
-              },
-            },
+                en: "Japan",
+                fr: "Japon",
+                th: "ญี่ปุ่น"
+              }
+            }
           ];
           &lt;/script&gt;
           </SshPre>
@@ -134,11 +136,12 @@ import { reactive } from "vue";
 import FormPage from "../FormPage.vue";
 
 const formData = reactive({
-  basic: undefined,
-  multiselect: undefined,
+  basic: undefined as string | undefined,
+  multiselect: [] as string[],
+  custom: [] as string[],
 });
 
-const countryOverrides = [
+const data = [
   {
     code: "US",
     i18n: {
@@ -150,9 +153,17 @@ const countryOverrides = [
   {
     code: "FR",
     i18n: {
-      en: "France (overwritten)",
-      fr: "France (modifié)",
+      en: "France",
+      fr: "France",
       th: "ฝรั่งเศส",
+    },
+  },
+  {
+    code: "JP",
+    i18n: {
+      en: "Japan (overwritten)",
+      fr: "Japon",
+      th: "ญี่ปุ่น",
     },
   },
   {
