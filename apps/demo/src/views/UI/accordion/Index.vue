@@ -17,21 +17,63 @@
     <section>
       <h2>{{ $t("ui.accordion.basic") }}</h2>
       <DemoAccordion />
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;Accordion&gt;
+            &lt;div title="Sagittis a curabitur"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam mus id per posuere vivamus"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam a parturient sociosque"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/Accordion&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { Accordion } from "@prefabs.tech/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
     </section>
 
     <section>
       <h2>{{ $t("ui.accordion.separate") }}</h2>
-      <DemoAccordion class="separate" />
-    </section>
+      <DemoAccordion
+        :can-self-collapse="true"
+        :default-index="1"
+        class="separate"
+      />
 
-    <section>
-      <h2>{{ $t("ui.accordion.defaultIndex") }}</h2>
-      <DemoAccordion :default-index="1" />
-    </section>
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;Accordion
+            :can-self-collapse="true"
+            :default-index="1"
+            class="separate"
+          &gt;
+            &lt;div title="Sagittis a curabitur"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam mus id per posuere vivamus"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam a parturient sociosque"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/Accordion&gt;
+        &lt;/template&gt;
 
-    <section>
-      <h2>{{ $t("ui.accordion.can-self-collapse") }}</h2>
-      <DemoAccordion :can-self-collapse="true" />
+        &lt;script setup lang="ts"&gt;
+        import { Accordion } from "@prefabs.tech/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
     </section>
 
     <section>
@@ -40,26 +82,132 @@
         active-icon="pi pi-chevron-up"
         inactive-icon="pi pi-chevron-down"
       />
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;Accordion
+            active-icon="pi pi-chevron-up"
+            inactive-icon="pi pi-chevron-down"
+          &gt;
+            &lt;div title="Sagittis a curabitur"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam mus id per posuere vivamus"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam a parturient sociosque"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/Accordion&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { Accordion } from "@prefabs.tech/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
     </section>
 
     <section>
       <h2>{{ $t("ui.accordion.horizontal.basic") }}</h2>
       <DemoAccordion direction="horizontal" />
-    </section>
 
-    <section>
-      <h2>{{ $t("ui.accordion.horizontal.separate") }}</h2>
-      <DemoAccordion direction="horizontal" class="separate" />
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;Accordion direction="horizontal" &gt;
+            &lt;div title="Sagittis a curabitur"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam mus id per posuere vivamus"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam a parturient sociosque"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/Accordion&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { Accordion } from "@prefabs.tech/vue3-ui";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
     </section>
 
     <section>
       <h2>{{ $t("ui.accordion.icons.css") }}</h2>
       <DemoAccordion class="with-icons" />
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;Accordion class="with-icons"&gt;
+            &lt;div title="Sagittis a curabitur"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam mus id per posuere vivamus"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div title="Diam a parturient sociosque"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/Accordion&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { Accordion } from "@prefabs.tech/vue3-ui";
+        &lt;/script&gt;
+
+        &lt;style lang="css"&gt;
+        .accordion.with-icons &gt; section &gt; header &gt; button &lbrace;
+          background-position: center left;
+          background-repeat: no-repeat;
+        &rbrace;
+
+        .accordion.with-icons &gt; section:first-child &gt; header &gt; button &lbrace;
+          background-image: url("@/assets/svg/number-1.svg");
+        &rbrace;
+
+        .accordion.with-icons &gt; section:nth-child(2) &gt; header &gt; button &lbrace;
+          background-image: url("@/assets/svg/number-2.svg");
+        &rbrace;
+
+        .accordion.with-icons &gt; section:nth-child(3) &gt; header &gt; button &lbrace;
+          background-image: url("@/assets/svg/number-3.svg");
+        &rbrace;
+        &lt;/style&gt;
+      </SshPre>
+      <!-- eslint-enable -->
     </section>
 
     <section>
       <h2>{{ $t("ui.accordion.icons.slot") }}</h2>
       <DemoAccordionWithIcons />
+
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        &lt;template&gt;
+          &lt;Accordion&gt;
+            &lt;div icon="pi pi-home" title="Sagittis a curabitur"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div icon="pi pi-list" title="Diam mus id per posuere vivamus"&gt;
+              ...
+            &lt;/div&gt;
+            &lt;div :icon="h('i', { class: 'pi pi-cog' })" title="Diam a parturient sociosque"&gt;
+              ...
+            &lt;/div&gt;
+          &lt;/Accordion&gt;
+        &lt;/template&gt;
+
+        &lt;script setup lang="ts"&gt;
+        import { Accordion } from "@prefabs.tech/vue3-ui";
+        import { h } from "vue";
+        &lt;/script&gt;
+      </SshPre>
+      <!-- eslint-enable -->
     </section>
 
     <ComponentDocumentation
