@@ -98,7 +98,7 @@
             {
               code: "US",
               i18n: {
-                en: "United States",
+                en: "United States of America",
                 fr: "États-Unis",
                 th: "สหรัฐอเมริกา"
               },
@@ -114,11 +114,19 @@
             {
               code: "JP",
               i18n: {
-                en: "Japan",
+                en: "Japan ",
                 fr: "Japon",
                 th: "ญี่ปุ่น"
               }
-            }
+            },
+            {
+              code: "XX",
+              i18n: {
+                en: "Testland",
+                fr: "Pays Test",
+                th: "ประเทศทดสอบ"
+              }
+            },
           ];
           &lt;/script&gt;
           </SshPre>
