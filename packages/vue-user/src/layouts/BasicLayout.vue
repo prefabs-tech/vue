@@ -91,6 +91,7 @@ const home = computed(() => {
 const router = useRouter();
 
 const routes = computed(() => {
+  const isLoggedIn = !!user.value;
   const menuItems = layoutConfig?.mainMenu ?? [];
 
   return menuItems.filter((item) => {
@@ -100,7 +101,7 @@ const routes = computed(() => {
       return false;
     }
 
-    return !user.value ? !matchedRoute.meta?.authenticated : true;
+    return !isLoggedIn ? !matchedRoute.meta?.authenticated : true;
   }) as MenuItem[];
 });
 
