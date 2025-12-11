@@ -28,7 +28,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "validator": "13.12.0"
+    "validator": "13.15.22"
   },
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.2.0",
