@@ -23,7 +23,7 @@ exports[`Accordion > renders correctly with props 1`] = `
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -48,7 +48,7 @@ exports[`Accordion > renders correctly with props 1`] = `
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -84,7 +84,7 @@ exports[`Accordion > renders correctly with props 1`] = `
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -119,7 +119,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -155,7 +155,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -180,7 +180,7 @@ exports[`Accordion > renders correctly with slot 1`] = `
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"

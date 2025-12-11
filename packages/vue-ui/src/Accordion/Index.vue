@@ -37,7 +37,7 @@
           />
         </button>
       </header>
-      <Transition appear name="expand">
+      <Transition name="expand">
         <div v-if="index === active" class="pane" role="region">
           <component :is="slot" />
         </div>

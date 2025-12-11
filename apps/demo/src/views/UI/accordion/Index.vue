@@ -62,36 +62,6 @@
       <DemoAccordionWithIcons />
     </section>
 
-    <section>
-      <h2>{{ $t("ui.accordion.icons.css") }}</h2>
-      <DemoAccordionWithIcons class="horizontal" />
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.accordion.icons.slot") }}</h2>
-      <DemoAccordionWithIcons class="horizontal show-toggle-icon" />
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.accordion.icons.toggle") }}</h2>
-      <DemoAccordion class="show-toggle-icon custom-toggle-icons" />
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.accordion.slot-without-title") }}</h2>
-      <DemoAccordion>
-        <template #extra-pane>
-          <div>
-            <p>
-              Adipiscing condimentum elit a cum ullamcorper nisi rutrum aptent
-              lacinia vestibulum adipiscing a a vestibulum quis malesuada
-              ullamcorper praesent netus netus mus.
-            </p>
-          </div>
-        </template>
-      </DemoAccordion>
-    </section>
-
     <ComponentDocumentation
       :props-data="propsData"
       :props-table-title="

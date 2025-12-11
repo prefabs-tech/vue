@@ -47,10 +47,6 @@
       </ul>
     </div>
 
-    <div title="component">
-      <TestComponent />
-    </div>
-
     <slot name="extra-pane"></slot>
   </Accordion>
 </template>
@@ -63,8 +59,6 @@ export default {
 
 <script setup lang="ts">
 import { Accordion } from "@prefabs.tech/vue3-ui";
-
-import TestComponent from "./TestComponent.vue";
 
 import type { PropType, VNode } from "vue";
 
