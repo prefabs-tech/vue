@@ -42,8 +42,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.multiselect"
-          :placeholder="$t('form.placeholder.country')"
           multiple
+          :placeholder="$t('form.placeholder.country')"
         />
         <!-- eslint-disable -->
         <SshPre language="html-vue">
@@ -70,9 +70,9 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.custom"
-          :placeholder="$t('form.placeholder.country')"
           :data="data"
           multiple
+          :placeholder="$t('form.placeholder.country')"
         />
 
         <!-- eslint-disable -->
@@ -80,9 +80,9 @@
           &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
+              :data="data"
               multiple
               placeholder="Select Countries"
-              :data="data"
             /&gt;
           &lt;/template&gt;
 
