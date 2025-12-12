@@ -74,9 +74,13 @@
   user-select: none;
 }
 
-.multiselect:focus-visible,
-.multiselect:not(.invalid, .valid) > .multiselect-input.focused,
-.multiselect:not(.invalid, .valid) > .multiselect-input:focus {
+.multiselect:focus-visible {
+  outline: none;
+}
+
+.multiselect:focus-visible > .multiselect-input,
+.multiselect:not(.invalid, .valid, :focus-visible) > .multiselect-input.focused,
+.multiselect:not(.invalid, .valid, :focus-visible) > .multiselect-input:focus {
   border: 1px solid var(--dz-primary-color);
   border-radius: var(--_border-radius);
   outline: none;
@@ -162,6 +166,11 @@
   --_multiselect-placeholder-color: var(--form-input-placeholder-color, #555);
 
   color: var(--_multiselect-placeholder-color);
+}
+
+.multiselect .multiselect-placeholder:empty:before {
+  content: "\00A0";
+  display: inline-block;
 }
 
 .multiselect.valid .multiselect-input {
