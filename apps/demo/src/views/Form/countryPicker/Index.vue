@@ -80,9 +80,9 @@
           &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
+              :data="data"
               multiple
               placeholder="Select Countries"
-              :data="data"
             /&gt;
           &lt;/template&gt;
 
