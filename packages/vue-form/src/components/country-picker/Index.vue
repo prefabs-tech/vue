@@ -61,7 +61,9 @@ const countries = ref(countriesData);
 
 const mergedCountries = computed<CountryOption[]>(() => {
   if (props.data.length > 0) {
-    const countryMap = new Map(countries.value.map((c) => [c.code, c]));
+    const countryMap = new Map(
+      countries.value.map((country) => [country.code, country]),
+    );
     props.data.forEach((item) => {
       const existingCountry = countryMap.get(item.code);
 
