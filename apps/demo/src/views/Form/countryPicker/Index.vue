@@ -19,7 +19,7 @@
         />
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;template&gt;
+         &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
               :placeholder="Select a country"
@@ -42,16 +42,16 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.multiselect"
-          multiple
           :placeholder="$t('form.placeholder.country')"
+          multiple
         />
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-           &lt;template&gt;
+          &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
+              :placeholder="Select Countries"
               multiple
-              placeholder="Select Countries"
             /&gt;
           &lt;/template&gt;
 
@@ -71,18 +71,18 @@
         <CountryPicker
           v-model="formData.custom"
           :data="data"
-          multiple
           :placeholder="$t('form.placeholder.country')"
+          multiple
         />
 
         <!-- eslint-disable -->
-       <SshPre language="html-vue">
-          &lt;template&gt;
+        <SshPre language="html-vue">
+                &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
               :data="data"
+              :placeholder="Select Countries"
               multiple
-              placeholder="Select Countries"
             /&gt;
           &lt;/template&gt;
 
@@ -125,7 +125,7 @@
             },
           ];
           &lt;/script&gt;
-          </SshPre>
+        </SshPre>
         <!-- eslint-enable -->
       </div>
     </section>
