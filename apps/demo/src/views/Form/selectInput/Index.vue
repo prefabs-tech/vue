@@ -171,6 +171,45 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.disableSearch") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.disableSearchInput"
+          :options="options"
+          :placeholder="$t('form.placeholder.country')"
+          disable-search
+        />
+
+        <!-- eslint-disable -->
+         <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput
+              v-model="input"
+              :options="options"
+              disable-search
+              placeholder="Select a country"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@prefabs.tech/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.withLabelValueKeys") }}</h2>
 
       <div class="section-content">
@@ -845,6 +884,7 @@ let formData = reactive({
   customLabelSelect: ref(),
   disabled: ref("NP"),
   disabledMultiselect: ref(["FR", "NP"]),
+  disableSearchInput: ref(),
   disabledSortInput: ref(),
   groupingSelect: ref(),
   i18nSelect: ref(),

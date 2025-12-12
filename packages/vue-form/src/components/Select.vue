@@ -19,7 +19,11 @@
       @click="toggleDropdown"
     >
       <DebouncedInput
-        v-if="(!selectedOptions.length || showDropdownMenu) && !disabled"
+        v-if="
+          (!selectedOptions.length || showDropdownMenu) &&
+          !disabled &&
+          !disableSearch
+        "
         ref="dzangolabVueSearchInput"
         v-model="searchInput"
         :placeholder="placeholder"
@@ -250,6 +254,7 @@ const props = defineProps({
     type: Boolean,
   },
   disableGroupSelect: Boolean,
+  disableSearch: Boolean,
   enableCustomSearch: Boolean,
   enableTooltip: {
     default: true,

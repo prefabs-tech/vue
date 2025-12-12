@@ -18,6 +18,7 @@
         }"
         :custom-search-helper-text="customSearchHelperText"
         :disabled="disabled"
+        :disable-search="disableSearch"
         :enable-custom-search="enableCustomSearch"
         :enable-tooltip="enableTooltip"
         :has-sorted-options="hasSortedOptions"
@@ -87,6 +88,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
+  disableSearch: Boolean,
   enableCustomSearch: Boolean,
   enableTooltip: {
     default: true,
