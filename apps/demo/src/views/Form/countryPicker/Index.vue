@@ -70,8 +70,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.custom"
-          :placeholder="$t('form.placeholder.country')"
           :data="data"
+          :placeholder="$t('form.placeholder.country')"
           multiple
         />
 
