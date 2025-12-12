@@ -22,7 +22,7 @@
          &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
-              :placeholder="Select a country"
+              placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
                   
@@ -50,8 +50,8 @@
           &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
-              :placeholder="Select Countries"
               multiple
+              placeholder="Select Countries"
             /&gt;
           &lt;/template&gt;
 
@@ -81,8 +81,8 @@
             &lt;CountryPicker
               v-model="input"
               :data="data"
-              :placeholder="Select Countries"
               multiple
+              placeholder="Select Countries"
             /&gt;
           &lt;/template&gt;
 
