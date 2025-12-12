@@ -15,17 +15,15 @@ exports[`Accordion > renders correctly with props 1`] = `
         tabindex="0"
         type="button"
       >
-        <img
-          class="icon"
-          style="display: none;"
-        />
+        <!---->
         <span>
           Subpane 1
         </span>
+        <!---->
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -42,17 +40,15 @@ exports[`Accordion > renders correctly with props 1`] = `
         tabindex="0"
         type="button"
       >
-        <img
-          class="icon"
-          style="display: none;"
-        />
+        <!---->
         <span>
           Subpane 2
         </span>
+        <!---->
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -80,17 +76,15 @@ exports[`Accordion > renders correctly with props 1`] = `
         tabindex="0"
         type="button"
       >
-        <img
-          class="icon"
-          style="display: none;"
-        />
+        <!---->
         <span>
           Subpane 3
         </span>
+        <!---->
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -117,17 +111,15 @@ exports[`Accordion > renders correctly with slot 1`] = `
         tabindex="0"
         type="button"
       >
-        <img
-          class="icon"
-          style="display: none;"
-        />
+        <!---->
         <span>
           Subpane 1
         </span>
+        <!---->
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -155,17 +147,15 @@ exports[`Accordion > renders correctly with slot 1`] = `
         tabindex="0"
         type="button"
       >
-        <img
-          class="icon"
-          style="display: none;"
-        />
+        <!---->
         <span>
           Subpane 2
         </span>
+        <!---->
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"
@@ -182,17 +172,15 @@ exports[`Accordion > renders correctly with slot 1`] = `
         tabindex="0"
         type="button"
       >
-        <img
-          class="icon"
-          style="display: none;"
-        />
+        <!---->
         <span>
           Subpane 3
         </span>
+        <!---->
       </button>
     </header>
     <transition-stub
-      appear="true"
+      appear="false"
       css="true"
       name="expand"
       persisted="false"

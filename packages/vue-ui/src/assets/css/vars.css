@@ -71,4 +71,6 @@
   --stepper-number-border-color: var(--border-color, #e5e7eb);
   --stepper-label-color: #6b7280;
   --stepper-label-active-color: #000000;
+
+  --transition-duration: 150ms;
 }

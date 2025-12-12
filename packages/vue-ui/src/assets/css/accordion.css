@@ -63,6 +63,7 @@
 }
 
 .accordion > section > header > button > span {
+  flex-grow: 1;
   text-align: left;
 }
 
@@ -106,34 +107,6 @@
   writing-mode: vertical-lr;
 }
 
-.accordion.horizontal > section[data-expanded="true"] > header > button > .toggle {
-  background-image: url("@/assets/svg/chevron-left.svg");
-}
-
-.accordion.show-toggle-icon > section > header > button {
-  background-image: url("@/assets/svg/chevron-down.svg");
-  background-position: calc(100% - var(--_gap)) center;
-  background-repeat: no-repeat;
-  background-size: var(--_icon-height);
-  padding-right: calc(var(--_padding) + var(--_icon-height) + var(--_gap));
-  padding-top: var(--_padding); 
-}
-
-.accordion.show-toggle-icon > section[data-expanded="true"] > header > button {
-  background-image: url("@/assets/svg/chevron-up.svg");
-}
-
-.accordion.horizontal.show-toggle-icon > section > header > button {
-  background-image: url("@/assets/svg/chevron-right.svg");
-  background-position: center var(--_gap);
-  padding-right: var(--_padding); 
-  padding-top: calc(var(--_padding) + var(--_icon-height) + var(--_gap));
-}
-
-.accordion.horizontal.show-toggle-icon > section[data-expanded="true"] > header > button {
-  background-image: url("@/assets/svg/chevron-left.svg");
-}
-
 .accordion.separate {
   border: none;
   gap: var(--_gap);
@@ -144,20 +117,37 @@
   border-radius: var(--_border-radius);
 }
 
-.expand-enter-active {
-  overflow: hidden;
-  transition: max-height 1s ease-in-out;
+.accordion.vertical .expand-enter-active,
+.accordion.vertical .expand-leave-active {
+  transition: max-height var(--transition-duration, 150ms) ease;
 }
 
-.expand-leave-active {
-  overflow: hidden;
-  /* transition: max-height 0.25s cubic-bezier(0, 1, 0, 1); */
-}
-
-.expand-enter-from, .expand-leave-to {
+.accordion.vertical .expand-enter-from, .accordion.vertical .expand-leave-to {
   max-height: 0;
 }
 
-.expand-enter-to, .expand-leave-from {
+.accordion.vertical .expand-enter-to, .accordion.vertical .expand-leave-from {
   max-height: 1000px;
+}
+
+.accordion.horizontal .expand-enter-active,
+.accordion.horizontal .expand-leave-active {
+  transition: max-width var(--transition-duration, 150ms) ease, opacity var(--transition-duration, 150ms) ease;
+}
+
+.accordion.horizontal .expand-enter-from, .accordion.horizontal .expand-leave-to {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.accordion.horizontal .expand-enter-to, .accordion.horizontal .expand-leave-from {
+  max-width: 100dvh;
+  opacity: 1;
+  overflow-y: auto;
+}
+
+.accordion.horizontal .pane{
+  height: 30rem;
+  overflow-y: auto;
 }

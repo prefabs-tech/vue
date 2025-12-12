@@ -1,6 +1,6 @@
 <template>
   <Accordion>
-    <div :icon="Number1Icon" title="Sagittis a curabitur">
+    <div icon="pi pi-home" title="Sagittis a curabitur">
       <p>
         A viverra adipiscing consequat vel non potenti ac vel consectetur
         tristique a integer suspendisse condimentum. Id donec cum aliquet a orci
@@ -14,7 +14,7 @@
       </p>
     </div>
 
-    <div :icon="Number2Icon" title="Diam mus id per posuere vivamus">
+    <div icon="pi pi-list" title="Diam mus id per posuere vivamus">
       <p>
         Libero ultrices vestibulum adipiscing enim venenatis lobortis ipsum a
         nam scelerisque condimentum sociis ligula parturient posuere enim a.
@@ -34,7 +34,10 @@
       </p>
     </div>
 
-    <div :icon="Number3Icon" title="Diam a parturient sociosque">
+    <div
+      :icon="h('i', { class: 'pi pi-cog' })"
+      title="Diam a parturient sociosque"
+    >
       <p>
         Potenti lacus suscipit in ac adipiscing consectetur suspendisse dui
         aliquam egestas scelerisque porttitor nullam ad a elementum dignissim
@@ -57,8 +60,5 @@ export default {
 
 <script setup lang="ts">
 import { Accordion } from "@prefabs.tech/vue3-ui";
-
-import Number1Icon from "../../../assets/svg/number-1.svg";
-import Number2Icon from "../../../assets/svg/number-2.svg";
-import Number3Icon from "../../../assets/svg/number-3.svg";
+import { h } from "vue";
 </script>
