@@ -187,8 +187,8 @@
             &lt;SelectInput
               v-model="input"
               :options="options"
-              placeholder="Select a country"
               disable-search
+              placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
 
