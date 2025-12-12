@@ -65,14 +65,26 @@ const countries = ref(countriesData);
 
 const mergedCountries = computed<CountryOption[]>(() => {
   if (props.data.length > 0) {
-    return props.data.map((item) => ({
-      code: item.code,
-      i18n: {
-        en: item.i18n?.en || "",
-        fr: item.i18n?.fr || "",
-        th: item.i18n?.th || "",
-      },
-    }));
+    const countryMap = new Map(countries.value.map((c) => [c.code, c]));
+    props.data.forEach((item) => {
+      const existingCountry = countryMap.get(item.code);
+
+      if (existingCountry) {
+        const mergedI18n = {
+          ...existingCountry.i18n,
+          ...item.i18n,
+        };
+
+        const mergedCountry = {
+          ...existingCountry,
+          ...item,
+          i18n: mergedI18n,
+        };
+        countryMap.set(item.code, mergedCountry);
+      }
+    });
+
+    return Array.from(countryMap.values());
   }
 
   return [...countries.value];

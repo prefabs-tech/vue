@@ -19,7 +19,7 @@
         />
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-         &lt;template&gt;
+          &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
               :placeholder="Select a country"
@@ -47,7 +47,7 @@
         />
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;template&gt;
+           &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
               multiple
@@ -68,17 +68,15 @@
     <section>
       <h2>{{ $t("form.label.customData") }}</h2>
       <div class="section-content">
-        <div class="mb-4">
-          <CountryPicker
-            v-model="formData.custom"
-            :placeholder="$t('form.placeholder.country')"
-            :data="data"
-            multiple
-          />
-        </div>
+        <CountryPicker
+          v-model="formData.custom"
+          :placeholder="$t('form.placeholder.country')"
+          :data="data"
+          multiple
+        />
 
         <!-- eslint-disable -->
-        <SshPre language="html-vue">
+       <SshPre language="html-vue">
           &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
@@ -99,8 +97,6 @@
               code: "US",
               i18n: {
                 en: "United States of America",
-                fr: "États-Unis",
-                th: "สหรัฐอเมริกา"
               },
             },
             {
@@ -130,7 +126,7 @@
           ];
           &lt;/script&gt;
           </SshPre>
-          <!-- eslint-enable -->
+        <!-- eslint-enable -->
       </div>
     </section>
   </FormPage>
@@ -161,9 +157,7 @@ const data = [
   {
     code: "FR",
     i18n: {
-      en: "France",
-      fr: "France",
-      th: "ฝรั่งเศส",
+      th: "France override",
     },
   },
   {
