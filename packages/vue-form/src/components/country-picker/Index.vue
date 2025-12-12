@@ -20,6 +20,12 @@ import countriesData from "./countries.json";
 
 import type { CountryOption, SelectOption } from "../../types";
 const props = defineProps({
+  data: {
+    default: () => [],
+    type: Array as PropType<
+      { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
+    >,
+  },
   locale: {
     default: "en",
     type: String as PropType<"en" | "fr" | "th">,
@@ -37,12 +43,6 @@ const props = defineProps({
   name: {
     default: "country",
     type: String,
-  },
-  data: {
-    default: () => [],
-    type: Array as PropType<
-      { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
-    >,
   },
   placeholder: {
     default: undefined,
