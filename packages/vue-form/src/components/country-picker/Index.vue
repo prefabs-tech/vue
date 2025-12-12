@@ -48,10 +48,6 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
-  value: {
-    default: undefined,
-    type: [String, Number] as PropType<string | number | undefined>,
-  },
 });
 
 const emit = defineEmits<{
@@ -81,6 +77,8 @@ const mergedCountries = computed<CountryOption[]>(() => {
           i18n: mergedI18n,
         };
         countryMap.set(item.code, mergedCountry);
+      } else {
+        countryMap.set(item.code, item as CountryOption);
       }
     });
 
