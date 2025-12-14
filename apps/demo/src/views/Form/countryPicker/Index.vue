@@ -19,19 +19,10 @@
         />
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;CountryPicker
-              v-model="input"
-              :placeholder="Select a country"
-            /&gt;
-          &lt;/template&gt;
-                  
-          &lt;script setup lang="ts"&gt;
-          import { CountryPicker } from '@prefabs.tech/vue3-form';
-          import { ref } from 'vue';
-                  
-          const input = ref();
-          &lt;/script&gt;
+          &lt;template&gt; &lt;CountryPicker v-model="input" placeholder="Select
+          a country" /&gt; &lt;/template&gt; &lt;script setup lang="ts"&gt;
+          import { CountryPicker } from '@prefabs.tech/vue3-form'; import { ref
+          } from 'vue'; const input = ref(); &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
       </div>
@@ -47,20 +38,11 @@
         />
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-           &lt;template&gt;
-            &lt;CountryPicker
-              v-model="input"
-              multiple
-              placeholder="Select Countries"
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { CountryPicker } from "@prefabs.tech/vue3-form";
-          import { ref } from "vue";
-
-          const input = ref();
-          &lt;/script&gt;
+          &lt;template&gt; &lt;CountryPicker v-model="input" multiple
+          placeholder="Select Countries" /&gt; &lt;/template&gt; &lt;script
+          setup lang="ts"&gt; import { CountryPicker } from
+          "@prefabs.tech/vue3-form"; import { ref } from "vue"; const input =
+          ref(); &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
       </div>
@@ -71,61 +53,22 @@
         <CountryPicker
           v-model="formData.custom"
           :data="data"
-          multiple
           :placeholder="$t('form.placeholder.country')"
+          multiple
         />
 
         <!-- eslint-disable -->
-       <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;CountryPicker
-              v-model="input"
-              :data="data"
-              multiple
-              placeholder="Select Countries"
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { CountryPicker } from "@prefabs.tech/vue3-form";
-          import { ref } from "vue";
-
-          const input = ref&lt;string[]&gt;([]);
-
-          const data = [
-            {
-              code: "US",
-              i18n: {
-                en: "United States of America",
-              },
-            },
-            {
-              code: "FR",
-              i18n: {
-                en: "France",
-                fr: "France",
-                th: "ฝรั่งเศส"
-              },
-            },
-            {
-              code: "JP",
-              i18n: {
-                en: "Japan ",
-                fr: "Japon",
-                th: "ญี่ปุ่น"
-              }
-            },
-            {
-              code: "XX",
-              i18n: {
-                en: "Testland",
-                fr: "Pays Test",
-                th: "ประเทศทดสอบ"
-              }
-            },
-          ];
-          &lt;/script&gt;
-          </SshPre>
+        <SshPre language="html-vue">
+          &lt;template&gt; &lt;CountryPicker v-model="input" :data="data"
+          multiple placeholder="Select Countries" /&gt; &lt;/template&gt;
+          &lt;script setup lang="ts"&gt; import { CountryPicker } from
+          "@prefabs.tech/vue3-form"; import { ref } from "vue"; const input =
+          ref&lt;string[]&gt;([]); const data = [ { code: "US", i18n: { en:
+          "United States of America", }, }, { code: "FR", i18n: { en: "France",
+          fr: "France", th: "ฝรั่งเศส" }, }, { code: "JP", i18n: { en: "Japan ",
+          fr: "Japon", th: "ญี่ปุ่น" } }, { code: "XX", i18n: { en: "Testland",
+          fr: "Pays Test", th: "ประเทศทดสอบ" } }, ]; &lt;/script&gt;
+        </SshPre>
         <!-- eslint-enable -->
       </div>
     </section>
