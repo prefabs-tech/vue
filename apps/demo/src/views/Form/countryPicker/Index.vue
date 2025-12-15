@@ -1,7 +1,7 @@
 <template>
   <FormPage
-    :title="$t('form.countryPicker.title')"
-    :subtitle="$t('form.countryPicker.subtitle')"
+    :subtitle="$t('form.subtitle.countryPicker')"
+    :title="$t('form.label.countryPicker')"
   >
     <template #toolbar>
       <ButtonElement
@@ -206,42 +206,44 @@ const propsColumns = [
 const propsData = [
   {
     default: "[]",
-    description: t("form.countryPicker.propsData.data"),
+    description: t("form.documentation.propsDescription.input.data"),
     id: 1,
     prop: "data",
     type: "Data[]",
   },
   {
     default: "en",
-    description: t("form.countryPicker.propsData.locale"),
+    description: t(
+      "form.documentation.propsDescription.input.countryPickerlocale",
+    ),
     id: 2,
     prop: "locale",
     type: "String",
   },
   {
     default: "-",
-    description: t("form.countryPicker.propsData.modelValue"),
+    description: t("form.documentation.propsDescription.input.modelValue"),
     id: 3,
     prop: "modelValue",
     type: "String | Number | Array<String|Number> | undefined",
   },
   {
     default: "false",
-    description: t("form.countryPicker.propsData.multiple"),
+    description: t("form.documentation.propsDescription.input.multiple"),
     id: 4,
     prop: "multiple",
     type: "Boolean",
   },
   {
     default: "-",
-    description: t("form.countryPicker.propsData.name"),
+    description: t("form.documentation.propsDescription.input.name"),
     id: 5,
     prop: "name",
     type: "String",
   },
   {
     default: "-",
-    description: t("form.countryPicker.propsData.placeholder"),
+    description: t("form.documentation.propsDescription.input.placeholder"),
     id: 6,
     prop: "placeholder",
     type: "String",
@@ -267,7 +269,7 @@ const eventsData = [
   {
     name: "update:modelValue",
     payload: "string | number | (string | number)[] | undefined",
-    description: t("form.countryPicker.event.updateModelValue"),
+    description: t("form.documentation.eventDescription.input.modelValue"),
   },
 ];
 const formData = reactive({
