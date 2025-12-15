@@ -88,7 +88,7 @@
           }
         },
         "messages": {
-          "success": "You have successfully changed your password."
+          "success": "You have changed your password successfully."
         },
         "title": "Change password"
       },
@@ -124,7 +124,7 @@
         "signup": {
           "messages": {
             "error": "Error signing up first user",
-            "success": "Succefully added first user. Automatically logging in ..."
+            "success": "First user added successfully. Automatically logging in ..."
           }
         }
       },
@@ -560,7 +560,7 @@
           }
         },
         "messages": {
-          "success": "You have successfully changed your password."
+          "success": "You have changed your password successfully."
         },
         "title": "Change password"
       },
@@ -596,7 +596,7 @@
         "signup": {
           "messages": {
             "error": "Error signing up first user",
-            "success": "Succefully added first user. Automatically logging in ..."
+            "success": "First user added successfully. Automatically logging in ..."
           }
         }
       },
