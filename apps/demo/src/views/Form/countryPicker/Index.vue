@@ -206,16 +206,14 @@ const propsColumns = [
 const propsData = [
   {
     default: "[]",
-    description: t("form.documentation.propsDescription.input.data"),
+    description: t("form.documentation.propsDescription.Selector.data"),
     id: 1,
     prop: "data",
     type: "Data[]",
   },
   {
     default: "en",
-    description: t(
-      "form.documentation.propsDescription.input.countryPickerlocale",
-    ),
+    description: t("form.documentation.propsDescription.Selector.locale"),
     id: 2,
     prop: "locale",
     type: "String",
@@ -229,7 +227,7 @@ const propsData = [
   },
   {
     default: "false",
-    description: t("form.documentation.propsDescription.input.multiple"),
+    description: t("form.documentation.propsDescription.Selector.multiple"),
     id: 4,
     prop: "multiple",
     type: "Boolean",

@@ -10,18 +10,20 @@
     },
     "propsDescription": {
       "input": {
-        "countryPickerlocale":"Determines which translated name to display. (e.g., 'en', 'fr', 'th').",
-        "data":"Custom country data to overwrite existing countries or add new ones.",
         "disabled": "If true, the input will be disabled and non-interactive.",
         "errorMessages": "Custom error messages for validation.",
         "label": "Text label to display above the input field.",
         "modelValue": "The current value of the input (v-model support).",
-        "multiple": "Enable multiple country selection when set to true.",
         "name": "Name attribute for the input field and validation.",
         "options": "Options for input validation using validator.js.",
         "placeholder": "Placeholder text for the input field.",
         "schema": "Custom Zod schema for validation.",
         "type": "HTML input type (text, password, email, etc.)."
+      },
+      "Selector": {
+        "data": "Custom data to overwrite existing items or add new ones.",
+        "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th').",
+        "multiple": "Enable multiple selection when set to true."
       },
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",
@@ -232,7 +234,7 @@
   "submittedValue": "Submitted value",
   "subtitle": {
     "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
-    "countryPicker": "Country Picker is a reusable component for selecting single or multiple countries with internationalization support and search functionality. ",
+    "countryPicker": "Country picker is a reusable component for selecting single or multiple countries with internationalization support and search functionality. ",
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
     "input": "A versatile form input component with validation support using Zod and vee-validate",
     "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
