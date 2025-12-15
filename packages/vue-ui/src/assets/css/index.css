@@ -15,7 +15,3 @@
 @import "./tooltip.css";
 @import "./typography.css";
 @import "./youtube-facade.css";
-
-p {
-  padding-bottom: 0.5rem;
-}

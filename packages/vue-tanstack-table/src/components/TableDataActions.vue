@@ -33,12 +33,16 @@
         @on:confirm="onConfirmAction"
       >
         <template v-if="selectedConfirmationOptions?.header" #header>
-          <p v-if="typeof selectedConfirmationOptions?.header === 'string'">
+          <p
+            v-if="typeof selectedConfirmationOptions?.header === 'string'"
+            class="title"
+          >
             {{ selectedConfirmationOptions?.header }}
           </p>
           <component
             :is="selectedConfirmationOptions?.header"
             v-else
+            class="title"
           ></component>
         </template>
 

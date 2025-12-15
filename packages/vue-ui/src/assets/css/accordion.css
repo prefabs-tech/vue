@@ -107,6 +107,10 @@
   writing-mode: vertical-lr;
 }
 
+.accordion p {
+  padding-bottom: 0.5rem;
+}
+
 .accordion.separate {
   border: none;
   gap: var(--_gap);
