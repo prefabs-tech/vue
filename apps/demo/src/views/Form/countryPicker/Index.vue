@@ -130,7 +130,9 @@
       </div>
     </section>
     <section>
-      <h2>{{ $t("common.properties", { value: "DataProperties" }) }}</h2>
+      <h2>
+        {{ $t("common.properties", { value: "Country Picker Properties" }) }}
+      </h2>
 
       <Table
         :columns-data="propsColumns"
@@ -174,6 +176,9 @@ import { CountryPicker } from "@prefabs.tech/vue3-form";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 import FormPage from "../FormPage.vue";
 const propsColumns = [
@@ -198,44 +203,42 @@ const propsColumns = [
 const propsData = [
   {
     default: "[]",
-    description:
-      "Custom country data to overwrite existing countries or add new ones.",
+    description: t("form.countryPicker.propsData.data"),
     id: 1,
     prop: "data",
     type: "Data[]",
   },
   {
     default: "en",
-    description:
-      "Determines which translated name to display. (e.g., 'en', 'fr', 'th').",
+    description: t("form.countryPicker.propsData.locale"),
     id: 2,
-    prop: "locale",
+    prop: "locle",
     type: "String",
   },
   {
     default: "-",
-    description: "The selected country code(s). Used with v-model..",
+    description: t("form.countryPicker.propsData.modelValue"),
     id: 3,
     prop: "modelValue",
     type: "String | Number | Array<String|Number> | undefined",
   },
   {
     default: "false",
-    description: "Enable multiple country selection when set to true.",
+    description: t("form.countryPicker.propsData.multiple"),
     id: 4,
     prop: "multiple",
     type: "Boolean",
   },
   {
     default: "-",
-    description: "The name attribute for the input field.",
+    description: t("form.countryPicker.propsData.name"),
     id: 5,
     prop: "name",
     type: "String",
   },
   {
     default: "-",
-    description: "Placeholder text when no country is selected.",
+    description: t("form.countryPicker.propsData.placeholder"),
     id: 6,
     prop: "placeholder",
     type: "String",
@@ -261,7 +264,7 @@ const eventsData = [
   {
     name: "update:modelValue",
     payload: "string | number | (string | number)[] | undefined",
-    description: "Emitted whenever the user selects a country.",
+    description: t("form.countryPicker.event.updateModelValue"),
   },
 ];
 const formData = reactive({

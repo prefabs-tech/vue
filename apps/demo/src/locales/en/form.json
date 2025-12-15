@@ -2,6 +2,19 @@
   "actions": {
     "submit": "Submit"
   },
+  "countryPicker": {
+    "event": {
+      "updateModelValue": "Emitted whenever the user selects a country."
+    },
+    "propsData": {
+      "data": "Custom country data to overwrite existing countries or add new ones.",
+      "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th').",
+      "modelValue": "The current value of the country picker (v-model support).",
+      "multiple": "Enable multiple country selection when set to true.",
+      "name": "Name attribute for the input field.",
+      "placeholder": "Search or select a country"
+    }
+  },
   "documentation": {
     "eventDescription": {
       "input": {
