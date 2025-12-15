@@ -267,9 +267,9 @@ const eventsColumns = [
 
 const eventsData = [
   {
+    description: t("form.documentation.eventDescription.input.modelValue"),
     name: "update:modelValue",
     payload: "string | number | (string | number)[] | undefined",
-    description: t("form.documentation.eventDescription.input.modelValue"),
   },
 ];
 const formData = reactive({
