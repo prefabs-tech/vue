@@ -134,7 +134,7 @@
     </section>
     <section>
       <h2>
-        {{ $t("common.properties", { value: "Country Picker Properties" }) }}
+        {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
       </h2>
 
       <Table
@@ -215,7 +215,7 @@ const propsData = [
     default: "en",
     description: t("form.countryPicker.propsData.locale"),
     id: 2,
-    prop: "locle",
+    prop: "locale",
     type: "String",
   },
   {
