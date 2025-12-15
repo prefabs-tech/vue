@@ -3,8 +3,6 @@
     "submit": "Submit"
   },
   "countryPicker": {
-    "title": "Country Picker",
-    "subtitle": "Country Picker is a reusable component for selecting single or multiple countries with internationalization support and search functionality. ",
     "event": {
       "updateModelValue": "Emitted whenever the user selects a country."
     },
@@ -15,7 +13,9 @@
       "multiple": "Enable multiple country selection when set to true.",
       "name": "Name attribute for the input field.",
       "placeholder": "Placeholder text for the country picker."
-    }
+    },
+    "subtitle": "Country Picker is a reusable component for selecting single or multiple countries with internationalization support and search functionality. ",
+    "title": "Country Picker"
   },
   "documentation": {
     "eventDescription": {
