@@ -201,7 +201,7 @@ const propsData = [
       "Custom country data to overwrite existing countries or add new ones.",
     id: 1,
     prop: "data",
-    type: "CountryOption[]",
+    type: "Data[]",
   },
   {
     default: "en",
