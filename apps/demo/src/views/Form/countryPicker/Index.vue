@@ -18,8 +18,8 @@
           :placeholder="$t('form.placeholder.country')"
         />
         <!-- eslint-disable -->
-         <SshPre language="html-vue">
-          &lt;template&gt;
+        <SshPre language="html-vue">
+         &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
               placeholder="Select a country"
@@ -33,7 +33,7 @@
           const input = ref();
           &lt;/script&gt;
         </SshPre>    
-            <!-- eslint-enable -->
+         <!-- eslint-enable -->
       </div>
     </section>
     <section>
