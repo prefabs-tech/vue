@@ -42,7 +42,6 @@
           <component
             :is="selectedConfirmationOptions?.header"
             v-else
-            class="title"
           ></component>
         </template>
 
