@@ -1,5 +1,8 @@
 <template>
-  <FormPage :title="$t('form.label.countryPicker')">
+  <FormPage
+    :title="$t('form.countryPicker.title')"
+    :subtitle="$t('form.countryPicker.subtitle')"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
