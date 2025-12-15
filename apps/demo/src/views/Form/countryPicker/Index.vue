@@ -1,5 +1,8 @@
 <template>
-  <FormPage :title="$t('form.label.countryPicker')">
+  <FormPage
+    :subtitle="$t('form.subtitle.countryPicker')"
+    :title="$t('form.label.countryPicker')"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -32,8 +35,8 @@
                   
           const input = ref();
           &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
+        </SshPre>    
+         <!-- eslint-enable -->
       </div>
     </section>
     <section>
@@ -77,7 +80,7 @@
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-                &lt;template&gt;
+          &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
               :data="data"
@@ -129,16 +132,144 @@
         <!-- eslint-enable -->
       </div>
     </section>
+    <section>
+      <h2>
+        {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
+      </h2>
+
+      <Table
+        :columns-data="propsColumns"
+        :data="propsData"
+        :paginated="false"
+        :persist-state="false"
+      />
+    </section>
+    <section>
+      <h2>{{ $t("common.events") }}</h2>
+
+      <Table
+        :columns-data="eventsColumns"
+        :data="eventsData"
+        :paginated="false"
+        :persist-state="false"
+      />
+    </section>
+    <section>
+      <h2>{{ $t("common.type") }}</h2>
+      <div class="section-content">
+        <!-- eslint-disable -->
+          <SshPre language="html-vue">
+           interface Data {
+            code: string;
+            i18n: {
+              en: string;
+              fr: string;
+              th: string;
+            };
+          }
+          </SshPre>
+          <!-- eslint-enable -->
+      </div>
+    </section>
   </FormPage>
 </template>
 
 <script setup lang="ts">
 import { CountryPicker } from "@prefabs.tech/vue3-form";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 import FormPage from "../FormPage.vue";
+const propsColumns = [
+  {
+    accessorKey: "prop",
+    header: "Property",
+  },
+  {
+    accessorKey: "type",
+    header: "Type",
+  },
+  {
+    accessorKey: "default",
+    header: "Default",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
 
+const propsData = [
+  {
+    default: "[]",
+    description: t("form.documentation.propsDescription.Selector.data"),
+    id: 1,
+    prop: "data",
+    type: "Data[]",
+  },
+  {
+    default: "en",
+    description: t("form.documentation.propsDescription.Selector.locale"),
+    id: 2,
+    prop: "locale",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    id: 3,
+    prop: "modelValue",
+    type: "String | Number | Array<String|Number> | undefined",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.Selector.multiple"),
+    id: 4,
+    prop: "multiple",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.name"),
+    id: 5,
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    id: 6,
+    prop: "placeholder",
+    type: "String",
+  },
+];
+
+const eventsColumns = [
+  {
+    accessorKey: "name",
+    header: "Name",
+  },
+  {
+    accessorKey: "payload",
+    header: "Payload",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "string | number | (string | number)[] | undefined",
+  },
+];
 const formData = reactive({
   basic: undefined as string | undefined,
   multiselect: [] as string[],
