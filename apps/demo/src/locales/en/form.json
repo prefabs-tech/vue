@@ -20,8 +20,8 @@
         "schema": "Custom Zod schema for validation.",
         "type": "HTML input type (text, password, email, etc.)."
       },
-      "Selector": {
-        "data": "Custom data to overwrite existing items or add new ones.",
+      "Select": {
+        "data": "Custom data to overwrite existing items or add new one.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th').",
         "multiple": "Enable multiple selection when set to true."
       },
@@ -142,6 +142,7 @@
     "germany": "Germany",
     "getStarted": "Get started",
     "iconSlot": "Icon slot",
+    "include": "Include",
     "india": "India",
     "input": "Input",
     "inputWithType": "With type prop",

@@ -133,6 +133,39 @@
       </div>
     </section>
     <section>
+      <h2>{{ $t("form.label.include") }}</h2>
+      <div class="section-content">
+        <p>Only show specific countries in the dropdown:</p>
+        <CountryPicker
+          v-model="formData.includedCountries"
+          :include="includedCountries"
+          :placeholder="$t('form.placeholder.country')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;CountryPicker
+              v-model="selectedCountries"
+              :include="countriesToInclude"
+              multiple
+              placeholder="Select Countries"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { CountryPicker } from "@prefabs.tech/vue3-form";
+          import { ref } from "vue";
+
+          const selectedCountries = ref&lt;string[]&gt;([]);
+          const countriesToInclude = ['US', 'CA', 'GB', 'AU'];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
       <h2>
         {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
       </h2>
@@ -274,7 +307,10 @@ const formData = reactive({
   basic: undefined as string | undefined,
   multiselect: [] as string[],
   custom: [] as string[],
+  includedCountries: [],
 });
+
+const includedCountries = ["US", "CA", "FR", "AU", "NP"];
 
 const data = [
   {
