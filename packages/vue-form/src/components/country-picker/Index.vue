@@ -68,14 +68,17 @@ const emit = defineEmits<{
 const countries = ref(countriesData);
 
 const mergedCountries = computed<CountryOption[]>(() => {
-  if (props.include.length > 0) {
-    const includeSet = new Set(props.include);
-    return countries.value.filter((country) => includeSet.has(country.code));
-  }
+  let result =
+    props.include.length > 0
+      ? countries.value.filter((country) =>
+          new Set(props.include).has(country.code),
+        )
+      : [...countries.value];
 
+  // Apply exclude filter to the current result
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
-    return countries.value.filter((country) => !excludeSet.has(country.code));
+    result = result.filter((country) => !excludeSet.has(country.code));
   }
 
   if (props.data.length > 0) {
@@ -105,7 +108,7 @@ const mergedCountries = computed<CountryOption[]>(() => {
     return Array.from(countryMap.values());
   }
 
-  return [...countries.value];
+  return result;
 });
 
 const countryOptions = computed<SelectOption[]>(() =>
