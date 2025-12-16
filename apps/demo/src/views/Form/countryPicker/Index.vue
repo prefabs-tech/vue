@@ -25,7 +25,7 @@
          &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
-              placeholder="Select a country"
+              placeholder="$t('form.placeholder.country')"
             /&gt;
           &lt;/template&gt;
                   
@@ -45,7 +45,7 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.multiselect"
-          :placeholder="$t('form.placeholder.country')"
+          :placeholder="$t('form.placeholder.countries')"
           multiple
         />
         <!-- eslint-disable -->
@@ -54,7 +54,7 @@
             &lt;CountryPicker
               v-model="input"
               multiple
-              placeholder="Select Countries"
+              placeholder="$t('form.placeholder.countries')"
             /&gt;
           &lt;/template&gt;
 
@@ -74,7 +74,7 @@
         <CountryPicker
           v-model="formData.custom"
           :data="data"
-          :placeholder="$t('form.placeholder.country')"
+          :placeholder="$t('form.placeholder.countries')"
           multiple
         />
 
@@ -85,7 +85,7 @@
               v-model="input"
               :data="data"
               multiple
-              placeholder="Select Countries"
+              placeholder="$t('form.placeholder.countries')"
             /&gt;
           &lt;/template&gt;
 
@@ -118,15 +118,46 @@
                 th: "ญี่ปุ่น"
               }
             },
-            {
+             {
               code: "XX",
               i18n: {
-                en: "Testland",
-                fr: "Pays Test",
-                th: "ประเทศทดสอบ"
-              }
+                en: "New Country(en)",
+                fr: "New Country(fr)",
+                th: "New Country(th)",
+              },
             },
           ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
+      <h2>{{ $t("form.label.include") }}</h2>
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.includedCountries"
+          :include="includedCountries"
+          :placeholder="$t('form.placeholder.countries')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;CountryPicker
+              v-model="input"
+              :include="includedCountries"
+              multiple
+              placeholder="$t('form.placeholder.countries')"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { CountryPicker } from "@prefabs.tech/vue3-form";
+          import { ref } from "vue";
+
+          const includedCountries = ['US', 'CA', 'FR', 'AU','NP'];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -206,14 +237,14 @@ const propsColumns = [
 const propsData = [
   {
     default: "[]",
-    description: t("form.documentation.propsDescription.Selector.data"),
+    description: t("form.documentation.propsDescription.select.data"),
     id: 1,
     prop: "data",
     type: "Data[]",
   },
   {
     default: "en",
-    description: t("form.documentation.propsDescription.Selector.locale"),
+    description: t("form.documentation.propsDescription.select.locale"),
     id: 2,
     prop: "locale",
     type: "String",
@@ -227,7 +258,7 @@ const propsData = [
   },
   {
     default: "false",
-    description: t("form.documentation.propsDescription.Selector.multiple"),
+    description: t("form.documentation.propsDescription.select.multiple"),
     id: 4,
     prop: "multiple",
     type: "Boolean",
@@ -272,9 +303,12 @@ const eventsData = [
 ];
 const formData = reactive({
   basic: undefined as string | undefined,
-  multiselect: [] as string[],
   custom: [] as string[],
+  multiselect: [] as string[],
+  includedCountries: [],
 });
+
+const includedCountries = ["US", "CA", "FR", "AU", "NP"];
 
 const data = [
   {
@@ -302,9 +336,9 @@ const data = [
   {
     code: "XX",
     i18n: {
-      en: "Testland",
-      fr: "Pays Test",
-      th: "ประเทศทดสอบ",
+      fr: "New Country(fr)",
+      th: "New Country(th)",
+      en: "New Country(en)",
     },
   },
 ];
