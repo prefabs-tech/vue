@@ -20,7 +20,7 @@
         "schema": "Custom Zod schema for validation.",
         "type": "HTML input type (text, password, email, etc.)."
       },
-      "Select": {
+      "select": {
         "data": "Custom data to overwrite existing items or add new one.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th').",
         "multiple": "Enable multiple selection when set to true."
