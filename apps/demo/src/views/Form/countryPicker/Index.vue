@@ -25,7 +25,7 @@
          &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
-              placeholder="Select a country"
+              placeholder="$t('form.placeholder.country')"
             /&gt;
           &lt;/template&gt;
                   
@@ -54,7 +54,7 @@
             &lt;CountryPicker
               v-model="input"
               multiple
-              placeholder="Select Countries"
+              placeholder="$t('form.placeholder.country')"
             /&gt;
           &lt;/template&gt;
 
@@ -85,7 +85,7 @@
               v-model="input"
               :data="data"
               multiple
-              placeholder="Select Countries"
+              placeholder="$t('form.placeholder.country')"
             /&gt;
           &lt;/template&gt;
 
@@ -118,13 +118,13 @@
                 th: "ญี่ปุ่น"
               }
             },
-            {
+             {
               code: "XX",
               i18n: {
-                en: "Testland",
-                fr: "Pays Test",
-                th: "ประเทศทดสอบ"
-              }
+                en: "Newcountry(en)",
+                fr: "Newcountry(fr)",
+                th: "Newcountry(th)",
+              },
             },
           ];
           &lt;/script&gt;
@@ -135,7 +135,6 @@
     <section>
       <h2>{{ $t("form.label.include") }}</h2>
       <div class="section-content">
-        <p>Only show specific countries in the dropdown:</p>
         <CountryPicker
           v-model="formData.includedCountries"
           :include="includedCountries"
@@ -147,10 +146,10 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;CountryPicker
-              v-model="selectedCountries"
+              v-model="input"
               :include="countriesToInclude"
               multiple
-              placeholder="Select Countries"
+              placeholder="$t('form.placeholder.country')"
             /&gt;
           &lt;/template&gt;
 
@@ -158,8 +157,7 @@
           import { CountryPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
-          const selectedCountries = ref&lt;string[]&gt;([]);
-          const countriesToInclude = ['US', 'CA', 'GB', 'AU'];
+          const countriesToInclude = ['US', 'CA', 'FR', 'AU','NP'];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -239,14 +237,14 @@ const propsColumns = [
 const propsData = [
   {
     default: "[]",
-    description: t("form.documentation.propsDescription.Selector.data"),
+    description: t("form.documentation.propsDescription.Select.data"),
     id: 1,
     prop: "data",
     type: "Data[]",
   },
   {
     default: "en",
-    description: t("form.documentation.propsDescription.Selector.locale"),
+    description: t("form.documentation.propsDescription.Select.locale"),
     id: 2,
     prop: "locale",
     type: "String",
@@ -260,7 +258,7 @@ const propsData = [
   },
   {
     default: "false",
-    description: t("form.documentation.propsDescription.Selector.multiple"),
+    description: t("form.documentation.propsDescription.Select.multiple"),
     id: 4,
     prop: "multiple",
     type: "Boolean",
@@ -305,8 +303,8 @@ const eventsData = [
 ];
 const formData = reactive({
   basic: undefined as string | undefined,
-  multiselect: [] as string[],
   custom: [] as string[],
+  multiselect: [] as string[],
   includedCountries: [],
 });
 
@@ -338,9 +336,9 @@ const data = [
   {
     code: "XX",
     i18n: {
-      en: "Testland",
-      fr: "Pays Test",
-      th: "ประเทศทดสอบ",
+      en: "Newcountry(en)",
+      fr: "Newcountry(fr)",
+      th: "Newcountry(th)",
     },
   },
 ];
