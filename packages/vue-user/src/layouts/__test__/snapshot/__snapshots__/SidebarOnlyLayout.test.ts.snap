@@ -3,7 +3,6 @@
 exports[`SidebarOnlyLayout > matches snapshot 1`] = `
 <div
   class="layout sidebar-only"
-  no-footer="false"
 >
   <div
     class="sidebar collapsible layout-sidebar"
