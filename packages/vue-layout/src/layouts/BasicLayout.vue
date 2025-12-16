@@ -28,19 +28,21 @@
       <slot name="default"></slot>
     </main>
 
-    <slot name="footer">
-      <AppFooter>
-        <template #copyright>
-          <slot name="copyright" />
-        </template>
-        <template #social>
-          <slot name="social" />
-        </template>
-        <template #version>
-          <slot name="version" />
-        </template>
-      </AppFooter>
-    </slot>
+    <template v-if="!noFooter">
+      <slot name="footer">
+        <AppFooter>
+          <template #copyright>
+            <slot name="copyright" />
+          </template>
+          <template #social>
+            <slot name="social" />
+          </template>
+          <template #version>
+            <slot name="version" />
+          </template>
+        </AppFooter>
+      </slot>
+    </template>
   </div>
 </template>
 
@@ -57,6 +59,7 @@ import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
 
 defineProps({
+  noFooter: Boolean,
   noLocaleSwitcher: Boolean,
 });
 

@@ -2,6 +2,7 @@
 
 exports[`BasicLayout > matches snapshot 1`] = `
 <basic-layout-stub
+  nofooter="false"
   nolocaleswitcher="false"
 />
 `;

@@ -3,6 +3,7 @@
     ref="prefabsTechLayout"
     :collapsible="collapsible"
     :menu="menu"
+    :no-footer="noFooter"
     :no-locale-switcher="noLocaleSwitcher"
     :no-sidebar="noSidebar"
     :user-menu-location="userMenuLocation"
@@ -67,6 +68,7 @@ defineProps({
     default: true,
     type: Boolean,
   },
+  noFooter: Boolean,
   noLocaleSwitcher: Boolean,
   noSidebar: Boolean,
   showUserMenu: {

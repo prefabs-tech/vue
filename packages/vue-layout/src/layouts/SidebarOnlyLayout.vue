@@ -21,7 +21,7 @@
         </slot>
       </template>
 
-      <template #footer>
+      <template v-if="!noFooter" #footer>
         <AppFooter />
       </template>
     </Sidebar>
@@ -50,6 +50,7 @@ defineProps({
     required: true,
     type: Array as PropType<SidebarMenu[]>,
   },
+  noFooter: Boolean,
   noLocaleSwitcher: Boolean,
   noHeader: {
     default: false,
