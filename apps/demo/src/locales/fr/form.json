@@ -21,7 +21,7 @@
         "type": "HTML input type (text, password, email, etc.)."
       },
       "select": {
-        "data": "Override default items or append new ones with custom data",
+        "data": "Override default items or append new one with custom data",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th').",
         "multiple": "Enable multiple selection when set to true."
       },
