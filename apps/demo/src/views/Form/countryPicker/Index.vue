@@ -74,7 +74,7 @@
         <CountryPicker
           v-model="formData.custom"
           :data="data"
-          :placeholder="$t('form.placeholder.country')"
+          :placeholder="$t('form.placeholder.countries')"
           multiple
         />
 
@@ -85,7 +85,7 @@
               v-model="input"
               :data="data"
               multiple
-              placeholder="$t('form.placeholder.country')"
+              placeholder="$t('form.placeholder.countries')"
             /&gt;
           &lt;/template&gt;
 
@@ -121,9 +121,9 @@
              {
               code: "XX",
               i18n: {
-                en: "New country(en)",
-                fr: "New country(fr)",
-                th: "New country(th)",
+                en: "New Country(en)",
+                fr: "New Country(fr)",
+                th: "New Country(th)",
               },
             },
           ];
@@ -138,7 +138,7 @@
         <CountryPicker
           v-model="formData.includedCountries"
           :include="includedCountries"
-          :placeholder="$t('form.placeholder.country')"
+          :placeholder="$t('form.placeholder.countries')"
           multiple
         />
 
@@ -147,9 +147,9 @@
           &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
-              :include="countriesToInclude"
+              :include="includedCountries"
               multiple
-              placeholder="$t('form.placeholder.country')"
+              placeholder="$t('form.placeholder.countries')"
             /&gt;
           &lt;/template&gt;
 
@@ -157,7 +157,7 @@
           import { CountryPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
-          const countriesToInclude = ['US', 'CA', 'FR', 'AU','NP'];
+          const includedCountries = ['US', 'CA', 'FR', 'AU','NP'];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
