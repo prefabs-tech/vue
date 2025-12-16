@@ -68,14 +68,12 @@ const emit = defineEmits<{
 const countries = ref(countriesData);
 
 const mergedCountries = computed<CountryOption[]>(() => {
-  let result =
-    props.include.length > 0
-      ? countries.value.filter((country) =>
-          new Set(props.include).has(country.code),
-        )
-      : [...countries.value];
+  let result = [...countries.value];
+  if (props.include.length > 0) {
+    const includeSet = new Set(props.include);
+    result = result.filter((country) => includeSet.has(country.code));
+  }
 
-  // Apply exclude filter to the current result
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
     result = result.filter((country) => !excludeSet.has(country.code));
