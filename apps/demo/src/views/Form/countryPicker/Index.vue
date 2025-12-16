@@ -45,7 +45,7 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.multiselect"
-          :placeholder="$t('form.placeholder.country')"
+          :placeholder="$t('form.placeholder.countries')"
           multiple
         />
         <!-- eslint-disable -->
@@ -54,7 +54,7 @@
             &lt;CountryPicker
               v-model="input"
               multiple
-              placeholder="$t('form.placeholder.country')"
+              placeholder="$t('form.placeholder.countries')"
             /&gt;
           &lt;/template&gt;
 
@@ -121,9 +121,9 @@
              {
               code: "XX",
               i18n: {
-                en: "Newcountry(en)",
-                fr: "Newcountry(fr)",
-                th: "Newcountry(th)",
+                en: "New country(en)",
+                fr: "New country(fr)",
+                th: "New country(th)",
               },
             },
           ];
@@ -237,14 +237,14 @@ const propsColumns = [
 const propsData = [
   {
     default: "[]",
-    description: t("form.documentation.propsDescription.Select.data"),
+    description: t("form.documentation.propsDescription.select.data"),
     id: 1,
     prop: "data",
     type: "Data[]",
   },
   {
     default: "en",
-    description: t("form.documentation.propsDescription.Select.locale"),
+    description: t("form.documentation.propsDescription.select.locale"),
     id: 2,
     prop: "locale",
     type: "String",
@@ -258,7 +258,7 @@ const propsData = [
   },
   {
     default: "false",
-    description: t("form.documentation.propsDescription.Select.multiple"),
+    description: t("form.documentation.propsDescription.select.multiple"),
     id: 4,
     prop: "multiple",
     type: "Boolean",
@@ -336,9 +336,9 @@ const data = [
   {
     code: "XX",
     i18n: {
-      en: "Newcountry(en)",
-      fr: "Newcountry(fr)",
-      th: "Newcountry(th)",
+      en: "New country(en)",
+      fr: "New country(fr)",
+      th: "New country(th)",
     },
   },
 ];
