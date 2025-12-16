@@ -26,6 +26,10 @@ const props = defineProps({
       { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
     >,
   },
+  exclude: {
+    type: Array as PropType<string[]>,
+    default: () => [],
+  },
   include: {
     type: Array as PropType<string[]>,
     default: () => [],
@@ -68,6 +72,12 @@ const mergedCountries = computed<CountryOption[]>(() => {
     const includeSet = new Set(props.include);
     return countries.value.filter((country) => includeSet.has(country.code));
   }
+
+  if (props.exclude.length > 0) {
+    const excludeSet = new Set(props.exclude);
+    return countries.value.filter((country) => !excludeSet.has(country.code));
+  }
+
   if (props.data.length > 0) {
     const countryMap = new Map(
       countries.value.map((country) => [country.code, country]),

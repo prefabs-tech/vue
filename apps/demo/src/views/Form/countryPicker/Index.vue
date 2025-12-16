@@ -164,6 +164,37 @@
       </div>
     </section>
     <section>
+      <h2>{{ $t("form.label.exclude") }}</h2>
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.excludedCountries"
+          :exclude="excludedCountries"
+          :placeholder="$t('form.placeholder.countries')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;CountryPicker
+              v-model="input"
+              :exclude="excludedCountries"
+              multiple
+              placeholder="$t('form.placeholder.countries')"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { CountryPicker } from "@prefabs.tech/vue3-form";
+          import { ref } from "vue";
+
+          const excludedCountries = [ "US","CA", "FR","AU","NP","IN","GE","GH","HK","IR"];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
       <h2>
         {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
       </h2>
@@ -307,7 +338,18 @@ const formData = reactive({
   multiselect: [] as string[],
   includedCountries: [],
 });
-
+const excludedCountries = [
+  "US",
+  "CA",
+  "FR",
+  "AU",
+  "NP",
+  "IN",
+  "GE",
+  "GH",
+  "HK",
+  "IR",
+];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];
 
 const data = [
