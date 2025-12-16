@@ -336,9 +336,9 @@ const data = [
   {
     code: "XX",
     i18n: {
-      en: "New country(en)",
-      fr: "New country(fr)",
-      th: "New country(th)",
+      fr: "New Country(fr)",
+      th: "New Country(th)",
+      en: "New Country(en)",
     },
   },
 ];
