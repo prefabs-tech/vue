@@ -1,5 +1,9 @@
 <template>
-  <Layout :menu="menu" :no-locale-switcher="noLocaleSwitcher">
+  <Layout
+    :menu="menu"
+    :no-footer="noFooter"
+    :no-locale-switcher="noLocaleSwitcher"
+  >
     <template #userMenu>
       <UserMenu v-if="showUserMenu" :user-menu-items="userMenuItems">
         <template v-if="$slots.userMenuTrigger" #userMenuTrigger>
@@ -44,6 +48,7 @@ import useUserStore from "../store";
 import type { MenuItem, SidebarMenu } from "@prefabs.tech/vue3-layout";
 
 defineProps({
+  noFooter: Boolean,
   noLocaleSwitcher: Boolean,
   showUserMenu: {
     default: true,

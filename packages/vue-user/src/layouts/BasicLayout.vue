@@ -1,5 +1,8 @@
 <template>
-  <OriginalBasicLayout :aria-expanded="appHeader?.expanded">
+  <OriginalBasicLayout
+    :aria-expanded="appHeader?.expanded"
+    :no-footer="noFooter"
+  >
     <template #header>
       <AppHeader
         ref="appHeader"
@@ -62,6 +65,7 @@ import useUserStore from "../store";
 import type { MenuItem } from "@prefabs.tech/vue3-layout";
 
 defineProps({
+  noFooter: Boolean,
   noLocaleSwitcher: Boolean,
   showUserMenu: {
     default: true,
