@@ -771,8 +771,8 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.customSelectedLabelSelect"
-          :options="options"
           :label="$t('form.label.country')"
+          :options="options"
           :placeholder="$t('form.placeholder.country')"
           multiple
         >
