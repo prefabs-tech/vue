@@ -390,12 +390,12 @@ const nepaliCountries = [
 ];
 
 const formData = reactive({
-  basic: "",
-  multiselect: [],
-  disabled: "",
-  readonly: "",
-  excludedCountries: [],
+  basic: undefined as string | undefined,
+  custom: [] as string[],
   customLocale: [],
+  excludedCountries: [],
+  includedCountries: [],
+  multiselect: [] as string[],
 });
 const excludedCountries = ["US", "AU"];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];
