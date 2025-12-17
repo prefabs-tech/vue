@@ -69,10 +69,36 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const countries = ref(countriesData);
-
+const countries = ref<CountryOption[]>(countriesData as CountryOption[]);
 const mergedCountries = computed<CountryOption[]>(() => {
   let result = [...countries.value];
+
+  if (props.data.length > 0) {
+    const countryMap = new Map(
+      result.map((country) => [country.code, country]),
+    );
+
+    props.data.forEach((item) => {
+      const existingCountry = countryMap.get(item.code);
+
+      if (existingCountry) {
+        countryMap.set(item.code, {
+          ...existingCountry,
+          i18n: {
+            ...existingCountry.i18n,
+            ...item.i18n,
+          },
+        });
+      } else {
+        countryMap.set(item.code, {
+          code: item.code,
+          i18n: item.i18n ?? {},
+        });
+      }
+    });
+
+    result = Array.from(countryMap.values());
+  }
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
     result = result.filter((country) => includeSet.has(country.code));
@@ -81,33 +107,6 @@ const mergedCountries = computed<CountryOption[]>(() => {
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
     result = result.filter((country) => !excludeSet.has(country.code));
-  }
-
-  if (props.data.length > 0) {
-    const countryMap = new Map(
-      countries.value.map((country) => [country.code, country]),
-    );
-    props.data.forEach((item) => {
-      const existingCountry = countryMap.get(item.code);
-
-      if (existingCountry) {
-        const mergedI18n = {
-          ...existingCountry.i18n,
-          ...item.i18n,
-        };
-
-        const mergedCountry = {
-          ...existingCountry,
-          ...item,
-          i18n: mergedI18n,
-        };
-        countryMap.set(item.code, mergedCountry);
-      } else {
-        countryMap.set(item.code, item as CountryOption);
-      }
-    });
-
-    return Array.from(countryMap.values());
   }
 
   return result;

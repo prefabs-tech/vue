@@ -4,12 +4,7 @@ interface CurrencyOption extends SelectOption {
 }
 interface CountryOption {
   code: string;
-  i18n: {
-    en: string;
-    fr: string;
-    th: string;
-    [key: string]: string;
-  };
+  i18n: Record<string, string>;
 }
 interface EmailErrorMessages {
   invalid?: string;
