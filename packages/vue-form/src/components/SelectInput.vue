@@ -52,8 +52,8 @@
           <slot :name="option.label"></slot>
         </template>
 
-        <template v-if="$slots.selection" #selection>
-          <slot name="selection" />
+        <template v-if="$slots.selection" #selection="{ selectedLabels }">
+          <slot name="selection" :selected-labels="selectedLabels" />
         </template>
       </MultiSelect>
       <ErrorMessage :name="name" />

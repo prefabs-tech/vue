@@ -357,7 +357,7 @@
           v-model="formData.selectExtensive"
           :label="$t('form.label.country')"
           :options="countries"
-          :placeholder="$t('form.placeholder.countries')"
+          :placeholder="$t('form.placeholder.country')"
         />
 
         <!-- eslint-disable -->
@@ -367,7 +367,7 @@
               v-model="input"
               :options="countries"
               label="Country"
-              placeholder="Select countries"
+              placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
 
@@ -390,7 +390,7 @@
           v-model="formData.groupingSelect"
           :label="$t('form.label.country')"
           :options="groupedOptions"
-          :placeholder="$t('form.placeholder.countries')"
+          :placeholder="$t('form.placeholder.country')"
         />
 
         <!-- eslint-disable -->
@@ -400,7 +400,7 @@
               v-model="input"
               :options="options"
               label="Country"
-              placeholder="Select countries"
+              placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
 
@@ -701,7 +701,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.customLabel") }}</h2>
+      <h2>{{ $t("form.label.customOptionLabel") }}</h2>
 
       <div class="section-content">
         <SelectInput
@@ -728,8 +728,8 @@
           &lt;template&gt;
             &lt;SelectInput 
               v-model="input"
-              :options="options"
               :label="t('form.label.country')"
+              :options="options"
               :placeholder="t('form.placeholder.country')"
               multiple
             &gt;
@@ -741,6 +741,70 @@
                   &lt;i class="pi pi-user" /&gt;
                   &lbrace;&lbrace; option.label &rbrace;&rbrace;
                 &lt;/span&gt;
+              &lt;/template&gt;
+            &lt;/SelectInput&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@prefabs.tech/vue3-form";
+          import { ref } from "vue";
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
+
+          const { t } = useI18n();
+
+          const options = ref([
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.customSelectedLabel") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.customSelectedLabelSelect"
+          :options="options"
+          :label="$t('form.label.country')"
+          :placeholder="$t('form.placeholder.country')"
+          multiple
+        >
+          <template #selection="{ selectedLabels }">
+            <div class="selected-labels">
+              <BadgeComponent
+                v-for="(label, index) in selectedLabels"
+                :key="`custom-selected-label-${index}`"
+                :label="label"
+              />
+            </div>
+          </template>
+        </SelectInput>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :label="t('form.label.country')"
+              :options="options"
+              :placeholder="t('form.placeholder.country')"
+              multiple
+            &gt;
+              &lt;template #selection="{ selectedLabels }"&gt;
+               &lt;div class="selected-labels"&gt;
+                  &lt;BadgeComponent
+                    v-for="(label, index) in selectedLabels" 
+                    :key="`custom-selected-label-${index}`"
+                    :label="label"
+                  /&gt;
+                &lt;/div&gt;
               &lt;/template&gt;
             &lt;/SelectInput&gt;
           &lt;/template&gt;
@@ -864,7 +928,7 @@ export default {
 <script setup lang="ts">
 import { Form, SelectInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { ButtonElement } from "@prefabs.tech/vue3-ui";
+import { BadgeComponent, ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
@@ -881,6 +945,7 @@ const inputSchema = z
   .min(1, { message: t("form.errors.multiselect.invalid") });
 
 let formData = reactive({
+  customSelectedLabelSelect: ref([]),
   customLabelSelect: ref(),
   disabled: ref("NP"),
   disabledMultiselect: ref(["FR", "NP"]),
