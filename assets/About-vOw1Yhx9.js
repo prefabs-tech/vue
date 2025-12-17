@@ -1,1 +1,0 @@
-import{_ as o,J as n,e as a,o as s}from"./index-BsbuyGkK.js";const c={name:"About"};function r(t,p,_,l,u,i){const e=n("Page");return s(),a(e,{title:t.$t("about.title")},null,8,["title"])}const m=o(c,[["render",r]]);export{m as default};
