@@ -1,6 +1,7 @@
 <template>
   <div class="country-picker">
     <SelectInput
+      :locale="locale"
       :model-value="modelValue"
       :multiple="multiple"
       :name="name"
@@ -23,7 +24,10 @@ const props = defineProps({
   data: {
     default: () => [],
     type: Array as PropType<
-      { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
+      {
+        code: string;
+        i18n?: Record<string, string>;
+      }[]
     >,
   },
   exclude: {
@@ -36,7 +40,7 @@ const props = defineProps({
   },
   locale: {
     default: "en",
-    type: String as PropType<"en" | "fr" | "th">,
+    type: String as PropType<string>,
   },
   modelValue: {
     default: undefined,

@@ -198,6 +198,52 @@
       </div>
     </section>
     <section>
+      <h2>{{ $t("form.label.customLocale") }}</h2>
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.customLocale"
+          :placeholder="$t('form.placeholder.countries')"
+          locale="np"
+          :data="nepaliCountries"
+          :include="['NP', 'US', 'CN', 'GB', 'IN']"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;div class="nepali-example"&gt;
+              &lt;CountryPicker
+                v-model="nepaliValue"
+                :label="$t('form.label.country')"
+                name="countryPickerNepali"
+                locale="np"
+                :placeholder="$t('form.placeholder.countries')"
+                :include="['NP', 'US', 'CN', 'GB', 'IN']"
+                :data="nepaliCountries"
+              /&gt;
+            &lt;/div&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ref } from 'vue';
+          
+          const nepaliValue = ref('');
+          const nepaliCountries = [
+            { code: 'NP', i18n: { np: 'नेपाल' } },
+            { code: 'US', i18n: { np: 'संयुक्त राज्य अमेरिका' } },
+            { code: 'CN', i18n: { np: 'चीन' } },
+            { code: 'GB', i18n: { np: 'बेलायत' } },
+            { code: 'IN', i18n: { np: 'भारत' } },
+          ];
+          &lt;/script&gt;
+
+        
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
       <h2>
         {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
       </h2>
@@ -335,11 +381,21 @@ const eventsData = [
     payload: "string | number | (string | number)[] | undefined",
   },
 ];
+const nepaliCountries = [
+  { code: "NP", i18n: { np: "नेपाल" } },
+  { code: "US", i18n: { np: "संयुक्त राज्य अमेरिका" } },
+  { code: "CN", i18n: { np: "चीन" } },
+  { code: "GB", i18n: { np: "बेलायत" } },
+  { code: "IN", i18n: { np: "भारत" } },
+];
+
 const formData = reactive({
-  basic: undefined as string | undefined,
-  custom: [] as string[],
-  multiselect: [] as string[],
-  includedCountries: [],
+  basic: "",
+  multiselect: [],
+  disabled: "",
+  readonly: "",
+  excludedCountries: [],
+  customLocale: [],
 });
 const excludedCountries = ["US", "AU"];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];

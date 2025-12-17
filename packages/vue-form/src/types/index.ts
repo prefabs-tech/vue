@@ -8,6 +8,7 @@ interface CountryOption {
     en: string;
     fr: string;
     th: string;
+    [key: string]: string;
   };
 }
 interface EmailErrorMessages {
