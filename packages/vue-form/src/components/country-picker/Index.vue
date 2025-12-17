@@ -26,9 +26,13 @@ const props = defineProps({
       { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
     >,
   },
-  include: {
-    type: Array as PropType<string[]>,
+  exclude: {
     default: () => [],
+    type: Array as PropType<string[]>,
+  },
+  include: {
+    default: () => [],
+    type: Array as PropType<string[]>,
   },
   locale: {
     default: "en",
@@ -64,10 +68,17 @@ const emit = defineEmits<{
 const countries = ref(countriesData);
 
 const mergedCountries = computed<CountryOption[]>(() => {
+  let result = [...countries.value];
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
-    return countries.value.filter((country) => includeSet.has(country.code));
+    result = result.filter((country) => includeSet.has(country.code));
   }
+
+  if (props.exclude.length > 0) {
+    const excludeSet = new Set(props.exclude);
+    result = result.filter((country) => !excludeSet.has(country.code));
+  }
+
   if (props.data.length > 0) {
     const countryMap = new Map(
       countries.value.map((country) => [country.code, country]),
@@ -95,7 +106,7 @@ const mergedCountries = computed<CountryOption[]>(() => {
     return Array.from(countryMap.values());
   }
 
-  return [...countries.value];
+  return result;
 });
 
 const countryOptions = computed<SelectOption[]>(() =>
