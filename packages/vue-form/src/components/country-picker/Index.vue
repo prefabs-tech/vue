@@ -27,12 +27,12 @@ const props = defineProps({
     >,
   },
   exclude: {
-    type: Array as PropType<string[]>,
     default: () => [],
+    type: Array as PropType<string[]>,
   },
   include: {
-    type: Array as PropType<string[]>,
     default: () => [],
+    type: Array as PropType<string[]>,
   },
   locale: {
     default: "en",

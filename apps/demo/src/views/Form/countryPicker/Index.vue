@@ -168,8 +168,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.excludedCountries"
-          :include="includedCountries"
           :exclude="excludedCountries"
+          :include="includedCountries"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -179,8 +179,8 @@
           &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
-              :include="includedCountries"
               :exclude="excludedCountries"
+              :include="includedCountries"
               multiple
               placeholder="$t('form.placeholder.countries')"
             /&gt;
