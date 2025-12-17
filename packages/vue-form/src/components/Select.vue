@@ -40,7 +40,10 @@
             :is="enableTooltip ? Tooltip : 'div'"
             class="selected-options"
           >
-            <slot name="selection">
+            <slot
+              :selected-labels="selectedOptions?.map((option) => option.label)"
+              name="selection"
+            >
               {{ selectedLabels }}
             </slot>
 
@@ -104,7 +107,10 @@
             :is="enableTooltip ? Tooltip : 'div'"
             class="selected-options"
           >
-            <slot name="selection">
+            <slot
+              :selected-labels="selectedOptions?.map((option) => option.label)"
+              name="selection"
+            >
               {{ selectedLabels }}
             </slot>
 
