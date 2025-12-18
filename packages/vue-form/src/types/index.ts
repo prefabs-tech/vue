@@ -11,7 +11,6 @@ interface CountryOption {
     [key: string]: string;
   };
 }
-
 interface EmailErrorMessages {
   invalid?: string;
   required?: string;
