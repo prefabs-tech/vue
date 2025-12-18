@@ -21,11 +21,11 @@
         "type": "HTML input type (text, password, email, etc.)."
       },
       "select": {
-        "data": "Custom data to overwrite existing items or add new one.(fr)",
+        "data": "Custom country data to overwrite existing items or add new one.",
         "exclude": "An array of country codes to remove from the list.",
-        "include": "Array of country codes to show in the dropdown (e.g., ['US', 'CA', 'NP']). If specified, only these countries will be displayed.",
+        "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
-        "multiple": "Enable multiple selection when set to true."
+        "multiple": "If true, allows selecting multiple countries."
       },
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",

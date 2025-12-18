@@ -360,15 +360,8 @@ const propsData = [
   },
   {
     default: "-",
-    description: t("form.documentation.propsDescription.input.name"),
-    id: 7,
-    prop: "name",
-    type: "String",
-  },
-  {
-    default: "-",
     description: t("form.documentation.propsDescription.input.placeholder"),
-    id: 8,
+    id: 7,
     prop: "placeholder",
     type: "String",
   },
