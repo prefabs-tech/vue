@@ -326,7 +326,7 @@ const propsData = [
     description: t("form.documentation.propsDescription.select.data"),
     id: 1,
     prop: "data",
-    type: "Data[]",
+    type: "CountryOption[]",
   },
   {
     default: "[]",
