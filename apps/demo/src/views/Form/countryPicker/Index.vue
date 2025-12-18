@@ -202,26 +202,24 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.customLocale"
+          :data="nepaliCountries"
+          :include="['NP', 'US', 'CN', 'GB', 'PK', 'IN', 'LK', 'BD', 'AF']"
           :placeholder="$t('form.placeholder.countries')"
           locale="np"
-          :data="nepaliCountries"
-          :include="['NP', 'US', 'CN', 'GB', 'IN', 'LK', 'PK', 'BD', 'AF']"
           multiple
         />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;div class="nepali-example"&gt;
               &lt;CountryPicker
                 v-model="nepaliValue"
-                :label="$t('form.label.country')"
-                locale="np"
-                :placeholder="$t('form.placeholder.countries')"
-                :include="['NP', 'US', 'CN', 'GB', 'IN','LK', 'PK','BD','AF']"
                 :data="nepaliCountries"
+                :include="['NP', 'US', 'CN', 'GB', 'IN', 'PK','LK','BD','AF']"
+                locale="np"
+                multiple
+                placeholder="$t('form.placeholder.countries')"
               /&gt;
-            &lt;/div&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -235,8 +233,8 @@
             { code: 'GB', i18n: { np: 'बेलायत' } },
             { code: 'IN', i18n: { np: 'भारत' } },
             { code: "PK", i18n: { np: "पाकिस्तान" } },
-            { code: "BD", i18n: { np: "बंगलादेश" } },
             { code: "LK", i18n: { np: "श्रीलंका" } },
+            { code: "BD", i18n: { np: "बंगलादेश" } },
             { code: "AF", i18n: { np: "अफगानिस्तान" } },
           ];
           &lt;/script&gt;
@@ -326,37 +324,51 @@ const propsData = [
     type: "Data[]",
   },
   {
+    default: "-",
+    description: t("form.documentation.propsDescription.select.exclude"),
+    id: 2,
+    prop: "exclude",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.select.include"),
+    id: 3,
+    prop: "include",
+    type: "String",
+  },
+  {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
-    id: 2,
+    id: 4,
     prop: "locale",
     type: "String",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.modelValue"),
-    id: 3,
+    id: 5,
     prop: "modelValue",
     type: "String | Number | Array<String|Number> | undefined",
   },
   {
     default: "false",
     description: t("form.documentation.propsDescription.select.multiple"),
-    id: 4,
+    id: 6,
     prop: "multiple",
     type: "Boolean",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.name"),
-    id: 5,
+    id: 7,
     prop: "name",
     type: "String",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.placeholder"),
-    id: 6,
+    id: 8,
     prop: "placeholder",
     type: "String",
   },
@@ -391,8 +403,8 @@ const nepaliCountries = [
   { code: "GB", i18n: { np: "बेलायत" } },
   { code: "IN", i18n: { np: "भारत" } },
   { code: "PK", i18n: { np: "पाकिस्तान" } },
-  { code: "BD", i18n: { np: "बंगलादेश" } },
   { code: "LK", i18n: { np: "श्रीलंका" } },
+  { code: "BD", i18n: { np: "बंगलादेश" } },
   { code: "AF", i18n: { np: "अफगानिस्तान" } },
 ];
 
