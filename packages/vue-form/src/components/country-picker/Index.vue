@@ -92,7 +92,12 @@ const mergedCountries = computed<CountryOption[]>(() => {
       } else {
         countryMap.set(item.code, {
           code: item.code,
-          i18n: item.i18n ?? {},
+          i18n: {
+            en: item.i18n?.en || item.code,
+            fr: item.i18n?.fr || item.code,
+            th: item.i18n?.th || item.code,
+            ...(item.i18n || {}),
+          },
         });
       }
     });
