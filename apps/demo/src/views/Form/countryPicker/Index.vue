@@ -205,7 +205,7 @@
           :placeholder="$t('form.placeholder.countries')"
           locale="np"
           :data="nepaliCountries"
-          :include="['NP', 'US', 'CN', 'GB', 'IN']"
+          :include="['NP', 'US', 'CN', 'GB', 'IN', 'LK', 'PK', 'BD', 'AF']"
           multiple
         />
 
@@ -216,10 +216,9 @@
               &lt;CountryPicker
                 v-model="nepaliValue"
                 :label="$t('form.label.country')"
-                name="countryPickerNepali"
                 locale="np"
                 :placeholder="$t('form.placeholder.countries')"
-                :include="['NP', 'US', 'CN', 'GB', 'IN']"
+                :include="['NP', 'US', 'CN', 'GB', 'IN','LK', 'PK','BD','AF']"
                 :data="nepaliCountries"
               /&gt;
             &lt;/div&gt;
@@ -235,6 +234,10 @@
             { code: 'CN', i18n: { np: 'चीन' } },
             { code: 'GB', i18n: { np: 'बेलायत' } },
             { code: 'IN', i18n: { np: 'भारत' } },
+            { code: "PK", i18n: { np: "पाकिस्तान" } },
+            { code: "BD", i18n: { np: "बंगलादेश" } },
+            { code: "LK", i18n: { np: "श्रीलंका" } },
+            { code: "AF", i18n: { np: "अफगानिस्तान" } },
           ];
           &lt;/script&gt;
 
@@ -387,6 +390,10 @@ const nepaliCountries = [
   { code: "CN", i18n: { np: "चीन" } },
   { code: "GB", i18n: { np: "बेलायत" } },
   { code: "IN", i18n: { np: "भारत" } },
+  { code: "PK", i18n: { np: "पाकिस्तान" } },
+  { code: "BD", i18n: { np: "बंगलादेश" } },
+  { code: "LK", i18n: { np: "श्रीलंका" } },
+  { code: "AF", i18n: { np: "अफगानिस्तान" } },
 ];
 
 const formData = reactive({
