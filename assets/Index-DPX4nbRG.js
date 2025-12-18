@@ -1,0 +1,1 @@
+import{_ as t}from"./UserPage.vue_vue_type_style_index_0_lang-CGKu-1wi.js";import{d as o,e as r,o as s}from"./index-BYiYKZJg.js";const a={name:"User"},i=o({...a,setup(n){return(e,_)=>(s(),r(t,{title:e.$t("user.title")},null,8,["title"]))}});export{i as default};
