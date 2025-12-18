@@ -158,6 +158,7 @@
           import { ref } from "vue";
 
           const includedCountries = ['US', 'CA', 'FR', 'AU','NP'];
+          const input = ref();
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -192,6 +193,7 @@
           
           const excludedCountries = ["US", "AU"];
           const includedCountries = ["US", "CA", "FR", "AU", "NP"];
+          const input = ref();
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -225,7 +227,7 @@
           &lt;script setup lang="ts"&gt;
           import { ref } from 'vue';
           
-          const nepaliValue = ref('');
+          const input = ref();
           const nepaliCountries = [
             { code: 'NP', i18n: { np: 'नेपाल' } },
             { code: 'US', i18n: { np: 'संयुक्त राज्य अमेरिका' } },

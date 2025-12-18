@@ -24,10 +24,7 @@ const props = defineProps({
   data: {
     default: () => [],
     type: Array as PropType<
-      {
-        code: string;
-        i18n?: Record<string, string>;
-      }[]
+      { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
     >,
   },
   exclude: {
