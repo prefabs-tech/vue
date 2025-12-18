@@ -272,13 +272,13 @@
         <!-- eslint-disable -->
           <SshPre language="html-vue">
             interface CountryOption {
-                code: string;
-                i18n: {
-                  en: string;
-                  fr: string;
-                  th: string;
-                  [key: string]: string;
-                };
+              code: string;
+              i18n: {
+                en: string;
+                fr: string;
+                th: string;
+                [key: string]: string;
+              };
             }
            
             interface CountryData {
