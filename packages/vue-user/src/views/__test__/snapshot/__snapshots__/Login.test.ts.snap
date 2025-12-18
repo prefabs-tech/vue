@@ -79,7 +79,7 @@ exports[`Login > matches snapshot in en 1`] = `
             class=""
             id="password"
             name="password"
-            placeholder=""
+            placeholder="Enter your password"
             tabindex="0"
             type="password"
           />
@@ -242,7 +242,7 @@ exports[`Login > matches snapshot in fr 1`] = `
             class=""
             id="password"
             name="password"
-            placeholder=""
+            placeholder="Enter your password"
             tabindex="0"
             type="password"
           />

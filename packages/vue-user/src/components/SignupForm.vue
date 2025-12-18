@@ -19,12 +19,14 @@
     <Password
       v-model="signupCredentials.password"
       :label="t('user.signup.form.password.label')"
+      :placeholder="t('user.signup.form.password.placeholder')"
       name="password"
     />
 
     <Password
       v-if="hasConfirmPasswordFeature"
       :label="t('user.signup.form.confirmation.label')"
+      :placeholder="t('user.signup.form.confirmation.placeholder')"
       name="confirmation"
     />
 

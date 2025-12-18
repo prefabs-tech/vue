@@ -3,12 +3,14 @@
     <Password
       v-model="payload.password"
       :label="t('user.passwordReset.form.password.label')"
+      :placeholder="t('user.passwordReset.form.password.placeholder')"
       name="password"
     />
 
     <Password
       v-if="hasConfirmPasswordFeature"
       :label="t('user.passwordReset.form.confirmation.label')"
+      :placeholder="t('user.passwordReset.form.confirmation.placeholder')"
       name="confirmation"
     />
 

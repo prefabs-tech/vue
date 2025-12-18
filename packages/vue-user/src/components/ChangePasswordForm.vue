@@ -8,6 +8,7 @@
       }"
       :label="t('user.changePassword.form.currentPassword.label')"
       :options="currentPasswordOptions"
+      :placeholder="t('user.signup.form.currentPassword.placeholder')"
       name="current-password"
     />
 
@@ -19,6 +20,7 @@
       }"
       :label="t('user.changePassword.form.newPassword.label')"
       :options="newPasswordOptions"
+      :placeholder="t('user.signup.form.newPassword.placeholder')"
       name="new-password"
     />
 
@@ -26,6 +28,7 @@
       v-if="hasConfirmPasswordFeature"
       v-model="payload.confirmPassword"
       :label="t('user.changePassword.form.confirmPassword.label')"
+      :placeholder="t('user.signup.form.newPassword.placeholder')"
       :schema="confirmPasswordSchema"
       name="confirm-password"
     />

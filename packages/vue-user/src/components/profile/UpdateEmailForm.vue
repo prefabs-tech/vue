@@ -12,6 +12,7 @@
       v-model="email"
       :error-messages="errorMessages"
       :label="t('user.profile.accountInfo.newEmail')"
+      :placeholder="t('user.profile.accountInfo.placeholder')"
       name="email"
     />
 

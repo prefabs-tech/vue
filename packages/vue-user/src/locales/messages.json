@@ -74,14 +74,16 @@
               "required": "Current password is required",
               "weak": "Current password is required"
             },
-            "label": "Current password"
+            "label": "Current password",
+            "placeholder": "Enter your current password"
           },
           "newPassword": {
             "errors": {
               "required": "New password is required",
               "weak": "Password must contain at least 8 characters, an uppercase, a lowercase and a number"
             },
-            "label": "New password"
+            "label": "New password",
+            "placeholder": "Enter your new password"
           },
           "submit": {
             "label": "Change password"
@@ -208,7 +210,8 @@
               "invalid": "Your password should be at least 8 characters long",
               "required": "Please provide a password"
             },
-            "label": "Your password"
+            "label": "Your password",
+            "placeholder": "Enter your password"
           },
           "username": {
             "errors": {
@@ -265,14 +268,16 @@
             "errors": {
               "match": "The 2 passwords must match"
             },
-            "label": "Confirm password"
+            "label": "Confirm password",
+            "placeholder": "Confirm your password"
           },
           "password": {
             "errors": {
               "required": "Please provide a password",
               "weak": "Your password should be at least 8 characters long"
             },
-            "label": "New password"
+            "label": "New password",
+            "placeholder": "Enter your password"
           }
         },
         "messages": {
@@ -329,7 +334,6 @@
             "update": "Update"
           },
           "label": "Email",
-          "newEmail": "New email",
           "messages": {
             "alreadyExist": "Email already exists.",
             "duplicate": "Email is same as the current one.",
@@ -341,6 +345,8 @@
             "success": "Email updated successfully.",
             "verify": "Verify email to complete the email update."
           },
+          "newEmail": "New email",
+          "placeholder": "Enter your email",
           "title": "Update email"
         },
         "errors": {
@@ -395,7 +401,8 @@
             "errors": {
               "match": "The 2 passwords must match"
             },
-            "label": "Confirm password"
+            "label": "Confirm password",
+            "placeholder":"Confirm your password"
           },
           "email": {
             "errors": {
@@ -410,7 +417,8 @@
               "required": "Please provide a password",
               "weak": "Your password should be at least 8 characters long"
             },
-            "label": "Your password"
+            "label": "Your password",
+            "placeholder":"Enter your password"
           },
           "termsAndConditions": "I agree to the {0} as set out by the user agreement",
           "termsLabel": "Terms and conditions",
@@ -546,14 +554,16 @@
               "required": "Current password is required",
               "weak": "Current password is required"
             },
-            "label": "Current password"
+            "label": "Current password",
+            "placeholder": "Enter your current password"
           },
           "newPassword": {
             "errors": {
               "required": "New password is required",
               "weak": "Password must contain at least 8 characters, an uppercase, a lowercase and a number"
             },
-            "label": "New password"
+            "label": "New password",
+            "placeholder": "Enter your new password"
           },
           "submit": {
             "label": "Change password"
@@ -680,7 +690,8 @@
               "invalid": "Your password should be at least 8 characters long[fr]",
               "required": "Veuillez saisir un mot de passe"
             },
-            "label": "Votre mot de passe"
+            "label": "Votre mot de passe",
+            "placeholder": "Enter your password"
           }
         },
         "links": {
@@ -728,14 +739,16 @@
             "errors": {
               "match": "Les 2 mots de passe doivent être identiques"
             },
-            "label": "Confirmation de votre nouveau mot de passe"
+            "label": "Confirmation de votre nouveau mot de passe",
+            "placeholder": "Confirm your password"
           },
           "password": {
             "errors": {
               "required": "Veuillez saisir un mot de passe",
               "weak": "Votre mot de passe doit avoir au moins 8 caractères"
             },
-            "label": "Nouveau mot de passe"
+            "label": "Nouveau mot de passe",
+            "placeholder": "Enter your password"
           }
         },
         "messages": {
@@ -792,7 +805,6 @@
             "update": "Update"
           },
           "label": "Email",
-          "newEmail": "New email",
           "messages": {
             "alreadyExist": "Email already exists.",
             "duplicate": "Email is same as the current one.",
@@ -804,6 +816,8 @@
             "success": "Email updated successfully.",
             "verify": "Verify email to complete the email update."
           },
+          "newEmail": "New email",
+          "placeholder": "Enter your email",
           "title": "Update email"
         },
         "errors": {
@@ -858,7 +872,8 @@
             "errors": {
               "match": "Les 2 mots de passe doivent être identiques"
             },
-            "label": "Confirmez votre mot de passe"
+            "label": "Confirmez votre mot de passe",
+            "placeholder":"Confirm your password"
           },
           "email": {
             "errors": {
@@ -873,7 +888,8 @@
               "required": "Veuillez saisir un mot de passe",
               "weak": "Votre mot de passe doit avoir au moins 8 caractères"
             },
-            "label": "Votre mot de passe"
+            "label": "Votre mot de passe",
+            "placeholder":"Enter your password"
           },
           "termsAndConditions": "I agree to the {0} as set out by the user agreement",
           "termsLabel": "Terms and conditions",
