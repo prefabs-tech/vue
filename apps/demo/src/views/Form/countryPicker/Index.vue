@@ -280,11 +280,10 @@
               [key: string]: string;
             };
           }
-
-            interface CountryData {
-            code: string;
-            i18n?: Partial  &lt;CountryOption["i18n"];&gt; 
-          };
+          interface CountryData {
+          code: string;
+          i18n?: Partial  &lt;CountryOption["i18n"];&gt; 
+        };
         </SshPre>
           <!-- eslint-enable -->
       </div>
