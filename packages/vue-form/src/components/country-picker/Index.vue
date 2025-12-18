@@ -19,13 +19,12 @@ import { ref, computed, type PropType } from "vue";
 import SelectInput from "../SelectInput.vue";
 import countriesData from "./countries.json";
 
-import type { CountryOption, SelectOption } from "../../types";
+import type { CountryOption, CountryData, SelectOption } from "../../types";
+
 const props = defineProps({
   data: {
     default: () => [],
-    type: Array as PropType<
-      { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
-    >,
+    type: Array as PropType<CountryData[]>,
   },
   exclude: {
     default: () => [],
@@ -66,7 +65,7 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const countries = ref<CountryOption[]>(countriesData as CountryOption[]);
+const countries = ref(countriesData);
 const mergedCountries = computed<CountryOption[]>(() => {
   let result = [...countries.value];
 

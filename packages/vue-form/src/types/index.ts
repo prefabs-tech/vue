@@ -2,6 +2,11 @@ interface CurrencyOption extends SelectOption {
   code?: string;
   symbol?: string;
 }
+interface CountryData {
+  code: string;
+  i18n?: Partial<CountryOption["i18n"]>;
+}
+
 interface CountryOption {
   code: string;
   i18n: {
@@ -65,6 +70,7 @@ interface TextErrorMessages {
 }
 
 export type {
+  CountryData,
   CurrencyOption,
   CountryOption,
   EmailErrorMessages,

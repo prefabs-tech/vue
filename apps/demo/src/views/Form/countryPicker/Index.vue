@@ -240,8 +240,6 @@
             { code: "AF", i18n: { np: "अफगानिस्तान" } },
           ];
           &lt;/script&gt;
-
-        
         </SshPre>
         <!-- eslint-enable -->
       </div>
@@ -273,7 +271,7 @@
       <div class="section-content">
         <!-- eslint-disable -->
           <SshPre language="html-vue">
-           interface Data {
+           interface CountryOption {
             code: string;
             i18n: {
               en: string;
@@ -281,7 +279,12 @@
               th: string;
             };
           }
-          </SshPre>
+
+            interface CountryData {
+            code: string;
+            i18n?: Partial  &lt;CountryOption["i18n"];&gt; 
+          };
+        </SshPre>
           <!-- eslint-enable -->
       </div>
     </section>
