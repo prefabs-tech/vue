@@ -27,7 +27,8 @@ section:has(h3) {
 }
 
 .demo .section-content {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
