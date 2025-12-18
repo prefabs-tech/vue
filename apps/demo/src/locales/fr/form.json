@@ -22,7 +22,7 @@
       },
       "select": {
         "data": "Custom data to overwrite existing items or add new one.(fr)",
-        "exclude": "Array of country codes to exclude from the included list (e.g., ['US', 'CA']). These countries will be removed from the filtered list of included countries.",
+        "exclude": "An array of country codes to remove from the list.",
         "include": "Array of country codes to show in the dropdown (e.g., ['US', 'CA', 'NP']). If specified, only these countries will be displayed.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
         "multiple": "Enable multiple selection when set to true."

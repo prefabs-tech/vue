@@ -324,14 +324,14 @@ const propsData = [
     type: "Data[]",
   },
   {
-    default: "-",
+    default: "[]",
     description: t("form.documentation.propsDescription.select.exclude"),
     id: 2,
     prop: "exclude",
     type: "String",
   },
   {
-    default: "-",
+    default: "[]",
     description: t("form.documentation.propsDescription.select.include"),
     id: 3,
     prop: "include",
