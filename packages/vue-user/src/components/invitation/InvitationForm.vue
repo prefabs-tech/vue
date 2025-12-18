@@ -1,17 +1,21 @@
 <template>
   <div class="invitation-form">
     <Form @submit="onSubmit">
-      <Email v-model="formData.email" label="Email" />
+      <Email
+        v-model="formData.email"
+        :label="t('user.invitation.form.email.label')"
+        :placeholder="t('user.invitation.form.email.placeholder')"
+      />
 
       <SelectInput
         v-if="apps?.length"
         v-model="formData.appId"
         :has-sorted-options="false"
+        :label="t('user.invitation.form.app.label')"
         :options="updatedApps"
+        :placeholder="t('user.invitation.form.app.placeholder')"
         :schema="appSchema"
-        label="App"
         name="app"
-        placeholder="Select app"
         @update:model-value="onAppSelect"
       />
 
@@ -19,26 +23,28 @@
         v-if="apps?.length || roles?.length"
         v-model="formData.role"
         :disabled="Boolean(!updatedRoles?.length)"
+        :label="t('user.invitation.form.role.label')"
         :options="updatedRoles || []"
+        :placeholder="t('user.invitation.form.role.placeholder')"
         :schema="roleSchema"
-        label="Role"
         name="role"
-        placeholder="Select role"
       />
 
       <DatePicker
         v-if="expiryMode === 'calendar'"
         v-model="formData.expiresAt"
+        :label="t('user.invitation.form.expiresAt.label')"
+        :placeholder="t('user.invitation.form.expiresAt.placeholder')"
         :schema="expiresAtSchema"
-        label="Expires at"
         name="expires-at"
       />
 
       <DaysInput
         v-else-if="expiryMode === 'days'"
         v-model="expiresAfter"
+        :label="t('user.invitation.form.expiresAfter.label')"
+        :placeholder="t('user.invitation.form.expiresAfter.placeholder')"
         :schema="expiresAfterSchema"
-        label="Expires after"
         name="expires-after"
         @update:date="formData.expiresAt = $event"
       />

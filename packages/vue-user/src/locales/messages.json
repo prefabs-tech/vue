@@ -131,6 +131,28 @@
         }
       },
       "invitation": {
+        "form": {
+          "app": {
+            "label": "App",
+            "placeholder": "Select a app"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "Enter your email"
+          },
+          "expiresAfter": {
+            "label": "Expires after",
+            "placeholder": "Enter days"
+          },
+          "expiresAt": {
+            "label": "Expires at",
+            "placeholder": "Select a date"
+          },
+          "role": {
+            "label": "Role",
+            "placeholder": "Select a role"
+          }
+        },
         "messages": {
           "invite": {
             "error": "Error inviting user.",
@@ -611,6 +633,28 @@
         }
       },
       "invitation": {
+        "form": {
+          "app": {
+            "label": "App",
+            "placeholder": "Select a app"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "Enter your email"
+          },
+          "expiresAfter": {
+            "label": "Expires after",
+            "placeholder": "Enter days"
+          },
+          "expiresAt": {
+            "label": "Expires at",
+            "placeholder": "Select a date"
+          },
+          "role": {
+            "label": "Role",
+            "placeholder": "Select a role"
+          }
+        },
         "messages": {
           "invite": {
             "error": "Error inviting user.",
