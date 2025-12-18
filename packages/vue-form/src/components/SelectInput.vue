@@ -53,7 +53,7 @@
         </template>
 
         <template v-if="$slots.selection" #selection="{ selectedLabels }">
-          <slot name="selection" :selected-labels="selectedLabels" />
+          <slot :selected-labels="selectedLabels" name="selection" />
         </template>
       </MultiSelect>
       <ErrorMessage :name="name" />
