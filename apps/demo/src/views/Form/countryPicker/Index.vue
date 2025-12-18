@@ -158,6 +158,7 @@
           import { ref } from "vue";
 
           const includedCountries = ['US', 'CA', 'FR', 'AU','NP'];
+          const input = ref();
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -192,6 +193,52 @@
           
           const excludedCountries = ["US", "AU"];
           const includedCountries = ["US", "CA", "FR", "AU", "NP"];
+          const input = ref();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
+      <h2>{{ $t("form.label.customLocale") }}</h2>
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.customLocale"
+          :data="nepaliCountries"
+          :include="['NP', 'US', 'CN', 'GB', 'PK', 'IN', 'LK', 'BD', 'AF']"
+          :placeholder="$t('form.placeholder.countries')"
+          locale="np"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+              &lt;CountryPicker
+                v-model="input"
+                :data="nepaliCountries"
+                :include="['NP', 'US', 'CN', 'GB', 'IN', 'PK','LK','BD','AF']"
+                locale="np"
+                multiple
+                placeholder="$t('form.placeholder.countries')"
+              /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ref } from 'vue';
+          
+          const input = ref();
+          const nepaliCountries = [
+            { code: 'NP', i18n: { np: 'नेपाल' } },
+            { code: 'US', i18n: { np: 'संयुक्त राज्य अमेरिका' } },
+            { code: 'CN', i18n: { np: 'चीन' } },
+            { code: 'GB', i18n: { np: 'बेलायत' } },
+            { code: 'IN', i18n: { np: 'भारत' } },
+            { code: "PK", i18n: { np: "पाकिस्तान" } },
+            { code: "LK", i18n: { np: "श्रीलंका" } },
+            { code: "BD", i18n: { np: "बंगलादेश" } },
+            { code: "AF", i18n: { np: "अफगानिस्तान" } },
+          ];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -224,15 +271,21 @@
       <div class="section-content">
         <!-- eslint-disable -->
           <SshPre language="html-vue">
-           interface Data {
-            code: string;
-            i18n: {
-              en: string;
-              fr: string;
-              th: string;
+            interface CountryOption {
+              code: string;
+              i18n: {
+                en: string;
+                fr: string;
+                th: string;
+                [key: string]: string;
+              };
+            }
+           
+            interface CountryData {
+              code: string;
+              i18n?: Partial  &lt;CountryOption["i18n"];&gt; 
             };
-          }
-          </SshPre>
+        </SshPre>
           <!-- eslint-enable -->
       </div>
     </section>
@@ -274,40 +327,47 @@ const propsData = [
     description: t("form.documentation.propsDescription.select.data"),
     id: 1,
     prop: "data",
-    type: "Data[]",
+    type: "CountryOption[]",
+  },
+  {
+    default: "[]",
+    description: t("form.documentation.propsDescription.select.exclude"),
+    id: 2,
+    prop: "exclude",
+    type: "String",
+  },
+  {
+    default: "[]",
+    description: t("form.documentation.propsDescription.select.include"),
+    id: 3,
+    prop: "include",
+    type: "String",
   },
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
-    id: 2,
+    id: 4,
     prop: "locale",
     type: "String",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.modelValue"),
-    id: 3,
+    id: 5,
     prop: "modelValue",
     type: "String | Number | Array<String|Number> | undefined",
   },
   {
     default: "false",
     description: t("form.documentation.propsDescription.select.multiple"),
-    id: 4,
+    id: 6,
     prop: "multiple",
     type: "Boolean",
   },
   {
     default: "-",
-    description: t("form.documentation.propsDescription.input.name"),
-    id: 5,
-    prop: "name",
-    type: "String",
-  },
-  {
-    default: "-",
     description: t("form.documentation.propsDescription.input.placeholder"),
-    id: 6,
+    id: 7,
     prop: "placeholder",
     type: "String",
   },
@@ -335,11 +395,25 @@ const eventsData = [
     payload: "string | number | (string | number)[] | undefined",
   },
 ];
+const nepaliCountries = [
+  { code: "NP", i18n: { np: "नेपाल" } },
+  { code: "US", i18n: { np: "संयुक्त राज्य अमेरिका" } },
+  { code: "CN", i18n: { np: "चीन" } },
+  { code: "GB", i18n: { np: "बेलायत" } },
+  { code: "IN", i18n: { np: "भारत" } },
+  { code: "PK", i18n: { np: "पाकिस्तान" } },
+  { code: "LK", i18n: { np: "श्रीलंका" } },
+  { code: "BD", i18n: { np: "बंगलादेश" } },
+  { code: "AF", i18n: { np: "अफगानिस्तान" } },
+];
+
 const formData = reactive({
   basic: undefined as string | undefined,
   custom: [] as string[],
-  multiselect: [] as string[],
+  customLocale: [],
+  excludedCountries: [],
   includedCountries: [],
+  multiselect: [] as string[],
 });
 const excludedCountries = ["US", "AU"];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];

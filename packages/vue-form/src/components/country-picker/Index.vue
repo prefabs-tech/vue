@@ -1,6 +1,7 @@
 <template>
   <div class="country-picker">
     <SelectInput
+      :locale="locale"
       :model-value="modelValue"
       :multiple="multiple"
       :name="name"
@@ -18,13 +19,12 @@ import { ref, computed, type PropType } from "vue";
 import SelectInput from "../SelectInput.vue";
 import countriesData from "./countries.json";
 
-import type { CountryOption, SelectOption } from "../../types";
+import type { CountryOption, CountryData, SelectOption } from "../../types";
+
 const props = defineProps({
   data: {
     default: () => [],
-    type: Array as PropType<
-      { code: string; i18n?: Partial<{ en: string; fr: string; th: string }> }[]
-    >,
+    type: Array as PropType<CountryData[]>,
   },
   exclude: {
     default: () => [],
@@ -36,7 +36,7 @@ const props = defineProps({
   },
   locale: {
     default: "en",
-    type: String as PropType<"en" | "fr" | "th">,
+    type: String as PropType<string>,
   },
   modelValue: {
     default: undefined,
@@ -66,9 +66,40 @@ const emit = defineEmits<{
 }>();
 
 const countries = ref(countriesData);
-
 const mergedCountries = computed<CountryOption[]>(() => {
   let result = [...countries.value];
+
+  if (props.data.length > 0) {
+    const countryMap = new Map(
+      result.map((country) => [country.code, country]),
+    );
+
+    props.data.forEach((item) => {
+      const existingCountry = countryMap.get(item.code);
+
+      if (existingCountry) {
+        countryMap.set(item.code, {
+          ...existingCountry,
+          i18n: {
+            ...existingCountry.i18n,
+            ...item.i18n,
+          },
+        });
+      } else {
+        countryMap.set(item.code, {
+          code: item.code,
+          i18n: {
+            en: item.i18n?.en || item.code,
+            fr: item.i18n?.fr || item.code,
+            th: item.i18n?.th || item.code,
+            ...(item.i18n || {}),
+          },
+        });
+      }
+    });
+
+    result = Array.from(countryMap.values());
+  }
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
     result = result.filter((country) => includeSet.has(country.code));
@@ -77,33 +108,6 @@ const mergedCountries = computed<CountryOption[]>(() => {
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
     result = result.filter((country) => !excludeSet.has(country.code));
-  }
-
-  if (props.data.length > 0) {
-    const countryMap = new Map(
-      countries.value.map((country) => [country.code, country]),
-    );
-    props.data.forEach((item) => {
-      const existingCountry = countryMap.get(item.code);
-
-      if (existingCountry) {
-        const mergedI18n = {
-          ...existingCountry.i18n,
-          ...item.i18n,
-        };
-
-        const mergedCountry = {
-          ...existingCountry,
-          ...item,
-          i18n: mergedI18n,
-        };
-        countryMap.set(item.code, mergedCountry);
-      } else {
-        countryMap.set(item.code, item as CountryOption);
-      }
-    });
-
-    return Array.from(countryMap.values());
   }
 
   return result;
