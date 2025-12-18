@@ -1,3 +1,17 @@
+# [0.27.0](https://github.com/prefabs-tech/vue/compare/v0.26.0...v0.27.0) (2025-12-18)
+
+
+### Features
+
+* **demo/country-picker:** add props and event documentation with suitable subtitle ([15db556](https://github.com/prefabs-tech/vue/commit/15db5566531c02b802b765bed3cb830159240a77))
+* **form/country-picker:** enable country filtering using include prop. ([#885](https://github.com/prefabs-tech/vue/issues/885)) ([b0fedff](https://github.com/prefabs-tech/vue/commit/b0fedff57084a1a0a35b23fb6b97894d875c0c12))
+* **form/country-picker:** enable exclude filter for country picker. ([#886](https://github.com/prefabs-tech/vue/issues/886)) ([c999b72](https://github.com/prefabs-tech/vue/commit/c999b726ff7e3e0fb885fc3b4a3516c119a8742c))
+* **form/select:** add support to disable search functionality ([#881](https://github.com/prefabs-tech/vue/issues/881)) ([13d6e99](https://github.com/prefabs-tech/vue/commit/13d6e99dcfcd32e13659ce433810a43514291a23))
+* **layout:** add support for no-footer layout and no-header page ([#887](https://github.com/prefabs-tech/vue/issues/887)) ([0b8353b](https://github.com/prefabs-tech/vue/commit/0b8353b12e3d63fb508729e50f189feea156211c))
+* **ui/accordion:** update accordion demo and add support to accept active and inactive icon  via prop ([#874](https://github.com/prefabs-tech/vue/issues/874)) ([2f4294b](https://github.com/prefabs-tech/vue/commit/2f4294ba553718abed9d2610c709864ece75c577))
+
+
+
 # [0.26.0](https://github.com/prefabs-tech/vue/compare/v0.25.0...v0.26.0) (2025-12-11)
 
 
