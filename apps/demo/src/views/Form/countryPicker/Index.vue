@@ -213,7 +213,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
               &lt;CountryPicker
-                v-model="nepaliValue"
+                v-model="input"
                 :data="nepaliCountries"
                 :include="['NP', 'US', 'CN', 'GB', 'IN', 'PK','LK','BD','AF']"
                 locale="np"
