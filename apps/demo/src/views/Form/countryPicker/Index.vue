@@ -245,6 +245,51 @@
       </div>
     </section>
     <section>
+      <h2>{{ $t("form.label.favorites") }}</h2>
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.favorites"
+          :favorites="['NP', 'US', 'CN']"
+          :exclude="['CN', 'AF']"
+          :include="[
+            'NP',
+            'US',
+            'CN',
+            'GB',
+            'IR',
+            'PK',
+            'IN',
+            'LK',
+            'BD',
+            'AF',
+          ]"
+          :placeholder="$t('form.placeholder.countries')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+              &lt;CountryPicker
+                v-model="input"
+                :exclude="['CN', 'AF']"
+                :favorites="['NP', 'US', 'CN']"
+                :include="['NP', 'US', 'CN', 'GB', 'PK','IR','IN', 'LK', 'BD', 'AF']"
+                multiple
+                placeholder="$t('form.placeholder.countries')"
+              /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ref } from 'vue';
+          
+          const input = ref();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
       <h2>
         {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
       </h2>

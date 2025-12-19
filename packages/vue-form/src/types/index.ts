@@ -16,6 +16,15 @@ interface CountryOption {
     [key: string]: string;
   };
 }
+interface CountryPickerOptions {
+  favorites: CountryOption[];
+  allCountries: CountryOption[];
+}
+interface CountryPickerLabels {
+  favorites?: string;
+  allCountries?: string;
+}
+
 interface EmailErrorMessages {
   invalid?: string;
   required?: string;
@@ -73,6 +82,8 @@ export type {
   CountryData,
   CurrencyOption,
   CountryOption,
+  CountryPickerLabels,
+  CountryPickerOptions,
   EmailErrorMessages,
   FileErrorMessages,
   FileExtended,

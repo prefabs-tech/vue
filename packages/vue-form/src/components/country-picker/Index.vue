@@ -19,9 +19,21 @@ import { ref, computed, type PropType } from "vue";
 import SelectInput from "../SelectInput.vue";
 import countriesData from "./countries.json";
 
-import type { CountryOption, CountryData, SelectOption } from "../../types";
+import type {
+  CountryOption,
+  CountryData,
+  CountryPickerOptions,
+  CountryPickerLabels,
+} from "../../types";
 
 const props = defineProps({
+  countryPickerLabels: {
+    default: () => ({
+      favorites: "Favorites",
+      allCountries: "All Countries",
+    }),
+    type: Object as PropType<CountryPickerLabels>,
+  },
   data: {
     default: () => [],
     type: Array as PropType<CountryData[]>,
@@ -30,9 +42,17 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<string[]>,
   },
+  favorites: {
+    default: () => [],
+    type: Array as PropType<string[]>,
+  },
   include: {
     default: () => [],
     type: Array as PropType<string[]>,
+  },
+  includeFavorites: {
+    default: true,
+    type: Boolean,
   },
   locale: {
     default: "en",
@@ -66,7 +86,7 @@ const emit = defineEmits<{
 }>();
 
 const countries = ref(countriesData);
-const mergedCountries = computed<CountryOption[]>(() => {
+const mergedCountries = computed<CountryOption[] | CountryPickerOptions>(() => {
   let result = [...countries.value];
 
   if (props.data.length > 0) {
@@ -109,17 +129,49 @@ const mergedCountries = computed<CountryOption[]>(() => {
     const excludeSet = new Set(props.exclude);
     result = result.filter((country) => !excludeSet.has(country.code));
   }
+  if (props.favorites.length > 0) {
+    const favoritesSet = new Set(props.favorites);
+    const favorites = result.filter((country) =>
+      favoritesSet.has(country.code),
+    );
+    let allCountries = result;
+    if (!props.includeFavorites) {
+      allCountries = result.filter(
+        (country) => !favoritesSet.has(country.code),
+      );
+    }
+    return {
+      favorites,
+      allCountries,
+    };
+  }
 
   return result;
 });
 
-const countryOptions = computed<SelectOption[]>(() =>
-  mergedCountries.value.map((item) => ({
+const countryOptions = computed(() => {
+  const data = mergedCountries.value;
+  const transformedData = (item: CountryOption) => ({
     label: item.i18n?.[props.locale] ?? item.i18n.en ?? item.code,
     value: item.code,
     ...item,
-  })),
-);
+  });
+  if (Array.isArray(data)) {
+    return data.map(transformedData);
+  } else {
+    const result = [
+      {
+        label: props.countryPickerLabels.favorites,
+        options: data.favorites.map(transformedData),
+      },
+      {
+        label: props.countryPickerLabels.allCountries,
+        options: data.allCountries.map(transformedData),
+      },
+    ];
+    return result;
+  }
+});
 
 const updateModelValue = (
   value: string | number | (string | number)[] | undefined,
