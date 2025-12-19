@@ -249,8 +249,9 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.favorites"
-          :favorites="['NP', 'US', 'CN', 'ID']"
           :exclude="['CN', 'AF']"
+          :favorites="['NP', 'US', 'ID', 'QW']"
+          :has-sorted-options="false"
           :include="[
             'NP',
             'US',
@@ -264,7 +265,6 @@
             'AF',
           ]"
           :placeholder="$t('form.placeholder.countries')"
-          :has-sorted-options="false"
           multiple
         />
 
@@ -274,7 +274,8 @@
               &lt;CountryPicker
                 v-model="input"
                 :exclude="['CN', 'AF']"
-                :favorites="['NP', 'US', 'CN']"
+                :favorites="['NP', 'US','ID','QW]"
+                :has-sorted-options="false"
                 :include="['NP', 'US', 'CN', 'GB', 'PK','IR','IN', 'LK', 'BD', 'AF']"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
@@ -380,40 +381,56 @@ const propsData = [
     description: t("form.documentation.propsDescription.select.exclude"),
     id: 2,
     prop: "exclude",
-    type: "String",
+    type: "String[]",
+  },
+  {
+    default: "[]",
+    description: t("form.documentation.propsDescription.select.favorites"),
+    id: 3,
+    prop: "favorites",
+    type: "String[]",
+  },
+  {
+    default: "true",
+    description: t(
+      "form.documentation.propsDescription.select.hasSortedOption",
+    ),
+    id: 4,
+    prop: "has-sorted-options",
+    type: "Boolean",
   },
   {
     default: "[]",
     description: t("form.documentation.propsDescription.select.include"),
-    id: 3,
+    id: 5,
     prop: "include",
-    type: "String",
+    type: "String[]",
   },
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
-    id: 4,
+    id: 6,
     prop: "locale",
     type: "String",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.modelValue"),
-    id: 5,
+    id: 7,
     prop: "modelValue",
     type: "String | Number | Array<String|Number> | undefined",
   },
   {
     default: "false",
     description: t("form.documentation.propsDescription.select.multiple"),
-    id: 6,
+    id: 8,
     prop: "multiple",
     type: "Boolean",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.placeholder"),
-    id: 7,
+    id: 9,
     prop: "placeholder",
     type: "String",
   },

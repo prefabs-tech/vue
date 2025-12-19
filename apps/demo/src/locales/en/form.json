@@ -23,6 +23,8 @@
       "select": {
         "data": "Custom country data to overwrite existing items or add new one.",
         "exclude": "An array of country codes to remove from the list.",
+        "favorites": "An array of country codes to prioritize and display at the top of the list.",
+        "hasSortedOption": "If true, the options will be sorted alphabetically.",
         "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
         "multiple": "If true, allows selecting multiple countries."
