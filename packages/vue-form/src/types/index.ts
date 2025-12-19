@@ -16,10 +16,12 @@ interface CountryOption {
     [key: string]: string;
   };
 }
+
 interface CountryPickerOptions {
   favorites: CountryOption[];
   allCountries: CountryOption[];
 }
+
 interface CountryPickerLabels {
   favorites?: string;
   allCountries?: string;
