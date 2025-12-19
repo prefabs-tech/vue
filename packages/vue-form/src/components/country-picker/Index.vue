@@ -1,6 +1,7 @@
 <template>
   <div class="country-picker">
     <SelectInput
+      :has-sorted-options="hasSortedOptions"
       :locale="locale"
       :model-value="modelValue"
       :multiple="multiple"
@@ -45,6 +46,10 @@ const props = defineProps({
   favorites: {
     default: () => [],
     type: Array as PropType<string[]>,
+  },
+  hasSortedOptions: {
+    default: true,
+    type: Boolean,
   },
   include: {
     default: () => [],

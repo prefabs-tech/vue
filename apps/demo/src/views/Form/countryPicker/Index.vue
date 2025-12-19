@@ -249,7 +249,7 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.favorites"
-          :favorites="['NP', 'US', 'CN']"
+          :favorites="['NP', 'US', 'CN', 'ID']"
           :exclude="['CN', 'AF']"
           :include="[
             'NP',
@@ -264,6 +264,7 @@
             'AF',
           ]"
           :placeholder="$t('form.placeholder.countries')"
+          :has-sorted-options="false"
           multiple
         />
 
