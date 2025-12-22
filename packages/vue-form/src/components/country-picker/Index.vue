@@ -3,7 +3,7 @@
     <SelectInput
       :has-sorted-options="hasSortedOptions"
       :locale="locale"
-      :model-value="modelValue"
+      :model-value="adjustedModelValue"
       :multiple="multiple"
       :name="name"
       :options="countryOptions"
@@ -181,39 +181,49 @@ const countryOptions = computed(() => {
     return result;
   }
 });
-const getSelectableCountryCodes = (): string[] => {
-  const options = countryOptions.value;
 
-  if (!options) {
-    return [];
-  }
-  if (Array.isArray(options)) {
-    return options
-      .map(
-        (
-          o:
-            | { value: string | number }
-            | { label?: string; options: Array<{ value: string | number }> },
-        ) =>
-          "value" in o
-            ? String(o.value)
-            : o.options.map((opt) => String(opt.value)),
-      )
-      .flat();
+const uniqueCountryCodes = computed(() => {
+  const data = mergedCountries.value;
+  const codes = new Set<string>();
+
+  if (Array.isArray(data)) {
+    data.forEach((country) => codes.add(country.code));
+  } else {
+    data.favorites.forEach((country) => codes.add(country.code));
+    data.allCountries.forEach((country) => codes.add(country.code));
   }
 
-  const groupedOptions = options as unknown as Array<{
-    label?: string;
-    options: Array<{ value: string | number }>;
-  }>;
+  return Array.from(codes);
+});
 
-  return groupedOptions.flatMap(
-    (group: { options: Array<{ value: string | number }> }) =>
-      group.options.map((option: { value: string | number }) =>
-        String(option.value),
-      ),
+const adjustedModelValue = computed(() => {
+  if (!Array.isArray(props.modelValue)) {
+    return props.modelValue;
+  }
+
+  const deduplicatedValue = Array.from(
+    new Set(props.modelValue.map((v) => String(v))),
   );
-};
+
+  const allUniqueSelected =
+    deduplicatedValue.length === uniqueCountryCodes.value.length &&
+    uniqueCountryCodes.value.every((code) => deduplicatedValue.includes(code));
+
+  if (
+    allUniqueSelected &&
+    props.includeFavorites &&
+    props.favorites &&
+    props.favorites.length > 0
+  ) {
+    const favoriteCodes = props.favorites.filter((code) =>
+      deduplicatedValue.includes(code),
+    );
+    return [...deduplicatedValue, ...favoriteCodes];
+  }
+
+  return deduplicatedValue;
+});
+
 const updateModelValue = (
   incomingValue: string | number | (string | number)[] | undefined,
 ) => {
@@ -226,20 +236,11 @@ const updateModelValue = (
   }
 
   const cleanedValue = Array.from(new Set(incomingValue.map((v) => String(v))));
-  const selectableCodes = getSelectableCountryCodes();
 
-  const isAllSelected =
-    selectableCodes.length > 0 &&
-    selectableCodes.every((code) => cleanedValue.includes(code));
-
-  const finalValue = isAllSelected
-    ? [...selectableCodes]
-    : cleanedValue.filter((code) => selectableCodes.includes(code));
-
-  emit("update:modelValue", finalValue);
+  emit("update:modelValue", cleanedValue);
 
   if (props.onChange) {
-    props.onChange(finalValue);
+    props.onChange(cleanedValue);
   }
 };
 </script>
