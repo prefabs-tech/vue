@@ -77,6 +77,10 @@ const props = defineProps({
     default: "country",
     type: String,
   },
+  onChange: {
+    type: Function as PropType<(value: string | number | string[]) => void>,
+    default: null,
+  },
   placeholder: {
     default: undefined,
     type: String,
@@ -177,10 +181,65 @@ const countryOptions = computed(() => {
     return result;
   }
 });
+const getSelectableCountryCodes = (): string[] => {
+  const options = countryOptions.value;
 
+  if (!options) {
+    return [];
+  }
+  if (Array.isArray(options)) {
+    return options
+      .map(
+        (
+          o:
+            | { value: string | number }
+            | { label?: string; options: Array<{ value: string | number }> },
+        ) =>
+          "value" in o
+            ? String(o.value)
+            : o.options.map((opt) => String(opt.value)),
+      )
+      .flat();
+  }
+
+  const groupedOptions = options as unknown as Array<{
+    label?: string;
+    options: Array<{ value: string | number }>;
+  }>;
+
+  return groupedOptions.flatMap(
+    (group: { options: Array<{ value: string | number }> }) =>
+      group.options.map((option: { value: string | number }) =>
+        String(option.value),
+      ),
+  );
+};
 const updateModelValue = (
-  value: string | number | (string | number)[] | undefined,
+  incomingValue: string | number | (string | number)[] | undefined,
 ) => {
-  emit("update:modelValue", value);
+  if (!Array.isArray(incomingValue)) {
+    emit("update:modelValue", incomingValue);
+    if (props.onChange && incomingValue !== undefined) {
+      props.onChange(incomingValue);
+    }
+    return;
+  }
+
+  const cleanedValue = Array.from(new Set(incomingValue.map((v) => String(v))));
+  const selectableCodes = getSelectableCountryCodes();
+
+  const isAllSelected =
+    selectableCodes.length > 0 &&
+    selectableCodes.every((code) => cleanedValue.includes(code));
+
+  const finalValue = isAllSelected
+    ? [...selectableCodes]
+    : cleanedValue.filter((code) => selectableCodes.includes(code));
+
+  emit("update:modelValue", finalValue);
+
+  if (props.onChange) {
+    props.onChange(finalValue);
+  }
 };
 </script>
