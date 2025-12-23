@@ -292,6 +292,55 @@
       </div>
     </section>
     <section>
+      <h2>{{ $t("form.label.includeFavorites") }}</h2>
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.favorites"
+          :exclude="['CN', 'AF']"
+          :favorites="['NP', 'US', 'ID', 'QW']"
+          :has-sorted-options="true"
+          :include="[
+            'NP',
+            'US',
+            'CN',
+            'GB',
+            'IR',
+            'PK',
+            'IN',
+            'LK',
+            'BD',
+            'AF',
+          ]"
+          :include-favorites="false"
+          :placeholder="$t('form.placeholder.countries')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+              &lt;CountryPicker
+                v-model="input"
+                :exclude="['CN', 'AF']"
+                :favorites="['NP', 'US','ID','QW]"
+                :has-sorted-options="true"
+                :include="['NP', 'US', 'CN', 'GB', 'PK','IR','IN', 'LK', 'BD', 'AF']"
+                :include-favorites="false"
+                multiple
+                placeholder="$t('form.placeholder.countries')"
+              /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { ref } from 'vue';
+          
+          const input = ref();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
       <h2>
         {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
       </h2>
@@ -407,30 +456,39 @@ const propsData = [
     type: "String[]",
   },
   {
+    default: "true",
+    description: t(
+      "form.documentation.propsDescription.select.includeFavorites",
+    ),
+    id: 6,
+    prop: "includeFavorites",
+    type: "Boolean",
+  },
+  {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
-    id: 6,
+    id: 7,
     prop: "locale",
     type: "String",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.modelValue"),
-    id: 7,
+    id: 8,
     prop: "modelValue",
     type: "String | Number | Array<String|Number> | undefined",
   },
   {
     default: "false",
     description: t("form.documentation.propsDescription.select.multiple"),
-    id: 8,
+    id: 9,
     prop: "multiple",
     type: "Boolean",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.placeholder"),
-    id: 9,
+    id: 10,
     prop: "placeholder",
     type: "String",
   },
