@@ -23,7 +23,10 @@
       "select": {
         "data": "Custom country data to overwrite existing items or add new one.",
         "exclude": "An array of country codes to remove from the list.",
+        "favorites": "An array of country codes to prioritize and display at the top of the list.",
+        "hasSortedOption": "If true, the options will be sorted alphabetically.",
         "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
+        "includeFavorites": "If false, removes favorite items from the main list.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
         "multiple": "If true, allows selecting multiple countries."
       },
@@ -140,6 +143,7 @@
     "exclude": "Exclude filter",
     "expiresAfter": "Expires after",
     "europe": "Europe",
+    "favorites": "Favorites",
     "female": "Female",
     "fileInput": "File input",
     "france": "France",
@@ -149,6 +153,7 @@
     "getStarted": "Get started",
     "iconSlot": "Icon slot",
     "include": "Include filter",
+    "includeFavorites": "Include favorites",
     "india": "India",
     "input": "Input",
     "inputWithType": "With type prop",

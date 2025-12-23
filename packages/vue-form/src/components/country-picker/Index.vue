@@ -1,6 +1,7 @@
 <template>
   <div class="country-picker">
     <SelectInput
+      :has-sorted-options="hasSortedOptions"
       :locale="locale"
       :model-value="modelValue"
       :multiple="multiple"
@@ -8,7 +9,7 @@
       :options="countryOptions"
       :placeholder="placeholder"
       class="form-select"
-      @update:model-value="updateModelValue"
+      @update:model-value="onUpdateModelValue"
     />
   </div>
 </template>
@@ -19,9 +20,21 @@ import { ref, computed, type PropType } from "vue";
 import SelectInput from "../SelectInput.vue";
 import countriesData from "./countries.json";
 
-import type { CountryOption, CountryData, SelectOption } from "../../types";
+import type {
+  CountryOption,
+  CountryData,
+  CountryResolvedData,
+  CountryPickerLabels,
+} from "../../types";
 
 const props = defineProps({
+  labels: {
+    default: () => ({
+      favorites: "Favorites",
+      allCountries: "All Countries",
+    }),
+    type: Object as PropType<CountryPickerLabels>,
+  },
   data: {
     default: () => [],
     type: Array as PropType<CountryData[]>,
@@ -30,9 +43,21 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<string[]>,
   },
+  favorites: {
+    default: () => [],
+    type: Array as PropType<string[]>,
+  },
+  hasSortedOptions: {
+    default: true,
+    type: Boolean,
+  },
   include: {
     default: () => [],
     type: Array as PropType<string[]>,
+  },
+  includeFavorites: {
+    default: true,
+    type: Boolean,
   },
   locale: {
     default: "en",
@@ -66,7 +91,7 @@ const emit = defineEmits<{
 }>();
 
 const countries = ref(countriesData);
-const mergedCountries = computed<CountryOption[]>(() => {
+const mergedCountries = computed<CountryOption[] | CountryResolvedData>(() => {
   let result = [...countries.value];
 
   if (props.data.length > 0) {
@@ -100,6 +125,7 @@ const mergedCountries = computed<CountryOption[]>(() => {
 
     result = Array.from(countryMap.values());
   }
+
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
     result = result.filter((country) => includeSet.has(country.code));
@@ -110,20 +136,59 @@ const mergedCountries = computed<CountryOption[]>(() => {
     result = result.filter((country) => !excludeSet.has(country.code));
   }
 
+  if (props.favorites.length > 0) {
+    const favoritesSet = new Set(props.favorites);
+    const favorites = result.filter((country) =>
+      favoritesSet.has(country.code),
+    );
+
+    let allCountries = result;
+    if (!props.includeFavorites) {
+      allCountries = result.filter(
+        (country) => !favoritesSet.has(country.code),
+      );
+    }
+
+    return {
+      favorites,
+      allCountries,
+    };
+  }
+
   return result;
 });
 
-const countryOptions = computed<SelectOption[]>(() =>
-  mergedCountries.value.map((item) => ({
+const countryOptions = computed(() => {
+  const data = mergedCountries.value;
+  const transformedData = (item: CountryOption) => ({
     label: item.i18n?.[props.locale] ?? item.i18n.en ?? item.code,
     value: item.code,
     ...item,
-  })),
-);
+  });
 
-const updateModelValue = (
-  value: string | number | (string | number)[] | undefined,
-) => {
-  emit("update:modelValue", value);
+  if (Array.isArray(data)) {
+    return data.map(transformedData);
+  }
+
+  return [
+    {
+      label: props.labels.favorites,
+      options: data.favorites.map(transformedData),
+    },
+    {
+      label: props.labels.allCountries,
+      options: data.allCountries.map(transformedData),
+    },
+  ];
+});
+
+const onUpdateModelValue = (value: string | string[] | undefined) => {
+  if (!Array.isArray(value)) {
+    emit("update:modelValue", value);
+    return;
+  }
+
+  const uniqueValue = Array.from(new Set(value));
+  emit("update:modelValue", uniqueValue);
 };
 </script>
