@@ -148,6 +148,7 @@ const mergedCountries = computed<CountryOption[] | CountryPickerOptions>(() => {
         (country) => !favoritesSet.has(country.code),
       );
     }
+
     return {
       favorites,
       allCountries,

@@ -275,7 +275,7 @@
                 v-model="input"
                 :exclude="['CN', 'AF']"
                 :favorites="['NP', 'US','ID','QW]"
-                :has-sorted-options="false"
+                :has-sorted-options="true"
                 :include="['NP', 'US', 'CN', 'GB', 'PK','IR','IN', 'LK', 'BD', 'AF']"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
