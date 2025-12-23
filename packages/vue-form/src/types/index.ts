@@ -17,7 +17,7 @@ interface CountryOption {
   };
 }
 
-interface CountryPickerOptions {
+interface CountryResolvedData {
   favorites: CountryOption[];
   allCountries: CountryOption[];
 }
@@ -85,7 +85,7 @@ export type {
   CurrencyOption,
   CountryOption,
   CountryPickerLabels,
-  CountryPickerOptions,
+  CountryResolvedData,
   EmailErrorMessages,
   FileErrorMessages,
   FileExtended,

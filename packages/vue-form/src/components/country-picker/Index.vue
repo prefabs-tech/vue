@@ -23,7 +23,7 @@ import countriesData from "./countries.json";
 import type {
   CountryOption,
   CountryData,
-  CountryPickerOptions,
+  CountryResolvedData,
   CountryPickerLabels,
 } from "../../types";
 
@@ -91,7 +91,7 @@ const emit = defineEmits<{
 }>();
 
 const countries = ref(countriesData);
-const mergedCountries = computed<CountryOption[] | CountryPickerOptions>(() => {
+const mergedCountries = computed<CountryOption[] | CountryResolvedData>(() => {
   let result = [...countries.value];
 
   if (props.data.length > 0) {
