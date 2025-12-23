@@ -17,14 +17,14 @@ interface CountryOption {
   };
 }
 
-interface CountryResolvedData {
-  favorites: CountryOption[];
-  allCountries: CountryOption[];
-}
-
 interface CountryPickerLabels {
   favorites?: string;
   allCountries?: string;
+}
+
+interface CountryResolvedData {
+  favorites: CountryOption[];
+  allCountries: CountryOption[];
 }
 
 interface EmailErrorMessages {
