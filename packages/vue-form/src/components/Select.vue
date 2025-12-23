@@ -382,7 +382,7 @@ const hasRemoveOption = computed(() => {
 });
 
 const isAllSelected = computed((): boolean => {
-  if (selectedOptions.value.length != activeOptions.value.length) {
+  if (!props.multiple || !activeOptions.value.length) {
     return false;
   }
 
