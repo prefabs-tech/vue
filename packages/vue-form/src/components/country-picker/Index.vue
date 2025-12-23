@@ -28,7 +28,7 @@ import type {
 } from "../../types";
 
 const props = defineProps({
-  countryPickerLabels: {
+  labels: {
     default: () => ({
       favorites: "Favorites",
       allCountries: "All Countries",
@@ -125,6 +125,7 @@ const mergedCountries = computed<CountryOption[] | CountryPickerOptions>(() => {
 
     result = Array.from(countryMap.values());
   }
+
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
     result = result.filter((country) => includeSet.has(country.code));
@@ -134,11 +135,13 @@ const mergedCountries = computed<CountryOption[] | CountryPickerOptions>(() => {
     const excludeSet = new Set(props.exclude);
     result = result.filter((country) => !excludeSet.has(country.code));
   }
+
   if (props.favorites.length > 0) {
     const favoritesSet = new Set(props.favorites);
     const favorites = result.filter((country) =>
       favoritesSet.has(country.code),
     );
+
     let allCountries = result;
     if (!props.includeFavorites) {
       allCountries = result.filter(
@@ -161,33 +164,30 @@ const countryOptions = computed(() => {
     value: item.code,
     ...item,
   });
+
   if (Array.isArray(data)) {
     return data.map(transformedData);
-  } else {
-    const result = [
-      {
-        label: props.countryPickerLabels.favorites,
-        options: data.favorites.map(transformedData),
-      },
-      {
-        label: props.countryPickerLabels.allCountries,
-        options: data.allCountries.map(transformedData),
-      },
-    ];
-    return result;
   }
+
+  return [
+    {
+      label: props.labels.favorites,
+      options: data.favorites.map(transformedData),
+    },
+    {
+      label: props.labels.allCountries,
+      options: data.allCountries.map(transformedData),
+    },
+  ];
 });
 
-const onUpdateModelValue = (
-  value: string | number | (string | number)[] | undefined,
-) => {
+const onUpdateModelValue = (value: string | string[] | undefined) => {
   if (!Array.isArray(value)) {
     emit("update:modelValue", value);
     return;
   }
 
-  const uniqueValue = Array.from(new Set(value.map((v) => String(v))));
-
+  const uniqueValue = Array.from(new Set(value));
   emit("update:modelValue", uniqueValue);
 };
 </script>

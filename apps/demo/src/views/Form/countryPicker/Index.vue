@@ -251,7 +251,7 @@
           v-model="formData.favorites"
           :exclude="['CN', 'AF']"
           :favorites="['NP', 'US', 'ID', 'QW']"
-          :has-sorted-options="false"
+          :has-sorted-options="true"
           :include="[
             'NP',
             'US',
