@@ -3,13 +3,13 @@
     <SelectInput
       :has-sorted-options="hasSortedOptions"
       :locale="locale"
-      :model-value="adjustedModelValue"
+      :model-value="modelValue"
       :multiple="multiple"
       :name="name"
       :options="countryOptions"
       :placeholder="placeholder"
       class="form-select"
-      @update:model-value="updateModelValue"
+      @update:model-value="onUpdateModelValue"
     />
   </div>
 </template>
@@ -76,10 +76,6 @@ const props = defineProps({
   name: {
     default: "country",
     type: String,
-  },
-  onChange: {
-    type: Function as PropType<(value: string | number | string[]) => void>,
-    default: null,
   },
   placeholder: {
     default: undefined,
@@ -182,65 +178,16 @@ const countryOptions = computed(() => {
   }
 });
 
-const uniqueCountryCodes = computed(() => {
-  const data = mergedCountries.value;
-  const codes = new Set<string>();
-
-  if (Array.isArray(data)) {
-    data.forEach((country) => codes.add(country.code));
-  } else {
-    data.favorites.forEach((country) => codes.add(country.code));
-    data.allCountries.forEach((country) => codes.add(country.code));
-  }
-
-  return Array.from(codes);
-});
-
-const adjustedModelValue = computed(() => {
-  if (!Array.isArray(props.modelValue)) {
-    return props.modelValue;
-  }
-
-  const deduplicatedValue = Array.from(
-    new Set(props.modelValue.map((v) => String(v))),
-  );
-
-  const allUniqueSelected =
-    deduplicatedValue.length === uniqueCountryCodes.value.length &&
-    uniqueCountryCodes.value.every((code) => deduplicatedValue.includes(code));
-
-  if (
-    allUniqueSelected &&
-    props.includeFavorites &&
-    props.favorites &&
-    props.favorites.length > 0
-  ) {
-    const favoriteCodes = props.favorites.filter((code) =>
-      deduplicatedValue.includes(code),
-    );
-    return [...deduplicatedValue, ...favoriteCodes];
-  }
-
-  return deduplicatedValue;
-});
-
-const updateModelValue = (
-  incomingValue: string | number | (string | number)[] | undefined,
+const onUpdateModelValue = (
+  value: string | number | (string | number)[] | undefined,
 ) => {
-  if (!Array.isArray(incomingValue)) {
-    emit("update:modelValue", incomingValue);
-    if (props.onChange && incomingValue !== undefined) {
-      props.onChange(incomingValue);
-    }
+  if (!Array.isArray(value)) {
+    emit("update:modelValue", value);
     return;
   }
 
-  const cleanedValue = Array.from(new Set(incomingValue.map((v) => String(v))));
+  const uniqueValue = Array.from(new Set(value.map((v) => String(v))));
 
-  emit("update:modelValue", cleanedValue);
-
-  if (props.onChange) {
-    props.onChange(cleanedValue);
-  }
+  emit("update:modelValue", uniqueValue);
 };
 </script>
