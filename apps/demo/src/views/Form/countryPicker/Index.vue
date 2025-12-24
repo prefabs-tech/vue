@@ -226,7 +226,7 @@
               &lt;CountryPicker
                 v-model="input"
                 :data="nepaliCountries"
-                :include="['NP', 'US', 'CN', 'GB', 'IN', 'PK','LK','BD','AF']"
+                :include="['NP', 'US', 'CN', 'GB', 'IN', 'PK','LK','BD','AF','QA','CA']"
                 locale="np"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
