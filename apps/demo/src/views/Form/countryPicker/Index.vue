@@ -170,7 +170,6 @@
         <CountryPicker
           v-model="formData.excludedCountries"
           :exclude="excludedCountries"
-          :include="includedCountries"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -181,7 +180,6 @@
             &lt;CountryPicker
               v-model="input"
               :exclude="excludedCountries"
-              :include="includedCountries"
               multiple
               placeholder="$t('form.placeholder.countries')"
             /&gt;
@@ -191,8 +189,7 @@
           import { CountryPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
           
-          const excludedCountries = ["US", "AU"];
-          const includedCountries = ["US", "CA", "FR", "AU", "NP"];
+          const excludedCountries = ["US","AR", "AU", "IR","CN","AF","BR","CA"];
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -205,7 +202,19 @@
         <CountryPicker
           v-model="formData.customLocale"
           :data="nepaliCountries"
-          :include="['NP', 'US', 'CN', 'GB', 'PK', 'IN', 'LK', 'BD', 'AF']"
+          :include="[
+            'NP',
+            'US',
+            'CN',
+            'GB',
+            'PK',
+            'IN',
+            'LK',
+            'BD',
+            'AF',
+            'QA',
+            'CA',
+          ]"
           :placeholder="$t('form.placeholder.countries')"
           locale="np"
           multiple
@@ -249,21 +258,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.favorites"
-          :exclude="['CN', 'AF']"
-          :favorites="['NP', 'US', 'ID', 'QW']"
+          :favorites="['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']"
           :has-sorted-options="false"
-          :include="[
-            'NP',
-            'US',
-            'CN',
-            'GB',
-            'IR',
-            'PK',
-            'IN',
-            'LK',
-            'BD',
-            'AF',
-          ]"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -273,10 +269,8 @@
           &lt;template&gt;
               &lt;CountryPicker
                 v-model="input"
-                :exclude="['CN', 'AF']"
-                :favorites="['NP', 'US','ID','QW]"
+                :favorites="['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']"
                 :has-sorted-options="false"
-                :include="['NP', 'US', 'CN', 'GB', 'PK','IR','IN', 'LK', 'BD', 'AF']"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
               /&gt;
@@ -296,21 +290,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.favorites"
-          :exclude="['CN', 'AF']"
-          :favorites="['NP', 'US', 'ID', 'QW']"
+          :favorites="['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']"
           :has-sorted-options="false"
-          :include="[
-            'NP',
-            'US',
-            'CN',
-            'GB',
-            'IR',
-            'PK',
-            'IN',
-            'LK',
-            'BD',
-            'AF',
-          ]"
           :include-favorites="false"
           :placeholder="$t('form.placeholder.countries')"
           multiple
@@ -321,10 +302,8 @@
           &lt;template&gt;
               &lt;CountryPicker
                 v-model="input"
-                :exclude="['CN', 'AF']"
-                :favorites="['NP', 'US','ID','QW]"
+                :favorites="['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']"
                 :has-sorted-options="false"
-                :include="['NP', 'US', 'CN', 'GB', 'PK','IR','IN', 'LK', 'BD', 'AF']"
                 :include-favorites="false"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
@@ -536,7 +515,17 @@ const formData = reactive({
   includedCountries: [],
   multiselect: [] as string[],
 });
-const excludedCountries = ["US", "AU"];
+const excludedCountries = [
+  "US",
+  "AU",
+  "IR",
+  "CN",
+  "AF",
+  "AR",
+  "BR",
+  "CA",
+  "AR",
+];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];
 
 const data = [
