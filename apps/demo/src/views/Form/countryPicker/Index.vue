@@ -258,7 +258,7 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.favorites"
-          :favorites="['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']"
+          :favorites="favoriteCountries"
           :has-sorted-options="false"
           :placeholder="$t('form.placeholder.countries')"
           multiple
@@ -269,7 +269,7 @@
           &lt;template&gt;
               &lt;CountryPicker
                 v-model="input"
-                :favorites="['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']"
+                :favorites="favoriteCountries"
                 :has-sorted-options="false"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
@@ -279,6 +279,7 @@
           &lt;script setup lang="ts"&gt;
           import { ref } from 'vue';
           
+          const favoritesCountries = "['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']";
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -290,7 +291,7 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.favorites"
-          :favorites="['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']"
+          :favorites="favoriteCountries"
           :has-sorted-options="false"
           :include-favorites="false"
           :placeholder="$t('form.placeholder.countries')"
@@ -302,7 +303,7 @@
           &lt;template&gt;
               &lt;CountryPicker
                 v-model="input"
-                :favorites="['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']"
+                :favorites="favoriteCountries"
                 :has-sorted-options="false"
                 :include-favorites="false"
                 multiple
@@ -313,6 +314,7 @@
           &lt;script setup lang="ts"&gt;
           import { ref } from 'vue';
           
+          const favoriteCountries = "['NP', 'US', 'ID', 'QA', 'RW', 'BL', 'SH']";
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -526,6 +528,7 @@ const excludedCountries = [
   "CA",
   "AR",
 ];
+const favoriteCountries = ["NP", "US", "ID", "QA", "RW", "BL", "SH"];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];
 
 const data = [
