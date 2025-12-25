@@ -4,16 +4,6 @@
     :title="$t('ui.popup.title')"
     class="demo"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.popup.usage.basic") }}</h2>
 

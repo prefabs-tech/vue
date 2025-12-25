@@ -4,16 +4,6 @@
     :title="$t('ui.accordion.title')"
     class="demo"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.accordion.basic") }}</h2>
       <DemoAccordion />
@@ -228,7 +218,6 @@ export default {
 
 <script lang="ts" setup>
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import DemoAccordion from "./DemoAccordion.vue";
 import DemoAccordionWithIcons from "./DemoAccordionWithIcons.vue";

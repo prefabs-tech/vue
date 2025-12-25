@@ -4,16 +4,6 @@
     :title="$t('ui.stepper.title')"
     class="demo-stepper"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.stepper.usage.basic") }}</h2>
 
@@ -61,7 +51,7 @@
           ];
 
           const onFinish = () => {
-            router.push("/ui");
+            router.push({ name: "ui" });
           };
           &lt;/script&gt;
         </SshPre>
@@ -93,7 +83,7 @@
           ];
 
           const onFinish = () => {
-            router.push("/ui");
+            router.push({ name: "ui" });
           };
           &lt;/script&gt;
         </SshPre>
@@ -603,7 +593,7 @@ const steps = [
 ];
 
 const onFinish = () => {
-  router.push("/ui");
+  router.push({ name: "ui" });
 };
 
 const onNext = () => {
