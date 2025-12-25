@@ -6,6 +6,7 @@
         <template #toolbar>
           <slot name="toolbar">
             <ButtonElement
+              v-if="$slots.default"
               :label="$t('common.back')"
               icon-left="pi pi-chevron-left"
               size="medium"
