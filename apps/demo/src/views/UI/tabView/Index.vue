@@ -4,16 +4,6 @@
     :title="$t('ui.tabView.title')"
     class="tab-view"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.tabView.usage.basic") }}</h2>
 

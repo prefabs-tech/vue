@@ -4,16 +4,6 @@
     :title="$t('ui.page.title')"
     class="demo"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <div class="section-content">
         <Page :title="$t('ui.page.usage.basic')" title-element="h2">

@@ -3,16 +3,6 @@
     :title="$t('user.label.invitationForm')"
     class="demo-invitation-form"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/user')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("user.label.basic") }}</h2>
 
@@ -211,7 +201,6 @@
 
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { InvitationForm } from "@prefabs.tech/vue3-user";
 import { toast } from "vue3-toastify";
 

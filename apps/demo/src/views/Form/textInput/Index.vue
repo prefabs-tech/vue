@@ -4,16 +4,6 @@
     :title="$t('form.label.textInput')"
     class="demo"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/form')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -272,7 +262,6 @@ export default {
 <script setup lang="ts">
 import { Form, TextInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 

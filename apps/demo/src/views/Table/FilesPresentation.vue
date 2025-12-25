@@ -1,15 +1,5 @@
 <template>
   <TablePage :title="$t('table.label.filesPresentation')" class="demo">
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/table')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("table.usage.tableMode") }}</h2>
 
@@ -238,7 +228,6 @@ export default {
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { FilesPresentation } from "@prefabs.tech/vue3-tanstack-table";
-import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import TablePage from "./TablePage.vue";
 
