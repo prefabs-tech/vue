@@ -96,36 +96,9 @@
           const input = ref&lt;string[]&gt;([]);
 
           const data = [
-            {
-              code: "US",
-              i18n: {
-                en: "United States of America",
-              },
-            },
-            {
-              code: "FR",
-              i18n: {
-                en: "France",
-                fr: "France",
-                th: "ฝรั่งเศส"
-              },
-            },
-            {
-              code: "JP",
-              i18n: {
-                en: "Japan ",
-                fr: "Japon",
-                th: "ญี่ปุ่น"
-              }
-            },
-             {
-              code: "XX",
-              i18n: {
-                en: "New Country(en)",
-                fr: "New Country(fr)",
-                th: "New Country(th)",
-              },
-            },
+            { code: "US", label: "United States of America" },
+            { code: "FR", label: "France override" },
+            { code: "XX", label: "New Country(en)" },
           ];
           &lt;/script&gt;
         </SshPre>
@@ -202,19 +175,6 @@
         <CountryPicker
           v-model="formData.customLocale"
           :data="nepaliCountries"
-          :include="[
-            'NP',
-            'US',
-            'CN',
-            'GB',
-            'PK',
-            'IN',
-            'LK',
-            'BD',
-            'AF',
-            'QA',
-            'CA',
-          ]"
           :placeholder="$t('form.placeholder.countries')"
           locale="np"
           multiple
@@ -226,7 +186,6 @@
               &lt;CountryPicker
                 v-model="input"
                 :data="nepaliCountries"
-                :include="['NP', 'US', 'CN', 'GB', 'IN', 'PK','LK','BD','AF','QA','CA']"
                 locale="np"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
@@ -238,15 +197,15 @@
           
           const input = ref();
           const nepaliCountries = [
-            { code: 'NP', i18n: { np: 'नेपाल' } },
-            { code: 'US', i18n: { np: 'संयुक्त राज्य अमेरिका' } },
-            { code: 'CN', i18n: { np: 'चीन' } },
-            { code: 'GB', i18n: { np: 'बेलायत' } },
-            { code: 'IN', i18n: { np: 'भारत' } },
-            { code: "PK", i18n: { np: "पाकिस्तान" } },
-            { code: "LK", i18n: { np: "श्रीलंका" } },
-            { code: "BD", i18n: { np: "बंगलादेश" } },
-            { code: "AF", i18n: { np: "अफगानिस्तान" } },
+            { code: "US", label: "संयुक्त राज्य अमेरिका" },
+            { code: "CN", label: "चीन" },
+            { code: "GB", label: "बेलायत" },
+            { code: "IN", label: "भारत" },
+            { code: "PK", label: "पाकिस्तान" },
+            { code: "LK", label: "श्रीलंका" },
+            { code: "BD", label: "बंगलादेश" },
+            { code: "AF", label: "अफगानिस्तान" },
+            { code: "NP", label: "नेपाल" },
           ];
           &lt;/script&gt;
         </SshPre>
@@ -342,29 +301,6 @@
         :paginated="false"
         :persist-state="false"
       />
-    </section>
-    <section>
-      <h2>{{ $t("common.type") }}</h2>
-      <div class="section-content">
-        <!-- eslint-disable -->
-          <SshPre language="html-vue">
-            interface CountryOption {
-              code: string;
-              i18n: {
-                en: string;
-                fr: string;
-                th: string;
-                [key: string]: string;
-              };
-            }
-           
-            interface CountryData {
-              code: string;
-              i18n?: Partial  &lt;CountryOption["i18n"];&gt; 
-            };
-        </SshPre>
-          <!-- eslint-enable -->
-      </div>
     </section>
   </FormPage>
 </template>
@@ -498,15 +434,15 @@ const eventsData = [
   },
 ];
 const nepaliCountries = [
-  { code: "NP", i18n: { np: "नेपाल" } },
-  { code: "US", i18n: { np: "संयुक्त राज्य अमेरिका" } },
-  { code: "CN", i18n: { np: "चीन" } },
-  { code: "GB", i18n: { np: "बेलायत" } },
-  { code: "IN", i18n: { np: "भारत" } },
-  { code: "PK", i18n: { np: "पाकिस्तान" } },
-  { code: "LK", i18n: { np: "श्रीलंका" } },
-  { code: "BD", i18n: { np: "बंगलादेश" } },
-  { code: "AF", i18n: { np: "अफगानिस्तान" } },
+  { code: "NP", label: "नेपाल" },
+  { code: "US", label: "संयुक्त राज्य अमेरिका" },
+  { code: "CN", label: "चीन" },
+  { code: "GB", label: "बेलायत" },
+  { code: "IN", label: "भारत" },
+  { code: "PK", label: "पाकिस्तान" },
+  { code: "LK", label: "श्रीलंका" },
+  { code: "BD", label: "बंगलादेश" },
+  { code: "AF", label: "अफगानिस्तान" },
 ];
 
 const formData = reactive({
@@ -532,35 +468,8 @@ const favoriteCountries = ["NP", "US", "ID", "QA", "RW", "BL", "SH"];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];
 
 const data = [
-  {
-    code: "US",
-    i18n: {
-      en: "United States of America",
-      fr: "États-Unis",
-      th: "สหรัฐอเมริกา",
-    },
-  },
-  {
-    code: "FR",
-    i18n: {
-      th: "France override",
-    },
-  },
-  {
-    code: "JP",
-    i18n: {
-      en: "Japan (overwritten)",
-      fr: "Japon",
-      th: "ญี่ปุ่น",
-    },
-  },
-  {
-    code: "XX",
-    i18n: {
-      fr: "New Country(fr)",
-      th: "New Country(th)",
-      en: "New Country(en)",
-    },
-  },
+  { code: "US", label: "United States of America" },
+  { code: "FR", label: "France override" },
+  { code: "XX", label: "New Country(en)" },
 ];
 </script>
