@@ -104,7 +104,7 @@
               code: "JP",
               i18n: {
                 en: "Japan ",
-                fr: "Japon", 
+                fr: "Japon",
                 th: "ญี่ปุ่น"
               }
             },
