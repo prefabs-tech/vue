@@ -85,8 +85,9 @@
           import { ref } from "vue";
 
           const input = ref&lt;string[]&gt;([]);
+
           const data = [
-           {
+            {
               code: "US",
               i18n: {
                 en: "United States of America",
@@ -116,7 +117,7 @@
                 th: "New Country(th)",
               },
             },
-            ];
+          ];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->

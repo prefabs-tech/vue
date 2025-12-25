@@ -67,7 +67,6 @@ const props = defineProps({
     default: "en",
     type: String as PropType<string>,
   },
-
   modelValue: {
     default: undefined,
     type: [String, Number, Array] as PropType<
