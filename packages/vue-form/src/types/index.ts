@@ -5,11 +5,18 @@ interface CurrencyOption extends SelectOption {
 
 interface CountryOption {
   code: string;
-  label?: string;
-  [key: string]: unknown;
+  i18n: {
+    en: string;
+    fr: string;
+    th: string;
+    [key: string]: string;
+  };
 }
 
-type CountryData = CountryOption[];
+interface CountryData {
+  code: string;
+  i18n?: Partial<CountryOption["i18n"]>;
+}
 
 interface CountryPickerLabels {
   favorites?: string;

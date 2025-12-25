@@ -1,0 +1,37 @@
+[
+  {
+    "code": "DE",
+    "i18n": {
+      "de": "Deutschland",
+      "fr": "Allemagne",
+      "en": "Germany"
+    }
+  },
+  {
+    "code": "FR",
+    "i18n": {
+      "fr": "France",
+      "en": "France"
+    }
+  },
+  {
+    "code": "IT",
+    "i18n": {
+      "fr": "Italie",
+      "en": "Italy"
+    }
+  },
+  {
+    "code": "ES",
+    "i18n": {
+      "fr": "Espagne",
+      "en": "Spain"
+    }
+  },
+  {
+    "code": "NP",
+    "i18n": {
+      "en": "Nepal"
+    }
+  }
+]
