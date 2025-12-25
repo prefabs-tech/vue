@@ -7,6 +7,7 @@ interface CountryData {
   code: string;
   i18n?: Partial<CountryOption["i18n"]>;
 }
+
 interface CountryOption {
   code: string;
   i18n: {

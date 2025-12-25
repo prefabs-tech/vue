@@ -86,7 +86,7 @@
 
           const input = ref&lt;string[]&gt;([]);
           const data = [
-          {
+           {
               code: "US",
               i18n: {
                 en: "United States of America",
@@ -104,7 +104,7 @@
               code: "JP",
               i18n: {
                 en: "Japan ",
-                fr: "Japon",
+                fr: "Japon", 
                 th: "ญี่ปุ่น"
               }
             },
