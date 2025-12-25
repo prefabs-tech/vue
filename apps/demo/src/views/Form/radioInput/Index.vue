@@ -1,15 +1,5 @@
 <template>
   <FormPage :title="$t('form.label.radio')" class="demo">
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/form')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 

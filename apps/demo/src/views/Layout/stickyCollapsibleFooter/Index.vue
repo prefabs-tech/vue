@@ -4,16 +4,6 @@
     :title="$t('layout.label.stickyCollapsibleFooter')"
     class="demo sticky-collapsible-footer"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/layout')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("layout.label.footerFixed") }}</h2>
 

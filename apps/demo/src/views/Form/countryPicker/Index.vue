@@ -3,15 +3,6 @@
     :subtitle="$t('form.subtitle.countryPicker')"
     :title="$t('form.label.countryPicker')"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/form')"
-      />
-    </template>
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -409,7 +400,6 @@
 <script setup lang="ts">
 import { CountryPicker } from "@prefabs.tech/vue3-form";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
-import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive } from "vue";
 import { useI18n } from "vue-i18n";
 

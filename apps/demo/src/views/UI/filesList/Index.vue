@@ -4,16 +4,6 @@
     :title="$t('ui.filesList.title')"
     class="demo-files-list"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <div class="section-content">
         <FilesList
@@ -128,7 +118,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, FilesList } from "@prefabs.tech/vue3-ui";
+import { FilesList } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";

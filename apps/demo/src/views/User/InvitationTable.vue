@@ -3,16 +3,6 @@
     :title="$t('user.label.invitationTable')"
     class="demo-invitation-table"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/user')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("user.label.basic") }}</h2>
 
@@ -75,7 +65,6 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { InvitationTable } from "@prefabs.tech/vue3-user";
 
 import { apps } from "./data";
