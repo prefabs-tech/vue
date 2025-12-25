@@ -86,11 +86,36 @@
 
           const input = ref&lt;string[]&gt;([]);
 
-          const data = [
-            { code: "US", label: "United States of America" },
-            { code: "FR", label: "France override" },
-            { code: "XX", label: "New Country(en)" },
-          ];
+         {
+              code: "US",
+              i18n: {
+                en: "United States of America",
+              },
+            },
+            {
+              code: "FR",
+              i18n: {
+                en: "France",
+                fr: "France",
+                th: "ฝรั่งเศส"
+              },
+            },
+            {
+              code: "JP",
+              i18n: {
+                en: "Japan ",
+                fr: "Japon",
+                th: "ญี่ปุ่น"
+              }
+            },
+             {
+              code: "XX",
+              i18n: {
+                en: "New Country(en)",
+                fr: "New Country(fr)",
+                th: "New Country(th)",
+              },
+            },
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -188,15 +213,15 @@
           
           const input = ref();
           const nepaliCountries = [
-            { code: "US", label: "संयुक्त राज्य अमेरिका" },
-            { code: "CN", label: "चीन" },
-            { code: "GB", label: "बेलायत" },
-            { code: "IN", label: "भारत" },
-            { code: "PK", label: "पाकिस्तान" },
-            { code: "LK", label: "श्रीलंका" },
-            { code: "BD", label: "बंगलादेश" },
-            { code: "AF", label: "अफगानिस्तान" },
-            { code: "NP", label: "नेपाल" },
+            { code: 'NP', i18n: { np: 'नेपाल' } },
+            { code: 'US', i18n: { np: 'संयुक्त राज्य अमेरिका' } },
+            { code: 'CN', i18n: { np: 'चीन' } },
+            { code: 'GB', i18n: { np: 'बेलायत' } },
+            { code: 'IN', i18n: { np: 'भारत' } },
+            { code: "PK", i18n: { np: "पाकिस्तान" } },
+            { code: "LK", i18n: { np: "श्रीलंका" } },
+            { code: "BD", i18n: { np: "बंगलादेश" } },
+            { code: "AF", i18n: { np: "अफगानिस्तान" } },
           ];
           &lt;/script&gt;
         </SshPre>
@@ -486,15 +511,15 @@ const eventsData = [
   },
 ];
 const nepaliCountries = [
-  { code: "NP", label: "नेपाल" },
-  { code: "US", label: "संयुक्त राज्य अमेरिका" },
-  { code: "CN", label: "चीन" },
-  { code: "GB", label: "बेलायत" },
-  { code: "IN", label: "भारत" },
-  { code: "PK", label: "पाकिस्तान" },
-  { code: "LK", label: "श्रीलंका" },
-  { code: "BD", label: "बंगलादेश" },
-  { code: "AF", label: "अफगानिस्तान" },
+  { code: "NP", i18n: { np: "नेपाल" } },
+  { code: "US", i18n: { np: "संयुक्त राज्य अमेरिका" } },
+  { code: "CN", i18n: { np: "चीन" } },
+  { code: "GB", i18n: { np: "बेलायत" } },
+  { code: "IN", i18n: { np: "भारत" } },
+  { code: "PK", i18n: { np: "पाकिस्तान" } },
+  { code: "LK", i18n: { np: "श्रीलंका" } },
+  { code: "BD", i18n: { np: "बंगलादेश" } },
+  { code: "AF", i18n: { np: "अफगानिस्तान" } },
 ];
 
 const formData = reactive({
