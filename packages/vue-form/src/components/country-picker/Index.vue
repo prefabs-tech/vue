@@ -47,6 +47,10 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<string[]>,
   },
+  fallbackLocale: {
+    default: null,
+    type: String as PropType<string>,
+  },
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -160,12 +164,28 @@ const mergedCountries = computed<CountryOption[] | CountryResolvedData>(() => {
 
 const countryOptions = computed(() => {
   const data = mergedCountries.value;
-  const transformedData = (item: CountryOption) => ({
-    label: item.i18n?.[props.locale] ?? item.i18n.en ?? item.code,
-    value: item.code,
-    ...item,
-  });
+  const fallbackOverrideCodes = new Set(props.data.map((item) => item.code));
+  const transformedData = (item: CountryOption) => {
+    let label = item.i18n?.[props.locale];
 
+    if (
+      !label &&
+      props.fallbackLocale !== null &&
+      fallbackOverrideCodes.has(item.code)
+    ) {
+      label = item.i18n?.[props.fallbackLocale as string];
+    }
+
+    if (!label) {
+      label = item.i18n?.en ?? item.code;
+    }
+
+    return {
+      label,
+      value: item.code,
+      ...item,
+    };
+  };
   if (Array.isArray(data)) {
     return data.map(transformedData);
   }

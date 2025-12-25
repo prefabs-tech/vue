@@ -322,6 +322,43 @@
       </div>
     </section>
     <section>
+      <h2>{{ $t("form.label.fallbackLocale") }}</h2>
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.fallbackDemo"
+          :data="fallbackCountriesData"
+          :fallback-locale="'fr'"
+          :include="['DE', 'FR', 'IT', 'ES', 'NP']"
+          :locale="'de'"
+          :placeholder="$t('form.placeholder.countries')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      &lt;template&gt;
+        &lt;CountryPicker
+          v-model="input"
+          :data="fallbackCountries"
+          :fallback-locale="fr"
+          :include="['DE', 'FR', 'IT', 'ES', 'NP']"
+          locale="de"
+          multiple
+          placeholder="$t('form.placeholder.countries')"
+        /&gt;
+      &lt;/template&gt;
+
+      &lt;script setup lang="ts"&gt;
+      import { ref } from 'vue';
+      import fallbackCountries from './fallbackCountries.json';  
+      
+      const input = ref();
+      &lt;/script&gt;
+    </SshPre>
+    <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
       <h2>
         {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
       </h2>
@@ -376,9 +413,11 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive } from "vue";
 import { useI18n } from "vue-i18n";
 
+import fallbackCountriesData from "./fallbackCountries.json";
+import FormPage from "../FormPage.vue";
+
 const { t } = useI18n();
 
-import FormPage from "../FormPage.vue";
 const propsColumns = [
   {
     accessorKey: "prop",
@@ -514,6 +553,8 @@ const formData = reactive({
   custom: [] as string[],
   customLocale: [],
   excludedCountries: [],
+  favorites: [],
+  fallbackDemo: undefined as string | undefined,
   includedCountries: [],
   multiselect: [] as string[],
 });
