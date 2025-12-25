@@ -47,6 +47,10 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<string[]>,
   },
+  fallbackLocale: {
+    default: null,
+    type: String as PropType<string>,
+  },
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -63,10 +67,7 @@ const props = defineProps({
     default: "en",
     type: String as PropType<string>,
   },
-  fallbackLocale: {
-    default: null,
-    type: String as PropType<string | null>,
-  },
+
   modelValue: {
     default: undefined,
     type: [String, Number, Array] as PropType<
