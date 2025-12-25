@@ -1,15 +1,5 @@
 <template>
   <UiPage :title="t('ui.tabbed-panel.title')">
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <Message
       :enable-close="false"
       :message="t('ui.tabbed-panel.depreciation-message')"
@@ -34,7 +24,7 @@ export default {
 
 <script lang="ts" setup>
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { ButtonElement, Message, TabbedPanel } from "@prefabs.tech/vue3-ui";
+import { Message, TabbedPanel } from "@prefabs.tech/vue3-ui";
 
 import BasicUsage from "./BasicUsage.vue";
 import Colorized from "./Colorized.vue";

@@ -4,16 +4,6 @@
     :title="$t('ui.divider.title')"
     class="demo"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.divider.usage.horizontal") }}</h2>
 
@@ -128,7 +118,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, Divider } from "@prefabs.tech/vue3-ui";
+import { Divider } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";

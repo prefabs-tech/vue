@@ -3,16 +3,6 @@
     :title="$t('user.label.invitationModal')"
     class="demo-invitation-modal"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/user')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("user.label.basic") }}</h2>
 

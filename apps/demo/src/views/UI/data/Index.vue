@@ -4,16 +4,6 @@
     :sub-title="$t('ui.data.subtitle')"
     class="demo"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.data.usage.basic") }}</h2>
 
@@ -159,7 +149,7 @@
 
 <script setup lang="ts">
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
-import { ButtonElement, Data, GridContainer } from "@prefabs.tech/vue3-ui";
+import { Data, GridContainer } from "@prefabs.tech/vue3-ui";
 
 import UiPage from "../UiPage.vue";
 

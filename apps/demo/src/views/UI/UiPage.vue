@@ -4,7 +4,15 @@
     <div class="demo-main">
       <Page :title="title" :sub-title="subTitle">
         <template #toolbar>
-          <slot name="toolbar"></slot>
+          <slot name="toolbar">
+            <ButtonElement
+              :label="$t('common.back')"
+              icon-left="pi pi-chevron-left"
+              size="medium"
+              variant="textOnly"
+              @click="$router.push({ name: 'ui' })"
+            />
+          </slot>
         </template>
         <slot></slot>
       </Page>
@@ -21,6 +29,7 @@ export default {
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Sidebar } from "@prefabs.tech/vue3-layout";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import type { PropType } from "vue";
 

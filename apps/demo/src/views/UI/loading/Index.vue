@@ -4,16 +4,6 @@
     :title="$t('ui.loading.title')"
     class="demo-loading"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.loading.usage.basic") }}</h2>
 
