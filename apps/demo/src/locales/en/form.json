@@ -143,6 +143,7 @@
     "exclude": "Exclude filter",
     "expiresAfter": "Expires after",
     "europe": "Europe",
+    "fallbackLocale": "Fallback locale",
     "favorites": "Favorites",
     "female": "Female",
     "fileInput": "File input",

@@ -2,6 +2,7 @@ interface CurrencyOption extends SelectOption {
   code?: string;
   symbol?: string;
 }
+
 interface CountryData {
   code: string;
   i18n?: Partial<CountryOption["i18n"]>;
