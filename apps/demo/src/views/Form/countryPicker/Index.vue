@@ -547,8 +547,35 @@ const favoriteCountries = ["NP", "US", "ID", "QA", "RW", "BL", "SH"];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];
 
 const data = [
-  { code: "US", label: "United States of America" },
-  { code: "FR", label: "France override" },
-  { code: "XX", label: "New Country(en)" },
+  {
+    code: "US",
+    i18n: {
+      en: "United States of America",
+      fr: "États-Unis",
+      th: "สหรัฐอเมริกา",
+    },
+  },
+  {
+    code: "FR",
+    i18n: {
+      th: "France override",
+    },
+  },
+  {
+    code: "JP",
+    i18n: {
+      en: "Japan (overwritten)",
+      fr: "Japon",
+      th: "ญี่ปุ่น",
+    },
+  },
+  {
+    code: "XX",
+    i18n: {
+      fr: "New Country(fr)",
+      th: "New Country(th)",
+      en: "New Country(en)",
+    },
+  },
 ];
 </script>
