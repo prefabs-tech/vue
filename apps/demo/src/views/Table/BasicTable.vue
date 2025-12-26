@@ -1436,6 +1436,44 @@
       :props-table-title="$t('common.properties', { value: 'TableProperties' })"
       :slots-data="slotsData"
     />
+
+    <section>
+      <!-- eslint-disable -->
+      <h2>{{ $t("common.type") }}</h2>
+      <SshPre language="html-vue">
+        interface ColumnFilter {
+            id: string;
+            value: unknown;
+        }
+
+        interface ColumnSort {
+            desc: boolean;
+            id: string;
+        }
+
+        type ColumnFiltersState = ColumnFilter[];
+
+        type ConfirmationOptions = {
+          body?: string | VNode;
+          footer?: string | VNode;
+          header?: string | VNode;
+        };
+
+        type DataActionsMenuItem = {
+          class?: string;
+          confirmationOptions?: ConfirmationOptions | ((data) => ConfirmationOptions);
+          disabled?: boolean | ((data) => boolean);
+          display?: boolean | ((data) => boolean);
+          key?: string;
+          label?: string;
+          icon?: string;
+          requireConfirmationModal?: boolean;
+        };
+
+        type SortingState = ColumnSort[];
+      </SshPre>
+      <!-- eslint-enable -->
+    </section>
   </TablePage>
 </template>
 
@@ -1664,7 +1702,7 @@ const eventsData = [
   {
     description: t("table.documentation.eventDescription.updateRequest"),
     name: "update:request",
-    payload: "requestJSON: object",
+    payload: "requestJSON: TRequestJSON",
   },
 ];
 
@@ -1895,13 +1933,13 @@ const propsData = [
     type: "String",
   },
   {
-    default: "DEFAULT_PAGE_SIZE",
+    default: "10",
     description: t("table.documentation.propsDescription.rowPerPage"),
     prop: "rowPerPage",
     type: "Number",
   },
   {
-    default: "DEFAULT_PAGE_PER_OPTIONS",
+    default: "[10, 20, 30]",
     description: t("table.documentation.propsDescription.rowPerPageOptions"),
     prop: "rowPerPageOptions",
     type: "number[]",
