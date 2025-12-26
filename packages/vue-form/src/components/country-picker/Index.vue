@@ -18,11 +18,10 @@
 import { ref, computed, type PropType } from "vue";
 
 import SelectInput from "../SelectInput.vue";
-import countriesData from "./countries.json";
+import enData from "./en.json";
 
 import type {
   CountryOption,
-  CountryData,
   CountryResolvedData,
   CountryPickerLabels,
 } from "../../types";
@@ -36,12 +35,16 @@ const props = defineProps({
     type: Object as PropType<CountryPickerLabels>,
   },
   data: {
+    type: Array as PropType<CountryOption[]>,
     default: () => [],
-    type: Array as PropType<CountryData[]>,
   },
   exclude: {
     default: () => [],
     type: Array as PropType<string[]>,
+  },
+  fallbackLocale: {
+    default: "en",
+    type: String as PropType<string>,
   },
   favorites: {
     default: () => [],
@@ -90,42 +93,30 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const countries = ref(countriesData);
+const en = Object.entries(enData).map(([code, label]) => ({
+  code,
+  label: String(label),
+}));
+
+const countries = ref<CountryOption[]>(en);
 const mergedCountries = computed<CountryOption[] | CountryResolvedData>(() => {
-  let result = [...countries.value];
+  const map = new Map<string, CountryOption>();
 
-  if (props.data.length > 0) {
-    const countryMap = new Map(
-      result.map((country) => [country.code, country]),
-    );
+  countries.value.forEach((country) => {
+    map.set(country.code, country);
+  });
 
+  if (Array.isArray(props.data)) {
     props.data.forEach((item) => {
-      const existingCountry = countryMap.get(item.code);
-
-      if (existingCountry) {
-        countryMap.set(item.code, {
-          ...existingCountry,
-          i18n: {
-            ...existingCountry.i18n,
-            ...item.i18n,
-          },
-        });
-      } else {
-        countryMap.set(item.code, {
-          code: item.code,
-          i18n: {
-            en: item.i18n?.en || item.code,
-            fr: item.i18n?.fr || item.code,
-            th: item.i18n?.th || item.code,
-            ...(item.i18n || {}),
-          },
-        });
-      }
+      map.set(item.code, item);
     });
-
-    result = Array.from(countryMap.values());
+  } else if (props.data && typeof props.data === "object") {
+    Object.entries(props.data).forEach(([code, label]) => {
+      map.set(code, { code, label: String(label) });
+    });
   }
 
+  let result = Array.from(map.values());
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
     result = result.filter((country) => includeSet.has(country.code));
@@ -154,17 +145,28 @@ const mergedCountries = computed<CountryOption[] | CountryResolvedData>(() => {
       allCountries,
     };
   }
-
   return result;
 });
 
 const countryOptions = computed(() => {
   const data = mergedCountries.value;
-  const transformedData = (item: CountryOption) => ({
-    label: item.i18n?.[props.locale] ?? item.i18n.en ?? item.code,
-    value: item.code,
-    ...item,
-  });
+  const transformedData = (item: CountryOption) => {
+    if (item.label) {
+      return {
+        label: item.label,
+        value: item.code,
+        ...item,
+      };
+    }
+    const enLabel = en.find((country) => country.code === item.code)?.label;
+    const label = enLabel || item.code;
+
+    return {
+      label,
+      value: item.code,
+      ...item,
+    };
+  };
 
   if (Array.isArray(data)) {
     return data.map(transformedData);
