@@ -1,5 +1,9 @@
 <template>
-  <TablePage :title="$t('table.title')" class="demo data-table">
+  <TablePage
+    :subtitle="$t('table.subtitle')"
+    :title="$t('table.title')"
+    class="demo data-table"
+  >
     <section>
       <h2>{{ $t("table.usage.basic") }}</h2>
 
@@ -1425,6 +1429,51 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'TableProperties' })"
+      :slots-data="slotsData"
+    />
+
+    <section>
+      <!-- eslint-disable -->
+      <h2>{{ $t("common.type") }}</h2>
+      <SshPre language="html-vue">
+        interface ColumnFilter {
+            id: string;
+            value: unknown;
+        }
+
+        interface ColumnSort {
+            desc: boolean;
+            id: string;
+        }
+
+        type ColumnFiltersState = ColumnFilter[];
+
+        type ConfirmationOptions = {
+          body?: string | VNode;
+          footer?: string | VNode;
+          header?: string | VNode;
+        };
+
+        type DataActionsMenuItem = {
+          class?: string;
+          confirmationOptions?: ConfirmationOptions | ((data) => ConfirmationOptions);
+          disabled?: boolean | ((data) => boolean);
+          display?: boolean | ((data) => boolean);
+          key?: string;
+          label?: string;
+          icon?: string;
+          requireConfirmationModal?: boolean;
+        };
+
+        type SortingState = ColumnSort[];
+      </SshPre>
+      <!-- eslint-enable -->
+    </section>
   </TablePage>
 </template>
 
@@ -1446,6 +1495,7 @@ import { h, ref, resolveComponent } from "vue";
 
 import { city, data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
+import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
 
 import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
 
@@ -1638,6 +1688,24 @@ const customFormattedTableColumns = [
   },
 ];
 
+const eventsData = [
+  {
+    description: t("table.documentation.eventDescription.actionSelect"),
+    name: "action:select",
+    payload: "{ action: string; data: object }",
+  },
+  {
+    description: t("table.documentation.eventDescription.changeRowSelection"),
+    name: "change:rowSelection",
+    payload: "selectedRows: Array",
+  },
+  {
+    description: t("table.documentation.eventDescription.updateRequest"),
+    name: "update:request",
+    payload: "requestJSON: TRequestJSON",
+  },
+];
+
 const formattedTableColumns = [
   {
     accessorKey: "description",
@@ -1712,6 +1780,220 @@ const formattedTableColumns = [
       h("i", {
         class: "pi pi-cog",
       }),
+  },
+];
+
+const propsData = [
+  {
+    default: "auto",
+    description: t("table.documentation.propsDescription.actionsMode"),
+    prop: "actionsMode",
+    type: "auto | buttons | dropdown",
+  },
+  {
+    default: "1",
+    description: t("table.documentation.propsDescription.autoModeCount"),
+    prop: "autoModeCount",
+    type: "Number",
+  },
+  {
+    default: "[]",
+    description: t("table.documentation.propsDescription.dataActionMenu"),
+    prop: "dataActionMenu",
+    type: "Array<DataActionsMenuItem>",
+  },
+  {
+    default: "-",
+    description: t(
+      "table.documentation.propsDescription.columnActionButtonLabel",
+    ),
+    prop: "columnActionButtonLabel",
+    type: "String",
+  },
+  {
+    default: "[]",
+    description: t("table.documentation.propsDescription.columnsData"),
+    prop: "columnsData",
+    type: "Array<ColumnDef>",
+  },
+  {
+    default: "{}",
+    description: t("table.documentation.propsDescription.customFormatters"),
+    prop: "customFormatters",
+    type: "Record<string, Function>",
+  },
+  {
+    default: "[]",
+    description: t("table.documentation.propsDescription.data"),
+    prop: "data",
+    type: "Array",
+  },
+  {
+    default: "true",
+    description: t("table.documentation.propsDescription.displayActions"),
+    prop: "displayActions",
+    type: "Boolean | Function",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.emptyTableMessage"),
+    prop: "emptyTableMessage",
+    type: "String",
+  },
+  {
+    default: "false",
+    description: t("table.documentation.propsDescription.enableRowSelection"),
+    prop: "enableRowSelection",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: t("table.documentation.propsDescription.enableSortingRemoval"),
+    prop: "enableSortingRemoval",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: t(
+      "table.documentation.propsDescription.highlightActiveHeaderColumn",
+    ),
+    prop: "highlightActiveHeaderColumn",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.id"),
+    prop: "id",
+    type: "String",
+  },
+  {
+    default: "[]",
+    description: t("table.documentation.propsDescription.initialFilters"),
+    prop: "initialFilters",
+    type: "ColumnFiltersState",
+  },
+  {
+    default: "[]",
+    description: t("table.documentation.propsDescription.initialSorting"),
+    prop: "initialSorting",
+    type: "SortingState",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.inputDebounceTime"),
+    prop: "inputDebounceTime",
+    type: "Number",
+  },
+  {
+    default: "false",
+    description: t("table.documentation.propsDescription.isLoading"),
+    prop: "isLoading",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: t("table.documentation.propsDescription.isServerTable"),
+    prop: "isServerTable",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.locale"),
+    prop: "locale",
+    type: "String",
+  },
+  {
+    default: "true",
+    description: t("table.documentation.propsDescription.paginated"),
+    prop: "paginated",
+    type: "Boolean",
+  },
+  {
+    default: "{}",
+    description: t("table.documentation.propsDescription.paginationOptions"),
+    prop: "paginationOptions",
+    type: "Object",
+  },
+  {
+    default: "true",
+    description: t("table.documentation.propsDescription.persistState"),
+    prop: "persistState",
+    type: "Boolean",
+  },
+  {
+    default: "localStorage",
+    description: t("table.documentation.propsDescription.persistStateStorage"),
+    prop: "persistStateStorage",
+    type: "localStorage | sessionStorage",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.resetButtonLabel"),
+    prop: "resetButtonLabel",
+    type: "String",
+  },
+  {
+    default: "10",
+    description: t("table.documentation.propsDescription.rowPerPage"),
+    prop: "rowPerPage",
+    type: "Number",
+  },
+  {
+    default: "[10, 20, 30]",
+    description: t("table.documentation.propsDescription.rowPerPageOptions"),
+    prop: "rowPerPageOptions",
+    type: "number[]",
+  },
+  {
+    default: "false",
+    description: t("table.documentation.propsDescription.showColumnAction"),
+    prop: "showColumnAction",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: t("table.documentation.propsDescription.showResetButton"),
+    prop: "showResetButton",
+    type: "Boolean",
+  },
+  {
+    default: "{}",
+    description: t("table.documentation.propsDescription.tableOptions"),
+    prop: "tableOptions",
+    type: "Object",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.titleInfo"),
+    prop: "titleInfo",
+    type: "{ text: string; align?: string }",
+  },
+  {
+    default: "0",
+    description: t("table.documentation.propsDescription.totalRecords"),
+    prop: "totalRecords",
+    type: "Number",
+  },
+  {
+    default: "[]",
+    description: t("table.documentation.propsDescription.visibleColumns"),
+    prop: "visibleColumns",
+    type: "string[]",
+  },
+];
+
+const slotsData = [
+  {
+    description: t("table.documentation.slotDescription.toolbar"),
+    name: "toolbar",
+  },
+  {
+    description: t("table.documentation.slotDescription.footer"),
+    name: "footer",
+  },
+  {
+    description: t("table.documentation.slotDescription.pagination"),
+    name: "pagination",
   },
 ];
 </script>
