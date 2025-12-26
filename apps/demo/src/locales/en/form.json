@@ -23,6 +23,7 @@
       "select": {
         "data": "Custom country data to overwrite existing items or add new one.",
         "exclude": "An array of country codes to remove from the list.",
+        "fallbackLocale": "Backup language used if the primary translation is missing.",
         "favorites": "An array of country codes to prioritize and display at the top of the list.",
         "hasSortedOption": "If true, the options will be sorted alphabetically.",
         "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
@@ -143,6 +144,7 @@
     "exclude": "Exclude filter",
     "expiresAfter": "Expires after",
     "europe": "Europe",
+    "fallbackLocale": "Fallback locale",
     "favorites": "Favorites",
     "female": "Female",
     "fileInput": "File input",

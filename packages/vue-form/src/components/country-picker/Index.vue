@@ -42,6 +42,10 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<string[]>,
   },
+  fallbackLocale: {
+    default: "en",
+    type: String as PropType<string>,
+  },
   favorites: {
     default: () => [],
     type: Array as PropType<string[]>,
@@ -89,13 +93,12 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const en = enData as Record<string, string>;
-const countries = ref<CountryOption[]>(
-  Object.entries(enData).map(([code, label]) => ({
-    code,
-    label,
-  })),
-);
+const en = Object.entries(enData).map(([code, label]) => ({
+  code,
+  label: String(label),
+}));
+
+const countries = ref<CountryOption[]>(en);
 const mergedCountries = computed<CountryOption[] | CountryResolvedData>(() => {
   const map = new Map<string, CountryOption>();
 
@@ -103,9 +106,15 @@ const mergedCountries = computed<CountryOption[] | CountryResolvedData>(() => {
     map.set(country.code, country);
   });
 
-  props.data.forEach((item) => {
-    map.set(item.code, item);
-  });
+  if (Array.isArray(props.data)) {
+    props.data.forEach((item) => {
+      map.set(item.code, item);
+    });
+  } else if (props.data && typeof props.data === "object") {
+    Object.entries(props.data).forEach(([code, label]) => {
+      map.set(code, { code, label: String(label) });
+    });
+  }
 
   let result = Array.from(map.values());
   if (props.include.length > 0) {
@@ -141,11 +150,23 @@ const mergedCountries = computed<CountryOption[] | CountryResolvedData>(() => {
 
 const countryOptions = computed(() => {
   const data = mergedCountries.value;
-  const transformedData = (item: CountryOption) => ({
-    label: item.label ?? en[item.code] ?? item.code,
-    value: item.code,
-    ...item,
-  });
+  const transformedData = (item: CountryOption) => {
+    if (item.label) {
+      return {
+        label: item.label,
+        value: item.code,
+        ...item,
+      };
+    }
+    const enLabel = en.find((country) => country.code === item.code)?.label;
+    const label = enLabel || item.code;
+
+    return {
+      label,
+      value: item.code,
+      ...item,
+    };
+  };
 
   if (Array.isArray(data)) {
     return data.map(transformedData);
