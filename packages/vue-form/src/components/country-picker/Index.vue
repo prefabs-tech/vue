@@ -6,7 +6,7 @@
       :model-value="modelValue"
       :multiple="multiple"
       :name="name"
-      :options="countryOptions"
+      :options="options"
       :placeholder="placeholder"
       class="form-select"
       @update:model-value="onUpdateModelValue"
@@ -36,7 +36,7 @@ const props = defineProps({
   },
   fallbackLocale: {
     default: "en",
-    type: String as PropType<string>,
+    type: String,
   },
   favorites: {
     default: () => [],
@@ -60,7 +60,7 @@ const props = defineProps({
   },
   locale: {
     default: "en",
-    type: String as PropType<string>,
+    type: String,
   },
   modelValue: {
     default: undefined,
@@ -89,28 +89,18 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const baseCountries = computed<CountryOption[]>(() => {
-  const masterMap = new Map<string, string>();
+const getCountrySource = () => {
+  const fallback = props.i18n[props.fallbackLocale];
+  return fallback ? { ...enData, ...fallback } : enData;
+};
 
-  Object.entries(enData).forEach(([code, label]) => {
-    masterMap.set(code, String(label));
-  });
+const countries = computed<CountryOption[]>(() => {
+  const countriesData = getCountrySource();
 
-  const sourceData =
-    props.i18n[props.locale] || props.i18n[props.fallbackLocale] || {};
-
-  Object.entries(sourceData).forEach(([code, label]) => {
-    masterMap.set(code, String(label));
-  });
-
-  return Array.from(masterMap.entries()).map(([code, label]) => ({
+  let result = Object.entries(countriesData).map(([code, label]) => ({
     code,
     label,
   }));
-});
-
-const processedData = computed(() => {
-  let result = [...baseCountries.value];
 
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
@@ -122,50 +112,51 @@ const processedData = computed(() => {
     result = result.filter((country) => !excludeSet.has(country.code));
   }
 
-  if (props.favorites.length > 0) {
-    const favoritesSet = new Set(props.favorites);
-    const favorites = result.filter((country) =>
-      favoritesSet.has(country.code),
-    );
-
-    const allCountries = props.includeFavorites
-      ? result
-      : result.filter((country) => !favoritesSet.has(country.code));
-
-    return { favorites, allCountries };
-  }
-
   return result;
 });
-
-const countryOptions = computed(() => {
-  const data = processedData.value;
-
-  const transform = (item: CountryOption) => {
-    const label =
-      props.i18n[props.locale]?.[item.code] ??
-      props.i18n[props.fallbackLocale]?.[item.code] ??
-      item.label;
-
-    return {
-      ...item,
-      label,
-      value: item.code,
-    };
-  };
-
-  if (Array.isArray(data)) {
-    return data.map(transform);
+const favourites = computed<CountryOption[]>(() => {
+  if (props.favorites.length === 0) {
+    return [];
   }
 
+  const countryMap = new Map(
+    countries.value.map((country) => [country.code, country]),
+  );
+
+  return props.favorites
+    .filter((code) => countryMap.has(code))
+    .map((code) => countryMap.get(code)!);
+});
+
+const options = computed(() => {
+  const translations: Record<string, string> = {
+    ...enData,
+    ...(props.i18n[props.fallbackLocale] || {}),
+    ...(props.i18n[props.locale] || {}),
+  };
+  const toOption = (country: CountryOption) => ({
+    label: translations[country.code] ?? country.code,
+    value: country.code,
+  });
+
+  if (favourites.value.length === 0) {
+    return countries.value.map(toOption);
+  }
+
+  const allCountries = props.includeFavorites
+    ? countries.value
+    : countries.value.filter(
+        (country) =>
+          !favourites.value.some((favorite) => favorite.code === country.code),
+      );
   return [
     {
       label: props.labels.favorites,
-      options: data.favorites.map(transform),
+      options: favourites.value.map(toOption),
     },
     {
       label: props.labels.allCountries,
-      options: data.allCountries.map(transform),
+      options: allCountries.map(toOption),
     },
   ];
 });
