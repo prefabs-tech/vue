@@ -2,9 +2,18 @@
   <div class="demo">
     <Sidebar :menu="menu" class="demo-aside" no-header />
     <div class="demo-main">
-      <Page class="demo-data-tables-page" :sub-title="subTitle" :title="title">
+      <Page class="demo-data-tables-page" :sub-title="subtitle" :title="title">
         <template #toolbar>
-          <slot name="toolbar"></slot>
+          <slot name="toolbar">
+            <ButtonElement
+              v-if="$slots.default"
+              :label="$t('common.back')"
+              icon-left="pi pi-chevron-left"
+              size="medium"
+              variant="textOnly"
+              @click="$router.push({ name: 'table' })"
+            />
+          </slot>
         </template>
         <slot></slot>
       </Page>
@@ -21,11 +30,12 @@ export default {
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Sidebar } from "@prefabs.tech/vue3-layout";
+import { ButtonElement } from "@prefabs.tech/vue3-ui";
 
 import type { PropType } from "vue";
 
 defineProps({
-  subTitle: {
+  subtitle: {
     default: undefined,
     required: false,
     type: String as PropType<string>,

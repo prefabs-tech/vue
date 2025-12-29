@@ -1,15 +1,5 @@
 <template>
   <TablePage :title="$t('table.title')" class="demo data-table">
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/table')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("table.usage.filterableColumn") }}</h2>
 

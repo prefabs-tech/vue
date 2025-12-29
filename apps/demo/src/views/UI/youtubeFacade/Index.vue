@@ -4,16 +4,6 @@
     :title="$t('ui.youtubeFacade.title')"
     class="demo-youtube-facade"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.youtubeFacade.usage.basic") }}</h2>
 
@@ -114,7 +104,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonElement, YoutubeFacade } from "@prefabs.tech/vue3-ui";
+import { YoutubeFacade } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";

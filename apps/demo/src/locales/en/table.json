@@ -1,4 +1,50 @@
 {
+  "documentation": {
+    "eventDescription": {
+      "actionSelect": "Emitted when a row action is selected with row data and action key",
+      "changeRowSelection": "Emitted when the selected rows change",
+      "updateRequest": "Emitted when server-side data needs to be requested"
+    },
+    "propsDescription": {
+      "actionsMode": "Controls how row actions are displayed",
+      "autoModeCount": "Count threshold for auto mode that determines when to switch from buttons mode to dropdown mode",
+      "dataActionMenu": "List of actions properties available for each row",
+      "columnActionButtonLabel": "Label for the action button in toolbar section for sorting and visibility toggle",
+      "columnsData": "Column definitions for the table",
+      "customFormatters": "Collection of custom formatting functions for cell values",
+      "data": "Array of table row data",
+      "displayActions": "Controls whether row actions are displayed",
+      "emptyTableMessage": "Message shown when the table has no data",
+      "enableRowSelection": "Enables row selection using checkboxes",
+      "enableSortingRemoval": "Allows a column’s sort state to toggle between ascending, descending, and none",
+      "highlightActiveHeaderColumn": "Highlights the currently active column header",
+      "id": "Unique identifier required for persisting table state",
+      "initialFilters": "Initial filter configuration for columns",
+      "initialSorting": "Initial sorting configuration",
+      "inputDebounceTime": "Debounce time for column filter inputs",
+      "isLoading": "Displays a loading overlay on the table",
+      "isServerTable": "Enables server-side pagination, sorting, and filtering",
+      "locale": "Locale used for formatting values",
+      "paginated": "Enables pagination for the table",
+      "paginationOptions": "Additional pagination component properties",
+      "persistState": "Persists table state across page reloads",
+      "persistStateStorage": "Storage type used for persisting table state",
+      "resetButtonLabel": "Label for the reset button",
+      "rowPerPage": "Default number of rows per page",
+      "rowPerPageOptions": "Available options for rows per page",
+      "showColumnAction": "Shows a button for column sorting and visibility controls in toolbar section",
+      "showResetButton": "Shows reset button in the toolbar section",
+      "tableOptions": "Additional table properties supported by the tanstack table",
+      "titleInfo": "Configuration for table title’s text and alignment",
+      "totalRecords": "Total number of records for table",
+      "visibleColumns": "Controls column’s visibility and order initially"
+    },
+    "slotDescription": {
+      "toolbar": "Slot for custom additional toolbar content",
+      "footer": "Slot for custom table footer content",
+      "pagination": "Slot for custom pagination content"
+    }
+  },
   "label": {
     "clickMe": "Click me",
     "components": "Components",
@@ -36,6 +82,7 @@
     "search": "Search",
     "status": "Select status"
   },
+  "subtitle": "The table component is a flexible and powerful solution for managing and displaying tabular data.",
   "title": "Table",
   "usage": {
     "basic": "Basic",

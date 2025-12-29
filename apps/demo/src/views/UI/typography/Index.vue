@@ -1,15 +1,5 @@
 <template>
   <UiPage :title="$t('ui.typography.title')">
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <h2>Heading level 2</h2>
     <section>
       <h3>Section h3 heading</h3>
@@ -66,7 +56,5 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { ButtonElement } from "@prefabs.tech/vue3-ui";
-
 import UiPage from "../UiPage.vue";
 </script>

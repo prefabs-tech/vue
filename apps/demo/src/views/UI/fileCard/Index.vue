@@ -4,16 +4,6 @@
     :title="$t('ui.fileCard.title')"
     class="demo-file-card"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.fileCard.usage.basic") }}</h2>
 
@@ -285,7 +275,7 @@
 
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { ButtonElement, FileCard } from "@prefabs.tech/vue3-ui";
+import { FileCard } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";

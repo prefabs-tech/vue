@@ -4,16 +4,6 @@
     :title="$t('ui.dropdown.title')"
     class="demo"
   >
-    <template #toolbar>
-      <ButtonElement
-        :label="$t('common.back')"
-        icon-left="pi pi-chevron-left"
-        size="medium"
-        variant="textOnly"
-        @click="$router.push('/ui')"
-      />
-    </template>
-
     <section>
       <h2>{{ $t("ui.dropdown.usage.basic") }}</h2>
 
@@ -235,7 +225,7 @@
 
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { ButtonElement, Dropdown } from "@prefabs.tech/vue3-ui";
+import { Dropdown } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
