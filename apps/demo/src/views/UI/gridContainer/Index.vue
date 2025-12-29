@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.gridContainer.subtitle')"
+    :subtitle="$t('ui.gridContainer.subtitle')"
     :title="$t('ui.gridContainer.title')"
     class="demo"
   >

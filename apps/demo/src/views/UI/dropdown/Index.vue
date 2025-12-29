@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.dropdown.subtitle')"
+    :subtitle="$t('ui.dropdown.subtitle')"
     :title="$t('ui.dropdown.title')"
     class="demo"
   >

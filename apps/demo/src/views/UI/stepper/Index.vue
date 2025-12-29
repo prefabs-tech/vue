@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.stepper.subtitle')"
+    :subtitle="$t('ui.stepper.subtitle')"
     :title="$t('ui.stepper.title')"
     class="demo-stepper"
   >

@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.modal.subtitle')"
+    :subtitle="$t('ui.modal.subtitle')"
     :title="$t('ui.modal.title')"
     class="demo-modal"
   >

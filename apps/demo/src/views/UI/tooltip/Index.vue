@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.tooltip.subtitle')"
+    :subtitle="$t('ui.tooltip.subtitle')"
     :title="$t('ui.tooltip.title')"
     class="demo"
   >

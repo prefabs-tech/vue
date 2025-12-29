@@ -344,7 +344,7 @@
       "propsDescription": {
         "centered": "Aligns the content in the center.",
         "loading": "Displays a loading overlay within the page content.",
-        "subTitle": "The subtitle text displayed below the title.",
+        "subtitle": "The subtitle text displayed below the title.",
         "title": "The main title text displayed at the top of the page.",
         "titleElement": "HTML tag to be used for the title element.",
         "titleTag": "Optional label displayed next to the title, typically rendered as a badge.",
@@ -352,7 +352,7 @@
       },
       "slotDescription": {
         "default": "Main content of the page.",
-        "subtitle": "Custom subtitle slot. Replaces the `subTitle` prop.",
+        "subtitle": "Custom subtitle slot. Replaces the `subtitle` prop.",
         "titleTag": "Custom title tag slot. Replaces the `titleTag` prop.",
         "toolbar": "Toolbar area on the top-right of the page header."
       }

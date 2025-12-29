@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.divider.subtitle')"
+    :subtitle="$t('ui.divider.subtitle')"
     :title="$t('ui.divider.title')"
     class="demo"
   >

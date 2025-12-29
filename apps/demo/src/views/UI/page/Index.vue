@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.page.subtitle')"
+    :subtitle="$t('ui.page.subtitle')"
     :title="$t('ui.page.title')"
     class="demo"
   >
@@ -184,7 +184,7 @@
     <section>
       <div class="section-content">
         <Page
-          :sub-title="$t('ui.page.label.subtitle')"
+          :subtitle="$t('ui.page.label.subtitle')"
           :title="$t('ui.page.usage.subtitle')"
           title-element="h2"
         >
@@ -194,7 +194,7 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Page sub-title="Page subtitle" title="With subtitle"&gt;
+            &lt;Page subtitle="Page subtitle" title="With subtitle"&gt;
               Page content
             &lt;/Page&gt;
           &lt;/template&gt;
@@ -372,8 +372,8 @@ const propsData = [
   },
   {
     default: "-",
-    description: t("ui.page.documentation.propsDescription.subTitle"),
-    prop: "subTitle",
+    description: t("ui.page.documentation.propsDescription.subtitle"),
+    prop: "subtitle",
     type: "String",
   },
   {

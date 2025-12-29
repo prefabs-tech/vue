@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.fileCard.subtitle')"
+    :subtitle="$t('ui.fileCard.subtitle')"
     :title="$t('ui.fileCard.title')"
     class="demo-file-card"
   >
