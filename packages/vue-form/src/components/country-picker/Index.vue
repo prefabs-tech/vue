@@ -114,21 +114,23 @@ const processedData = computed(() => {
 
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
-    result = result.filter((c) => includeSet.has(c.code));
+    result = result.filter((country) => includeSet.has(country.code));
   }
 
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
-    result = result.filter((c) => !excludeSet.has(c.code));
+    result = result.filter((country) => !excludeSet.has(country.code));
   }
 
   if (props.favorites.length > 0) {
     const favoritesSet = new Set(props.favorites);
-    const favorites = result.filter((c) => favoritesSet.has(c.code));
+    const favorites = result.filter((country) =>
+      favoritesSet.has(country.code),
+    );
 
     const allCountries = props.includeFavorites
       ? result
-      : result.filter((c) => !favoritesSet.has(c.code));
+      : result.filter((country) => !favoritesSet.has(country.code));
 
     return { favorites, allCountries };
   }

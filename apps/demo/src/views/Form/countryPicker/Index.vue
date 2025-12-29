@@ -129,11 +129,11 @@
       import fr from "./fr.json";
       import th from "./th.json";
 
-          const countryI18n = {
-            en,
-            fr,
-            th,
-          };
+      const countryI18n = {
+        en,
+        fr,
+        th,
+      };
       const input = ref();
      
       &lt;/script&gt;
