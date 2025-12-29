@@ -117,7 +117,6 @@
           :i18n="countryI18n"
           :locale="$i18n.locale"
           fallback-locale="th"
-
           multiple
           placeholder="$t('form.placeholder.countries')"
         /&gt;
@@ -338,6 +337,34 @@
         :persist-state="false"
       />
     </section>
+    <section>
+      <h2>{{ $t("common.type") }}</h2>
+      <div class="section-content">
+        <!-- eslint-disable -->
+          <SshPre language="typescript">
+            type TranslationCatalogue = Record&lt;string, string&gt;;
+
+            type I18nConfig = Record&lt;string, TranslationCatalogue&gt;;
+
+            interface CountryOption {
+             code: string;
+             label?: string;
+            }
+
+            // Example usage:
+            const example: I18nConfig = {
+              en: { 
+                US: "USA",
+                FR: "France"
+              },
+              fr: { 
+                US: "États-Unis",
+                FR: "France"
+              }
+              };
+          </SshPre>
+      </div>
+    </section>
   </FormPage>
 </template>
 
@@ -382,29 +409,22 @@ const propsColumns = [
 const propsData = [
   {
     default: "[]",
-    description: t("form.documentation.propsDescription.select.data"),
-    id: 1,
-    prop: "data",
-    type: "CountryOption[]",
-  },
-  {
-    default: "[]",
     description: t("form.documentation.propsDescription.select.exclude"),
-    id: 2,
+    id: 1,
     prop: "exclude",
     type: "String[]",
   },
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.fallbackLocale"),
-    id: 3,
+    id: 2,
     prop: "fallbackLocale",
     type: "String",
   },
   {
     default: "[]",
     description: t("form.documentation.propsDescription.select.favorites"),
-    id: 4,
+    id: 3,
     prop: "favorites",
     type: "String[]",
   },
@@ -413,14 +433,14 @@ const propsData = [
     description: t(
       "form.documentation.propsDescription.select.hasSortedOption",
     ),
-    id: 5,
+    id: 4,
     prop: "has-sorted-options",
     type: "Boolean",
   },
   {
     default: "[]",
     description: t("form.documentation.propsDescription.select.include"),
-    id: 6,
+    id: 5,
     prop: "include",
     type: "String[]",
   },
@@ -429,10 +449,18 @@ const propsData = [
     description: t(
       "form.documentation.propsDescription.select.includeFavorites",
     ),
-    id: 7,
+    id: 6,
     prop: "includeFavorites",
     type: "Boolean",
   },
+  {
+    default: "{ en: defaultEnCatalogue }",
+    description: t("form.documentation.propsDescription.select.i18n"),
+    id: 7,
+    prop: "i18n",
+    type: "Record<string, Record<string, string>>",
+  },
+
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),

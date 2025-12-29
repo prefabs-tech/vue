@@ -18,7 +18,7 @@
 import { computed, type PropType } from "vue";
 
 import SelectInput from "../SelectInput.vue";
-import enData from "./en.json";
+import englishData from "./en.json";
 
 import type { CountryOption, CountryPickerLabels } from "../../types";
 
@@ -91,7 +91,7 @@ const emit = defineEmits<{
 
 const getCountrySource = () => {
   const fallback = props.i18n[props.fallbackLocale];
-  return fallback ? { ...enData, ...fallback } : enData;
+  return fallback ? { ...englishData, ...fallback } : englishData;
 };
 
 const countries = computed<CountryOption[]>(() => {
@@ -114,6 +114,7 @@ const countries = computed<CountryOption[]>(() => {
 
   return result;
 });
+
 const favourites = computed<CountryOption[]>(() => {
   if (props.favorites.length === 0) {
     return [];
@@ -130,7 +131,7 @@ const favourites = computed<CountryOption[]>(() => {
 
 const options = computed(() => {
   const translations: Record<string, string> = {
-    ...enData,
+    ...englishData,
     ...(props.i18n[props.fallbackLocale] || {}),
     ...(props.i18n[props.locale] || {}),
   };
@@ -143,12 +144,13 @@ const options = computed(() => {
     return countries.value.map(toOption);
   }
 
-  const allCountries = props.includeFavorites
+  const filterCountries = props.includeFavorites
     ? countries.value
     : countries.value.filter(
         (country) =>
           !favourites.value.some((favorite) => favorite.code === country.code),
       );
+
   return [
     {
       label: props.labels.favorites,
@@ -156,7 +158,7 @@ const options = computed(() => {
     },
     {
       label: props.labels.allCountries,
-      options: allCountries.map(toOption),
+      options: filterCountries.map(toOption),
     },
   ];
 });
