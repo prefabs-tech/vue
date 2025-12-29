@@ -15,16 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, type PropType } from "vue";
+import { computed, type PropType } from "vue";
 
 import SelectInput from "../SelectInput.vue";
 import enData from "./en.json";
 
-import type {
-  CountryOption,
-  CountryResolvedData,
-  CountryPickerLabels,
-} from "../../types";
+import type { CountryOption, CountryPickerLabels } from "../../types";
 
 const props = defineProps({
   labels: {
@@ -33,10 +29,6 @@ const props = defineProps({
       allCountries: "All Countries",
     }),
     type: Object as PropType<CountryPickerLabels>,
-  },
-  data: {
-    type: Array as PropType<CountryOption[]>,
-    default: () => [],
   },
   exclude: {
     default: () => [],
@@ -57,6 +49,10 @@ const props = defineProps({
   include: {
     default: () => [],
     type: Array as PropType<string[]>,
+  },
+  i18n: {
+    default: () => ({}),
+    type: Object as PropType<Record<string, Record<string, string>>>,
   },
   includeFavorites: {
     default: true,
@@ -93,104 +89,87 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const en = Object.entries(enData).map(([code, label]) => ({
-  code,
-  label: String(label),
-}));
+const baseCountries = computed<CountryOption[]>(() => {
+  const masterMap = new Map<string, string>();
 
-const countries = ref<CountryOption[]>(en);
-const mergedCountries = computed<CountryOption[] | CountryResolvedData>(() => {
-  const map = new Map<string, CountryOption>();
-
-  countries.value.forEach((country) => {
-    map.set(country.code, country);
+  Object.entries(enData).forEach(([code, label]) => {
+    masterMap.set(code, String(label));
   });
 
-  if (Array.isArray(props.data)) {
-    props.data.forEach((item) => {
-      map.set(item.code, item);
-    });
-  } else if (props.data && typeof props.data === "object") {
-    Object.entries(props.data).forEach(([code, label]) => {
-      map.set(code, { code, label: String(label) });
-    });
-  }
+  const sourceData =
+    props.i18n[props.locale] || props.i18n[props.fallbackLocale] || {};
 
-  let result = Array.from(map.values());
+  Object.entries(sourceData).forEach(([code, label]) => {
+    masterMap.set(code, String(label));
+  });
+
+  return Array.from(masterMap.entries()).map(([code, label]) => ({
+    code,
+    label,
+  }));
+});
+
+const processedData = computed(() => {
+  let result = [...baseCountries.value];
+
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
-    result = result.filter((country) => includeSet.has(country.code));
+    result = result.filter((c) => includeSet.has(c.code));
   }
 
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
-    result = result.filter((country) => !excludeSet.has(country.code));
+    result = result.filter((c) => !excludeSet.has(c.code));
   }
 
   if (props.favorites.length > 0) {
     const favoritesSet = new Set(props.favorites);
-    const favorites = result.filter((country) =>
-      favoritesSet.has(country.code),
-    );
+    const favorites = result.filter((c) => favoritesSet.has(c.code));
 
-    let allCountries = result;
-    if (!props.includeFavorites) {
-      allCountries = result.filter(
-        (country) => !favoritesSet.has(country.code),
-      );
-    }
+    const allCountries = props.includeFavorites
+      ? result
+      : result.filter((c) => !favoritesSet.has(c.code));
 
-    return {
-      favorites,
-      allCountries,
-    };
+    return { favorites, allCountries };
   }
+
   return result;
 });
 
 const countryOptions = computed(() => {
-  const data = mergedCountries.value;
-  const transformedData = (item: CountryOption) => {
-    if (item.label) {
-      return {
-        label: item.label,
-        value: item.code,
-        ...item,
-      };
-    }
-    const enLabel = en.find((country) => country.code === item.code)?.label;
-    const label = enLabel || item.code;
+  const data = processedData.value;
+
+  const transform = (item: CountryOption) => {
+    const label =
+      props.i18n[props.locale]?.[item.code] ??
+      props.i18n[props.fallbackLocale]?.[item.code] ??
+      item.label;
 
     return {
+      ...item,
       label,
       value: item.code,
-      ...item,
     };
   };
 
   if (Array.isArray(data)) {
-    return data.map(transformedData);
+    return data.map(transform);
   }
 
   return [
     {
       label: props.labels.favorites,
-      options: data.favorites.map(transformedData),
+      options: data.favorites.map(transform),
     },
     {
       label: props.labels.allCountries,
-      options: data.allCountries.map(transformedData),
+      options: data.allCountries.map(transform),
     },
   ];
 });
 
 const onUpdateModelValue = (value: string | string[] | undefined) => {
-  if (!Array.isArray(value)) {
-    emit("update:modelValue", value);
-    return;
-  }
-
-  const uniqueValue = Array.from(new Set(value));
-  emit("update:modelValue", uniqueValue);
+  const output = Array.isArray(value) ? Array.from(new Set(value)) : value;
+  emit("update:modelValue", output);
 };
 </script>

@@ -64,7 +64,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.customLocale"
-          :data="frLocaleSupport"
+          :i18n="countryI18n"
+          :locale="$i18n.locale"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -74,7 +75,8 @@
           &lt;template&gt;
               &lt;CountryPicker
                 v-model="input"
-                :data="newLocaleSupport"
+                :i18n="countryI18n"
+                :locale="$i18n.locale"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
               /&gt;
@@ -82,9 +84,13 @@
 
           &lt;script setup lang="ts"&gt;
           import { ref } from 'vue';
-          import Fr from "./fr.json";
+          import en from "./en.json";
+          import fr from "./fr.json";
 
-          const newLocaleSupport = Fr;
+          const countryI18n = {
+            en,
+            fr,
+          };
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -96,8 +102,9 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.fallbackDemo"
-          :data="thLocaleSupport"
-          :fallback-locale="frLocaleSupport"
+          :i18n="countryI18n"
+          :locale="$i18n.locale"
+          fallback-locale="th"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -107,8 +114,9 @@
       &lt;template&gt;
         &lt;CountryPicker
           v-model="input"
-          :data="thLocaleSupport"
-          :fallback-locale="frLocaleSupport"
+          :i18n="countryI18n"
+          :locale="$i18n.locale"
+          fallback-locale="th"
 
           multiple
           placeholder="$t('form.placeholder.countries')"
@@ -117,12 +125,17 @@
 
       &lt;script setup lang="ts"&gt;
       import { ref } from 'vue';
-      import Fr from "./fr.json";
-      import Th from "./th.json";
+      import en from "./en.json";
+      import fr from "./fr.json";
+      import th from "./th.json";
 
-      const frLocaleSupport = Fr;
+          const countryI18n = {
+            en,
+            fr,
+            th,
+          };
       const input = ref();
-      const thLocaleSupport = Th;
+     
       &lt;/script&gt;
     </SshPre>
     <!-- eslint-enable -->
@@ -263,7 +276,9 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.custom"
-          :data="data"
+          :i18n="countryI18n"
+          :locale="$i18n.locale"
+          fallback-locale="en"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -273,7 +288,9 @@
           &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
-              :data="data"
+              :i18n="countryI18n"
+              :locale="$i18n.locale"
+              fallback-locale="en"
               multiple
               placeholder="$t('form.placeholder.countries')"
             /&gt;
@@ -282,9 +299,17 @@
           &lt;script setup lang="ts"&gt;
           import { CountryPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
-          import En from "./en.json";
+          import en from "./en.json";
+          import fr from "./fr.json";
+          import th from "./th.json";
 
-          const data = En;
+          const countryI18n = {
+            en,
+            fr,
+            th,
+          };
+
+
           const input = ref&lt;string[]&gt;([])
           &lt;/script&gt;
         </SshPre>
@@ -329,9 +354,11 @@ import en from "./en.json";
 import fr from "./fr.json";
 import th from "./th.json";
 
-const data = en;
-const frLocaleSupport = fr;
-const thLocaleSupport = th;
+const countryI18n = {
+  en,
+  fr,
+  th,
+};
 
 const propsColumns = [
   {
