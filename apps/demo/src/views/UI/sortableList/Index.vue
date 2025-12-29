@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.sortableList.subtitle')"
+    :subtitle="$t('ui.sortableList.subtitle')"
     :title="$t('ui.sortableList.title')"
     class="demo-sortable-list"
   >

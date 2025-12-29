@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.badge.subtitle')"
+    :subtitle="$t('ui.badge.subtitle')"
     :title="$t('ui.badge.title')"
     class="demo-badge"
   >

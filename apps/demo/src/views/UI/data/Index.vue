@@ -1,7 +1,7 @@
 <template>
   <UiPage
     :title="$t('ui.data.title')"
-    :sub-title="$t('ui.data.subtitle')"
+    :subtitle="$t('ui.data.subtitle')"
     class="demo"
   >
     <section>

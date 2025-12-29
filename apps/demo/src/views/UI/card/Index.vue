@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.card.subtitle')"
+    :subtitle="$t('ui.card.subtitle')"
     :title="$t('ui.card.title')"
     class="demo"
   >

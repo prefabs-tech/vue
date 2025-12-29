@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.message.subtitle')"
+    :subtitle="$t('ui.message.subtitle')"
     :title="$t('ui.message.title')"
     class="demo-message"
   >

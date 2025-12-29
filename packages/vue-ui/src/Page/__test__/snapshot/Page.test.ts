@@ -13,7 +13,7 @@ describe("Page", () => {
       },
       props: {
         title: "Home",
-        subTitle: "Welcome to the home page",
+        subtitle: "Welcome to the home page",
       },
     });
 

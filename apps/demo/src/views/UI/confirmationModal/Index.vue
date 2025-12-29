@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.confirmationModal.subtitle')"
+    :subtitle="$t('ui.confirmationModal.subtitle')"
     :title="$t('ui.confirmationModal.title')"
     class="demo"
   >

@@ -1,6 +1,6 @@
 <template>
   <div class="page" :data-centered="centered">
-    <div v-if="!noHeader" class="page-header">
+    <div class="page-header">
       <div class="page-title-wrapper">
         <div class="title">
           <component :is="titleElement" v-if="title">
@@ -15,7 +15,7 @@
         </div>
 
         <slot name="subtitle">
-          <small v-if="subTitle">{{ subTitle }}</small>
+          <small v-if="subtitle">{{ subtitle }}</small>
         </slot>
       </div>
 
@@ -81,8 +81,7 @@ const { width: windowWidth } = useWindowSize();
 const props = defineProps({
   centered: Boolean,
   loading: Boolean,
-  noHeader: Boolean,
-  subTitle: {
+  subtitle: {
     default: undefined,
     required: false,
     type: String as PropType<string>,

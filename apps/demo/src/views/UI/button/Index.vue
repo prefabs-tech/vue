@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.button.subtitle')"
+    :subtitle="$t('ui.button.subtitle')"
     :title="$t('ui.button.title')"
     class="demo-button"
   >
