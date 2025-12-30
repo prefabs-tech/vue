@@ -183,7 +183,11 @@
                   :model-value="isGroupSelected(option.groupLabel)"
                   @update:model-value="onMultiSelect()"
                 />
-                <slot :name="option.groupLabel">
+                <slot
+                  :label="option.groupLabel"
+                  :selected="isGroupSelected(option.groupLabel)"
+                  name="group"
+                >
                   {{ option.groupLabel }}
                 </slot>
               </li>
@@ -207,7 +211,12 @@
                   :model-value="isSelected(option)"
                   @update:model-value="onMultiSelect()"
                 />
-                <slot :name="option.label">
+                <slot
+                  :multiple="multiple"
+                  :option="option"
+                  :selected="isSelected(option)"
+                  name="option"
+                >
                   <span>{{ option.label }}</span>
                 </slot>
               </li>
