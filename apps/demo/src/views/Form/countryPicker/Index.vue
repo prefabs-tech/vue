@@ -60,11 +60,12 @@
       </div>
     </section>
     <section>
-      <h2>{{ $t("form.label.customData") }}</h2>
+      <h2>{{ $t("form.label.customLocale") }}</h2>
       <div class="section-content">
         <CountryPicker
-          v-model="formData.custom"
-          :data="data"
+          v-model="formData.customLocale"
+          :i18n="countryI18n"
+          :locale="$i18n.locale"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -72,55 +73,67 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;CountryPicker
-              v-model="input"
-              :data="data"
-              multiple
-              placeholder="$t('form.placeholder.countries')"
-            /&gt;
+              &lt;CountryPicker
+                v-model="input"
+                :i18n="countryI18n"
+                :locale="$i18n.locale"
+                multiple
+                placeholder="$t('form.placeholder.countries')"
+              /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { CountryPicker } from "@prefabs.tech/vue3-form";
-          import { ref } from "vue";
+          import { ref } from 'vue';
+          import fr from "./fr.json";
 
-          const input = ref&lt;string[]&gt;([]);
-
-          const data = [
-            {
-              code: "US",
-              i18n: {
-                en: "United States of America",
-              },
-            },
-            {
-              code: "FR",
-              i18n: {
-                en: "France",
-                fr: "France",
-                th: "ฝรั่งเศส"
-              },
-            },
-            {
-              code: "JP",
-              i18n: {
-                en: "Japan ",
-                fr: "Japon",
-                th: "ญี่ปุ่น"
-              }
-            },
-             {
-              code: "XX",
-              i18n: {
-                en: "New Country(en)",
-                fr: "New Country(fr)",
-                th: "New Country(th)",
-              },
-            },
-          ];
+          const countryI18n = {
+            fr,
+          };
+          const input = ref();
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
+      <h2>{{ $t("form.label.fallbackLocale") }}</h2>
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.fallbackDemo"
+          :i18n="countryI18n"
+          :locale="$i18n.locale"
+          fallback-locale="th"
+          :placeholder="$t('form.placeholder.countries')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      &lt;template&gt;
+        &lt;CountryPicker
+          v-model="input"
+          :i18n="countryI18n"
+          :locale="$i18n.locale"
+          fallback-locale="th"
+          multiple
+          placeholder="$t('form.placeholder.countries')"
+        /&gt;
+      &lt;/template&gt;
+
+      &lt;script setup lang="ts"&gt;
+      import { ref } from 'vue';
+      import fr from "./fr.json";
+      import th from "./th.json";
+
+      const countryI18n = {
+        fr,
+        th,
+      };
+      const input = ref();
+     
+      &lt;/script&gt;
+    </SshPre>
+    <!-- eslint-enable -->
       </div>
     </section>
     <section>
@@ -161,7 +174,6 @@
         <CountryPicker
           v-model="formData.excludedCountries"
           :exclude="excludedCountries"
-          :include="includedCountries"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -172,7 +184,6 @@
             &lt;CountryPicker
               v-model="input"
               :exclude="excludedCountries"
-              :include="includedCountries"
               multiple
               placeholder="$t('form.placeholder.countries')"
             /&gt;
@@ -182,54 +193,8 @@
           import { CountryPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
           
-          const excludedCountries = ["US", "AU"];
-          const includedCountries = ["US", "CA", "FR", "AU", "NP"];
+          const excludedCountries = ["US", "AU", "QA", "IR", "CI", "CA"];
           const input = ref();
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-    <section>
-      <h2>{{ $t("form.label.customLocale") }}</h2>
-      <div class="section-content">
-        <CountryPicker
-          v-model="formData.customLocale"
-          :data="nepaliCountries"
-          :include="['NP', 'US', 'CN', 'GB', 'PK', 'IN', 'LK', 'BD', 'AF']"
-          :placeholder="$t('form.placeholder.countries')"
-          locale="np"
-          multiple
-        />
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-              &lt;CountryPicker
-                v-model="input"
-                :data="nepaliCountries"
-                :include="['NP', 'US', 'CN', 'GB', 'IN', 'PK','LK','BD','AF']"
-                locale="np"
-                multiple
-                placeholder="$t('form.placeholder.countries')"
-              /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { ref } from 'vue';
-          
-          const input = ref();
-          const nepaliCountries = [
-            { code: 'NP', i18n: { np: 'नेपाल' } },
-            { code: 'US', i18n: { np: 'संयुक्त राज्य अमेरिका' } },
-            { code: 'CN', i18n: { np: 'चीन' } },
-            { code: 'GB', i18n: { np: 'बेलायत' } },
-            { code: 'IN', i18n: { np: 'भारत' } },
-            { code: "PK", i18n: { np: "पाकिस्तान" } },
-            { code: "LK", i18n: { np: "श्रीलंका" } },
-            { code: "BD", i18n: { np: "बंगलादेश" } },
-            { code: "AF", i18n: { np: "अफगानिस्तान" } },
-          ];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -240,21 +205,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.favorites"
-          :exclude="['CN', 'AF']"
-          :favorites="['NP', 'US', 'ID', 'QW']"
+          :favorites="favoritesCountries"
           :has-sorted-options="false"
-          :include="[
-            'NP',
-            'US',
-            'CN',
-            'GB',
-            'IR',
-            'PK',
-            'IN',
-            'LK',
-            'BD',
-            'AF',
-          ]"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -264,11 +216,8 @@
           &lt;template&gt;
               &lt;CountryPicker
                 v-model="input"
-                :exclude="['CN', 'AF']"
-                :favorites="['NP', 'US','ID','QW]"
+                :favorites="favoritesCountries"
                 :has-sorted-options="false"
-                :include="['NP', 'US', 'CN', 'GB', 'PK','IR','IN', 'LK', 'BD', 'AF']"
-                multiple
                 placeholder="$t('form.placeholder.countries')"
               /&gt;
           &lt;/template&gt;
@@ -276,6 +225,7 @@
           &lt;script setup lang="ts"&gt;
           import { ref } from 'vue';
           
+          const favoritesCountries = ["US", "AU", "QA", "IR", "CI", "CA", "NP", "IN"];
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -287,21 +237,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.favorites"
-          :exclude="['CN', 'AF']"
-          :favorites="['NP', 'US', 'ID', 'QW']"
+          :favorites="favoritesCountries"
           :has-sorted-options="false"
-          :include="[
-            'NP',
-            'US',
-            'CN',
-            'GB',
-            'IR',
-            'PK',
-            'IN',
-            'LK',
-            'BD',
-            'AF',
-          ]"
           :include-favorites="false"
           :placeholder="$t('form.placeholder.countries')"
           multiple
@@ -312,11 +249,8 @@
           &lt;template&gt;
               &lt;CountryPicker
                 v-model="input"
-                :exclude="['CN', 'AF']"
-                :favorites="['NP', 'US','ID','QW]"
+                :favorites="favoritesCountries"
                 :has-sorted-options="false"
-                :include="['NP', 'US', 'CN', 'GB', 'PK','IR','IN', 'LK', 'BD', 'AF']"
-                :include-favorites="false"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
               /&gt;
@@ -325,6 +259,7 @@
           &lt;script setup lang="ts"&gt;
           import { ref } from 'vue';
           
+          const favoritesCountries = ["US", "AU", "QA", "IR", "CI", "CA", "NP", "IN"];
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -357,23 +292,28 @@
       <h2>{{ $t("common.type") }}</h2>
       <div class="section-content">
         <!-- eslint-disable -->
-          <SshPre language="html-vue">
+          <SshPre language="typescript">
+            type TranslationCatalogue = Record&lt;string, string&gt;;
+
+            type I18nConfig = Record&lt;string, TranslationCatalogue&gt;;
+
             interface CountryOption {
-              code: string;
-              i18n: {
-                en: string;
-                fr: string;
-                th: string;
-                [key: string]: string;
-              };
+             code: string;
+             label?: string;
             }
-           
-            interface CountryData {
-              code: string;
-              i18n?: Partial  &lt;CountryOption["i18n"];&gt; 
-            };
-        </SshPre>
-          <!-- eslint-enable -->
+
+            // Example usage:
+            const example: I18nConfig = {
+              en: { 
+                US: "USA",
+                FR: "France"
+              },
+              fr: { 
+                US: "États-Unis",
+                FR: "France"
+              }
+              };
+          </SshPre>
       </div>
     </section>
   </FormPage>
@@ -388,6 +328,14 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 import FormPage from "../FormPage.vue";
+import fr from "./fr.json";
+import th from "./th.json";
+
+const countryI18n = {
+  fr,
+  th,
+};
+
 const propsColumns = [
   {
     accessorKey: "prop",
@@ -410,17 +358,17 @@ const propsColumns = [
 const propsData = [
   {
     default: "[]",
-    description: t("form.documentation.propsDescription.select.data"),
-    id: 1,
-    prop: "data",
-    type: "CountryOption[]",
-  },
-  {
-    default: "[]",
     description: t("form.documentation.propsDescription.select.exclude"),
-    id: 2,
+    id: 1,
     prop: "exclude",
     type: "String[]",
+  },
+  {
+    default: "en",
+    description: t("form.documentation.propsDescription.select.fallbackLocale"),
+    id: 2,
+    prop: "fallbackLocale",
+    type: "String",
   },
   {
     default: "[]",
@@ -455,30 +403,38 @@ const propsData = [
     type: "Boolean",
   },
   {
+    default: "{ en: defaultEnCatalogue }",
+    description: t("form.documentation.propsDescription.select.i18n"),
+    id: 7,
+    prop: "i18n",
+    type: "Record<string, Record<string, string>>",
+  },
+
+  {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
-    id: 7,
+    id: 8,
     prop: "locale",
     type: "String",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.modelValue"),
-    id: 8,
+    id: 9,
     prop: "modelValue",
     type: "String | Number | Array<String|Number> | undefined",
   },
   {
     default: "false",
     description: t("form.documentation.propsDescription.select.multiple"),
-    id: 9,
+    id: 10,
     prop: "multiple",
     type: "Boolean",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.input.placeholder"),
-    id: 10,
+    id: 11,
     prop: "placeholder",
     type: "String",
   },
@@ -506,17 +462,6 @@ const eventsData = [
     payload: "string | number | (string | number)[] | undefined",
   },
 ];
-const nepaliCountries = [
-  { code: "NP", i18n: { np: "नेपाल" } },
-  { code: "US", i18n: { np: "संयुक्त राज्य अमेरिका" } },
-  { code: "CN", i18n: { np: "चीन" } },
-  { code: "GB", i18n: { np: "बेलायत" } },
-  { code: "IN", i18n: { np: "भारत" } },
-  { code: "PK", i18n: { np: "पाकिस्तान" } },
-  { code: "LK", i18n: { np: "श्रीलंका" } },
-  { code: "BD", i18n: { np: "बंगलादेश" } },
-  { code: "AF", i18n: { np: "अफगानिस्तान" } },
-];
 
 const formData = reactive({
   basic: undefined as string | undefined,
@@ -526,39 +471,7 @@ const formData = reactive({
   includedCountries: [],
   multiselect: [] as string[],
 });
-const excludedCountries = ["US", "AU"];
+const excludedCountries = ["US", "AU", "QA", "IR", "CI", "CA"];
+const favoritesCountries = ["US", "AU", "QA", "IR", "CI", "CA", "NP", "IN"];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];
-
-const data = [
-  {
-    code: "US",
-    i18n: {
-      en: "United States of America",
-      fr: "États-Unis",
-      th: "สหรัฐอเมริกา",
-    },
-  },
-  {
-    code: "FR",
-    i18n: {
-      th: "France override",
-    },
-  },
-  {
-    code: "JP",
-    i18n: {
-      en: "Japan (overwritten)",
-      fr: "Japon",
-      th: "ญี่ปุ่น",
-    },
-  },
-  {
-    code: "XX",
-    i18n: {
-      fr: "New Country(fr)",
-      th: "New Country(th)",
-      en: "New Country(en)",
-    },
-  },
-];
 </script>
