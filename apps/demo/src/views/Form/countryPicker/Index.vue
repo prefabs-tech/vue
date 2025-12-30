@@ -267,43 +267,6 @@
       </div>
     </section>
     <section>
-      <h2>{{ $t("form.label.customData") }}</h2>
-      <div class="section-content">
-        <CountryPicker
-          v-model="formData.custom"
-          :i18n="englishOverWrites"
-          :placeholder="$t('form.placeholder.countries')"
-          multiple
-        />
-
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;CountryPicker
-              v-model="input"
-              :i18n="englishOverWrites"
-              multiple
-              placeholder="$t('form.placeholder.countries')"
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { CountryPicker } from "@prefabs.tech/vue3-form";
-          import { ref } from "vue";
-          import en from "./en.json";
-
-          const englishOverWrites = {
-            en,
-          };
-
-
-          const input = ref&lt;string[]&gt;([])
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
-    <section>
       <h2>
         {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
       </h2>
@@ -365,7 +328,6 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 import FormPage from "../FormPage.vue";
-import en from "./en.json";
 import fr from "./fr.json";
 import th from "./th.json";
 
@@ -373,9 +335,7 @@ const countryI18n = {
   fr,
   th,
 };
-const englishOverWrites = {
-  en: en,
-};
+
 const propsColumns = [
   {
     accessorKey: "prop",
