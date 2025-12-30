@@ -89,13 +89,8 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const getCountrySource = () => {
-  const fallback = props.i18n[props.fallbackLocale];
-  return fallback ? { ...englishData, ...fallback } : englishData;
-};
-
 const countries = computed<CountryOption[]>(() => {
-  const countriesData = getCountrySource();
+  const countriesData = props.i18n[props.fallbackLocale] || englishData;
 
   let result = Object.entries(countriesData).map(([code, label]) => ({
     code,
