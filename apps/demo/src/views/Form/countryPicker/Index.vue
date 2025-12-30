@@ -84,11 +84,9 @@
 
           &lt;script setup lang="ts"&gt;
           import { ref } from 'vue';
-          import en from "./en.json";
           import fr from "./fr.json";
 
           const countryI18n = {
-            en,
             fr,
           };
           const input = ref();
@@ -124,12 +122,10 @@
 
       &lt;script setup lang="ts"&gt;
       import { ref } from 'vue';
-      import en from "./en.json";
       import fr from "./fr.json";
       import th from "./th.json";
 
       const countryI18n = {
-        en,
         fr,
         th,
       };
