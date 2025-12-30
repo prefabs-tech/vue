@@ -275,9 +275,7 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.custom"
-          :i18n="countryI18n"
-          :locale="$i18n.locale"
-          fallback-locale="en"
+          :i18n="englishOverWrites"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -287,9 +285,7 @@
           &lt;template&gt;
             &lt;CountryPicker
               v-model="input"
-              :i18n="countryI18n"
-              :locale="$i18n.locale"
-              fallback-locale="en"
+              :i18n="englishOverWrites"
               multiple
               placeholder="$t('form.placeholder.countries')"
             /&gt;
@@ -299,13 +295,9 @@
           import { CountryPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
           import en from "./en.json";
-          import fr from "./fr.json";
-          import th from "./th.json";
 
-          const countryI18n = {
+          const englishOverWrites = {
             en,
-            fr,
-            th,
           };
 
 
@@ -382,11 +374,12 @@ import fr from "./fr.json";
 import th from "./th.json";
 
 const countryI18n = {
-  en,
   fr,
   th,
 };
-
+const englishOverWrites = {
+  en: en,
+};
 const propsColumns = [
   {
     accessorKey: "prop",
