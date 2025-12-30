@@ -207,7 +207,12 @@
                   :model-value="isSelected(option)"
                   @update:model-value="onMultiSelect()"
                 />
-                <slot :name="option.label">
+                <slot
+                  :multiple="multiple"
+                  :option="option"
+                  :selected="isSelected(option)"
+                  name="option"
+                >
                   <span>{{ option.label }}</span>
                 </slot>
               </li>

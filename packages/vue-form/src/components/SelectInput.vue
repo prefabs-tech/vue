@@ -44,12 +44,13 @@
           <slot :name="option.groupLabel"></slot>
         </template>
 
-        <template
-          v-for="(option, index) in options"
-          :key="`${index}-${option.label}`"
-          #[option.label]
-        >
-          <slot :name="option.label"></slot>
+        <template #option="{ multiple: isMultiple, option, selected }">
+          <slot
+            :multiple="isMultiple"
+            :option="option"
+            :selected="selected"
+            name="option"
+          />
         </template>
 
         <template v-if="$slots.selection" #selection="{ selectedLabels }">

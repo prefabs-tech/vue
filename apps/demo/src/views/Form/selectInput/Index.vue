@@ -701,11 +701,7 @@
           :placeholder="$t('form.placeholder.country')"
           multiple
         >
-          <template
-            v-for="(option, index) in options"
-            :key="`${index}-${option.label}`"
-            #[option.label]
-          >
+          <template #option="{ option }">
             <span>
               <i class="pi pi-user" />
               {{ option.label }}
@@ -723,10 +719,7 @@
               :placeholder="t('form.placeholder.country')"
               multiple
             &gt;
-              &lt;template
-                v-for="(option, index) in options"
-                #[option.label]
-              &gt;
+              &lt;template #option="{ option }"&gt;
                 &lt;span&gt;
                   &lt;i class="pi pi-user" /&gt;
                   &lbrace;&lbrace; option.label &rbrace;&rbrace;
