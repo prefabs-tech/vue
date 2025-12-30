@@ -36,12 +36,8 @@
         @update:model-value="onSelect"
         @update:search-input="$emit('update:searchInput', $event)"
       >
-        <template
-          v-for="(option, index) in normalizedOptions"
-          :key="`${index}-${option.groupLabel}`"
-          #[option.groupLabel]
-        >
-          <slot :name="option.groupLabel"></slot>
+        <template #group="{ label: groupLabel, selected }">
+          <slot :label="groupLabel" :selected="selected" name="group" />
         </template>
 
         <template #option="{ multiple: isMultiple, option, selected }">

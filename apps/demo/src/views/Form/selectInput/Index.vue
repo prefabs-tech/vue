@@ -427,7 +427,7 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.multiselect"
-          :label="$t('form.label.country')"
+          :label="$t('form.label.countries')"
           :options="options"
           :placeholder="$t('form.placeholder.countries')"
           multiple
@@ -439,7 +439,7 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              label="Country"
+              label="Countries"
               multiple
               placeholder="Select countries"
             /&gt;
@@ -468,7 +468,7 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.disabledMultiselect"
-          :label="$t('form.label.country')"
+          :label="$t('form.label.countries')"
           :options="options"
           :placeholder="$t('form.placeholder.countries')"
           disabled
@@ -482,7 +482,7 @@
               v-model="disabled"
               :options="options"
               disabled
-              label="Country"
+              label="Countries"
               multiple
               placeholder="Select countries"
             /&gt;
@@ -513,7 +513,7 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.multiselectExtensive"
-          :label="$t('form.label.country')"
+          :label="$t('form.label.countries')"
           :options="countries"
           :placeholder="$t('form.placeholder.countries')"
           multiple
@@ -525,7 +525,7 @@
             &lt;SelectInput 
               v-model="input"
               :options="countries"
-              label="Country"
+              label="Countries"
               multiple
               placeholder="Select countries"
             /&gt;
@@ -548,7 +548,7 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.multiselectKeysInput"
-          :label="$t('form.label.country')"
+          :label="$t('form.label.countries')"
           :options="countryOptions"
           :placeholder="$t('form.placeholder.country')"
           label-key="country"
@@ -562,7 +562,7 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              label="Country"
+              label="Countries"
               label-key="language"
               placeholder="Select a country"
               multiple
@@ -593,7 +593,7 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.tooltipMultiselect"
-          :label="$t('form.label.country')"
+          :label="$t('form.label.countries')"
           :options="options"
           :placeholder="$t('form.placeholder.countries')"
           :tooltip-options="{
@@ -616,7 +616,7 @@
                 position: 'top',
               }"
               enable-tooltip
-              label="Country"
+              label="Countries"
               multiple
               placeholder="Select countries"
             /&gt;
@@ -645,7 +645,7 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.multiselectGrouping"
-          :label="$t('form.label.country')"
+          :label="$t('form.label.countries')"
           :options="groupedOptions"
           :placeholder="$t('form.placeholder.countries')"
           multiple
@@ -657,7 +657,7 @@
             &lt;SelectInput 
               v-model="input"
               :options="options"
-              label="Country"
+              label="Countries"
               multiple
               placeholder="Select countries"
             /&gt;
@@ -696,14 +696,21 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.customLabelSelect"
-          :label="$t('form.label.country')"
-          :options="options"
-          :placeholder="$t('form.placeholder.country')"
+          :label="$t('form.label.countries')"
+          :options="groupedOptions"
+          :placeholder="$t('form.placeholder.countries')"
           multiple
         >
+          <template #group="{ label: groupLabel }">
+            <span>
+              <i class="pi pi-map" />
+              {{ groupLabel }}
+            </span>
+          </template>
+
           <template #option="{ option }">
             <span>
-              <i class="pi pi-user" />
+              <i class="pi pi-map-marker" />
               {{ option.label }}
             </span>
           </template>
@@ -714,14 +721,21 @@
           &lt;template&gt;
             &lt;SelectInput 
               v-model="input"
-              :label="t('form.label.country')"
+              :label="t('form.label.countries')"
               :options="options"
-              :placeholder="t('form.placeholder.country')"
+              :placeholder="t('form.placeholder.countries')"
               multiple
             &gt;
+              &lt;template #group="{ label }"&gt;
+                &lt;span&gt;
+                  &lt;i class="pi pi-map" /&gt;
+                  &lbrace;&lbrace; label &rbrace;&rbrace;
+                &lt;/span&gt;
+              &lt;/template&gt;
+
               &lt;template #option="{ option }"&gt;
                 &lt;span&gt;
-                  &lt;i class="pi pi-user" /&gt;
+                  &lt;i class="pi pi-map-marker" /&gt;
                   &lbrace;&lbrace; option.label &rbrace;&rbrace;
                 &lt;/span&gt;
               &lt;/template&gt;
@@ -735,13 +749,24 @@
 
           const { t } = useI18n();
 
-          const options = ref([
-            { label: "France", value: "FR" },
-            { label: "Germany", value: "DE" },
-            { disabled: true, label: "Belgium", value: "BE" },
-            { label: "Nepal", value: "NP" },
-            { label: "India", value: "IN" },
-          ]);
+          const input = ref();
+          const options = [
+            {
+              label: t("form.label.europe"),
+              options: [
+                { label: t("form.label.germany"), value: "DE" },
+                { label: t("form.label.france"), value: "FR" },
+                { disabled: true, label: t("form.label.belgium"), value: "BE" },
+              ],
+            },
+            {
+              label: t("form.label.asia"),
+              options: [
+                { label: t("form.label.nepal"), value: "NP" },
+                { label: t("form.label.india"), value: "IN" },
+              ],
+            },
+          ];
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -754,9 +779,9 @@
       <div class="section-content">
         <SelectInput
           v-model="formData.customSelectedLabelSelect"
-          :label="$t('form.label.country')"
+          :label="$t('form.label.countries')"
           :options="options"
-          :placeholder="$t('form.placeholder.country')"
+          :placeholder="$t('form.placeholder.countries')"
           multiple
         >
           <template #selection="{ selectedLabels }">
@@ -775,9 +800,9 @@
           &lt;template&gt;
             &lt;SelectInput 
               v-model="input"
-              :label="t('form.label.country')"
+              :label="t('form.label.countries')"
               :options="options"
-              :placeholder="t('form.placeholder.country')"
+              :placeholder="t('form.placeholder.countries')"
               multiple
             &gt;
               &lt;template #selection="{ selectedLabels }"&gt;
@@ -819,7 +844,7 @@
         <Form>
           <SelectInput
             v-model="formData.inputWithMinMax"
-            :label="$t('form.label.country')"
+            :label="$t('form.label.countries')"
             :max-selection="3"
             :min-selection="2"
             :options="options"
@@ -836,7 +861,7 @@
               :max-selection="3"
               :min-selection="2"
               :options="options"
-              label="Country"
+              label="Countries"
               multiple
               placeholder="Select countries"
             /&gt;
@@ -857,7 +882,7 @@
         <Form>
           <SelectInput
             v-model="formData.inputWithValidation"
-            :label="$t('form.label.country')"
+            :label="$t('form.label.countries')"
             :options="options"
             :placeholder="$t('form.placeholder.countries')"
             :schema="inputSchema"
@@ -872,7 +897,7 @@
               v-model="input"
               :options="options"
               :schema="inputSchema"
-              label="Country"
+              label="Countries"
               multiple
               placeholder="Select countries"
             /&gt;
