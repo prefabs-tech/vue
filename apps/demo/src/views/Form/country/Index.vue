@@ -8,14 +8,12 @@
       <div>
         <div>
           <div>
-            <Country code="FR" :i18n="i18n" :locale="locale" />
+            <Country code="FR" />
             <!-- eslint-disable -->
             <SshPre language="html-vue">
             &lt;template&gt;
                 &lt;Country 
                 code="FR" 
-                :i18n="i18n" 
-                :locale="locale"
                 /&gt;
               &lt;/template&gt;
                       
