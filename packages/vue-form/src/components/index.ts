@@ -1,6 +1,6 @@
 export { default as Checkbox } from "./Checkbox.vue";
 export { default as CheckboxInput } from "./CheckboxInput.vue";
-export { default as CountryDisplay } from "./country-picker/CountryDisplay.vue";
+export { default as Country } from "./Country.vue";
 export { default as CountryPicker } from "./country-picker/Index.vue";
 export { default as CurrencyPicker } from "./CurrencyPicker.vue";
 export { default as DatePicker } from "./DatePicker.vue";
