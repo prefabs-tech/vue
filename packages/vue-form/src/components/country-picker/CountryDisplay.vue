@@ -3,8 +3,8 @@
     <template v-for="(country, index) in displayCountries" :key="country.raw">
       <span class="country-item" :data-country-code="country.code ?? 'UNKNOWN'">
         {{ country.label }}
+        <span v-if="index < displayCountries.length - 1">, </span>
       </span>
-      <span v-if="index < displayCountries.length - 1">, </span>
     </template>
   </span>
 </template>
@@ -38,7 +38,7 @@ const props = defineProps({
 const countryCodes = computed(() => {
   const codes = Array.isArray(props.code) ? props.code : [props.code];
 
-  return codes.map((c) => c.trim().toUpperCase()).filter(Boolean);
+  return codes.map((code) => code.trim().toUpperCase()).filter(Boolean);
 });
 
 const resolveCountryLabel = (code: string): string | null => {
