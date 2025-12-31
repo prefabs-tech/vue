@@ -6,10 +6,8 @@
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
       <div>
-        <div>
-          <div>
-            <Country code="FR" />
-            <!-- eslint-disable -->
+        <Country code="FR" />
+        <!-- eslint-disable -->
             <SshPre language="html-vue">
             &lt;template&gt;
                 &lt;Country 
@@ -23,8 +21,6 @@
               &lt;/script&gt;
             </SshPre>    
             <!-- eslint-enable -->
-          </div>
-        </div>
       </div>
     </section>
     >
