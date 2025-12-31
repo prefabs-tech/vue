@@ -21,10 +21,6 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  locale: {
-    type: String,
-    default: "en",
-  },
   fallbackLocale: {
     type: String,
     default: "en",
@@ -32,6 +28,10 @@ const props = defineProps({
   i18n: {
     type: Object as () => I18nConfig,
     default: () => ({}),
+  },
+  locale: {
+    type: String,
+    default: "en",
   },
 });
 
