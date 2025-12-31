@@ -229,7 +229,6 @@
   "placeholder": {
     "countries": "Select countries[fr]",
     "country": "Select a country[fr]",
-    "countryCode": "Enter country code[fr]",
     "currency": "Select a currency",
     "days": "Enter number of days",
     "email": "Enter a email[fr]",
