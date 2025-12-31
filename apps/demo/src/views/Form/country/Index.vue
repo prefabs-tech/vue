@@ -1,7 +1,7 @@
 <template>
   <FormPage
-    :subtitle="$t('form.subtitle.countryDisplay')"
-    :title="$t('form.label.countryDisplay')"
+    :subtitle="$t('form.subtitle.country')"
+    :title="$t('form.label.country')"
   >
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
