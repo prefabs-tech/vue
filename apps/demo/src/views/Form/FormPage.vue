@@ -133,6 +133,10 @@ const menu = [
     name: t("form.label.misc"),
     children: [
       {
+        name: t("form.label.countryDisplay"),
+        routeName: "countryDisplay",
+      },
+      {
         name: t("form.label.editableContent"),
         routeName: "editableContent",
       },
