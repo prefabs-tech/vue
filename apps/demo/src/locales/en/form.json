@@ -249,6 +249,7 @@
   "submittedValue": "Submitted value",
   "subtitle": {
     "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
+    "country": "Country shows the selected country with internationalization support.",
     "countryPicker": "Country picker is a reusable component for selecting single or multiple countries with internationalization support and search functionality.",
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
     "input": "A versatile form input component with validation support using Zod and vee-validate",
