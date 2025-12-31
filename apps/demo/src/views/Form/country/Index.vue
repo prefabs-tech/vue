@@ -10,9 +10,7 @@
         <!-- eslint-disable -->
             <SshPre language="html-vue">
             &lt;template&gt;
-                &lt;Country 
-                  code="FR" 
-                /&gt;
+                &lt;Country code="FR" /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
