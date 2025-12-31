@@ -1,5 +1,5 @@
 <template>
-  <span class="country" :class="$attrs.class">
+  <span class="country">
     <span class="country-item" :data-country-code="countryCode">
       {{ countryLabel }}
     </span>
