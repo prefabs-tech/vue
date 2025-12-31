@@ -13,7 +13,7 @@
             <SshPre language="html-vue">
             &lt;template&gt;
                 &lt;Country 
-                   code="FR" 
+                  code="FR" 
                 /&gt;
               &lt;/template&gt;
                       
