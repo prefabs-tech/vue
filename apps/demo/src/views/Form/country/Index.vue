@@ -136,7 +136,7 @@
              i18n?: I18nData;         
             }
 
-            Example I18n:
+            Example I18nData:
             { 
               en:{ "US": "USA" }, 
               fr: { "US": "États-Unis" } 
