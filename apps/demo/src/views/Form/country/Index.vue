@@ -10,7 +10,7 @@
         <!-- eslint-disable -->
             <SshPre language="html-vue">
             &lt;template&gt;
-                &lt;Country code="FR" /&gt;
+                &lt;Country code="FR"  /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
@@ -33,7 +33,7 @@
                       
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
-              import fr from "../countryPicker/fr.json";
+              import fr from "./fr.json";
               const countryI18n = {
                 fr,
               };
@@ -64,8 +64,8 @@
                       
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
-              import fr from "../countryPicker/fr.json";
-              import th from "../countryPicker/th.json";
+              import fr from "./fr.json";
+              import th from "./th.json";
 
               const countryI18n = {
                 fr,
@@ -82,7 +82,7 @@
         <Country
           :i18n="countryI18n"
           :locale="$i18n.locale"
-          code="XX"
+          code="UK"
           fallback-locale="th"
         />
         <!-- eslint-disable -->
@@ -91,15 +91,15 @@
                 &lt;Country 
                 :i18n="countryI18n" 
                 :locale="$i18n.locale" 
-                code="XX" 
+                code="UK" 
                 fallback-locale="th"
                 /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
-              import fr from "../countryPicker/fr.json";
-              import th from "../countryPicker/th.json";
+              import fr from "./fr.json";
+              import th from "./th.json";
 
               const countryI18n = {
                 fr,

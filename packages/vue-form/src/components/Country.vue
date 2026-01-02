@@ -1,5 +1,11 @@
 <template>
   <div :data-country-code="countryCode" class="country">
+    <span v-if="showFlag" class="country-flag" :title="countryCode">
+      <span
+        class="flag-icon"
+        :class="`flag-icon-${countryCode.toLowerCase()}`"
+      ></span>
+    </span>
     {{ countryLabel }}
   </div>
 </template>
@@ -7,6 +13,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
+import "@dzangolab/flag-icon-css/css/flag-icon.min.css";
 import englishData from "./country-picker/en.json";
 
 type I18nConfigData = Record<string, Record<string, string>>;
@@ -27,6 +34,10 @@ const props = defineProps({
   locale: {
     default: "en",
     type: String,
+  },
+  showFlag: {
+    type: Boolean,
+    default: true,
   },
 });
 
