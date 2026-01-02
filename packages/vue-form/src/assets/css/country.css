@@ -1,0 +1,6 @@
+.country {
+  width: 4rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
