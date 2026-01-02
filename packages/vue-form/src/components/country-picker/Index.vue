@@ -10,7 +10,12 @@
       :placeholder="placeholder"
       class="form-select"
       @update:model-value="onUpdateModelValue"
-    />
+    >
+      <template #option="{ option }">
+        <span v-if="flags" :class="getFlagClass(String(option.value))"></span>
+        <span>{{ option.label }}</span>
+      </template>
+    </SelectInput>
   </div>
 </template>
 
@@ -41,6 +46,16 @@ const props = defineProps({
   favorites: {
     default: () => [],
     type: Array as PropType<string[]>,
+  },
+  flags: {
+    default: true,
+    type: Boolean,
+  },
+  flagsStyle: {
+    default: "rectangular",
+    type: String,
+    validator: (value: string) =>
+      ["circle", "rectangular", "square"].includes(value),
   },
   hasSortedOptions: {
     default: true,
@@ -158,8 +173,26 @@ const options = computed(() => {
   ];
 });
 
+const getFlagClass = (code: string) => {
+  const baseClass = `flag-icon flag-icon-${code.toLowerCase()}`;
+
+  switch (props.flagsStyle) {
+    case "circle":
+      return `${baseClass} flag-icon-rounded`;
+    case "square":
+      return `${baseClass} flag-icon-squared`;
+    case "rectangular":
+    default:
+      return baseClass;
+  }
+};
+
 const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? Array.from(new Set(value)) : value;
   emit("update:modelValue", output);
 };
 </script>
+
+<style lang="css">
+@import "@dzangolab/flag-icon-css/css/flag-icon.min.css";
+</style>
