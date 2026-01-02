@@ -1,10 +1,11 @@
 <template>
   <div :data-country-code="countryCode" class="country">
-    <span v-if="showFlag" class="country-flag" :title="countryCode">
-      <span
-        class="flag-icon"
-        :class="`flag-icon-${countryCode.toLowerCase()}`"
-      ></span>
+    <span
+      v-if="showFlag"
+      :title="countryCode"
+      class="flag-icon"
+      :class="`flag-icon-${countryCode.toLowerCase()}`"
+    >
     </span>
     {{ countryLabel }}
   </div>

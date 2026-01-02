@@ -49,7 +49,7 @@
           :i18n="countryI18n"
           :locale="$i18n.locale"
           code="CN"
-          fallback-locale="th"
+          fallback-locale="np"
         />
         <!-- eslint-disable -->
             <SshPre language="html-vue">
@@ -58,18 +58,18 @@
                 :i18n="countryI18n" 
                 :locale="$i18n.locale" 
                 code="CN" 
-                fallback-locale="th"
+                fallback-locale="np"
                 /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
               import fr from "./fr.json";
-              import th from "./th.json";
+              import np from "./np.json";
 
               const countryI18n = {
                 fr,
-                th,
+                np,
               };
               &lt;/script&gt;
             </SshPre>    
@@ -79,19 +79,21 @@
     <section>
       <h2>{{ $t("form.label.unknownCountryCode") }}</h2>
       <div>
+        <span class="unknown-country">Unknown:</span>
         <Country
           :i18n="countryI18n"
           :locale="$i18n.locale"
-          code="UK"
+          code="WW"
           fallback-locale="th"
         />
+
         <!-- eslint-disable -->
             <SshPre language="html-vue">
             &lt;template&gt;
                 &lt;Country 
                 :i18n="countryI18n" 
                 :locale="$i18n.locale" 
-                code="UK" 
+                code="WW" 
                 fallback-locale="th"
                 /&gt;
               &lt;/template&gt;
@@ -99,7 +101,7 @@
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
               import fr from "./fr.json";
-              import th from "./th.json";
+              import np from "./np.json";
 
               const countryI18n = {
                 fr,
@@ -153,13 +155,13 @@ import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import { useI18n } from "vue-i18n";
 
 import fr from "../countryPicker/fr.json";
-import th from "../countryPicker/th.json";
+import np from "../countryPicker/np.json";
 import FormPage from "../FormPage.vue";
 const { t } = useI18n();
 
 const countryI18n = {
   fr,
-  th,
+  np,
 };
 const propsColumns = [
   {
