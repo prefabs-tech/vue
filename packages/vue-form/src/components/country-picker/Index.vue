@@ -12,8 +12,10 @@
       @update:model-value="onUpdateModelValue"
     >
       <template #option="{ option }">
-        <span v-if="flags" :class="getFlagClass(String(option.value))"></span>
-        <span>{{ option.label }}</span>
+        <div :data-country-code="option.value" class="options-wrapper">
+          <span v-if="flags" :class="getFlagClass(String(option.value))"></span>
+          <span class="option-label">{{ option.label }}</span>
+        </div>
       </template>
     </SelectInput>
   </div>
@@ -50,6 +52,12 @@ const props = defineProps({
   flags: {
     default: true,
     type: Boolean,
+  },
+  flagsPosition: {
+    default: "left",
+    type: String,
+    validator: (value: string) =>
+      ["left", "right", "right-edge"].includes(value),
   },
   flagsStyle: {
     default: "rectangular",
@@ -176,15 +184,30 @@ const options = computed(() => {
 const getFlagClass = (code: string) => {
   const baseClass = `flag-icon flag-icon-${code.toLowerCase()}`;
 
-  switch (props.flagsStyle) {
-    case "circle":
-      return `${baseClass} flag-icon-rounded`;
-    case "square":
-      return `${baseClass} flag-icon-squared`;
-    case "rectangular":
-    default:
-      return baseClass;
-  }
+  const positionClass = (() => {
+    switch (props.flagsPosition) {
+      case "right":
+        return "flag-icon-right";
+      case "right-edge":
+        return "flag-icon-right-edge";
+      default:
+        return "";
+    }
+  })();
+
+  const styleClass = (() => {
+    switch (props.flagsStyle) {
+      case "circle":
+        return "flag-icon-rounded";
+      case "square":
+        return "flag-icon-squared";
+      case "rectangular":
+      default:
+        return "";
+    }
+  })();
+
+  return [baseClass, positionClass, styleClass].filter(Boolean).join(" ");
 };
 
 const onUpdateModelValue = (value: string | string[] | undefined) => {
@@ -194,5 +217,5 @@ const onUpdateModelValue = (value: string | string[] | undefined) => {
 </script>
 
 <style lang="css">
-@import "@dzangolab/flag-icon-css/css/flag-icon.min.css";
+@import "../../assets/css/country-picker.css";
 </style>
