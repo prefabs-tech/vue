@@ -11,11 +11,21 @@
       class="form-select"
       @update:model-value="onUpdateModelValue"
     >
-      <template #option="{ option }">
-        <div :data-country-code="option.value" class="options-wrapper">
-          <span v-if="flags" :class="getFlagClass(String(option.value))"></span>
-          <span class="option-label">{{ option.label }}</span>
-        </div>
+      <template #option="{ multiple: isMultiple, option, selected }">
+        <slot
+          :multiple="isMultiple"
+          :option="option"
+          :selected="selected"
+          name="option"
+        >
+          <div :data-country-code="option.value" class="options-wrapper">
+            <span
+              v-if="flags"
+              :class="getFlagClass(String(option.value))"
+            ></span>
+            <span class="option-label">{{ option.label }}</span>
+          </div>
+        </slot>
       </template>
     </SelectInput>
   </div>
