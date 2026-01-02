@@ -112,7 +112,7 @@
     </section>
     <section>
       <h2>
-        {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
+        {{ $t("common.properties", { value: "CountryProperties" }) }}
       </h2>
 
       <Table
