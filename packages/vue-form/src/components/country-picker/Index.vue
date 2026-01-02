@@ -10,7 +10,30 @@
       :placeholder="placeholder"
       class="form-select"
       @update:model-value="onUpdateModelValue"
-    />
+    >
+      <template #option="{ multiple: isMultiple, option, selected }">
+        <slot
+          :multiple="isMultiple"
+          :option="option"
+          :selected="selected"
+          name="option"
+        >
+          <div :data-country-code="option.value" class="options-wrapper">
+            <template v-if="flags">
+              <img
+                v-if="flagsPath"
+                :alt="option.label"
+                :class="getFlagClass()"
+                :src="flagsPath(String(option.value))"
+              />
+              <span v-else :class="getFlagClass(String(option.value))" />
+            </template>
+
+            <span class="option-label">{{ option.label }}</span>
+          </div>
+        </slot>
+      </template>
+    </SelectInput>
   </div>
 </template>
 
@@ -41,6 +64,26 @@ const props = defineProps({
   favorites: {
     default: () => [],
     type: Array as PropType<string[]>,
+  },
+  flags: {
+    default: true,
+    type: Boolean,
+  },
+  flagsPath: {
+    default: undefined,
+    type: Function as PropType<(code: string) => string>,
+  },
+  flagsPosition: {
+    default: "left",
+    type: String,
+    validator: (value: string) =>
+      ["left", "right", "right-edge"].includes(value),
+  },
+  flagsStyle: {
+    default: "rectangular",
+    type: String,
+    validator: (value: string) =>
+      ["circle", "rectangular", "square"].includes(value),
   },
   hasSortedOptions: {
     default: true,
@@ -158,8 +201,24 @@ const options = computed(() => {
   ];
 });
 
+const getFlagClass = (code?: string) =>
+  [
+    "flag-icon",
+    code && `flag-icon-${code.trim().toLowerCase()}`,
+    props.flagsPosition === "right" && "flag-icon-right",
+    props.flagsPosition === "right-edge" && "flag-icon-right-edge",
+    props.flagsStyle === "circle" && "flag-icon-rounded",
+    props.flagsStyle === "square" && "flag-icon-squared",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
 const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? Array.from(new Set(value)) : value;
   emit("update:modelValue", output);
 };
 </script>
+
+<style lang="css">
+@import "../../assets/css/country-picker.css";
+</style>

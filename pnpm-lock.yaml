@@ -260,6 +260,9 @@ importers:
         specifier: 13.12.0
         version: 13.12.0
     devDependencies:
+      '@dzangolab/flag-icon-css':
+        specifier: 3.4.5
+        version: 3.4.5
       '@prefabs.tech/eslint-config':
         specifier: 0.2.0
         version: 0.2.0(vnjhmgjyaxqdqqy264znmyntye)
@@ -1640,6 +1643,9 @@ packages:
   '@csstools/css-tokenizer@3.0.4':
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
+
+  '@dzangolab/flag-icon-css@3.4.5':
+    resolution: {integrity: sha512-XqVAi0O/KITtznpMK5TP4D+rWfwst5lrsbPbes5c5SPMGjwK7fuvlTdEmG2XUrxzYqDTIPshywyzdVYKooGdGA==}
 
   '@esbuild/aix-ppc64@0.24.2':
     resolution: {integrity: sha512-thpVCb/rhxE/BnMLQ7GReQLLN8q9qbHmI55F4489/ByVg2aQaQ6kbcLb6FHkocZzQhxc4gx0sCk0tJkKBFzDhA==}
@@ -6918,6 +6924,8 @@ snapshots:
       postcss: 8.5.3
 
   '@csstools/css-tokenizer@3.0.4': {}
+
+  '@dzangolab/flag-icon-css@3.4.5': {}
 
   '@esbuild/aix-ppc64@0.24.2':
     optional: true
