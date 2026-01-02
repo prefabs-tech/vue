@@ -14,12 +14,13 @@
       @update:model-value="$emit('update:modelValue', $event)"
       @update:search-input="onSearchInput"
     >
-      <template
-        v-for="(option, index) in options"
-        :key="`${index}-${option.label}`"
-        #[option.label]
-      >
-        <slot :name="option.value">
+      <template #option="{ multiple: isMultiple, option, selected }">
+        <slot
+          :multiple="isMultiple"
+          :option="option"
+          :selected="selected"
+          name="option"
+        >
           <div class="currency-label">
             <span :class="[optionLabelOrder[0], 'primary-currency-label']">
               {{ option?.[optionLabelOrder[0]] }}
