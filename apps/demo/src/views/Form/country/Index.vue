@@ -122,6 +122,28 @@
         :persist-state="false"
       />
     </section>
+    <section>
+      <h2>{{ $t("common.type") }}</h2>
+      <div class="section-content">
+        <!-- eslint-disable -->
+         <SshPre language="typescript">
+            type I18nData = Record;
+
+            interface CountryProperties {
+             code: string;
+             locale?: string;          
+             fallbackLocale?: string;  
+             i18n?: I18nData;         
+            }
+
+            Example I18n:
+            { 
+              en:{ "US": "USA" }, 
+              fr: { "US": "États-Unis" } 
+            }
+          </SshPre>
+      </div>
+    </section>
   </FormPage>
 </template>
 
