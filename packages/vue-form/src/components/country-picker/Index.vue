@@ -22,9 +22,9 @@
             <template v-if="flags">
               <img
                 v-if="flagsPath"
+                :alt="option.label"
                 :class="getFlagClass()"
                 :src="flagsPath(String(option.value))"
-                :alt="option.label"
               />
               <span v-else :class="getFlagClass(String(option.value))" />
             </template>
