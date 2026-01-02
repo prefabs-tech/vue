@@ -1,5 +1,5 @@
 <template>
-  <div :data-country-code="countryCode">
+  <div :data-country-code="countryCode" class="country">
     {{ countryLabel }}
   </div>
 </template>
