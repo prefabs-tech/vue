@@ -15,7 +15,12 @@
 }
 
 .options-wrapper > .flag-icon {
+  line-height: inherit;
   min-width: 1.5rem;
+}
+
+.options-wrapper > .flag-icon.flag-icon-rounded {
+  object-fit: cover;
 }
 
 .options-wrapper > .option-label {

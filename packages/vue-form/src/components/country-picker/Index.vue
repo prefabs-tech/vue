@@ -22,9 +22,9 @@
             <template v-if="flags">
               <img
                 v-if="flagsPath"
+                :class="getFlagClass()"
                 :src="flagsPath(String(option.value))"
                 :alt="option.label"
-                class="flag-icon"
               />
               <span v-else :class="getFlagClass(String(option.value))" />
             </template>
@@ -201,34 +201,17 @@ const options = computed(() => {
   ];
 });
 
-const getFlagClass = (code: string) => {
-  const baseClass = `flag-icon flag-icon-${code.toLowerCase()}`;
-
-  const positionClass = (() => {
-    switch (props.flagsPosition) {
-      case "right":
-        return "flag-icon-right";
-      case "right-edge":
-        return "flag-icon-right-edge";
-      default:
-        return "";
-    }
-  })();
-
-  const styleClass = (() => {
-    switch (props.flagsStyle) {
-      case "circle":
-        return "flag-icon-rounded";
-      case "square":
-        return "flag-icon-squared";
-      case "rectangular":
-      default:
-        return "";
-    }
-  })();
-
-  return [baseClass, positionClass, styleClass].filter(Boolean).join(" ");
-};
+const getFlagClass = (code?: string) =>
+  [
+    "flag-icon",
+    code && `flag-icon-${code.trim().toLowerCase()}`,
+    props.flagsPosition === "right" && "flag-icon-right",
+    props.flagsPosition === "right-edge" && "flag-icon-right-edge",
+    props.flagsStyle === "circle" && "flag-icon-rounded",
+    props.flagsStyle === "square" && "flag-icon-squared",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
 const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? Array.from(new Set(value)) : value;

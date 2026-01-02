@@ -136,6 +136,77 @@
     <!-- eslint-enable -->
       </div>
     </section>
+
+    <section>
+      <h2>{{ $t("form.label.flagsStyle") }}</h2>
+
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.customFlags"
+          :placeholder="$t('form.placeholder.country')"
+          flags-position="right-edge"
+          flags-style="circle"
+        />
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+         &lt;template&gt;
+            &lt;CountryPicker
+              v-model="input"
+              :placeholder="$t('form.placeholder.country')"
+              flags-position="right-edge"
+              flags-style="circle"
+            /&gt;
+          &lt;/template&gt;
+                  
+          &lt;script setup lang="ts"&gt;
+          import { CountryPicker } from '@prefabs.tech/vue3-form';
+          import { ref } from 'vue';
+                  
+          const input = ref();
+          &lt;/script&gt;
+        </SshPre>    
+         <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.customFlagsPath") }}</h2>
+
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.customFlags"
+          :flags-path="customFlagsPath"
+          :placeholder="$t('form.placeholder.country')"
+          flags-position="right-edge"
+          flags-style="circle"
+        />
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+         &lt;template&gt;
+            &lt;CountryPicker
+              v-model="input"
+              :flags-path="flagsPath"
+              :placeholder="$t('form.placeholder.country')"
+              flags-position="right-edge"
+              flags-style="circle"
+            /&gt;
+          &lt;/template&gt;
+                  
+          &lt;script setup lang="ts"&gt;
+          import { CountryPicker } from '@prefabs.tech/vue3-form';
+          import { ref } from 'vue';
+                  
+          const input = ref();
+
+          const flagsPath = (code: string) => {
+            return `https://flagcdn.com/${code.toLowerCase().trim()}.svg`;
+          };
+          &lt;/script&gt;
+        </SshPre>    
+         <!-- eslint-enable -->
+      </div>
+    </section>
+
     <section>
       <h2>{{ $t("form.label.include") }}</h2>
       <div class="section-content">
@@ -440,6 +511,7 @@ const eventsData = [
 const formData = reactive({
   basic: undefined as string | undefined,
   custom: [] as string[],
+  customFlags: undefined,
   customLocale: [],
   excludedCountries: [],
   includedCountries: [],
@@ -457,4 +529,8 @@ const slotsData = [
       "{ multiple: boolean, option: NormalizedSelectOption, selected: boolean }",
   },
 ];
+
+const customFlagsPath = (code: string) => {
+  return `https://flagcdn.com/${code.toLowerCase().trim()}.svg`;
+};
 </script>
