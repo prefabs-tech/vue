@@ -142,7 +142,7 @@
 
       <div class="section-content">
         <CountryPicker
-          v-model="formData.customFlags"
+          v-model="formData.flags"
           :placeholder="$t('form.placeholder.country')"
           flags-position="right-edge"
           flags-style="circle"
@@ -514,6 +514,7 @@ const formData = reactive({
   customFlags: undefined,
   customLocale: [],
   excludedCountries: [],
+  flags: undefined,
   includedCountries: [],
   multiselect: [] as string[],
 });
