@@ -19,10 +19,16 @@
           name="option"
         >
           <div :data-country-code="option.value" class="options-wrapper">
-            <span
-              v-if="flags"
-              :class="getFlagClass(String(option.value))"
-            ></span>
+            <template v-if="flags">
+              <img
+                v-if="flagsPath"
+                :src="flagsPath(String(option.value))"
+                :alt="option.label"
+                class="flag-icon"
+              />
+              <span v-else :class="getFlagClass(String(option.value))" />
+            </template>
+
             <span class="option-label">{{ option.label }}</span>
           </div>
         </slot>
@@ -62,6 +68,10 @@ const props = defineProps({
   flags: {
     default: true,
     type: Boolean,
+  },
+  flagsPath: {
+    default: undefined,
+    type: Function as PropType<(code: string) => string>,
   },
   flagsPosition: {
     default: "left",
