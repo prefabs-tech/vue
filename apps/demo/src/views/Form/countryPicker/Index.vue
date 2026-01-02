@@ -475,6 +475,3 @@ const excludedCountries = ["US", "AU", "QA", "IR", "CI", "CA"];
 const favoritesCountries = ["US", "AU", "QA", "IR", "CI", "CA", "NP", "IN"];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];
 </script>
-<style lang="css">
-@import "../../assets/css/country.css";
-</style>

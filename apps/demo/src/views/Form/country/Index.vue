@@ -9,7 +9,7 @@
         <Country code="FR" />
         <!-- eslint-disable -->
             <SshPre language="html-vue">
-            &lt;template&gt;
+              &lt;template&gt;
                 &lt;Country code="FR"  /&gt;
               &lt;/template&gt;
                       
@@ -27,7 +27,7 @@
         <Country :i18n="countryI18n" :locale="$i18n.locale" code="JP" />
         <!-- eslint-disable -->
             <SshPre language="html-vue">
-            &lt;template&gt;
+              &lt;template&gt;
                 &lt;Country :i18n="countryI18n" :locale="$i18n.locale" code="JP"  /&gt;
               &lt;/template&gt;
                       
@@ -53,7 +53,7 @@
         />
         <!-- eslint-disable -->
             <SshPre language="html-vue">
-            &lt;template&gt;
+              &lt;template&gt;
                 &lt;Country 
                 :i18n="countryI18n" 
                 :locale="$i18n.locale" 
@@ -89,7 +89,7 @@
 
         <!-- eslint-disable -->
             <SshPre language="html-vue">
-            &lt;template&gt;
+              &lt;template&gt;
                 &lt;Country 
                 :i18n="countryI18n" 
                 :locale="$i18n.locale" 
