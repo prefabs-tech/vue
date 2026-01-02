@@ -21,6 +21,7 @@
         "type": "HTML input type (text, password, email, etc.)."
       },
       "select": {
+        "countryCode": "Country code to display.",
         "exclude": "An array of country codes to remove from the list.",
         "fallbackLocale": "Locale used when active locale translation is missing.",
         "favorites": "An array of country codes to prioritize and display at the top of the list.",
@@ -29,7 +30,8 @@
         "includeFavorites": "If false, removes favorite items from the main list.",
         "i18n": "Additional translation catalogues to be supported.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
-        "multiple": "If true, allows selecting multiple countries."
+        "multiple": "If true, allows selecting multiple countries.",
+        "showFlag": "If false, the flag will not be displayed."
       },
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",

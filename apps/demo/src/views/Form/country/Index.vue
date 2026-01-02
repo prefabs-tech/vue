@@ -110,18 +110,90 @@
             <!-- eslint-enable -->
       </div>
     </section>
+    <section>
+      <h2>
+        {{ $t("common.properties", { value: "CountryPickerProperties" }) }}
+      </h2>
+
+      <Table
+        :columns-data="propsColumns"
+        :data="propsData"
+        :paginated="false"
+        :persist-state="false"
+      />
+    </section>
   </FormPage>
 </template>
 
 <script setup lang="ts">
 import { Country } from "@prefabs.tech/vue3-form";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
+import { useI18n } from "vue-i18n";
 
 import fr from "../countryPicker/fr.json";
 import th from "../countryPicker/th.json";
 import FormPage from "../FormPage.vue";
+const { t } = useI18n();
 
 const countryI18n = {
   fr,
   th,
 };
+const propsColumns = [
+  {
+    accessorKey: "prop",
+    header: "Property",
+  },
+  {
+    accessorKey: "type",
+    header: "Type",
+  },
+  {
+    accessorKey: "default",
+    header: "Default",
+  },
+  {
+    accessorKey: "description",
+    header: "Description",
+  },
+];
+
+const propsData = [
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.select.countryCode"),
+    id: 1,
+    prop: "code",
+    type: "String",
+  },
+  {
+    default: "en",
+    description: t("form.documentation.propsDescription.select.fallbackLocale"),
+    id: 2,
+    prop: "fallbackLocale",
+    type: "String",
+  },
+  {
+    default: "{ en: defaultEnCatalogue }",
+    description: t("form.documentation.propsDescription.select.i18n"),
+    id: 3,
+    prop: "i18n",
+    type: "Record<string, Record<string, string>>",
+  },
+
+  {
+    default: "en",
+    description: t("form.documentation.propsDescription.select.locale"),
+    id: 4,
+    prop: "locale",
+    type: "String",
+  },
+  {
+    default: "true",
+    description: t("form.documentation.propsDescription.select.showFlag"),
+    id: 5,
+    prop: "showFlag",
+    type: "Boolean",
+  },
+];
 </script>
