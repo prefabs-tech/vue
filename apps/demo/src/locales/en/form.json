@@ -24,6 +24,10 @@
         "exclude": "An array of country codes to remove from the list.",
         "fallbackLocale": "Locale used when active locale translation is missing.",
         "favorites": "An array of country codes to prioritize and display at the top of the list.",
+        "flags": "If true, displays country flags alongside country names",
+        "flagsPath": "A function that returns the URL/path of the flag image for a given country code",
+        "flagsPosition": "Position of the flags relative to the country name",
+        "flagsStyle": "Shape of the flags to be displayed",
         "hasSortedOption": "If true, the options will be sorted alphabetically.",
         "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
         "includeFavorites": "If false, removes favorite items from the main list.",
@@ -37,6 +41,9 @@
       }
     },
     "slotDescription": {
+      "countryPicker": {
+        "option": "Slot to customize the rendering of each country option"
+      },
       "password": {
         "icon": "Slot for custom icon inside the password input field."
       }
