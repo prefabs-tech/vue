@@ -370,10 +370,6 @@
 
             type I18nConfig = Record&lt;string, TranslationCatalogue&gt;;
 
-            interface CountryOption {
-             code: string;
-            }
-
             type NormalizedSelectOption = {
               disabled?: boolean;
               groupLabel?: string;
