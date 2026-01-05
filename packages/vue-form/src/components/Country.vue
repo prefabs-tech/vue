@@ -2,9 +2,8 @@
   <div :data-country-code="countryCode" class="country">
     <span
       v-if="showFlag"
+      :class="`flag-icon flag-icon-${countryCode.toLowerCase()} ${className}`"
       :title="countryCode"
-      class="flag-icon"
-      :class="`flag-icon-${countryCode.toLowerCase()}`"
     >
     </span>
     {{ countryLabel }}
@@ -20,6 +19,10 @@ import englishData from "./country-picker/en.json";
 type I18nConfigData = Record<string, Record<string, string>>;
 
 const props = defineProps({
+  className: {
+    type: String,
+    default: "flag-icon-squared",
+  },
   code: {
     required: true,
     type: String,
@@ -55,3 +58,6 @@ const countryLabel = computed(() => {
   );
 });
 </script>
+<style lang="css">
+@import "../assets/css/country.css";
+</style>

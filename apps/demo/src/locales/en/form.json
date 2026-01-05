@@ -21,6 +21,7 @@
         "type": "HTML input type (text, password, email, etc.)."
       },
       "select": {
+        "className": "If flag-icon-rounded, displays the flag with rounded corners.",
         "countryCode": "The ISO country code to display (e.g., 'US', 'gb').",
         "exclude": "An array of country codes to remove from the list.",
         "fallbackLocale": "Locale used when active locale translation is missing.",
@@ -195,6 +196,7 @@
     "radio": "Radio input",
     "reportDate": "Report date",
     "role": "Role",
+    "roundedFlag": "Rounded Flag",
     "size": "Size",
     "select": "Select",
     "selectExtensive": "With extensive options",
@@ -202,6 +204,7 @@
     "selectLabelOrder": "Option label order",
     "serverSideSelect": "With server-side data",
     "solutions": "Solutions",
+    "squaredFlag": "Squared Flag",
     "submit": "Submit",
     "summary": "Summary",
     "switch": "Switch",

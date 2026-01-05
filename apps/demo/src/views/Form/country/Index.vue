@@ -113,9 +113,37 @@
       </div>
     </section>
     <section>
-      <h2>
-        {{ $t("common.properties", { value: "CountryProperties" }) }}
-      </h2>
+      <h2>{{ $t("form.label.roundedFlag") }}</h2>
+
+      <Country code="FR" class-name="flag-icon-rounded" />
+      <!-- eslint-disable -->
+          <SshPre language="html-vue">
+            &lt;template&gt;
+              &lt;Country code="FR" class-name="flag-icon-rounded" /&gt;
+            &lt;/template&gt;
+                    
+            &lt;script setup lang="ts"&gt;
+            import { Country } from '@prefabs.tech/vue3-form';
+            &lt;/script&gt;
+          </SshPre>
+          <!-- eslint-enable -->
+      <h2>{{ $t("form.label.squaredFlag") }}</h2>
+      <Country code="FR" class-name="flag-icon-squared" />
+      <!-- eslint-disable -->
+          <SshPre language="html-vue">
+            &lt;template&gt;
+              &lt;Country code="FR" class-name="flag-icon-squared" /&gt;
+            &lt;/template&gt;
+                    
+            &lt;script setup lang="ts"&gt;
+            import { Country } from '@prefabs.tech/vue3-form';
+            &lt;/script&gt;
+          </SshPre>
+          <!-- eslint-enable -->
+     
+    </section>
+    <section>
+      <h2>{{ $t("common.properties", { value: "CountryProperties" }) }}</h2>
 
       <Table
         :columns-data="propsColumns"
@@ -132,6 +160,7 @@
             type I18nData = Record;
 
             interface CountryProperties {
+             className?: string;
              code: string;
              locale?: string;          
              fallbackLocale?: string;  
@@ -184,23 +213,30 @@ const propsColumns = [
 
 const propsData = [
   {
+    default: "flag-icon-squared",
+    description: t("form.documentation.propsDescription.select.className"),
+    id: 1,
+    prop: "class-name",
+    type: "String",
+  },
+  {
     default: "-",
     description: t("form.documentation.propsDescription.select.countryCode"),
-    id: 1,
+    id: 2,
     prop: "code",
     type: "String",
   },
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.fallbackLocale"),
-    id: 2,
+    id: 3,
     prop: "fallbackLocale",
     type: "String",
   },
   {
     default: "{ en: defaultEnCatalogue }",
     description: t("form.documentation.propsDescription.select.i18n"),
-    id: 3,
+    id: 4,
     prop: "i18n",
     type: "Record<string, Record<string, string>>",
   },
@@ -208,14 +244,14 @@ const propsData = [
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
-    id: 4,
+    id: 5,
     prop: "locale",
     type: "String",
   },
   {
     default: "true",
     description: t("form.documentation.propsDescription.select.showFlag"),
-    id: 5,
+    id: 6,
     prop: "showFlag",
     type: "Boolean",
   },
