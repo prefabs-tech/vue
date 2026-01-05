@@ -86,12 +86,12 @@
           import { ref } from 'vue';
           import { useI18n } from 'vue-i18n';
           import fr from "./fr.json";
+          
+          const { locale } = useI18n();
         
           const i18n = {
             fr,
           };
-
-          const { locale } = useI18n();
 
           const input = ref();
           &lt;/script&gt;
@@ -129,14 +129,14 @@
       import { useI18n } from "vue-i18n";
       import fr from "./fr.json";
       import th from "./th.json";
+      
+      const { locale } = useI18n();
 
       const i18n = {
         fr,
         th,
       };
       
-      const { locale } = useI18n();
-
       const input = ref();
       &lt;/script&gt;
     </SshPre>
