@@ -43,7 +43,7 @@ import { computed, type PropType } from "vue";
 import SelectInput from "../SelectInput.vue";
 import englishData from "./en.json";
 
-import type { CountryOption, CountryPickerLabels } from "../../types";
+import type { CountryPickerLabels } from "../../types";
 
 const props = defineProps({
   labels: {
@@ -132,7 +132,7 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const countries = computed<CountryOption[]>(() => {
+const countries = computed<string[]>(() => {
   const countriesData = props.i18n[props.fallbackLocale] || englishData;
   let result = Object.keys(countriesData);
 
@@ -146,21 +146,16 @@ const countries = computed<CountryOption[]>(() => {
     result = result.filter((code) => !excludeSet.has(code));
   }
 
-  return result.map((code) => ({ code }));
+  return result;
 });
 
-const favourites = computed<CountryOption[]>(() => {
+const favourites = computed<string[]>(() => {
   if (props.favorites.length === 0) {
     return [];
   }
 
-  const countryMap = new Map(
-    countries.value.map((country) => [country.code, country]),
-  );
-
-  return props.favorites
-    .filter((code) => countryMap.has(code))
-    .map((code) => countryMap.get(code)!);
+  const countrySet = new Set(countries.value);
+  return props.favorites.filter((code) => countrySet.has(code));
 });
 
 const options = computed(() => {
@@ -169,9 +164,9 @@ const options = computed(() => {
     ...(props.i18n[props.locale] || {}),
   };
 
-  const toOption = (country: CountryOption) => ({
-    label: translations[country.code] ?? country.code,
-    value: country.code,
+  const toOption = (country: string) => ({
+    label: translations[country] ?? country,
+    value: country,
   });
 
   if (favourites.value.length === 0) {
@@ -181,8 +176,7 @@ const options = computed(() => {
   const filterCountries = props.includeFavorites
     ? countries.value
     : countries.value.filter(
-        (country) =>
-          !favourites.value.some((favorite) => favorite.code === country.code),
+        (country) => !favourites.value.some((favorite) => favorite === country),
       );
 
   return [
