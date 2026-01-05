@@ -2,7 +2,7 @@
   <div class="demo">
     <Sidebar :menu="menu" class="demo-aside" no-header />
     <div class="demo-main">
-      <Page :title="title" :sub-title="subTitle">
+      <Page :title="title" :subtitle="subtitle">
         <template #toolbar>
           <slot name="toolbar">
             <ButtonElement
@@ -35,7 +35,7 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
 defineProps({
-  subTitle: {
+  subtitle: {
     default: undefined,
     required: false,
     type: String as PropType<string>,

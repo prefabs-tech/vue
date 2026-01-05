@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.accordion.subtitle')"
+    :subtitle="$t('ui.accordion.subtitle')"
     :title="$t('ui.accordion.title')"
     class="demo"
   >

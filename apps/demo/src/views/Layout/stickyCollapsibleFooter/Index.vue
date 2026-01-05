@@ -1,6 +1,6 @@
 <template>
   <LayoutPage
-    :sub-title="$t('layout.subtitle.stickyCollapsibleFooter')"
+    :subtitle="$t('layout.subtitle.stickyCollapsibleFooter')"
     :title="$t('layout.label.stickyCollapsibleFooter')"
     class="demo sticky-collapsible-footer"
   >

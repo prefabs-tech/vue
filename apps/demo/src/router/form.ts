@@ -1,4 +1,5 @@
 const CheckboxInput = () => import("@/views/Form/checkboxInput/Index.vue");
+const Country = () => import("@/views/Form/country/Index.vue");
 const CountryPicker = () => import("@/views/Form/countryPicker/Index.vue");
 const DatePicker = () => import("@/views/Form/datePicker/Index.vue");
 const DaysInput = () => import("@/views/Form/daysInput/Index.vue");
@@ -25,6 +26,11 @@ const routes = [
         component: CheckboxInput,
         name: "checkboxInput",
         path: "checkbox-input",
+      },
+      {
+        component: Country,
+        name: "country",
+        path: "country",
       },
       {
         component: CountryPicker,

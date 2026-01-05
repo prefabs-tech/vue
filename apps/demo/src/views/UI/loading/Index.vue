@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.loading.subtitle')"
+    :subtitle="$t('ui.loading.subtitle')"
     :title="$t('ui.loading.title')"
     class="demo-loading"
   >

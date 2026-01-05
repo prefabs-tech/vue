@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.filesList.subtitle')"
+    :subtitle="$t('ui.filesList.subtitle')"
     :title="$t('ui.filesList.title')"
     class="demo-files-list"
   >

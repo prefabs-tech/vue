@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.tabView.subtitle')"
+    :subtitle="$t('ui.tabView.subtitle')"
     :title="$t('ui.tabView.title')"
     class="tab-view"
   >

@@ -2,7 +2,7 @@
   <div class="demo">
     <Sidebar :menu="menu" class="demo-aside" no-header />
     <div class="demo-main">
-      <Page :sub-title="subtitle" :title="title">
+      <Page :subtitle="subtitle" :title="title">
         <template #toolbar>
           <slot name="toolbar">
             <ButtonElement
@@ -132,6 +132,10 @@ const menu = [
   {
     name: t("form.label.misc"),
     children: [
+      {
+        name: t("form.label.country"),
+        routeName: "country",
+      },
       {
         name: t("form.label.editableContent"),
         routeName: "editableContent",

@@ -21,14 +21,19 @@
         "type": "HTML input type (text, password, email, etc.)."
       },
       "select": {
-        "data": "Custom country data to overwrite existing items or add new one.",
-        "exclude": "An array of country codes to remove from the list.",
-        "favorites": "An array of country codes to prioritize and display at the top of the list.",
-        "hasSortedOption": "If true, the options will be sorted alphabetically.",
-        "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
-        "includeFavorites": "If false, removes favorite items from the main list.",
-        "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
-        "multiple": "If true, allows selecting multiple countries."
+        "exclude": "An array of country codes to remove from the list[fr]",
+        "fallbackLocale": "Locale used when active locale translation is missing[fr]",
+        "favorites": "An array of country codes to prioritize and display at the top of the list[fr]",
+        "flags": "If true, displays country flags alongside country names[fr]",
+        "flagsPath": "A function that returns the URL/path of the flag image for a given country code[fr]",
+        "flagsPosition": "Position of the flags relative to the country name[fr]",
+        "flagsStyle": "Style of the flags to be displayed[fr]",
+        "hasSortedOption": "If true, the options will be sorted alphabetically[fr]",
+        "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible[fr]",
+        "includeFavorites": "If false, removes favorite items from the main list[fr]",
+        "i18n": "Additional translation catalogues to be supported[fr]",
+        "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data[fr]",
+        "multiple": "If true, allows selecting multiple countries[fr]"
       },
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",
@@ -36,6 +41,9 @@
       }
     },
     "slotDescription": {
+      "countryPicker": {
+        "option": "Slot to customize the rendering of each country option[fr]"
+      },
       "password": {
         "icon": "Slot for custom icon inside the password input field."
       }
@@ -116,6 +124,7 @@
     "currencyPickerExtensive": "Currency picker with extensive options",
     "customColsRowsInput": "With cols and rows props[fr]",
     "customErrorMessageInput": "With custom error message[fr]",
+    "customFlagsPath": "Custom flags path[fr]",
     "customFormat": "Custom format[fr]",
     "customOptionLabel": "With custom option label[fr]",
     "customSearchHelper": "Please type to search roles...[fr]",
@@ -143,9 +152,11 @@
     "exclude": "Exclude filter",
     "expiresAfter": "Expires after",
     "europe": "Europe",
+    "fallbackLocale": "Fallback locale",
     "favorites": "Favorites",
     "female": "Female",
     "fileInput": "File input",
+    "flagsStyle": "Flags style and position[fr]",
     "france": "France",
     "gender": "Gender",
     "generalQuestions": "General questions",
@@ -247,6 +258,7 @@
   "submittedValue": "Submitted value[fr]",
   "subtitle": {
     "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
+    "country": "Country shows selected country with internationalization support.",
     "countryPicker": "Country picker is a reusable component for selecting single or multiple countries with internationalization support and search functionality.",
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
     "input": "A versatile form input component with validation support using Zod and vee-validate",

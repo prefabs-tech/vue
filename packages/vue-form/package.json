@@ -31,6 +31,7 @@
     "validator": "13.12.0"
   },
   "devDependencies": {
+    "@dzangolab/flag-icon-css": "3.4.5",
     "@prefabs.tech/eslint-config": "0.2.0",
     "@prefabs.tech/tsconfig": "0.2.0",
     "@prefabs.tech/vue3-ui": "0.27.0",

@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.popup.subtitle')"
+    :subtitle="$t('ui.popup.subtitle')"
     :title="$t('ui.popup.title')"
     class="demo"
   >

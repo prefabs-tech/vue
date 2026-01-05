@@ -1,6 +1,6 @@
 <template>
   <UiPage
-    :sub-title="$t('ui.youtubeFacade.subtitle')"
+    :subtitle="$t('ui.youtubeFacade.subtitle')"
     :title="$t('ui.youtubeFacade.title')"
     class="demo-youtube-facade"
   >
