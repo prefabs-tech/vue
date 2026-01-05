@@ -134,6 +134,7 @@
         fr,
         th,
       };
+      
       const { locale } = useI18n();
 
       const input = ref();
