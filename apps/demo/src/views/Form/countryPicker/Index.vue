@@ -115,8 +115,8 @@
           v-model="input"
           :i18n="i18n"
           :locale="$i18n.locale"
-          multiple
           fallback-locale="th"
+          multiple
           placeholder="$t('form.placeholder.countries')"
         /&gt;
       &lt;/template&gt;
