@@ -135,7 +135,7 @@
         th,
       };
       const { locale } = useI18n();
-      
+
       const input = ref();
       &lt;/script&gt;
     </SshPre>
@@ -170,7 +170,6 @@
           import { useI18n } from "vue-i18n";
                   
           const { locale } = useI18n();
-
 
           const input = ref();
           &lt;/script&gt;
