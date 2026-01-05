@@ -64,7 +64,7 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.customLocale"
-          :i18n="countryI18n"
+          :i18n="i18n"
           :locale="$i18n.locale"
           :placeholder="$t('form.placeholder.countries')"
           multiple
@@ -75,7 +75,7 @@
           &lt;template&gt;
               &lt;CountryPicker
                 v-model="input"
-                :i18n="countryI18n"
+                :i18n="i18n"
                 :locale="$i18n.locale"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
@@ -86,9 +86,10 @@
           import { ref } from 'vue';
           import fr from "./fr.json";
 
-          const countryI18n = {
+          const i18n = {
             fr,
           };
+
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -100,10 +101,10 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.fallbackDemo"
-          :i18n="countryI18n"
+          :i18n="i18n"
           :locale="$i18n.locale"
-          fallback-locale="th"
           :placeholder="$t('form.placeholder.countries')"
+          fallback-locale="th"
           multiple
         />
 
@@ -112,10 +113,10 @@
       &lt;template&gt;
         &lt;CountryPicker
           v-model="input"
-          :i18n="countryI18n"
+          :i18n="i18n"
           :locale="$i18n.locale"
-          fallback-locale="th"
           multiple
+          fallback-locale="th"
           placeholder="$t('form.placeholder.countries')"
         /&gt;
       &lt;/template&gt;
@@ -125,12 +126,12 @@
       import fr from "./fr.json";
       import th from "./th.json";
 
-      const countryI18n = {
+      const i18n = {
         fr,
         th,
       };
+
       const input = ref();
-     
       &lt;/script&gt;
     </SshPre>
     <!-- eslint-enable -->
@@ -232,7 +233,8 @@
           import { CountryPicker } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
 
-          const includedCountries = ['US', 'CA', 'FR', 'AU','NP'];
+          const includedCountries = ["US", "CA", "FR", "AU", "NP"];
+
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -289,6 +291,7 @@
                 v-model="input"
                 :favorites="favoritesCountries"
                 :has-sorted-options="false"
+                multiple
                 placeholder="$t('form.placeholder.countries')"
               /&gt;
           &lt;/template&gt;
@@ -322,6 +325,7 @@
                 v-model="input"
                 :favorites="favoritesCountries"
                 :has-sorted-options="false"
+                :include-favorites="false"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
               /&gt;
@@ -331,6 +335,7 @@
           import { ref } from 'vue';
           
           const favoritesCountries = ["US", "AU", "QA", "IR", "CI", "CA", "NP", "IN"];
+
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -358,7 +363,6 @@
 
             interface CountryOption {
              code: string;
-             label?: string;
             }
 
             type NormalizedSelectOption = {
@@ -397,7 +401,7 @@ import th from "./th.json";
 
 const { t } = useI18n();
 
-const countryI18n = {
+const i18n = {
   fr,
   th,
 };

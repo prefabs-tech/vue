@@ -5,7 +5,6 @@ interface CurrencyOption extends SelectOption {
 
 interface CountryOption {
   code: string;
-  label?: string;
 }
 
 interface CountryPickerLabels {

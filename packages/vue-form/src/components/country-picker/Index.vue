@@ -134,23 +134,19 @@ const emit = defineEmits<{
 
 const countries = computed<CountryOption[]>(() => {
   const countriesData = props.i18n[props.fallbackLocale] || englishData;
-
-  let result = Object.entries(countriesData).map(([code, label]) => ({
-    code,
-    label,
-  }));
+  let result = Object.keys(countriesData);
 
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
-    result = result.filter((country) => includeSet.has(country.code));
+    result = result.filter((code) => includeSet.has(code));
   }
 
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
-    result = result.filter((country) => !excludeSet.has(country.code));
+    result = result.filter((code) => !excludeSet.has(code));
   }
 
-  return result;
+  return result.map((code) => ({ code }));
 });
 
 const favourites = computed<CountryOption[]>(() => {
@@ -169,10 +165,10 @@ const favourites = computed<CountryOption[]>(() => {
 
 const options = computed(() => {
   const translations: Record<string, string> = {
-    ...englishData,
-    ...(props.i18n[props.fallbackLocale] || {}),
+    ...(props.i18n[props.fallbackLocale] || englishData),
     ...(props.i18n[props.locale] || {}),
   };
+
   const toOption = (country: CountryOption) => ({
     label: translations[country.code] ?? country.code,
     value: country.code,
