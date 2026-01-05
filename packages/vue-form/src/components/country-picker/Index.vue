@@ -164,13 +164,13 @@ const options = computed(() => {
     ...(props.i18n[props.locale] || {}),
   };
 
-  const toOption = (country: string) => ({
+  const getNormalizedOption = (country: string) => ({
     label: translations[country] ?? country,
     value: country,
   });
 
   if (favourites.value.length === 0) {
-    return countries.value.map(toOption);
+    return countries.value.map(getNormalizedOption);
   }
 
   const filterCountries = props.includeFavorites
@@ -182,11 +182,11 @@ const options = computed(() => {
   return [
     {
       label: props.labels.favorites,
-      options: favourites.value.map(toOption),
+      options: favourites.value.map(getNormalizedOption),
     },
     {
       label: props.labels.allCountries,
-      options: filterCountries.map(toOption),
+      options: filterCountries.map(getNormalizedOption),
     },
   ];
 });

@@ -65,7 +65,7 @@
         <CountryPicker
           v-model="formData.customLocale"
           :i18n="i18n"
-          :locale="$i18n.locale"
+          :locale="locale"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -76,7 +76,7 @@
               &lt;CountryPicker
                 v-model="input"
                 :i18n="i18n"
-                :locale="$i18n.locale"
+                :locale="locale"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
               /&gt;
@@ -84,11 +84,14 @@
 
           &lt;script setup lang="ts"&gt;
           import { ref } from 'vue';
+          import { useI18n } from 'vue-i18n';
           import fr from "./fr.json";
-
+        
           const i18n = {
             fr,
           };
+
+          const { locale } = useI18n();
 
           const input = ref();
           &lt;/script&gt;
@@ -102,7 +105,7 @@
         <CountryPicker
           v-model="formData.fallbackDemo"
           :i18n="i18n"
-          :locale="$i18n.locale"
+          :locale="locale"
           :placeholder="$t('form.placeholder.countries')"
           fallback-locale="th"
           multiple
@@ -114,7 +117,7 @@
         &lt;CountryPicker
           v-model="input"
           :i18n="i18n"
-          :locale="$i18n.locale"
+          :locale="locale"
           fallback-locale="th"
           multiple
           placeholder="$t('form.placeholder.countries')"
@@ -123,6 +126,7 @@
 
       &lt;script setup lang="ts"&gt;
       import { ref } from 'vue';
+      import { useI18n } from "vue-i18n";
       import fr from "./fr.json";
       import th from "./th.json";
 
@@ -130,7 +134,7 @@
         fr,
         th,
       };
-
+const { locale } = useI18n();
       const input = ref();
       &lt;/script&gt;
     </SshPre>
@@ -162,7 +166,11 @@
           &lt;script setup lang="ts"&gt;
           import { CountryPicker } from '@prefabs.tech/vue3-form';
           import { ref } from 'vue';
+          import { useI18n } from "vue-i18n";
                   
+          const { locale } = useI18n();
+
+
           const input = ref();
           &lt;/script&gt;
         </SshPre>    
@@ -300,6 +308,7 @@
           import { ref } from 'vue';
           
           const favoritesCountries = ["US", "AU", "QA", "IR", "CI", "CA", "NP", "IN"];
+
           const input = ref();
           &lt;/script&gt;
         </SshPre>
@@ -399,7 +408,7 @@ import FormPage from "../FormPage.vue";
 import fr from "./fr.json";
 import th from "./th.json";
 
-const { t } = useI18n();
+const { locale, t } = useI18n();
 
 const i18n = {
   fr,
