@@ -43,7 +43,7 @@ import { computed, type PropType } from "vue";
 import SelectInput from "../SelectInput.vue";
 import englishData from "./en.json";
 
-import type { CountryOption, CountryPickerLabels } from "../../types";
+import type { CountryPickerLabels } from "../../types";
 
 const props = defineProps({
   labels: {
@@ -132,71 +132,61 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const countries = computed<CountryOption[]>(() => {
+const countries = computed<string[]>(() => {
   const countriesData = props.i18n[props.fallbackLocale] || englishData;
-
-  let result = Object.entries(countriesData).map(([code, label]) => ({
-    code,
-    label,
-  }));
+  let result = Object.keys(countriesData);
 
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
-    result = result.filter((country) => includeSet.has(country.code));
+    result = result.filter((code) => includeSet.has(code));
   }
 
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
-    result = result.filter((country) => !excludeSet.has(country.code));
+    result = result.filter((code) => !excludeSet.has(code));
   }
 
   return result;
 });
 
-const favourites = computed<CountryOption[]>(() => {
+const favourites = computed<string[]>(() => {
   if (props.favorites.length === 0) {
     return [];
   }
 
-  const countryMap = new Map(
-    countries.value.map((country) => [country.code, country]),
-  );
-
-  return props.favorites
-    .filter((code) => countryMap.has(code))
-    .map((code) => countryMap.get(code)!);
+  const countrySet = new Set(countries.value);
+  return props.favorites.filter((code) => countrySet.has(code));
 });
 
 const options = computed(() => {
   const translations: Record<string, string> = {
-    ...englishData,
-    ...(props.i18n[props.fallbackLocale] || {}),
+    ...(props.i18n[props.fallbackLocale] || englishData),
     ...(props.i18n[props.locale] || {}),
   };
-  const toOption = (country: CountryOption) => ({
-    label: translations[country.code] ?? country.code,
-    value: country.code,
+
+  const getNormalizedOption = (country: string) => ({
+    label: translations[country] ?? country,
+    value: country,
   });
 
   if (favourites.value.length === 0) {
-    return countries.value.map(toOption);
+    return countries.value.map(getNormalizedOption);
   }
 
   const filterCountries = props.includeFavorites
     ? countries.value
     : countries.value.filter(
-        (country) =>
-          !favourites.value.some((favorite) => favorite.code === country.code),
+        (country) => !favourites.value.some((favorite) => favorite === country),
       );
 
   return [
     {
       label: props.labels.favorites,
-      options: favourites.value.map(toOption),
+      options: favourites.value.map(getNormalizedOption),
     },
     {
       label: props.labels.allCountries,
-      options: filterCountries.map(toOption),
+      options: filterCountries.map(getNormalizedOption),
     },
   ];
 });
