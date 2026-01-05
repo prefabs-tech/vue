@@ -41,8 +41,8 @@
         </slot>
       </template>
 
-      <template v-if="$slots.selection" #selection>
-        <slot name="selection" />
+      <template v-if="$slots.selection" #selection="{ selectedLabels }">
+        <slot :selected-labels="selectedLabels" name="selection" />
       </template>
     </SelectInput>
   </div>
