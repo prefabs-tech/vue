@@ -46,6 +46,7 @@
       <h2>{{ $t("form.label.fallbackLocale") }}</h2>
       <div>
         <Country
+          :class-name="'flag-icon-rounded'"
           :i18n="countryI18n"
           :locale="$i18n.locale"
           code="CN"
@@ -81,6 +82,7 @@
       <div>
         <span class="unknown-country">Unknown:</span>
         <Country
+          :class-name="'flag-icon-rounded'"
           :i18n="countryI18n"
           :locale="$i18n.locale"
           code="WW"
@@ -113,10 +115,12 @@
       </div>
     </section>
     <section>
-      <h2>{{ $t("form.label.roundedFlag") }}</h2>
-
-      <Country code="FR" class-name="flag-icon-rounded" />
-      <!-- eslint-disable -->
+      <h2>{{ $t("form.label.flagStyles") }}</h2>
+      <div class="flag-styles-demo">
+        <div class="style-example">
+          <h3>Rounded Flag</h3>
+          <Country code="FR" class-name="flag-icon-rounded" />
+          <!-- eslint-disable -->
           <SshPre language="html-vue">
             &lt;template&gt;
               &lt;Country code="FR" class-name="flag-icon-rounded" /&gt;
@@ -127,9 +131,12 @@
             &lt;/script&gt;
           </SshPre>
           <!-- eslint-enable -->
-      <h2>{{ $t("form.label.squaredFlag") }}</h2>
-      <Country code="FR" class-name="flag-icon-squared" />
-      <!-- eslint-disable -->
+        </div>
+
+        <div class="style-example">
+          <h3>Squared Flag (Default)</h3>
+          <Country code="FR" class-name="flag-icon-squared" />
+          <!-- eslint-disable -->
           <SshPre language="html-vue">
             &lt;template&gt;
               &lt;Country code="FR" class-name="flag-icon-squared" /&gt;
@@ -140,7 +147,8 @@
             &lt;/script&gt;
           </SshPre>
           <!-- eslint-enable -->
-     
+        </div>
+      </div>
     </section>
     <section>
       <h2>{{ $t("common.properties", { value: "CountryProperties" }) }}</h2>
