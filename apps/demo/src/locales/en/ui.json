@@ -89,7 +89,6 @@
     "title": "Button",
     "usage": {
       "basic": "Basic",
-      "contentSlot": "Button content slot",
       "disabled": "Disabled",
       "icons": {
         "icon": "Icon",
@@ -97,6 +96,7 @@
         "iconElement": "Icon slot",
         "iconPackage": "Different packages icon"
       },
+      "labelSlot": "Label slot",
       "loading": "Loading",
       "outlined": "Outlined",
       "redirect": "Redirect",

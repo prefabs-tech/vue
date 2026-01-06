@@ -10,7 +10,30 @@
       :placeholder="placeholder"
       class="form-select"
       @update:model-value="onUpdateModelValue"
-    />
+    >
+      <template #option="{ multiple: isMultiple, option, selected }">
+        <slot
+          :multiple="isMultiple"
+          :option="option"
+          :selected="selected"
+          name="option"
+        >
+          <div :data-country-code="option.value" class="options-wrapper">
+            <template v-if="flags">
+              <img
+                v-if="flagsPath"
+                :alt="option.label"
+                :class="getFlagClass()"
+                :src="flagsPath(String(option.value))"
+              />
+              <span v-else :class="getFlagClass(String(option.value))" />
+            </template>
+
+            <span class="option-label">{{ option.label }}</span>
+          </div>
+        </slot>
+      </template>
+    </SelectInput>
   </div>
 </template>
 
@@ -20,7 +43,7 @@ import { computed, type PropType } from "vue";
 import SelectInput from "../SelectInput.vue";
 import englishData from "./en.json";
 
-import type { CountryOption, CountryPickerLabels } from "../../types";
+import type { CountryPickerLabels } from "../../types";
 
 const props = defineProps({
   labels: {
@@ -41,6 +64,26 @@ const props = defineProps({
   favorites: {
     default: () => [],
     type: Array as PropType<string[]>,
+  },
+  flags: {
+    default: true,
+    type: Boolean,
+  },
+  flagsPath: {
+    default: undefined,
+    type: Function as PropType<(code: string) => string>,
+  },
+  flagsPosition: {
+    default: "left",
+    type: String,
+    validator: (value: string) =>
+      ["left", "right", "right-edge"].includes(value),
+  },
+  flagsStyle: {
+    default: "rectangular",
+    type: String,
+    validator: (value: string) =>
+      ["circle", "rectangular", "square"].includes(value),
   },
   hasSortedOptions: {
     default: true,
@@ -89,77 +132,83 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const countries = computed<CountryOption[]>(() => {
+const countries = computed<string[]>(() => {
   const countriesData = props.i18n[props.fallbackLocale] || englishData;
-
-  let result = Object.entries(countriesData).map(([code, label]) => ({
-    code,
-    label,
-  }));
+  let result = Object.keys(countriesData);
 
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
-    result = result.filter((country) => includeSet.has(country.code));
+    result = result.filter((code) => includeSet.has(code));
   }
 
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
-    result = result.filter((country) => !excludeSet.has(country.code));
+    result = result.filter((code) => !excludeSet.has(code));
   }
 
   return result;
 });
 
-const favourites = computed<CountryOption[]>(() => {
+const favourites = computed<string[]>(() => {
   if (props.favorites.length === 0) {
     return [];
   }
 
-  const countryMap = new Map(
-    countries.value.map((country) => [country.code, country]),
-  );
-
-  return props.favorites
-    .filter((code) => countryMap.has(code))
-    .map((code) => countryMap.get(code)!);
+  const countrySet = new Set(countries.value);
+  return props.favorites.filter((code) => countrySet.has(code));
 });
 
 const options = computed(() => {
   const translations: Record<string, string> = {
-    ...englishData,
-    ...(props.i18n[props.fallbackLocale] || {}),
+    ...(props.i18n[props.fallbackLocale] || englishData),
     ...(props.i18n[props.locale] || {}),
   };
-  const toOption = (country: CountryOption) => ({
-    label: translations[country.code] ?? country.code,
-    value: country.code,
+
+  const getNormalizedOption = (country: string) => ({
+    label: translations[country] ?? country,
+    value: country,
   });
 
   if (favourites.value.length === 0) {
-    return countries.value.map(toOption);
+    return countries.value.map(getNormalizedOption);
   }
 
   const filterCountries = props.includeFavorites
     ? countries.value
     : countries.value.filter(
-        (country) =>
-          !favourites.value.some((favorite) => favorite.code === country.code),
+        (country) => !favourites.value.some((favorite) => favorite === country),
       );
 
   return [
     {
       label: props.labels.favorites,
-      options: favourites.value.map(toOption),
+      options: favourites.value.map(getNormalizedOption),
     },
     {
       label: props.labels.allCountries,
-      options: filterCountries.map(toOption),
+      options: filterCountries.map(getNormalizedOption),
     },
   ];
 });
+
+const getFlagClass = (code?: string) =>
+  [
+    "flag-icon",
+    code && `flag-icon-${code.trim().toLowerCase()}`,
+    props.flagsPosition === "right" && "flag-icon-right",
+    props.flagsPosition === "right-edge" && "flag-icon-right-edge",
+    props.flagsStyle === "circle" && "flag-icon-rounded",
+    props.flagsStyle === "square" && "flag-icon-squared",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
 const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? Array.from(new Set(value)) : value;
   emit("update:modelValue", output);
 };
 </script>
+
+<style lang="css">
+@import "../../assets/css/country-picker.css";
+</style>

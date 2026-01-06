@@ -3,19 +3,9 @@ interface CurrencyOption extends SelectOption {
   symbol?: string;
 }
 
-interface CountryOption {
-  code: string;
-  label?: string;
-}
-
 interface CountryPickerLabels {
   favorites?: string;
   allCountries?: string;
-}
-
-interface CountryResolvedData {
-  favorites: CountryOption[];
-  allCountries: CountryOption[];
 }
 
 interface EmailErrorMessages {
@@ -73,9 +63,7 @@ interface TextErrorMessages {
 
 export type {
   CurrencyOption,
-  CountryOption,
   CountryPickerLabels,
-  CountryResolvedData,
   EmailErrorMessages,
   FileErrorMessages,
   FileExtended,

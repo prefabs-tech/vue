@@ -213,7 +213,7 @@
                 />
                 <slot
                   :multiple="multiple"
-                  :option="option"
+                  :option="option as SelectOption"
                   :selected="isSelected(option)"
                   name="option"
                 >
