@@ -1,12 +1,12 @@
 <template>
   <div class="country-picker">
     <SelectInput
-      :has-sorted-options="hasSortedOptions"
       :locale="locale"
+      :has-sorted-options="false"
       :model-value="modelValue"
       :multiple="multiple"
       :name="name"
-      :options="options"
+      :options="sortedOptions"
       :placeholder="placeholder"
       class="form-select"
       @update:model-value="onUpdateModelValue"
@@ -158,6 +158,14 @@ const favourites = computed<string[]>(() => {
   return props.favorites.filter((code) => countrySet.has(code));
 });
 
+const isOptionsGrouped = computed(() => {
+  return (
+    Array.isArray(options.value) &&
+    options.value.length > 0 &&
+    "options" in options.value[0]
+  );
+});
+
 const options = computed(() => {
   const translations: Record<string, string> = {
     ...(props.i18n[props.fallbackLocale] || englishData),
@@ -191,6 +199,33 @@ const options = computed(() => {
   ];
 });
 
+const sortedOptions = computed(() => {
+  if (!props.hasSortedOptions) {
+    return options.value;
+  }
+
+  if (!isOptionsGrouped.value) {
+    return [...options.value].sort(sortByLabel);
+  }
+
+  const grouped = options.value.map((group) => {
+    if (!("options" in group)) {
+      return group;
+    }
+
+    return {
+      ...group,
+      options: [...group.options].sort(sortByLabel),
+    };
+  });
+
+  if (favourites.value.length > 0) {
+    return [grouped[0], ...grouped.slice(1).sort(sortByLabel)];
+  }
+
+  return grouped;
+});
+
 const getFlagClass = (code?: string) =>
   [
     "flag-icon",
@@ -206,6 +241,18 @@ const getFlagClass = (code?: string) =>
 const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? Array.from(new Set(value)) : value;
   emit("update:modelValue", output);
+};
+
+const sortByLabel = (a: { label?: string }, b: { label?: string }) => {
+  if (!a.label) {
+    return 1;
+  }
+
+  if (!b.label) {
+    return -1;
+  }
+
+  return a.label.localeCompare(b.label);
 };
 </script>
 
