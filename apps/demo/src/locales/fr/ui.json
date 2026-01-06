@@ -28,6 +28,7 @@
       "slot": "Avec icônes par slot",
       "toggle": "Afficher les boutons de toggle"
     },
+    "labelSlot": "Label slot",
     "separate": "Sections séparées",
     "slot-without-title": "Slots sans prop 'title' sont ignorés",
     "subtitle": "The accordion component is a collapsible content display element that allows users to expand or collapse sections with optional icons, orientations, and self-collapse behavior.",
