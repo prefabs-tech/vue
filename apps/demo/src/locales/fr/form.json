@@ -21,20 +21,6 @@
         "type": "HTML input type (text, password, email, etc.)."
       },
       "select": {
-<<<<<<< HEAD
-        "className": "If flag-icon-rounded, displays the flag with rounded corners.[fr]",
-        "countryCode": "The ISO country code to display (e.g., 'US', 'gb').",
-        "exclude": "An array of country codes to remove from the list.",
-        "fallbackLocale": "Locale used when active locale translation is missing.",
-        "favorites": "An array of country codes to prioritize and display at the top of the list.",
-        "hasSortedOption": "If true, the options will be sorted alphabetically.",
-        "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
-        "includeFavorites": "If false, removes favorite items from the main list.",
-        "i18n": "Additional translation catalogues to be supported.",
-        "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
-        "multiple": "If true, allows selecting multiple countries.",
-        "showFlag": "If false, the flag will not be displayed."
-=======
         "exclude": "An array of country codes to remove from the list[fr]",
         "fallbackLocale": "Locale used when active locale translation is missing[fr]",
         "favorites": "An array of country codes to prioritize and display at the top of the list[fr]",
@@ -48,7 +34,6 @@
         "i18n": "Additional translation catalogues to be supported[fr]",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data[fr]",
         "multiple": "If true, allows selecting multiple countries[fr]"
->>>>>>> 5121b617ba63ee257a24dbc19be6585cd90003f7
       },
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",
