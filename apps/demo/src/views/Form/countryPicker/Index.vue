@@ -478,17 +478,16 @@ const propsData = [
     type: "Boolean",
   },
   {
-    default: "{ en: defaultEnCatalogue }",
-    description: t("form.documentation.propsDescription.select.i18n"),
-    prop: "i18n",
-    type: "Record<string, Record<string, string>>",
-  },
-
-  {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
     prop: "locale",
     type: "String",
+  },
+  {
+    default: "{ en: defaultEnCatalogue }",
+    description: t("form.documentation.propsDescription.select.locales"),
+    prop: "locales",
+    type: "Record<string, Record<string, string>>",
   },
   {
     default: "-",

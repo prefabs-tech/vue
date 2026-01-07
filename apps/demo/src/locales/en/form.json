@@ -31,7 +31,7 @@
         "hasSortedOption": "If true, the options will be sorted alphabetically.",
         "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
         "includeFavorites": "If false, removes favorite items from the main list.",
-        "i18n": "Additional translation catalogues to be supported.",
+        "locales": "Additional translation catalogues to be supported.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
         "multiple": "If true, allows selecting multiple countries."
       },
