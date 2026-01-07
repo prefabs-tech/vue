@@ -24,16 +24,20 @@
     <section>
       <h2>{{ $t("form.label.customLocale") }}</h2>
       <div>
-        <Country :i18n="countryI18n" :locale="$i18n.locale" code="JP" />
+        <Country :i18n="i18n" :locale="locale" code="JP" />
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country :i18n="countryI18n" :locale="$i18n.locale" code="JP"  /&gt;
+                &lt;Country :i18n="i18n" :locale="locale" code="JP"  /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
+              import { useI18n } from "vue-i18n";
               import fr from "./fr.json";
+
+              const { locale } = useI18n();
+
               const countryI18n = {
                 fr,
               };
@@ -45,30 +49,22 @@
     <section>
       <h2>{{ $t("form.label.fallbackLocale") }}</h2>
       <div>
-        <Country
-          :class-name="'flag-icon-rounded'"
-          :i18n="countryI18n"
-          :locale="$i18n.locale"
-          code="CN"
-          fallback-locale="np"
-        />
+        <Country :i18n="i18n" :locale="locale" code="CN" fallback-locale="np" />
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country 
-                :i18n="countryI18n" 
-                :locale="$i18n.locale" 
-                code="CN" 
-                fallback-locale="np"
-                /&gt;
+                &lt;Country :i18n="i18n" :locale="locale" code="CN" fallback-locale="np"/&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
+              import { useI18n } from "vue-i18n";
               import fr from "./fr.json";
               import np from "./np.json";
+              
+              const { locale } = useI18n();
 
-              const countryI18n = {
+              const i18n = {
                 fr,
                 np,
               };
@@ -80,7 +76,7 @@
     <section>
       <h2>{{ $t("form.label.unknownCountryCode") }}</h2>
       <div>
-        <span class="unknown-country">Unknown:</span>
+        <span class="unknown-country">Country:</span>
         <Country
           :class-name="'flag-icon-rounded'"
           :i18n="countryI18n"
@@ -115,39 +111,21 @@
       </div>
     </section>
     <section>
-      <h2>{{ $t("form.label.flagStyles") }}</h2>
-      <div class="flag-styles-demo">
-        <div class="style-example">
-          <h3>Rounded Flag</h3>
-          <Country code="FR" class-name="flag-icon-rounded" />
-          <!-- eslint-disable -->
-          <SshPre language="html-vue">
-            &lt;template&gt;
-              &lt;Country code="FR" class-name="flag-icon-rounded" /&gt;
-            &lt;/template&gt;
-                    
-            &lt;script setup lang="ts"&gt;
-            import { Country } from '@prefabs.tech/vue3-form';
-            &lt;/script&gt;
-          </SshPre>
-          <!-- eslint-enable -->
-        </div>
-
-        <div class="style-example">
-          <h3>Squared Flag (Default)</h3>
-          <Country code="FR" class-name="flag-icon-squared" />
-          <!-- eslint-disable -->
-          <SshPre language="html-vue">
-            &lt;template&gt;
-              &lt;Country code="FR" class-name="flag-icon-squared" /&gt;
-            &lt;/template&gt;
-                    
-            &lt;script setup lang="ts"&gt;
-            import { Country } from '@prefabs.tech/vue3-form';
-            &lt;/script&gt;
-          </SshPre>
-          <!-- eslint-enable -->
-        </div>
+      <h2>{{ $t("form.label.flagVisibility") }}</h2>
+      <div>
+        <Country code="FR" :show-flag="false" />
+        <!-- eslint-disable -->
+            <SshPre language="html-vue">
+              &lt;template&gt;
+                &lt;Country code="FR" :show-flag="false" /&gt;
+              &lt;/template&gt;
+                      
+              &lt;script setup lang="ts"&gt;
+              import { Country } from '@prefabs.tech/vue3-form';
+           
+              &lt;/script&gt;
+            </SshPre>    
+            <!-- eslint-enable -->
       </div>
     </section>
     <section>
@@ -196,7 +174,9 @@ import np from "../countryPicker/np.json";
 import FormPage from "../FormPage.vue";
 const { t } = useI18n();
 
-const countryI18n = {
+const { locale } = useI18n();
+
+const i18n = {
   fr,
   np,
 };
@@ -220,13 +200,13 @@ const propsColumns = [
 ];
 
 const propsData = [
-  {
-    default: "flag-icon-squared",
-    description: t("form.documentation.propsDescription.select.className"),
-    id: 1,
-    prop: "class-name",
-    type: "String",
-  },
+  // {
+  //   default: "flag-icon-squared",
+  //   description: t("form.documentation.propsDescription.select.className"),
+  //   id: 1,
+  //   prop: "class-name",
+  //   type: "String",
+  // },
   {
     default: "-",
     description: t("form.documentation.propsDescription.select.countryCode"),
@@ -238,7 +218,7 @@ const propsData = [
     default: "en",
     description: t("form.documentation.propsDescription.select.fallbackLocale"),
     id: 3,
-    prop: "fallbackLocale",
+    prop: "fallback-locale",
     type: "String",
   },
   {

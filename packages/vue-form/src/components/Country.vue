@@ -2,7 +2,7 @@
   <div :data-country-code="countryCode" class="country">
     <span
       v-if="showFlag"
-      :class="`flag-icon flag-icon-${countryCode.toLowerCase()} flag-icon-squared`"
+      :class="`flag-icon flag-icon-${countryCode.toLowerCase() ?? '-'} ${flagsStyle}`"
       :title="countryCode"
     >
     </span>
@@ -27,6 +27,12 @@ const props = defineProps({
     default: "en",
     type: String,
   },
+  flagsStyle: {
+    default: "rectangular",
+    type: String,
+    validator: (value: string) =>
+      ["circle", "rectangular", "square"].includes(value),
+  },
   i18n: {
     default: () => ({}),
     type: Object as () => I18nConfigData,
@@ -50,7 +56,7 @@ const countryLabel = computed(() => {
     props.i18n?.[props.locale]?.[code] ||
     props.i18n?.[props.fallbackLocale]?.[code] ||
     englishData[code as keyof typeof englishData] ||
-    "-"
+    code
   );
 });
 </script>
