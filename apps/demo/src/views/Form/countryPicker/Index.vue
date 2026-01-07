@@ -64,8 +64,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.customLocale"
-          :i18n="i18n"
           :locale="locale"
+          :locales="locales"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -75,8 +75,8 @@
           &lt;template&gt;
               &lt;CountryPicker
                 v-model="input"
-                :i18n="i18n"
                 :locale="locale"
+                :locales="locales"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
               /&gt;
@@ -89,7 +89,7 @@
           
           const { locale } = useI18n();
         
-          const i18n = {
+          const locales = {
             fr,
           };
 
@@ -104,8 +104,8 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.fallbackDemo"
-          :i18n="i18n"
           :locale="locale"
+          :locales="locales"
           :placeholder="$t('form.placeholder.countries')"
           fallback-locale="th"
           multiple
@@ -116,8 +116,8 @@
       &lt;template&gt;
         &lt;CountryPicker
           v-model="input"
-          :i18n="i18n"
           :locale="locale"
+          :locales="locales"
           fallback-locale="th"
           multiple
           placeholder="$t('form.placeholder.countries')"
@@ -132,7 +132,7 @@
       
       const { locale } = useI18n();
 
-      const i18n = {
+      const locales = {
         fr,
         th,
       };
@@ -407,7 +407,7 @@ import th from "./th.json";
 
 const { locale, t } = useI18n();
 
-const i18n = {
+const locales = {
   fr,
   th,
 };
