@@ -42,6 +42,7 @@ import { computed, type PropType } from "vue";
 
 import SelectInput from "../SelectInput.vue";
 import englishData from "./en.json";
+import { getFallbackTranslation } from "../../utils/CountryPicker";
 
 import type {
   CountryPickerLabels,
@@ -98,10 +99,6 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<string[]>,
   },
-  i18n: {
-    default: () => ({}),
-    type: Object as PropType<Record<string, Record<string, string>>>,
-  },
   includeFavorites: {
     default: true,
     type: Boolean,
@@ -109,6 +106,10 @@ const props = defineProps({
   locale: {
     default: "en",
     type: String,
+  },
+  locales: {
+    default: () => ({}),
+    type: Object as PropType<Record<string, Record<string, string>>>,
   },
   modelValue: {
     default: undefined,
@@ -137,21 +138,25 @@ const emit = defineEmits<{
   ): void;
 }>();
 
+const fallbackTranslation = computed(
+  () => getFallbackTranslation(props.fallbackLocale, props.locales) || {},
+);
+
 const countries = computed<string[]>(() => {
-  const countriesData = props.i18n[props.fallbackLocale] || englishData;
-  let result = Object.keys(countriesData);
+  const filteredCodes = Object.entries(fallbackTranslation.value).map(
+    ([code]) => code,
+  );
 
   if (props.include.length > 0) {
-    const codes = new Set(result);
-    result = props.include.filter((code) => codes.has(code));
+    return props.include.filter((code) => new Set(filteredCodes).has(code));
   }
 
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
-    result = result.filter((code) => !excludeSet.has(code));
+    return filteredCodes.filter((code) => !excludeSet.has(code));
   }
 
-  return result;
+  return filteredCodes;
 });
 
 const favourites = computed<string[]>(() => {
@@ -171,13 +176,13 @@ const isOptionsGrouped = computed(() => {
   );
 });
 
-const options = computed(() => {
+const options = computed<Options>(() => {
   const translations: Record<string, string> = {
-    ...(props.i18n[props.fallbackLocale] || englishData),
-    ...(props.i18n[props.locale] || {}),
+    ...(fallbackTranslation.value || englishData),
+    ...(props.locales[props.locale] || {}),
   };
 
-  const getNormalizedOption = (country: string) => ({
+  const getNormalizedOption = (country: string): SelectOption => ({
     label: translations[country] ?? country,
     value: country,
   });
