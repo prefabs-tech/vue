@@ -288,7 +288,6 @@
         <CountryPicker
           v-model="formData.favorites"
           :favorites="favoritesCountries"
-          :has-sorted-options="false"
           :placeholder="$t('form.placeholder.countries')"
           multiple
         />
@@ -299,7 +298,6 @@
               &lt;CountryPicker
                 v-model="input"
                 :favorites="favoritesCountries"
-                :has-sorted-options="false"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
               /&gt;
@@ -322,7 +320,6 @@
         <CountryPicker
           v-model="formData.favorites"
           :favorites="favoritesCountries"
-          :has-sorted-options="false"
           :include-favorites="false"
           :placeholder="$t('form.placeholder.countries')"
           multiple
@@ -334,7 +331,6 @@
               &lt;CountryPicker
                 v-model="input"
                 :favorites="favoritesCountries"
-                :has-sorted-options="false"
                 :include-favorites="false"
                 multiple
                 placeholder="$t('form.placeholder.countries')"
@@ -460,7 +456,7 @@ const propsData = [
     description: t(
       "form.documentation.propsDescription.select.hasSortedOption",
     ),
-    prop: "has-sorted-options",
+    prop: "hasSortedOptions",
     type: "Boolean",
   },
   {

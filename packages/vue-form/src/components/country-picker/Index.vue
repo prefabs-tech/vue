@@ -1,12 +1,12 @@
 <template>
   <div class="country-picker">
     <SelectInput
-      :has-sorted-options="hasSortedOptions"
       :locale="locale"
+      :has-sorted-options="false"
       :model-value="modelValue"
       :multiple="multiple"
       :name="name"
-      :options="options"
+      :options="sortedOptions"
       :placeholder="placeholder"
       class="form-select"
       @update:model-value="onUpdateModelValue"
@@ -46,8 +46,9 @@ import { getFallbackTranslation } from "../../utils/CountryPicker";
 
 import type {
   CountryPickerLabels,
-  SelectOption,
   GroupedOption,
+  Options,
+  SelectOption,
 } from "../../types";
 
 const props = defineProps({
@@ -167,7 +168,15 @@ const favourites = computed<string[]>(() => {
   return props.favorites.filter((code) => countrySet.has(code));
 });
 
-const options = computed<SelectOption[] | GroupedOption[]>(() => {
+const isOptionsGrouped = computed(() => {
+  return (
+    Array.isArray(options.value) &&
+    options.value.length > 0 &&
+    "options" in options.value[0]
+  );
+});
+
+const options = computed<Options>(() => {
   const translations: Record<string, string> = {
     ...(fallbackTranslation.value || englishData),
     ...(props.locales[props.locale] || {}),
@@ -179,7 +188,7 @@ const options = computed<SelectOption[] | GroupedOption[]>(() => {
   });
 
   if (favourites.value.length === 0) {
-    return countries.value.map(getNormalizedOption);
+    return countries.value.map(getNormalizedOption) as SelectOption[];
   }
 
   const filterCountries = props.includeFavorites
@@ -197,7 +206,37 @@ const options = computed<SelectOption[] | GroupedOption[]>(() => {
       label: props.labels.allCountries,
       options: filterCountries.map(getNormalizedOption),
     },
-  ];
+  ] as GroupedOption[];
+});
+
+const sortedOptions = computed<Options>(() => {
+  if (!props.hasSortedOptions) {
+    return options.value as Options;
+  }
+
+  if (!isOptionsGrouped.value) {
+    return [...(options.value as SelectOption[])].sort(sortByLabel);
+  }
+
+  const sortedOptionsGroup = (options.value as GroupedOption[]).map((group) => {
+    if (!("options" in group)) {
+      return group;
+    }
+
+    return {
+      ...group,
+      options: [...(group.options as SelectOption[])].sort(sortByLabel),
+    };
+  });
+
+  if (favourites.value.length > 0) {
+    return [
+      sortedOptionsGroup[0],
+      ...sortedOptionsGroup.slice(1).sort(sortByLabel),
+    ];
+  }
+
+  return sortedOptionsGroup;
 });
 
 const getFlagClass = (code?: string) =>
@@ -215,6 +254,21 @@ const getFlagClass = (code?: string) =>
 const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? Array.from(new Set(value)) : value;
   emit("update:modelValue", output);
+};
+
+const sortByLabel = (
+  optionA: SelectOption | GroupedOption,
+  optionB: SelectOption | GroupedOption,
+) => {
+  if (!optionA.label) {
+    return 1;
+  }
+
+  if (!optionB.label) {
+    return -1;
+  }
+
+  return optionA.label.localeCompare(optionB.label);
 };
 </script>
 
