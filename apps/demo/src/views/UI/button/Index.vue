@@ -98,7 +98,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.button.usage.contentSlot") }}</h2>
+      <h2>{{ $t("ui.button.usage.labelSlot") }}</h2>
 
       <div class="section-content">
         <div class="container">
@@ -113,7 +113,7 @@
         <SshPre language="html-vue">
           &lt;template&gt; 
             &lt;ButtonElement children&gt;
-              &lt;template #buttonContent&gt;
+              &lt;template #label&gt;
                 &lt;u&gt;Click me&lt;/u&gt;
               &lt;/template&gt;
             &lt;/ButtonElement&gt;
@@ -169,9 +169,9 @@
             &lt;ButtonElement label="Primary" severity="primary" /&gt;
             &lt;ButtonElement label="Secondary" severity="secondary" /&gt;
             &lt;ButtonElement label="Alternate" severity="alternate" /&gt;
-            &lt;ButtonElement label="Success" severity="success" label="Success" /&gt;
-            &lt;ButtonElement label="Danger" severity="danger" label="Danger" /&gt;
-            &lt;ButtonElement label="Warning" severity="warning" label="Warning" /&gt;
+            &lt;ButtonElement label="Success" severity="success" /&gt;
+            &lt;ButtonElement label="Danger" severity="danger" /&gt;
+            &lt;ButtonElement label="Warning" severity="warning" /&gt;
           &lt;/template&gt; 
           
           &lt;script setup lang="ts"&gt; 
@@ -285,7 +285,7 @@
 
       <div class="section-content">
         <div className="container">
-          <ButtonElement rounded variant="textOnly" severity="secondary">
+          <ButtonElement rounded severity="secondary" variant="textOnly">
             <template #iconLeft>
               <i class="pi pi-user" />
             </template>
@@ -313,7 +313,7 @@
                 &lt;/template&gt;
             &lt;/ButtonElement&gt;
 
-            &lt;ButtonElement rounded variant="outlined"&gt;
+            &lt;ButtonElement rounded severity="secondary" variant="outlined"&gt;
               &lt;template #iconRight&gt;
                 &lt;i class="pi pi-user" &gt;
               &lt;/template&gt;
@@ -356,14 +356,14 @@
         <SshPre language="html-vue">
           &lt;template&gt; 
             &lt;ButtonElement
-              label="Home"
               icon-left="pi pi-home"
+              label="Home"
               variant="outlined"
             /&gt;
 
             &lt;ButtonElement
-              label="Home"
               icon-left="fa-solid fa-house"
+              label="Home"
               variant="outlined"
             /&gt;
           &lt;/template&gt;
@@ -426,17 +426,17 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;ButtonElement label="Text only" icon-left="pi pi-user" variant="textOnly" /&gt;
-            &lt;ButtonElement label="Outlined" icon-left="pi pi-user" variant="outlined" /&gt;
-            &lt;ButtonElement label="Default" icon-left="pi pi-user" variant="filled" /&gt;
+            &lt;ButtonElement icon-left="pi pi-user" label="Text only" variant="textOnly" /&gt;
+            &lt;ButtonElement icon-left="pi pi-user" label="Outlined" variant="outlined" /&gt;
+            &lt;ButtonElement icon-left="pi pi-user" label="Default" variant="filled" /&gt;
           &lt;/template&gt; 
 
           &lt;template&gt; 
-            &lt;ButtonElement label="Text only" icon-right="pi pi-user" rounded 
+            &lt;ButtonElement icon-right="pi pi-user" label="Text only" rounded 
               variant="textOnly" 
             /&gt;
-            &lt;ButtonElement label="Outlined" icon-right="pi pi-user" rounded variant="outlined" /&gt;
-            &lt;ButtonElement label="Default" icon-right="pi pi-user" rounded variant="filled" /&gt;
+            &lt;ButtonElement icon-right="pi pi-user" label="Outlined" rounded variant="outlined" /&gt;
+            &lt;ButtonElement icon-right="pi pi-user" label="Default" rounded variant="filled" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
