@@ -43,7 +43,12 @@ import { computed, type PropType } from "vue";
 import SelectInput from "../SelectInput.vue";
 import englishData from "./en.json";
 
-import type { CountryPickerLabels } from "../../types";
+import type {
+  CountryPickerLabels,
+  GroupedOption,
+  Options,
+  SelectOption,
+} from "../../types";
 
 const props = defineProps({
   labels: {
@@ -178,7 +183,7 @@ const options = computed(() => {
   });
 
   if (favourites.value.length === 0) {
-    return countries.value.map(getNormalizedOption);
+    return countries.value.map(getNormalizedOption) as SelectOption[];
   }
 
   const filterCountries = props.includeFavorites
@@ -196,34 +201,37 @@ const options = computed(() => {
       label: props.labels.allCountries,
       options: filterCountries.map(getNormalizedOption),
     },
-  ];
+  ] as GroupedOption[];
 });
 
-const sortedOptions = computed(() => {
+const sortedOptions = computed<Options>(() => {
   if (!props.hasSortedOptions) {
-    return options.value;
+    return options.value as Options;
   }
 
   if (!isOptionsGrouped.value) {
-    return [...options.value].sort(sortByLabel);
+    return [...(options.value as SelectOption[])].sort(sortByLabel);
   }
 
-  const grouped = options.value.map((group) => {
+  const sortedOptionsGroup = (options.value as GroupedOption[]).map((group) => {
     if (!("options" in group)) {
       return group;
     }
 
     return {
       ...group,
-      options: [...group.options].sort(sortByLabel),
+      options: [...(group.options as SelectOption[])].sort(sortByLabel),
     };
   });
 
   if (favourites.value.length > 0) {
-    return [grouped[0], ...grouped.slice(1).sort(sortByLabel)];
+    return [
+      sortedOptionsGroup[0],
+      ...sortedOptionsGroup.slice(1).sort(sortByLabel),
+    ];
   }
 
-  return grouped;
+  return sortedOptionsGroup;
 });
 
 const getFlagClass = (code?: string) =>
@@ -243,16 +251,19 @@ const onUpdateModelValue = (value: string | string[] | undefined) => {
   emit("update:modelValue", output);
 };
 
-const sortByLabel = (a: { label?: string }, b: { label?: string }) => {
-  if (!a.label) {
+const sortByLabel = (
+  optionA: SelectOption | GroupedOption,
+  optionB: SelectOption | GroupedOption,
+) => {
+  if (!optionA.label) {
     return 1;
   }
 
-  if (!b.label) {
+  if (!optionB.label) {
     return -1;
   }
 
-  return a.label.localeCompare(b.label);
+  return optionA.label.localeCompare(optionB.label);
 };
 </script>
 

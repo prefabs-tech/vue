@@ -61,6 +61,8 @@ interface TextErrorMessages {
   required?: string;
 }
 
+type Options = SelectOption[] | GroupedOption[];
+
 export type {
   CurrencyOption,
   CountryPickerLabels,
@@ -71,6 +73,7 @@ export type {
   InputOption,
   MonthPickerValue,
   NumberErrorMessages,
+  Options,
   PasswordErrorMessages,
   SelectOption,
   TextErrorMessages,
