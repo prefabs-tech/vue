@@ -33,11 +33,10 @@
                       
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
-              import { useI18n } from "vue-i18n";
               import fr from "./fr.json";
 
               const { locale } = useI18n();
-
+              
               const countryI18n = {
                 fr,
               };
@@ -80,7 +79,7 @@
         <Country
           :class-name="'flag-icon-rounded'"
           :i18n="countryI18n"
-          :locale="$i18n.locale"
+          :locale="locale"
           code="WW"
           fallback-locale="th"
         />
@@ -90,7 +89,7 @@
               &lt;template&gt;
                 &lt;Country 
                 :i18n="countryI18n" 
-                :locale="$i18n.locale" 
+                :locale="locale" 
                 code="WW" 
                 fallback-locale="th"
                 /&gt;
@@ -98,10 +97,13 @@
                       
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
+              import { useI18n } from "vue-i18n";
               import fr from "./fr.json";
               import np from "./np.json";
 
-              const countryI18n = {
+              const { locale } = useI18n();
+
+              const i18n = {
                 fr,
                 th,
               };
