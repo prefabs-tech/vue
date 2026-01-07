@@ -42,6 +42,7 @@ import { computed, type PropType } from "vue";
 
 import SelectInput from "../SelectInput.vue";
 import englishData from "./en.json";
+import { getFallbackTranslation } from "../../utils/CountryPicker";
 
 import type {
   CountryPickerLabels,
@@ -136,21 +137,24 @@ const emit = defineEmits<{
   ): void;
 }>();
 
+const fallbackData = computed(
+  () => getFallbackTranslation(props.fallbackLocale, props.locales) || {},
+);
+
 const countries = computed<string[]>(() => {
-  const countriesData = props.locales[props.fallbackLocale] || englishData;
-  let result = Object.keys(countriesData);
+  const baseOptions = Object.entries(fallbackData.value).map(([code]) => code);
 
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
-    result = result.filter((code) => includeSet.has(code));
+    return baseOptions.filter((code) => includeSet.has(code));
   }
 
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
-    result = result.filter((code) => !excludeSet.has(code));
+    return baseOptions.filter((code) => !excludeSet.has(code));
   }
 
-  return result;
+  return baseOptions;
 });
 
 const favourites = computed<string[]>(() => {
@@ -164,7 +168,7 @@ const favourites = computed<string[]>(() => {
 
 const options = computed<SelectOption[] | GroupedOption[]>(() => {
   const translations: Record<string, string> = {
-    ...(props.locales[props.fallbackLocale] || englishData),
+    ...(fallbackData.value || englishData),
     ...(props.locales[props.locale] || {}),
   };
 
