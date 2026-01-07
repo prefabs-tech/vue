@@ -137,24 +137,26 @@ const emit = defineEmits<{
   ): void;
 }>();
 
-const fallbackData = computed(
+const fallbackTranslation = computed(
   () => getFallbackTranslation(props.fallbackLocale, props.locales) || {},
 );
 
 const countries = computed<string[]>(() => {
-  const baseOptions = Object.entries(fallbackData.value).map(([code]) => code);
+  const filteredCodes = Object.entries(fallbackTranslation.value).map(
+    ([code]) => code,
+  );
 
   if (props.include.length > 0) {
     const includeSet = new Set(props.include);
-    return baseOptions.filter((code) => includeSet.has(code));
+    return filteredCodes.filter((code) => includeSet.has(code));
   }
 
   if (props.exclude.length > 0) {
     const excludeSet = new Set(props.exclude);
-    return baseOptions.filter((code) => !excludeSet.has(code));
+    return filteredCodes.filter((code) => !excludeSet.has(code));
   }
 
-  return baseOptions;
+  return filteredCodes;
 });
 
 const favourites = computed<string[]>(() => {
@@ -168,7 +170,7 @@ const favourites = computed<string[]>(() => {
 
 const options = computed<SelectOption[] | GroupedOption[]>(() => {
   const translations: Record<string, string> = {
-    ...(fallbackData.value || englishData),
+    ...(fallbackTranslation.value || englishData),
     ...(props.locales[props.locale] || {}),
   };
 
