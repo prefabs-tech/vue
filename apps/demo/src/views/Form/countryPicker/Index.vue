@@ -456,7 +456,7 @@ const propsData = [
     description: t(
       "form.documentation.propsDescription.select.hasSortedOption",
     ),
-    prop: "has-sorted-options",
+    prop: "hasSortedOptions",
     type: "Boolean",
   },
   {
