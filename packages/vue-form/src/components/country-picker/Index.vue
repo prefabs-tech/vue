@@ -147,8 +147,7 @@ const countries = computed<string[]>(() => {
   );
 
   if (props.include.length > 0) {
-    const includeSet = new Set(props.include);
-    return filteredCodes.filter((code) => includeSet.has(code));
+    return props.include.filter((code) => new Set(filteredCodes).has(code));
   }
 
   if (props.exclude.length > 0) {
