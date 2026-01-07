@@ -137,8 +137,8 @@ const countries = computed<string[]>(() => {
   let result = Object.keys(countriesData);
 
   if (props.include.length > 0) {
-    const includeSet = new Set(props.include);
-    result = result.filter((code) => includeSet.has(code));
+    const codes = new Set(result);
+    result = props.include.filter((code) => codes.has(code));
   }
 
   if (props.exclude.length > 0) {
