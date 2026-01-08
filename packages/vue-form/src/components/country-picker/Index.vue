@@ -219,10 +219,6 @@ const sortedOptions = computed<Options>(() => {
   }
 
   const sortedOptionsGroup = (options.value as GroupedOption[]).map((group) => {
-    if (!("options" in group)) {
-      return group;
-    }
-
     return {
       ...group,
       options: [...(group.options as SelectOption[])].sort(sortByLabel),
@@ -236,7 +232,7 @@ const sortedOptions = computed<Options>(() => {
     ];
   }
 
-  return sortedOptionsGroup;
+  return sortedOptionsGroup.sort(sortByLabel);
 });
 
 const getFlagClass = (code?: string) =>
