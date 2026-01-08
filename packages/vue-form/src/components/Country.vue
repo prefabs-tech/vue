@@ -57,6 +57,3 @@ const countryLabel = computed(() => {
   );
 });
 </script>
-<style lang="css">
-@import "../assets/css/country.css";
-</style>
