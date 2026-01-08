@@ -10,7 +10,7 @@
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country code="FR"  /&gt;
+                &lt;Country code="FR" /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
@@ -28,7 +28,7 @@
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country :locales="locales" :locale="selectedLocale" code="NP"  /&gt;
+                &lt;Country :locales="locales" :locale="selectedLocale" code="NP" /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
@@ -54,7 +54,7 @@
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country :locales="locales" :locale="locale" code="JP"  /&gt;
+                &lt;Country :locales="locales" :locale="locale" code="JP" /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
@@ -87,7 +87,7 @@
                  :locales="locales"
                  :locale="locale"
                  code="CN"
-                 fallback-locale="np"
+                 fallback-locale="np" 
                  /&gt;
               &lt;/template&gt;
                       
@@ -127,7 +127,7 @@
                 :locales="locales" 
                 :locale="locale" 
                 code="WW" 
-                fallback-locale="th"
+                fallback-locale="th" 
                 /&gt;
               &lt;/template&gt;
                       
