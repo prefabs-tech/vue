@@ -362,17 +362,20 @@
       <h2>{{ $t("common.type") }}</h2>
       <div class="section-content">
         <!-- eslint-disable -->
-          <SshPre language="typescript">
-            type Translation = Record&lt;string, string&gt;;
+          <SshPre language="typescript">           
+            interface Locales {
+              [key: string]: Translation;
+            }
 
-            type locales = Record&lt;string, TranslationCatalogue&gt;;
+            interface Translation {
+              [key: string]: string;
+            }
 
             Example locales: 
-              { 
-                en:{ "US": "USA" }, 
-                fr: { "US": "États-Unis" } 
-              }
-
+            { 
+              en:{ "US": "USA" }, 
+              fr: { "US": "États-Unis" } 
+            }
           </SshPre>
       </div>
     </section>

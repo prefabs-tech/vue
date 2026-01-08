@@ -166,16 +166,13 @@
             <!-- eslint-enable -->
       </div>
     </section>
-    <section>
-      <h2>{{ $t("common.properties", { value: "CountryProperties" }) }}</h2>
-
-      <Table
-        :columns-data="propsColumns"
-        :data="propsData"
-        :paginated="false"
-        :persist-state="false"
-      />
-    </section>
+    <ComponentDocumentation
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'CountryProperties' })
+      "
+      :slots-data="slotsData"
+    />
     <section>
       <h2>{{ $t("common.type") }}</h2>
       <div class="section-content">
@@ -200,12 +197,13 @@
 
 <script setup lang="ts">
 import { Country } from "@prefabs.tech/vue3-form";
-import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import { useI18n } from "vue-i18n";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import fr from "../countryPicker/fr.json";
 import np from "../countryPicker/np.json";
 import FormPage from "../FormPage.vue";
+
 const { t } = useI18n();
 
 const { locale } = useI18n();
@@ -216,25 +214,6 @@ const locales = {
 };
 
 const selectedLocale = "np";
-
-const propsColumns = [
-  {
-    accessorKey: "prop",
-    header: "Property",
-  },
-  {
-    accessorKey: "type",
-    header: "Type",
-  },
-  {
-    accessorKey: "default",
-    header: "Default",
-  },
-  {
-    accessorKey: "description",
-    header: "Description",
-  },
-];
 
 const propsData = [
   {
@@ -248,23 +227,22 @@ const propsData = [
     default: "en",
     description: t("form.documentation.propsDescription.select.fallbackLocale"),
     id: 2,
-    prop: "fallback-locale",
+    prop: "fallbackLocale",
+    type: "String",
+  },
+  {
+    default: "en",
+    description: t("form.documentation.propsDescription.select.locale"),
+    id: 3,
+    prop: "locale",
     type: "String",
   },
   {
     default: "{ en: defaultEnCatalogue }",
     description: t("form.documentation.propsDescription.select.locales"),
-    id: 3,
+    id: 4,
     prop: "locales",
     type: "Record<string, Record<string, string>>",
-  },
-
-  {
-    default: "en",
-    description: t("form.documentation.propsDescription.select.locale"),
-    id: 4,
-    prop: "locale",
-    type: "String",
   },
   {
     default: "true",
