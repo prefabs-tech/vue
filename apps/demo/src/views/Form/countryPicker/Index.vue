@@ -454,7 +454,7 @@ const propsData = [
   {
     default: "true",
     description: t(
-      "form.documentation.propsDescription.countryPicker.hasSortedOption",
+      "form.documentation.propsDescription.countryPicker.hasSortedOptions",
     ),
     prop: "hasSortedOptions",
     type: "Boolean",
