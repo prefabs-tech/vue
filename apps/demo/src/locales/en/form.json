@@ -9,6 +9,9 @@
       }
     },
     "propsDescription": {
+      "countryPicker": {
+        "hasSortedOptions":"By default, options are sorted alphabetically. If false, countries are sorted by priority in the order groups → favorites → include → fallback-locale translations, preserving the defined order."
+      },
       "input": {
         "disabled": "If true, the input will be disabled and non-interactive.",
         "errorMessages": "Custom error messages for validation.",
