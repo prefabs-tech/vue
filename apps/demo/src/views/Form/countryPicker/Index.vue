@@ -363,28 +363,16 @@
       <div class="section-content">
         <!-- eslint-disable -->
           <SshPre language="typescript">
-            type TranslationCatalogue = Record&lt;string, string&gt;;
+            type Translation = Record&lt;string, string&gt;;
 
-            type I18nConfig = Record&lt;string, TranslationCatalogue&gt;;
+            type locales = Record&lt;string, TranslationCatalogue&gt;;
 
-            type NormalizedSelectOption = {
-              disabled?: boolean;
-              groupLabel?: string;
-              label: string | undefined;
-              value: string | number;
-            };
-
-            // Example usage:
-            const example: I18nConfig = {
-              en: { 
-                US: "USA",
-                FR: "France"
-              },
-              fr: { 
-                US: "États-Unis",
-                FR: "France"
+            Example locales: 
+              { 
+                en:{ "US": "USA" }, 
+                fr: { "US": "États-Unis" } 
               }
-              };
+
           </SshPre>
       </div>
     </section>

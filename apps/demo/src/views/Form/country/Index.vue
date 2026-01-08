@@ -181,21 +181,17 @@
       <div class="section-content">
         <!-- eslint-disable -->
          <SshPre language="typescript">
-            type I18nData = Record;
+            type locales = Record 
 
             interface CountryProperties {
-             className?: string;
              code: string;
-             locale?: string;          
              fallbackLocale?: string;  
-             i18n?: I18nData;         
+             locale?: string;          
+             locales?: I18nData;         
+             showFlag?: boolean;            
             }
 
-            Example I18nData:
-            { 
-              en:{ "US": "USA" }, 
-              fr: { "US": "États-Unis" } 
-            }
+            
           </SshPre>
       </div>
     </section>
