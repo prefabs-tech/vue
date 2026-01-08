@@ -259,7 +259,7 @@ const propsData = [
     default: "{ en: defaultEnCatalogue }",
     description: t("form.documentation.propsDescription.select.locales"),
     id: 3,
-    prop: "i18n",
+    prop: "locales",
     type: "Record<string, Record<string, string>>",
   },
 
