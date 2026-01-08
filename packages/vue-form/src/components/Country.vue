@@ -14,7 +14,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-import "@dzangolab/flag-icon-css/css/flag-icon.min.css";
 import { getFallbackTranslation } from "../utils/CountryPicker";
 
 type I18nConfigData = Record<string, Record<string, string>>;
@@ -28,7 +27,6 @@ const props = defineProps({
     default: "en",
     type: String,
   },
-
   locale: {
     default: "en",
     type: String,
