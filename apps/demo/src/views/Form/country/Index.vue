@@ -24,11 +24,37 @@
     <section>
       <h2>{{ $t("form.label.customLocale") }}</h2>
       <div>
-        <Country :i18n="i18n" :locale="locale" code="JP" />
+        <Country :locales="locales" :locale="selectedLocale" code="NP" />
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country :i18n="i18n" :locale="locale" code="JP"  /&gt;
+                &lt;Country :locales="locales" :locale="selectedLocale" code="NP"  /&gt;
+              &lt;/template&gt;
+                      
+              &lt;script setup lang="ts"&gt;
+              import { Country } from '@prefabs.tech/vue3-form';
+              import fr from "./fr.json";
+
+              const { locale } = useI18n();
+
+              const selectedLocale = "np";
+              
+              const locales = {
+                fr,
+              };
+              &lt;/script&gt;
+            </SshPre>    
+            <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
+      <h2>{{ $t("form.label.localesSupport") }}</h2>
+      <div>
+        <Country :locales="locales" :locale="locale" code="JP" />
+        <!-- eslint-disable -->
+            <SshPre language="html-vue">
+              &lt;template&gt;
+                &lt;Country :locales="locales" :locale="locale" code="JP"  /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
@@ -37,7 +63,7 @@
 
               const { locale } = useI18n();
               
-              const countryI18n = {
+              const locales = {
                 fr,
               };
               &lt;/script&gt;
@@ -48,11 +74,21 @@
     <section>
       <h2>{{ $t("form.label.fallbackLocale") }}</h2>
       <div>
-        <Country :i18n="i18n" :locale="locale" code="CN" fallback-locale="np" />
+        <Country
+          :locales="locales"
+          :locale="locale"
+          code="CN"
+          fallback-locale="np"
+        />
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country :i18n="i18n" :locale="locale" code="CN" fallback-locale="np"/&gt;
+                &lt;Country 
+                 :locales="locales"
+                 :locale="locale"
+                 code="CN"
+                 fallback-locale="np"
+                 /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
@@ -63,7 +99,7 @@
               
               const { locale } = useI18n();
 
-              const i18n = {
+              const locales = {
                 fr,
                 np,
               };
@@ -88,7 +124,7 @@
             <SshPre language="html-vue">
               &lt;template&gt;
                 &lt;Country 
-                :i18n="countryI18n" 
+                :locales="locales" 
                 :locale="locale" 
                 code="WW" 
                 fallback-locale="th"
@@ -103,7 +139,7 @@
 
               const { locale } = useI18n();
 
-              const i18n = {
+              const locales = {
                 fr,
                 th,
               };
@@ -178,10 +214,13 @@ const { t } = useI18n();
 
 const { locale } = useI18n();
 
-const i18n = {
+const locales = {
   fr,
   np,
 };
+
+const selectedLocale = "np";
+
 const propsColumns = [
   {
     accessorKey: "prop",
@@ -225,7 +264,7 @@ const propsData = [
   },
   {
     default: "{ en: defaultEnCatalogue }",
-    description: t("form.documentation.propsDescription.select.i18n"),
+    description: t("form.documentation.propsDescription.select.locales"),
     id: 4,
     prop: "i18n",
     type: "Record<string, Record<string, string>>",

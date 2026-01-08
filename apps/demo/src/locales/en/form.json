@@ -35,7 +35,8 @@
         "includeFavorites": "If false, removes favorite items from the main list.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
         "locales": "Additional translation catalogues to be supported.",
-        "multiple": "If true, allows selecting multiple countries."
+        "multiple": "If true, allows selecting multiple countries.",
+        "showFlag": "If false, the flag will not be displayed."
       },
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",
@@ -177,6 +178,7 @@
     "joinedDate": "Joined date",
     "labelInput": "With label",
     "language": "Language",
+    "localesSupport": "Locales support",
     "male": "Male",
     "minMaxValidation": "With min max options validation",
     "misc": "Misc",
