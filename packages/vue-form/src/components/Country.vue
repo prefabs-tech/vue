@@ -1,5 +1,5 @@
 <template>
-  <div :data-country-code="countryCode" class="country">
+  <div :data-country-code="countryCode" class="country-display">
     <slot :code="countryCode" :label="countryLabel">
       <span
         v-if="showFlag"
