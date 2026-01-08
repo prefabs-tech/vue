@@ -47,11 +47,18 @@ const fallbackTranslation = getFallbackTranslation(
   props.fallbackLocale,
   props.locales,
 );
+
 const countryLabel = computed(() => {
   const code = countryCode.value;
+  if (!code) {
+    return;
+  }
 
   return (
     props.locales?.[props.locale]?.[code] || fallbackTranslation?.[code] || code
   );
 });
 </script>
+<style lang="css">
+@import "../assets/css/country.css";
+</style>
