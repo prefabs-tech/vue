@@ -241,31 +241,24 @@ const propsColumns = [
 ];
 
 const propsData = [
-  // {
-  //   default: "flag-icon-squared",
-  //   description: t("form.documentation.propsDescription.select.className"),
-  //   id: 1,
-  //   prop: "class-name",
-  //   type: "String",
-  // },
   {
     default: "-",
     description: t("form.documentation.propsDescription.select.countryCode"),
-    id: 2,
+    id: 1,
     prop: "code",
     type: "String",
   },
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.fallbackLocale"),
-    id: 3,
+    id: 2,
     prop: "fallback-locale",
     type: "String",
   },
   {
     default: "{ en: defaultEnCatalogue }",
     description: t("form.documentation.propsDescription.select.locales"),
-    id: 4,
+    id: 3,
     prop: "i18n",
     type: "Record<string, Record<string, string>>",
   },
@@ -273,14 +266,14 @@ const propsData = [
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
-    id: 5,
+    id: 4,
     prop: "locale",
     type: "String",
   },
   {
     default: "true",
     description: t("form.documentation.propsDescription.select.showFlag"),
-    id: 6,
+    id: 5,
     prop: "showFlag",
     type: "Boolean",
   },
