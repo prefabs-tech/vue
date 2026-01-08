@@ -30,12 +30,7 @@ const props = defineProps({
     default: "en",
     type: String,
   },
-  flagsStyle: {
-    default: "rectangular",
-    type: String,
-    validator: (value: string) =>
-      ["circle", "rectangular", "square"].includes(value),
-  },
+
   locale: {
     default: "en",
     type: String,
