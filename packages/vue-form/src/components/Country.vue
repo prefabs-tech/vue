@@ -15,8 +15,6 @@
 import { computed } from "vue";
 
 import "@dzangolab/flag-icon-css/css/flag-icon.min.css";
-
-import englishData from "./country-picker/en.json";
 import { getFallbackTranslation } from "../utils/CountryPicker";
 
 type I18nConfigData = Record<string, Record<string, string>>;
@@ -55,10 +53,7 @@ const countryLabel = computed(() => {
   const code = countryCode.value;
 
   return (
-    props.locales?.[props.locale]?.[code] ||
-    fallbackTranslation?.[code] ||
-    englishData[code as keyof typeof englishData] ||
-    code
+    props.locales?.[props.locale]?.[code] || fallbackTranslation?.[code] || code
   );
 });
 </script>
