@@ -34,13 +34,8 @@
         "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
         "includeFavorites": "If false, removes favorite items from the main list.",
         "locale": "Determines which translated name to display. (e.g., 'en', 'fr', 'th'). Accepts custom codes (like 'np') if provided in data.",
-<<<<<<< HEAD
-        "multiple": "If true, allows selecting multiple countries.",
-        "showFlag": "If false, the flag will not be displayed."
-=======
         "locales": "Additional translation catalogues to be supported.",
         "multiple": "If true, allows selecting multiple countries."
->>>>>>> 323e8812717c8286e3532aef424ac2415b16de0b
       },
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",
