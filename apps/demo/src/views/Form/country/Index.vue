@@ -50,11 +50,11 @@
     <section>
       <h2>{{ $t("form.label.localesSupport") }}</h2>
       <div>
-        <Country :locales="locales" :locale="locale" code="JP" />
+        <Country :locale="locale" :locales="locales" code="JP" />
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country :locales="locales" :locale="locale" code="JP" /&gt;
+                &lt;Country :locale="locale" :locales="locales" code="JP" /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
@@ -113,9 +113,8 @@
       <div>
         <span class="unknown-country">Country:</span>
         <Country
-          :class-name="'flag-icon-rounded'"
-          :i18n="countryI18n"
           :locale="locale"
+          :locales="locales"
           code="WW"
           fallback-locale="th"
         />
@@ -124,8 +123,8 @@
             <SshPre language="html-vue">
               &lt;template&gt;
                 &lt;Country 
-                :locales="locales" 
                 :locale="locale" 
+                :locales="locales" 
                 code="WW" 
                 fallback-locale="th" 
                 /&gt;
