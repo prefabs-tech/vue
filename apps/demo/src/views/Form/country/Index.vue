@@ -75,8 +75,8 @@
       <h2>{{ $t("form.label.fallbackLocale") }}</h2>
       <div>
         <Country
-          :locales="locales"
           :locale="locale"
+          :locales="locales"
           code="CN"
           fallback-locale="np"
         />
@@ -84,8 +84,8 @@
             <SshPre language="html-vue">
               &lt;template&gt;
                 &lt;Country 
-                 :locales="locales"
-                 :locale="locale"
+                :locale="locale"
+                :locales="locales"
                  code="CN"
                  fallback-locale="np" 
                  /&gt;
