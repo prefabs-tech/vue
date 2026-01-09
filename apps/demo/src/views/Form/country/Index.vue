@@ -177,8 +177,6 @@
       <div class="section-content">
         <!-- eslint-disable -->
          <SshPre language="typescript">
-            type locales = Record 
-
             interface CountryProperties {
              code: string;
              fallbackLocale?: string;  
@@ -186,8 +184,6 @@
              locales?: I18nData;         
              showFlag?: boolean;            
             }
-
-            
           </SshPre>
       </div>
     </section>
