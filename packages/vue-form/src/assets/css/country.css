@@ -1,8 +1,8 @@
 .country-display {
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 5.5rem;
   white-space: nowrap;
+  width: 5.5rem;
 }
 
 .flag-icon {
