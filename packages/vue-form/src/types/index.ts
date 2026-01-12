@@ -29,6 +29,10 @@ interface InputOption {
   value: string | number;
 }
 
+interface Locales {
+  [key: string]: Translation;
+}
+
 interface MonthPickerValue {
   month: number | string;
   year: number | string;
@@ -61,6 +65,10 @@ interface TextErrorMessages {
   required?: string;
 }
 
+interface Translation {
+  [key: string]: string;
+}
+
 type Options = SelectOption[] | GroupedOption[];
 
 export type {
@@ -71,12 +79,14 @@ export type {
   FileExtended,
   GroupedOption,
   InputOption,
+  Locales,
   MonthPickerValue,
   NumberErrorMessages,
   Options,
   PasswordErrorMessages,
   SelectOption,
   TextErrorMessages,
+  Translation,
 };
 
 export type {

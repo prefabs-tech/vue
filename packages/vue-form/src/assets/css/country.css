@@ -1,0 +1,10 @@
+.country-display {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 5.5rem;
+}
+
+.country-display > .flag-icon {
+  margin-right: 0.5rem;
+}
