@@ -84,11 +84,11 @@
             <SshPre language="html-vue">
               &lt;template&gt;
                 &lt;Country 
-                :locale="locale"
-                :locales="locales"
-                 code="CN"
-                 fallback-locale="np" 
-                 /&gt;
+                  :locale="locale"
+                  :locales="locales"
+                  code="CN"
+                  fallback-locale="np" 
+                /&gt;
               &lt;/template&gt;
                       
               &lt;script setup lang="ts"&gt;
@@ -145,7 +145,7 @@
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country code="IS" :flags-style="square"&gt; 
+                &lt;Country code="IS" flags-style="square"&gt; 
               &lt;/template&gt;          
             </SshPre>    
             <!-- eslint-enable -->
@@ -181,7 +181,7 @@
         <!-- eslint-disable -->
             <SshPre language="html-vue">
               &lt;template&gt;
-                &lt;Country code="IS" :flags-position="right"&gt; 
+                &lt;Country code="IS" flags-position="right"&gt; 
               &lt;/template&gt;
                       
             </SshPre>    

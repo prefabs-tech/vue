@@ -1,8 +1,8 @@
 .country-display {
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .country-display >.country-content {
@@ -11,13 +11,8 @@
   width: 100%;
 }
 
-.country-display >.flag-icon {
-  line-height: inherit;
-  min-width: 1.5rem;
-}
-
 .country-display > .country-content > .country-label {
-   overflow: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -27,9 +22,9 @@
  justify-content: flex-end;
 }
 
-.country-display :has(.flag-icon-right-edge) {
-  flex-direction: row-reverse;  
-  justify-content: space-between;   
+.country-display >.flag-icon {
+  line-height: inherit;
+  min-width: 1.5rem;
 }
 
 .country-display >.flag-icon-rounded {
@@ -39,3 +34,9 @@
 .country-display .flag-icon-squared {
   border-radius: 0;
 }
+
+.country-display :has(.flag-icon-right-edge) {
+  flex-direction: row-reverse;  
+  justify-content: space-between;   
+}
+
