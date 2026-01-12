@@ -1,18 +1,24 @@
 <template>
   <div :data-country-code="countryCode" class="country-display">
     <slot :code="countryCode" :label="countryLabel">
-      <span
-        v-if="showFlag"
-        :class="`flag-icon flag-icon-${countryCode.toLowerCase()}`"
-        :title="countryLabel"
-      />
-      <span class="country-label">{{ countryLabel }}</span>
+      <div class="country-content">
+        <template v-if="showFlag">
+          <img
+            v-if="flagsPath"
+            :alt="countryLabel"
+            :class="getFlagClass()"
+            :src="flagsPath(countryCode)"
+          />
+          <span v-else :class="getFlagClass(countryCode)" />
+        </template>
+        <span class="country-label">{{ countryLabel }}</span>
+      </div>
     </slot>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, type PropType } from "vue";
 
 import { getFallbackTranslation } from "../utils/CountryPicker";
 
@@ -26,6 +32,22 @@ const props = defineProps({
   fallbackLocale: {
     default: "en",
     type: String,
+  },
+  flagsPath: {
+    default: undefined,
+    type: Function as PropType<(code: string) => string>,
+  },
+  flagsPosition: {
+    default: "left",
+    type: String as PropType<"left" | "right" | "right-edge">,
+    validator: (value: string) =>
+      ["left", "right", "right-edge"].includes(value),
+  },
+  flagsStyle: {
+    default: "rectangular",
+    type: String as PropType<"circle" | "rectangular" | "square">,
+    validator: (value: string) =>
+      ["circle", "rectangular", "square"].includes(value),
   },
   locale: {
     default: "en",
@@ -51,13 +73,25 @@ const fallbackTranslation = getFallbackTranslation(
 const countryLabel = computed(() => {
   const code = countryCode.value;
   if (!code) {
-    return;
+    return "";
   }
 
   return (
     props.locales?.[props.locale]?.[code] || fallbackTranslation?.[code] || code
   );
 });
+
+const getFlagClass = (code?: string) =>
+  [
+    "flag-icon",
+    code && `flag-icon-${code.trim().toLowerCase()}`,
+    props.flagsPosition === "right" && "flag-icon-right",
+    props.flagsPosition === "right-edge" && "flag-icon-right-edge",
+    props.flagsStyle === "circle" && "flag-icon-rounded",
+    props.flagsStyle === "square" && "flag-icon-squared",
+  ]
+    .filter(Boolean)
+    .join(" ");
 </script>
 <style lang="css">
 @import "../assets/css/country.css";

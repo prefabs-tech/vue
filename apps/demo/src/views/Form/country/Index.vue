@@ -109,6 +109,98 @@
       </div>
     </section>
     <section>
+      <h2>{{ $t("form.label.flagVisibility") }}</h2>
+      <div>
+        <Country code="FR" :show-flag="false" />
+        <!-- eslint-disable -->
+            <SshPre language="html-vue">
+              &lt;template&gt;
+                &lt;Country code="FR" :show-flag="false" /&gt;
+              &lt;/template&gt;
+                      
+              &lt;script setup lang="ts"&gt;
+              import { Country } from '@prefabs.tech/vue3-form';
+           
+              &lt;/script&gt;
+            </SshPre>    
+            <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
+      <h2>{{ $t("form.label.flagsStyle") }}</h2>
+      <div>
+        <h3>{{ $t("form.label.rectangle") }}</h3>
+        <Country code="IS" />
+        <!-- eslint-disable -->
+            <SshPre language="html-vue">
+              &lt;template&gt;
+                &lt;Country code="IS"&gt; 
+              &lt;/template&gt;       
+            </SshPre>    
+            <!-- eslint-enable -->
+      </div>
+      <div>
+        <h3>{{ $t("form.label.square") }}</h3>
+        <Country code="IS" flags-style="square" />
+        <!-- eslint-disable -->
+            <SshPre language="html-vue">
+              &lt;template&gt;
+                &lt;Country code="IS" :flags-style="square"&gt; 
+              &lt;/template&gt;          
+            </SshPre>    
+            <!-- eslint-enable -->
+      </div>
+      <div>
+        <h3>{{ $t("form.label.circle") }}</h3>
+        <Country code="IS" flags-style="circle" />
+        <!-- eslint-disable -->
+            <SshPre language="html-vue">
+              &lt;template&gt;
+                &lt;Country code="IS" flags-style="circle"&gt; 
+              &lt;/template&gt;          
+            </SshPre>    
+            <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
+      <h2>{{ $t("form.label.flagsPosition") }}</h2>
+      <div>
+        <h3>{{ $t("form.label.left") }}</h3>
+        <Country code="IS" />
+        <!-- eslint-disable -->
+            <SshPre language="html-vue">
+              &lt;template&gt;
+                &lt;Country code="IS"&gt; 
+              &lt;/template&gt;       
+            </SshPre>    
+            <!-- eslint-enable -->
+      </div>
+      <div>
+        <h3>{{ $t("form.label.right") }}</h3>
+        <Country code="IS" flags-position="right" />
+        <!-- eslint-disable -->
+            <SshPre language="html-vue">
+              &lt;template&gt;
+                &lt;Country code="IS" :flags-position="right"&gt; 
+              &lt;/template&gt;
+                      
+            </SshPre>    
+            <!-- eslint-enable -->
+      </div>
+      <div>
+        <h3>{{ $t("form.label.rightEdge") }}</h3>
+        <Country code="IS" flags-position="right-edge" />
+        <!-- eslint-disable -->
+            <SshPre language="html-vue">
+              &lt;template&gt;
+                &lt;Country code="IS" flags-position="right-edge"&gt; 
+              &lt;/template&gt;
+                      
+            </SshPre>    
+            <!-- eslint-enable -->
+      </div>
+    </section>
+    <section>
       <h2>{{ $t("form.label.unknownCountryCode") }}</h2>
       <div>
         <span class="unknown-country">Country:</span>
@@ -142,24 +234,6 @@
                 fr,
                 th,
               };
-              &lt;/script&gt;
-            </SshPre>    
-            <!-- eslint-enable -->
-      </div>
-    </section>
-    <section>
-      <h2>{{ $t("form.label.flagVisibility") }}</h2>
-      <div>
-        <Country code="FR" :show-flag="false" />
-        <!-- eslint-disable -->
-            <SshPre language="html-vue">
-              &lt;template&gt;
-                &lt;Country code="FR" :show-flag="false" /&gt;
-              &lt;/template&gt;
-                      
-              &lt;script setup lang="ts"&gt;
-              import { Country } from '@prefabs.tech/vue3-form';
-           
               &lt;/script&gt;
             </SshPre>    
             <!-- eslint-enable -->

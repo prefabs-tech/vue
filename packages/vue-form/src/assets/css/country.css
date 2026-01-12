@@ -2,9 +2,40 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 5.5rem;
+  max-width: 100%;
 }
 
-.country-display > .flag-icon {
-  margin-right: 0.5rem;
+.country-display >.country-content {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.country-display >.flag-icon {
+  line-height: inherit;
+  min-width: 1.5rem;
+}
+
+.country-display > .country-content > .country-label {
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.country-display > .country-content:has(.flag-icon-right)   {
+ flex-direction: row-reverse;
+ justify-content: flex-end;
+}
+
+.country-display :has(.flag-icon-right-edge) {
+  flex-direction: row-reverse;  
+  justify-content: space-between;   
+}
+
+.country-display >.flag-icon-rounded {
+  object-fit: cover;
+}
+
+.country-display .flag-icon-squared {
+  border-radius: 0;
 }
