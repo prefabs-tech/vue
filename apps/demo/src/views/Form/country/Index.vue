@@ -136,6 +136,7 @@
               &lt;template&gt;
                 &lt;Country code="IS"&gt; 
               &lt;/template&gt;
+
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
            
@@ -151,6 +152,7 @@
               &lt;template&gt;
                 &lt;Country code="IS" flags-style="square"&gt; 
               &lt;/template&gt;
+
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
            
@@ -166,6 +168,7 @@
               &lt;template&gt;
                 &lt;Country code="IS" flags-style="circle"&gt; 
               &lt;/template&gt;   
+
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
            
@@ -184,6 +187,7 @@
               &lt;template&gt;
                 &lt;Country code="IS"&gt; 
               &lt;/template&gt;     
+
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
            
@@ -199,6 +203,7 @@
               &lt;template&gt;
                 &lt;Country code="IS" flags-position="right"&gt; 
               &lt;/template&gt;
+
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
            
@@ -214,6 +219,7 @@
               &lt;template&gt;
                 &lt;Country code="IS" flags-position="right-edge"&gt; 
               &lt;/template&gt;
+              
               &lt;script setup lang="ts"&gt;
               import { Country } from '@prefabs.tech/vue3-form';
            
