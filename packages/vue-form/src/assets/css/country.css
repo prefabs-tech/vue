@@ -22,16 +22,16 @@
  justify-content: flex-end;
 }
 
-.country-display >.flag-icon {
+.country-display > .country-content > .flag-icon {
   line-height: inherit;
   min-width: 1.5rem;
 }
 
-.country-display >.flag-icon-rounded {
+.country-display > .country-content > .flag-icon-rounded {
   object-fit: cover;
 }
 
-.country-display .flag-icon-squared {
+.country-display > .country-content > .flag-icon-squared {
   border-radius: 0;
 }
 
