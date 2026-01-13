@@ -43,6 +43,10 @@
       }
     },
     "slotDescription": {
+       "country": {
+        "code":"The ISO country code (e.g. US, NP, DE) for the current country being rendered.[fr]",
+        "label":"The localized display name of the country.[fr]"
+      },
       "countryPicker": {
         "option": "Slot to customize the rendering of each country option[fr]"
       },

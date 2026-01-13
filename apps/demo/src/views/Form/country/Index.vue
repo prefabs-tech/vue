@@ -135,7 +135,11 @@
             <SshPre language="html-vue">
               &lt;template&gt;
                 &lt;Country code="IS"&gt; 
-              &lt;/template&gt;       
+              &lt;/template&gt;
+              &lt;script setup lang="ts"&gt;
+              import { Country } from '@prefabs.tech/vue3-form';
+           
+              &lt;/script&gt;       
             </SshPre>    
             <!-- eslint-enable -->
       </div>
@@ -146,7 +150,11 @@
             <SshPre language="html-vue">
               &lt;template&gt;
                 &lt;Country code="IS" flags-style="square"&gt; 
-              &lt;/template&gt;          
+              &lt;/template&gt;
+              &lt;script setup lang="ts"&gt;
+              import { Country } from '@prefabs.tech/vue3-form';
+           
+              &lt;/script&gt;          
             </SshPre>    
             <!-- eslint-enable -->
       </div>
@@ -157,7 +165,11 @@
             <SshPre language="html-vue">
               &lt;template&gt;
                 &lt;Country code="IS" flags-style="circle"&gt; 
-              &lt;/template&gt;          
+              &lt;/template&gt;   
+              &lt;script setup lang="ts"&gt;
+              import { Country } from '@prefabs.tech/vue3-form';
+           
+              &lt;/script&gt;       
             </SshPre>    
             <!-- eslint-enable -->
       </div>
@@ -171,7 +183,11 @@
             <SshPre language="html-vue">
               &lt;template&gt;
                 &lt;Country code="IS"&gt; 
-              &lt;/template&gt;       
+              &lt;/template&gt;     
+              &lt;script setup lang="ts"&gt;
+              import { Country } from '@prefabs.tech/vue3-form';
+           
+              &lt;/script&gt;  
             </SshPre>    
             <!-- eslint-enable -->
       </div>
@@ -183,7 +199,10 @@
               &lt;template&gt;
                 &lt;Country code="IS" flags-position="right"&gt; 
               &lt;/template&gt;
-                      
+              &lt;script setup lang="ts"&gt;
+              import { Country } from '@prefabs.tech/vue3-form';
+           
+              &lt;/script&gt;  
             </SshPre>    
             <!-- eslint-enable -->
       </div>
@@ -195,7 +214,10 @@
               &lt;template&gt;
                 &lt;Country code="IS" flags-position="right-edge"&gt; 
               &lt;/template&gt;
-                      
+              &lt;script setup lang="ts"&gt;
+              import { Country } from '@prefabs.tech/vue3-form';
+           
+              &lt;/script&gt;  
             </SshPre>    
             <!-- eslint-enable -->
       </div>
@@ -300,25 +322,59 @@ const propsData = [
     type: "String",
   },
   {
+    default: "-",
+    description: t("form.documentation.propsDescription.select.flagsPath"),
+    id: 3,
+    prop: "flagsPath",
+    type: "(code: string) => string",
+  },
+  {
+    default: "left",
+    description: t("form.documentation.propsDescription.select.flagsPosition"),
+    id: 4,
+    prop: "flagsPosition",
+    type: "left | right | right-edge",
+  },
+  {
+    default: "rectangular",
+    description: t("form.documentation.propsDescription.select.flagsStyle"),
+    id: 5,
+    prop: "flagsStyle",
+    type: "circle | rectangular | square",
+  },
+  {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
-    id: 3,
+    id: 6,
     prop: "locale",
     type: "String",
   },
   {
     default: "{ en: defaultEnCatalogue }",
     description: t("form.documentation.propsDescription.select.locales"),
-    id: 4,
+    id: 7,
     prop: "locales",
     type: "Record<string, Record<string, string>>",
   },
   {
     default: "true",
     description: t("form.documentation.propsDescription.select.showFlag"),
-    id: 5,
+    id: 8,
     prop: "showFlag",
     type: "Boolean",
+  },
+];
+
+const slotsData = [
+  {
+    description: t("form.documentation.slotDescription.country.code"),
+    name: "default",
+    props: "{ code: string }",
+  },
+  {
+    description: t("form.documentation.slotDescription.country.label"),
+    name: "default",
+    props: "{ label: string }",
   },
 ];
 </script>
