@@ -1,7 +1,6 @@
 import defaultEnglishCatalogue from "../components/country-picker/en.json";
 
-export type Translation = Record<string, string>;
-export type Locales = Record<string, Translation>;
+import type { Translation, Locales } from "../types";
 
 export const getFallbackTranslation = (
   fallbackLocale: string,

@@ -41,7 +41,7 @@
 import { computed, type PropType } from "vue";
 
 import SelectInput from "../SelectInput.vue";
-import englishData from "./en.json";
+import defaultEnglishTranslation from "./en.json";
 import { getFallbackTranslation } from "../../utils/CountryPicker";
 
 import type {
@@ -181,7 +181,7 @@ const hasGroups = computed<boolean>(() => {
 
 const options = computed<Options>(() => {
   const translations: Record<string, string> = {
-    ...(fallbackTranslation.value || englishData),
+    ...(fallbackTranslation.value || defaultEnglishTranslation),
     ...(props.locales[props.locale] || {}),
   };
 
