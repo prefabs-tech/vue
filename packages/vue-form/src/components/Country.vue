@@ -2,7 +2,9 @@
   <div :data-country-code="countryCode" class="country-display">
     <slot :code="countryCode" :label="countryLabel">
       <div class="country-content">
-        <template v-if="showFlag">
+        <template
+          v-if="showFlag && countryCode && countryLabel !== countryCode"
+        >
           <img
             v-if="flagsPath"
             :alt="countryLabel"
@@ -63,18 +65,19 @@ const props = defineProps({
   },
 });
 
-const countryCode = computed(() => props.code.trim().toUpperCase());
-
-const fallbackTranslation = getFallbackTranslation(
-  props.fallbackLocale,
-  props.locales,
-);
+const countryCode = computed(() => props.code.trim());
 
 const countryLabel = computed(() => {
   const code = countryCode.value;
+
   if (!code) {
-    return "";
+    return;
   }
+
+  const fallbackTranslation = getFallbackTranslation(
+    props.fallbackLocale,
+    props.locales,
+  );
 
   return (
     props.locales?.[props.locale]?.[code] || fallbackTranslation?.[code] || code
