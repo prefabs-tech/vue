@@ -2,9 +2,7 @@
   <div :data-country-code="countryCode" class="country-display">
     <slot :code="countryCode" :label="countryLabel">
       <div class="country-content">
-        <template
-          v-if="showFlag && countryCode && countryLabel !== countryCode"
-        >
+        <template v-if="shouldShowFlag">
           <img
             v-if="flagsPath"
             :alt="countryLabel"
@@ -68,7 +66,7 @@ const props = defineProps({
   },
 });
 
-const countryCode = computed(() => props.code.trim());
+const countryCode = computed(() => props.code?.trim());
 
 const countryLabel = computed(() => {
   const code = countryCode.value;
@@ -86,6 +84,13 @@ const countryLabel = computed(() => {
     props.locales?.[props.locale]?.[code] || fallbackTranslation?.[code] || code
   );
 });
+
+const shouldShowFlag = computed(
+  () =>
+    props.showFlag &&
+    !!countryCode.value &&
+    countryLabel.value !== countryCode.value,
+);
 
 const getFlagClass = (code?: string) =>
   getCountryFlagClass(code, props.flagsPosition, props.flagsStyle);
