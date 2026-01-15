@@ -42,7 +42,10 @@ import { computed, type PropType } from "vue";
 
 import SelectInput from "../SelectInput.vue";
 import defaultEnglishTranslation from "./en.json";
-import { getFallbackTranslation } from "../../utils/CountryPicker";
+import {
+  getFallbackTranslation,
+  getFlagClass as getCountryFlagClass,
+} from "../../utils/CountryPicker";
 
 import type {
   CountryPickerLabels,
@@ -239,16 +242,7 @@ const sortedOptions = computed<Options>(() => {
 });
 
 const getFlagClass = (code?: string) =>
-  [
-    "flag-icon",
-    code && `flag-icon-${code.trim().toLowerCase()}`,
-    props.flagsPosition === "right" && "flag-icon-right",
-    props.flagsPosition === "right-edge" && "flag-icon-right-edge",
-    props.flagsStyle === "circle" && "flag-icon-rounded",
-    props.flagsStyle === "square" && "flag-icon-squared",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  getCountryFlagClass(code, props.flagsPosition, props.flagsStyle);
 
 const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? Array.from(new Set(value)) : value;

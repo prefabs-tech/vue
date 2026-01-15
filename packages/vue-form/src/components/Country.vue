@@ -2,7 +2,7 @@
   <div :data-country-code="countryCode" class="country-display">
     <slot :code="countryCode" :label="countryLabel">
       <div class="country-content">
-        <template v-if="showFlag">
+        <template v-if="shouldShowFlag">
           <img
             v-if="flagsPath"
             :alt="countryLabel"
@@ -20,7 +20,10 @@
 <script setup lang="ts">
 import { computed, type PropType } from "vue";
 
-import { getFallbackTranslation } from "../utils/CountryPicker";
+import {
+  getFallbackTranslation,
+  getFlagClass as getCountryFlagClass,
+} from "../utils/CountryPicker";
 
 type I18nConfigData = Record<string, Record<string, string>>;
 
@@ -63,35 +66,34 @@ const props = defineProps({
   },
 });
 
-const countryCode = computed(() => props.code.trim().toUpperCase());
-
-const fallbackTranslation = getFallbackTranslation(
-  props.fallbackLocale,
-  props.locales,
-);
+const countryCode = computed(() => props.code?.trim());
 
 const countryLabel = computed(() => {
   const code = countryCode.value;
+
   if (!code) {
-    return "";
+    return;
   }
+
+  const fallbackTranslation = getFallbackTranslation(
+    props.fallbackLocale,
+    props.locales,
+  );
 
   return (
     props.locales?.[props.locale]?.[code] || fallbackTranslation?.[code] || code
   );
 });
 
+const shouldShowFlag = computed(
+  () =>
+    props.showFlag &&
+    !!countryCode.value &&
+    countryLabel.value !== countryCode.value,
+);
+
 const getFlagClass = (code?: string) =>
-  [
-    "flag-icon",
-    code && `flag-icon-${code.trim().toLowerCase()}`,
-    props.flagsPosition === "right" && "flag-icon-right",
-    props.flagsPosition === "right-edge" && "flag-icon-right-edge",
-    props.flagsStyle === "circle" && "flag-icon-rounded",
-    props.flagsStyle === "square" && "flag-icon-squared",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  getCountryFlagClass(code, props.flagsPosition, props.flagsStyle);
 </script>
 <style lang="css">
 @import "../assets/css/country.css";
