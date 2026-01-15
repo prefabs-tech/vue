@@ -22,7 +22,10 @@
 <script setup lang="ts">
 import { computed, type PropType } from "vue";
 
-import { getFallbackTranslation } from "../utils/CountryPicker";
+import {
+  getFallbackTranslation,
+  getFlagClass as getCountryFlagClass,
+} from "../utils/CountryPicker";
 
 type I18nConfigData = Record<string, Record<string, string>>;
 
@@ -85,16 +88,7 @@ const countryLabel = computed(() => {
 });
 
 const getFlagClass = (code?: string) =>
-  [
-    "flag-icon",
-    code && `flag-icon-${code.trim().toLowerCase()}`,
-    props.flagsPosition === "right" && "flag-icon-right",
-    props.flagsPosition === "right-edge" && "flag-icon-right-edge",
-    props.flagsStyle === "circle" && "flag-icon-rounded",
-    props.flagsStyle === "square" && "flag-icon-squared",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  getCountryFlagClass(code, props.flagsPosition, props.flagsStyle);
 </script>
 <style lang="css">
 @import "../assets/css/country.css";
