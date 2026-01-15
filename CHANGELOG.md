@@ -1,5 +1,7 @@
 # [0.28.0](https://github.com/prefabs-tech/vue/compare/v0.27.0...v0.28.0) (2026-01-15)
 
+### Breaking Changes
+* **fix(user/router)!:** update redirect after login logic to use route names for better clarity ([90110b6](https://github.com/prefabs-tech/vue/pull/916/commits/90110b6a7ed67649249fa1664c9880cecbf95223))
 
 ### Bug Fixes
 
