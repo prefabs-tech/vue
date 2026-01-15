@@ -341,24 +341,6 @@
       "
       :slots-data="slotsData"
     />
-
-    <section>
-      <h2>{{ $t("common.type") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="typescript">
-          interface CountryProperties {
-            code: string;
-            fallbackLocale?: string;  
-            locale?: string;          
-            locales?: I18nData;         
-            showFlag?: boolean;            
-          }
-        </SshPre>
-        <!-- eslint-enable -->
-      </div>
-    </section>
   </FormPage>
 </template>
 
