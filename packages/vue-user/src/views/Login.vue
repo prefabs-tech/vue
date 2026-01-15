@@ -127,7 +127,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
             sessionStorage.removeItem("redirectAfterLogin");
 
             // eslint-disable-next-line
-            router.hasRoute(redirectTo) && router.push(redirectTo);
+            router.hasRoute(redirectTo) && router.push({ name: redirectTo});
           } else {
             // eslint-disable-next-line
             router.hasRoute("home") && router.push({ name: "home" });
