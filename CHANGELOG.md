@@ -1,3 +1,27 @@
+# [0.28.0](https://github.com/prefabs-tech/vue/compare/v0.27.0...v0.28.0) (2026-01-15)
+
+### Breaking Changes
+* **fix(user/router)!:** update redirect after login logic to use route names for better clarity ([90110b6](https://github.com/prefabs-tech/vue/pull/916/commits/90110b6a7ed67649249fa1664c9880cecbf95223))
+
+### Bug Fixes
+
+* **demo:** add github pages SPA routing support ([6579f23](https://github.com/prefabs-tech/vue/commit/6579f23297f667a389e5ec389e168311a56c748c))
+* **demo:** fix code style ([68d156a](https://github.com/prefabs-tech/vue/commit/68d156acfe7e805a6c19967e322663d63e53c589))
+* **form/currency-picker:**  update currency picker option rendering and option slot properties ([#906](https://github.com/prefabs-tech/vue/issues/906)) ([328a2a6](https://github.com/prefabs-tech/vue/commit/328a2a668c121500c6aaf860d530d05704c373e1))
+* **form/select:** fix select-all behavior with duplicate values in groups ([#894](https://github.com/prefabs-tech/vue/issues/894)) ([2a519c6](https://github.com/prefabs-tech/vue/commit/2a519c6d0e7873ece1a2a638a3777e763ca8e50e))
+
+
+### Features
+
+* **form/country-picker:** add support to flags and different flags style ([#904](https://github.com/prefabs-tech/vue/issues/904)) ([b78fafb](https://github.com/prefabs-tech/vue/commit/b78fafb21e0c99e763cbb70ec5b0b3af89e178d9))
+* **form/country-picker:** add support to new locale and add demo([#888](https://github.com/prefabs-tech/vue/issues/888)) ([e62ed03](https://github.com/prefabs-tech/vue/commit/e62ed03edec7cd17d462a54e17c6e91a5ca1a093))
+* **form/country-picker:** add support to sort countries alphabetically ([#909](https://github.com/prefabs-tech/vue/issues/909)) ([323e881](https://github.com/prefabs-tech/vue/commit/323e8812717c8286e3532aef424ac2415b16de0b))
+* **form/country-picker:** enable country filtering using favorites prop. ([#893](https://github.com/prefabs-tech/vue/issues/893)) ([d556313](https://github.com/prefabs-tech/vue/commit/d556313ae77be7f55be4708c1300f556aca4992f))
+* **form/country:** add simple country display component ([#903](https://github.com/prefabs-tech/vue/issues/903)) ([75a535b](https://github.com/prefabs-tech/vue/commit/75a535b70d790e34e246310687b0b074c324c360))
+* **form/currency-picker:** update selection slot  with selectedLabels prop ([#907](https://github.com/prefabs-tech/vue/issues/907)) ([755263b](https://github.com/prefabs-tech/vue/commit/755263bf27bbed6233f0c99e8eddc00cfb17c5aa))
+
+
+
 # [0.27.0](https://github.com/prefabs-tech/vue/compare/v0.26.0...v0.27.0) (2025-12-18)
 
 

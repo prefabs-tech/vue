@@ -1,6 +1,6 @@
 {
   "name": "@prefabs.tech/vue3-form",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "description": "Vue Form plugin",
   "license": "MIT",
   "type": "module",
@@ -34,7 +34,7 @@
     "@dzangolab/flag-icon-css": "3.4.5",
     "@prefabs.tech/eslint-config": "0.2.0",
     "@prefabs.tech/tsconfig": "0.2.0",
-    "@prefabs.tech/vue3-ui": "0.27.0",
+    "@prefabs.tech/vue3-ui": "0.28.0",
     "@types/node": "22.13.5",
     "@types/validator": "13.12.2",
     "@typescript-eslint/eslint-plugin": "8.24.1",
