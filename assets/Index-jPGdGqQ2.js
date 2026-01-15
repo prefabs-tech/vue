@@ -1,1 +1,0 @@
-import{_ as e}from"./UiPage.vue_vue_type_style_index_0_lang-Cbrf14Fv.js";import{d as o,e as a,o as n}from"./index-CJbrnafS.js";const _={name:"UI"},l=o({..._,setup(r){return(t,s)=>(n(),a(e,{title:t.$t("ui.title")},null,8,["title"]))}});export{l as default};
