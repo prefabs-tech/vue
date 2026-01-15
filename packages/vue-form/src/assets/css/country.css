@@ -1,10 +1,42 @@
 .country-display {
   overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 100%;
   white-space: nowrap;
-  width: 5.5rem;
+  text-overflow: ellipsis;
 }
 
-.country-display > .flag-icon {
-  margin-right: 0.5rem;
+.country-display >.country-content {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
 }
+
+.country-display > .country-content > .country-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.country-display > .country-content:has(.flag-icon-right)   {
+ flex-direction: row-reverse;
+ justify-content: flex-end;
+}
+
+.country-display > .country-content > .flag-icon {
+  line-height: inherit;
+  min-width: 1.5rem;
+}
+
+.country-display > .country-content > .flag-icon-rounded {
+  object-fit: cover;
+}
+
+.country-display > .country-content > .flag-icon-squared {
+  border-radius: 0;
+}
+
+.country-display :has(.flag-icon-right-edge) {
+  flex-direction: row-reverse;  
+  justify-content: space-between;   
+}
+

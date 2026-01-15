@@ -46,7 +46,7 @@ import { getFallbackTranslation } from "../../utils/CountryPicker";
 
 import type {
   CountryPickerLabels,
-  GroupedOption,
+  GroupedOption as OptionGroup,
   Options,
   SelectOption,
 } from "../../types";
@@ -168,11 +168,14 @@ const favourites = computed<string[]>(() => {
   return props.favorites.filter((code) => countrySet.has(code));
 });
 
-const isOptionsGrouped = computed(() => {
+const hasGroups = computed<boolean>(() => {
   return (
     Array.isArray(options.value) &&
     options.value.length > 0 &&
-    "options" in options.value[0]
+    options.value.every(
+      (option): option is OptionGroup =>
+        typeof option === "object" && "options" in option,
+    )
   );
 });
 
@@ -206,7 +209,7 @@ const options = computed<Options>(() => {
       label: props.labels.allCountries,
       options: filterCountries.map(getNormalizedOption),
     },
-  ] as GroupedOption[];
+  ] as OptionGroup[];
 });
 
 const sortedOptions = computed<Options>(() => {
@@ -214,15 +217,11 @@ const sortedOptions = computed<Options>(() => {
     return options.value as Options;
   }
 
-  if (!isOptionsGrouped.value) {
+  if (!hasGroups.value) {
     return [...(options.value as SelectOption[])].sort(sortByLabel);
   }
 
-  const sortedOptionsGroup = (options.value as GroupedOption[]).map((group) => {
-    if (!("options" in group)) {
-      return group;
-    }
-
+  const sortedOptionsGroup = (options.value as OptionGroup[]).map((group) => {
     return {
       ...group,
       options: [...(group.options as SelectOption[])].sort(sortByLabel),
@@ -236,7 +235,7 @@ const sortedOptions = computed<Options>(() => {
     ];
   }
 
-  return sortedOptionsGroup;
+  return sortedOptionsGroup.sort(sortByLabel);
 });
 
 const getFlagClass = (code?: string) =>
@@ -257,8 +256,8 @@ const onUpdateModelValue = (value: string | string[] | undefined) => {
 };
 
 const sortByLabel = (
-  optionA: SelectOption | GroupedOption,
-  optionB: SelectOption | GroupedOption,
+  optionA: SelectOption | OptionGroup,
+  optionB: SelectOption | OptionGroup,
 ) => {
   if (!optionA.label) {
     return 1;
