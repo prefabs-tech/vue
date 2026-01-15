@@ -249,6 +249,69 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.customFlagsPath") }}</h2>
+
+      <div class="section-content">
+        <Country :flags-path="customFlagsPath" code="CA" />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Country :flags-path="flagsPath" code="CA" /&gt;
+          &lt;/template&gt;
+                  
+          &lt;script setup lang="ts"&gt;
+          import { Country } from '@prefabs.tech/vue3-form';
+
+          const flagsPath = (code: string) => {
+            return `https://flagcdn.com/${code.toLowerCase().trim()}.svg`;
+          };
+          &lt;/script&gt;
+        </SshPre>    
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.customRender") }}</h2>
+      <div class="section-content">
+        <Country code="JP">
+          <template #default="{ code, label }">
+            <div class="custom-render">
+              <span
+                :class="`flag-icon flag-icon-${code.toLowerCase()} flag-icon-rounded`"
+              ></span>
+              <span>{{ label }}</span>
+            </div>
+          </template>
+        </Country>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Country code="JP"&gt;
+              &lt;template #default="{ code, label }"&gt;
+                &lt;div class="custom-render"&gt;
+                  &lt;span :class="`flag-icon flag-icon-${code.toLowerCase()} flag-icon-rounded`"&gt;&lt;/span&gt;
+                  &lt;span&gt;&lbrace;&lbrace; label &rbrace;&rbrace;&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/template&gt;
+            &lt;/Country&gt;
+          &lt;/template&gt;
+                  
+          &lt;script setup lang="ts"&gt;
+          import { Country } from '@prefabs.tech/vue3-form';
+          &lt;/script&gt;
+
+          &lt;style lang="css"&gt;
+          @import "./assets/css/country.css";
+          &lt;/style&gt;
+        </SshPre>    
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.missingCountryCode") }}</h2>
       <div class="section-content">
         <div class="demo-country">
@@ -382,14 +445,17 @@ const propsData = [
 
 const slotsData = [
   {
-    description: t("form.documentation.slotDescription.country.code"),
+    description: t("form.documentation.slotDescription.country.default"),
     name: "default",
-    props: "{ code: string }",
-  },
-  {
-    description: t("form.documentation.slotDescription.country.label"),
-    name: "default",
-    props: "{ label: string }",
+    props: "{ code: string, label: string }",
   },
 ];
+
+const customFlagsPath = (code: string) => {
+  return `https://flagcdn.com/${code.toLowerCase().trim()}.svg`;
+};
 </script>
+
+<style lang="css">
+@import "../../../assets/css/form/country.css";
+</style>
