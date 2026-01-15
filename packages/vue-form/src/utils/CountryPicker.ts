@@ -32,4 +32,3 @@ export const getFlagClass = (
   ]
     .filter(Boolean)
     .join(" ");
-
