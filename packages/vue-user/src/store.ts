@@ -251,6 +251,8 @@ const useUserStore = defineStore("user", () => {
       const response = await selectedAuthProvider.doSignup(credentials);
 
       setUser(response);
+
+      return;
     }
 
     throw new Error("Signup is not supported for the selected auth provider");
