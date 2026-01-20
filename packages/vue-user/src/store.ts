@@ -79,9 +79,7 @@ const useUserStore = defineStore("user", () => {
       return response;
     }
 
-    throw new Error(
-      "Change password is not supported for the selected auth provider",
-    );
+    throw new Error("UNSUPPORTED_AUTH_PROVIDER");
   };
 
   const disableUser = async (id: string, apiBaseUrl: string) => {
@@ -200,9 +198,7 @@ const useUserStore = defineStore("user", () => {
       return selectedAuthProvider.doResetPassword(payload);
     }
 
-    throw new Error(
-      "Reset password is not supported for the selected auth provider",
-    );
+    throw new Error("UNSUPPORTED_AUTH_PROVIDER");
   };
 
   const sendVerificationEmail = async () => {
@@ -255,7 +251,7 @@ const useUserStore = defineStore("user", () => {
       return;
     }
 
-    throw new Error("Signup is not supported for the selected auth provider");
+    throw new Error("UNSUPPORTED_AUTH_PROVIDER");
   };
 
   const signUpFirstUser = async (

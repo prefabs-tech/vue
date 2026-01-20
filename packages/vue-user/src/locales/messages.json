@@ -59,7 +59,8 @@
       "changePassword": {
         "errors": {
           "INVALID_PASSWORD": "The password is invalid. Please check your password and try again.",
-          "SOMETHING_WRONG": "Something went wrong. Please try again."
+          "SOMETHING_WRONG": "Something went wrong. Please try again.",
+          "UNSUPPORTED_AUTH_PROVIDER": "Change password is not supported for the selected auth provider"
         },
         "form": {
           "confirmPassword": {
@@ -280,7 +281,8 @@
       "passwordReset": {
         "errors": {
           "INVALID_TOKEN": "The token is invalid. Please request again for password reset.",
-          "SOMETHING_WRONG": "Something went wrong. Please try again."
+          "SOMETHING_WRONG": "Something went wrong. Please try again.",
+          "UNSUPPORTED_AUTH_PROVIDER": "Reset password is not supported for the selected auth provider"
         },
         "form": {
           "actions": {
@@ -413,7 +415,8 @@
       "signup": {
         "errors": {
           "409": "This email already exists. Please sign in instead.",
-          "SOMETHING_WRONG": "Something went wrong. Please try again."
+          "SOMETHING_WRONG": "Something went wrong. Please try again.",
+          "UNSUPPORTED_AUTH_PROVIDER": "Signup is not supported for the selected auth provider"
         },
         "form": {
           "actions": {
@@ -561,7 +564,8 @@
       "changePassword": {
         "errors": {
           "INVALID_PASSWORD": "The password is invalid. Please check your password and try again.",
-          "SOMETHING_WRONG": "Something went wrong. Please try again."
+          "SOMETHING_WRONG": "Something went wrong. Please try again.",
+          "UNSUPPORTED_AUTH_PROVIDER": "Change password is not supported for the selected auth provider"
         },
         "form": {
           "confirmPassword": {
@@ -773,7 +777,8 @@
       "passwordReset": {
         "errors": {
           "INVALID_TOKEN": "The token is invalid. Please request again for password reset.",
-          "SOMETHING_WRONG": "Something went wrong. Please try again."
+          "SOMETHING_WRONG": "Something went wrong. Please try again.",
+          "UNSUPPORTED_AUTH_PROVIDER": "Reset password is not supported for the selected auth provider"
         },
         "form": {
           "actions": {
@@ -906,7 +911,8 @@
       "signup": {
         "errors": {
           "409": "This email already exists. Please sign in instead.",
-          "SOMETHING_WRONG": "Something went wrong. Please try again."
+          "SOMETHING_WRONG": "Something went wrong. Please try again.",
+          "UNSUPPORTED_AUTH_PROVIDER": "Signup is not supported for the selected auth provider"
         },
         "form": {
           "actions": {
