@@ -1,11 +1,11 @@
 import defaultEnglishCatalogue from "../components/country-picker/en.json";
 
-import type { Translation, Locales } from "../types";
+import type { CountryPickerLocales, CountryPickerTranslation } from "../types";
 
 export const getFallbackTranslation = (
   fallbackLocale: string,
-  locales: Locales | undefined,
-): Translation | null => {
+  locales: CountryPickerLocales | undefined,
+): CountryPickerTranslation | null => {
   if (locales?.[fallbackLocale]) {
     return locales[fallbackLocale];
   }

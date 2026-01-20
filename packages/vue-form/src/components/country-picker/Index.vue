@@ -6,7 +6,7 @@
       :model-value="modelValue"
       :multiple="multiple"
       :name="name"
-      :options="sortedOptions"
+      :options="options"
       :placeholder="placeholder"
       class="form-select"
       @update:model-value="onUpdateModelValue"
@@ -38,27 +38,29 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type PropType } from "vue";
+import { computed } from "vue";
 
-import SelectInput from "../SelectInput.vue";
-import defaultEnglishTranslation from "./en.json";
 import {
   getFallbackTranslation,
   getFlagClass as getCountryFlagClass,
 } from "../../utils/CountryPicker";
+import SelectInput from "../SelectInput.vue";
 
 import type {
+  CountryPickerGroups,
   CountryPickerLabels,
+  CountryPickerLocales,
   GroupedOption as OptionGroup,
   Options,
   SelectOption,
 } from "../../types";
+import type { PropType } from "vue";
 
 const props = defineProps({
   labels: {
     default: () => ({
-      favorites: "Favorites",
       allCountries: "All Countries",
+      favorites: "Favorites",
     }),
     type: Object as PropType<CountryPickerLabels>,
   },
@@ -94,6 +96,10 @@ const props = defineProps({
     validator: (value: string) =>
       ["circle", "rectangular", "square"].includes(value),
   },
+  groups: {
+    default: () => ({}),
+    type: Object as PropType<CountryPickerGroups>,
+  },
   hasSortedOptions: {
     default: true,
     type: Boolean,
@@ -112,7 +118,7 @@ const props = defineProps({
   },
   locales: {
     default: () => ({}),
-    type: Object as PropType<Record<string, Record<string, string>>>,
+    type: Object as PropType<CountryPickerLocales>,
   },
   modelValue: {
     default: undefined,
@@ -145,104 +151,93 @@ const fallbackTranslation = computed(
   () => getFallbackTranslation(props.fallbackLocale, props.locales) || {},
 );
 
-const countries = computed<string[]>(() => {
-  const filteredCodes = Object.entries(fallbackTranslation.value).map(
-    ([code]) => code,
-  );
-
-  if (props.include.length > 0) {
-    return props.include.filter((code) => new Set(filteredCodes).has(code));
+const favoriteOptions = computed<SelectOption[]>(() => {
+  if (!props.favorites?.length) {
+    return [] as SelectOption[];
   }
 
-  if (props.exclude.length > 0) {
-    const excludeSet = new Set(props.exclude);
-    return filteredCodes.filter((code) => !excludeSet.has(code));
+  const options = props.favorites.map(getNormalizedOption);
+
+  if (props.hasSortedOptions) {
+    options.sort(sortByLabel);
   }
 
-  return filteredCodes;
+  return options;
 });
 
-const favourites = computed<string[]>(() => {
-  if (props.favorites.length === 0) {
-    return [];
-  }
+const fullList = computed<Options>(() => {
+  if (!Object.keys(props.groups)?.length) {
+    const codes = props.include.length
+      ? props.include
+      : Object.keys(fallbackTranslation.value);
 
-  const countrySet = new Set(countries.value);
-  return props.favorites.filter((code) => countrySet.has(code));
+    const options = codes
+      .filter((code) => {
+        if (props.exclude.includes(code)) {
+          return false;
+        }
+
+        if (!props.includeFavorites && props.favorites.includes(code)) {
+          return false;
+        }
+
+        return true;
+      })
+      .map(getNormalizedOption);
+
+    if (props.hasSortedOptions) {
+      options.sort(sortByLabel);
+    }
+
+    return props.favorites.length
+      ? [{ label: props.labels.allCountries, options }]
+      : options;
+  } else {
+    const options = Object.entries(props.groups).map(([groupCode, codes]) => {
+      const countries = codes.map(getNormalizedOption);
+
+      if (props.hasSortedOptions) {
+        countries.sort(sortByLabel);
+      }
+
+      return {
+        label: getLabel(groupCode),
+        options: countries,
+      };
+    });
+
+    if (props.hasSortedOptions) {
+      options.sort(sortByLabel);
+    }
+
+    return options as Options;
+  }
 });
 
-const hasGroups = computed<boolean>(() => {
-  return (
-    Array.isArray(options.value) &&
-    options.value.length > 0 &&
-    options.value.every(
-      (option): option is OptionGroup =>
-        typeof option === "object" && "options" in option,
-    )
-  );
-});
+const options = computed<Options>(() =>
+  favoriteOptions.value.length
+    ? ([
+        {
+          label: props.labels.favorites,
+          options: favoriteOptions.value,
+        },
+        ...fullList.value,
+      ] as OptionGroup[])
+    : fullList.value,
+);
 
-const options = computed<Options>(() => {
-  const translations: Record<string, string> = {
-    ...(fallbackTranslation.value || defaultEnglishTranslation),
-    ...(props.locales[props.locale] || {}),
-  };
-
-  const getNormalizedOption = (country: string): SelectOption => ({
-    label: translations[country] ?? country,
-    value: country,
-  });
-
-  if (favourites.value.length === 0) {
-    return countries.value.map(getNormalizedOption) as SelectOption[];
-  }
-
-  const filterCountries = props.includeFavorites
-    ? countries.value
-    : countries.value.filter(
-        (country) => !favourites.value.some((favorite) => favorite === country),
-      );
-
-  return [
-    {
-      label: props.labels.favorites,
-      options: favourites.value.map(getNormalizedOption),
-    },
-    {
-      label: props.labels.allCountries,
-      options: filterCountries.map(getNormalizedOption),
-    },
-  ] as OptionGroup[];
-});
-
-const sortedOptions = computed<Options>(() => {
-  if (!props.hasSortedOptions) {
-    return options.value as Options;
-  }
-
-  if (!hasGroups.value) {
-    return [...(options.value as SelectOption[])].sort(sortByLabel);
-  }
-
-  const sortedOptionsGroup = (options.value as OptionGroup[]).map((group) => {
-    return {
-      ...group,
-      options: [...(group.options as SelectOption[])].sort(sortByLabel),
-    };
-  });
-
-  if (favourites.value.length > 0) {
-    return [
-      sortedOptionsGroup[0],
-      ...sortedOptionsGroup.slice(1).sort(sortByLabel),
-    ];
-  }
-
-  return sortedOptionsGroup.sort(sortByLabel);
-});
+const getLabel = (code: string) =>
+  props.locales[props.locale]?.[code] ??
+  fallbackTranslation.value[code] ??
+  code;
 
 const getFlagClass = (code?: string) =>
   getCountryFlagClass(code, props.flagsPosition, props.flagsStyle);
+
+const getNormalizedOption = (code: string): SelectOption => ({
+  label: getLabel(code),
+  value: code,
+});
 
 const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? Array.from(new Set(value)) : value;
@@ -252,17 +247,7 @@ const onUpdateModelValue = (value: string | string[] | undefined) => {
 const sortByLabel = (
   optionA: SelectOption | OptionGroup,
   optionB: SelectOption | OptionGroup,
-) => {
-  if (!optionA.label) {
-    return 1;
-  }
-
-  if (!optionB.label) {
-    return -1;
-  }
-
-  return optionA.label.localeCompare(optionB.label);
-};
+) => (optionA.label ?? "").localeCompare(optionB.label ?? "");
 </script>
 
 <style lang="css">
