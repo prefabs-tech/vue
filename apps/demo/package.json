@@ -12,7 +12,7 @@
     "lint:fix": "eslint . --ext .vue --fix",
     "preview": "vite preview",
     "sort-package": "npx sort-package-json",
-    "test:unit": "vitest --environment jsdom --root src/",
+    "test:unit": "vitest --environment jsdom run unit/ --passWithNoTests",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
