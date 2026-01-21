@@ -1,4 +1,4 @@
-import defaultEnglishCatalogue from "../components/country-picker/en.json";
+import defaultEnglishCatalogue from "../components/CountryPicker/en.json";
 
 import type { CountryPickerLocales, CountryPickerTranslation } from "../types";
 

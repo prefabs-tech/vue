@@ -71,6 +71,7 @@ export type {
   CountryPickerGroups,
   CountryPickerLabels,
   CountryPickerLocales,
+  CountryPickerTranslation,
   CurrencyOption,
   EmailErrorMessages,
   FileErrorMessages,
@@ -83,7 +84,6 @@ export type {
   PasswordErrorMessages,
   SelectOption,
   TextErrorMessages,
-  CountryPickerTranslation,
 };
 
 export type {

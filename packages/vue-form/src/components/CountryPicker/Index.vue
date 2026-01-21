@@ -43,7 +43,7 @@ import { computed } from "vue";
 import {
   getFallbackTranslation,
   getFlagClass as getCountryFlagClass,
-} from "../../utils/CountryPicker";
+} from "../../utils/country-picker";
 import SelectInput from "../SelectInput.vue";
 
 import type {
