@@ -703,8 +703,7 @@ const slotsData = [
   {
     description: t("form.documentation.slotDescription.countryPicker.option"),
     name: "option",
-    props:
-      "{ multiple: boolean, option: NormalizedSelectOption, selected: boolean }",
+    props: "{ multiple: boolean, option: SelectOption, selected: boolean }",
   },
 ];
 
