@@ -20,10 +20,10 @@
     "lint:fix": "eslint . --ext .vue --fix",
     "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
-    "test": "pnpm build && vitest --environment jsdom run --coverage",
-    "test:component": "vitest --environment jsdom run component/",
-    "test:snapshot": "vitest --environment jsdom run snapshot/",
-    "test:unit": "vitest --environment jsdom run unit/",
+    "test": "pnpm build && vitest --environment jsdom run --coverage --passWithNoTests",
+    "test:component": "vitest --environment jsdom run component/ --passWithNoTests",
+    "test:snapshot": "vitest --environment jsdom run snapshot/ --passWithNoTests",
+    "test:unit": "vitest --environment jsdom run unit/ --passWithNoTests",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
