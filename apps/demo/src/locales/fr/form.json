@@ -10,6 +10,7 @@
     },
     "propsDescription": {
       "countryPicker": {
+        "groups": "An object to organize countries into specific categories (e.g., EU, ASEAN)[fr]",
         "hasSortedOptions":"By default, options are sorted alphabetically. If false, countries are sorted by priority in the order groups → favorites → include → fallback-locale translations, preserving the defined order[fr]"
       },
       "input": {
@@ -167,12 +168,15 @@
     "female": "Female",
     "fileInput": "File input",
     "flagsPosition": "Flags position[fr]",
-    "flagsStyle": "Flags style[fr]",
+    "flagsStyle": "Flags style and position[fr]",
     "france": "France",
     "gender": "Gender",
     "generalQuestions": "General questions",
     "germany": "Germany",
     "getStarted": "Get started",
+    "grouping": "Grouping[fr]",
+    "groupingWithFavroties": "Grouping with favorites[fr]",
+    "groupingWithTranslations": "Grouping with translations[fr]",
     "iconSlot": "Icon slot",
     "include": "Include filter",
     "includeFavorites": "Include favorites",

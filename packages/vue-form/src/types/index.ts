@@ -4,8 +4,8 @@ interface CurrencyOption extends SelectOption {
 }
 
 interface CountryPickerLabels {
-  favorites?: string;
   allCountries?: string;
+  favorites?: string;
 }
 
 interface EmailErrorMessages {
@@ -27,10 +27,6 @@ interface FileExtended extends File {
 interface InputOption {
   label: string;
   value: string | number;
-}
-
-interface Locales {
-  [key: string]: Translation;
 }
 
 interface MonthPickerValue {
@@ -65,28 +61,29 @@ interface TextErrorMessages {
   required?: string;
 }
 
-interface Translation {
-  [key: string]: string;
-}
+type CountryPickerTranslation = Record<string, string>;
+type CountryPickerLocales = Record<string, CountryPickerTranslation>;
+type CountryPickerGroups = Record<string, string[]>;
 
 type Options = SelectOption[] | GroupedOption[];
 
 export type {
-  CurrencyOption,
+  CountryPickerGroups,
   CountryPickerLabels,
+  CountryPickerLocales,
+  CountryPickerTranslation,
+  CurrencyOption,
   EmailErrorMessages,
   FileErrorMessages,
   FileExtended,
   GroupedOption,
   InputOption,
-  Locales,
   MonthPickerValue,
   NumberErrorMessages,
   Options,
   PasswordErrorMessages,
   SelectOption,
   TextErrorMessages,
-  Translation,
 };
 
 export type {

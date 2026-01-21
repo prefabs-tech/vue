@@ -23,7 +23,7 @@ import { computed, type PropType } from "vue";
 import {
   getFallbackTranslation,
   getFlagClass as getCountryFlagClass,
-} from "../utils/CountryPicker";
+} from "../utils/country-picker";
 
 type I18nConfigData = Record<string, Record<string, string>>;
 
