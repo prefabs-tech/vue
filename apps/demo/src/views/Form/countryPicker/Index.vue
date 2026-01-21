@@ -371,7 +371,7 @@
       <div class="section-content">
         <CountryPicker
           v-model="formData.groups"
-          :groups="countryGroups"
+          :groups="groups"
           :locale="locale"
           :placeholder="$t('form.placeholder.country')"
         />
@@ -383,7 +383,7 @@
               v-model="input"
               :groups="groups"
               :locale="locale"
-              placeholder="$t('form.placeholder.country')"
+              :placeholder="$t('form.placeholder.country')"
             /&gt;
           &lt;/template&gt;
 
@@ -397,6 +397,107 @@
             "North America HQ": ["US", "CA"],
             "Offshore Dev Center": ["IN", "VN", "PH"],
             "European Hubs": ["GB", "DE", "FR"],
+          };
+
+          const input = ref();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.groupingWithTranslations") }}</h2>
+
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.groupsWithTranslations"
+          :groups="regionalCountryGroups"
+          :locale="locale"
+          :locales="locales"
+          :placeholder="$t('form.placeholder.country')"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;CountryPicker
+              v-model="input"
+              :groups="groups"
+              :locale="locale"
+              :locales="locales"
+              :placeholder="$t('form.placeholder.country')"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
+          import { ref } from 'vue';
+
+          import englishTranslation from "./en.json";
+          import frenchTranslation from "./fr.json";
+
+          const { locale } = useI18n();
+
+          const groups = {
+            EU: ["FR", "DE", "IT", "ES"],
+            ASEAN: ["VN", "TH", "SG"],
+          };
+          const locales = {
+            en: {
+              ...englishTranslation,
+              ASEAN: "ASEAN",
+              EU: "European Union",
+            },
+            fr: {
+              ...frenchTranslation,
+              ASEAN: "ASEAN",
+              EU: "Union Européenne",
+            },
+          };
+
+          const input = ref();
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.groupingWithFavroties") }}</h2>
+
+      <div class="section-content">
+        <CountryPicker
+          v-model="formData.groupsWithFavorites"
+          :favorites="['US', 'FR']"
+          :groups="continentCountryGroups"
+          :has-sorted-options="false"
+          :locale="locale"
+          :placeholder="$t('form.placeholder.country')"
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;CountryPicker
+              v-model="input"
+              :favorites="['US', 'FR']"
+              :groups="groups"
+              :has-sorted-options="false"
+              :locale="locale"
+              :placeholder="$t('form.placeholder.country')"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { useI18n } from "@prefabs.tech/vue3-i18n";
+          import { ref } from 'vue';
+
+          const { locale } = useI18n();
+
+          const groups = {
+            "North America": ["US", "CA"],
+            Europe: ["FR", "DE", "IT", "ES"],
           };
 
           const input = ref();
@@ -421,20 +522,20 @@
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">           
-          interface Locales {
-            [key: string]: Translation;
-          }
-
-          interface Translation {
-            [key: string]: string;
-          }
-
           type CountryPickerGroups = Record&lt;string, string&lbrack;&rbrack;&gt;;
+          type CountryPickerLocales = Record&lt;string, CountryPickerTranslation&gt;;
+          type CountryPickerTranslation = Record&lt;string, string&gt;;
 
-          Example locales: 
+          Example Locales: 
           { 
             en:{ "US": "USA" }, 
             fr: { "US": "États-Unis" } 
+          }
+
+          Example Groups:
+          {
+            "European Union": ["AT", "BE", "FR", "DE"],
+            "North America": ["US", "CA", "MX"]
           }
         </SshPre>
         <!-- eslint-enable -->
@@ -448,16 +549,24 @@ import { CountryPicker } from "@prefabs.tech/vue3-form";
 import { reactive } from "vue";
 import { useI18n } from "vue-i18n";
 
+import englishTranslation from "./en.json";
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
-import fr from "./fr.json";
-import th from "./th.json";
+import frenchTranslation from "./fr.json";
 
 const { locale, t } = useI18n();
 
 const locales = {
-  fr,
-  th,
+  en: {
+    ...englishTranslation,
+    ASEAN: "ASEAN",
+    EU: "European Union",
+  },
+  fr: {
+    ...frenchTranslation,
+    ASEAN: "ASEAN",
+    EU: "Union Européenne",
+  },
 };
 
 const propsData = [
@@ -541,7 +650,7 @@ const propsData = [
     default: "{ en: defaultEnCatalogue }",
     description: t("form.documentation.propsDescription.select.locales"),
     prop: "locales",
-    type: "Record<string, Record<string, string>>",
+    type: "CountryPickerLocales",
   },
   {
     default: "-",
@@ -579,18 +688,27 @@ const formData = reactive({
   excludedCountries: [],
   flags: undefined,
   groups: undefined,
+  groupsWithTranslations: undefined,
   includedCountries: [],
   multiselect: [] as string[],
 });
 
-const countryGroups = {
+const continentCountryGroups = {
+  "North America": ["US", "CA"],
+  Europe: ["FR", "DE", "IT", "ES"],
+};
+const excludedCountries = ["US", "AU", "QA", "IR", "CI", "CA"];
+const favoritesCountries = ["US", "AU", "QA", "IR", "CI", "CA", "NP", "IN"];
+const groups = {
   "North America HQ": ["US", "CA"],
   "Offshore Dev Center": ["IN", "VN", "PH"],
   "European Hubs": ["GB", "DE", "FR"],
 };
-const excludedCountries = ["US", "AU", "QA", "IR", "CI", "CA"];
-const favoritesCountries = ["US", "AU", "QA", "IR", "CI", "CA", "NP", "IN"];
 const includedCountries = ["US", "CA", "FR", "AU", "NP"];
+const regionalCountryGroups = {
+  EU: ["FR", "DE", "IT", "ES"],
+  ASEAN: ["VN", "TH", "SG"],
+};
 
 const slotsData = [
   {
