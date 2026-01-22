@@ -1,3 +1,18 @@
+# [0.29.0](https://github.com/prefabs-tech/vue/compare/v0.28.0...v0.29.0) (2026-01-22)
+
+
+### Bug Fixes
+
+* **user/store:** ensure signup function returns after setting user successfully ([#920](https://github.com/prefabs-tech/vue/issues/920)) ([1f13548](https://github.com/prefabs-tech/vue/commit/1f13548959f334dd50b3262df6629a3c9fe7b9a7))
+* **vue-i18n:** ensure preferred locale is set correctly when locale is not defined ([#919](https://github.com/prefabs-tech/vue/issues/919)) ([8abc701](https://github.com/prefabs-tech/vue/commit/8abc70167e4ba0c16d522a9611400bb57d4badf2))
+
+
+### Features
+
+* **form/country-picker:** add support to groups ([#921](https://github.com/prefabs-tech/vue/issues/921)) ([900f014](https://github.com/prefabs-tech/vue/commit/900f0148bd14180ee9aabb03010c7289339ebe73))
+
+
+
 # [0.28.0](https://github.com/prefabs-tech/vue/compare/v0.27.0...v0.28.0) (2026-01-15)
 
 ### Breaking Changes
