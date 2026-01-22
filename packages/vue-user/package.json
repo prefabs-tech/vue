@@ -31,8 +31,8 @@
     "supertokens-website": "16.0.1"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "0.2.0",
-    "@prefabs.tech/tsconfig": "0.2.0",
+    "@prefabs.tech/eslint-config": "0.2.1",
+    "@prefabs.tech/tsconfig": "0.2.1",
     "@prefabs.tech/vue3-config": "0.29.0",
     "@prefabs.tech/vue3-form": "0.29.0",
     "@prefabs.tech/vue3-i18n": "0.29.0",
