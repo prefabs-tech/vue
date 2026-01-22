@@ -78,7 +78,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
         <div
           class="locale truncated"
         >
-          English (US)
+          English
         </div>
         <span
           class="truncated"
@@ -105,7 +105,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
       >
         
         <li
-          class="truncated"
+          class="current truncated"
         >
           <div
             class="locale"

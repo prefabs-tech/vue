@@ -14,15 +14,15 @@ const createI18n = (options: DzangolabVueI18nPluginOptions): Plugin => {
 
   const { getLocale, setLocale } = useLocaleStore(slug);
 
-  const locale = getLocale();
+  let locale = getLocale();
 
   if (!locale) {
-    const preferred = getPreferredLocale(
+    locale = getPreferredLocale(
       navigator.languages,
       i18nOptions.supportedLocales,
     );
 
-    setLocale(preferred);
+    setLocale(locale);
   }
 
   const messages = prependMessages(
