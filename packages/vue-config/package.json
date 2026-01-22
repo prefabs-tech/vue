@@ -1,6 +1,6 @@
 {
   "name": "@prefabs.tech/vue3-config",
-  "version": "0.28.0",
+  "version": "0.29.0",
   "description": "Vue config plugin",
   "license": "MIT",
   "type": "module",
