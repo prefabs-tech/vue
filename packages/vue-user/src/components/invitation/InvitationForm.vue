@@ -1,5 +1,13 @@
 <template>
   <div class="invitation-form">
+    <Message
+      v-if="errorMessage"
+      :message="t(`user.invitation.errors.${errorMessage}`)"
+      enable-close
+      severity="danger"
+      @close="errorMessage = undefined"
+    />
+
     <Form @submit="onSubmit">
       <Email
         v-model="formData.email"
@@ -61,6 +69,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useConfig } from "@prefabs.tech/vue3-config";
 import {
   DatePicker,
   DaysInput,
@@ -70,16 +79,19 @@ import {
   SelectInput,
 } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Message } from "@prefabs.tech/vue3-ui";
 import { computed, ref } from "vue";
 import { z } from "zod";
 
-import { useTranslations } from "../../index";
+import { emitter, useTranslations } from "../../index";
+import useUserStore from "../../store";
 
 import type {
   InvitationAppOption,
   InvitationPayload,
   InvitationRoleOption,
 } from "../../types";
+import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { PropType } from "vue";
 
 const props = defineProps({
@@ -136,11 +148,17 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["cancel", "submit"]);
+const emit = defineEmits(["cancel", "submitted"]);
+
+const config = useConfig() as AppConfig;
 
 const messages = useTranslations();
 const { t } = useI18n({ messages });
 
+const userStore = useUserStore();
+const { addInvitation } = userStore;
+
+const errorMessage = ref<string>();
 const expiresAfter = ref<number>();
 const formData = ref<InvitationPayload>({} as InvitationPayload);
 
@@ -198,12 +216,32 @@ const onAppSelect = () => {
   formData.value.role = undefined;
 };
 
-const onSubmit = () => {
-  if (formData.value?.expiresAt) {
-    formData.value.expiresAt = new Date(formData.value.expiresAt).toISOString();
-  }
+const onSubmit = async () => {
+  try {
+    if (formData.value?.expiresAt) {
+      formData.value.expiresAt = new Date(
+        formData.value.expiresAt,
+      ).toISOString();
+    }
 
-  emit("submit", formData.value);
+    const response = await addInvitation(formData.value, config.apiBaseUrl);
+
+    if (!response) {
+      return;
+    }
+
+    emitter.emit("notify", {
+      text: t("user.invitation.messages.invite.success"),
+      type: "success",
+    });
+
+    emit("submitted");
+    // eslint-disable-next-line
+  } catch (error: any) {
+    const code = error?.response?.data?.code;
+
+    errorMessage.value = code ?? "SOMETHING_WRONG";
+  }
 };
 
 const prepareComponent = () => {

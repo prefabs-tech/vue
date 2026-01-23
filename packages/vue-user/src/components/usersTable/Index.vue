@@ -38,7 +38,7 @@
           :submit-label="submitLabel"
           :title="invitationModalTitle"
           @on:close="onCloseInvitation"
-          @submit="onSubmitInvitation"
+          @submitted="showModal = false"
         />
       </div>
     </template>
@@ -70,7 +70,6 @@ import InvitationModal from "../invitation/InvitationModal.vue";
 
 import type {
   InvitationAppOption,
-  InvitationPayload,
   InvitationRoleOption,
   UserType,
 } from "../../types";
@@ -91,7 +90,7 @@ const messages = useTranslations();
 const { locale, t } = useI18n({ messages });
 
 const userStore = useUserStore();
-const { addInvitation, disableUser, enableUser } = userStore;
+const { disableUser, enableUser } = userStore;
 
 const props = defineProps({
   apps: {
@@ -405,26 +404,6 @@ const onEnableUser = async (id: string) => {
         type: "error",
       });
     });
-};
-
-const onSubmitInvitation = async (formData: InvitationPayload) => {
-  await addInvitation(formData, config.apiBaseUrl)
-    .then((response) => {
-      if (response) {
-        emitter.emit("notify", {
-          text: t("user.invitation.messages.invite.success"),
-          type: "success",
-        });
-      }
-    })
-    .catch(() => {
-      emitter.emit("notify", {
-        text: t("user.invitation.messages.invite.error"),
-        type: "error",
-      });
-    });
-
-  showModal.value = false;
 };
 
 const onUpdateRequest = (invitationRequest: TRequestJSON) => {
