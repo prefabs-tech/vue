@@ -83,6 +83,7 @@ import { Message } from "@prefabs.tech/vue3-ui";
 import { computed, ref } from "vue";
 import { z } from "zod";
 
+import { ERROR_SOMETHING_WRONG } from "../../constant";
 import { emitter, useTranslations } from "../../index";
 import useUserStore from "../../store";
 
@@ -240,7 +241,7 @@ const onSubmit = async () => {
   } catch (error: any) {
     const code = error?.response?.data?.code;
 
-    errorMessage.value = code ?? "SOMETHING_WRONG";
+    errorMessage.value = code ?? ERROR_SOMETHING_WRONG;
   }
 };
 
