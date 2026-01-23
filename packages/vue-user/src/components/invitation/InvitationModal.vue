@@ -17,7 +17,7 @@
       :role-schema="roleSchema"
       :submit-label="submitLabel"
       @cancel="handleClose"
-      @submit="onSubmit"
+      @submitted="onSubmitted"
     />
   </Modal>
 </template>
@@ -97,14 +97,14 @@ defineProps({
   },
 });
 
-const emit = defineEmits(["on:close", "submit"]);
+const emit = defineEmits(["on:close", "submitted"]);
 
 const handleClose = () => {
   emit("on:close");
 };
 
-const onSubmit = (data: InvitationPayload) => {
-  emit("submit", data);
+const onSubmitted = () => {
+  emit("submitted");
 };
 </script>
 

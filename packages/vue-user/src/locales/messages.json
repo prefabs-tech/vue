@@ -132,6 +132,14 @@
         }
       },
       "invitation": {
+        "errors": {
+          "INVALID_EMAIL_ERROR": "The provided email is invalid.",
+          "INVITATION_ALREADY_EXISTS_ERROR": "Invitation already exists for this email.",
+          "ROLE_NOT_FOUND_ERROR": "Role {role} does not exist",
+          "ROLE_NOT_SUPPORTED_ERROR": "App {app} does not support role USER.",
+          "SOMETHING_WRONG": "Something went wrong. Please try again.",
+          "USER_ALREADY_EXISTS_ERROR": "User with email {email} already exists"
+        },
         "form": {
           "app": {
             "label": "App",
@@ -637,6 +645,14 @@
         }
       },
       "invitation": {
+        "errors": {
+          "INVALID_EMAIL_ERROR": "The provided email is invalid[fr].",
+          "INVITATION_ALREADY_EXISTS_ERROR": "Invitation already exists for this email[fr].",
+          "ROLE_NOT_FOUND_ERROR": "Role {role} does not exist.[fr]",
+          "ROLE_NOT_SUPPORTED_ERROR": "App {app} does not support role USER.[fr].",
+          "SOMETHING_WRONG": "Something went wrong. Please try again[fr].",
+          "USER_ALREADY_EXISTS_ERROR": "User with email {email} already exists[fr]."
+        },
         "form": {
           "app": {
             "label": "App",
