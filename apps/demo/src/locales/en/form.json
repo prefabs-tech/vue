@@ -13,16 +13,22 @@
         "groups": "An object to organize countries into specific categories (e.g., EU, ASEAN)",
         "hasSortedOptions":"By default, options are sorted alphabetically. If false, countries are sorted by priority in the order groups → favorites → include → fallback-locale translations, preserving the defined order."
       },
+      "datePicker": {
+        "autoApply": "Automatically apply date selection without needing confirm button",
+        "enableTimePicker": "Enable time selection in addition to date selection",
+        "format": "Custom date format string (e.g: format=\"yyyy/MM/dd\")",
+        "teleport": "Teleport the date picker dropdown to a specific element"
+      },
       "input": {
-        "disabled": "If true, the input will be disabled and non-interactive.",
-        "errorMessages": "Custom error messages for validation.",
-        "label": "Text label to display above the input field.",
-        "modelValue": "The current value of the input (v-model support).",
-        "name": "Name attribute for the input field and validation.",
-        "options": "Options for input validation using validator.js.",
-        "placeholder": "Placeholder text for the input field.",
-        "schema": "Custom Zod schema for validation.",
-        "type": "HTML input type (text, password, email, etc.)."
+        "disabled": "If true, the input will be disabled and non-interactive",
+        "errorMessages": "Custom error messages for validation",
+        "label": "Text label to display above the input field",
+        "modelValue": "The current value of the input (v-model support)",
+        "name": "Name attribute for the input field and validation",
+        "options": "Options for input validation using validator.js",
+        "placeholder": "Placeholder text for the input field",
+        "schema": "Custom Zod schema for validation",
+        "type": "HTML input type (text, password, email, etc.)"
       },
       "select": {
         "countryCode": "The ISO country code to display (e.g., 'US', 'GB')",
@@ -283,6 +289,7 @@
     "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
     "country": "Country shows the selected country with internationalization support.",
     "countryPicker": "Country picker is a reusable component for selecting single or multiple countries with internationalization support and search functionality.",
+    "datePicker": "The date picker component is a customizable date selection component with time selection and form validation support",
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
     "input": "A versatile form input component with validation support using Zod and vee-validate",
     "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",

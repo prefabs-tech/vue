@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.datePicker')" class="demo">
+  <FormPage
+    :subtitle="$t('form.subtitle.datePicker')"
+    :title="$t('form.label.datePicker')"
+    class="demo"
+  >
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -449,6 +453,14 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'DatePickerProperties' })
+      "
+    />
   </FormPage>
 </template>
 
@@ -464,6 +476,7 @@ import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
@@ -474,6 +487,80 @@ const inputSchema = z
 
 const startDate = new Date();
 const endDate = startDate;
+
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload:
+      "date: string | string[] | number | number[] | Date | Date[] | MonthPickerValue",
+  },
+];
+
+const propsData = [
+  {
+    default: "true",
+    description: t("form.documentation.propsDescription.datePicker.autoApply"),
+    prop: "autoApply",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: t(
+      "form.documentation.propsDescription.datePicker.enableTimePicker",
+    ),
+    prop: "enableTimePicker",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.datePicker.format"),
+    prop: "format",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "Date | Date[] | MonthPickerValue | number | number[] | string | string[] | null",
+  },
+  {
+    default: '"date"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "Object (z.ZodType)",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.datePicker.teleport"),
+    prop: "teleport",
+    type: "Boolean | String",
+  },
+];
 
 let formData = reactive({
   appointmentDate: ref(startDate),
