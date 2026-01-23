@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Country > matches snapshot 1`] = `
+<div
+  class="country-display"
+  data-country-code="FR"
+>
+  
+  <div
+    class="country-content"
+  >
+    
+    <span
+      class="flag-icon flag-icon-fr"
+    />
+    
+    <span
+      class="country-label"
+    >
+      France
+    </span>
+  </div>
+  
+</div>
+`;

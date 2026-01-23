@@ -1,0 +1,69 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CountryPicker > matches snapshot 1`] = `
+<div
+  class="country-picker"
+>
+  <div
+    class="field country form-select"
+    locale="en"
+  >
+    <!--v-if-->
+    
+    <div
+      class="multiselect"
+      id="input-field-country"
+      name="country"
+      tabindex="0"
+    >
+      <!--v-if-->
+      <div
+        class="multiselect-input"
+      >
+        <div
+          class="field debounce-input multiselect-search"
+        >
+          <input
+            aria-label="input"
+            class="input-field"
+            placeholder="Search..."
+            type="text"
+            value=""
+          />
+        </div>
+        <span
+          class="action-items"
+        >
+          <!--v-if-->
+          <svg
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              id="Complete"
+            >
+              <g
+                id="F-Chevron"
+              >
+                <polyline
+                  fill="none"
+                  id="down"
+                  points="5 8.5 12 15.5 19 8.5"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+      </div>
+      <!--teleport start-->
+      <!--teleport end-->
+    </div>
+    <!---->
+    
+  </div>
+</div>
+`;
