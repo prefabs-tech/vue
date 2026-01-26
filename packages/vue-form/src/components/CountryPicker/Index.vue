@@ -43,6 +43,8 @@ import { computed } from "vue";
 import {
   getFallbackTranslation,
   getFlagClass as getCountryFlagClass,
+  getLabel as getCountryLabel,
+  sortByLabel,
 } from "../../utils/country-picker";
 import SelectInput from "../SelectInput.vue";
 
@@ -227,9 +229,7 @@ const options = computed<Options>(() =>
 );
 
 const getLabel = (code: string) =>
-  props.locales[props.locale]?.[code] ??
-  fallbackTranslation.value[code] ??
-  code;
+  getCountryLabel(code, props.locale, props.locales, fallbackTranslation.value);
 
 const getFlagClass = (code?: string) =>
   getCountryFlagClass(code, props.flagsPosition, props.flagsStyle);
@@ -243,11 +243,6 @@ const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? Array.from(new Set(value)) : value;
   emit("update:modelValue", output);
 };
-
-const sortByLabel = (
-  optionA: SelectOption | OptionGroup,
-  optionB: SelectOption | OptionGroup,
-) => (optionA.label ?? "").localeCompare(optionB.label ?? "");
 </script>
 
 <style lang="css">

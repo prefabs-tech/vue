@@ -23,7 +23,10 @@ import { computed, type PropType } from "vue";
 import {
   getFallbackTranslation,
   getFlagClass as getCountryFlagClass,
+  getLabel,
 } from "../utils/country-picker";
+
+import type { CountryPickerTranslation } from "../types";
 
 type I18nConfigData = Record<string, Record<string, string>>;
 
@@ -72,7 +75,7 @@ const countryLabel = computed(() => {
   const code = countryCode.value;
 
   if (!code) {
-    return;
+    return "";
   }
 
   const fallbackTranslation = getFallbackTranslation(
@@ -81,7 +84,12 @@ const countryLabel = computed(() => {
   );
 
   return (
-    props.locales?.[props.locale]?.[code] || fallbackTranslation?.[code] || code
+    (getLabel(
+      code,
+      props.locale,
+      props.locales,
+      fallbackTranslation as CountryPickerTranslation,
+    ) as string) || ""
   );
 });
 
