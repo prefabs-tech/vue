@@ -350,6 +350,8 @@ onClickOutside(dzangolabVueFormSelect, (event) => {
 
   showDropdownMenu.value = false;
   searchInput.value = undefined;
+
+  emit("update:searchInput", searchInput.value);
 });
 
 const activeOptions = computed(() =>
