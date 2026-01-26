@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.daysInput')" class="demo">
+  <FormPage
+    :subtitle="$t('form.subtitle.daysInput')"
+    :title="$t('form.label.daysInput')"
+    class="demo"
+  >
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -150,7 +154,7 @@
             /&gt;
           &lt;/Form&gt;
           &lt;div
-            v-if="result && result &gt; 0 && result &lt;= 365"
+            v-if="result &gt; 0 &amp;&amp; result &lt;= 365"
             class="result-date"
           &gt;
             &lbrace;&lbrace; result &rbrace;&rbrace;
@@ -173,6 +177,14 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'DaysInputProperties' })
+      "
+    />
   </FormPage>
 </template>
 
@@ -188,6 +200,7 @@ import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
@@ -196,6 +209,58 @@ const inputSchema = z.coerce
   .number({ invalid_type_error: t("form.errors.number.required") })
   .min(1, { message: t("form.errors.daysInput.invalid") })
   .max(365, { message: t("form.errors.daysInput.invalid") });
+
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.daysInput.date"),
+    name: "update:date",
+    payload: "date: string",
+  },
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "value: number",
+  },
+];
+
+const propsData = [
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "Number | Null | Undefined",
+  },
+  {
+    default: '"days-input"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "z.coerce.number().optional()",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number>",
+  },
+];
 
 const result = reactive({
   basic: ref(),
