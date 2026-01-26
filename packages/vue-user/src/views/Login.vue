@@ -157,21 +157,19 @@ const prepareComponent = async () => {
   loading.value = true;
 
   try {
-    const response = await getIsFirstUser(config.apiBaseUrl);
-
     const userRoutes = config?.user?.routes;
     const firstUserSignupEnabled =
       userRoutes?.signup?.disabled && !userRoutes?.signupFirstUser?.disabled;
 
-    if (
-      response?.signUp &&
-      firstUserSignupEnabled &&
-      router.hasRoute("signupFirstUser")
-    ) {
+    if (!firstUserSignupEnabled) {
+      return;
+    }
+
+    const response = await getIsFirstUser(config.apiBaseUrl);
+
+    if (response?.signUp && router.hasRoute("signupFirstUser")) {
       router.push({ name: "signupFirstUser" });
     }
-  } catch {
-    // Do nothing
   } finally {
     loading.value = false;
   }
