@@ -1,9 +1,16 @@
 import { describe, expect, test } from "vitest";
 
 import defaultEnglishTranslation from "../../../components/CountryPicker/en.json";
-import { getFallbackTranslation, getFlagClass } from "../../country-picker";
+import { getFallbackTranslation, getFlagClass, getLabel, sortByLabel } from "../../country-picker";
 
-import type { CountryPickerLocales } from "../../../types";
+import type { CountryPickerLocales, GroupedOption as OptionGroup, SelectOption } from "../../../types";
+
+const fallbackTranslation = {
+  US: "United States",
+  FR: "France",
+  DE: "Germany",
+  JP: "Japan",
+};
 
 const frenchTranslation = {
   DE: "Allemagne",
@@ -43,58 +50,58 @@ const customEnglishTranslation = { FR: "France" };
 describe("getFallbackTranslation", () => {
   const testCases = [
     {
-      data: {
+      arguments: {
         fallbackLocale: "fr",
         locales: locales,
       },
+      name: "Should return translation from locales if fallbackLocale exists in it",
       result: frenchTranslation,
-      title: "Should return translation from locales if fallbackLocale exists in it",
     },
     {
-      data: {
+      arguments: {
         fallbackLocale: "en",
         locales: {},
       },
+      name: "Should return defaultEnglishTranslation if fallbackLocale is 'en' and not in locales",
       result: defaultEnglishTranslation,
-      title: "Should return defaultEnglishTranslation if fallbackLocale is 'en' and not in locales",
     },
     {
-      data: {
+      arguments: {
         fallbackLocale: "en",
         locales: { en: customEnglishTranslation },
       },
+      name: "Should prioritize locales['en'] over defaultEnglishTranslation if provided",
       result: customEnglishTranslation,
-      title: "Should prioritize locales['en'] over defaultEnglishTranslation if provided",
     },
     {
-      data: {
+      arguments: {
         fallbackLocale: "de",
         locales: locales,
       },
+      name: "Should return null if fallbackLocale is not found and is not 'en'",
       result: null,
-      title: "Should return null if fallbackLocale is not found and is not 'en'",
     },
     {
-      data: {
+      arguments: {
         fallbackLocale: "fr",
         locales: undefined,
       },
+      name: "Should handle undefined locales gracefully",
       result: null,
-      title: "Should handle undefined locales gracefully",
     },
     {
-      data: {
+      arguments: {
         fallbackLocale: "en",
         locales: undefined,
       },
+      name: "Should return defaultEnglishTranslation when locales is undefined but fallback is 'en'",
       result: defaultEnglishTranslation,
-      title: "Should return defaultEnglishTranslation when locales is undefined but fallback is 'en'",
     },
   ];
 
   testCases.map((testCase) => {
-    test(testCase.title, () => {
-      const { fallbackLocale, locales } = testCase.data;
+    test(testCase.name, () => {
+      const { fallbackLocale, locales } = testCase.arguments;
 
       const result = getFallbackTranslation(
         fallbackLocale,
@@ -109,52 +116,189 @@ describe("getFallbackTranslation", () => {
 describe("getFlagClass", () => {
   const testCases = [
     {
-      data: { code: "US", position: "left", style: "normal" },
+      arguments: { code: "US", position: "left", style: "normal" },
+      name: "Should generate basic class with code only",
       result: "flag-icon flag-icon-us",
-      title: "Should generate basic class with code only",
     },
     {
-      data: { code: "  GB  ", position: "left", style: "normal" },
+      arguments: { code: "  GB  ", position: "left", style: "normal" },
+      name: "Should handle lowercase and trimming of country code",
       result: "flag-icon flag-icon-gb",
-      title: "Should handle lowercase and trimming of country code",
     },
     {
-      data: { code: "fr", position: "right", style: "normal" },
+      arguments: { code: "fr", position: "right", style: "normal" },
+      name: "Should add 'flag-icon-right' when position is 'right'",
       result: "flag-icon flag-icon-fr flag-icon-right",
-      title: "Should add 'flag-icon-right' when position is 'right'",
     },
     {
-      data: { code: "fr", position: "right-edge", style: "normal" },
+      arguments: { code: "fr", position: "right-edge", style: "normal" },
+      name: "Should add 'flag-icon-right-edge' when position is 'right-edge'",
       result: "flag-icon flag-icon-fr flag-icon-right-edge",
-      title: "Should add 'flag-icon-right-edge' when position is 'right-edge'",
     },
     {
-      data: { code: "jp", position: "left", style: "circle" },
+      arguments: { code: "jp", position: "left", style: "circle" },
+      name: "Should add 'flag-icon-rounded' when style is 'circle'",
       result: "flag-icon flag-icon-jp flag-icon-rounded",
-      title: "Should add 'flag-icon-rounded' when style is 'circle'",
     },
     {
-      data: { code: "jp", position: "left", style: "square" },
+      arguments: { code: "jp", position: "left", style: "square" },
+      name: "Should add 'flag-icon-squared' when style is 'square'",
       result: "flag-icon flag-icon-jp flag-icon-squared",
-      title: "Should add 'flag-icon-squared' when style is 'square'",
     },
     {
-      data: { code: "ca", position: "right", style: "circle" },
+      arguments: { code: "ca", position: "right", style: "circle" },
+      name: "Should combine multiple classes correctly",
       result: "flag-icon flag-icon-ca flag-icon-right flag-icon-rounded",
-      title: "Should combine multiple classes correctly",
     },
     {
-      data: { code: undefined, position: "left", style: "normal" },
+      arguments: { code: undefined, position: "left", style: "normal" },
+      name: "Should handle undefined code gracefully",
       result: "flag-icon",
-      title: "Should handle undefined code gracefully",
     },
   ];
 
   testCases.map((testCase) => {
-    test(testCase.title, () => {
-      const { code, position, style } = testCase.data;
+    test(testCase.name, () => {
+      const { code, position, style } = testCase.arguments;
 
       const result = getFlagClass(code, position, style);
+
+      expect(result).toBe(testCase.result);
+    });
+  });
+});
+
+describe("getLabel", () => {
+  const testCases = [
+    {
+      arguments: {
+        code: "FR",
+        fallbackTranslation: fallbackTranslation,
+        locale: "es",
+        locales: locales,
+      },
+      name: "Should return translation from locales if available (ES -> FR)",
+      result: "Francia",
+    },
+    {
+      arguments: {
+        code: "DE",
+        fallbackTranslation: fallbackTranslation,
+        locale: "it",
+        locales: locales,
+      },
+      name: "Should return fallback translation if locale is missing in locales",
+      result: "Germany",
+    },
+    {
+      arguments: {
+        code: "JP",
+        fallbackTranslation: fallbackTranslation,
+        locale: "fr",
+        locales: { fr: { FR: "France" } },
+      },
+      name: "Should return fallback translation if code is missing in specific locale",
+      result: "Japan",
+    },
+    {
+      arguments: {
+        code: "ZZ",
+        fallbackTranslation: fallbackTranslation,
+        locale: "fr",
+        locales: locales,
+      },
+      name: "Should return the raw code if found nowhere",
+      result: "ZZ",
+    },
+    {
+      arguments: {
+        code: "US",
+        fallbackTranslation: fallbackTranslation,
+        locale: "fr",
+        locales: undefined,
+      },
+      name: "Should handle undefined locales gracefully",
+      result: "United States",
+    },
+    {
+      arguments: {
+        code: "ZZ",
+        fallbackTranslation: fallbackTranslation,
+        locale: "en",
+        locales: undefined,
+      },
+      name: "Should return code if locales is undefined and fallback is missing code",
+      result: "ZZ",
+    },
+  ];
+
+  testCases.map((testCase) => {
+    const { code, locale, locales, fallbackTranslation } = testCase.arguments;
+
+    test(testCase.name, () => {
+      const result = getLabel(code, locale, locales, fallbackTranslation);
+
+      expect(result).toBe(testCase.result);
+    });
+  });
+});
+
+describe("sortByLabel", () => {
+  const selectOptions = [
+    { label: "France", value: "FR" },
+    { label: "Nepal", value: "NP" },
+    { label: "Thailand", value: "TH" },
+    { label: "", value: "ZZ" },
+  ] as SelectOption[];
+
+  const testCases = [
+    {
+      arguments: {
+        optionA: selectOptions[0],
+        optionB: selectOptions[1],
+      },
+      name: "Should return negative number when Option A comes alphabetically before Option B",
+      result: -1,
+    },
+    {
+      arguments: {
+        optionA: selectOptions[1],
+        optionB: selectOptions[0],
+      },
+      name: "Should return positive number when Option A comes alphabetically after Option B",
+      result: 1,
+    },
+    {
+      arguments: {
+        optionA: selectOptions[0],
+        optionB: selectOptions[0],
+      },
+      name: "Should return 0 when labels are identical",
+      result: 0,
+    },
+    {
+      arguments: {
+        optionA: selectOptions[3],
+        optionB: selectOptions[0],
+      },
+      name: "Should return negative if Option A has no label",
+      result: -1,
+    },
+    {
+      arguments: {
+        optionA: selectOptions[0],
+        optionB: selectOptions[3],
+      },
+      name: "Should return positive if Option B has no label",
+      result: 1,
+    },
+  ];
+
+  testCases.map((testCase) => {
+    const { optionA, optionB } = testCase.arguments;
+
+    test(testCase.name, () => {
+      const result = sortByLabel(optionA, optionB);
 
       expect(result).toBe(testCase.result);
     });

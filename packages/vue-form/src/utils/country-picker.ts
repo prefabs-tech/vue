@@ -2,9 +2,11 @@ import defaultEnglishCatalogue from "../components/CountryPicker/en.json";
 
 import type { CountryPickerLocales, CountryPickerTranslation } from "../types";
 
+import type { GroupedOption as OptionGroup, SelectOption } from "../types";
+
 export const getFallbackTranslation = (
   fallbackLocale: string,
-  locales: CountryPickerLocales | undefined,
+  locales: CountryPickerLocales | undefined
 ): CountryPickerTranslation | null => {
   if (locales?.[fallbackLocale]) {
     return locales[fallbackLocale];
@@ -20,7 +22,7 @@ export const getFallbackTranslation = (
 export const getFlagClass = (
   code: string | undefined,
   position: string,
-  style: string,
+  style: string
 ) =>
   [
     "flag-icon",
@@ -32,3 +34,17 @@ export const getFlagClass = (
   ]
     .filter(Boolean)
     .join(" ");
+
+export const getLabel = (
+  code: string,
+  locale: string,
+  locales: CountryPickerLocales | undefined,
+  fallbackTranslation: CountryPickerTranslation
+) => {
+  return locales?.[locale]?.[code] || fallbackTranslation[code] || code;
+};
+
+export const sortByLabel = (
+  optionA: SelectOption | OptionGroup,
+  optionB: SelectOption | OptionGroup
+) => (optionA.label ?? "").localeCompare(optionB.label ?? "");
