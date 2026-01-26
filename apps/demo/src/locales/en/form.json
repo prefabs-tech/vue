@@ -4,6 +4,9 @@
   },
   "documentation": {
     "eventDescription": {
+      "daysInput": {
+        "date": "Emitted when a new date is calculated based on the number of days entered"
+      },
       "input": {
         "modelValue": "Emitted when the input value changes (v-model support)."
       }
@@ -290,6 +293,7 @@
     "country": "Country shows the selected country with internationalization support.",
     "countryPicker": "Country picker is a reusable component for selecting single or multiple countries with internationalization support and search functionality.",
     "datePicker": "The date picker component is a customizable date selection component with time selection and form validation support",
+    "daysInput": "The days input component is a form input field that that calculates dates based on the number of days entered.",
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
     "input": "A versatile form input component with validation support using Zod and vee-validate",
     "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",

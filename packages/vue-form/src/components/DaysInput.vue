@@ -38,7 +38,7 @@ const props = defineProps({
     type: Number as PropType<number | null | undefined>,
   },
   name: {
-    default: "number",
+    default: "days-input",
     required: false,
     type: String as PropType<string>,
   },
