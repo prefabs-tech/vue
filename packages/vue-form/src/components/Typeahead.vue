@@ -107,7 +107,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 const dzangolabVueFormTypeahead = ref(null);
 
-const inputValue = ref(props.modelValue);
+const inputValue = ref<string | number | null | undefined>(props.modelValue);
 
 const showSuggestions = ref<boolean>(false);
 
