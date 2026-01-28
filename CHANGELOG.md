@@ -1,3 +1,12 @@
+## [0.29.1](https://github.com/prefabs-tech/vue/compare/v0.29.0...v0.29.1) (2026-01-28)
+
+
+### Bug Fixes
+
+* **user/invitation:** handle invitation submission from form and display accurate error messages ([#928](https://github.com/prefabs-tech/vue/issues/928)) ([c58a8a4](https://github.com/prefabs-tech/vue/commit/c58a8a4ca53f3076b09bad2922351fe739656e26))
+
+
+
 # [0.29.0](https://github.com/prefabs-tech/vue/compare/v0.28.0...v0.29.0) (2026-01-22)
 
 
