@@ -168,10 +168,30 @@ const favoriteOptions = computed<SelectOption[]>(() => {
 });
 
 const fullList = computed<Options>(() => {
-  if (!Object.keys(props.groups)?.length) {
-    const codes = props.include.length
-      ? props.include
-      : Object.keys(fallbackTranslation.value);
+  if (Object.keys(props.groups)?.length) {
+    const options = Object.entries(props.groups).map(([groupCode, codes]) => {
+      const countries = codes.map(getNormalizedOption);
+
+      if (props.hasSortedOptions) {
+        countries.sort(sortByLabel);
+      }
+
+      return {
+        label: getLabel(groupCode),
+        options: countries,
+      };
+    });
+
+    if (props.hasSortedOptions) {
+      options.sort(sortByLabel);
+    }
+
+    return options as Options;
+  } else {
+    const codes =
+      props.include.length > 0
+        ? props.include
+        : Object.keys(fallbackTranslation.value);
 
     const options = codes
       .filter((code) => {
@@ -191,33 +211,14 @@ const fullList = computed<Options>(() => {
       options.sort(sortByLabel);
     }
 
-    return props.favorites.length
+    return props.favorites.length > 0
       ? [{ label: props.labels.allCountries, options }]
       : options;
-  } else {
-    const options = Object.entries(props.groups).map(([groupCode, codes]) => {
-      const countries = codes.map(getNormalizedOption);
-
-      if (props.hasSortedOptions) {
-        countries.sort(sortByLabel);
-      }
-
-      return {
-        label: getLabel(groupCode),
-        options: countries,
-      };
-    });
-
-    if (props.hasSortedOptions) {
-      options.sort(sortByLabel);
-    }
-
-    return options as Options;
   }
 });
 
 const options = computed<Options>(() =>
-  favoriteOptions.value.length
+  favoriteOptions.value.length > 0
     ? ([
         {
           label: props.labels.favorites,
@@ -240,7 +241,7 @@ const getNormalizedOption = (code: string): SelectOption => ({
 });
 
 const onUpdateModelValue = (value: string | string[] | undefined) => {
-  const output = Array.isArray(value) ? Array.from(new Set(value)) : value;
+  const output = Array.isArray(value) ? [...new Set(value)] : value;
   emit("update:modelValue", output);
 };
 </script>

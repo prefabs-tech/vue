@@ -87,9 +87,8 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema = Object.keys(props.schema).length
-  ? toTypedSchema(props.schema)
-  : null;
+const fieldSchema =
+  Object.keys(props.schema).length > 0 ? toTypedSchema(props.schema) : null;
 
 const onChange = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;

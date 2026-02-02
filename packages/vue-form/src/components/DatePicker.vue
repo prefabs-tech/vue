@@ -16,7 +16,8 @@
         :class="[
           {
             invalid: meta.touched && !meta.valid,
-            valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
+            valid:
+              meta.dirty && meta.valid && Object.keys(props.schema).length > 0,
           },
         ]"
         :disabled="disabled"
@@ -115,9 +116,8 @@ const dzangolabVueDatePicker = ref();
 
 const attributes = useAttrs();
 
-const fieldSchema = Object.keys(props.schema).length
-  ? toFieldValidator(props.schema)
-  : null;
+const fieldSchema =
+  Object.keys(props.schema).length > 0 ? toFieldValidator(props.schema) : null;
 
 const filteredAttributes = computed(() => {
   const { class: _, ...rest } = attributes;

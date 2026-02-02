@@ -16,10 +16,11 @@ const schema = (
     .refine(
       (value) => {
         if (options?.required) {
-          return !validator.isEmpty(
-            value,
-            { ignore_whitespace: options?.ignore_whitespace } || {},
-          );
+          return !validator.isEmpty(value, {
+            ...(options?.ignore_whitespace !== undefined && {
+              ignore_whitespace: options.ignore_whitespace,
+            }),
+          });
         }
 
         return true;

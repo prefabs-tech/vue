@@ -7,8 +7,8 @@ describe("Country", () => {
   it("matches snapshot", async () => {
     const wrapper = mount(Country, {
       props: {
-        code: "FR"
-      }
+        code: "FR",
+      },
     });
 
     expect(wrapper.element).toMatchSnapshot();
