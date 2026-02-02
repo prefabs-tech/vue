@@ -168,26 +168,7 @@ const favoriteOptions = computed<SelectOption[]>(() => {
 });
 
 const fullList = computed<Options>(() => {
-  if (Object.keys(props.groups)?.length) {
-    const options = Object.entries(props.groups).map(([groupCode, codes]) => {
-      const countries = codes.map(getNormalizedOption);
-
-      if (props.hasSortedOptions) {
-        countries.sort(sortByLabel);
-      }
-
-      return {
-        label: getLabel(groupCode),
-        options: countries,
-      };
-    });
-
-    if (props.hasSortedOptions) {
-      options.sort(sortByLabel);
-    }
-
-    return options as Options;
-  } else {
+  if (!Object.keys(props.groups)?.length) {
     const codes =
       props.include.length > 0
         ? props.include
@@ -214,6 +195,25 @@ const fullList = computed<Options>(() => {
     return props.favorites.length > 0
       ? [{ label: props.labels.allCountries, options }]
       : options;
+  } else {
+    const options = Object.entries(props.groups).map(([groupCode, codes]) => {
+      const countries = codes.map(getNormalizedOption);
+
+      if (props.hasSortedOptions) {
+        countries.sort(sortByLabel);
+      }
+
+      return {
+        label: getLabel(groupCode),
+        options: countries,
+      };
+    });
+
+    if (props.hasSortedOptions) {
+      options.sort(sortByLabel);
+    }
+
+    return options as Options;
   }
 });
 
