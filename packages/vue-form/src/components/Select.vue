@@ -430,7 +430,7 @@ const sortedOptions = computed(() => {
     String(optionA.groupLabel).localeCompare(String(optionB.groupLabel)) ||
     compareLabels(optionA, optionB);
 
-  return [...options].sort(hasGroups ? compareGrouped : compareLabels);
+  return options.toSorted(hasGroups ? compareGrouped : compareLabels);
 });
 
 watch(
