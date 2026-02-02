@@ -43,7 +43,7 @@ export type FilterOption = {
   value: boolean | number | string;
 };
 
-type TFilterRequest =
+export type TFilterRequest =
   | TSingleFilter
   | {
     AND: TFilterRequest[];
@@ -53,22 +53,22 @@ type TFilterRequest =
   }
   | null;
 
-type TLimit = number | null;
+export type TLimit = number | null;
 
-type TOffset = number | null;
+export type TOffset = number | null;
 
-type TSingleFilter = {
+export type TSingleFilter = {
   key: string;
   operator: string;
   value: string;
 };
 
-type TSingleSort = {
+export type TSingleSort = {
   key: string;
   direction: TSortDirection;
 };
 
-type TSortRequest = TSingleSort[] | null;
+export type TSortRequest = TSingleSort[] | null;
 
 
 export type CellAlignmentType = "left" | "center" | "right";
