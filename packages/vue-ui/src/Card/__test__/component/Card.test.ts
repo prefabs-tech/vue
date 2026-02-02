@@ -5,7 +5,7 @@ import Card from "../../Index.vue";
 
 describe("Card", () => {
   const propsData = {
-    title: "Test card title"
+    title: "Test card title",
   };
 
   const getWrapper = (props = {}, slots = {}) => {
@@ -25,11 +25,11 @@ describe("Card", () => {
     const slotData = {
       default: "This is test card content.",
       header: `<h3 class="header">Test header</h3>`,
-      footer: "Footer content"
+      footer: "Footer content",
     };
 
     const wrapper = getWrapper({}, slotData);
-    
+
     expect(wrapper.find(".card>header").html()).toContain(slotData.header);
     expect(wrapper.find(".card>.card-body").html()).toContain(slotData.default);
     expect(wrapper.find(".card>footer").html()).toContain(slotData.footer);
@@ -41,20 +41,20 @@ describe("Card", () => {
     };
 
     const wrapper = getWrapper(propsData, slotData);
-    
-    expect(wrapper.find(".card>header>h3.card-title").exists()).toBeFalsy;
+
+    expect(wrapper.find(".card>header>h3.card-title").exists()).toBeFalsy();
     expect(wrapper.find(".card>header").html()).toContain(slotData.header);
   });
 
   it("should not render header if title and header slot are missing", () => {
     const cardWrapper = getWrapper();
-    
-    expect(cardWrapper.find("header").exists()).toBeFalsy;
+
+    expect(cardWrapper.find("header").exists()).toBeFalsy();
   });
 
   it("should not render footer if footer slot are missing", () => {
     const cardWrapper = getWrapper();
-    
-    expect(cardWrapper.find("footer").exists()).toBeFalsy;
+
+    expect(cardWrapper.find("footer").exists()).toBeFalsy();
   });
 });

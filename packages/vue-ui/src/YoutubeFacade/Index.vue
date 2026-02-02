@@ -92,7 +92,7 @@ const loadYoutubeVideo = (event: Event) => {
   const parentNode = currentTarget.parentNode;
 
   if (parentNode) {
-    parentNode.replaceChild(iFrame, currentTarget);
+    currentTarget.replaceWith(iFrame);
   }
 };
 

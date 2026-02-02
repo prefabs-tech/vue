@@ -32,6 +32,7 @@
     "@sentry/vue": "9.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "9.39.2",
     "@prefabs.tech/eslint-config": "0.2.1",
     "@prefabs.tech/tsconfig": "0.2.1",
     "@types/node": "22.13.5",
@@ -46,8 +47,8 @@
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-prettier": "5.5.5",
-    "eslint-plugin-unicorn": "56.0.1",
-    "eslint-plugin-vue": "9.32.0",
+    "eslint-plugin-unicorn": "62.0.0",
+    "eslint-plugin-vue": "10.7.0",
     "prettier": "3.8.1",
     "typescript": "5.7.3",
     "vite": "6.1.1",

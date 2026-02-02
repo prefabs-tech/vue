@@ -86,9 +86,9 @@ const hasContentSlot = computed(() => !!slots.content);
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", hideTooltip);
-  scrollListeners.value.forEach(({ element, listener }) => {
+  for (const { element, listener } of scrollListeners.value) {
     element.removeEventListener("scroll", listener);
-  });
+  }
   scrollListeners.value = [];
 });
 
@@ -157,29 +157,33 @@ const updatePosition = () => {
     triggerRect.top + triggerRect.height / 2 - contentRect.height / 2;
 
   switch (position) {
-    case "top":
+    case "top": {
       top = fitsAbove
         ? triggerRect.top - contentRect.height - props.offset
         : triggerRect.bottom + props.offset;
       left = horizontalCenter;
       break;
+    }
 
-    case "bottom":
+    case "bottom": {
       top = fitsBelow
         ? triggerRect.bottom + props.offset
         : triggerRect.top - contentRect.height - props.offset;
       left = horizontalCenter;
       break;
+    }
 
-    case "left":
+    case "left": {
       left = triggerRect.left - contentRect.width - props.offset;
       top = verticalCenter;
       break;
+    }
 
-    case "right":
+    case "right": {
       left = triggerRect.left + triggerRect.width + props.offset;
       top = verticalCenter;
       break;
+    }
   }
 
   const spaceBelow = windowHeight.value - (top + contentRect.height);
@@ -210,7 +214,7 @@ onMounted(() => {
   window.addEventListener("resize", hideTooltip);
   if (dzangolabVueUITooltip.value) {
     const parents = getScrollableParents(dzangolabVueUITooltip.value);
-    parents.forEach((parent) => {
+    for (const parent of parents) {
       const listener = () => {
         isTriggerClicked.value = false;
 
@@ -218,7 +222,7 @@ onMounted(() => {
       };
       parent.addEventListener("scroll", listener);
       scrollListeners.value.push({ element: parent, listener });
-    });
+    }
   }
 });
 </script>

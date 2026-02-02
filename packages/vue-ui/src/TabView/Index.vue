@@ -59,7 +59,7 @@ export default {
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, useSlots, watch } from "vue";
 
-import { getOrientation } from "./utils";
+import { getOrientation } from "./utilities";
 import { getStorage } from "../utils";
 
 import type { Tab } from "./types";
@@ -221,15 +221,12 @@ watch([visibleTabs, activeTab], () => {
 const isActive = (key: string) => activeTab.value === key;
 
 const closeTab = (key: string) => {
-  const tabIndex = visibleTabs.value.findIndex((tab) => tab === key);
+  const tabIndex = visibleTabs.value.indexOf(key);
   const newVisibleTabs = visibleTabs.value.filter((tab) => tab !== key);
 
   let newActiveTab = "";
-  if (tabIndex > 0) {
-    newActiveTab = newVisibleTabs[tabIndex - 1];
-  } else {
-    newActiveTab = newVisibleTabs[0];
-  }
+  newActiveTab =
+    tabIndex > 0 ? newVisibleTabs[tabIndex - 1] : newVisibleTabs[0];
 
   if (!newVisibleTabs.includes(activeTab.value)) {
     setActiveTab(newActiveTab);
