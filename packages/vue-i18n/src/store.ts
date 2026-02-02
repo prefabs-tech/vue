@@ -4,7 +4,7 @@ const useLocaleStore = (slug: string) => {
   const getLocale = (): string | undefined => {
     const locale = localStorage.getItem(key);
 
-    return locale ? locale : undefined;
+    return locale || undefined;
   };
 
   const setLocale = (locale: string | undefined): void => {

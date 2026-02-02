@@ -1,7 +1,7 @@
 import { expect, it } from "vitest";
 
 import nativeLocaleNames from "../../locales/native-locale-names";
-import { getLocaleNames } from "../../utils";
+import { getLocaleNames } from "../../utilities";
 
 it("returns the list of locale names", () => {
   const supportedLocales = ["en", "de", "fr", "th"];
