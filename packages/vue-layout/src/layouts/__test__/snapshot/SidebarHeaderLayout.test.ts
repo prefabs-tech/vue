@@ -16,7 +16,7 @@ describe("SidebarHeaderLayout", () => {
             configPlugin,
             {
               config,
-            }
+            },
           ],
         ],
       },

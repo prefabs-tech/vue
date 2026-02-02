@@ -16,7 +16,7 @@ describe("SidebarOnlyLayout", () => {
             configPlugin,
             {
               config,
-            }
+            },
           ],
         ],
       },

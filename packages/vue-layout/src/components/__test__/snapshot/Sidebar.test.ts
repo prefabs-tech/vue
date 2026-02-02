@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import type { VueWrapper } from "@vue/test-utils";
-
 import Sidebar from "@/components/Sidebar.vue";
+
+import type { VueWrapper } from "@vue/test-utils";
 
 describe("Sidebar", () => {
   const wrapper: VueWrapper = shallowMount(Sidebar, {

@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import type { VueWrapper } from "@vue/test-utils";
-
 import NavMenu from "@/components/NavMenu.vue";
+
+import type { VueWrapper } from "@vue/test-utils";
 
 describe("NavMenu", () => {
   const wrapper: VueWrapper = shallowMount(NavMenu, {

@@ -18,7 +18,10 @@
       <span v-if="sidebarActive" class="item-name">
         {{ item.name }}
       </span>
-      <span v-if="item.children && item.children.length" class="toggle-menu">
+      <span
+        v-if="item.children && item.children.length > 0"
+        class="toggle-menu"
+      >
         <svg
           :class="{ 'up-chevron': showChildren }"
           viewBox="0 0 24 24"
@@ -36,7 +39,7 @@
     </a>
     <transition name="fade">
       <div
-        v-if="item.children && item.children.length && showChildren"
+        v-if="item.children && item.children.length > 0 && showChildren"
         class="sub-menu-item"
       >
         <NavMenuItem
@@ -75,7 +78,6 @@ const props = defineProps({
 
   sidebarActive: {
     default: true,
-    required: true,
     type: Boolean,
   },
 });
@@ -91,9 +93,9 @@ const currentParentRouteName = computed(() => {
   const matched = route?.matched;
 
   if (matched?.length > 1) {
-    const parentRoute = matched[matched.length - 2];
+    const parentRoute = matched.at(-2);
 
-    return getRouteNameFromPath(parentRoute?.path);
+    return getRouteNameFromPath(String(parentRoute?.path));
   }
 
   return "";
