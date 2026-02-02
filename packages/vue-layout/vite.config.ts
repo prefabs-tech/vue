@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
         name: "@prefabs.tech/vue3-layout",
       },
       rollupOptions: {
-        external: [...Object.keys(peerDependencies)],
+        external: Object.keys(peerDependencies),
         output: {
           exports: "named",
           // Provide global variables to use in the UMD build
@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
             "@prefabs.tech/vue3-config": "PrefabsTechVue3Config",
             "@prefabs.tech/vue3-i18n": "PrefabsTechVue3I18n",
             "@prefabs.tech/vue3-ui": "PrefabsTechVue3UI",
-            "@vueuse/core": 'VueuseCore',
+            "@vueuse/core": "VueuseCore",
             vue: "Vue",
             "vue-router": "VueRouter",
           },
@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => {
     plugins: [vue()],
     resolve: {
       alias: {
-        "@/": new URL("./src/", import.meta.url).pathname,
+        "@/": new URL("src/", import.meta.url).pathname,
       },
     },
     test: {

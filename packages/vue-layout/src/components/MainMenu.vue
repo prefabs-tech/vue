@@ -50,9 +50,9 @@ const currentParentRouteName = computed(() => {
   const matched = route?.matched;
 
   if (matched?.length > 1) {
-    const parentRoute = matched[matched.length - 2];
+    const parentRoute = matched.at(-2);
 
-    return getRouteNameFromPath(parentRoute?.path);
+    return getRouteNameFromPath(String(parentRoute?.path));
   }
 
   return "";
