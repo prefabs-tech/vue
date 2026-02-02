@@ -1,5 +1,5 @@
 export * from "./date";
-export * from "./formatDuration";
+export * from "./format-duration";
 export * from "./overlay";
 export * from "./storage";
-export * from "./useDebouncedValue";
+export * from "./use-debounced-value";

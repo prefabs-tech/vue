@@ -1,7 +1,11 @@
-import type { DropdownMenu } from "./dropdown-menu";
-import type { ExtractPropTypes } from "vue";
 import ButtonElement from "../Button/Index.vue";
 
-type ButtonElementProps = ExtractPropTypes<(typeof ButtonElement)["__props"]>;
+import type { DropdownMenu } from "./dropdown-menu";
+import type { ExtractPropTypes } from "vue";
 
-export interface ToolbarActionMenu extends DropdownMenu, ButtonElementProps {}
+type ButtonElementProperties = ExtractPropTypes<
+  (typeof ButtonElement)["__props"]
+>;
+
+export interface ToolbarActionMenu
+  extends DropdownMenu, ButtonElementProperties {}

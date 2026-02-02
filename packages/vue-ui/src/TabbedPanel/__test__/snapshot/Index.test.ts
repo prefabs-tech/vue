@@ -28,9 +28,7 @@ describe("TabbedPanel", () => {
   });
 
   it("matches snapshot when there is an active tab", async () => {
-    const firstTab = wrapper.find(
-      ".tabbed-panel ul[role='tablist'] li button",
-    );
+    const firstTab = wrapper.find(".tabbed-panel ul[role='tablist'] li button");
     await firstTab.trigger("click");
 
     expect(wrapper.element).toMatchSnapshot();
