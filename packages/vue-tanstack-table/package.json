@@ -5,16 +5,18 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/src/index.d.ts",
       "import": "./dist/PrefabsTechVue3TanstackTable.es.js",
-      "require": "./dist/PrefabsTechVue3TanstackTable.umd.js",
-      "types": "./dist/src/index.d.ts"
+      "require": "./dist/PrefabsTechVue3TanstackTable.umd.js"
     },
     "./dist/PrefabsTechVue3TanstackTable.css": "./dist/vue3-tanstack-table.css"
   },
   "main": "./dist/PrefabsTechVue3TanstackTable.umd.js",
   "module": "./dist/PrefabsTechVue3TanstackTable.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue",

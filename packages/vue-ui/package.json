@@ -5,9 +5,9 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/src/index.d.ts",
       "import": "./dist/PrefabsTechVue3UI.es.js",
-      "require": "./dist/PrefabsTechVue3UI.umd.js",
-      "types": "./dist/src/index.d.ts"
+      "require": "./dist/PrefabsTechVue3UI.umd.js"
     },
     "./dist/PrefabsTechVue3UI.css": "./dist/vue3-ui.css"
   },

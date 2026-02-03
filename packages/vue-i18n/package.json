@@ -5,16 +5,18 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/src/index.d.ts",
       "import": "./dist/PrefabsTechVue3I18n.es.js",
-      "require": "./dist/PrefabsTechVue3I18n.umd.js",
-      "types": "./dist/src/index.d.ts"
+      "require": "./dist/PrefabsTechVue3I18n.umd.js"
     },
     "./dist/PrefabsTechVue3I18n.css": "./dist/vue3-i18n.css"
   },
   "main": "./dist/PrefabsTechVue3I18n.umd.js",
   "module": "./dist/PrefabsTechVue3I18n.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue",
