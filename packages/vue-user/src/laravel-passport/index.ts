@@ -23,5 +23,5 @@ export {
   sendVerificationEmail,
   signup,
   verifyEmail,
-  verifySessionRoles
+  verifySessionRoles,
 };

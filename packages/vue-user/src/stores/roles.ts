@@ -27,7 +27,10 @@ const useRolesStore = defineStore("roles", () => {
     return await doGetRoles(apiBaseUrl);
   };
 
-  const updateRolePermissions = async (data: RolePermissionsInput, apiBaseUrl: string) => {
+  const updateRolePermissions = async (
+    data: RolePermissionsInput,
+    apiBaseUrl: string,
+  ) => {
     return await doUpdateRolePermissions(data, apiBaseUrl);
   };
 

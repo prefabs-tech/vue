@@ -139,13 +139,13 @@ export const signUpFirstUser = async (
     const response = await client(apiBaseUrl).post(`signup/admin`, credential, {
       withCredentials: true,
     });
-  
+
     if (response.data.status === "EMAIL_ALREADY_EXISTS_ERROR") {
       throw new Error(response.data.message);
     } else {
       return response.data?.user;
     }
-  } catch (error) {
+  } catch {
     throw new Error("SOMETHING_WRONG");
   }
 };
@@ -164,13 +164,13 @@ export const updateUserProfile = async (
     const response = await client(apiBaseUrl).put(path, data, {
       withCredentials: true,
     });
-  
+
     if ("error" in response.data) {
       throw new Error("SOMETHING_WRONG");
     } else {
       return response;
     }
-  } catch (error) {
+  } catch {
     throw new Error("SOMETHING_WRONG");
   }
 };

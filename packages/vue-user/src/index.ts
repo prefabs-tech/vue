@@ -35,8 +35,7 @@ const plugin: Plugin = {
     if (options?.config?.user?.features?.signUp?.emailVerification) {
       const { getVerificationStatus, logout } = userStore();
 
-      getVerificationStatus()
-      .catch((error) => {
+      getVerificationStatus().catch((error) => {
         if (error.status === ERROR_UNAUTHORIZED) {
           logout();
         }

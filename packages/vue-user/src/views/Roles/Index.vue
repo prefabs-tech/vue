@@ -127,7 +127,7 @@ const columns: TableColumnDefinition<Role>[] = [
     cell: ({ getValue }) => {
       const permissionData = getValue() as string[];
 
-      return permissionData?.sort().map((permission, index) => {
+      return permissionData?.toSorted().map((permission, index) => {
         return h(BadgeComponent, {
           key: permission + "-" + index,
           label: permission,
@@ -145,12 +145,14 @@ const columns: TableColumnDefinition<Role>[] = [
 
 const onActionSelect = (rowData: { action: string; data: Role }) => {
   switch (rowData.action) {
-    case "editRole":
+    case "editRole": {
       onEditRole(rowData.data);
       break;
-    case "deleteRole":
+    }
+    case "deleteRole": {
       onDeleteRole(rowData.data);
       break;
+    }
   }
 };
 
@@ -195,39 +197,33 @@ const onSubmit = async (roleData: Role) => {
   loading.value = true;
 
   try {
-    if (role.value) {
-      await updateRolePermissions(roleData, config?.apiBaseUrl).then(() => {
-        prepareComponent();
-        emitter.emit("notify", {
-          text: t("roles.form.messages.update.success"),
-          type: "success",
-        });
-      });
-    } else {
-      await createRole(roleData, config?.apiBaseUrl).then(() => {
-        prepareComponent();
-        emitter.emit("notify", {
-          text: t("roles.form.messages.add.success"),
-          type: "success",
-        });
-      });
-    }
+    await (role.value
+      ? updateRolePermissions(roleData, config?.apiBaseUrl).then(() => {
+          prepareComponent();
+          emitter.emit("notify", {
+            text: t("roles.form.messages.update.success"),
+            type: "success",
+          });
+        })
+      : createRole(roleData, config?.apiBaseUrl).then(() => {
+          prepareComponent();
+          emitter.emit("notify", {
+            text: t("roles.form.messages.add.success"),
+            type: "success",
+          });
+        }));
 
     showModal.value = false;
     //eslint-disable-next-line
   } catch (error: any) {
-    if (
-      !role.value &&
-      error?.response?.data?.name === ERROR_ROLE_ALREADY_EXISTS
-    ) {
-      errorMessage.value = t("roles.form.messages.add.roleAlreadyExists");
-    } else {
-      errorMessage.value = t(
-        role.value
-          ? "roles.form.messages.update.error"
-          : "roles.form.messages.add.error",
-      );
-    }
+    errorMessage.value =
+      !role.value && error?.response?.data?.name === ERROR_ROLE_ALREADY_EXISTS
+        ? t("roles.form.messages.add.roleAlreadyExists")
+        : t(
+            role.value
+              ? "roles.form.messages.update.error"
+              : "roles.form.messages.add.error",
+          );
   } finally {
     loading.value = false;
   }
