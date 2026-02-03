@@ -1,9 +1,8 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import { mockedTable } from "../table";
 import TableToolbar from "../../TableToolbar.vue";
-import { SortableList } from "@prefabs.tech/vue3-ui";
+import { mockedTable } from "../table";
 
 describe("TableToolbar", () => {
   it("matches snapshot", () => {
@@ -11,7 +10,7 @@ describe("TableToolbar", () => {
       global: {
         stubs: {
           SortableList: true,
-        }
+        },
       },
       props: {
         showColumnAction: true,
