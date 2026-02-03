@@ -22,5 +22,12 @@ export type {
   SortingState,
   TableColumnDefinition,
   TableRow,
+  TFilterRequest,
+  TLimit,
+  TOffset,
   TRequestJSON,
+  TSingleFilter,
+  TSingleSort,
+  TSortDirection,
+  TSortRequest,
 } from "./types";

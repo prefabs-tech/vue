@@ -83,6 +83,9 @@ export type {
   AuthTokens,
   DzangolabVueUserConfig,
   DzangolabVueUserPluginOptions,
+  Invitation,
+  InvitationAppOption,
+  InvitationRoleOption,
   InvitationPayload,
   LoginCredentials,
   PasswordResetPayload,
@@ -92,4 +95,5 @@ export type {
   RouteOverride,
   RouteOverrides,
   User,
+  UserType,
 } from "./types";
