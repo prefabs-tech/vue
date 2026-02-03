@@ -6,7 +6,8 @@
   "exports": {
     ".": {
       "import": "./dist/PrefabsTechVue3UI.es.js",
-      "require": "./dist/PrefabsTechVue3UI.umd.js"
+      "require": "./dist/PrefabsTechVue3UI.umd.js",
+      "types": "./dist/src/index.d.ts"
     },
     "./dist/PrefabsTechVue3UI.css": "./dist/vue3-ui.css"
   },

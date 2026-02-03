@@ -7,7 +7,8 @@
   "exports": {
     ".": {
       "import": "./dist/PrefabsTechVue3Form.es.js",
-      "require": "./dist/PrefabsTechVue3Form.umd.js"
+      "require": "./dist/PrefabsTechVue3Form.umd.js",
+      "types": "./dist/src/index.d.ts"
     },
     "./dist/PrefabsTechVue3Form.css": "./dist/vue3-form.css"
   },

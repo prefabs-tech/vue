@@ -6,7 +6,8 @@
   "exports": {
     ".": {
       "import": "./dist/PrefabsTechVue3TanstackTable.es.js",
-      "require": "./dist/PrefabsTechVue3TanstackTable.umd.js"
+      "require": "./dist/PrefabsTechVue3TanstackTable.umd.js",
+      "types": "./dist/src/index.d.ts"
     },
     "./dist/PrefabsTechVue3TanstackTable.css": "./dist/vue3-tanstack-table.css"
   },
