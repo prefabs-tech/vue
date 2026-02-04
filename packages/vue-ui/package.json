@@ -30,7 +30,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "github:prefabs-tech/tools#feat/vue-eslint-9&path:packages/eslint-config",
+    "@prefabs.tech/eslint-config": "0.3.0",
     "@prefabs.tech/tsconfig": "0.2.1",
     "@types/node": "24.10.1",
     "@vitejs/plugin-vue": "6.0.4",
