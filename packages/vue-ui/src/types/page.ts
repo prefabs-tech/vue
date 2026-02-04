@@ -8,4 +8,5 @@ type ButtonElementProperties = ExtractPropTypes<
 >;
 
 export interface ToolbarActionMenu
-  extends DropdownMenu, ButtonElementProperties {}
+  extends DropdownMenu,
+    ButtonElementProperties {}
