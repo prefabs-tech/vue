@@ -478,38 +478,35 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   },
 ];
 
-const customColumns = [
-  ...columns.map((columnData) => {
-    if (columnData.accessorKey === "email") {
-      return {
-        ...columnData,
-        customFilterComponent: (column) => {
-          return h(DebouncedInput, {
-            debounceTime: 200,
-            modelValue: column.getFilterValue() as string,
-            placeholder: t("table.label.customFilter"),
-            "onUpdate:modelValue": (value) => {
-              column.setFilterValue(value);
-            },
-          });
-        },
-        meta: {
-          serverFilterFn: "contains",
-        },
-      };
-    } else if (columnData.accessorKey === "age") {
-      return {
-        ...columnData,
-        meta: {
-          filterVariant: "range",
-        },
-      };
-    }
+const customColumns = columns.map((columnData) => {
+  if (columnData.accessorKey === "email") {
+    return {
+      ...columnData,
+      customFilterComponent: (column) => {
+        return h(DebouncedInput, {
+          debounceTime: 200,
+          modelValue: column.getFilterValue() as string,
+          placeholder: t("table.label.customFilter"),
+          "onUpdate:modelValue": (value) => {
+            column.setFilterValue(value);
+          },
+        });
+      },
+      meta: {
+        serverFilterFn: "contains",
+      },
+    };
+  } else if (columnData.accessorKey === "age") {
+    return {
+      ...columnData,
+      meta: {
+        filterVariant: "range",
+      },
+    };
+  }
 
-    return columnData;
-  }),
-];
-
+  return columnData;
+});
 const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "description",
@@ -596,28 +593,25 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   },
 ];
 
-const equalFilterColumns = [
-  ...columns.map((columnData) => {
-    if (columnData.accessorKey === "email") {
-      return {
-        ...columnData,
-        meta: {
-          serverFilterFn: "equals",
-        },
-      };
-    } else if (columnData.accessorKey === "age") {
-      return {
-        ...columnData,
-        meta: {
-          filterVariant: "range",
-        },
-      };
-    }
+const equalFilterColumns = columns.map((columnData) => {
+  if (columnData.accessorKey === "email") {
+    return {
+      ...columnData,
+      meta: {
+        serverFilterFn: "equals",
+      },
+    };
+  } else if (columnData.accessorKey === "age") {
+    return {
+      ...columnData,
+      meta: {
+        filterVariant: "range",
+      },
+    };
+  }
 
-    return columnData;
-  }),
-];
-
+  return columnData;
+});
 const dateRange = ref([]);
 
 const customEqualStringFilter: FilterFunction<unknown> = (
@@ -647,15 +641,11 @@ const inDateRangeFilter: FilterFunction<unknown> = (
   const endDate = new Date(value[1]);
   const startDate = new Date(value[0]);
 
-  if (
-    columnDate &&
+  return columnDate &&
     startDate.getTime() <= columnDate.getTime() &&
     columnDate.getTime() < endDate.getTime()
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+    ? true
+    : false;
 };
 </script>
 
