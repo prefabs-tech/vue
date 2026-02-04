@@ -32,7 +32,7 @@
     "vue-i18n": "9.1.10"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "github:prefabs-tech/tools#feat/vue-eslint-9&path:packages/eslint-config",
+    "@prefabs.tech/eslint-config": "0.3.0",
     "@prefabs.tech/tsconfig": "0.2.1",
     "@prefabs.tech/vue3-config": "0.30.0",
     "@types/node": "24.10.1",
