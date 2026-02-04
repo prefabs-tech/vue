@@ -28,7 +28,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "0.2.1",
+    "@prefabs.tech/eslint-config": "github:prefabs-tech/tools#feat/vue-eslint-9&path:packages/eslint-config",
     "@prefabs.tech/tsconfig": "0.2.1",
     "@prefabs.tech/vue3-config": "0.30.0",
     "@prefabs.tech/vue3-i18n": "0.30.0",
@@ -42,6 +42,7 @@
     "@vueuse/core": "12.7.0",
     "eslint": "9.39.2",
     "typescript": "5.5.4",
+    "typescript-eslint": "8.54.0",
     "vite": "6.1.1",
     "vitest": "4.0.18",
     "vue": "3.5.27",
