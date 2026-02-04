@@ -33,7 +33,7 @@
     "@sentry/vue": "9.1.0"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "github:prefabs-tech/tools#feat/vue-eslint-9&path:packages/eslint-config",
+    "@prefabs.tech/eslint-config": "0.3.0",
     "@prefabs.tech/tsconfig": "0.2.1",
     "@types/node": "22.13.5",
     "@vitejs/plugin-vue": "6.0.4",
