@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@dzangolab/flag-icon-css": "3.4.5",
-    "@prefabs.tech/eslint-config": "0.2.1",
+    "@prefabs.tech/eslint-config": "github:prefabs-tech/tools#feat/vue-eslint-9&path:packages/eslint-config",
     "@prefabs.tech/tsconfig": "0.2.1",
     "@prefabs.tech/vue3-ui": "0.30.0",
     "@types/node": "22.13.5",
@@ -51,6 +51,7 @@
     "@vueuse/core": "12.7.0",
     "eslint": "9.39.2",
     "typescript": "5.5.4",
+    "typescript-eslint": "8.54.0",
     "vee-validate": "4.15.1",
     "vite": "6.1.1",
     "vitest": "4.0.18",
