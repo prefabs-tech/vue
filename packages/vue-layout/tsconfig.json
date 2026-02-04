@@ -5,6 +5,7 @@
   ],
   "compilerOptions": {
     "baseUrl": "./",
+    "moduleResolution": "bundler",
     "outDir": "./dist/src"
   },
   "include": [
