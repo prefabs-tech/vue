@@ -1,3 +1,7 @@
+# [0.30.0](https://github.com/prefabs-tech/vue/compare/v0.29.1...v0.30.0) (2026-02-03)
+
+
+
 ## [0.29.1](https://github.com/prefabs-tech/vue/compare/v0.29.0...v0.29.1) (2026-01-28)
 
 
