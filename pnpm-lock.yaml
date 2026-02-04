@@ -76,8 +76,8 @@ importers:
         version: 0.2.8(vue@3.5.27(typescript@5.5.4))
     devDependencies:
       '@prefabs.tech/eslint-config':
-        specifier: github:prefabs-tech/tools#feat/vue-eslint-9&path:packages/eslint-config
-        version: https://codeload.github.com/prefabs-tech/tools/tar.gz/4d7d219e57d05e690fda6c23ecae32dc3ab2acb1#path:packages/eslint-config(svocrdkwuofldpjyloivhqmbuy)
+        specifier: 0.3.0
+        version: 0.3.0(svocrdkwuofldpjyloivhqmbuy)
       '@prefabs.tech/tsconfig':
         specifier: 0.2.1
         version: 0.2.1(@types/node@24.10.1)
@@ -2099,9 +2099,8 @@ packages:
       vue-eslint-parser:
         optional: true
 
-  '@prefabs.tech/eslint-config@https://codeload.github.com/prefabs-tech/tools/tar.gz/4d7d219e57d05e690fda6c23ecae32dc3ab2acb1#path:packages/eslint-config':
-    resolution: {path: packages/eslint-config, tarball: https://codeload.github.com/prefabs-tech/tools/tar.gz/4d7d219e57d05e690fda6c23ecae32dc3ab2acb1}
-    version: 0.2.1
+  '@prefabs.tech/eslint-config@0.3.0':
+    resolution: {integrity: sha512-My5dUm6mSUSBlOy6kR0XMe3XanMf8VZQVz0lwPnUCBqCuL8rmRS6yekdKCw0UWszFIqNCEwZdjouViyr3IinQg==}
     peerDependencies:
       '@eslint/js': '>=8.57.1'
       '@typescript-eslint/eslint-plugin': '>=8.14.0'
@@ -7626,7 +7625,7 @@ snapshots:
       eslint-plugin-vue: 9.32.0(eslint@9.20.1(jiti@2.4.2))
       vue-eslint-parser: 9.4.3(eslint@9.20.1(jiti@2.4.2))
 
-  '@prefabs.tech/eslint-config@https://codeload.github.com/prefabs-tech/tools/tar.gz/4d7d219e57d05e690fda6c23ecae32dc3ab2acb1#path:packages/eslint-config(svocrdkwuofldpjyloivhqmbuy)':
+  '@prefabs.tech/eslint-config@0.3.0(svocrdkwuofldpjyloivhqmbuy)':
     dependencies:
       '@eslint/js': 9.39.2
       '@typescript-eslint/eslint-plugin': 8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
