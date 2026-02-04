@@ -33,25 +33,25 @@ importers:
         specifier: 4.3.0
         version: 4.3.0(vue@3.5.27(typescript@5.5.4))
       '@prefabs.tech/vue3-config':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../../packages/vue-config
       '@prefabs.tech/vue3-form':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../../packages/vue-form
       '@prefabs.tech/vue3-i18n':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../../packages/vue-i18n
       '@prefabs.tech/vue3-layout':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../../packages/vue-layout
       '@prefabs.tech/vue3-tanstack-table':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../../packages/vue-tanstack-table
       '@prefabs.tech/vue3-ui':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../../packages/vue-ui
       '@prefabs.tech/vue3-user':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../../packages/vue-user
       pinia:
         specifier: 3.0.4
@@ -257,8 +257,8 @@ importers:
   packages/vue-form:
     dependencies:
       validator:
-        specifier: 13.12.0
-        version: 13.12.0
+        specifier: 13.15.26
+        version: 13.15.26
     devDependencies:
       '@dzangolab/flag-icon-css':
         specifier: 3.4.5
@@ -270,7 +270,7 @@ importers:
         specifier: 0.2.1
         version: 0.2.1(@types/node@22.13.5)
       '@prefabs.tech/vue3-ui':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-ui
       '@types/node':
         specifier: 22.13.5
@@ -379,7 +379,7 @@ importers:
         specifier: 0.2.1
         version: 0.2.1(@types/node@24.10.1)
       '@prefabs.tech/vue3-config':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-config
       '@types/node':
         specifier: 24.10.1
@@ -466,13 +466,13 @@ importers:
         specifier: 0.2.1
         version: 0.2.1(@types/node@24.10.1)
       '@prefabs.tech/vue3-config':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-config
       '@prefabs.tech/vue3-i18n':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-i18n
       '@prefabs.tech/vue3-ui':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-ui
       '@types/node':
         specifier: 24.10.1
@@ -530,10 +530,10 @@ importers:
         specifier: 0.2.1
         version: 0.2.1(@types/node@24.10.1)
       '@prefabs.tech/vue3-form':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-form
       '@prefabs.tech/vue3-ui':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-ui
       '@types/node':
         specifier: 24.10.1
@@ -677,8 +677,8 @@ importers:
         specifier: 3.5.27
         version: 3.5.27(typescript@5.5.4)
       vue-draggable-next:
-        specifier: 2.2.1
-        version: 2.2.1(sortablejs@1.15.3)(vue@3.5.27(typescript@5.5.4))
+        specifier: 2.3.0
+        version: 2.3.0(sortablejs@1.15.3)(vue@3.5.27(typescript@5.5.4))
       vue-eslint-parser:
         specifier: 9.4.3
         version: 9.4.3(eslint@8.57.1)
@@ -705,22 +705,22 @@ importers:
         specifier: 0.2.1
         version: 0.2.1(@types/node@24.10.1)
       '@prefabs.tech/vue3-config':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-config
       '@prefabs.tech/vue3-form':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-form
       '@prefabs.tech/vue3-i18n':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-i18n
       '@prefabs.tech/vue3-layout':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-layout
       '@prefabs.tech/vue3-tanstack-table':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-tanstack-table
       '@prefabs.tech/vue3-ui':
-        specifier: 0.29.1
+        specifier: 0.30.0
         version: link:../vue-ui
       '@types/node':
         specifier: 24.10.1
@@ -5520,8 +5520,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  validator@13.12.0:
-    resolution: {integrity: sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==}
+  validator@13.15.26:
+    resolution: {integrity: sha512-spH26xU080ydGggxRyR1Yhcbgx+j3y5jbNXk/8L+iRvdIEQ4uTRH2Sgf2dokud6Q4oAtsbNvJ1Ft+9xmm6IZcA==}
     engines: {node: '>= 0.10'}
 
   vee-validate@4.15.1:
@@ -5609,11 +5609,11 @@ packages:
   vue-component-type-helpers@2.2.8:
     resolution: {integrity: sha512-4bjIsC284coDO9om4HPA62M7wfsTvcmZyzdfR0aUlFXqq4tXxM1APyXpNVxPC8QazKw9OhmZNHBVDA6ODaZsrA==}
 
-  vue-draggable-next@2.2.1:
-    resolution: {integrity: sha512-EAMS1IRHF0kZO0o5PMOinsQsXIqsrKT1hKmbICxG3UEtn7zLFkLxlAtajcCcUTisNvQ6TtCB5COjD9a1raNADw==}
+  vue-draggable-next@2.3.0:
+    resolution: {integrity: sha512-ymbY0UIwfSdg0iDN/iyNNwUrTqZ/6KbPryzsvTNXBLuDCuOBdNijSK8yynNtmiSj6RapTPQfjLGQdJrZkzBd2w==}
     peerDependencies:
       sortablejs: ^1.14.0
-      vue: ^3.2.2
+      vue: ^3.5.17
 
   vue-eslint-parser@9.4.3:
     resolution: {integrity: sha512-2rYRLWlIpaiN8xbPiDyXZXRgLGOtWxERV7ND5fFAv5qo1D2N9Fu9MNajBNc6o13lZ+24DAWCkQCvj4klgmcITg==}
@@ -11934,7 +11934,7 @@ snapshots:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
 
-  validator@13.12.0: {}
+  validator@13.15.26: {}
 
   vee-validate@4.15.1(vue@3.5.27(typescript@5.5.4)):
     dependencies:
@@ -12042,7 +12042,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.8: {}
 
-  vue-draggable-next@2.2.1(sortablejs@1.15.3)(vue@3.5.27(typescript@5.5.4)):
+  vue-draggable-next@2.3.0(sortablejs@1.15.3)(vue@3.5.27(typescript@5.5.4)):
     dependencies:
       sortablejs: 1.15.3
       vue: 3.5.27(typescript@5.5.4)

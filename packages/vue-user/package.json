@@ -1,13 +1,13 @@
 {
   "name": "@prefabs.tech/vue3-user",
-  "version": "0.29.1",
+  "version": "0.30.0",
   "description": "Vue3 User Plugin",
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/src/index.d.ts",
       "import": "./dist/PrefabsTechVue3User.es.js",
-      "require": "./dist/PrefabsTechVue3User.umd.js",
-      "types": "./dist/src/index.d.ts"
+      "require": "./dist/PrefabsTechVue3User.umd.js"
     },
     "./dist/PrefabsTechVue3User.css": "./dist/vue3-user.css"
   },
@@ -34,12 +34,12 @@
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.2.1",
     "@prefabs.tech/tsconfig": "0.2.1",
-    "@prefabs.tech/vue3-config": "0.29.1",
-    "@prefabs.tech/vue3-form": "0.29.1",
-    "@prefabs.tech/vue3-i18n": "0.29.1",
-    "@prefabs.tech/vue3-layout": "0.29.1",
-    "@prefabs.tech/vue3-tanstack-table": "0.29.1",
-    "@prefabs.tech/vue3-ui": "0.29.1",
+    "@prefabs.tech/vue3-config": "0.30.0",
+    "@prefabs.tech/vue3-form": "0.30.0",
+    "@prefabs.tech/vue3-i18n": "0.30.0",
+    "@prefabs.tech/vue3-layout": "0.30.0",
+    "@prefabs.tech/vue3-tanstack-table": "0.30.0",
+    "@prefabs.tech/vue3-ui": "0.30.0",
     "@iconify/vue": "4.3.0",
     "@types/node": "24.10.1",
     "@typescript-eslint/eslint-plugin": "8.24.1",
@@ -75,10 +75,10 @@
     "zod": "3.24.2"
   },
   "peerDependencies": {
-    "@prefabs.tech/vue3-config": "0.29.1",
-    "@prefabs.tech/vue3-i18n": "0.29.1",
-    "@prefabs.tech/vue3-layout": "0.29.1",
-    "@prefabs.tech/vue3-ui": "0.29.1",
+    "@prefabs.tech/vue3-config": "0.30.0",
+    "@prefabs.tech/vue3-i18n": "0.30.0",
+    "@prefabs.tech/vue3-layout": "0.30.0",
+    "@prefabs.tech/vue3-ui": "0.30.0",
     "@vee-validate/i18n": ">=4.7.1",
     "@vee-validate/rules": ">=4.7.1",
     "@vueuse/core": ">=9.4.0",
