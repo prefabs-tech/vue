@@ -1,1 +1,0 @@
-import{d as r,N as n,o as a,e as s,f as c,h as _}from"./index-DVqVAY7Y.js";const l={name:"About"},f=r({...l,setup(p){const e=()=>{throw new Error("Sentry error")};return(t,i)=>{const o=n("Page");return a(),s(o,{title:t.$t("sentry.title")},{default:c(()=>[_("button",{onClick:e},"Throw error")]),_:1},8,["title"])}}});export{f as default};

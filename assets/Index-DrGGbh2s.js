@@ -1,0 +1,1 @@
+import{_ as t}from"./FormPage.vue_vue_type_style_index_0_lang-CQCsF5L0.js";import{d as o,o as r,e as a}from"./index-BOKL-xq7.js";const n={name:"FormView"},i=o({...n,setup(_){return(e,s)=>(r(),a(t,{title:e.$t("form.title")},null,8,["title"]))}});export{i as default};
