@@ -7,18 +7,21 @@ const getOrientation = (position: TPosition) => {
 
   switch (position) {
     case "top":
-    case "bottom":
+    case "bottom": {
       orientation = "horizontal";
       break;
+    }
 
     case "left":
-    case "right":
+    case "right": {
       orientation = "vertical";
       break;
+    }
 
-    default:
+    default: {
       orientation = "horizontal";
       break;
+    }
   }
 
   return orientation;

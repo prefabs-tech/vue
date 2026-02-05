@@ -3,7 +3,7 @@ import useUserStore from "../store";
 import type { UserType } from "../types/auth";
 
 export async function verifySessionRoles(
-  supportedRoles: string[]
+  supportedRoles: string[],
 ): Promise<boolean> {
   const userStore = useUserStore();
   const { logout } = userStore;

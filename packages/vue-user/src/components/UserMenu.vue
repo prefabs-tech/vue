@@ -29,7 +29,7 @@ import DropdownUserMenu from "./DropdownUserMenu.vue";
 import SignInUpMenu from "./SignInUpMenu.vue";
 import useUserStore from "../store";
 
-import type { UserMenuItem } from "../types/userMenu";
+import type { UserMenuItem } from "../types/user-menu";
 import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { PropType } from "vue";
 

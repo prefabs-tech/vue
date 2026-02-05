@@ -20,7 +20,7 @@
     >
       <DebouncedInput
         v-if="
-          (!selectedOptions.length || showDropdownMenu) &&
+          (selectedOptions.length === 0 || showDropdownMenu) &&
           !disabled &&
           !disableSearch
         "
@@ -31,7 +31,10 @@
         @update:model-value="$emit('update:searchInput', $event)"
       />
       <template v-else>
-        <span v-if="!selectedOptions.length" class="multiselect-placeholder">
+        <span
+          v-if="selectedOptions.length === 0"
+          class="multiselect-placeholder"
+        >
           {{ placeholder }}
         </span>
         <template v-else>
@@ -388,7 +391,9 @@ const filteredOptions = computed(() => {
 
 const hasRemoveOption = computed(() => {
   return (
-    props.showRemoveSelection && !props.disabled && selectedOptions.value.length
+    props.showRemoveSelection &&
+    !props.disabled &&
+    selectedOptions.value.length > 0
   );
 });
 
@@ -421,14 +426,11 @@ const sortedOptions = computed(() => {
 
   const hasGroups = options.some((option) => "groupLabel" in option);
 
-  const compareLabels = (optionA: SelectOption, optionB: SelectOption) =>
-    String(optionA.label).localeCompare(String(optionB.label));
-
   const compareGrouped = (optionA: SelectOption, optionB: SelectOption) =>
     String(optionA.groupLabel).localeCompare(String(optionB.groupLabel)) ||
     compareLabels(optionA, optionB);
 
-  return options.slice().sort(hasGroups ? compareGrouped : compareLabels);
+  return options.toSorted(hasGroups ? compareGrouped : compareLabels);
 });
 
 watch(
@@ -443,6 +445,9 @@ watch(showDropdownMenu, (value) => {
     updateDropdownPosition();
   }
 });
+
+const compareLabels = (optionA: SelectOption, optionB: SelectOption) =>
+  String(optionA.label).localeCompare(String(optionB.label));
 
 const focusSearchInput = async () => {
   await nextTick();
@@ -521,8 +526,7 @@ const onArrowUp = (event: KeyboardEvent) => {
   event.preventDefault();
 
   const reversedIndex = sortedOptions.value
-    .slice()
-    .reverse()
+    .toReversed()
     .findIndex((option) => !option.disabled);
   const total = sortedOptions.value.length;
   const lastActiveIndex = total - 1 - reversedIndex;
@@ -555,9 +559,7 @@ const onKeyDown = (event: KeyboardEvent) => {
     toggleKeys = toggleKeys.filter((key) => key.trim());
   }
 
-  if (!showDropdownMenu.value) {
-    toggleKeys.push("ArrowUp", "ArrowDown");
-  } else {
+  if (showDropdownMenu.value) {
     if (event.key === "ArrowDown") {
       onArrowDown(event);
     } else if (event.key === "ArrowUp") {
@@ -572,6 +574,8 @@ const onKeyDown = (event: KeyboardEvent) => {
 
       element?.scrollIntoView({ block: "nearest", behavior: "smooth" });
     });
+  } else {
+    toggleKeys.push("ArrowUp", "ArrowDown");
   }
 
   if (toggleKeys.includes(event.key)) {
@@ -587,10 +591,10 @@ const onSelect = (event: Event, option: SelectOption) => {
   );
 
   if (multiple.value) {
-    if (index > -1) {
-      selectedOptions.value.splice(index, 1);
-    } else {
+    if (index === -1) {
       selectedOptions.value.push(option);
+    } else {
+      selectedOptions.value.splice(index, 1);
     }
 
     onMultiSelect();
@@ -606,11 +610,7 @@ const onSelect = (event: Event, option: SelectOption) => {
 const onSelectAll = () => {
   const allSelected = isAllSelected.value;
 
-  if (allSelected) {
-    selectedOptions.value = [];
-  } else {
-    selectedOptions.value = activeOptions.value;
-  }
+  selectedOptions.value = allSelected ? [] : activeOptions.value;
 
   onMultiSelect();
 };
@@ -678,7 +678,7 @@ const onUnselect = (event: Event, option?: SelectOption) => {
       (i) => i.value === option.value,
     );
 
-    if (index > -1) {
+    if (index !== -1) {
       selectedOptions.value.splice(index, 1);
     }
   } else {

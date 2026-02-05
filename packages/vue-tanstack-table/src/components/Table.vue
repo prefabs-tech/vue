@@ -11,7 +11,7 @@
     <TableToolbar
       v-if="showColumnAction || showResetButton || $slots.toolbar"
       :column-action-button-label="columnActionButtonLabel"
-      :has-actions-column="Boolean(dataActionMenu.length)"
+      :has-actions-column="dataActionMenu.length > 0"
       :has-selection-column="enableRowSelection"
       :reset-button-label="resetButtonLabel"
       :show-column-action="showColumnAction"
@@ -87,7 +87,11 @@ import {
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
 } from "../constants";
-import { getRequestJSON, getSavedTableState, saveTableState } from "../utils";
+import {
+  getRequestJSON,
+  getSavedTableState,
+  saveTableState,
+} from "../utilities";
 
 import type { DataActionsMenuItem, PersistentTableState } from "../types";
 import type { StorageType } from "@prefabs.tech/vue3-ui";
@@ -309,7 +313,7 @@ const table = computed(() =>
               (props.visibleColumns.includes(
                 String(column.accessorKey ?? column.id),
               ) ||
-                !props.visibleColumns.length),
+                props.visibleColumns.length === 0),
           )
           .map((column) => {
             if (column.meta?.filterVariant === "range") {
@@ -458,12 +462,12 @@ const prepareComponent = () => {
     });
   }
 
-  props.columnsData.forEach((column) => {
+  for (const column of props.columnsData) {
     if (
-      props.visibleColumns.length &&
+      props.visibleColumns.length > 0 &&
       !props.visibleColumns.includes(String(column.accessorKey ?? column.id))
     ) {
-      return;
+      continue;
     }
 
     if (column.meta?.filterVariant === "multiselect" && !column.filterFn) {
@@ -522,7 +526,7 @@ const prepareComponent = () => {
       enableColumnFilter: column.enableColumnFilter ?? false,
       enableSorting: column.enableSorting ?? false,
     } as ColumnDef<unknown, unknown>);
-  });
+  }
 
   if (props.dataActionMenu?.length) {
     columns.push({

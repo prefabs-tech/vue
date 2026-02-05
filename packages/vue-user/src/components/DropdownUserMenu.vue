@@ -90,7 +90,7 @@ import { ref } from "vue";
 import { useTranslations } from "../index";
 
 import type { UserType } from "../types";
-import type { UserMenuItem } from "../types/userMenu";
+import type { UserMenuItem } from "../types/user-menu";
 import type { PropType } from "vue";
 
 const expanded = ref(false);

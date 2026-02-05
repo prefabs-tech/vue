@@ -1,9 +1,14 @@
 import { describe, expect, test } from "vitest";
 
 import defaultEnglishTranslation from "../../../components/CountryPicker/en.json";
-import { getFallbackTranslation, getFlagClass, getLabel, sortByLabel } from "../../country-picker";
+import {
+  getFallbackTranslation,
+  getFlagClass,
+  getLabel,
+  sortByLabel,
+} from "../../country-picker";
 
-import type { CountryPickerLocales, GroupedOption as OptionGroup, SelectOption } from "../../../types";
+import type { CountryPickerLocales, SelectOption } from "../../../types";
 
 const fallbackTranslation = {
   US: "United States",

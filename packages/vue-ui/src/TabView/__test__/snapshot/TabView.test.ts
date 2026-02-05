@@ -11,22 +11,22 @@ describe("TabView", () => {
         tabs: [
           {
             key: "tab1",
-            label: "Tab1"
+            label: "Tab1",
           },
           {
             key: "tab2",
-            label: "Tab2"
+            label: "Tab2",
           },
           {
             key: "tab3",
-            label: "Tab3"
+            label: "Tab3",
           },
           {
             key: "tab4",
-            label: "Tab4"
+            label: "Tab4",
           },
         ],
-        visibleTabs: [ "tab1", "tab2", "tab3", "tab4" ],
+        visibleTabs: ["tab1", "tab2", "tab3", "tab4"],
       },
     });
 

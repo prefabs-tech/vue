@@ -14,7 +14,7 @@
         <template v-if="!Array.isArray(message)">
           {{ message }}
         </template>
-        <template v-else-if="message.length">
+        <template v-else-if="message.length > 0">
           <ul>
             <li
               v-for="(messageData, index) in message"

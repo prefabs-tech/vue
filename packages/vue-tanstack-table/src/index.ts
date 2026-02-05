@@ -11,7 +11,7 @@ export {
   Table,
   TableBody,
   TableHeader,
-  TanstackTable
+  TanstackTable,
 };
 
 export type {

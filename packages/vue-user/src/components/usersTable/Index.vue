@@ -187,7 +187,7 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
     accessorFn: (original: UserType) => {
       return original.name?.trim()
         ? original.name
-        : (original.givenName ? original.givenName : "") +
+        : (original.givenName || "") +
             (original.middleNames ? " " + original.middleNames : "") +
             (original.surname ? " " + original.surname : "") || "-";
     },
@@ -338,15 +338,18 @@ const mergedColumns = computed(() => [
 
 const onActionSelect = (rowData: { action: string; data: UserType }) => {
   switch (rowData.action) {
-    case "enableUser":
+    case "enableUser": {
       onEnableUser(rowData.data?.id);
       break;
-    case "disableUser":
+    }
+    case "disableUser": {
       onDisableUser(rowData.data?.id);
       break;
-    default:
+    }
+    default: {
       emit("action:custom", rowData);
       break;
+    }
   }
 };
 
