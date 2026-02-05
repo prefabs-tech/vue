@@ -32,6 +32,7 @@
     "supertokens-website": "16.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "9.39.2",
     "@prefabs.tech/eslint-config": "0.3.0",
     "@prefabs.tech/tsconfig": "0.2.1",
     "@prefabs.tech/vue3-config": "0.30.0",
@@ -52,6 +53,14 @@
     "@vueuse/core": "12.7.0",
     "axios": "1.13.4",
     "eslint": "9.39.2",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-import-resolver-typescript": "4.4.4",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-prettier": "5.5.5",
+    "eslint-plugin-unicorn": "62.0.0",
+    "eslint-plugin-vue": "10.7.0",
+    "prettier": "3.8.1",
     "mitt": "3.0.1",
     "pinia": "3.0.4",
     "typescript": "5.5.4",
@@ -60,6 +69,7 @@
     "vite": "7.3.1",
     "vitest": "4.0.18",
     "vue": "3.5.27",
+    "vue-eslint-parser": "10.2.0",
     "vue-router": "4.5.0",
     "vue-tsc": "1.2.0",
     "zod": "3.24.2"
