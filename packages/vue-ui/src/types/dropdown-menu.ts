@@ -5,7 +5,13 @@ interface DropdownMenu {
   icon?: string;
   key?: string;
   label?: string;
-  severity?: 'alternate' | 'danger' | 'primary' | 'secondary' | 'success' | 'warning';
+  severity?:
+    | "alternate"
+    | "danger"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "warning";
   value?: string | number;
 }
 

@@ -26,7 +26,10 @@
             <span v-if="visibilityDetail.originalFileName" class="name">
               {{ file.originalFileName }}
             </span>
-            <span v-if="file.size && visibilityDetail.size" class="file-size">
+            <span
+              v-if="(file.size ?? 0) > 0 && visibilityDetail.size > 0"
+              class="file-size"
+            >
               ({{ file.size }})
             </span>
           </div>
@@ -369,9 +372,10 @@ const emitAction = (action: string) => {
     case "delete":
     case "download":
     case "share":
-    case "view":
+    case "view": {
       emit(`on:${action}`, props.file);
       break;
+    }
   }
 };
 

@@ -640,21 +640,18 @@ importers:
 
   packages/vue-ui:
     devDependencies:
+      '@eslint/js':
+        specifier: 9.39.2
+        version: 9.39.2
       '@prefabs.tech/eslint-config':
-        specifier: 0.2.1
-        version: 0.2.1(mlllp3gxkuqoquhizziizn3fvq)
+        specifier: 0.3.0
+        version: 0.3.0(khoa4st4fyrsz6m4p464jjmtfy)
       '@prefabs.tech/tsconfig':
         specifier: 0.2.1
         version: 0.2.1(@types/node@24.10.1)
       '@types/node':
         specifier: 24.10.1
         version: 24.10.1
-      '@typescript-eslint/eslint-plugin':
-        specifier: 8.24.1
-        version: 8.24.1(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
-      '@typescript-eslint/parser':
-        specifier: 8.24.1
-        version: 8.24.1(eslint@8.57.1)(typescript@5.5.4)
       '@vitejs/plugin-vue':
         specifier: 6.0.4
         version: 6.0.4(vite@7.3.1(@types/node@24.10.1)(jiti@2.4.2))(vue@3.5.27(typescript@5.5.4))
@@ -671,35 +668,38 @@ importers:
         specifier: 12.7.0
         version: 12.7.0(typescript@5.5.4)
       eslint:
-        specifier: 8.57.1
-        version: 8.57.1
+        specifier: 9.39.2
+        version: 9.39.2(jiti@2.4.2)
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 10.1.8
+        version: 10.1.8(eslint@9.39.2(jiti@2.4.2))
       eslint-import-resolver-alias:
         specifier: 1.1.2
-        version: 1.1.2(eslint-plugin-import@2.31.0)
+        version: 1.1.2(eslint-plugin-import@2.32.0)
       eslint-import-resolver-typescript:
-        specifier: 3.8.3
-        version: 3.8.3(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+        specifier: 4.4.4
+        version: 4.4.4(eslint-plugin-import@2.32.0)(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-import:
-        specifier: 2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)
+        specifier: 2.32.0
+        version: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-prettier:
-        specifier: 5.2.3
-        version: 5.2.3(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.2)
+        specifier: 5.5.5
+        version: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.4.2)))(eslint@9.39.2(jiti@2.4.2))(prettier@3.8.1)
       eslint-plugin-unicorn:
-        specifier: 56.0.1
-        version: 56.0.1(eslint@8.57.1)
+        specifier: 62.0.0
+        version: 62.0.0(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-vue:
-        specifier: 9.32.0
-        version: 9.32.0(eslint@8.57.1)
+        specifier: 10.7.0
+        version: 10.7.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.4.2)))
       prettier:
-        specifier: 3.5.2
-        version: 3.5.2
+        specifier: 3.8.1
+        version: 3.8.1
       typescript:
         specifier: 5.5.4
         version: 5.5.4
+      typescript-eslint:
+        specifier: 8.54.0
+        version: 8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
       vite:
         specifier: 7.3.1
         version: 7.3.1(@types/node@24.10.1)(jiti@2.4.2)
@@ -713,8 +713,8 @@ importers:
         specifier: 2.3.0
         version: 2.3.0(sortablejs@1.15.3)(vue@3.5.27(typescript@5.5.4))
       vue-eslint-parser:
-        specifier: 9.4.3
-        version: 9.4.3(eslint@8.57.1)
+        specifier: 10.2.0
+        version: 10.2.0(eslint@9.39.2(jiti@2.4.2))
       vue-tsc:
         specifier: 1.2.0
         version: 1.2.0(typescript@5.5.4)
@@ -7670,7 +7670,7 @@ snapshots:
       '@babel/parser': 7.27.0
       '@babel/template': 7.27.0
       '@babel/types': 7.27.0
-      debug: 4.4.3
+      debug: 4.3.7
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color

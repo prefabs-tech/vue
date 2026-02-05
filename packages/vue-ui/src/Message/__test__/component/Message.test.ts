@@ -7,7 +7,7 @@ describe("Message", () => {
   const propsData = {
     enableClose: true,
     message: "This is a test message.",
-    icon: "test-icon"
+    icon: "test-icon",
   };
 
   const wrapper = mount(Message, {
@@ -19,7 +19,7 @@ describe("Message", () => {
   });
 
   it("should render close icon correctly", () => {
-    expect(wrapper.find(".message>.close-message").exists).toBeTruthy;
+    expect(wrapper.find(".message>.close-message").exists).toBeTruthy();
   });
 
   it("should render <i> element when icon is passed", () => {
@@ -35,13 +35,15 @@ describe("Message", () => {
       props: propsData,
       slots: slotData,
     });
-    
-    expect(messageWrapper.find(".message>.icon").html()).toContain(slotData.icon);
+
+    expect(messageWrapper.find(".message>.icon").html()).toContain(
+      slotData.icon,
+    );
   });
 
   it("should emit close event when close icon is clicked", async () => {
-    await wrapper.find(".message>.close-message").trigger('click');
-    
-    expect(wrapper.emitted("close")).toBeTruthy;
+    await wrapper.find(".message>.close-message").trigger("click");
+
+    expect(wrapper.emitted("close")).toBeTruthy();
   });
 });

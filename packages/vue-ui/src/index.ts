@@ -4,11 +4,11 @@ import Accordion from "./Accordion/Index.vue";
 import BadgeComponent from "./Badge/Index.vue";
 import ButtonElement from "./Button/Index.vue";
 import Card from "./Card/Index.vue";
-import Data from "./Data/Index.vue";
 import LoadingButton from "./components/LoadingButton.vue";
 import LoadingIcon from "./components/LoadingIcon.vue";
 import SubPane from "./components/SubPane.vue";
 import ConfirmationModal from "./ConfirmationModal/Index.vue";
+import Data from "./Data/Index.vue";
 import Divider from "./Divider/Index.vue";
 import Dropdown from "./Dropdown/Index.vue";
 import Errors from "./Errors/Index.vue";
@@ -23,7 +23,7 @@ import Page from "./Page/Index.vue";
 import Popup from "./Popup/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
 import SortableList from "./SortableList/Index.vue";
-import { FacebookSignInButton, GoogleSignInButton  } from "./SSOButtons"
+import { FacebookSignInButton, GoogleSignInButton } from "./SSOButtons";
 import Stepper from "./Stepper/Index.vue";
 import TabbedPanel from "./TabbedPanel/Index.vue";
 import TabView from "./TabView/Index.vue";
@@ -82,7 +82,7 @@ export type {
   Error,
   FileMessages,
   IFile,
-  TableMessages
+  TableMessages,
 } from "./types";
 
 export type { Tab } from "./TabView/types";
