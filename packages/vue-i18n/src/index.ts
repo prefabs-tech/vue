@@ -2,7 +2,11 @@ import { createI18n as baseCreateI18n, useI18n } from "vue-i18n";
 
 import LocaleSwitcher from "./locale-switcher/Index.vue";
 import useLocaleStore from "./store";
-import { getLocaleNames, getPreferredLocale, prependMessages } from "./utils";
+import {
+  getLocaleNames,
+  getPreferredLocale,
+  prependMessages,
+} from "./utilities";
 
 import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { App, Plugin } from "vue";

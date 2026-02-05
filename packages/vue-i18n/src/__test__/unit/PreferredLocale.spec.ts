@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { getPreferredLocale } from "../../utils";
+import { getPreferredLocale } from "../../utilities";
 
 const dataset = [
   {

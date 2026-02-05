@@ -80,7 +80,7 @@ importers:
         version: 9.39.2
       '@prefabs.tech/eslint-config':
         specifier: 0.3.0
-        version: 0.3.0(56yanup7llmsqtgyh2ggij5jqy)
+        version: 0.3.0(khoa4st4fyrsz6m4p464jjmtfy)
       '@prefabs.tech/tsconfig':
         specifier: 0.2.1
         version: 0.2.1(@types/node@24.10.1)
@@ -186,7 +186,7 @@ importers:
         version: 9.39.2
       '@prefabs.tech/eslint-config':
         specifier: 0.3.0
-        version: 0.3.0(2k2tnqp25rzg7irqn3g4te7rba)
+        version: 0.3.0(hswvqzmhvp7z2bec2xs357spoy)
       '@prefabs.tech/tsconfig':
         specifier: 0.2.1
         version: 0.2.1(@types/node@22.13.5)
@@ -372,9 +372,12 @@ importers:
         specifier: 9.1.10
         version: 9.1.10(vue@3.5.27(typescript@5.5.4))
     devDependencies:
+      '@eslint/js':
+        specifier: 9.39.2
+        version: 9.39.2
       '@prefabs.tech/eslint-config':
-        specifier: 0.2.1
-        version: 0.2.1(mlllp3gxkuqoquhizziizn3fvq)
+        specifier: 0.3.0
+        version: 0.3.0(khoa4st4fyrsz6m4p464jjmtfy)
       '@prefabs.tech/tsconfig':
         specifier: 0.2.1
         version: 0.2.1(@types/node@24.10.1)
@@ -384,12 +387,6 @@ importers:
       '@types/node':
         specifier: 24.10.1
         version: 24.10.1
-      '@typescript-eslint/eslint-plugin':
-        specifier: 8.24.1
-        version: 8.24.1(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
-      '@typescript-eslint/parser':
-        specifier: 8.24.1
-        version: 8.24.1(eslint@8.57.1)(typescript@5.5.4)
       '@vitejs/plugin-vue':
         specifier: 6.0.4
         version: 6.0.4(vite@7.3.1(@types/node@24.10.1)(jiti@2.4.2))(vue@3.5.27(typescript@5.5.4))
@@ -403,29 +400,29 @@ importers:
         specifier: 12.7.0
         version: 12.7.0(typescript@5.5.4)
       eslint:
-        specifier: 8.57.1
-        version: 8.57.1
+        specifier: 9.39.2
+        version: 9.39.2(jiti@2.4.2)
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 10.1.8
+        version: 10.1.8(eslint@9.39.2(jiti@2.4.2))
       eslint-import-resolver-alias:
         specifier: 1.1.2
-        version: 1.1.2(eslint-plugin-import@2.31.0)
+        version: 1.1.2(eslint-plugin-import@2.32.0)
       eslint-import-resolver-typescript:
-        specifier: 3.8.3
-        version: 3.8.3(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+        specifier: 4.4.4
+        version: 4.4.4(eslint-plugin-import@2.32.0)(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-import:
-        specifier: 2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)
+        specifier: 2.32.0
+        version: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-prettier:
-        specifier: 5.2.3
-        version: 5.2.3(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.2)
+        specifier: 5.5.5
+        version: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.4.2)))(eslint@9.39.2(jiti@2.4.2))(prettier@3.8.1)
       eslint-plugin-unicorn:
-        specifier: 56.0.1
-        version: 56.0.1(eslint@8.57.1)
+        specifier: 62.0.0
+        version: 62.0.0(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-vue:
-        specifier: 9.32.0
-        version: 9.32.0(eslint@8.57.1)
+        specifier: 10.7.0
+        version: 10.7.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.4.2)))
       jsdom:
         specifier: 27.0.1
         version: 27.0.1(postcss@8.5.6)
@@ -433,11 +430,14 @@ importers:
         specifier: 3.0.4
         version: 3.0.4(typescript@5.5.4)(vue@3.5.27(typescript@5.5.4))
       prettier:
-        specifier: 3.5.2
-        version: 3.5.2
+        specifier: 3.8.1
+        version: 3.8.1
       typescript:
         specifier: 5.5.4
         version: 5.5.4
+      typescript-eslint:
+        specifier: 8.54.0
+        version: 8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
       vite:
         specifier: 7.3.1
         version: 7.3.1(@types/node@24.10.1)(jiti@2.4.2)
@@ -448,8 +448,8 @@ importers:
         specifier: 3.5.27
         version: 3.5.27(typescript@5.5.4)
       vue-eslint-parser:
-        specifier: 9.4.3
-        version: 9.4.3(eslint@8.57.1)
+        specifier: 10.2.0
+        version: 10.2.0(eslint@9.39.2(jiti@2.4.2))
       vue-tsc:
         specifier: 1.2.0
         version: 1.2.0(typescript@5.5.4)
@@ -1892,6 +1892,10 @@ packages:
 
   '@eslint-community/regexpp@4.11.1':
     resolution: {integrity: sha512-m4DVN9ZqskZoLU5GlWZadwDnYo3vAEydiUayB9widCl9ffWx2IvPnp6n3on5rJmziJSw9Bv+Z3ChDVdMwXCY8Q==}
+    engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
+
+  '@eslint-community/regexpp@4.12.1':
+    resolution: {integrity: sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
   '@eslint-community/regexpp@4.12.2':
@@ -7965,6 +7969,8 @@ snapshots:
 
   '@eslint-community/regexpp@4.11.1': {}
 
+  '@eslint-community/regexpp@4.12.1': {}
+
   '@eslint-community/regexpp@4.12.2': {}
 
   '@eslint/config-array@0.21.1':
@@ -8282,7 +8288,7 @@ snapshots:
       eslint-plugin-vue: 9.32.0(eslint@8.57.1)
       vue-eslint-parser: 9.4.3(eslint@8.57.1)
 
-  '@prefabs.tech/eslint-config@0.3.0(2k2tnqp25rzg7irqn3g4te7rba)':
+  '@prefabs.tech/eslint-config@0.3.0(hswvqzmhvp7z2bec2xs357spoy)':
     dependencies:
       '@eslint/js': 9.39.2
       '@typescript-eslint/eslint-plugin': 8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
@@ -8297,36 +8303,13 @@ snapshots:
       prettier: 3.8.1
       typescript: 5.7.3
     optionalDependencies:
-      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.29.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.29.0))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
+      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
       eslint-plugin-cypress: 3.6.0(eslint@9.39.1(jiti@2.4.2))
       eslint-plugin-n: 14.0.0(eslint@9.39.1(jiti@2.4.2))
       eslint-plugin-promise: 7.1.0(eslint@9.39.1(jiti@2.4.2))
       eslint-plugin-vue: 10.7.0(@typescript-eslint/parser@8.54.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.39.1(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.39.1(jiti@2.4.2)))
       typescript-eslint: 8.54.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
       vue-eslint-parser: 10.2.0(eslint@9.39.1(jiti@2.4.2))
-
-  '@prefabs.tech/eslint-config@0.3.0(56yanup7llmsqtgyh2ggij5jqy)':
-    dependencies:
-      '@eslint/js': 9.39.2
-      '@typescript-eslint/eslint-plugin': 8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
-      '@typescript-eslint/parser': 8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
-      eslint: 9.39.2(jiti@2.4.2)
-      eslint-config-prettier: 10.1.8(eslint@9.39.2(jiti@2.4.2))
-      eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.32.0)
-      eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.32.0)(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-prettier: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.4.2)))(eslint@9.39.2(jiti@2.4.2))(prettier@3.8.1)
-      eslint-plugin-unicorn: 62.0.0(eslint@9.39.2(jiti@2.4.2))
-      prettier: 3.8.1
-      typescript: 5.5.4
-    optionalDependencies:
-      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
-      eslint-plugin-cypress: 3.6.0(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-n: 14.0.0(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-promise: 7.1.0(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-vue: 10.7.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.4.2)))
-      typescript-eslint: 8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
-      vue-eslint-parser: 10.2.0(eslint@9.39.2(jiti@2.4.2))
 
   '@prefabs.tech/eslint-config@0.3.0(khoa4st4fyrsz6m4p464jjmtfy)':
     dependencies:
@@ -10592,25 +10575,25 @@ snapshots:
     dependencies:
       eslint: 8.57.1
 
-  eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4):
+  eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3):
     dependencies:
       '@babel/core': 7.29.0
-      '@babel/eslint-parser': 7.25.9(@babel/core@7.29.0)(eslint@9.39.2(jiti@2.4.2))
+      '@babel/eslint-parser': 7.25.9(@babel/core@7.29.0)(eslint@9.39.1(jiti@2.4.2))
       '@rushstack/eslint-patch': 1.10.4
-      '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
-      '@typescript-eslint/parser': 5.62.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+      '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
+      '@typescript-eslint/parser': 5.62.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
       babel-preset-react-app: 10.0.1
       confusing-browser-globals: 1.0.11
-      eslint: 9.39.2(jiti@2.4.2)
-      eslint-plugin-flowtype: 8.0.3(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@5.62.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-jest: 25.7.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
-      eslint-plugin-jsx-a11y: 6.10.1(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-react: 7.37.2(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-react-hooks: 4.6.2(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-testing-library: 5.11.1(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+      eslint: 9.39.1(jiti@2.4.2)
+      eslint-plugin-flowtype: 8.0.3(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint@9.39.1(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@5.62.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.1(jiti@2.4.2))
+      eslint-plugin-jest: 25.7.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
+      eslint-plugin-jsx-a11y: 6.10.1(eslint@9.39.1(jiti@2.4.2))
+      eslint-plugin-react: 7.37.2(eslint@9.39.1(jiti@2.4.2))
+      eslint-plugin-react-hooks: 4.6.2(eslint@9.39.1(jiti@2.4.2))
+      eslint-plugin-testing-library: 5.11.1(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.7.3
     transitivePeerDependencies:
       - '@babel/plugin-syntax-flow'
       - '@babel/plugin-transform-react-jsx'
@@ -10639,34 +10622,6 @@ snapshots:
       eslint-plugin-testing-library: 5.11.1(eslint@8.57.1)(typescript@5.5.4)
     optionalDependencies:
       typescript: 5.5.4
-    transitivePeerDependencies:
-      - '@babel/plugin-syntax-flow'
-      - '@babel/plugin-transform-react-jsx'
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - jest
-      - supports-color
-    optional: true
-
-  eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.29.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.29.0))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3):
-    dependencies:
-      '@babel/core': 7.29.0
-      '@babel/eslint-parser': 7.25.9(@babel/core@7.29.0)(eslint@9.39.1(jiti@2.4.2))
-      '@rushstack/eslint-patch': 1.10.4
-      '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
-      '@typescript-eslint/parser': 5.62.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
-      babel-preset-react-app: 10.0.1
-      confusing-browser-globals: 1.0.11
-      eslint: 9.39.1(jiti@2.4.2)
-      eslint-plugin-flowtype: 8.0.3(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.29.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.29.0))(eslint@9.39.1(jiti@2.4.2))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@5.62.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.1(jiti@2.4.2))
-      eslint-plugin-jest: 25.7.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
-      eslint-plugin-jsx-a11y: 6.10.1(eslint@9.39.1(jiti@2.4.2))
-      eslint-plugin-react: 7.37.2(eslint@9.39.1(jiti@2.4.2))
-      eslint-plugin-react-hooks: 4.6.2(eslint@9.39.1(jiti@2.4.2))
-      eslint-plugin-testing-library: 5.11.1(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3)
-    optionalDependencies:
-      typescript: 5.7.3
     transitivePeerDependencies:
       - '@babel/plugin-syntax-flow'
       - '@babel/plugin-transform-react-jsx'
@@ -10717,7 +10672,7 @@ snapshots:
 
   eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.32.0):
     dependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.1(jiti@2.4.2))
 
   eslint-import-resolver-node@0.3.9:
     dependencies:
@@ -10880,11 +10835,11 @@ snapshots:
       regexpp: 3.2.0
     optional: true
 
-  eslint-plugin-flowtype@8.0.3(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint@9.39.2(jiti@2.4.2)):
+  eslint-plugin-flowtype@8.0.3(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint@9.39.1(jiti@2.4.2)):
     dependencies:
       '@babel/plugin-syntax-flow': 7.25.9(@babel/core@7.26.10)
       '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.26.10)
-      eslint: 9.39.2(jiti@2.4.2)
+      eslint: 9.39.1(jiti@2.4.2)
       lodash: 4.17.21
       string-natural-compare: 3.0.1
     optional: true
@@ -10894,15 +10849,6 @@ snapshots:
       '@babel/plugin-syntax-flow': 7.25.9(@babel/core@7.29.0)
       '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.29.0)
       eslint: 8.57.1
-      lodash: 4.17.21
-      string-natural-compare: 3.0.1
-    optional: true
-
-  eslint-plugin-flowtype@8.0.3(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.29.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.29.0))(eslint@9.39.1(jiti@2.4.2)):
-    dependencies:
-      '@babel/plugin-syntax-flow': 7.25.9(@babel/core@7.29.0)
-      '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.29.0)
-      eslint: 9.39.1(jiti@2.4.2)
       lodash: 4.17.21
       string-natural-compare: 3.0.1
     optional: true
@@ -11620,7 +11566,7 @@ snapshots:
   eslint@9.39.2(jiti@2.4.2):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2(jiti@2.4.2))
-      '@eslint-community/regexpp': 4.12.2
+      '@eslint-community/regexpp': 4.12.1
       '@eslint/config-array': 0.21.1
       '@eslint/config-helpers': 0.4.2
       '@eslint/core': 0.17.0
@@ -11630,7 +11576,7 @@ snapshots:
       '@humanfs/node': 0.16.6
       '@humanwhocodes/module-importer': 1.0.1
       '@humanwhocodes/retry': 0.4.2
-      '@types/estree': 1.0.8
+      '@types/estree': 1.0.7
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.6
