@@ -1,5 +1,5 @@
 <template>
-  <section v-if="propsData.length">
+  <section v-if="propsData.length > 0">
     <h2>{{ propsTableTitle ?? $t("common.properties") }}</h2>
 
     <Table
@@ -10,7 +10,7 @@
     />
   </section>
 
-  <section v-if="slotsData.length">
+  <section v-if="slotsData.length > 0">
     <h2>{{ $t("common.slots") }}</h2>
 
     <Table
@@ -21,7 +21,7 @@
     />
   </section>
 
-  <section v-if="eventsData.length">
+  <section v-if="eventsData.length > 0">
     <h2>{{ $t("common.events") }}</h2>
 
     <Table
