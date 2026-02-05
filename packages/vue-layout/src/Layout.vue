@@ -53,7 +53,7 @@ watch(
     if (meta?.layout) {
       try {
         layout.value = meta.layout as LayoutType;
-      } catch (error) {
+      } catch {
         layout.value = props.defaultLayout;
       }
     } else {

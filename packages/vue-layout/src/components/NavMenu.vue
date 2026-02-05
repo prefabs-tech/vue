@@ -33,7 +33,6 @@ const props = defineProps({
   },
   sidebarActive: {
     default: true,
-    required: true,
     type: Boolean,
   },
 });
@@ -50,13 +49,13 @@ const sideBarMenuToShow = computed(() => {
       const filteredChildren =
         menu.children?.filter((childMenu) => !childMenu.hide) || [];
 
-      if (menu.children?.length && !filteredChildren.length) {
+      if (menu.children?.length && filteredChildren.length === 0) {
         return null;
       }
 
       return {
         ...menu,
-        children: filteredChildren.length ? filteredChildren : undefined,
+        children: filteredChildren.length > 0 ? filteredChildren : undefined,
       };
     })
     .filter(Boolean) as SidebarMenu[];
