@@ -101,13 +101,11 @@ const useUserStore = defineStore("user", () => {
     }
 
     throw new Error(
-      `${providerId} signin is not supported for the selected auth provider`
+      `${providerId} signin is not supported for the selected auth provider`,
     );
   };
 
-  const getIsFirstUser = async (
-    apiBaseUrl: string,
-  ) => {
+  const getIsFirstUser = async (apiBaseUrl: string) => {
     return await doGetIsFirstUser(apiBaseUrl);
   };
 
@@ -137,12 +135,12 @@ const useUserStore = defineStore("user", () => {
 
   const isLoggedIn = async () => {
     const selectedAuthProvider = auth();
-    
+
     if ("isLoggedIn" in selectedAuthProvider) {
       return await selectedAuthProvider.isLoggedIn();
     }
 
-    return !!user.value
+    return !!user.value;
   };
 
   const login = async (credentials: LoginCredentials) => {
@@ -161,6 +159,7 @@ const useUserStore = defineStore("user", () => {
       user.value = undefined;
 
       // FIXME [SS 17 MARCH 2023]
+      // eslint-disable-next-line unicorn/no-document-cookie
       document.cookie =
         "sFrontToken=; Max-Age=0; path=/; domain=" + location.hostname;
     });
@@ -203,13 +202,13 @@ const useUserStore = defineStore("user", () => {
 
   const sendVerificationEmail = async () => {
     const selectedAuthProvider = auth();
-    
+
     if ("doSendVerificationEmail" in selectedAuthProvider) {
       return selectedAuthProvider.doSendVerificationEmail();
     }
 
     throw new Error(
-      "Send verification email is not supported for the selected auth provider"
+      "Send verification email is not supported for the selected auth provider",
     );
   };
 
@@ -227,7 +226,7 @@ const useUserStore = defineStore("user", () => {
         user.value.isProfileCompleted =
           await selectedAuthProvider.isProfileCompleted();
       }
-  
+
       localStorage.setItem(USER_KEY, JSON.stringify(user.value));
     }
   };
@@ -265,13 +264,13 @@ const useUserStore = defineStore("user", () => {
 
   const verifyEmail = async (token?: string) => {
     const selectedAuthProvider = auth();
-    
+
     if ("doVerifyEmail" in selectedAuthProvider) {
       return await selectedAuthProvider.doVerifyEmail(token || "");
     }
 
     throw new Error(
-      "Verify email is not supported for the selected auth provider"
+      "Verify email is not supported for the selected auth provider",
     );
   };
 

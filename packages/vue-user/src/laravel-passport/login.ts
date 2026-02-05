@@ -23,11 +23,12 @@ const login = async (
     }
   } catch (error) {
     if (error instanceof AxiosError) {
-      if (error.response?.status === 401) {
-        throw new Error("401");
-      } else {
-        throw new Error("SOMETHING_WRONG");
-      }
+      const error_ =
+        error.response?.status === 401
+          ? new Error("401")
+          : new Error("SOMETHING_WRONG");
+
+      throw error_;
     } else {
       throw new Error("SOMETHING_WRONG");
     }

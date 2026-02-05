@@ -11,7 +11,7 @@ const getVerificationStatus = async (
     const response = await client(apiBaseUrl).get(path);
 
     return response.data?.isVerified;
-  } catch (error) {
+  } catch {
     throw new Error("SOMETHING_WRONG");
   }
 };
@@ -23,30 +23,22 @@ const sendVerificationEmail = async (
   try {
     const response = await client(apiBaseUrl).post(path);
 
-    if (response.data) {
-      return EMAIL_VERIFICATION.OK;
-    } else {
-      return EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR;
-    }
-  } catch (error) {
+    return response.data
+      ? EMAIL_VERIFICATION.OK
+      : EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR;
+  } catch {
     throw new Error("SOMETHING_WRONG");
   }
 };
 
-const verifyEmail = async (
-  token: string,
-  apiBaseUrl: string,
-  path: string,
-) => {
+const verifyEmail = async (token: string, apiBaseUrl: string, path: string) => {
   try {
     const response = await client(apiBaseUrl).post(path, { token });
 
-    if (response.data) {
-      return { status: EMAIL_VERIFICATION.OK };
-    } else {
-      return { status: EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR };
-    }
-  } catch (error) {
+    return response.data
+      ? { status: EMAIL_VERIFICATION.OK }
+      : { status: EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR };
+  } catch {
     throw new Error("SOMETHING_WRONG");
   }
 };

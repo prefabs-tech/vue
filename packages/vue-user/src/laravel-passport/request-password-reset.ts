@@ -11,7 +11,7 @@ const requestPasswordReset = async (
     return await client(apiBaseUrl).post(path, credentials, {
       withCredentials: true,
     });
-  } catch (error) {
+  } catch {
     throw new Error("SOMETHING_WRONG");
   }
 };

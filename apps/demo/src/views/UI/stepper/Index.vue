@@ -622,14 +622,18 @@ const onStepperPrevious = () => {
 
 const renderStepContent = (step: number) => {
   switch (step) {
-    case 0:
+    case 0: {
       return "Personal details";
-    case 1:
+    }
+    case 1: {
       return "Family details";
-    case 2:
+    }
+    case 2: {
       return "Payment details";
-    case 3:
+    }
+    case 3: {
       return "Confirm submit";
+    }
   }
 };
 </script>

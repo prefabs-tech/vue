@@ -20,7 +20,7 @@ const config: AppConfig = {
   user: {
     features: {
       confirmPassword: true,
-    }
+    },
   },
   websiteDomain: "test",
 };
