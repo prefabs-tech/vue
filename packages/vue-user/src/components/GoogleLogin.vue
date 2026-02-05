@@ -44,7 +44,7 @@ const onGoogleSignIn = async () => {
       `${config.websiteDomain}${AUTH_CALLBACK_PATH_GOOGLE}`,
     );
     loading.value = false;
-  } catch (error) {
+  } catch {
     emit("error", new Error("SOMETHING_WRONG"));
     loading.value = false;
   }

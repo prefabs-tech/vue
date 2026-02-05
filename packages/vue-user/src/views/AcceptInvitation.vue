@@ -1,6 +1,6 @@
 <template>
   <Page :title="t('user.signup.title')" class="auth signup">
-    <Errors v-if="errors.length" :errors="errors" />
+    <Errors v-if="errors.length > 0" :errors="errors" />
 
     <slot name="instructions"></slot>
 

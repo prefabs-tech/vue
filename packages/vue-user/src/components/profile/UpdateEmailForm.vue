@@ -132,7 +132,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
     }
 
     loading.value = false;
-  } catch (error) {
+  } catch {
     errorMessage.value = t("user.profile.accountInfo.messages.error");
 
     loading.value = false;

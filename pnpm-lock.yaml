@@ -728,12 +728,15 @@ importers:
         specifier: 16.0.1
         version: 16.0.1
     devDependencies:
+      '@eslint/js':
+        specifier: 9.39.2
+        version: 9.39.2
       '@iconify/vue':
         specifier: 4.3.0
         version: 4.3.0(vue@3.5.27(typescript@5.5.4))
       '@prefabs.tech/eslint-config':
-        specifier: 0.2.1
-        version: 0.2.1(mlllp3gxkuqoquhizziizn3fvq)
+        specifier: 0.3.0
+        version: 0.3.0(khoa4st4fyrsz6m4p464jjmtfy)
       '@prefabs.tech/tsconfig':
         specifier: 0.2.1
         version: 0.2.1(@types/node@24.10.1)
@@ -758,12 +761,6 @@ importers:
       '@types/node':
         specifier: 24.10.1
         version: 24.10.1
-      '@typescript-eslint/eslint-plugin':
-        specifier: 8.24.1
-        version: 8.24.1(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
-      '@typescript-eslint/parser':
-        specifier: 8.24.1
-        version: 8.24.1(eslint@8.57.1)(typescript@5.5.4)
       '@vee-validate/i18n':
         specifier: 4.15.1
         version: 4.15.1
@@ -792,29 +789,29 @@ importers:
         specifier: 1.13.4
         version: 1.13.4
       eslint:
-        specifier: 8.57.1
-        version: 8.57.1
+        specifier: 9.39.2
+        version: 9.39.2(jiti@2.4.2)
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 10.1.8
+        version: 10.1.8(eslint@9.39.2(jiti@2.4.2))
       eslint-import-resolver-alias:
         specifier: 1.1.2
-        version: 1.1.2(eslint-plugin-import@2.31.0)
+        version: 1.1.2(eslint-plugin-import@2.32.0)
       eslint-import-resolver-typescript:
-        specifier: 3.8.3
-        version: 3.8.3(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+        specifier: 4.4.4
+        version: 4.4.4(eslint-plugin-import@2.32.0)(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-import:
-        specifier: 2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)
+        specifier: 2.32.0
+        version: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-prettier:
-        specifier: 5.2.3
-        version: 5.2.3(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.2)
+        specifier: 5.5.5
+        version: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.4.2)))(eslint@9.39.2(jiti@2.4.2))(prettier@3.8.1)
       eslint-plugin-unicorn:
-        specifier: 56.0.1
-        version: 56.0.1(eslint@8.57.1)
+        specifier: 62.0.0
+        version: 62.0.0(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-vue:
-        specifier: 9.32.0
-        version: 9.32.0(eslint@8.57.1)
+        specifier: 10.7.0
+        version: 10.7.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.4.2)))
       mitt:
         specifier: 3.0.1
         version: 3.0.1
@@ -822,11 +819,14 @@ importers:
         specifier: 3.0.4
         version: 3.0.4(typescript@5.5.4)(vue@3.5.27(typescript@5.5.4))
       prettier:
-        specifier: 3.5.2
-        version: 3.5.2
+        specifier: 3.8.1
+        version: 3.8.1
       typescript:
         specifier: 5.5.4
         version: 5.5.4
+      typescript-eslint:
+        specifier: 8.54.0
+        version: 8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
       vee-validate:
         specifier: 4.15.1
         version: 4.15.1(vue@3.5.27(typescript@5.5.4))
@@ -840,8 +840,8 @@ importers:
         specifier: 3.5.27
         version: 3.5.27(typescript@5.5.4)
       vue-eslint-parser:
-        specifier: 9.4.3
-        version: 9.4.3(eslint@8.57.1)
+        specifier: 10.2.0
+        version: 10.2.0(eslint@9.39.2(jiti@2.4.2))
       vue-router:
         specifier: 4.5.0
         version: 4.5.0(vue@3.5.27(typescript@5.5.4))
@@ -4646,9 +4646,6 @@ packages:
     resolution: {integrity: sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==}
     engines: {node: '>=0.10.0'}
 
-  is-finalizationregistry@1.0.2:
-    resolution: {integrity: sha512-0by5vtUJs8iFQb5TYUHHPudOR+qXYIMKtiUzvLIZITZUjknFmziyBJuLhVRc+Ds0dREFlskDNJKYIdIzu/9pfw==}
-
   is-finalizationregistry@1.1.1:
     resolution: {integrity: sha512-1pC6N8qWJbWoPtEjgcL2xyhQOP491EQjeUo3qTKcmV8YSDDJrOepfG8pcC7h/QgnQHYSv0mJ3Z/ZWxmatVrysg==}
     engines: {node: '>= 0.4'}
@@ -5576,10 +5573,6 @@ packages:
 
   reflect.getprototypeof@1.0.10:
     resolution: {integrity: sha512-00o4I+DVrefhv+nX0ulyi3biSHCPDe+yLv5o/p6d/UVlirijB8E16FtfwSAi4g3tcqrQ4lRAqQSoFEZJehYEcw==}
-    engines: {node: '>= 0.4'}
-
-  reflect.getprototypeof@1.0.6:
-    resolution: {integrity: sha512-fmfw4XgoDke3kdI6h4xcUz1dG8uaiv5q9gcEwLS4Pnth2kxT+GZ7YehS1JTMGBQmtV7Y4GFGbs2re2NqhdozUg==}
     engines: {node: '>= 0.4'}
 
   regenerate-unicode-properties@10.2.0:
@@ -6515,10 +6508,6 @@ packages:
 
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
-    engines: {node: '>= 0.4'}
-
-  which-builtin-type@1.1.4:
-    resolution: {integrity: sha512-bppkmBSsHFmIMSl8BO9TbsyzsvGjVoppt8xUiGzwiu/bhDCGxnpOKCxgqj6GuyHE0mINMDecBFPlOm2hzY084w==}
     engines: {node: '>= 0.4'}
 
   which-builtin-type@1.2.1:
@@ -7662,7 +7651,7 @@ snapshots:
       babel-plugin-polyfill-corejs2: 0.4.11(@babel/core@7.29.0)
       babel-plugin-polyfill-corejs3: 0.10.6(@babel/core@7.29.0)
       babel-plugin-polyfill-regenerator: 0.6.2(@babel/core@7.29.0)
-      core-js-compat: 3.38.1
+      core-js-compat: 3.48.0
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -8078,8 +8067,8 @@ snapshots:
   '@eslint/eslintrc@3.3.1':
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.7
-      espree: 10.3.0
+      debug: 4.4.3
+      espree: 10.4.0
       globals: 14.0.0
       ignore: 5.3.2
       import-fresh: 3.3.0
@@ -8404,6 +8393,29 @@ snapshots:
       typescript: 5.5.4
     optionalDependencies:
       eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.26.10))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.10))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+      eslint-plugin-cypress: 3.6.0(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-n: 14.0.0(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-promise: 7.1.0(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-vue: 10.7.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.4.2)))
+      typescript-eslint: 8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+      vue-eslint-parser: 10.2.0(eslint@9.39.2(jiti@2.4.2))
+
+  '@prefabs.tech/eslint-config@0.3.0(khoa4st4fyrsz6m4p464jjmtfy)':
+    dependencies:
+      '@eslint/js': 9.39.2
+      '@typescript-eslint/eslint-plugin': 8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+      '@typescript-eslint/parser': 8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+      eslint: 9.39.2(jiti@2.4.2)
+      eslint-config-prettier: 10.1.8(eslint@9.39.2(jiti@2.4.2))
+      eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.32.0)
+      eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.32.0)(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-prettier: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.4.2)))(eslint@9.39.2(jiti@2.4.2))(prettier@3.8.1)
+      eslint-plugin-unicorn: 62.0.0(eslint@9.39.2(jiti@2.4.2))
+      prettier: 3.8.1
+      typescript: 5.5.4
+    optionalDependencies:
+      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.29.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.29.0))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
       eslint-plugin-cypress: 3.6.0(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-n: 14.0.0(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-promise: 7.1.0(eslint@9.39.2(jiti@2.4.2))
@@ -9710,12 +9722,12 @@ snapshots:
 
   array.prototype.findlast@1.2.5:
     dependencies:
-      call-bind: 1.0.7
+      call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.23.3
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
-      es-shim-unscopables: 1.0.2
+      es-shim-unscopables: 1.1.0
     optional: true
 
   array.prototype.findlastindex@1.2.5:
@@ -9749,7 +9761,7 @@ snapshots:
       call-bind: 1.0.8
       define-properties: 1.2.1
       es-abstract: 1.24.1
-      es-shim-unscopables: 1.0.2
+      es-shim-unscopables: 1.1.0
 
   array.prototype.flatmap@1.3.2:
     dependencies:
@@ -9763,15 +9775,15 @@ snapshots:
       call-bind: 1.0.8
       define-properties: 1.2.1
       es-abstract: 1.24.1
-      es-shim-unscopables: 1.0.2
+      es-shim-unscopables: 1.1.0
 
   array.prototype.tosorted@1.1.4:
     dependencies:
-      call-bind: 1.0.7
+      call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.23.3
+      es-abstract: 1.24.1
       es-errors: 1.3.0
-      es-shim-unscopables: 1.0.2
+      es-shim-unscopables: 1.1.0
     optional: true
 
   arraybuffer.prototype.slice@1.0.3:
@@ -9853,7 +9865,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.29.0
       '@babel/helper-define-polyfill-provider': 0.6.2(@babel/core@7.29.0)
-      core-js-compat: 3.38.1
+      core-js-compat: 3.48.0
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -10538,20 +10550,20 @@ snapshots:
 
   es-iterator-helpers@1.1.0:
     dependencies:
-      call-bind: 1.0.7
+      call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.23.3
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       es-set-tostringtag: 2.1.0
       function-bind: 1.1.2
       get-intrinsic: 1.3.0
       globalthis: 1.0.4
       has-property-descriptors: 1.0.2
-      has-proto: 1.0.3
+      has-proto: 1.2.0
       has-symbols: 1.1.0
-      internal-slot: 1.0.7
+      internal-slot: 1.1.0
       iterator.prototype: 1.1.3
-      safe-array-concat: 1.1.2
+      safe-array-concat: 1.1.3
     optional: true
 
   es-module-lexer@1.7.0: {}
@@ -10594,8 +10606,8 @@ snapshots:
   es-to-primitive@1.3.0:
     dependencies:
       is-callable: 1.2.7
-      is-date-object: 1.0.5
-      is-symbol: 1.0.4
+      is-date-object: 1.1.0
+      is-symbol: 1.1.1
 
   esbuild@0.27.2:
     optionalDependencies:
@@ -10719,6 +10731,34 @@ snapshots:
       eslint-plugin-testing-library: 5.11.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
     optionalDependencies:
       typescript: 5.7.3
+    transitivePeerDependencies:
+      - '@babel/plugin-syntax-flow'
+      - '@babel/plugin-transform-react-jsx'
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - jest
+      - supports-color
+    optional: true
+
+  eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.29.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.29.0))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4):
+    dependencies:
+      '@babel/core': 7.29.0
+      '@babel/eslint-parser': 7.25.9(@babel/core@7.29.0)(eslint@9.39.2(jiti@2.4.2))
+      '@rushstack/eslint-patch': 1.10.4
+      '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+      '@typescript-eslint/parser': 5.62.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+      babel-preset-react-app: 10.0.1
+      confusing-browser-globals: 1.0.11
+      eslint: 9.39.2(jiti@2.4.2)
+      eslint-plugin-flowtype: 8.0.3(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.29.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.29.0))(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@5.62.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-jest: 25.7.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+      eslint-plugin-jsx-a11y: 6.10.1(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-react: 7.37.2(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-react-hooks: 4.6.2(eslint@9.39.2(jiti@2.4.2))
+      eslint-plugin-testing-library: 5.11.1(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4)
+    optionalDependencies:
+      typescript: 5.5.4
     transitivePeerDependencies:
       - '@babel/plugin-syntax-flow'
       - '@babel/plugin-transform-react-jsx'
@@ -10927,6 +10967,15 @@ snapshots:
       '@babel/plugin-syntax-flow': 7.25.9(@babel/core@7.29.0)
       '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.29.0)
       eslint: 9.20.1(jiti@2.4.2)
+      lodash: 4.17.21
+      string-natural-compare: 3.0.1
+    optional: true
+
+  eslint-plugin-flowtype@8.0.3(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.29.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.29.0))(eslint@9.39.2(jiti@2.4.2)):
+    dependencies:
+      '@babel/plugin-syntax-flow': 7.25.9(@babel/core@7.29.0)
+      '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.29.0)
+      eslint: 9.39.2(jiti@2.4.2)
       lodash: 4.17.21
       string-natural-compare: 3.0.1
     optional: true
@@ -11144,8 +11193,8 @@ snapshots:
   eslint-plugin-jsx-a11y@6.10.1(eslint@8.57.1):
     dependencies:
       aria-query: 5.3.2
-      array-includes: 3.1.8
-      array.prototype.flatmap: 1.3.2
+      array-includes: 3.1.9
+      array.prototype.flatmap: 1.3.3
       ast-types-flow: 0.0.8
       axe-core: 4.10.2
       axobject-query: 4.1.0
@@ -11158,15 +11207,15 @@ snapshots:
       language-tags: 1.0.9
       minimatch: 3.1.2
       object.fromentries: 2.0.8
-      safe-regex-test: 1.0.3
+      safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
     optional: true
 
   eslint-plugin-jsx-a11y@6.10.1(eslint@9.20.1(jiti@2.4.2)):
     dependencies:
       aria-query: 5.3.2
-      array-includes: 3.1.8
-      array.prototype.flatmap: 1.3.2
+      array-includes: 3.1.9
+      array.prototype.flatmap: 1.3.3
       ast-types-flow: 0.0.8
       axe-core: 4.10.2
       axobject-query: 4.1.0
@@ -11179,15 +11228,15 @@ snapshots:
       language-tags: 1.0.9
       minimatch: 3.1.2
       object.fromentries: 2.0.8
-      safe-regex-test: 1.0.3
+      safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
     optional: true
 
   eslint-plugin-jsx-a11y@6.10.1(eslint@9.39.2(jiti@2.4.2)):
     dependencies:
       aria-query: 5.3.2
-      array-includes: 3.1.8
-      array.prototype.flatmap: 1.3.2
+      array-includes: 3.1.9
+      array.prototype.flatmap: 1.3.3
       ast-types-flow: 0.0.8
       axe-core: 4.10.2
       axobject-query: 4.1.0
@@ -11200,7 +11249,7 @@ snapshots:
       language-tags: 1.0.9
       minimatch: 3.1.2
       object.fromentries: 2.0.8
-      safe-regex-test: 1.0.3
+      safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
     optional: true
 
@@ -11210,7 +11259,7 @@ snapshots:
       eslint-plugin-es: 4.1.0(eslint@8.57.1)
       eslint-utils: 3.0.0(eslint@8.57.1)
       ignore: 5.3.2
-      is-core-module: 2.15.1
+      is-core-module: 2.16.1
       minimatch: 3.1.2
       resolve: 1.22.8
       semver: 6.3.1
@@ -11222,7 +11271,7 @@ snapshots:
       eslint-plugin-es: 4.1.0(eslint@9.20.1(jiti@2.4.2))
       eslint-utils: 3.0.0(eslint@9.20.1(jiti@2.4.2))
       ignore: 5.3.2
-      is-core-module: 2.15.1
+      is-core-module: 2.16.1
       minimatch: 3.1.2
       resolve: 1.22.8
       semver: 6.3.1
@@ -11234,7 +11283,7 @@ snapshots:
       eslint-plugin-es: 4.1.0(eslint@9.39.2(jiti@2.4.2))
       eslint-utils: 3.0.0(eslint@9.39.2(jiti@2.4.2))
       ignore: 5.3.2
-      is-core-module: 2.15.1
+      is-core-module: 2.16.1
       minimatch: 3.1.2
       resolve: 1.22.8
       semver: 6.3.1
@@ -11299,9 +11348,9 @@ snapshots:
 
   eslint-plugin-react@7.37.2(eslint@8.57.1):
     dependencies:
-      array-includes: 3.1.8
+      array-includes: 3.1.9
       array.prototype.findlast: 1.2.5
-      array.prototype.flatmap: 1.3.2
+      array.prototype.flatmap: 1.3.3
       array.prototype.tosorted: 1.1.4
       doctrine: 2.1.0
       es-iterator-helpers: 1.1.0
@@ -11312,7 +11361,7 @@ snapshots:
       minimatch: 3.1.2
       object.entries: 1.1.8
       object.fromentries: 2.0.8
-      object.values: 1.2.0
+      object.values: 1.2.1
       prop-types: 15.8.1
       resolve: 2.0.0-next.5
       semver: 6.3.1
@@ -11322,9 +11371,9 @@ snapshots:
 
   eslint-plugin-react@7.37.2(eslint@9.20.1(jiti@2.4.2)):
     dependencies:
-      array-includes: 3.1.8
+      array-includes: 3.1.9
       array.prototype.findlast: 1.2.5
-      array.prototype.flatmap: 1.3.2
+      array.prototype.flatmap: 1.3.3
       array.prototype.tosorted: 1.1.4
       doctrine: 2.1.0
       es-iterator-helpers: 1.1.0
@@ -11335,7 +11384,7 @@ snapshots:
       minimatch: 3.1.2
       object.entries: 1.1.8
       object.fromentries: 2.0.8
-      object.values: 1.2.0
+      object.values: 1.2.1
       prop-types: 15.8.1
       resolve: 2.0.0-next.5
       semver: 6.3.1
@@ -11345,9 +11394,9 @@ snapshots:
 
   eslint-plugin-react@7.37.2(eslint@9.39.2(jiti@2.4.2)):
     dependencies:
-      array-includes: 3.1.8
+      array-includes: 3.1.9
       array.prototype.findlast: 1.2.5
-      array.prototype.flatmap: 1.3.2
+      array.prototype.flatmap: 1.3.3
       array.prototype.tosorted: 1.1.4
       doctrine: 2.1.0
       es-iterator-helpers: 1.1.0
@@ -11358,7 +11407,7 @@ snapshots:
       minimatch: 3.1.2
       object.entries: 1.1.8
       object.fromentries: 2.0.8
-      object.values: 1.2.0
+      object.values: 1.2.1
       prop-types: 15.8.1
       resolve: 2.0.0-next.5
       semver: 6.3.1
@@ -11639,7 +11688,7 @@ snapshots:
   eslint@9.39.2(jiti@2.4.2):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2(jiti@2.4.2))
-      '@eslint-community/regexpp': 4.12.1
+      '@eslint-community/regexpp': 4.12.2
       '@eslint/config-array': 0.21.1
       '@eslint/config-helpers': 0.4.2
       '@eslint/core': 0.17.0
@@ -11649,7 +11698,7 @@ snapshots:
       '@humanfs/node': 0.16.6
       '@humanwhocodes/module-importer': 1.0.1
       '@humanwhocodes/retry': 0.4.2
-      '@types/estree': 1.0.7
+      '@types/estree': 1.0.8
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.6
@@ -11681,7 +11730,7 @@ snapshots:
     dependencies:
       acorn: 8.14.1
       acorn-jsx: 5.3.2(acorn@8.14.1)
-      eslint-visitor-keys: 4.2.0
+      eslint-visitor-keys: 4.2.1
 
   espree@10.4.0:
     dependencies:
@@ -12273,10 +12322,6 @@ snapshots:
 
   is-extglob@2.1.1: {}
 
-  is-finalizationregistry@1.0.2:
-    dependencies:
-      call-bind: 1.0.8
-
   is-finalizationregistry@1.1.1:
     dependencies:
       call-bound: 1.0.4
@@ -12432,7 +12477,7 @@ snapshots:
       define-properties: 1.2.1
       get-intrinsic: 1.3.0
       has-symbols: 1.1.0
-      reflect.getprototypeof: 1.0.6
+      reflect.getprototypeof: 1.0.10
       set-function-name: 2.0.2
     optional: true
 
@@ -12525,10 +12570,10 @@ snapshots:
 
   jsx-ast-utils@3.3.5:
     dependencies:
-      array-includes: 3.1.8
-      array.prototype.flat: 1.3.2
-      object.assign: 4.1.5
-      object.values: 1.2.0
+      array-includes: 3.1.9
+      array.prototype.flat: 1.3.3
+      object.assign: 4.1.7
+      object.values: 1.2.1
     optional: true
 
   keyv@4.5.4:
@@ -12830,7 +12875,7 @@ snapshots:
 
   object.entries@1.1.8:
     dependencies:
-      call-bind: 1.0.7
+      call-bind: 1.0.8
       define-properties: 1.2.1
       es-object-atoms: 1.1.1
     optional: true
@@ -13180,16 +13225,6 @@ snapshots:
       get-proto: 1.0.1
       which-builtin-type: 1.2.1
 
-  reflect.getprototypeof@1.0.6:
-    dependencies:
-      call-bind: 1.0.8
-      define-properties: 1.2.1
-      es-abstract: 1.24.1
-      es-errors: 1.3.0
-      get-intrinsic: 1.3.0
-      globalthis: 1.0.4
-      which-builtin-type: 1.1.4
-
   regenerate-unicode-properties@10.2.0:
     dependencies:
       regenerate: 1.4.2
@@ -13270,7 +13305,7 @@ snapshots:
 
   resolve@2.0.0-next.5:
     dependencies:
-      is-core-module: 2.15.1
+      is-core-module: 2.16.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     optional: true
@@ -13589,25 +13624,25 @@ snapshots:
 
   string.prototype.includes@2.0.1:
     dependencies:
-      call-bind: 1.0.7
+      call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.23.3
+      es-abstract: 1.24.1
     optional: true
 
   string.prototype.matchall@4.0.11:
     dependencies:
-      call-bind: 1.0.7
+      call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.23.3
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
       get-intrinsic: 1.3.0
       gopd: 1.2.0
       has-symbols: 1.1.0
-      internal-slot: 1.0.7
-      regexp.prototype.flags: 1.5.3
+      internal-slot: 1.1.0
+      regexp.prototype.flags: 1.5.4
       set-function-name: 2.0.2
-      side-channel: 1.0.6
+      side-channel: 1.1.0
     optional: true
 
   string.prototype.padend@3.1.4:
@@ -13619,7 +13654,7 @@ snapshots:
   string.prototype.repeat@1.0.0:
     dependencies:
       define-properties: 1.2.1
-      es-abstract: 1.23.3
+      es-abstract: 1.24.1
     optional: true
 
   string.prototype.trim@1.2.10:
@@ -13909,7 +13944,7 @@ snapshots:
   typed-array-byte-length@1.0.3:
     dependencies:
       call-bind: 1.0.8
-      for-each: 0.3.3
+      for-each: 0.3.5
       gopd: 1.2.0
       has-proto: 1.2.0
       is-typed-array: 1.1.15
@@ -13927,7 +13962,7 @@ snapshots:
     dependencies:
       available-typed-arrays: 1.0.7
       call-bind: 1.0.8
-      for-each: 0.3.3
+      for-each: 0.3.5
       gopd: 1.2.0
       has-proto: 1.2.0
       is-typed-array: 1.1.15
@@ -13945,11 +13980,11 @@ snapshots:
   typed-array-length@1.0.7:
     dependencies:
       call-bind: 1.0.8
-      for-each: 0.3.3
+      for-each: 0.3.5
       gopd: 1.2.0
       is-typed-array: 1.1.15
       possible-typed-array-names: 1.0.0
-      reflect.getprototypeof: 1.0.6
+      reflect.getprototypeof: 1.0.10
 
   typescript-eslint@8.54.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.5.4):
     dependencies:
@@ -14328,21 +14363,6 @@ snapshots:
       is-number-object: 1.1.1
       is-string: 1.1.1
       is-symbol: 1.1.1
-
-  which-builtin-type@1.1.4:
-    dependencies:
-      function.prototype.name: 1.1.8
-      has-tostringtag: 1.0.2
-      is-async-function: 2.0.0
-      is-date-object: 1.0.5
-      is-finalizationregistry: 1.0.2
-      is-generator-function: 1.0.10
-      is-regex: 1.2.1
-      is-weakref: 1.1.1
-      isarray: 2.0.5
-      which-boxed-primitive: 1.0.2
-      which-collection: 1.0.2
-      which-typed-array: 1.1.20
 
   which-builtin-type@1.2.1:
     dependencies:

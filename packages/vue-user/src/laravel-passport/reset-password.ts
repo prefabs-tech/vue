@@ -16,8 +16,8 @@ const resetPassword = async (
       return true;
     }
 
-    return  false;
-  } catch (error) {
+    return false;
+  } catch {
     throw new Error("SOMETHING_WRONG");
   }
 };

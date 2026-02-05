@@ -1,5 +1,3 @@
-import { DefineComponent } from "vue";
-
 import type { RouteOverrides } from "./router";
 import type {
   IsEmailOptions,
@@ -14,7 +12,7 @@ interface DzangolabVueUserConfig {
     login?: string;
     logout?: string;
     passwordReset?: string;
-    passwordResetRequest?: string,
+    passwordResetRequest?: string;
     refresh?: string;
     sendVerificationEmail?: string;
     signup?: string;

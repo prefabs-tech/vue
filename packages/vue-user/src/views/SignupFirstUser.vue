@@ -91,7 +91,7 @@ const prepareComponent = async () => {
     if (!response?.signUp && router.hasRoute("login")) {
       router.push({ name: "login" });
     }
-  } catch (error) {
+  } catch {
     errorMessage.value = t("user.signup.errors.SOMETHING_WRONG");
   } finally {
     loading.value = false;
