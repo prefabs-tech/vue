@@ -1,8 +1,8 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import { mockedTable } from "../table";
 import TableHeader from "../../TableHeader.vue";
+import { mockedTable } from "../table";
 
 describe("TableHeader", () => {
   it("matches snapshot", () => {

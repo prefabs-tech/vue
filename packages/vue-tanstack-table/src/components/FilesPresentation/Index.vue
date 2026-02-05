@@ -137,9 +137,10 @@ const emitAction = (action: string, file: IFile) => {
     case "download":
     case "edit":
     case "share":
-    case "view":
+    case "view": {
       emit(`action:${action}`, file);
       break;
+    }
   }
 };
 </script>

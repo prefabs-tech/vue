@@ -307,24 +307,30 @@ const mergedColumns = computed(() => [
 
 const onActionSelect = (rowData: { action: string; data: IFile }) => {
   switch (rowData.action) {
-    case "archive":
+    case "archive": {
       emit("action:archive", rowData.data);
       break;
-    case "delete":
+    }
+    case "delete": {
       emit("action:delete", rowData.data);
       break;
-    case "download":
+    }
+    case "download": {
       emit("action:download", rowData.data);
       break;
-    case "edit":
+    }
+    case "edit": {
       emit("action:edit", rowData.data);
       break;
-    case "share":
+    }
+    case "share": {
       emit("action:share", rowData.data);
       break;
-    case "view":
+    }
+    case "view": {
       emit("action:view", rowData.data);
       break;
+    }
   }
 };
 
