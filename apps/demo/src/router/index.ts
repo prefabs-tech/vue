@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import { feature } from "@/config";
+import Home from "@/views/Home.vue";
+
 import form from "./form";
 import layout from "./layout";
 import table from "./table";
@@ -8,7 +10,6 @@ import ui from "./ui";
 import user from "./user";
 
 // import About from "@/views/About.vue";
-import Home from "@/views/Home.vue";
 // import Layout from "@/views/Layout/Index.vue";
 // import Sentry from "@/views/Sentry.vue";
 
@@ -24,7 +25,6 @@ interface AppRouteMeta extends RouteMeta {
 
 const About = () => import("@/views/About.vue");
 // const Home = () => import("@/views/Home.vue");
-const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
 
 const router: Router = createRouter({
@@ -56,7 +56,7 @@ const router: Router = createRouter({
 router.beforeEach((to, from, next) => {
   const meta = to.meta as AppRouteMeta;
 
-  if (typeof meta.feature !== "undefined" && !feature(meta.feature)) {
+  if (meta.feature !== undefined && !feature(meta.feature)) {
     next({ name: "home" });
   } else {
     next();

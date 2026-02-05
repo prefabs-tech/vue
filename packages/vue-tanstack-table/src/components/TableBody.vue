@@ -73,7 +73,7 @@ import {
   formatDateTime,
   formatNumber,
   getAlignValue,
-} from "../utils";
+} from "../utilities";
 
 import type { Cell, NoInfer, Table } from "@tanstack/vue-table";
 

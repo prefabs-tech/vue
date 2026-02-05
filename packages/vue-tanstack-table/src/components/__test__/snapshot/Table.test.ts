@@ -26,7 +26,7 @@ describe("Table", () => {
       },
       slots: {
         footer: `<div class="footer">Footer</div>`,
-      }
+      },
     });
 
     expect(wrapper.element).toMatchSnapshot();

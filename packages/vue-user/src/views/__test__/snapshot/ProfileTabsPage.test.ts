@@ -1,5 +1,5 @@
 import i18Plugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
-import { mount, RouterLinkStub } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
 import { describe, it, expect } from "vitest";
 
@@ -19,12 +19,12 @@ describe("ProfileTabsPage", () => {
   const tabs = [
     {
       key: "tab1",
-      label: "Tab 1"
+      label: "Tab 1",
     },
     {
       key: "tab2",
-      label: "Tab 2"
-    }
+      label: "Tab 2",
+    },
   ];
 
   for (const locale of locales) {

@@ -39,7 +39,7 @@ export const mockedTable = useVueTable({
       country: "UK",
       name: "Alice Johnson",
     },
-],
+  ],
   getCoreRowModel: getCoreRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
   getPaginationRowModel: getPaginationRowModel(),

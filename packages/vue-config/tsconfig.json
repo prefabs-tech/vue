@@ -2,6 +2,7 @@
   "extends": "@prefabs.tech/tsconfig/vue",
   "compilerOptions": {
     "module": "esnext",
+    "moduleResolution": "bundler",
     "outDir": "./dist/src"
   },
   "include": [
