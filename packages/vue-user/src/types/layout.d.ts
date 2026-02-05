@@ -1,4 +1,4 @@
-import type { UserMenuItem } from "./userMenu";
+import type { UserMenuItem } from "./user-menu";
 
 declare module "@prefabs.tech/vue3-layout" {
   interface PrefabsTechVue3LayoutConfig {

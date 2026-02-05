@@ -209,7 +209,7 @@ import { DatePicker, NumberInput, SelectInput } from "@prefabs.tech/vue3-form";
 import { DebouncedInput } from "@prefabs.tech/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
-import { getAlignValue } from "../utils";
+import { getAlignValue } from "../utilities";
 
 import type { Column, Table } from "@tanstack/vue-table";
 

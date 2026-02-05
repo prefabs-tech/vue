@@ -16,7 +16,7 @@ import {
   ChangePasswordPayload,
   LoginCredentials,
   PasswordResetPayload,
-  PasswordResetRequestPayload
+  PasswordResetRequestPayload,
 } from "./types";
 
 import type { AppConfig } from "@prefabs.tech/vue3-config";
@@ -66,7 +66,8 @@ const providers = {
     },
     doGetVerificationStatus: () => {
       const path =
-        authConfig?.user?.apiRoutes?.getVerificationStatus || API_PATH_GET_VERIFICATION_STATUS;
+        authConfig?.user?.apiRoutes?.getVerificationStatus ||
+        API_PATH_GET_VERIFICATION_STATUS;
 
       return laravelPassport.getVerificationStatus(
         authConfig?.apiBaseUrl || "",
@@ -88,26 +89,31 @@ const providers = {
       return laravelPassport.logout(authConfig?.apiBaseUrl || "", path);
     },
     doRequestPasswordReset: (credentials: PasswordResetRequestPayload) => {
-      const path = authConfig?.user?.apiRoutes?.passwordResetRequest || API_PATH_PASSWORD_RESET_REQUEST;
+      const path =
+        authConfig?.user?.apiRoutes?.passwordResetRequest ||
+        API_PATH_PASSWORD_RESET_REQUEST;
 
       return laravelPassport.requestPasswordReset(
         credentials,
         authConfig?.apiBaseUrl || "",
-        path
+        path,
       );
     },
     doResetPassword: (credentials: PasswordResetPayload) => {
-      const path = authConfig?.user?.apiRoutes?.passwordResetRequest || API_PATH_PASSWORD_RESET;
+      const path =
+        authConfig?.user?.apiRoutes?.passwordResetRequest ||
+        API_PATH_PASSWORD_RESET;
 
       return laravelPassport.resetPassword(
         credentials,
         authConfig?.apiBaseUrl || "",
-        path
+        path,
       );
     },
     doSendVerificationEmail: () => {
       const path =
-        authConfig?.user?.apiRoutes?.sendVerificationEmail || API_PATH_SEND_VERIFICATION_EMAIL;
+        authConfig?.user?.apiRoutes?.sendVerificationEmail ||
+        API_PATH_SEND_VERIFICATION_EMAIL;
 
       return laravelPassport.sendVerificationEmail(
         authConfig?.apiBaseUrl || "",
@@ -124,7 +130,8 @@ const providers = {
       );
     },
     doVerifyEmail: (token: string) => {
-      const path = authConfig?.user?.apiRoutes?.verifyEmail || API_PATH_VERIFY_EMAIL;
+      const path =
+        authConfig?.user?.apiRoutes?.verifyEmail || API_PATH_VERIFY_EMAIL;
 
       return laravelPassport.verifyEmail(
         token,

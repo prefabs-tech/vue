@@ -6,7 +6,7 @@
       <ButtonElement
         v-bind="buttonProps"
         :label="
-          inputFiles.length
+          inputFiles.length > 0
             ? `${buttonLabelSelected} (${inputFiles.length})`
             : buttonLabel
         "
@@ -26,7 +26,7 @@
       {{ errorMessage }}
     </span>
 
-    <ul v-if="inputFiles.length" class="selected">
+    <ul v-if="inputFiles.length > 0" class="selected">
       <SelectedFile
         v-for="(file, index) in inputFiles"
         :key="file.name"
@@ -124,7 +124,7 @@ const inputFiles = ref<File[]>([]);
 const dropzoneClass = computed(
   () =>
     `dropzone ${isFocused.value ? "focused" : ""} ${
-      isDragAccept.value || (inputFiles.value.length && !errorMessage.value)
+      isDragAccept.value || (inputFiles.value.length > 0 && !errorMessage.value)
         ? "accepted"
         : ""
     } ${isDragReject.value || errorMessage.value ? "rejected" : ""}`,
@@ -135,7 +135,7 @@ const onDrop = (
   rejectReasons: FileRejectReason[],
 ) => {
   if (!props.multiple || props.mode === "update") {
-    inputFiles.value = acceptFiles.length ? acceptFiles : [];
+    inputFiles.value = acceptFiles.length > 0 ? acceptFiles : [];
   } else {
     const newFiles = [...(acceptFiles || []), ...inputFiles.value];
 
@@ -143,20 +143,16 @@ const onDrop = (
       (previousUniqueFiles: FileExtended[], currentFile) => {
         const currentFileEntries = Object.entries(currentFile);
 
-        if (
-          previousUniqueFiles.find((existingFile: FileExtended) => {
-            const existingFileEntries = Object.entries(existingFile);
-            return existingFileEntries.every(
-              ([key, value], index) =>
-                key === currentFileEntries[index][0] &&
-                value === currentFileEntries[index][1],
-            );
-          })
-        ) {
-          return previousUniqueFiles;
-        } else {
-          return [...previousUniqueFiles, currentFile];
-        }
+        return previousUniqueFiles.find((existingFile: FileExtended) => {
+          const existingFileEntries = Object.entries(existingFile);
+          return existingFileEntries.every(
+            ([key, value], index) =>
+              key === currentFileEntries[index][0] &&
+              value === currentFileEntries[index][1],
+          );
+        })
+          ? previousUniqueFiles
+          : [...previousUniqueFiles, currentFile];
       },
       [],
     );
@@ -179,7 +175,7 @@ const onDrop = (
     errorMessage.value = undefined;
   }
 
-  if (inputFiles.value.length) {
+  if (inputFiles.value.length > 0) {
     emit("on:filesUpdate", inputFiles.value);
   }
 };

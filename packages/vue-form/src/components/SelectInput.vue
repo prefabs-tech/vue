@@ -174,7 +174,7 @@ const activeOptions = computed(() =>
   [...normalizedOptions.value]?.filter((option) => !option?.disabled),
 );
 
-if (Object.keys(props.schema).length) {
+if (Object.keys(props.schema).length > 0) {
   fieldSchema = toFieldValidator(props.schema);
 } else if ((props.maxSelection || props.minSelection) && props.multiple) {
   const currentLength = activeOptions.value.length;
@@ -200,9 +200,9 @@ if (Object.keys(props.schema).length) {
       },
       {
         message: `Please select ${
-          minValue !== maxValue
-            ? `between ${minValue} and ${maxValue ?? "available"}`
-            : minValue
+          minValue === maxValue
+            ? minValue
+            : `between ${minValue} and ${maxValue ?? "available"}`
         } options`,
       },
     ),

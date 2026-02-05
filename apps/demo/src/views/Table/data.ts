@@ -183,12 +183,12 @@ const formatDemoData = [
     amount: 987_654.32,
     quantity: 175,
     date: new Date("2023-12-01T12:30:00"),
-    datetime: new Date ("2023-12-01T11:00:00"),
+    datetime: new Date("2023-12-01T11:00:00"),
     description: "Office rent payment",
   },
   {
     id: 1003,
-    amount: 54321.0,
+    amount: 54321,
     quantity: 7890,
     date: new Date("2023-12-15T08:45:00"),
     datetime: new Date("2023-12-15T08:45:00"),
@@ -304,7 +304,7 @@ const invitations = [
     id: 789,
     appId: 2,
     createdAt: new Date("2024-01-05").getTime(),
-    expiresAt: new Date().getTime() + 4 * 24 * 60 * 60 * 1000,
+    expiresAt: Date.now() + 4 * 24 * 60 * 60 * 1000,
     payload: null,
     email: "june@dzangolab.com",
     invitedById: "user-8",
@@ -327,7 +327,7 @@ const invitations = [
     id: 789,
     appId: 2,
     createdAt: new Date("2024-01-05").getTime(),
-    expiresAt: new Date().getTime() + 4 * 24 * 60 * 60 * 1000,
+    expiresAt: Date.now() + 4 * 24 * 60 * 60 * 1000,
     payload: null,
     email: "janet@dzangolab.com",
     invitedById: "user-8",
@@ -350,7 +350,7 @@ const invitations = [
     id: 890,
     appId: 1,
     createdAt: new Date("2024-01-10").getTime(),
-    expiresAt: new Date().getTime() + 4 * 24 * 60 * 60 * 1000,
+    expiresAt: Date.now() + 4 * 24 * 60 * 60 * 1000,
     payload: null,
     email: "alexander.smith1234@dzangolab.com",
     invitedById: "user-15",
@@ -578,9 +578,4 @@ const invitations = [
   },
 ];
 
-export {
-  city,
-  data,
-  formatDemoData,
-  invitations
-};
+export { city, data, formatDemoData, invitations };

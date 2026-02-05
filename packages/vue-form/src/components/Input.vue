@@ -15,7 +15,8 @@
         :id="`input-field-${name}`"
         :class="{
           invalid: meta.touched && !meta.valid,
-          valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
+          valid:
+            meta.dirty && meta.valid && Object.keys(props.schema).length > 0,
         }"
         :disabled="disabled"
         :placeholder="placeholder"
@@ -76,9 +77,8 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema = Object.keys(props.schema).length
-  ? toFieldValidator(props.schema)
-  : null;
+const fieldSchema =
+  Object.keys(props.schema).length > 0 ? toFieldValidator(props.schema) : null;
 
 const onInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;

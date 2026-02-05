@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 
 import ConfirmationFileActions from "../../ConfirmationFileActions.vue";
 
-import type { IFile } from "../../../types/file";
 import type { VueWrapper } from "@vue/test-utils";
 
 describe("ConfirmationFileActions", () => {
@@ -12,7 +11,7 @@ describe("ConfirmationFileActions", () => {
       global: {
         stubs: {
           ConfirmationModal: true,
-        }
+        },
       },
       props: {
         showArchiveConfirmation: true,

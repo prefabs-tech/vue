@@ -446,15 +446,18 @@ const showDeleteModal = ref<boolean>(false);
 
 const onActionClick = (actionMenu: ToolbarActionMenu) => {
   switch (actionMenu?.key) {
-    case "add":
+    case "add": {
       pageContent.value = t("ui.page.label.addContent");
       break;
-    case "edit":
+    }
+    case "edit": {
       pageContent.value = t("ui.page.label.editContent");
       break;
-    case "delete":
+    }
+    case "delete": {
       showDeleteModal.value = true;
       break;
+    }
   }
 };
 

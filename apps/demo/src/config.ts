@@ -1,10 +1,10 @@
 import { parse } from "@prefabs.tech/vue3-config";
 
-import type { AppConfig, AppFeatures } from "@prefabs.tech/vue3-config";
-import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
-
 import en from "@/locales/en";
 import fr from "@/locales/fr";
+
+import type { AppConfig, AppFeatures } from "@prefabs.tech/vue3-config";
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 
 const config: AppConfig = {
   apiBaseUrl: import.meta.env.VITE_API_BASE_URL as string,

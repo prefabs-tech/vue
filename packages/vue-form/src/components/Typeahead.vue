@@ -13,7 +13,8 @@
         :id="`input-field-${name}`"
         :class="{
           invalid: meta.dirty && !meta.valid,
-          valid: meta.dirty && meta.valid && Object.keys(props.schema).length,
+          valid:
+            meta.dirty && meta.valid && Object.keys(props.schema).length > 0,
         }"
         :model-value="inputValue"
         :debounce-time="debounceTime"
@@ -23,7 +24,7 @@
         tabindex="0"
         @update:model-value="onInput"
       />
-      <ErrorMessage v-if="!filteredSuggestions.length" :name="name" />
+      <ErrorMessage v-if="filteredSuggestions.length === 0" :name="name" />
     </Field>
     <div v-if="showSuggestions" class="menu-wrapper">
       <ul>
@@ -115,9 +116,8 @@ onClickOutside(dzangolabVueFormTypeahead, (event) => {
   showSuggestions.value = false;
 });
 
-const fieldSchema = Object.keys(props.schema).length
-  ? toFieldValidator(props.schema)
-  : null;
+const fieldSchema =
+  Object.keys(props.schema).length > 0 ? toFieldValidator(props.schema) : null;
 
 const filteredSuggestions = computed(() => {
   return props.suggestions.filter((suggestion) =>

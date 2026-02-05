@@ -6,13 +6,14 @@ import type {
   PaginationState,
   RowData,
   SortingState,
-  VisibilityState
+  VisibilityState,
 } from "@tanstack/vue-table";
 import type { VNode } from "vue";
 
 declare module "@tanstack/vue-table" {
+  // eslint-disable-next-line
   interface ColumnDefBase<TData, TValue> {
-    accessorKey?: string,
+    accessorKey?: string;
     align?: CellAlignmentType;
     dataType?: CellDataType;
     dateOptions?: Omit<FormatDateType, "date">;
@@ -23,7 +24,7 @@ declare module "@tanstack/vue-table" {
     minWidth?: string;
     numberOptions?: Omit<FormatNumberType, "value">;
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => VNode);
-    tooltipOptions?: Object;
+    tooltipOptions?: object;
     width?: string;
   }
 
@@ -31,6 +32,7 @@ declare module "@tanstack/vue-table" {
     filterFn?: TFilterFn;
   }
 
+  // eslint-disable-next-line
   interface ColumnMeta<TData extends RowData, TValue> {
     serverFilterFn?: TFilterFn;
     filterVariant?: TFilterVariant;
@@ -46,11 +48,11 @@ export type FilterOption = {
 export type TFilterRequest =
   | TSingleFilter
   | {
-    AND: TFilterRequest[];
-  }
+      AND: TFilterRequest[];
+    }
   | {
-    OR: TFilterRequest[];
-  }
+      OR: TFilterRequest[];
+    }
   | null;
 
 export type TLimit = number | null;
@@ -69,7 +71,6 @@ export type TSingleSort = {
 };
 
 export type TSortRequest = TSingleSort[] | null;
-
 
 export type CellAlignmentType = "left" | "center" | "right";
 
@@ -109,8 +110,13 @@ type ConfirmationOptions = {
 
 export type DataActionsMenuItem = {
   class?: string;
-  confirmationOptions?: ConfirmationOptions | ((data: any) => ConfirmationOptions);
+  confirmationOptions?:
+    | ConfirmationOptions
+    // eslint-disable-next-line
+    | ((data: any) => ConfirmationOptions);
+  // eslint-disable-next-line
   disabled?: boolean | ((data: any) => boolean);
+  // eslint-disable-next-line
   display?: boolean | ((data: any) => boolean);
   key?: string;
   label?: string;
@@ -126,6 +132,7 @@ export interface PersistentTableState {
   sorting: SortingState;
 }
 
+// eslint-disable-next-line
 export type TFilterFn =
   | "contains"
   | "equals"

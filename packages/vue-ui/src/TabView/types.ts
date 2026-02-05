@@ -1,6 +1,5 @@
 import type { VNode } from "vue";
 
-
 type StorageType = "localStorage" | "sessionStorage";
 
 type TKeymap = {
@@ -19,10 +18,4 @@ type Tab = {
   label: string;
 };
 
-export type {
-  StorageType,
-  Tab,
-  TKeymap,
-  TOrientation,
-  TPosition
-};
+export type { StorageType, Tab, TKeymap, TOrientation, TPosition };

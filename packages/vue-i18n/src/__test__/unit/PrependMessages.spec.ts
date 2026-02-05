@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 
-import { prependMessages } from "../../utils";
+import { prependMessages } from "../../utilities";
 
 it("prepends messages", () => {
   const messages = {

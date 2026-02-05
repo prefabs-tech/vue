@@ -23,7 +23,7 @@ const props = defineProps({
 });
 
 const l = computed(() => {
-  return props.locale.substring(0, 2);
+  return props.locale.slice(0, 2);
 });
 
 const country = computed(() => {

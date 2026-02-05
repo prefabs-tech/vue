@@ -1,6 +1,5 @@
-import { default as emailSchema } from "./Email";
-import { default as numberSchema } from "./Number";
-import { default as passwordSchema } from "./Password";
-import { default as textSchema } from "./Text";
+export { default as emailSchema } from "./Email";
+export { default as passwordSchema } from "./Password";
+export { default as numberSchema } from "./Number";
 
-export { emailSchema, numberSchema, passwordSchema, textSchema };
+export { default as textSchema } from "./Text";
