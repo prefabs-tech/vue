@@ -1,5 +1,10 @@
+import {
+  formatDate as baseFormatDate,
+  formatDateTime as baseFormatDateTime,
+  getStorage,
+} from "@prefabs.tech/vue3-ui";
+
 import { TABLE_STATE_PREFIX } from "./constants";
-import { formatDate as baseFormatDate, formatDateTime as baseFormatDateTime, getStorage } from "@prefabs.tech/vue3-ui";
 import { FILTER_FUNCTIONS_ENUM, FILTER_OPERATORS_ENUM } from "./enums";
 
 import type {
@@ -37,7 +42,7 @@ export const formatNumber = ({
   locale = "en-GB",
   formatOptions,
 }: FormatNumberType) => {
-  if (typeof value !== "number" || isNaN(value)) {
+  if (typeof value !== "number" || Number.isNaN(value)) {
     return value;
   }
   const formatter = new Intl.NumberFormat(locale, formatOptions);
@@ -67,58 +72,81 @@ export const formatDateTime = (
 
 const getFilterOperator = (filterFunction: TFilterFunction) => {
   switch (filterFunction) {
-    case FILTER_FUNCTIONS_ENUM.CONTAINS:
+    case FILTER_FUNCTIONS_ENUM.CONTAINS: {
       return { operator: FILTER_OPERATORS_ENUM.CONTAINS };
-    case FILTER_FUNCTIONS_ENUM.STARTS_WITH:
+    }
+    case FILTER_FUNCTIONS_ENUM.STARTS_WITH: {
       return { operator: FILTER_OPERATORS_ENUM.STARTS_WITH };
-    case FILTER_FUNCTIONS_ENUM.ENDS_WITH:
+    }
+    case FILTER_FUNCTIONS_ENUM.ENDS_WITH: {
       return { operator: FILTER_OPERATORS_ENUM.ENDS_WITH };
-    case FILTER_FUNCTIONS_ENUM.EQUALS:
+    }
+    case FILTER_FUNCTIONS_ENUM.EQUALS: {
       return { operator: FILTER_OPERATORS_ENUM.EQUALS };
-    case FILTER_FUNCTIONS_ENUM.NOT_EQUAL:
+    }
+    case FILTER_FUNCTIONS_ENUM.NOT_EQUAL: {
       return { operator: FILTER_OPERATORS_ENUM.EQUALS, not: true };
-    case FILTER_FUNCTIONS_ENUM.GREATER_THAN:
+    }
+    case FILTER_FUNCTIONS_ENUM.GREATER_THAN: {
       return { operator: FILTER_OPERATORS_ENUM.GREATER_THAN };
-    case FILTER_FUNCTIONS_ENUM.GREATER_THAN_OR_EQUAL:
+    }
+    case FILTER_FUNCTIONS_ENUM.GREATER_THAN_OR_EQUAL: {
       return { operator: FILTER_OPERATORS_ENUM.GREATER_THAN_OR_EQUAL };
-    case FILTER_FUNCTIONS_ENUM.LESS_THAN:
+    }
+    case FILTER_FUNCTIONS_ENUM.LESS_THAN: {
       return { operator: FILTER_OPERATORS_ENUM.LESS_THAN };
-    case FILTER_FUNCTIONS_ENUM.LESS_THAN_OR_EQUAL:
+    }
+    case FILTER_FUNCTIONS_ENUM.LESS_THAN_OR_EQUAL: {
       return { operator: FILTER_OPERATORS_ENUM.LESS_THAN_OR_EQUAL };
-    case FILTER_FUNCTIONS_ENUM.IS_NULL:
+    }
+    case FILTER_FUNCTIONS_ENUM.IS_NULL: {
       return { operator: FILTER_OPERATORS_ENUM.NULL };
-    case FILTER_FUNCTIONS_ENUM.IS_NOT_NULL:
+    }
+    case FILTER_FUNCTIONS_ENUM.IS_NOT_NULL: {
       return { operator: FILTER_OPERATORS_ENUM.NULL, not: true };
-    case FILTER_FUNCTIONS_ENUM.IS_EMPTY:
+    }
+    case FILTER_FUNCTIONS_ENUM.IS_EMPTY: {
       return { operator: FILTER_OPERATORS_ENUM.EMPTY };
-    case FILTER_FUNCTIONS_ENUM.IS_NOT_EMPTY:
+    }
+    case FILTER_FUNCTIONS_ENUM.IS_NOT_EMPTY: {
       return { operator: FILTER_OPERATORS_ENUM.EMPTY, not: true };
-    case FILTER_FUNCTIONS_ENUM.LIKE:
+    }
+    case FILTER_FUNCTIONS_ENUM.LIKE: {
       return { operator: FILTER_OPERATORS_ENUM.LIKE };
-    case FILTER_FUNCTIONS_ENUM.NOT_LIKE:
+    }
+    case FILTER_FUNCTIONS_ENUM.NOT_LIKE: {
       return { operator: FILTER_OPERATORS_ENUM.LIKE, not: true };
-    case FILTER_FUNCTIONS_ENUM.IN:
+    }
+    case FILTER_FUNCTIONS_ENUM.IN: {
       return { operator: FILTER_OPERATORS_ENUM.IN };
-    case FILTER_FUNCTIONS_ENUM.NOT_IN:
+    }
+    case FILTER_FUNCTIONS_ENUM.NOT_IN: {
       return { operator: FILTER_OPERATORS_ENUM.IN, not: true };
-    case FILTER_FUNCTIONS_ENUM.BETWEEN:
+    }
+    case FILTER_FUNCTIONS_ENUM.BETWEEN: {
       return { operator: FILTER_OPERATORS_ENUM.BETWEEN };
-    case FILTER_FUNCTIONS_ENUM.NOT_BETWEEN:
+    }
+    case FILTER_FUNCTIONS_ENUM.NOT_BETWEEN: {
       return { operator: FILTER_OPERATORS_ENUM.BETWEEN, not: true };
+    }
 
-    default:
+    default: {
       throw new Error(`Unhandled filter function: ${filterFunction}`);
+    }
   }
 };
 
 const getSortDirection = (desc: boolean): TSortDirection => {
   switch (desc) {
-    case false:
+    case false: {
       return "ASC";
-    case true:
+    }
+    case true: {
       return "DESC";
-    default:
+    }
+    default: {
       return "";
+    }
   }
 };
 
@@ -147,7 +175,7 @@ const getRangeFilter = (filterState: ColumnFilter) => {
     isDefined(value),
   );
 
-  if (values.length < 1) {
+  if (values.length === 0) {
     return null;
   }
 
@@ -207,7 +235,9 @@ export const getRequestJSON = (
 
       return {
         key: updatedFilterState[0].id,
-        ...getFilterOperator(updatedFilterState[0].filterFn || FILTER_FUNCTIONS_ENUM.CONTAINS),
+        ...getFilterOperator(
+          updatedFilterState[0].filterFn || FILTER_FUNCTIONS_ENUM.CONTAINS,
+        ),
         value: String(updatedFilterState[0].value),
       };
     }
@@ -220,7 +250,9 @@ export const getRequestJSON = (
 
         return {
           key: filter.id,
-          ...getFilterOperator(filter.filterFn || FILTER_FUNCTIONS_ENUM.CONTAINS),
+          ...getFilterOperator(
+            filter.filterFn || FILTER_FUNCTIONS_ENUM.CONTAINS,
+          ),
           value: String(filter.value),
         };
       }),
@@ -307,11 +339,11 @@ export const clearSavedTableStates = (
 ) => {
   const storage = getStorage(storageType);
 
-  Object.keys(storage).forEach((key) => {
+  for (const key of Object.keys(storage)) {
     if (key.startsWith(TABLE_STATE_PREFIX)) {
       storage.removeItem(key);
     }
-  });
+  }
 };
 
 export const isRangeFilter = (filterFunction: TFilterFunction) => {

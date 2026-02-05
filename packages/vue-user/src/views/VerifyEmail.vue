@@ -50,14 +50,17 @@ const message = computed(() => {
   let message = "";
 
   switch (status.value) {
-    case EMAIL_VERIFICATION.OK:
+    case EMAIL_VERIFICATION.OK: {
       message = t("user.emailVerification.messages.verify.success");
       break;
-    case EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR:
+    }
+    case EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR: {
       message = t("user.emailVerification.messages.verify.invalidToken");
       break;
-    default:
+    }
+    default: {
       message = t("user.emailVerification.messages.resend.error");
+    }
   }
 
   return message;

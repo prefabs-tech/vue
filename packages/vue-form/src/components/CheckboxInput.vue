@@ -98,9 +98,8 @@ const props = defineProps({
 
 const emit = defineEmits(["update:checked", "update:modelValue"]);
 
-const fieldSchema = Object.keys(props.schema).length
-  ? toFieldValidator(props.schema)
-  : null;
+const fieldSchema =
+  Object.keys(props.schema).length > 0 ? toFieldValidator(props.schema) : null;
 
 const hasOptions = Array.isArray(props.options) && props.options.length > 0;
 

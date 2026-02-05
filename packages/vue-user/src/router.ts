@@ -147,7 +147,9 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
 };
 
 export const filterRoutes = (router: Router) => {
-  const routeList = allRoutes?.filter(route => route.meta?.display !== undefined);
+  const routeList = allRoutes?.filter(
+    (route) => route.meta?.display !== undefined,
+  );
 
   for (const route of routeList) {
     if (!route.name) continue;
@@ -177,7 +179,6 @@ export const filterRoutes = (router: Router) => {
     }
   }
 };
-
 
 const redirectRoutes = (router: Router) => {
   router.beforeEach((to, from, next) => {
@@ -223,15 +224,16 @@ const addAuthenticationGuard = (
       user.value = await getUser();
     }
 
-    const isSocialLoggedIn = user.value?.thirdParty && userConfig?.socialLogins?.includes(user.value?.thirdParty?.id);
-
     if (meta.authenticated && !user.value) {
-      sessionStorage.setItem('redirectAfterLogin', to.name as string);
-      router.hasRoute("login") && router.push({ name: "login" }); // using next inside async function is not allowed
+      sessionStorage.setItem("redirectAfterLogin", to.name as string);
+
+      if (router.hasRoute("login")) {
+        router.push({ name: "login" });
+      }
     }
 
     if (meta.authenticated && EmailVerificationEnabled && user.value) {
-      let isEmailVerified = userStore.isEmailVerified;
+      const isEmailVerified = userStore.isEmailVerified;
 
       if (
         isEmailVerified === false &&
@@ -241,13 +243,18 @@ const addAuthenticationGuard = (
         router.push({ name: "verifyEmailReminder" });
 
         return;
-      } else if (isEmailVerified && routesToRedirect[1] === name && router.hasRoute("home")) {
+      } else if (
+        isEmailVerified &&
+        routesToRedirect[1] === name &&
+        router.hasRoute("home")
+      ) {
         router.push({ name: "home" });
       }
     }
 
     const isProfileCompleted = !!user.value?.isProfileCompleted;
-    const profileCompletionEnabled = user.value?.isProfileCompleted !== undefined;
+    const profileCompletionEnabled =
+      user.value?.isProfileCompleted !== undefined;
 
     if (
       meta.authenticated &&
@@ -263,7 +270,7 @@ const addAuthenticationGuard = (
 
 const updateRouter = (router: Router, userConfig?: DzangolabVueUserConfig) => {
   addRoutes(router, userConfig);
-  
+
   allRoutes = router.getRoutes();
 
   filterRoutes(router);

@@ -5,7 +5,7 @@ export const normalizeOptions = (
   labelKey?: string,
   valueKey?: string,
 ) => {
-  if (!options.length) {
+  if (options.length === 0) {
     return [];
   }
 

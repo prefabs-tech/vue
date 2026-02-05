@@ -86,7 +86,7 @@ const defaultActions = computed(() => [
 ]);
 
 const parsedActions = computed(() => {
-  if (!props.actions.length) {
+  if (props.actions.length === 0) {
     return defaultActions.value;
   }
 
@@ -109,7 +109,7 @@ const parsedActions = computed(() => {
     }
   }
 
-  return Array.from(mappedActions.values());
+  return [...mappedActions.values()];
 });
 
 const onActionClick = (action: Record<string, unknown>) => {

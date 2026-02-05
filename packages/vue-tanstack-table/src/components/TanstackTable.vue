@@ -194,7 +194,7 @@ const columnHelper = createColumnHelper();
 
 const columns: ColumnDef<unknown, unknown>[] = [];
 
-props.columnsData.forEach((column) => {
+for (const column of props.columnsData) {
   const columnDef = columnHelper.accessor(
     column.accessorKey as string as unknown as AccessorFn<unknown>,
     {
@@ -204,7 +204,7 @@ props.columnsData.forEach((column) => {
     } as object as unknown as DisplayColumnDef<unknown>,
   ) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);
-});
+}
 
 const sorting = ref<SortingState>([]);
 
