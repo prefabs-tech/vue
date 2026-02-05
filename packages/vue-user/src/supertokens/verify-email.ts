@@ -1,7 +1,9 @@
 import EmailVerification from "supertokens-web-js/recipe/emailverification";
 
 const getVerificationStatus = async () => {
-  return (await EmailVerification.isEmailVerified()).isVerified;
+  const response = await EmailVerification.isEmailVerified();
+
+  return response.isVerified;
 };
 
 const verifyEmail = async () => {

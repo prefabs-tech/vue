@@ -2,7 +2,7 @@ const parse = (
   value: bigint | number | string | boolean | undefined,
   fallback: bigint | number | string | null | boolean,
 ) => {
-  if (typeof value === "undefined") {
+  if (value === undefined) {
     return fallback;
   }
 
@@ -11,14 +11,17 @@ const parse = (
   }
 
   switch (typeof fallback) {
-    case "boolean":
+    case "boolean": {
       return !!JSON.parse(value as string);
+    }
 
-    case "number":
+    case "number": {
       return JSON.parse(value as string);
+    }
 
-    default:
+    default: {
       return value;
+    }
   }
 };
 

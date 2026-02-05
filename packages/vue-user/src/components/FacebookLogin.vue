@@ -47,7 +47,7 @@ const onFacebookSignIn = async () => {
       `${config.websiteDomain}${AUTH_CALLBACK_PATH_FACEBOOK}`,
     );
     loading.value = false;
-  } catch (error) {
+  } catch {
     emit("error", new Error("SOMETHING_WRONG"));
     loading.value = false;
   }

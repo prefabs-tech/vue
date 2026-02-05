@@ -29,7 +29,7 @@ const login = async (
       throw new Error("401");
     }
 
-    throw new Error('SOMETHING_WRONG');
+    throw new Error("SOMETHING_WRONG");
   }
 
   if (response.status === "OK") {

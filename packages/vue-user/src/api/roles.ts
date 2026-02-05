@@ -7,13 +7,9 @@ export const createRole = async (
   data: Role,
   apiBaseUrl: string,
 ): Promise<Role> => {
-  const response = await client(apiBaseUrl).post(
-    "/roles",
-    data,
-    {
-      withCredentials: true,
-    },
-  );
+  const response = await client(apiBaseUrl).post("/roles", data, {
+    withCredentials: true,
+  });
 
   if (response.data.status === STATUS_ERROR) {
     throw new Error(response.data.message);
@@ -26,14 +22,11 @@ export const deleteRole = async (
   role: string,
   apiBaseUrl: string,
 ): Promise<Role> => {
-  const response = await client(apiBaseUrl).delete(
-    "/roles",
-    {
-      params: {
-        role: encodeURIParameter(role),
-      }
+  const response = await client(apiBaseUrl).delete("/roles", {
+    params: {
+      role: encodeURIParameter(role),
     },
-  );
+  });
 
   if (response.data.status === STATUS_ERROR) {
     throw new Error(response.data.message);
@@ -42,15 +35,11 @@ export const deleteRole = async (
   }
 };
 
-export const getPermissions = async (
-  apiBaseUrl: string,
-) => {
+export const getPermissions = async (apiBaseUrl: string) => {
   return await client(apiBaseUrl).get(`permissions`);
 };
 
-export const getRoles = async (
-  apiBaseUrl: string,
-) => {
+export const getRoles = async (apiBaseUrl: string) => {
   const response = await client(apiBaseUrl).get(`roles`);
 
   return {
@@ -58,7 +47,7 @@ export const getRoles = async (
     roles: response.data.roles.map((role: Role, id: number) => ({
       ...role,
       id,
-    }))
+    })),
   };
 };
 
@@ -66,13 +55,9 @@ export const updateRolePermissions = async (
   data: RolePermissionsInput,
   apiBaseUrl: string,
 ): Promise<Role> => {
-  const response = await client(apiBaseUrl).put(
-    "/roles/permissions",
-    data,
-    {
-      withCredentials: true,
-    },
-  );
+  const response = await client(apiBaseUrl).put("/roles/permissions", data, {
+    withCredentials: true,
+  });
 
   if (response.data.status === STATUS_ERROR) {
     throw new Error(response.data.message);

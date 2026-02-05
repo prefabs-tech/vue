@@ -1,5 +1,6 @@
 const Layout = () => import("@/views/Layout/Index.vue");
-const StickyCollapsibleFooter = () => import("@/views/Layout/stickyCollapsibleFooter/Index.vue");
+const StickyCollapsibleFooter = () =>
+  import("@/views/Layout/stickyCollapsibleFooter/Index.vue");
 const routes = [
   {
     path: "/layout",
