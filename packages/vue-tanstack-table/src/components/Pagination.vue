@@ -169,7 +169,7 @@ const pages = computed(() =>
 );
 
 const onItemsPerPageChange = (event: Event) => {
-  const newItemsPerPage = parseInt(
+  const newItemsPerPage = Number.parseInt(
     (event.target as HTMLSelectElement).value,
     10,
   );
@@ -179,8 +179,8 @@ const onItemsPerPageChange = (event: Event) => {
 };
 
 const onPageInputChange = (value: string | number) => {
-  const newPage = parseInt(value.toString(), 10) - 1;
-  if (!isNaN(newPage) && newPage >= 0 && newPage < lastPage.value) {
+  const newPage = Number.parseInt(value.toString(), 10) - 1;
+  if (!Number.isNaN(newPage) && newPage >= 0 && newPage < lastPage.value) {
     emit("update:currentPage", newPage);
   }
 };

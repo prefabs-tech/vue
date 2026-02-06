@@ -28,6 +28,7 @@ describe("AppHeader Snapshot", () => {
         ],
         stubs: {
           RouterLink: RouterLinkStub,
+          LocaleSwitcher: true,
         },
       },
     });

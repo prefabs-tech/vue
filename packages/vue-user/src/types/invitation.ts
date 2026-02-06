@@ -37,4 +37,9 @@ interface InvitationRoleOption {
   id: number;
 }
 
-export type { Invitation, InvitationAppOption, InvitationPayload, InvitationRoleOption };
+export type {
+  Invitation,
+  InvitationAppOption,
+  InvitationPayload,
+  InvitationRoleOption,
+};

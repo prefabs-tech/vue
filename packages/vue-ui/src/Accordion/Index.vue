@@ -86,11 +86,7 @@ const props = defineProps({
 const active = ref(props.defaultIndex);
 
 const handleClick = (index: number) => {
-  if (!props.canSelfCollapse || active.value !== index) {
-    active.value = index;
-  } else {
-    active.value = -1;
-  }
+  active.value = !props.canSelfCollapse || active.value !== index ? index : -1;
 };
 
 const slots = useSlots();

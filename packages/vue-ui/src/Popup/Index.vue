@@ -66,9 +66,9 @@ const hasContent = computed(() => !!slots.content);
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", updatePosition);
   window.removeEventListener("resize", updatePosition);
-  scrollListeners.value.forEach(({ element, listener }) => {
+  for (const { element, listener } of scrollListeners.value) {
     element.removeEventListener("scroll", listener);
-  });
+  }
 });
 
 const togglePopup = () => {
@@ -81,20 +81,20 @@ const togglePopup = () => {
 
       if (dzangolabVueUIPopup.value) {
         const parents = getScrollableParents(dzangolabVueUIPopup.value);
-        parents.forEach((parent) => {
+        for (const parent of parents) {
           const listener = () => updatePosition();
           parent.addEventListener("scroll", listener);
           scrollListeners.value.push({ element: parent, listener });
-        });
+        }
       }
     });
   } else {
     window.removeEventListener("scroll", updatePosition);
     window.removeEventListener("resize", updatePosition);
 
-    scrollListeners.value.forEach(({ element, listener }) => {
+    for (const { element, listener } of scrollListeners.value) {
       element.removeEventListener("scroll", listener);
-    });
+    }
     scrollListeners.value = [];
   }
 };
@@ -119,7 +119,7 @@ const updatePosition = () => {
   const fitsAbove = triggerRect.top - contentRect.height - props.offset >= 0;
 
   switch (position) {
-    case "top":
+    case "top": {
       top = fitsAbove
         ? triggerRect.top - contentRect.height - props.offset
         : triggerRect.bottom + props.offset;
@@ -127,8 +127,9 @@ const updatePosition = () => {
         ? triggerRect.right - contentRect.width
         : triggerRect.left;
       break;
+    }
 
-    case "bottom":
+    case "bottom": {
       top = fitsBelow
         ? triggerRect.bottom + props.offset
         : triggerRect.top - contentRect.height - props.offset;
@@ -136,16 +137,19 @@ const updatePosition = () => {
         ? triggerRect.right - contentRect.width
         : triggerRect.left;
       break;
+    }
 
-    case "left":
+    case "left": {
       left = triggerRect.left - contentRect.width - props.offset;
       top = triggerRect.top;
       break;
+    }
 
-    case "right":
+    case "right": {
       left = triggerRect.left + triggerRect.width + props.offset;
       top = triggerRect.top;
       break;
+    }
   }
 
   const spaceBelow = windowHeight.value - (top + contentRect.height);

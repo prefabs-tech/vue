@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="filteredSlots.length"
+    v-if="filteredSlots.length > 0"
     class="tabbed-panel"
     :data-position="props.position"
   >

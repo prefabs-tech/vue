@@ -20,13 +20,13 @@ const changePassword = async (
         withCredentials: true,
       },
     );
-  } catch (err) {
+  } catch {
     throw new Error("SOMETHING_WRONG");
   }
 
   if (response.data.status === "OK") {
     success = true;
-  } else if (response.data.status === "INVALID_PASSWORD")  {
+  } else if (response.data.status === "INVALID_PASSWORD") {
     throw new Error("INVALID_PASSWORD");
   } else {
     throw new Error("SOMETHING_WRONG");

@@ -1,10 +1,10 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import type { VueWrapper } from "@vue/test-utils";
-
 import router from "@/__test__/router";
 import NavMenuItem from "@/components/NavMenuItem.vue";
+
+import type { VueWrapper } from "@vue/test-utils";
 
 describe("NavMenuItem", () => {
   const wrapper: VueWrapper = mount(NavMenuItem, {

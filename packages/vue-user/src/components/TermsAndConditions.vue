@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts">
-// eslint-disable-next-line vue/one-component-per-file
 export default {
   name: "TermsAndConditions",
 };

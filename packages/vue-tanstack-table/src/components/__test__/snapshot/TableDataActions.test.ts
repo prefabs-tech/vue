@@ -1,9 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import { mockedTable } from "../table";
 import TableDataActions from "../../TableDataActions.vue";
-import { ConfirmationModal } from "@prefabs.tech/vue3-ui";
 
 describe("TableDataActions", () => {
   it("matches snapshot", () => {
@@ -15,30 +13,30 @@ describe("TableDataActions", () => {
         stubs: {
           ConfirmationModal: true,
           Dropdown: true,
-        }
+        },
       },
       props: {
         actions: [
           {
-            label: 'View',
+            label: "View",
           },
           {
             disabled: true,
-            label: 'Edit',
+            label: "Edit",
           },
           {
-            label: 'Share',
+            label: "Share",
             disabled: (rowData) => rowData.id !== 11,
           },
           {
             confirmationOptions: {
-              body: 'You are going to delete this data.',
-              header: 'Are you sure!',
+              body: "You are going to delete this data.",
+              header: "Are you sure!",
             },
-            label: 'Delete',
+            label: "Delete",
             requireConfirmationModal: true,
           },
-        ]
+        ],
       },
     });
 

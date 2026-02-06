@@ -1,7 +1,8 @@
-import { authConfig } from "../auth-provider";
-import { API_PATH_REFRESH } from "../constant";
 import axios from "axios";
 import SuperTokens from "supertokens-website";
+
+import { authConfig } from "../auth-provider";
+import { API_PATH_REFRESH } from "../constant";
 
 SuperTokens.addAxiosInterceptors(axios);
 
@@ -12,7 +13,7 @@ const client = (baseURL: string) => {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    withCredentials: true
+    withCredentials: true,
   });
 
   // Response interceptor: Handle token expiration
@@ -20,7 +21,8 @@ const client = (baseURL: string) => {
     (response) => response,
     async (error) => {
       const originalRequest = error.config;
-      const refreshRoute = authConfig?.user?.apiRoutes?.refresh || API_PATH_REFRESH;
+      const refreshRoute =
+        authConfig?.user?.apiRoutes?.refresh || API_PATH_REFRESH;
 
       if (
         error.response?.status === 401 &&
@@ -29,20 +31,16 @@ const client = (baseURL: string) => {
       ) {
         originalRequest._retry = true;
 
-        try {
-          const refreshResponse = await instance.post(refreshRoute, {
-            withCredentials: true,
-          });
+        const refreshResponse = await instance.post(refreshRoute, {
+          withCredentials: true,
+        });
 
-          if (refreshResponse.status === 200) {
-            return instance(originalRequest);
-          }
-        } catch (refreshError) {
-          return Promise.reject(refreshError);
+        if (refreshResponse.status === 200) {
+          return instance(originalRequest);
         }
       }
 
-      return Promise.reject(error);
+      throw error;
     },
   );
 

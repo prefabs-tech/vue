@@ -35,7 +35,7 @@ const initSupertokens = (config: AppConfig) => {
           (await isLoggedIn())
         ) {
           Session.attemptRefreshingSession().catch((error) => {
-            return Promise.reject(error);
+            throw error;
           });
         }
       },
@@ -58,17 +58,17 @@ const initSupertokens = (config: AppConfig) => {
 
 const isLoggedIn = async () => {
   try {
-    const sessionExists =  await Session.doesSessionExist();
-    
+    const sessionExists = await Session.doesSessionExist();
+
     if (!sessionExists) {
       const { setUser } = useUserStore();
       setUser(undefined);
-  
+
       return false;
     }
-  
+
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 };

@@ -264,14 +264,15 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.app"),
     meta: {
-      filterOptions: props.appFilterOptions.length
-        ? props.appFilterOptions
-        : appNameMap.value
-          ? Array.from(appNameMap.value.entries()).map(([id, name]) => ({
-              label: name,
-              value: id,
-            }))
-          : [],
+      filterOptions:
+        props.appFilterOptions.length > 0
+          ? props.appFilterOptions
+          : appNameMap.value
+            ? [...appNameMap.value.entries()].map(([id, name]) => ({
+                label: name,
+                value: id,
+              }))
+            : [],
       filterVariant: "multiselect",
     },
     filterPlaceholder: t("user.invitation.table.placeholder.app"),
@@ -309,29 +310,30 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     header: t("user.invitation.table.defaultColumns.role"),
     meta: {
       filterVariant: "multiselect",
-      filterOptions: props.roleFilterOptions.length
-        ? props.roleFilterOptions
-        : [
-            {
-              label: t("user.table.role.admin"),
-              value: ROLE_ADMIN,
-            },
-            {
-              label: t("user.table.role.superadmin"),
-              value: ROLE_SUPERADMIN,
-            },
-            {
-              label: t("user.table.role.user"),
-              value: ROLE_USER,
-            },
-          ],
+      filterOptions:
+        props.roleFilterOptions.length > 0
+          ? props.roleFilterOptions
+          : [
+              {
+                label: t("user.table.role.admin"),
+                value: ROLE_ADMIN,
+              },
+              {
+                label: t("user.table.role.superadmin"),
+                value: ROLE_SUPERADMIN,
+              },
+              {
+                label: t("user.table.role.user"),
+                value: ROLE_USER,
+              },
+            ],
     },
     filterPlaceholder: t("user.invitation.table.placeholder.role"),
   },
   {
     accessorFn: (original: Invitation) => {
       return (
-        (original?.invitedBy?.givenName ? original?.invitedBy?.givenName : "") +
+        (original?.invitedBy?.givenName || "") +
           (original?.invitedBy?.middleNames
             ? " " + original?.invitedBy?.middleNames
             : "") +
@@ -398,26 +400,27 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     },
     meta: {
       filterVariant: "multiselect",
-      filterOptions: props.statutsFilterOptions.length
-        ? props.statutsFilterOptions
-        : [
-            {
-              label: t("user.invitation.table.status.accepted"),
-              value: INVITATION_STATUS_ACCEPTED,
-            },
-            {
-              label: t("user.invitation.table.status.revoked"),
-              value: INVITATION_STATUS_REVOKED,
-            },
-            {
-              label: t("user.invitation.table.status.expired"),
-              value: INVITATION_STATUS_EXPIRED,
-            },
-            {
-              label: t("user.invitation.table.status.pending"),
-              value: INVITATION_STATUS_PENDING,
-            },
-          ],
+      filterOptions:
+        props.statutsFilterOptions.length > 0
+          ? props.statutsFilterOptions
+          : [
+              {
+                label: t("user.invitation.table.status.accepted"),
+                value: INVITATION_STATUS_ACCEPTED,
+              },
+              {
+                label: t("user.invitation.table.status.revoked"),
+                value: INVITATION_STATUS_REVOKED,
+              },
+              {
+                label: t("user.invitation.table.status.expired"),
+                value: INVITATION_STATUS_EXPIRED,
+              },
+              {
+                label: t("user.invitation.table.status.pending"),
+                value: INVITATION_STATUS_PENDING,
+              },
+            ],
     },
     filterPlaceholder: t("user.invitation.table.placeholder.status"),
     sortingFn: (rowA, rowB, columnId) => {
@@ -461,15 +464,18 @@ const getStatusLabel = (row: TableRow<Invitation>) => {
 
 const onActionSelect = (rowData: { action: string; data: Invitation }) => {
   switch (rowData.action) {
-    case "delete":
+    case "delete": {
       emit("action:delete", rowData.data);
       break;
-    case "resend":
+    }
+    case "resend": {
       emit("action:resend", rowData.data);
       break;
-    case "revoke":
+    }
+    case "revoke": {
       emit("action:revoke", rowData.data);
       break;
+    }
   }
 };
 
