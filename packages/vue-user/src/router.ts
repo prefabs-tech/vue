@@ -218,10 +218,12 @@ const addAuthenticationGuard = (
     const name = to.name as string;
     const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
     const { user } = storeToRefs(userStore);
-    const { getUser } = userStore;
+    const { isLoggedIn: getIsLoggedin, getUser } = userStore;
 
-    if (!user.value) {
-      user.value = await getUser();
+    const isLoggedIn = await getIsLoggedin();
+
+    if (isLoggedIn && !user.value) {
+      user.value = getUser();
     }
 
     if (meta.authenticated && !user.value) {
