@@ -103,7 +103,7 @@ const props = defineProps({
   appSchema: {
     default: z.coerce
       .number({
-        invalid_type_error: "Please select at least one valid option",
+        message: "Please select at least one valid option",
       })
       .gte(1, "Please select at least one valid option"),
     required: false,
@@ -111,7 +111,7 @@ const props = defineProps({
   },
   expiresAfterSchema: {
     default: z.coerce
-      .number({ invalid_type_error: "Expiry days is required" })
+      .number({ message: "Expiry days is required" })
       .gte(1, "please provide valid days"),
     required: false,
     type: Object as PropType<z.ZodType<string | number>>,
@@ -138,7 +138,7 @@ const props = defineProps({
   },
   roleSchema: {
     default: z.string({
-      invalid_type_error: "Please select at least one valid option",
+      message: "Please select at least one valid option",
     }),
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,

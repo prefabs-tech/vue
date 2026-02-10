@@ -183,7 +183,7 @@
 
           const inputSchema = z
             .string({
-              required_error: "Please choose one option",
+              message: "Please choose one option",
             })
             .nonempty({ message: "Please choose one option" });
 
@@ -224,7 +224,7 @@ const { t } = useI18n();
 
 const inputSchema = z
   .string({
-    required_error: t("form.errors.radio.required"),
+    message: t("form.errors.radio.required"),
   })
   .nonempty({ message: t("form.errors.radio.required") });
 

@@ -237,7 +237,7 @@
           const invalidNumberError = "Please provide a number between 1 to 100";
 
           const inputSchema =  z.coerce
-            .number({invalid_type_error: invalidNumberError})
+            .number({message: invalidNumberError})
             .gte(1, invalidNumberError)
             .lte(100, invalidNumberError);
           &lt;/script&gt;
@@ -295,7 +295,7 @@ const eventsData = [
 ];
 
 const inputSchema = z.coerce
-  .number({ invalid_type_error: t("form.errors.number.invalid") })
+  .number({ message: t("form.errors.number.invalid") })
   .gte(1, t("form.errors.number.invalid"))
   .lte(100, t("form.errors.number.invalid"));
 

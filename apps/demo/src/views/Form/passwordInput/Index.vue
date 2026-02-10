@@ -286,8 +286,7 @@
   
           const inputSchema = z
             .string({
-              invalid_type_error: "Please provide a strong password",
-              required_error: "The field is required"
+              message: "Please provide a strong password",
             })
             .min(8, { message: "Input must be at least 8 character(s)" })
             .regex(
@@ -351,8 +350,7 @@ const eventsData = [
 
 const inputSchema = z
   .string({
-    invalid_type_error: t("form.errors.password.invalid"),
-    required_error: t("form.errors.input.required"),
+    message: t("form.errors.password.invalid"),
   })
   .min(8, { message: t("form.errors.password.min", { length: 8 }) })
   .regex(

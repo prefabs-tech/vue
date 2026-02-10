@@ -95,7 +95,7 @@ importers:
         version: 4.15.1(vue@3.5.27(typescript@5.5.4))
       '@vee-validate/zod':
         specifier: 4.15.1
-        version: 4.15.1(vue@3.5.27(typescript@5.5.4))(zod@3.24.2)
+        version: 4.15.1(vue@3.5.27(typescript@5.5.4))(zod@4.3.6)
       '@vitejs/plugin-vue':
         specifier: 6.0.4
         version: 6.0.4(vite@7.3.1(@types/node@24.10.1)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.27(typescript@5.5.4))
@@ -139,8 +139,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0(typescript@5.5.4)
       zod:
-        specifier: 3.24.2
-        version: 3.24.2
+        specifier: 4.3.6
+        version: 4.3.6
 
   packages/vue-config:
     dependencies:
@@ -226,7 +226,7 @@ importers:
         version: 4.15.1(vue@3.5.27(typescript@5.5.4))
       '@vee-validate/zod':
         specifier: 4.15.1
-        version: 4.15.1(vue@3.5.27(typescript@5.5.4))(zod@3.24.2)
+        version: 4.15.1(vue@3.5.27(typescript@5.5.4))(zod@4.3.6)
       '@vitejs/plugin-vue':
         specifier: 6.0.4
         version: 6.0.4(vite@7.3.1(@types/node@22.13.5)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.27(typescript@5.5.4))
@@ -273,8 +273,8 @@ importers:
         specifier: 2.2.1
         version: 2.2.1(vue@3.5.27(typescript@5.5.4))
       zod:
-        specifier: 3.24.2
-        version: 3.24.2
+        specifier: 4.3.6
+        version: 4.3.6
 
   packages/vue-i18n:
     dependencies:
@@ -556,7 +556,7 @@ importers:
         version: 4.15.1(vue@3.5.27(typescript@5.5.4))
       '@vee-validate/zod':
         specifier: 4.15.1
-        version: 4.15.1(vue@3.5.27(typescript@5.5.4))(zod@3.24.2)
+        version: 4.15.1(vue@3.5.27(typescript@5.5.4))(zod@4.3.6)
       '@vitejs/plugin-vue':
         specifier: 6.0.4
         version: 6.0.4(vite@7.3.1(@types/node@24.10.1)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.27(typescript@5.5.4))
@@ -609,8 +609,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0(typescript@5.5.4)
       zod:
-        specifier: 3.24.2
-        version: 3.24.2
+        specifier: 4.3.6
+        version: 4.3.6
 
 packages:
 
@@ -5170,8 +5170,8 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
 
-  zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+  zod@4.3.6:
+    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
 snapshots:
 
@@ -6488,11 +6488,11 @@ snapshots:
     transitivePeerDependencies:
       - vue
 
-  '@vee-validate/zod@4.15.1(vue@3.5.27(typescript@5.5.4))(zod@3.24.2)':
+  '@vee-validate/zod@4.15.1(vue@3.5.27(typescript@5.5.4))(zod@4.3.6)':
     dependencies:
       type-fest: 4.38.0
       vee-validate: 4.15.1(vue@3.5.27(typescript@5.5.4))
-      zod: 3.24.2
+      zod: 4.3.6
     transitivePeerDependencies:
       - vue
 
@@ -10767,4 +10767,4 @@ snapshots:
 
   yocto-queue@1.0.0: {}
 
-  zod@3.24.2: {}
+  zod@4.3.6: {}

@@ -908,7 +908,7 @@
           import { ref } from "vue";
 
           const inputSchema = z
-            .string({invalid_type_error: "Please select at least one valid option"})
+            .string({message: "Please select at least one valid option"})
             .array()
             .min(1, { message: "Please select at least one valid option" });
 
@@ -948,7 +948,7 @@ import type { GroupedOption, SelectOption } from "@prefabs.tech/vue3-form";
 const { t } = useI18n();
 
 const inputSchema = z
-  .string({ invalid_type_error: t("form.errors.multiselect.invalid") })
+  .string({ message: t("form.errors.multiselect.invalid") })
   .array()
   .min(1, { message: t("form.errors.multiselect.invalid") });
 

@@ -29,8 +29,7 @@ const schema = (
 
   return z
     .string({
-      invalid_type_error: errorMessages.required,
-      required_error: errorMessages.required,
+      message: errorMessages.required,
     })
     .refine(
       (value): boolean => {

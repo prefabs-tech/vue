@@ -107,9 +107,7 @@ const hasConfirmPasswordFeature =
 
 const confirmPasswordSchema = z
   .string({
-    invalid_type_error: t(
-      "user.changePassword.form.confirmPassword.errors.required",
-    ),
+    message: t("user.changePassword.form.confirmPassword.errors.required"),
   })
   .refine((data) => data === payload.newPassword, {
     message: t("user.changePassword.form.confirmPassword.errors.unmatched"),

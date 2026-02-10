@@ -10,7 +10,7 @@ const schema = (
 ) => {
   return z
     .string({
-      required_error: errorMessages.required,
+      message: errorMessages.required,
     })
     .refine((value) => validator.isEmail(value, options || {}), {
       message: errorMessages.invalid,

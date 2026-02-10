@@ -187,8 +187,7 @@ onMounted(() => {
   if (config?.user?.features?.loginType === LOGIN_TYPE_USERNAME) {
     fieldSchema.username = z
       .string({
-        invalid_type_error: t("user.signup.form.username.errors.invalid"),
-        required_error: t("user.signup.form.username.errors.required"),
+        error: t("user.signup.form.username.errors.invalid"),
       })
       .min(1, {
         message: t("user.signup.form.username.errors.required"),

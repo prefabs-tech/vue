@@ -169,7 +169,7 @@
           const result = ref();
 
           const inputSchema = z.coerce
-            .number({ invalid_type_error: "The field is required" })
+            .number({ message: "The field is required" })
             .min(1, { message: "Please provide number of days within a year" })
             .max(365, { message: "Please provide number of days within a year" });
           &lt;/script&gt;
@@ -206,7 +206,7 @@ import FormPage from "../FormPage.vue";
 const { t } = useI18n();
 
 const inputSchema = z.coerce
-  .number({ invalid_type_error: t("form.errors.number.required") })
+  .number({ message: t("form.errors.number.required") })
   .min(1, { message: t("form.errors.daysInput.invalid") })
   .max(365, { message: t("form.errors.daysInput.invalid") });
 
