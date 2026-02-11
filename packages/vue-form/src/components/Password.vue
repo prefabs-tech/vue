@@ -1,27 +1,26 @@
 <template>
   <div class="field password">
-    <label v-if="label" for="password">
+    <label v-if="label" :for="`input-field-${name}`">
       {{ label }}
     </label>
     <Field
-      v-slot="{ field, meta }"
+      v-slot="{ field, meta, handleChange }"
       :model-value="modelValue"
       :name="name"
       :rules="fieldSchema"
-      @input="onInput"
     >
       <div class="password-input">
         <input
           v-bind="field"
-          :id="name"
+          :id="`input-field-${name}`"
           :class="{
-            invalid: meta.touched && !meta.valid,
+            invalid: (meta.dirty || meta.touched) && !meta.valid,
             valid: meta.dirty && meta.valid,
           }"
           :disabled="disabled"
           :placeholder="placeholder"
           :type="showPassword ? 'text' : 'password'"
-          tabindex="0"
+          @input="(event: Event) => onInput(event, handleChange)"
         />
         <span class="eye-icon" @click="onClick">
           <slot name="icon" :show-password="showPassword">
@@ -44,7 +43,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { toFieldValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { ref } from "vue";
 import { z } from "zod";
@@ -98,9 +97,7 @@ const props = defineProps({
     type: String,
   },
   schema: {
-    default: () => {
-      return {};
-    },
+    default: undefined,
     required: false,
     type: Object as PropType<z.ZodType<string | number | object>>,
   },
@@ -108,15 +105,14 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema = toFieldValidator(
-  Object.keys(props.schema).length > 0
-    ? props.schema
-    : passwordSchema(
-        props.errorMessages,
-        props.options as StrongPasswordOptions & {
-          returnScore: false | undefined;
-        },
-      ),
+const fieldSchema = toTypedSchema(
+  props.schema ??
+    passwordSchema(
+      props.errorMessages,
+      props.options as StrongPasswordOptions & {
+        returnScore: false | undefined;
+      },
+    ),
 );
 
 const showPassword = ref<boolean>(false);
@@ -127,9 +123,10 @@ const onClick = () => {
   }
 };
 
-const onInput = (event: Event) => {
-  const value = (event.target as HTMLInputElement).value;
+const onInput = (event: Event, handleChange: (event: Event) => void) => {
+  handleChange(event);
 
+  const value = (event.target as HTMLInputElement).value;
   emit("update:modelValue", value);
 };
 </script>

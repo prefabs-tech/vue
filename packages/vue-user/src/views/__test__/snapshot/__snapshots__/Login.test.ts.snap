@@ -47,16 +47,17 @@ exports[`Login > matches snapshot in en 1`] = `
         class="field email"
       >
         <label
-          for="email"
+          for="input-field-email"
         >
           Your email
         </label>
         
         <input
+          autocomplete="email"
           class=""
+          id="input-field-email"
           name="email"
           placeholder="john.doe@example.com"
-          tabindex="0"
           type="email"
           value=""
         />
@@ -67,7 +68,7 @@ exports[`Login > matches snapshot in en 1`] = `
         class="field password"
       >
         <label
-          for="password"
+          for="input-field-password"
         >
           Your password
         </label>
@@ -77,10 +78,9 @@ exports[`Login > matches snapshot in en 1`] = `
         >
           <input
             class=""
-            id="password"
+            id="input-field-password"
             name="password"
             placeholder="Enter your password"
-            tabindex="0"
             type="password"
           />
           <span
@@ -210,16 +210,17 @@ exports[`Login > matches snapshot in fr 1`] = `
         class="field email"
       >
         <label
-          for="email"
+          for="input-field-email"
         >
           Votre adresse courriel
         </label>
         
         <input
+          autocomplete="email"
           class=""
+          id="input-field-email"
           name="email"
           placeholder="john.doe@example.com"
-          tabindex="0"
           type="email"
           value=""
         />
@@ -230,7 +231,7 @@ exports[`Login > matches snapshot in fr 1`] = `
         class="field password"
       >
         <label
-          for="password"
+          for="input-field-password"
         >
           Votre mot de passe
         </label>
@@ -240,10 +241,9 @@ exports[`Login > matches snapshot in fr 1`] = `
         >
           <input
             class=""
-            id="password"
+            id="input-field-password"
             name="password"
             placeholder="Enter your password"
-            tabindex="0"
             type="password"
           />
           <span

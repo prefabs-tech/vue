@@ -5,16 +5,17 @@ exports[`Email > matches snapshot 1`] = `
   class="field email"
 >
   <label
-    for="email"
+    for="input-field-email"
   >
     Email
   </label>
   
   <input
+    autocomplete="email"
     class=""
+    id="input-field-email"
     name="email"
     placeholder=""
-    tabindex="0"
     type="email"
     value=""
   />
