@@ -1,11 +1,11 @@
 :root {
-  --badge-color: var(--dz-primary-color, #007aff);
+  --badge-background-color: var(--dz-primary-color, #007aff);
   --badge-alternate-color: var(--dz-alternate-color, #0284c7);
   --badge-danger-color: var(--dz-danger-color, #dc3545);
   --badge-primary-color: var(--dz-primary-color, #007aff);
   --badge-secondary-color: var(--dz-secondary-color, #475569);
   --badge-success-color: var(--dz-success-color, #22c55e);
-  --badge-text-color: white;
+  --badge-color: white;
   --badge-warning-color: var(--dz-warning-color, #ea580c);
 
   --badge-font-size: 0.875rem;
@@ -14,16 +14,16 @@
 }
 
 .badge {
-  --_badge-color: var(--badge-color);
+  --_badge-background-color: var(--badge-background-color);
   --_badge-font-size: var(--badge-font-size);
   --_badge-font-weight: var(--badge-font-weight);
   --_badge-padding: var(--badge-padding, 0.625rem);
-  --_badge-text-color: var(--badge-text-color);
+  --_badge-color: var(--badge-color);
 
   align-items: center;
-  background-color: var(--_badge-color);
+  background-color: var(--_badge-background-color);
   border-radius: 5px;
-  color: var(--_badge-text-color);
+  color: var(--_badge-color);
   display: inline-flex;
   font-size: var(--_badge-font-size);
   font-weight: var(--_badge-font-weight);
@@ -34,15 +34,15 @@
 }
 
 .badge.alternate {
-  --badge-color: var(--badge-alternate-color);
+  --badge-background-color: var(--badge-alternate-color);
 }
 
 .badge.danger {
-  --badge-color: var(--badge-danger-color);
+  --badge-background-color: var(--badge-danger-color);
 }
 
 .badge.primary {
-  --badge-color: var(--badge-primary-color);
+  --badge-background-color: var(--badge-primary-color);
 }
 
 .badge.rounded {
@@ -51,13 +51,13 @@
 }
 
 .badge.secondary {
-  --badge-color: var(--badge-secondary-color);
+  --badge-background-color: var(--badge-secondary-color);
 }
 
 .badge.success {
-  --badge-color: var(--badge-success-color);
+  --badge-background-color: var(--badge-success-color);
 }
 
 .badge.warning {
-  --badge-color: var(--badge-warning-color);
+  --badge-background-color: var(--badge-warning-color);
 }

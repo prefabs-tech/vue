@@ -1,10 +1,7 @@
 import axios from "axios";
-import SuperTokens from "supertokens-website";
 
 import { authConfig } from "../auth-provider";
 import { API_PATH_REFRESH } from "../constant";
-
-SuperTokens.addAxiosInterceptors(axios);
 
 const client = (baseURL: string) => {
   const instance = axios.create({
