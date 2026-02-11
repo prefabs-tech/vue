@@ -1,3 +1,19 @@
+# [0.31.0](https://github.com/prefabs-tech/vue/compare/v0.30.0...v0.31.0) (2026-02-11)
+
+
+### Features
+
+* **config:** update ESLint configuration and dependencies ([#942](https://github.com/prefabs-tech/vue/issues/942)) ([4f371b6](https://github.com/prefabs-tech/vue/commit/4f371b6a0574e4240f0157c220cb9f35698c418b))
+* **demo:** update eslint version and fix related linter issues ([#948](https://github.com/prefabs-tech/vue/issues/948)) ([79aec86](https://github.com/prefabs-tech/vue/commit/79aec8614aa1c1b5cc672ed6e4ad46e719052700))
+* **form:** update ESLint configuration and dependencies ([#943](https://github.com/prefabs-tech/vue/issues/943)) ([025b8e7](https://github.com/prefabs-tech/vue/commit/025b8e7f5ac5112c9aad5f06015ca3d4c90e1cd2))
+* **i18n:** update ESLint configuration and dependencies ([#939](https://github.com/prefabs-tech/vue/issues/939)) ([87bd4c0](https://github.com/prefabs-tech/vue/commit/87bd4c00978a0f817de58e0b41e24092349ab12d))
+* **layout:** update ESLint configuration and dependencies ([#938](https://github.com/prefabs-tech/vue/issues/938)) ([1f1a989](https://github.com/prefabs-tech/vue/commit/1f1a9896f01398e63d0fb0e8658d7bcd6be9a4f2))
+* **table:** update ESLint configuration and dependencies ([#947](https://github.com/prefabs-tech/vue/issues/947)) ([e10109d](https://github.com/prefabs-tech/vue/commit/e10109de367df37c1468ba5f0486c305dc7100d0))
+* **ui:** update ESLint configuration and dependencies ([#941](https://github.com/prefabs-tech/vue/issues/941)) ([87f57ee](https://github.com/prefabs-tech/vue/commit/87f57ee52cd9b280bd52d50b56222a97c5fb74f1))
+* **user:** update ESLint configuration and dependencies ([#944](https://github.com/prefabs-tech/vue/issues/944)) ([0660690](https://github.com/prefabs-tech/vue/commit/0660690b9943dccbb4c1b33f479addaaec0b49ef))
+
+
+
 # [0.30.0](https://github.com/prefabs-tech/vue/compare/v0.29.1...v0.30.0) (2026-02-03)
 
 
