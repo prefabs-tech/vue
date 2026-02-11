@@ -46,6 +46,7 @@
           :label="$t('form.label.country')"
           :options="options"
           :placeholder="$t('form.placeholder.country')"
+          name="select-input"
         />
 
         <!-- eslint-disable -->
@@ -55,6 +56,7 @@
               v-model="input"
               :options="options"
               label="Country"
+              name="select"
               placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
@@ -86,6 +88,7 @@
           :options="options"
           :placeholder="$t('form.placeholder.country')"
           disabled
+          name="disabled-select"
         />
 
         <!-- eslint-disable -->
@@ -95,7 +98,8 @@
               v-model="disabled"
               :options="options"
               disabled
-              label="Country"
+              label="Country
+              name="select""
               placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
@@ -129,6 +133,7 @@
           :label="$t('form.label.country')"
           :options="options"
           :placeholder="$t('form.placeholder.country')"
+          name="country"
         />
 
         <!-- eslint-disable -->
@@ -139,6 +144,7 @@
               :has-sorted-options="false"
               :options="options"
               label="Country"
+              name="select"
               placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
@@ -169,6 +175,7 @@
           :options="options"
           :placeholder="$t('form.placeholder.country')"
           disable-search
+          name="search-disabled-select"
         />
 
         <!-- eslint-disable -->
@@ -178,6 +185,7 @@
               v-model="input"
               :options="options"
               disable-search
+              name="select"
               placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
@@ -209,6 +217,7 @@
           :options="countryOptions"
           :placeholder="$t('form.placeholder.country')"
           label-key="country"
+          name="country-select"
           value-key="code"
         />
 
@@ -220,6 +229,7 @@
               :options="options"
               label="Country"
               label-key="country"
+              name="select"
               placeholder="Select a country"
               value-key="code"
             /&gt;
@@ -251,6 +261,7 @@
           :label="$t('form.label.country')"
           :options="options"
           :placeholder="$t('form.placeholder.country')"
+          name="i18n-select"
         />
 
         <!-- eslint-disable -->
@@ -261,6 +272,7 @@
               :options="options"
               :label="t('form.label.country')"
               :placeholder="t('form.placeholder.country')"
+              name="select"
             /&gt;
           &lt;/template&gt;
 
@@ -298,6 +310,7 @@
           :placeholder="$t('form.placeholder.role')"
           enable-custom-search
           label-key="name"
+          name="server-select"
           value-key="id"
           @update:search-input="fetchRoles"
         />
@@ -315,6 +328,7 @@
               :placeholder="$t('form.placeholder.role')"
               enable-custom-search
               label-key="name"
+              name="select"
               value-key="id"
               @update:search-input="fetchRoles"
             /&gt;
@@ -348,6 +362,7 @@
           :label="$t('form.label.country')"
           :options="countries"
           :placeholder="$t('form.placeholder.country')"
+          name="extensive-select"
         />
 
         <!-- eslint-disable -->
@@ -357,6 +372,7 @@
               v-model="input"
               :options="countries"
               label="Country"
+              name="select"
               placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
@@ -381,6 +397,7 @@
           :label="$t('form.label.country')"
           :options="groupedOptions"
           :placeholder="$t('form.placeholder.country')"
+          name="group-select"
         />
 
         <!-- eslint-disable -->
@@ -390,6 +407,7 @@
               v-model="input"
               :options="options"
               label="Country"
+              name="select"
               placeholder="Select a country"
             /&gt;
           &lt;/template&gt;
@@ -431,6 +449,7 @@
           :options="options"
           :placeholder="$t('form.placeholder.countries')"
           multiple
+          name="multiselect"
         />
 
         <!-- eslint-disable -->
@@ -441,6 +460,7 @@
               :options="options"
               label="Countries"
               multiple
+              name="select"
               placeholder="Select countries"
             /&gt;
           &lt;/template&gt;
@@ -473,6 +493,7 @@
           :placeholder="$t('form.placeholder.countries')"
           disabled
           multiple
+          name="disabled-multiselect"
         />
 
         <!-- eslint-disable -->
@@ -484,6 +505,7 @@
               disabled
               label="Countries"
               multiple
+              name="select"
               placeholder="Select countries"
             /&gt;
           &lt;/template&gt;
@@ -517,6 +539,7 @@
           :options="countries"
           :placeholder="$t('form.placeholder.countries')"
           multiple
+          name="extensive-multiselect"
         />
 
         <!-- eslint-disable -->
@@ -527,6 +550,7 @@
               :options="countries"
               label="Countries"
               multiple
+              name="select"
               placeholder="Select countries"
             /&gt;
           &lt;/template&gt;
@@ -553,6 +577,7 @@
           :placeholder="$t('form.placeholder.country')"
           label-key="country"
           multiple
+          name="country-multiselect"
           value-key="code"
         />
 
@@ -566,6 +591,7 @@
               label-key="language"
               placeholder="Select a country"
               multiple
+              name="select"
               value-key="code"
             /&gt;
           &lt;/template&gt;
@@ -603,6 +629,7 @@
           class="tooltip-multiselect"
           enable-tooltip
           multiple
+          name="tooltip-multiselect"
         />
 
         <!-- eslint-disable -->
@@ -618,6 +645,7 @@
               enable-tooltip
               label="Countries"
               multiple
+              name="select"
               placeholder="Select countries"
             /&gt;
           &lt;/template&gt;
@@ -649,6 +677,7 @@
           :options="groupedOptions"
           :placeholder="$t('form.placeholder.countries')"
           multiple
+          name="group-multiselect"
         />
 
         <!-- eslint-disable -->
@@ -659,6 +688,7 @@
               :options="options"
               label="Countries"
               multiple
+              name="select"
               placeholder="Select countries"
             /&gt;
           &lt;/template&gt;
@@ -700,6 +730,7 @@
           :options="groupedOptions"
           :placeholder="$t('form.placeholder.countries')"
           multiple
+          name="custom-label-select"
         >
           <template #group="{ label: groupLabel }">
             <span>
@@ -725,6 +756,7 @@
               :options="options"
               :placeholder="t('form.placeholder.countries')"
               multiple
+              name="select"
             &gt;
               &lt;template #group="{ label }"&gt;
                 &lt;span&gt;
@@ -783,6 +815,7 @@
           :options="options"
           :placeholder="$t('form.placeholder.countries')"
           multiple
+          name="custom-multiselect"
         >
           <template #selection="{ selectedLabels }">
             <div class="selected-labels">
@@ -804,6 +837,7 @@
               :options="options"
               :placeholder="t('form.placeholder.countries')"
               multiple
+              name="select"
             &gt;
               &lt;template #selection="{ selectedLabels }"&gt;
                &lt;div class="selected-labels"&gt;
@@ -850,6 +884,7 @@
             :options="options"
             :placeholder="$t('form.placeholder.countries')"
             multiple
+            name="validation-multiselect"
           />
         </Form>
 
@@ -863,6 +898,7 @@
               :options="options"
               label="Countries"
               multiple
+              name="select"
               placeholder="Select countries"
             /&gt;
           &lt;/Form&gt;
@@ -887,6 +923,7 @@
             :placeholder="$t('form.placeholder.countries')"
             :schema="inputSchema"
             multiple
+            name="custom-validation-select"
           />
         </Form>
 
@@ -899,6 +936,7 @@
               :schema="inputSchema"
               label="Countries"
               multiple
+              name="select"
               placeholder="Select countries"
             /&gt;
           &lt;/Form&gt;

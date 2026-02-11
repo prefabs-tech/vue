@@ -6,9 +6,6 @@
     tabindex="0"
     @keydown="onKeyDown"
   >
-    <label v-if="label" for="multiselect">
-      {{ label }}
-    </label>
     <div
       ref="dzangolabVueSelectTrigger"
       :class="[
@@ -26,6 +23,7 @@
         "
         ref="dzangolabVueSearchInput"
         v-model="searchInput"
+        :input-id="inputId"
         :placeholder="placeholder"
         class="multiselect-search"
         @update:model-value="$emit('update:searchInput', $event)"
@@ -281,6 +279,10 @@ const props = defineProps({
   hasSortedOptions: {
     default: true,
     type: Boolean,
+  },
+  inputId: {
+    default: undefined,
+    type: String,
   },
   label: {
     default: "",

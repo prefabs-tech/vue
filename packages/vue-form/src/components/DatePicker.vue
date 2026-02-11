@@ -1,36 +1,36 @@
 <template>
   <div class="field date-picker">
-    <label v-if="label" for="date-picker">
-      {{ label }}
+    <label>
+      <span>{{ label }}</span>
+
+      <Field
+        v-slot="{ field, meta }"
+        v-bind="{ modelValue }"
+        :name="name"
+        :rules="fieldSchema"
+      >
+        <VueDatePicker
+          ref="dzangolabVueDatePicker"
+          v-bind="{ ...filteredAttributes, ...field }"
+          :auto-apply="autoApply"
+          :class="[
+            {
+              invalid: (meta.dirty || meta.touched) && !meta.valid,
+              valid: meta.dirty && meta.valid && props.schema,
+            },
+          ]"
+          :disabled="disabled"
+          :enable-time-picker="enableTimePicker"
+          :format="format"
+          :model-value="modelValue"
+          :placeholder="placeholder"
+          :teleport="teleport"
+          tabindex="0"
+          @update:model-value="onUpdate"
+        />
+        <ErrorMessage :name="name" />
+      </Field>
     </label>
-    <Field
-      v-slot="{ field, meta }"
-      v-bind="{ modelValue }"
-      :name="name"
-      :rules="fieldSchema"
-    >
-      <VueDatePicker
-        ref="dzangolabVueDatePicker"
-        v-bind="{ ...filteredAttributes, ...field }"
-        :auto-apply="autoApply"
-        :class="[
-          {
-            invalid: meta.touched && !meta.valid,
-            valid:
-              meta.dirty && meta.valid && Object.keys(props.schema).length > 0,
-          },
-        ]"
-        :disabled="disabled"
-        :enable-time-picker="enableTimePicker"
-        :format="format"
-        :model-value="modelValue"
-        :placeholder="placeholder"
-        :teleport="teleport"
-        tabindex="0"
-        @update:model-value="onUpdate"
-      />
-      <ErrorMessage :name="name" />
-    </Field>
   </div>
 </template>
 
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { toFieldValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import { ErrorMessage, Field } from "vee-validate";
@@ -98,9 +98,7 @@ const props = defineProps({
     type: String,
   },
   schema: {
-    default: () => {
-      return {};
-    },
+    default: undefined,
     required: false,
     type: Object as PropType<z.ZodType<string | number | Date | object>>,
   },
@@ -116,8 +114,7 @@ const dzangolabVueDatePicker = ref();
 
 const attributes = useAttrs();
 
-const fieldSchema =
-  Object.keys(props.schema).length > 0 ? toFieldValidator(props.schema) : null;
+const fieldSchema = props.schema ? toTypedSchema(props.schema) : null;
 
 const filteredAttributes = computed(() => {
   const { class: _, ...rest } = attributes;

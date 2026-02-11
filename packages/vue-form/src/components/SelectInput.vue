@@ -1,6 +1,6 @@
 <template>
-  <div :class="`field ${name}`">
-    <label v-if="label" :for="name">
+  <div :class="['field', 'name']">
+    <label v-if="label" :for="!disabled ? `input-field-${name}` : undefined">
       {{ label }}
     </label>
     <Field
@@ -10,7 +10,6 @@
       :rules="fieldSchema"
     >
       <MultiSelect
-        :id="`input-field-${name}`"
         v-bind="field"
         :class="{
           invalid: meta.touched && !meta.valid,
@@ -22,6 +21,7 @@
         :enable-custom-search="enableCustomSearch"
         :enable-tooltip="enableTooltip"
         :has-sorted-options="hasSortedOptions"
+        :input-id="`input-field-${name}`"
         :label-key="labelKey"
         :loading="loading"
         :model-value="modelValue"

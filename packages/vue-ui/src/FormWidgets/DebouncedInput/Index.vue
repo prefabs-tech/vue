@@ -1,6 +1,7 @@
 <template>
   <div class="field debounce-input">
     <input
+      :id="inputId"
       :aria-label="ariaLabel ?? placeholder"
       :disabled="disabled"
       :placeholder="placeholder"
@@ -36,6 +37,10 @@ const props = defineProps({
   disabled: {
     default: false,
     type: Boolean,
+  },
+  inputId: {
+    default: undefined,
+    type: String,
   },
   modelValue: {
     default: "",

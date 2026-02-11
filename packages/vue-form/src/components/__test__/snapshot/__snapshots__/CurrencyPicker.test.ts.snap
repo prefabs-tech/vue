@@ -5,22 +5,20 @@ exports[`CurrencyPicker > matches snapshot 1`] = `
   class="currency-selector"
 >
   <div
-    class="field currency-picker"
+    class="field name"
   >
     <label
-      for="currency-picker"
+      for="input-field-currency-picker"
     >
       Currency Picker
     </label>
     
     <div
       class="multiple-mode multiselect"
-      id="input-field-currency-picker"
       name="currency-picker"
       tabindex="0"
       value="AUD,GBP"
     >
-      <!--v-if-->
       <div
         class="multiselect-input"
       >
@@ -30,6 +28,7 @@ exports[`CurrencyPicker > matches snapshot 1`] = `
           <input
             aria-label="input"
             class="input-field"
+            id="input-field-currency-picker"
             placeholder="Select a currency"
             type="text"
             value=""

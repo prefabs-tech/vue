@@ -5,19 +5,19 @@ exports[`Typeahead > matches snapshot 1`] = `
   class="field typeahead"
 >
   <label
-    for=""
+    for="input-field-"
   >
     Input
   </label>
   
   <div
     class="field debounce-input"
-    id="input-field-"
     tabindex="0"
   >
     <input
       aria-label="input"
       class="input-field"
+      id="input-field-"
       placeholder="Placeholder"
       type="text"
       value=""

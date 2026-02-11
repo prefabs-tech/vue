@@ -2,22 +2,20 @@
 
 exports[`SelectInput > matches snapshot 1`] = `
 <div
-  class="field multiselect"
+  class="field name"
 >
   <label
-    for="multiselect"
+    for="input-field-multiselect"
   >
     Multiselect
   </label>
   
   <div
     class="multiple-mode multiselect"
-    id="input-field-multiselect"
     name="multiselect"
     tabindex="0"
     value="FR,FE"
   >
-    <!--v-if-->
     <div
       class="multiselect-input"
     >
