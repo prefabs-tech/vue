@@ -1,27 +1,25 @@
 <template>
-  <div :class="`field ${name}`">
-    <label v-if="label" :for="name">
+  <div :class="['field', name]">
+    <label v-if="label" :for="`input-field-${name}`">
       {{ label }}
     </label>
     <Field
-      v-slot="{ field, meta }"
+      v-slot="{ field, meta, handleChange }"
       v-bind="{ modelValue }"
       :name="name"
       :rules="fieldSchema"
-      @input="onInput"
     >
       <input
         v-bind="field"
         :id="`input-field-${name}`"
         :class="{
-          invalid: meta.touched && !meta.valid,
-          valid:
-            meta.dirty && meta.valid && Object.keys(props.schema).length > 0,
+          invalid: (meta.dirty || meta.touched) && !meta.valid,
+          valid: meta.dirty && meta.valid,
         }"
         :disabled="disabled"
         :placeholder="placeholder"
         :type="type"
-        tabindex="0"
+        @input="(event: Event) => onInput(event, handleChange)"
       />
       <ErrorMessage :name="name" />
     </Field>
@@ -35,7 +33,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { toFieldValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
 
@@ -65,7 +63,7 @@ const props = defineProps({
     type: String,
   },
   schema: {
-    default: () => ({}),
+    default: undefined,
     required: false,
     type: Object as PropType<z.ZodType<string | number | object>>,
   },
@@ -77,12 +75,12 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema =
-  Object.keys(props.schema).length > 0 ? toFieldValidator(props.schema) : null;
+const fieldSchema = props.schema ? toTypedSchema(props.schema) : undefined;
 
-const onInput = (event: Event) => {
+const onInput = (event: Event, handleChange: (event: Event) => void) => {
+  handleChange(event);
+
   const value = (event.target as HTMLInputElement).value;
-
   emit("update:modelValue", value);
 };
 </script>

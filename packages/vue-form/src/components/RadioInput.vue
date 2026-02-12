@@ -12,7 +12,7 @@
       :class="[
         name,
         {
-          invalid: meta.touched && !meta.valid,
+          invalid: (meta.touched || meta.dirty) && !meta.valid,
         },
       ]"
       :direction="direction"

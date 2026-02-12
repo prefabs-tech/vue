@@ -5,7 +5,7 @@ exports[`TextareaInput > matches snapshot 1`] = `
   class="field text"
 >
   <label
-    for="text"
+    for="input-field-text"
   >
     Textarea input
   </label>
@@ -15,8 +15,6 @@ exports[`TextareaInput > matches snapshot 1`] = `
     id="input-field-text"
     name="text"
     placeholder="Placeholder"
-    tabindex="0"
-    type="textarea"
     value=""
   />
   <!---->

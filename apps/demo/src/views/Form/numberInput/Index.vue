@@ -38,6 +38,7 @@
           v-model="formData.input"
           :label="$t('form.label.number')"
           :placeholder="$t('form.placeholder.number')"
+          name="label-input"
         />
 
         <!-- eslint-disable -->
@@ -46,6 +47,7 @@
             &lt;NumberInput 
               v-model="input"
               label="Number"
+              name="number"
               placeholder="Enter a number"
             /&gt;
           &lt;/template&gt;
@@ -66,6 +68,7 @@
           v-model="formData.disabled"
           :label="$t('form.label.number')"
           disabled
+          name="disabled-input"
         />
 
         <!-- eslint-disable -->
@@ -73,8 +76,9 @@
           &lt;template&gt;
             &lt;NumberInput 
               v-model="input"
-              label="Number"
               disabled
+              label="Number"
+              name="number"
             /&gt;
           &lt;/template&gt;
 
@@ -94,6 +98,7 @@
           v-model="formData.i18nInput"
           :label="$t('form.label.number')"
           :placeholder="$t('form.placeholder.number')"
+          name="i18n-input"
         />
 
         <!-- eslint-disable -->
@@ -103,6 +108,7 @@
               v-model="input"
               :label="t('form.label.number')"
               :placeholder="t('form.placeholder.number')"
+              name="number"
             /&gt;
           &lt;/template&gt;
 
@@ -127,6 +133,7 @@
             :label="$t('form.label.number')"
             :options="validationOptions"
             :placeholder="$t('form.placeholder.number')"
+            name="validation-input"
           />
         </Form>
 
@@ -137,6 +144,7 @@
               v-model="input"
               :options="validationOptions"
               label="Number"
+              name="number"
               placeholder="Enter a number"
             /&gt;
           &lt;/Form&gt;
@@ -168,6 +176,7 @@
             :error-messages="validationMessages"
             :options="validationOptions"
             :placeholder="$t('form.placeholder.number')"
+            name="message-input"
           />
         </Form>
 
@@ -179,6 +188,7 @@
               :error-messages="validationMessages"
               :options="validationOptions"
               label="Number"
+              name="number"
               placeholder="Enter a number"
             /&gt;
           &lt;/Form&gt;
@@ -214,7 +224,7 @@
             :label="$t('form.label.number')"
             :placeholder="$t('form.placeholder.number')"
             :schema="inputSchema"
-            name="number"
+            name="custom-input"
           />
         </Form>
 

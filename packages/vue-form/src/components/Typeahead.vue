@@ -1,6 +1,6 @@
 <template>
   <div ref="dzangolabVueFormTypeahead" :class="`field typeahead ${name}`">
-    <label v-if="label" :for="name">
+    <label v-if="label" :for="`input-field-${name}`">
       {{ label }}
     </label>
     <Field
@@ -10,11 +10,10 @@
       :rules="fieldSchema"
     >
       <DebouncedInput
-        :id="`input-field-${name}`"
+        :input-id="`input-field-${name}`"
         :class="{
-          invalid: meta.dirty && !meta.valid,
-          valid:
-            meta.dirty && meta.valid && Object.keys(props.schema).length > 0,
+          invalid: (meta.touched || meta.dirty) && !meta.valid,
+          valid: meta.dirty && meta.valid && props.schema,
         }"
         :model-value="inputValue"
         :debounce-time="debounceTime"
@@ -49,7 +48,7 @@ export default {
 
 <script setup lang="ts">
 import { DebouncedInput } from "@prefabs.tech/vue3-ui";
-import { toFieldValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { onClickOutside } from "@vueuse/core";
 import { ErrorMessage, Field } from "vee-validate";
 import { computed, ref } from "vue";
@@ -92,9 +91,7 @@ const props = defineProps({
     type: String,
   },
   schema: {
-    default: () => {
-      return {};
-    },
+    default: undefined,
     required: false,
     type: Object as PropType<z.ZodType<string | number | object>>,
   },
@@ -116,8 +113,7 @@ onClickOutside(dzangolabVueFormTypeahead, (event) => {
   showSuggestions.value = false;
 });
 
-const fieldSchema =
-  Object.keys(props.schema).length > 0 ? toFieldValidator(props.schema) : null;
+const fieldSchema = props.schema ? toTypedSchema(props.schema) : undefined;
 
 const filteredSuggestions = computed(() => {
   return props.suggestions.filter((suggestion) =>

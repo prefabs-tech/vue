@@ -1,25 +1,26 @@
 <template>
   <div class="field email">
-    <label v-if="label" for="email">
+    <label v-if="label" :for="`input-field-${name}`">
       {{ label }}
     </label>
     <Field
-      v-slot="{ field, meta }"
+      v-slot="{ field, meta, handleChange }"
       :model-value="modelValue"
       :name="name"
       :rules="fieldSchema"
-      @input="onInput"
     >
       <input
         v-bind="field"
+        :id="`input-field-${name}`"
+        :autocomplete="autocomplete"
         :class="{
-          invalid: meta.touched && !meta.valid,
+          invalid: (meta.dirty || meta.touched) && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
         :disabled="disabled"
         :placeholder="placeholder"
-        tabindex="0"
         type="email"
+        @input="(event: Event) => onInput(event, handleChange)"
       />
       <ErrorMessage :name="name" />
     </Field>
@@ -33,7 +34,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { toFieldValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
 
@@ -43,6 +44,10 @@ import type { EmailErrorMessages, IsEmailOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  autocomplete: {
+    default: "email",
+    type: String,
+  },
   disabled: {
     default: false,
     type: Boolean,
@@ -81,9 +86,7 @@ const props = defineProps({
     type: String,
   },
   schema: {
-    default: () => {
-      return {};
-    },
+    default: undefined,
     required: false,
     type: Object as PropType<z.ZodType<string | number | object>>,
   },
@@ -91,15 +94,14 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema = toFieldValidator(
-  Object.keys(props.schema).length > 0
-    ? props.schema
-    : emailSchema(props.errorMessages, props.options),
+const fieldSchema = toTypedSchema(
+  props.schema || emailSchema(props.errorMessages, props.options),
 );
 
-const onInput = (event: Event) => {
-  const value = (event.target as HTMLInputElement).value;
+const onInput = (event: Event, handleChange: (event: Event) => void) => {
+  handleChange(event);
 
+  const value = (event.target as HTMLInputElement).value;
   emit("update:modelValue", value);
 };
 </script>

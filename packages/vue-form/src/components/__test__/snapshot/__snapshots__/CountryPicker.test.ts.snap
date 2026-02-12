@@ -12,11 +12,9 @@ exports[`CountryPicker > matches snapshot 1`] = `
     
     <div
       class="multiselect"
-      id="input-field-country"
       name="country"
       tabindex="0"
     >
-      <!--v-if-->
       <div
         class="multiselect-input"
       >
@@ -26,6 +24,7 @@ exports[`CountryPicker > matches snapshot 1`] = `
           <input
             aria-label="input"
             class="input-field"
+            id="input-field-country"
             placeholder="Search..."
             type="text"
             value=""

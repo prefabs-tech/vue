@@ -1,26 +1,25 @@
 <template>
-  <div :class="`field ${name}`">
-    <label v-if="label" :for="name">
+  <div :class="['field', name]">
+    <label v-if="label" :for="`input-field-${name}`">
       {{ label }}
     </label>
     <Field
-      v-slot="{ field, meta }"
+      v-slot="{ field, meta, handleChange }"
       v-bind="{ modelValue }"
       :name="name"
       :rules="fieldSchema"
-      @input="onInput"
     >
       <input
         v-bind="field"
         :id="`input-field-${name}`"
         :class="{
-          invalid: meta.touched && !meta.valid,
+          invalid: (meta.dirty || meta.touched) && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
         :disabled="disabled"
         :placeholder="placeholder"
         type="text"
-        tabindex="0"
+        @input="(event: Event) => onInput(event, handleChange)"
       />
       <ErrorMessage :name="name" />
     </Field>
@@ -34,7 +33,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { toFieldValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
 
@@ -84,9 +83,7 @@ const props = defineProps({
     type: String,
   },
   schema: {
-    default: () => {
-      return {};
-    },
+    default: undefined,
     required: false,
     type: Object as PropType<z.ZodType<string | number>>,
   },
@@ -94,15 +91,14 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema = toFieldValidator(
-  Object.keys(props.schema).length > 0
-    ? props.schema
-    : textSchema(props.errorMessages, props.options),
+const fieldSchema = toTypedSchema(
+  props.schema ?? textSchema(props.errorMessages, props.options),
 );
 
-const onInput = (event: Event) => {
-  const value = (event.target as HTMLInputElement).value;
+const onInput = (event: Event, handleChange: (event: Event) => void) => {
+  handleChange(event);
 
+  const value = (event.target as HTMLInputElement).value;
   emit("update:modelValue", value);
 };
 </script>

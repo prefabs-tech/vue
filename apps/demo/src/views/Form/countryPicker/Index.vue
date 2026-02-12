@@ -39,6 +39,7 @@
         <CountryPicker
           v-model="formData.multiselect"
           :placeholder="$t('form.placeholder.countries')"
+          name="multiselect"
           multiple
         />
 
@@ -49,6 +50,7 @@
               v-model="input"
               :placeholder="$t('form.placeholder.countries')"
               multiple
+              name="country"
             /&gt;
           &lt;/template&gt;
 
@@ -72,6 +74,7 @@
           :locales="{ np: nepaliTranslation }"
           :placeholder="$t('form.placeholder.country')"
           locale="np"
+          name="custom-locale"
         />
 
         <!-- eslint-disable -->
@@ -82,6 +85,7 @@
               :locale="locale"
               :locales="locales"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
 
@@ -116,6 +120,7 @@
           :placeholder="$t('form.placeholder.country')"
           fallback-locale="fr"
           locale="gb"
+          name="fallback-locale"
         />
 
         <!-- eslint-disable -->
@@ -127,6 +132,7 @@
               :locale="locale"
               :locales="locales"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
 
@@ -159,6 +165,7 @@
           :placeholder="$t('form.placeholder.country')"
           flags-position="right-edge"
           flags-style="circle"
+          name="flag-country"
         />
 
         <!-- eslint-disable -->
@@ -169,6 +176,7 @@
               :placeholder="$t('form.placeholder.country')"
               flags-position="right-edge"
               flags-style="circle"
+              name="country"
             /&gt;
           &lt;/template&gt;
                   
@@ -194,6 +202,7 @@
           v-model="formData.customFlags"
           :flags-path="customFlagsPath"
           :placeholder="$t('form.placeholder.country')"
+          name="custom-flag-country"
         />
 
         <!-- eslint-disable -->
@@ -203,6 +212,7 @@
               v-model="input"
               :flags-path="flagsPath"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
                   
@@ -229,6 +239,7 @@
           v-model="formData.includedCountries"
           :include="includedCountries"
           :placeholder="$t('form.placeholder.country')"
+          name="include-country"
         />
 
         <!-- eslint-disable -->
@@ -238,6 +249,7 @@
               v-model="input"
               :include="includedCountries"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
 
@@ -262,6 +274,7 @@
           v-model="formData.excludedCountries"
           :exclude="excludedCountries"
           :placeholder="$t('form.placeholder.country')"
+          name="exclude-country"
         />
 
         <!-- eslint-disable -->
@@ -271,6 +284,7 @@
               v-model="input"
               :exclude="excludedCountries"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
 
@@ -294,6 +308,7 @@
           v-model="formData.favorites"
           :favorites="favoriteCountries"
           :placeholder="$t('form.placeholder.country')"
+          name="favorites-country"
         />
 
         <!-- eslint-disable -->
@@ -303,6 +318,7 @@
               v-model="input"
               :favorites="favoriteCountries"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
 
@@ -327,6 +343,7 @@
           :favorites="favoriteCountries"
           :include-favorites="false"
           :placeholder="$t('form.placeholder.country')"
+          name="include-favorites-country"
         />
 
         <!-- eslint-disable -->
@@ -337,6 +354,7 @@
               :favorites="favoriteCountries"
               :include-favorites="false"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
 
@@ -361,6 +379,7 @@
           :groups="groups"
           :locale="locale"
           :placeholder="$t('form.placeholder.country')"
+          name="group-country"
         />
 
         <!-- eslint-disable -->
@@ -371,6 +390,7 @@
               :groups="groups"
               :locale="locale"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
 
@@ -403,6 +423,7 @@
           :locale="locale"
           :locales="locales"
           :placeholder="$t('form.placeholder.country')"
+          name="translated-country"
         />
 
         <!-- eslint-disable -->
@@ -414,6 +435,7 @@
               :locale="locale"
               :locales="locales"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
 
@@ -461,6 +483,7 @@
           :has-sorted-options="false"
           :locale="locale"
           :placeholder="$t('form.placeholder.country')"
+          name="group-favorites-country"
         />
 
         <!-- eslint-disable -->
@@ -473,6 +496,7 @@
               :has-sorted-options="false"
               :locale="locale"
               :placeholder="$t('form.placeholder.country')"
+              name="country"
             /&gt;
           &lt;/template&gt;
 

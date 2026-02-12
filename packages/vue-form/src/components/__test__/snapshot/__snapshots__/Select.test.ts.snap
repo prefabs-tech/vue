@@ -5,11 +5,6 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
   class="multiple-mode multiselect"
   tabindex="0"
 >
-  <label
-    for="multiselect"
-  >
-    Select
-  </label>
   <div
     class="focused multiselect-input"
   >
@@ -75,11 +70,6 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
   class="multiselect"
   tabindex="0"
 >
-  <label
-    for="multiselect"
-  >
-    Select
-  </label>
   <div
     class="multiselect-input"
   >

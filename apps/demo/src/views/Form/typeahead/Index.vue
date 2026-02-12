@@ -88,6 +88,7 @@
           :label="$t('form.label.typeahead')"
           :placeholder="$t('form.placeholder.input')"
           :suggestions="suggestionItems"
+          name="label-input"
         />
 
         <!-- eslint-disable -->
@@ -97,6 +98,7 @@
               v-model="input"
               :suggestions="suggestionItems"
               label="Typeahead"
+              name="typeahead"
               placeholder="Enter Input"
             /&gt;
           &lt;/template&gt;
@@ -168,6 +170,7 @@
           v-model="formData.disabled"
           :label="$t('form.label.disabled')"
           :suggestions="suggestionItems"
+          name="disabled-input"
           type="text"
           disabled
         />
@@ -179,6 +182,7 @@
               v-model="input"
               :suggestions="suggestionItems"
               label="Disabled"
+              name="disabled-input"
               type="text"
               disabled
             /&gt;
@@ -252,6 +256,7 @@
           :label="$t('form.label.typeahead')"
           :placeholder="$t('form.placeholder.input')"
           :suggestions="suggestionItems"
+          name="i18n-input"
         />
 
         <!-- eslint-disable -->
@@ -262,6 +267,7 @@
               :suggestions="suggestionItems"
               :label="t('form.label.typeahead')"
               :placeholder="t('form.placeholder.input')"
+              name="typeahed"
             /&gt;
           &lt;/template&gt;
 
@@ -337,6 +343,7 @@
           :label="$t('form.label.typeahead')"
           :placeholder="$t('form.placeholder.input')"
           :suggestions="suggestionItems"
+          name="delay-input"
         />
 
         <!-- eslint-disable -->
@@ -347,6 +354,7 @@
               :debounce-time="1000"
               :suggestions="suggestionItems"
               label="Typeahead"
+              name="typeahead"
               placeholder="Enter Input"
             /&gt;
           &lt;/template&gt;

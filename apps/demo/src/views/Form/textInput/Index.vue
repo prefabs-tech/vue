@@ -38,6 +38,7 @@
           v-model="formData.input"
           :label="$t('form.label.textInput')"
           :placeholder="$t('form.placeholder.textInput')"
+          name="label-input"
         />
 
         <!-- eslint-disable -->
@@ -46,6 +47,7 @@
             &lt;TextInput 
               v-model="input"
               label="Input"
+              name="text"
               placeholder="Enter Input"
             /&gt;
           &lt;/template&gt;
@@ -66,6 +68,7 @@
           v-model="formData.disabled"
           :label="$t('form.label.disabled')"
           disabled
+          name="disabled-input"
         />
 
         <!-- eslint-disable -->
@@ -73,8 +76,9 @@
           &lt;template&gt;
             &lt;TextInput 
               v-model="input"
-              label="Disabled"
               disabled
+              label="Disabled"
+              name="text"
             /&gt;
           &lt;/template&gt;
 
@@ -94,6 +98,7 @@
           v-model="formData.input"
           :label="$t('form.label.textInput')"
           :placeholder="$t('form.placeholder.textInput')"
+          name="i18n-input"
         />
 
         <!-- eslint-disable -->
@@ -103,6 +108,7 @@
               v-model="input"
               :label="t('form.label.textInput')"
               :placeholder="t('form.placeholder.textInput')"
+              name="text"
             /&gt;
           &lt;/template&gt;
 
@@ -127,6 +133,7 @@
             :label="$t('form.label.input')"
             :options="validationOptions"
             :placeholder="$t('form.placeholder.input')"
+            name="validation-input"
           />
         </Form>
 
@@ -137,6 +144,7 @@
               v-model="input"
               :options="validationOptions"
               label="Input"
+              name="text"
               placeholder="Enter input"
             /&gt;
           &lt;/Form&gt;
@@ -165,6 +173,7 @@
             :error-messages="validationMessages"
             :options="validationOptions"
             :placeholder="$t('form.placeholder.input')"
+            name="custom-message-input"
           />
         </Form>
 
@@ -176,6 +185,7 @@
               :error-messages="validationMessages"
               :options="validationOptions"
               label="Input"
+              name="text"
               placeholder="Enter input"
             /&gt;
           &lt;/Form&gt;
@@ -207,7 +217,7 @@
             :label="$t('form.label.input')"
             :placeholder="$t('form.placeholder.input')"
             :schema="inputSchema"
-            name="custom_input"
+            name="custom-validation-input"
           />
         </Form>
 
@@ -218,8 +228,8 @@
               v-model="input"
               :schema="inputSchema"
               label="Input"
+              name="text"
               placeholder="Enter input"
-              name="input"
             /&gt;
           &lt;/Form&gt;
 
