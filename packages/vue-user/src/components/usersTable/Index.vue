@@ -38,7 +38,7 @@
           :submit-label="submitLabel"
           :title="invitationModalTitle"
           @on:close="onCloseInvitation"
-          @submitted="showModal = false"
+          @submitted="onInvitationSubmitted"
         />
       </div>
     </template>
@@ -172,7 +172,7 @@ const emit = defineEmits([
   "action:custom",
   "fetch:users",
   "on:closeInvitation",
-  "on:submitInvitation",
+  "submitted",
   "update:request",
 ]);
 
@@ -407,6 +407,12 @@ const onEnableUser = async (id: string) => {
         type: "error",
       });
     });
+};
+
+const onInvitationSubmitted = () => {
+  showModal.value = false;
+
+  emit("submitted");
 };
 
 const onUpdateRequest = (invitationRequest: TRequestJSON) => {
