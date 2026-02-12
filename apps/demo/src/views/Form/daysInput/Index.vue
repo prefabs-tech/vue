@@ -47,6 +47,7 @@
             v-model="formData.label"
             :label="$t('form.label.arrivalDate')"
             :placeholder="$t('form.placeholder.days')"
+            name="label-input"
             @update:date="result.label = $event"
           />
         </Form>
@@ -58,6 +59,7 @@
             &lt;DaysInput
               v-model="input"
               label="Arrival date"
+              name="days"
               placeholder="Enter number of days"
               @update:date="result = $event"
             /&gt;
@@ -86,6 +88,7 @@
             :label="$t('form.label.appointmentDate')"
             :placeholder="$t('form.placeholder.days')"
             disabled
+            name="disabled-input"
             @update:date="result.disabled = $event"
           />
         </Form>
@@ -100,6 +103,7 @@
               v-model="input"
               disabled
               label="Appointment date"
+              name="days"
               placeholder="Enter number of days"
               @update:date="result = $event"
             /&gt;
@@ -128,6 +132,7 @@
             :label="$t('form.label.expiresAfter')"
             :placeholder="$t('form.placeholder.days')"
             :schema="inputSchema"
+            name="validation-input"
             @update:date="result.validationInput = $event"
           />
         </Form>
@@ -149,6 +154,7 @@
               v-model="input"
               :schema="inputSchema"
               label="Expires after"
+              name="days"
               placeholder="Enter number of days"
               @update:date="result = $event"
             /&gt;
