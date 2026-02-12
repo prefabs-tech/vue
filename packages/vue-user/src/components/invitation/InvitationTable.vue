@@ -55,7 +55,7 @@
           :submit-label="submitLabel"
           :title="invitationModalTitle"
           @on:close="onCloseInvitation"
-          @submit="$emit('on:submitInvitation', $event)"
+          @submitted="onInvitationSubmitted"
         />
       </div>
     </template>
@@ -190,7 +190,7 @@ const emit = defineEmits([
   "action:resend",
   "action:revoke",
   "on:closeInvitation",
-  "on:submitInvitation",
+  "submitted",
   "update:request",
 ]);
 
@@ -483,6 +483,12 @@ const onCloseInvitation = () => {
   showModal.value = false;
 
   emit("on:closeInvitation");
+};
+
+const onInvitationSubmitted = () => {
+  showModal.value = false;
+
+  emit("submitted");
 };
 
 const onUpdateRequest = (invitationRequest: TRequestJSON) => {
