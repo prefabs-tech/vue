@@ -57,6 +57,7 @@
           :option-label-order="['symbol', 'label', 'code']"
           :options="options"
           :placeholder="$t('form.placeholder.currency')"
+          name="ordered-currency"
         />
 
         <!-- eslint-disable -->
@@ -66,6 +67,7 @@
               v-model="input"
               :option-label-order="['symbol', 'label', 'code']"
               :options="options"
+              name="currency"
               placeholder="Select a currency"
             /&gt;
           &lt;/template&gt;
@@ -106,6 +108,7 @@
           v-model="formData.extensivePicker"
           :options="currencies"
           :placeholder="$t('form.placeholder.currency')"
+          name="extensive-currency"
         />
 
         <!-- eslint-disable -->
@@ -114,6 +117,7 @@
             &lt;CurrencyPicker
               v-model="input"
               :options="currencies"
+              name="currency"
               placeholder="Select a currency"
             /&gt;
           &lt;/template&gt;
@@ -142,6 +146,7 @@
           :options="options"
           :placeholder="$t('form.placeholder.currency')"
           multiple
+          name="multiselect-currency"
         />
 
         <!-- eslint-disable -->
@@ -151,6 +156,7 @@
               v-model="input"
               :options="options"
               multiple
+              name="currency"
               placeholder="Select a currency"
             /&gt;
           &lt;/template&gt;
@@ -199,6 +205,7 @@
               showRemoveSelection: true,
             }"
             multiple
+            name="select-currency"
           />
         </Form>
 
@@ -216,6 +223,7 @@
                   showRemoveSelection: true,
                 }"
                 multiple
+                name="currency"
                 placeholder="Select a currency"
               /&gt;
             &lt;/Form&gt;
@@ -260,6 +268,7 @@
             :placeholder="$t('form.placeholder.currency')"
             :schema="inputSchema"
             multiple
+            name="validation-currency"
           />
         </Form>
 
@@ -272,6 +281,7 @@
                 :options="options"
                 :schema="inputSchema"
                 multiple
+                name="currency"
                 placeholder="Select a currency"
               /&gt;
             &lt;/Form&gt;

@@ -77,6 +77,7 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
           class="password-input"
         >
           <input
+            autocomplete="new-password"
             class=""
             id="input-field-password"
             name="password"
@@ -236,6 +237,7 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
           class="password-input"
         >
           <input
+            autocomplete="new-password"
             class=""
             id="input-field-password"
             name="password"

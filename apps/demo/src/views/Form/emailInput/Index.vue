@@ -38,6 +38,7 @@
           v-model="formData.input"
           :label="$t('form.label.email')"
           :placeholder="$t('form.placeholder.email')"
+          name="label-input"
         />
 
         <!-- eslint-disable -->
@@ -46,6 +47,7 @@
             &lt;Email 
               v-model="input"
               label="Email"
+              name="email"
               placeholder="Enter a email"
             /&gt;
           &lt;/template&gt;
@@ -66,6 +68,7 @@
           v-model="formData.disabled"
           :label="$t('form.label.email')"
           disabled
+          name="disabled-input"
         />
 
         <!-- eslint-disable -->
@@ -73,8 +76,9 @@
           &lt;template&gt;
             &lt;Email 
               v-model="input"
-              label="Email"
               disabled
+              label="Email"
+              name="email"
             /&gt;
           &lt;/template&gt;
 
@@ -97,6 +101,7 @@
           v-model="formData.i18nInput"
           :label="t('form.label.email')"
           :placeholder="t('form.placeholder.email')"
+          name="i18n-input"
         />
 
         <!-- eslint-disable -->
@@ -106,6 +111,7 @@
               v-model="input"
               :label="t('form.label.email')"
               :placeholder="t('form.placeholder.email')"
+              name="email"
             /&gt;
           &lt;/template&gt;
 
@@ -129,6 +135,7 @@
             v-model="formData.inputWithValidation"
             :label="$t('form.label.email')"
             :placeholder="$t('form.placeholder.email')"
+            name="validation-input"
           />
         </Form>
 
@@ -138,6 +145,7 @@
             &lt;Email 
               v-model="input"
               label="Email"
+              name="email"
               placeholder="Enter a email"
             /&gt;
           &lt;/Form&gt;
@@ -160,6 +168,7 @@
             :label="$t('form.label.email')"
             :options="validationOptions"
             :placeholder="$t('form.placeholder.email')"
+            name="validation-email"
           />
         </Form>
 
@@ -170,6 +179,7 @@
               v-model="input"
               :options="validationOptions"
               label="Email"
+              name="email"
               placeholder="Enter a email"
             /&gt;
           &lt;/Form&gt;
@@ -202,6 +212,7 @@
             :error-messages="validationMessages"
             :options="validationOptions"
             :placeholder="$t('form.placeholder.email')"
+            name="message-input"
           />
         </Form>
 
@@ -213,6 +224,7 @@
               :error-messages="validationMessages"
               :options="validationOptions"
               label="Email"
+              name="email"
               placeholder="Enter a email"
             /&gt;
           &lt;/Form&gt;
@@ -249,7 +261,7 @@
             :label="$t('form.label.email')"
             :placeholder="$t('form.placeholder.email')"
             :schema="inputSchema"
-            name="custom_input"
+            name="custom-input"
           />
         </Form>
 
@@ -261,7 +273,7 @@
               :schema="inputSchema"
               label="Email"
               placeholder="Enter a email"
-              name="input"
+              name="email"
             /&gt;
           &lt;/Form&gt;
 

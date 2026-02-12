@@ -12,13 +12,13 @@
       <input
         v-bind="field"
         :id="`input-field-${name}`"
+        :autocomplete="autocomplete"
         :class="{
           invalid: (meta.dirty || meta.touched) && !meta.valid,
           valid: meta.dirty && meta.valid,
         }"
         :disabled="disabled"
         :placeholder="placeholder"
-        autocomplete="email"
         type="email"
         @input="(event: Event) => onInput(event, handleChange)"
       />
@@ -44,6 +44,10 @@ import type { EmailErrorMessages, IsEmailOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  autocomplete: {
+    default: "email",
+    type: String,
+  },
   disabled: {
     default: false,
     type: Boolean,

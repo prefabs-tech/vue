@@ -13,6 +13,7 @@
         <input
           v-bind="field"
           :id="`input-field-${name}`"
+          :autocomplete="autocomplete"
           :class="{
             invalid: (meta.dirty || meta.touched) && !meta.valid,
             valid: meta.dirty && meta.valid,
@@ -56,6 +57,10 @@ import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  autocomplete: {
+    default: "new-password",
+    type: String,
+  },
   disabled: {
     default: false,
     type: Boolean,

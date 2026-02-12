@@ -8,7 +8,6 @@
       v-bind="{ modelValue }"
       :name="name"
       :rules="fieldSchema"
-      @input="onInput"
     >
       <input
         v-bind="field"

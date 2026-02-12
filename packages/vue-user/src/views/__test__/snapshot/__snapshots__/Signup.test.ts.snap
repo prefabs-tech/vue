@@ -78,6 +78,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
           class="password-input"
         >
           <input
+            autocomplete="new-password"
             class=""
             id="input-field-password"
             name="password"
@@ -111,6 +112,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
           class="password-input"
         >
           <input
+            autocomplete="new-password"
             class=""
             id="input-field-confirmation"
             name="confirmation"
@@ -269,6 +271,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
           class="password-input"
         >
           <input
+            autocomplete="new-password"
             class=""
             id="input-field-password"
             name="password"
@@ -302,6 +305,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
           class="password-input"
         >
           <input
+            autocomplete="new-password"
             class=""
             id="input-field-confirmation"
             name="confirmation"
