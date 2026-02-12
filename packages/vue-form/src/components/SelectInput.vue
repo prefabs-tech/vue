@@ -1,5 +1,5 @@
 <template>
-  <div :class="['field', 'name']">
+  <div :class="['field', name]">
     <label v-if="label" :for="!disabled ? `input-field-${name}` : undefined">
       {{ label }}
     </label>

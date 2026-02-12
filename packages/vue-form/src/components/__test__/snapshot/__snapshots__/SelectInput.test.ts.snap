@@ -2,7 +2,7 @@
 
 exports[`SelectInput > matches snapshot 1`] = `
 <div
-  class="field name"
+  class="field multiselect"
 >
   <label
     for="input-field-multiselect"

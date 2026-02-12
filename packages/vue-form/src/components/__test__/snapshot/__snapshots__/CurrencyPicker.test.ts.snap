@@ -5,7 +5,7 @@ exports[`CurrencyPicker > matches snapshot 1`] = `
   class="currency-selector"
 >
   <div
-    class="field name"
+    class="field currency-picker"
   >
     <label
       for="input-field-currency-picker"

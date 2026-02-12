@@ -5,7 +5,7 @@ exports[`CountryPicker > matches snapshot 1`] = `
   class="country-picker"
 >
   <div
-    class="field name form-select"
+    class="field country form-select"
     locale="en"
   >
     <!--v-if-->
