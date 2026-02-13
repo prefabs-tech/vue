@@ -1,0 +1,28 @@
+.layout {
+  --_default-padding-h: 1rem;
+  --_default-padding-v: 1.5rem;
+
+  --_layout-main-bg: var(--layout-main-bg, #ffffff);
+  --_layout-main-padding-h: var(
+    --layout-main-padding-h,
+    var(--_default-padding-h)
+  );
+  --_layout-main-padding-v: var(
+    --layout-main-padding-v,
+    var(--_default-padding-v)
+  );
+
+  width: 100%;
+}
+
+.layout > main {
+  background: var(--_layout-main-bg);
+  padding: var(--_layout-main-padding-v) var(--_layout-main-padding-h);
+}
+
+@media screen and (min-width: 576px) {
+  .layout {
+    --_default-padding-h: 2rem;
+    --_default-padding-v: 2.5rem;
+  }
+}

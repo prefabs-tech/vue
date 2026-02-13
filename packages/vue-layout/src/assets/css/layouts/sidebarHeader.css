@@ -62,8 +62,6 @@
 .layout.sidebar-header-layout > main {
   grid-area: main;
   overflow-y: auto;
-  padding: var(--layout-default-padding-v, 1.5rem)
-    var(--layout-default-padding-h, 2rem);
   transition: all 0.3s ease-in-out;
   z-index: 100;
 }

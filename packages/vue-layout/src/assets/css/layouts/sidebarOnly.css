@@ -98,8 +98,6 @@
 }
 
 main {
-  padding: var(--layout-default-padding-v, 2.5rem)
-    var(--layout-default-padding-h, 2rem);
   z-index: 99;
 }
 
