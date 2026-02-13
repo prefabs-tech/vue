@@ -244,8 +244,6 @@ const onUpdateModelValue = (value: string | string[] | undefined) => {
   const output = Array.isArray(value) ? [...new Set(value)] : value;
   emit("update:modelValue", output);
 };
-</script>
 
-<style lang="css">
-@import "../../assets/css/country-picker.css";
-</style>
+import("../../assets/css/country-picker.css");
+</script>

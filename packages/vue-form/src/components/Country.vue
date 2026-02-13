@@ -102,7 +102,6 @@ const shouldShowFlag = computed(
 
 const getFlagClass = (code?: string) =>
   getCountryFlagClass(code, props.flagsPosition, props.flagsStyle);
+
+import("../assets/css/country.css");
 </script>
-<style lang="css">
-@import "../assets/css/country.css";
-</style>

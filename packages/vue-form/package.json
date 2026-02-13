@@ -10,7 +10,9 @@
       "import": "./dist/PrefabsTechVue3Form.es.js",
       "require": "./dist/PrefabsTechVue3Form.umd.js"
     },
-    "./dist/PrefabsTechVue3Form.css": "./dist/vue3-form.css"
+    "./dist/Country.css": "./dist/country.css",
+    "./dist/CountryPicker.css": "./dist/country-picker.css",
+    "./dist/PrefabsTechVue3Form.css": "./dist/index.css"
   },
   "main": "./dist/PrefabsTechVue3Form.umd.js",
   "module": "./dist/PrefabsTechVue3Form.es.js",

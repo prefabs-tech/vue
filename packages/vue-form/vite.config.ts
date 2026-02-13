@@ -37,6 +37,7 @@ export default defineConfig(({ mode }) => {
         },
       },
       target: "esnext",
+      cssCodeSplit: true,
     },
     plugins: [vue()],
     resolve: {
