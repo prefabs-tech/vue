@@ -103,5 +103,9 @@ const shouldShowFlag = computed(
 const getFlagClass = (code?: string) =>
   getCountryFlagClass(code, props.flagsPosition, props.flagsStyle);
 
-import("../assets/css/country.css");
+import("@dzangolab/flag-icon-css/css/flag-icon.min.css");
 </script>
+
+<style lang="css">
+@import "../assets/css/country.css";
+</style>

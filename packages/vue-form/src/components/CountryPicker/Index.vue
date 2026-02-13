@@ -245,5 +245,9 @@ const onUpdateModelValue = (value: string | string[] | undefined) => {
   emit("update:modelValue", output);
 };
 
-import("../../assets/css/country-picker.css");
+import("@dzangolab/flag-icon-css/css/flag-icon.min.css");
 </script>
+
+<style lang="css">
+@import "../../assets/css/country-picker.css";
+</style>

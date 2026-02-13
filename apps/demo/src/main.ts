@@ -15,9 +15,8 @@ import router from "./router";
 import type { ToastContainerOptions } from "vue3-toastify";
 
 import "@prefabs.tech/vue3-ui/dist/PrefabsTechVue3UI.css";
+import "@prefabs.tech/vue3-form/dist/PrefabsTechFlagIcon.css";
 import "@prefabs.tech/vue3-form/dist/PrefabsTechVue3Form.css";
-import "@prefabs.tech/vue3-form/dist/Country.css";
-import "@prefabs.tech/vue3-form/dist/CountryPicker.css";
 import "@prefabs.tech/vue3-i18n/dist/PrefabsTechVue3I18n.css";
 import "@prefabs.tech/vue3-layout/dist/PrefabsTechVue3Layout.css";
 import "@prefabs.tech/vue3-tanstack-table/dist/PrefabsTechVue3TanstackTable.css";

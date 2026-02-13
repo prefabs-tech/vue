@@ -10,8 +10,7 @@
       "import": "./dist/PrefabsTechVue3Form.es.js",
       "require": "./dist/PrefabsTechVue3Form.umd.js"
     },
-    "./dist/Country.css": "./dist/country.css",
-    "./dist/CountryPicker.css": "./dist/country-picker.css",
+    "./dist/PrefabsTechFlagIcon.css": "./dist/flag-icon.css",
     "./dist/PrefabsTechVue3Form.css": "./dist/index.css"
   },
   "main": "./dist/PrefabsTechVue3Form.umd.js",
