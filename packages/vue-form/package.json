@@ -11,7 +11,7 @@
       "require": "./dist/PrefabsTechVue3Form.umd.js"
     },
     "./dist/PrefabsTechFlagIcon.css": "./dist/flag-icon.css",
-    "./dist/PrefabsTechVue3Form.css": "./dist/index.css"
+    "./dist/PrefabsTechVue3Form.css": "./dist/vue3-form.css"
   },
   "main": "./dist/PrefabsTechVue3Form.umd.js",
   "module": "./dist/PrefabsTechVue3Form.es.js",

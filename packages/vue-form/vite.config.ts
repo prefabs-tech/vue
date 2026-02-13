@@ -23,6 +23,13 @@ export default defineConfig(({ mode }) => {
           ...Object.keys(dependencies),
         ],
         output: {
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.name === "index.css") {
+              return "vue3-form.css";
+            }
+
+            return assetInfo.name;
+          },
           exports: "named",
           globals: {
             "@prefabs.tech/vue3-ui": "PrefabsTechVue3UI",
