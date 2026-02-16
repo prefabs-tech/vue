@@ -663,9 +663,14 @@ const onToggleKeyDown = (event: KeyboardEvent) => {
 };
 
 const onMultiSelect = () => {
-  const selectedValues = selectedOptions.value?.map(
-    (selectedOption) => selectedOption.value,
-  );
+  const options = selectedOptions.value ?? [];
+
+  const selectedValues =
+    options.length > 0
+      ? options.map((option) => option.value)
+      : props.multiple
+        ? []
+        : undefined;
 
   if (showDropdownMenu.value) {
     focusSearchInput();
