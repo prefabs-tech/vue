@@ -341,7 +341,7 @@ const dzangolabVueSearchInput = ref();
 const dzangolabVueSelectAll = ref();
 const dzangolabVueFormSelectOptions = ref<(HTMLElement | null)[]>([]);
 const enableOptionNavigation = ref(false);
-const focusedOptionIndex = ref(0);
+const focusedOptionIndex = ref(-1);
 const searchInput: Ref<string | undefined> = ref();
 const selectAllIndex = -1;
 const selectedOptions: Ref<SelectOption[]> = ref([]);
@@ -643,7 +643,7 @@ const onSelectGroup = (groupLabel: string) => {
 const onToggleKeyDown = (event: KeyboardEvent) => {
   event.preventDefault();
 
-  if (!(showDropdownMenu.value && props.multiple)) {
+  if (!showDropdownMenu.value) {
     toggleDropdown();
   }
 
