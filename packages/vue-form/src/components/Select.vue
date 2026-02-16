@@ -26,6 +26,8 @@
         :input-id="inputId"
         :placeholder="placeholder"
         class="multiselect-search"
+        @change.stop
+        @input.stop
         @update:model-value="$emit('update:searchInput', $event)"
       />
       <template v-else>
