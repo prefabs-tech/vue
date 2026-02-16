@@ -4,28 +4,18 @@ exports[`Badge > matches snapshot 1`] = `
 <span
   class="badge primary rounded"
 >
-  <span
-    class="icon-left"
-  >
-    
-    <i
-      class="pi pi-home"
-    />
-    
-  </span>
-  <div
-    class="label"
-  >
-    Basic
-  </div>
-  <span
-    class="icon-right"
-  >
-    
-    <i
-      class="pi pi-home"
-    />
-    
-  </span>
+  
+  <i
+    class="pi pi-home"
+  />
+  
+  
+  Basic
+  
+  
+  <i
+    class="pi pi-home"
+  />
+  
 </span>
 `;

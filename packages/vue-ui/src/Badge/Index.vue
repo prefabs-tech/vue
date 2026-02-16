@@ -1,20 +1,16 @@
 <template>
   <span :class="badgeClassName">
-    <span v-if="iconLeft || !!slots.iconLeft" class="icon-left">
-      <slot name="iconLeft">
-        <i :class="iconLeft" />
-      </slot>
-    </span>
+    <slot name="iconLeft">
+      <i v-if="iconLeft" :class="iconLeft" />
+    </slot>
 
-    <div v-if="label" class="label">
+    <template v-if="label">
       {{ label }}
-    </div>
+    </template>
 
-    <span v-if="iconRight || !!slots.iconRight" class="icon-right">
-      <slot name="iconRight">
-        <i :class="iconRight" />
-      </slot>
-    </span>
+    <slot name="iconRight">
+      <i v-if="iconRight" :class="iconRight" />
+    </slot>
   </span>
 </template>
 
@@ -25,7 +21,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, useSlots } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   iconLeft: {
@@ -56,11 +52,9 @@ const props = defineProps({
   },
 });
 
-const slots = useSlots();
-
-const badgeClassName = computed(() => {
-  return ["badge", props.rounded && "rounded", props.severity]
-    .filter(Boolean)
-    .join(" ");
-});
+const badgeClassName = computed(() => [
+  "badge",
+  { rounded: props.rounded },
+  props.severity,
+]);
 </script>
