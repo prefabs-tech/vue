@@ -8,7 +8,7 @@
       @close="errorMessage = undefined"
     />
 
-    <Form @submit="onSubmit">
+    <Form ref="prefabsTechVueInvitationForm" @submit="onSubmit">
       <Email
         v-model="formData.email"
         :label="t('user.invitation.form.email.label')"
@@ -57,7 +57,7 @@
         @update:date="formData.expiresAt = $event"
       />
 
-      <FormActions :submit-label="submitLabel" @cancel="$emit('cancel')" />
+      <FormActions :submit-label="submitLabel" @cancel="onCancel" />
     </Form>
   </div>
 </template>
@@ -162,6 +162,7 @@ const { addInvitation } = userStore;
 const errorMessage = ref<string>();
 const expiresAfter = ref<number>();
 const formData = ref<InvitationPayload>({} as InvitationPayload);
+const prefabsTechVueInvitationForm = ref();
 
 const updatedApps = computed(() => {
   let modifiedApps = props.apps || [];
@@ -217,6 +218,14 @@ const onAppSelect = () => {
   formData.value.role = undefined;
 };
 
+const onCancel = () => {
+  prefabsTechVueInvitationForm.value.resetForm();
+
+  errorMessage.value = undefined;
+
+  emit("cancel");
+};
+
 const onSubmit = async () => {
   try {
     if (formData.value?.expiresAt) {
@@ -235,6 +244,8 @@ const onSubmit = async () => {
       text: t("user.invitation.messages.invite.success"),
       type: "success",
     });
+
+    prefabsTechVueInvitationForm.value.resetForm();
 
     emit("submitted");
     // eslint-disable-next-line
