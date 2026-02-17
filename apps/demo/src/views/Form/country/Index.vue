@@ -439,5 +439,7 @@ const customFlagsPath = (code: string) => {
 </script>
 
 <style lang="css">
+@import "@prefabs.tech/vue3-form/dist/PrefabsTechFlagIcon.css";
+
 @import "../../../assets/css/form/country.css";
 </style>
