@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type PropType } from "vue";
+import { computed, onMounted } from "vue";
 
 import {
   getFallbackTranslation,
@@ -27,6 +27,7 @@ import {
 } from "../utils/country-picker";
 
 import type { CountryPickerTranslation } from "../types";
+import type { PropType } from "vue";
 
 type I18nConfigData = Record<string, Record<string, string>>;
 
@@ -102,7 +103,10 @@ const shouldShowFlag = computed(
 
 const getFlagClass = (code?: string) =>
   getCountryFlagClass(code, props.flagsPosition, props.flagsStyle);
+
+onMounted(() => import("@dzangolab/flag-icon-css/css/flag-icon.min.css"));
 </script>
+
 <style lang="css">
 @import "../assets/css/country.css";
 </style>

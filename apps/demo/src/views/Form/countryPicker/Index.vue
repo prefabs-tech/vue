@@ -735,3 +735,7 @@ const customFlagsPath = (code: string) => {
   return `https://flagcdn.com/${code.toLowerCase().trim()}.svg`;
 };
 </script>
+
+<style lang="css">
+@import "@prefabs.tech/vue3-form/dist/PrefabsTechFlagIcon.css";
+</style>
