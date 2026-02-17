@@ -20,7 +20,7 @@
   --_badge-padding: var(--badge-padding, 0.625rem);
   --_badge-color: var(--badge-color);
 
-  align-items: center;
+  align-items: baseline;
   background-color: var(--_badge-background-color);
   border-radius: 5px;
   color: var(--_badge-color);
