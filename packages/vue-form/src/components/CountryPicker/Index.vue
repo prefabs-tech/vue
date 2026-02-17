@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 import {
   getFallbackTranslation,
@@ -245,7 +245,7 @@ const onUpdateModelValue = (value: string | string[] | undefined) => {
   emit("update:modelValue", output);
 };
 
-import("@dzangolab/flag-icon-css/css/flag-icon.min.css");
+onMounted(() => import("@dzangolab/flag-icon-css/css/flag-icon.min.css"));
 </script>
 
 <style lang="css">

@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     build: {
+      cssCodeSplit: true,
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
         fileName: (format) => `PrefabsTechVue3Form.${format}.js`,
@@ -24,11 +25,11 @@ export default defineConfig(({ mode }) => {
         ],
         output: {
           assetFileNames: (assetInfo) => {
-            if (assetInfo.name === "index.css") {
+            if (assetInfo.names?.includes("index.css")) {
               return "vue3-form.css";
             }
 
-            return assetInfo.name;
+            return assetInfo.names?.[0];
           },
           exports: "named",
           globals: {
@@ -44,7 +45,6 @@ export default defineConfig(({ mode }) => {
         },
       },
       target: "esnext",
-      cssCodeSplit: true,
     },
     plugins: [vue()],
     resolve: {
