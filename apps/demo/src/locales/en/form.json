@@ -25,6 +25,7 @@
       "input": {
         "disabled": "If true, the input will be disabled and non-interactive",
         "errorMessages": "Custom error messages for validation",
+        "helperText": "Helper text displayed below the radio group",
         "label": "Text label to display above the input field",
         "modelValue": "The current value of the input (v-model support)",
         "name": "Name attribute for the input field and validation",
@@ -49,6 +50,10 @@
         "locales": "Additional translation catalogues to be supported",
         "multiple": "If true, allows selecting multiple countries",
         "showFlag": "If false, the flag will not be displayed"
+      },
+      "radio": {
+        "direction": "Layout direction of radio options (vertical stack or horizontal row)",
+        "options": "Array of radio options with label and value (required)"
       },
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",
@@ -298,6 +303,7 @@
     "input": "A versatile form input component with validation support using Zod and vee-validate",
     "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
     "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
+    "radio": "The radio input component is a radio button group component for selecting a single option from a list with validation support.",
     "text": "The text input component is a form field that allows users to enter and edit textual content with validation",
     "textarea": "The textarea input component is a multi-line text input field that allows users to enter and edit larger blocks of text, with support for validation, error messages, and customizable properties such as rows and columns."
   },

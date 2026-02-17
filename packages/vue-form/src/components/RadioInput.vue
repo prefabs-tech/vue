@@ -56,16 +56,16 @@ const props = defineProps({
   },
   helperText: {
     default: undefined,
-    type: String as PropType<string | null | undefined>,
+    type: String,
   },
   label: {
-    default: "",
+    default: undefined,
     required: false,
     type: String,
   },
   modelValue: {
-    default: "",
-    type: [String, Number] as PropType<string | number | null | undefined>,
+    default: undefined,
+    type: [String, Number],
   },
   name: {
     default: "radio",

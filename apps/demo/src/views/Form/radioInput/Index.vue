@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.radio')" class="demo">
+  <FormPage
+    :subtitle="$t('form.subtitle.radio')"
+    :title="$t('form.label.radio')"
+    class="demo"
+  >
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -202,6 +206,23 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'RadioInputProperties' })
+      "
+    />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface InputOption {
+        label: string;
+        value: string | number;
+      }
+    </SshPre>
+    <!-- eslint-enable -->
   </FormPage>
 </template>
 
@@ -218,6 +239,7 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
@@ -236,6 +258,14 @@ let formData = reactive({
   noLabelInput: ref(),
 });
 
+const eventsData = [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "value: string",
+  },
+];
+
 const genderOptions = [
   {
     label: t("form.label.male"),
@@ -244,6 +274,57 @@ const genderOptions = [
   {
     label: t("form.label.female"),
     value: "female",
+  },
+];
+
+const propsData = [
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.radio.direction"),
+    prop: "direction",
+    type: '"vertical" | "horizontal"',
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.helperText"),
+    prop: "helperText",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: '""',
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "String | Number",
+  },
+  {
+    default: '"radio"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.radio.options"),
+    prop: "options",
+    type: "InputOption[]",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number | boolean>",
   },
 ];
 

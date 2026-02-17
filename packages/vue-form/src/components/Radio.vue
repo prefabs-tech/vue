@@ -45,16 +45,15 @@ defineProps({
   },
   helperText: {
     default: undefined,
-    type: String as PropType<string | null | undefined>,
+    type: String,
   },
   label: {
-    default: "",
-    required: false,
+    default: undefined,
     type: String,
   },
   modelValue: {
-    default: "",
-    type: [String, Number] as PropType<string | number | null | undefined>,
+    default: undefined,
+    type: [String, Number],
   },
   name: {
     default: "radio",
