@@ -206,12 +206,6 @@ import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
 
-const inputSchema = computed(() =>
-  z.coerce.boolean().refine((value) => value === true, {
-    message: t("form.errors.switch.invalid"),
-  }),
-);
-
 let formData = reactive({
   disabled: ref(true),
   input: ref(),
@@ -227,6 +221,12 @@ const eventsData = computed(() => [
     payload: "value: boolean",
   },
 ]);
+
+const inputSchema = computed(() =>
+  z.coerce.boolean().refine((value) => value === true, {
+    message: t("form.errors.switch.invalid"),
+  }),
+);
 
 const propsData = computed(() => [
   {

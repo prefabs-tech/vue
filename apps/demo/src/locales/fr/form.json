@@ -8,7 +8,7 @@
         "date": "Emitted when a new date is calculated based on the number of days entered[fr]"
       },
       "input": {
-        "modelValue": "Emitted when the input value changes (v-model support).[fr]"
+        "modelValue": "Emitted when the input value changes (v-model support)[fr]"
       }
     },
     "propsDescription": {
@@ -25,6 +25,7 @@
       "input": {
         "disabled": "If true, the input will be disabled and non-interactive[fr]",
         "errorMessages": "Custom error messages for validation[fr]",
+        "helperText": "Helper text displayed below the input field[fr]",
         "label": "Text label to display above the input field[fr]",
         "modelValue": "The current value of the input (v-model support)[fr]",
         "name": "Name attribute for the input field and validation[fr]",
@@ -32,6 +33,10 @@
         "placeholder": "Placeholder text for the input field[fr]",
         "schema": "Custom Zod schema for validation[fr]",
         "type": "HTML input type (text, password, email, etc.)[fr]"
+      },
+      "radio": {
+        "direction": "Layout direction of radio options (vertical stack or horizontal row)[fr]",
+        "options": "Array of radio options with label and value (required)[fr]"
       },
       "select": {
         "countryCode": "The ISO country code to display (e.g., 'US', 'gb').[fr]",
@@ -301,6 +306,7 @@
     "input": "A versatile form input component with validation support using Zod and vee-validate",
     "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
     "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
+    "radio": "The radio input component is a radio button group component for selecting a single option from a list with validation support[fr].",
     "switch": "Switch input is a toggle component that allows users to turn input on or off, with support for custom labels, validation, and form integration[fr].",
     "text": "The text input component is a form field that allows users to enter and edit textual content with validation",
     "textarea": "The textarea input component is a multi-line text input field that allows users to enter and edit larger blocks of text, with support for validation, error messages, and customizable properties such as rows and columns."
