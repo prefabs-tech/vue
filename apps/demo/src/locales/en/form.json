@@ -50,6 +50,10 @@
         "multiple": "If true, allows selecting multiple countries",
         "showFlag": "If false, the flag will not be displayed"
       },
+      "switch": {
+        "offLabel": "Custom label text displayed when switch is off",
+        "onLabel": "Custom label text displayed when switch is on"
+      },
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",
         "rows": "Number of visible text rows for the textarea."
@@ -298,6 +302,7 @@
     "input": "A versatile form input component with validation support using Zod and vee-validate",
     "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
     "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
+    "switch": "Switch input is a toggle component that allows users to turn input on or off, with support for custom labels, validation, and form integration.",
     "text": "The text input component is a form field that allows users to enter and edit textual content with validation",
     "textarea": "The textarea input component is a multi-line text input field that allows users to enter and edit larger blocks of text, with support for validation, error messages, and customizable properties such as rows and columns."
   },
