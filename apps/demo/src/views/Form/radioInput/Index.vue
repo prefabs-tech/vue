@@ -236,19 +236,13 @@ export default {
 import { Form, RadioInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { z } from "zod";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
-
-const inputSchema = z
-  .string({
-    required_error: t("form.errors.radio.required"),
-  })
-  .nonempty({ message: t("form.errors.radio.required") });
 
 let formData = reactive({
   disabled: ref("car"),
@@ -258,15 +252,15 @@ let formData = reactive({
   noLabelInput: ref(),
 });
 
-const eventsData = [
+const eventsData = computed(() => [
   {
     description: t("form.documentation.eventDescription.input.modelValue"),
     name: "update:modelValue",
     payload: "value: string",
   },
-];
+]);
 
-const genderOptions = [
+const genderOptions = computed(() => [
   {
     label: t("form.label.male"),
     value: "male",
@@ -275,9 +269,17 @@ const genderOptions = [
     label: t("form.label.female"),
     value: "female",
   },
-];
+]);
 
-const propsData = [
+const inputSchema = computed(() =>
+  z
+    .string({
+      required_error: t("form.errors.radio.required"),
+    })
+    .nonempty({ message: t("form.errors.radio.required") }),
+);
+
+const propsData = computed(() => [
   {
     default: "-",
     description: t("form.documentation.propsDescription.radio.direction"),
@@ -326,9 +328,9 @@ const propsData = [
     prop: "schema",
     type: "z.ZodType<string | number | boolean>",
   },
-];
+]);
 
-const vehicleOptions = [
+const vehicleOptions = computed(() => [
   {
     label: t("form.label.bike"),
     value: "bike",
@@ -341,5 +343,5 @@ const vehicleOptions = [
     label: t("form.label.truck"),
     value: "truck",
   },
-];
+]);
 </script>

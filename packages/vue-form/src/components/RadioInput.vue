@@ -37,6 +37,7 @@ export default {
 <script setup lang="ts">
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { computed } from "vue";
 import { z } from "zod";
 
 import Radio from "./Radio.vue";
@@ -87,8 +88,9 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema =
-  Object.keys(props.schema).length > 0 ? toTypedSchema(props.schema) : null;
+const fieldSchema = computed(() =>
+  Object.keys(props.schema).length > 0 ? toTypedSchema(props.schema) : null,
+);
 
 const onChange = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;

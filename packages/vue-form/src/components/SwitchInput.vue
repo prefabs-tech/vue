@@ -35,8 +35,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { toFieldValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { computed } from "vue";
 import { z } from "zod";
 
 import Switch from "./Switch.vue";
@@ -49,9 +50,8 @@ const props = defineProps({
     type: Boolean,
   },
   label: {
-    default: "",
-    required: false,
-    type: String as PropType<string>,
+    default: undefined,
+    type: String,
   },
   modelValue: {
     default: false,
@@ -59,8 +59,7 @@ const props = defineProps({
   },
   name: {
     default: "switch",
-    required: false,
-    type: String as PropType<string>,
+    type: String,
   },
   offLabel: {
     default: undefined,
@@ -81,8 +80,9 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema =
-  Object.keys(props.schema).length > 0 ? toFieldValidator(props.schema) : null;
+const fieldSchema = computed(() =>
+  Object.keys(props.schema).length > 0 ? toTypedSchema(props.schema) : null,
+);
 
 const onChange = (event: Event) => {
   const value = (event.target as HTMLInputElement).checked;

@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.switch')" class="demo">
+  <FormPage
+    :subtitle="$t('form.subtitle.switch')"
+    :title="$t('form.label.switch')"
+    class="demo"
+  >
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -167,13 +171,21 @@
           const inputSchema = z.coerce
             .boolean()
             .refine((value) => value === true, {
-              message: t("form.errors.switch.invalid"),
+              message: "The switch value must be true.",
             });
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'SwitchInputProperties' })
+      "
+    />
   </FormPage>
 </template>
 
@@ -186,16 +198,13 @@ export default {
 <script setup lang="ts">
 import { Form, SwitchInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
-
-const inputSchema = z.coerce.boolean().refine((value) => value === true, {
-  message: t("form.errors.switch.invalid"),
-});
 
 let formData = reactive({
   disabled: ref(true),
@@ -204,4 +213,63 @@ let formData = reactive({
   noLabelInput: ref(),
   onOffLabel: ref(),
 });
+
+const eventsData = computed(() => [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "value: boolean",
+  },
+]);
+
+const inputSchema = computed(() =>
+  z.coerce.boolean().refine((value) => value === true, {
+    message: t("form.errors.switch.invalid"),
+  }),
+);
+
+const propsData = computed(() => [
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "Boolean",
+  },
+  {
+    default: '"switch"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.switch.offLabel"),
+    prop: "offLabel",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.switch.onLabel"),
+    prop: "onLabel",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number | boolean>",
+  },
+]);
 </script>
