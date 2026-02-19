@@ -5,12 +5,13 @@
     </label>
 
     <Field
-      v-slot="{ meta }"
+      v-slot="{ field, meta }"
       v-bind="{ modelValue }"
       :name="name"
       :rules="fieldSchema"
     >
       <DebouncedInput
+        v-bind="{ onBlur: field.onBlur }"
         :id="`input-field-${name}`"
         :class="{
           invalid: (meta.touched || meta.dirty) && !meta.valid,
@@ -136,11 +137,13 @@ const fieldSchema = computed(() =>
 );
 
 const filteredSuggestions = computed(() => {
-  return props.suggestions.filter((suggestion) =>
-    (suggestion.value as string)
-      .toLowerCase()
-      .includes((inputValue.value as string).toLowerCase()),
-  );
+  return inputValue.value
+    ? props.suggestions.filter((suggestion) =>
+        (suggestion.value as string)
+          .toLowerCase()
+          .includes((inputValue.value as string).toLowerCase()),
+      )
+    : [];
 });
 
 const onInput = (value: string | number) => {

@@ -64,6 +64,7 @@ describe("Typeahead", () => {
       },
       props: {
         label: "Input",
+        modelValue: "Lily",
         placeholder: "Placeholder",
         suggestions: suggestionItems,
       },
