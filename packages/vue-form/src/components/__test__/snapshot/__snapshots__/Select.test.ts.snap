@@ -9,11 +9,11 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
     class="focused multiselect-input"
   >
     <div
-      class="field debounce-input multiselect-search"
+      class="field debounce-input"
     >
       <input
         aria-label="input"
-        class="input-field"
+        class="multiselect-search input-field"
         placeholder="Select multiple value"
         type="text"
         value=""

@@ -51,11 +51,11 @@ exports[`TableHeader > matches snapshot 1`] = `
       
       <div
         class="field debounce-input"
-        id="input-filter-name"
       >
         <input
           aria-label="input"
           class="input-field"
+          id="input-filter-name"
           placeholder="Search..."
           type="text"
           value=""
@@ -70,11 +70,11 @@ exports[`TableHeader > matches snapshot 1`] = `
       
       <div
         class="field debounce-input"
-        id="input-filter-age"
       >
         <input
           aria-label="input"
           class="input-field"
+          id="input-filter-age"
           placeholder="Search..."
           type="text"
           value=""
@@ -89,11 +89,11 @@ exports[`TableHeader > matches snapshot 1`] = `
       
       <div
         class="field debounce-input"
-        id="input-filter-country"
       >
         <input
           aria-label="input"
           class="input-field"
+          id="input-filter-country"
           placeholder="Search..."
           type="text"
           value=""

@@ -86,19 +86,19 @@
   outline: none;
 }
 
-.multiselect .multiselect-input:has(.multiselect-search) {
+.multiselect .multiselect-input:has(.debounce-input) {
   --_padding-h: 0;
 
   overflow: hidden;
 }
 
-.multiselect .multiselect-input > .multiselect-search > input {
+.multiselect .multiselect-input .multiselect-search {
   border-color: transparent;
   box-shadow: none;
   padding: 0;
 }
 
-.multiselect .multiselect-input > .multiselect-search > input:focus-within {
+.multiselect .multiselect-input .multiselect-search:focus-within {
   outline: none;
 }
 

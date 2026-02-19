@@ -21,9 +21,9 @@
           !disabled &&
           !disableSearch
         "
+        :id="inputId"
         ref="dzangolabVueSearchInput"
         v-model="searchInput"
-        :input-id="inputId"
         :placeholder="placeholder"
         class="multiselect-search"
         @change.stop

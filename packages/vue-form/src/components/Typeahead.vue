@@ -11,8 +11,8 @@
       :rules="fieldSchema"
     >
       <DebouncedInput
-        :input-id="`input-field-${name}`"
-        :input-class="{
+        :id="`input-field-${name}`"
+        :class="{
           invalid: (meta.touched || meta.dirty) && !meta.valid,
           valid: meta.dirty && meta.valid && props.schema,
         }"
@@ -24,7 +24,7 @@
         @update:model-value="onInput"
       />
 
-      <ErrorMessage v-if="filteredSuggestions.length === 0" :name="name" />
+      <ErrorMessage :name="name" />
     </Field>
 
     <LoadingIcon v-if="loading" />

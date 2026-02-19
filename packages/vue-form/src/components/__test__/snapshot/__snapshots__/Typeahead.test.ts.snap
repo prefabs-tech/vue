@@ -22,7 +22,7 @@ exports[`Typeahead > matches snapshot 1`] = `
       value=""
     />
   </div>
-  <!--v-if-->
+  <!---->
   
   <div
     class="menu-wrapper"
