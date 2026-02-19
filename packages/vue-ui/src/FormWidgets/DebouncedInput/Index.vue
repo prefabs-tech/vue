@@ -1,7 +1,7 @@
 <template>
   <div class="field debounce-input">
     <input
-      :id="inputId"
+      v-bind="$attrs"
       :aria-label="ariaLabel ?? placeholder"
       :disabled="disabled"
       :placeholder="placeholder"
@@ -24,6 +24,10 @@ import { useDebouncedValue } from "../../utils";
 
 import type { PropType } from "vue";
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = defineProps({
   ariaLabel: {
     default: "input",
@@ -37,10 +41,6 @@ const props = defineProps({
   disabled: {
     default: false,
     type: Boolean,
-  },
-  inputId: {
-    default: undefined,
-    type: String,
   },
   modelValue: {
     default: "",

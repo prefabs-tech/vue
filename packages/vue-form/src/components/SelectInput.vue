@@ -12,7 +12,7 @@
       <MultiSelect
         v-bind="field"
         :class="{
-          invalid: meta.touched && !meta.valid,
+          invalid: (meta.dirty || meta.touched) && !meta.valid,
           valid: meta.dirty && meta.valid && fieldSchema,
         }"
         :custom-search-helper-text="customSearchHelperText"

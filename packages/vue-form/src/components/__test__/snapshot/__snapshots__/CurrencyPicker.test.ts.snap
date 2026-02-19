@@ -23,11 +23,11 @@ exports[`CurrencyPicker > matches snapshot 1`] = `
         class="multiselect-input"
       >
         <div
-          class="field debounce-input multiselect-search"
+          class="field debounce-input"
         >
           <input
             aria-label="input"
-            class="input-field"
+            class="multiselect-search input-field"
             id="input-field-currency-picker"
             placeholder="Select a currency"
             type="text"

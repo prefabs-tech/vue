@@ -3,14 +3,16 @@
     <label v-if="label" :for="`input-field-${name}`">
       {{ label }}
     </label>
+
     <Field
-      v-slot="{ meta }"
+      v-slot="{ field, meta }"
       v-bind="{ modelValue }"
       :name="name"
       :rules="fieldSchema"
     >
       <DebouncedInput
-        :input-id="`input-field-${name}`"
+        v-bind="{ onBlur: field.onBlur }"
+        :id="`input-field-${name}`"
         :class="{
           invalid: (meta.touched || meta.dirty) && !meta.valid,
           valid: meta.dirty && meta.valid && props.schema,
@@ -20,34 +22,47 @@
         :disabled="disabled"
         :placeholder="placeholder"
         :type="type"
-        tabindex="0"
         @update:model-value="onInput"
       />
-      <ErrorMessage v-if="filteredSuggestions.length === 0" :name="name" />
+
+      <ErrorMessage :name="name" />
     </Field>
-    <div v-if="showSuggestions" class="menu-wrapper">
-      <ul>
+
+    <LoadingIcon v-if="loading" />
+
+    <div v-else-if="showSuggestions" class="menu-wrapper">
+      <ul v-if="filteredSuggestions.length > 0">
         <li
           v-for="suggestion in filteredSuggestions"
           :key="suggestion.label"
           :disabled="suggestion.disabled"
           @click="onSelect(suggestion)"
         >
-          {{ suggestion.label }}
+          <slot :suggestion="suggestion" name="suggestion">
+            {{ suggestion.label }}
+          </slot>
+        </li>
+      </ul>
+
+      <ul v-else-if="emptyMessage">
+        <li>
+          <span role="alert">{{ emptyMessage }}</span>
         </li>
       </ul>
     </div>
+
+    <span class="helper-text">{{ helperText }}</span>
   </div>
 </template>
 
 <script lang="ts">
 export default {
-  name: "Typeahead",
+  name: "TypeaheadComponent",
 };
 </script>
 
 <script setup lang="ts">
-import { DebouncedInput } from "@prefabs.tech/vue3-ui";
+import { DebouncedInput, LoadingIcon } from "@prefabs.tech/vue3-ui";
 import { toTypedSchema } from "@vee-validate/zod";
 import { onClickOutside } from "@vueuse/core";
 import { ErrorMessage, Field } from "vee-validate";
@@ -60,39 +75,43 @@ import type { PropType } from "vue";
 const props = defineProps({
   debounceTime: {
     default: 500,
-    required: false,
     type: Number,
   },
   disabled: {
     default: false,
     type: Boolean,
   },
-  label: {
-    default: "",
-    required: false,
-    type: String as PropType<string>,
+  emptyMessage: {
+    default: undefined,
+    type: String,
   },
+  helperText: {
+    default: undefined,
+    type: String,
+  },
+  label: {
+    default: undefined,
+    type: String,
+  },
+  loading: Boolean,
   modelValue: {
     default: "",
-    required: false,
     type: [String, Number] as PropType<string | number | null | undefined>,
   },
   name: {
-    default: "",
-    required: false,
-    type: String as PropType<string>,
+    default: "typeahead",
+    type: String,
   },
   suggestions: {
     required: true,
     type: Array as PropType<SelectOption[]>,
   },
   placeholder: {
-    default: "",
+    default: undefined,
     type: String,
   },
   schema: {
     default: undefined,
-    required: false,
     type: Object as PropType<z.ZodType<string | number | object>>,
   },
   type: {
@@ -113,20 +132,24 @@ onClickOutside(dzangolabVueFormTypeahead, (event) => {
   showSuggestions.value = false;
 });
 
-const fieldSchema = props.schema ? toTypedSchema(props.schema) : undefined;
+const fieldSchema = computed(() =>
+  props.schema ? toTypedSchema(props.schema) : undefined,
+);
 
 const filteredSuggestions = computed(() => {
-  return props.suggestions.filter((suggestion) =>
-    (suggestion.value as string)
-      .toLowerCase()
-      .includes((inputValue.value as string).toLowerCase()),
-  );
+  return inputValue.value
+    ? props.suggestions.filter((suggestion) =>
+        (suggestion.value as string)
+          .toLowerCase()
+          .includes((inputValue.value as string).toLowerCase()),
+      )
+    : [];
 });
 
 const onInput = (value: string | number) => {
   inputValue.value = value;
 
-  if (filteredSuggestions.value?.length) {
+  if (filteredSuggestions.value?.length || props.emptyMessage) {
     showSuggestions.value = true;
   }
 

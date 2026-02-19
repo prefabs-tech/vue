@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.typeahead')" class="demo">
+  <FormPage
+    :subtitle="$t('form.subtitle.typeahead')"
+    :title="$t('form.label.typeahead')"
+    class="demo"
+  >
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -340,6 +344,7 @@
         <Typeahead
           v-model="formData.input"
           :debounce-time="1000"
+          :empty-message="$t('form.label.noResults')"
           :label="$t('form.label.typeahead')"
           :placeholder="$t('form.placeholder.input')"
           :suggestions="suggestionItems"
@@ -353,6 +358,7 @@
               v-model="input"
               :debounce-time="1000"
               :suggestions="suggestionItems"
+              empty-message="No results found"
               label="Typeahead"
               name="typeahead"
               placeholder="Enter Input"
@@ -510,28 +516,40 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'TypeaheadProperties' })
+      "
+    />
   </FormPage>
 </template>
 
 <script lang="ts">
 export default {
-  name: "InputField",
+  name: "TypeaheadDemo",
 };
 </script>
 
 <script setup lang="ts">
 import { Form, Typeahead } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
 
-const inputSchema = z
-  .string()
-  .min(3, { message: t("form.errors.input.min", { length: 3 }) });
+let formData = reactive({
+  disabled: ref("Lily"),
+  input: ref(),
+  inputWithValidation: ref(),
+  noLabelInput: ref(),
+});
 
 const suggestionItems = [
   {
@@ -584,10 +602,77 @@ const suggestionItems = [
   },
 ];
 
-let formData = reactive({
-  disabled: ref("Lily"),
-  input: ref(),
-  inputWithValidation: ref(),
-  noLabelInput: ref(),
-});
+const eventsData = computed(() => [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "value: string | number",
+  },
+]);
+
+const inputSchema = computed(() =>
+  z.string().min(3, { message: t("form.errors.input.min", { length: 3 }) }),
+);
+
+const propsData = computed(() => [
+  {
+    default: "500",
+    description: t(
+      "form.documentation.propsDescription.typeahead.debounceTime",
+    ),
+    prop: "debounceTime",
+    type: "Number",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "String | Number | null | undefined",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number | object>",
+  },
+  {
+    default: "-",
+    description: t(
+      "form.documentation.propsDescription.typeahead.suggestions",
+      { required: true },
+    ),
+    prop: "suggestions",
+    type: "{label?: string; value?: string | number;}",
+  },
+  {
+    default: '"text"',
+    description: t("form.documentation.propsDescription.input.type"),
+    prop: "type",
+    type: "String",
+  },
+]);
 </script>
