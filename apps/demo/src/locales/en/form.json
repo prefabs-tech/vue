@@ -62,6 +62,10 @@
       "textarea": {
         "cols": "Number of visible text columns for the textarea.",
         "rows": "Number of visible text rows for the textarea."
+      },
+      "typeahead": {
+        "debounceTime": "Delay in milliseconds before emitting input updates (prevents excessive filtering)",
+        "suggestions": "Array of suggestion options to display in the dropdown (required)"
       }
     },
     "slotDescription": {
@@ -229,6 +233,7 @@
     "nepal": "Nepal",
     "next": "Next",
     "no": "No",
+    "noResults": "No results found",
     "noRoleOptions": "No role options available",
     "number": "Number",
     "one": "One",
@@ -310,7 +315,8 @@
     "radio": "The radio input component is a radio button group component for selecting a single option from a list with validation support.",
     "switch": "Switch input is a toggle component that allows users to turn input on or off, with support for custom labels, validation, and form integration.",
     "text": "The text input component is a form field that allows users to enter and edit textual content with validation",
-    "textarea": "The textarea input component is a multi-line text input field that allows users to enter and edit larger blocks of text, with support for validation, error messages, and customizable properties such as rows and columns."
+    "textarea": "The textarea input component is a multi-line text input field that allows users to enter and edit larger blocks of text, with support for validation, error messages, and customizable properties such as rows and columns.",
+    "typeahead": "Typeahead is an autocomplete input component that provides real-time suggestions as users type, with debounced input and form validation support."
   },
   "title": "Form library"
 }

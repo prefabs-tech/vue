@@ -3,11 +3,11 @@
     <input
       :id="inputId"
       :aria-label="ariaLabel ?? placeholder"
+      :class="[inputClass, 'input-field']"
       :disabled="disabled"
       :placeholder="placeholder"
       :type="type"
       :value="modelValue"
-      class="input-field"
       @input="onInput"
     />
   </div>
@@ -37,6 +37,10 @@ const props = defineProps({
   disabled: {
     default: false,
     type: Boolean,
+  },
+  inputClass: {
+    default: undefined,
+    type: String,
   },
   inputId: {
     default: undefined,

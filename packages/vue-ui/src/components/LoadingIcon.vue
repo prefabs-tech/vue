@@ -11,8 +11,8 @@ export default {
 <style scoped>
 .loading {
   color: var(--loading-icon-color, #ffffff);
-  font-size: 5px;
-  margin: 0 1rem;
+  font-size: 0.2rem;
+  margin: 0 1.5rem;
   width: 1em;
   height: 1em;
   border-radius: 50%;
@@ -24,6 +24,7 @@ export default {
   -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
+
 @-webkit-keyframes load4 {
   0%,
   100% {

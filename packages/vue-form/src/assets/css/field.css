@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+.field .helper-text {
+  color: var(--dz-secondary-color);
+  font-size: 0.75em;
+}
+
 .field > label {
   font-weight: 500;
 }
