@@ -7,6 +7,9 @@
       "daysInput": {
         "date": "Emitted when a new date is calculated based on the number of days entered"
       },
+      "fileInput": {
+        "filesUpdate": "Emitted when files are added, updated, or removed"
+      },
       "input": {
         "modelValue": "Emitted when the input value changes (v-model support)."
       }
@@ -21,6 +24,21 @@
         "enableTimePicker": "Enable time selection in addition to date selection",
         "format": "Custom date format string (e.g: format=\"yyyy/MM/dd\")",
         "teleport": "Teleport the date picker dropdown to a specific element"
+      },
+      "fileInput": {
+        "addDescriptionLabel": "Label displayed in the file description section when no description is provided",
+        "buttonLabel": "Label text displayed on the button when no files are selected",
+        "buttonLabelSelected": "Label text displayed on the button when files are selected (shows count)",
+        "buttonProps": "Additionale props to pass through to the button",
+        "descriptionPlaceholder": "Placeholder text for file description input field",
+        "dropzoneMessage": "Message displayed in the dropzone area",
+        "dropzoneOptions": "Options to pass through to vue3-dropzone",
+        "enableDescription": "Enable description field for uploaded files",
+        "errorMessages": "Custom error messages for file validation errors",
+        "inputMethod": "Input method: button or drag-and-drop zone",
+        "mode": "File selection mode: append new files or replace existing ones",
+        "multiple": "Allow multiple file selection",
+        "showErrorMessage": "Show error messages when file validation fails"
       },
       "input": {
         "disabled": "If true, the input will be disabled and non-interactive",
@@ -75,8 +93,15 @@
       "countryPicker": {
         "option": "Slot to customize the rendering of each country option"
       },
+      "fileInput": {
+        "details": "Custom content for file details section with access to file and index",
+        "preview": "Custom content for file preview section with access to file data"
+      },
       "password": {
         "icon": "Slot for custom icon inside the password input field."
+      },
+      "typeahead": {
+        "suggestion": "Custom content for rendering suggestion items with access to the suggestion data"
       }
     }
   },
@@ -309,6 +334,7 @@
     "datePicker": "The date picker component is a customizable date selection component with time selection and form validation support",
     "daysInput": "The days input component is a form input field that that calculates dates based on the number of days entered.",
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
+    "fileInput": "File input is a versatile component for uploading files with support for drag-and-drop, button mode, multiple file selection, and file descriptions.",
     "input": "A versatile form input component with validation support using Zod and vee-validate",
     "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
     "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding.",

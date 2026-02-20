@@ -523,6 +523,7 @@
       :props-table-title="
         $t('common.properties', { value: 'TypeaheadProperties' })
       "
+      :slots-data="slotsData"
     />
   </FormPage>
 </template>
@@ -673,6 +674,14 @@ const propsData = computed(() => [
     description: t("form.documentation.propsDescription.input.type"),
     prop: "type",
     type: "String",
+  },
+]);
+
+const slotsData = computed(() => [
+  {
+    description: t("form.documentation.slotDescription.typeahead.suggestion"),
+    name: "suggestion",
+    props: "{ suggestion: {label?: string; value?: string | number;} }",
   },
 ]);
 </script>

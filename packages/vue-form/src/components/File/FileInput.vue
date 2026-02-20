@@ -37,7 +37,15 @@
         :index="index"
         @on:remove="onRemove"
         @update:file="updateFile"
-      />
+      >
+        <template #details="{ file: inputFile, index: fileIndex }">
+          <slot :file="inputFile" :index="fileIndex" name="details" />
+        </template>
+
+        <template #preview="{ file: inputFile }">
+          <slot :file="inputFile" name="preview" />
+        </template>
+      </SelectedFile>
     </ul>
   </div>
 </template>
@@ -59,6 +67,8 @@ import type { FileErrorMessages, FileExtended } from "../../types/index";
 import type { PropType } from "vue";
 import type { FileRejectReason } from "vue3-dropzone";
 
+type ButtonElementProperties = InstanceType<typeof ButtonElement>["$props"];
+
 const props = defineProps({
   addDescriptionLabel: {
     default: undefined,
@@ -74,7 +84,7 @@ const props = defineProps({
   },
   buttonProps: {
     default: () => ({}),
-    type: Object,
+    type: Object as PropType<ButtonElementProperties>,
   },
   descriptionPlaceholder: {
     default: undefined,
@@ -88,12 +98,12 @@ const props = defineProps({
     default: () => ({}),
     type: Object,
   },
+  enableDescription: Boolean,
   errorMessages: {
     default: undefined,
     required: false,
     type: Object as PropType<FileErrorMessages>,
   },
-  enableDescription: Boolean,
   inputMethod: {
     default: "button",
     type: String,

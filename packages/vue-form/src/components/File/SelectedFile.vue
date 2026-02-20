@@ -1,37 +1,42 @@
 <template>
   <li :key="file.name">
     <div class="info">
-      <div class="preview"></div>
-      <div class="details">
-        <span :class="`name name-${index}`" :title="file.name">
-          {{ file.name }}
-        </span>
-        <div v-if="enableDescription" class="description-wrapper">
-          <div
-            v-if="!showDescriptionInput"
-            :class="`description description-${index}`"
-            role="button"
-            tabindex="0"
-            :title="description"
-            @click="showDescriptionInput = true"
-          >
-            <span>{{ description || addDescriptionLabel }}</span>
-          </div>
-          <i
-            v-if="!showDescriptionInput"
-            class="pi pi-pencil"
-            @click="showDescriptionInput = true"
-          ></i>
-          <div v-else class="p-input-group">
-            <Input
-              ref="dzangolabVueFileDescription"
-              v-model="description"
-              :placeholder="descriptionPlaceholder"
-              @keydown.enter="onDescriptionChange"
-            />
+      <slot :file="file" name="preview">
+        <div class="preview"></div>
+      </slot>
+
+      <slot :file="file" :index="index" name="details">
+        <div class="details">
+          <span :class="`name name-${index}`" :title="file.name">
+            {{ file.name }}
+          </span>
+          <div v-if="enableDescription" class="description-wrapper">
+            <div
+              v-if="!showDescriptionInput"
+              :class="`description description-${index}`"
+              role="button"
+              tabindex="0"
+              :title="description"
+              @click="showDescriptionInput = true"
+            >
+              <span>{{ description || addDescriptionLabel }}</span>
+            </div>
+            <i
+              v-if="!showDescriptionInput"
+              class="pi pi-pencil"
+              @click="showDescriptionInput = true"
+            ></i>
+            <div v-else class="p-input-group">
+              <Input
+                ref="dzangolabVueFileDescription"
+                v-model="description"
+                :placeholder="descriptionPlaceholder"
+                @keydown.enter="onDescriptionChange"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </slot>
     </div>
 
     <ButtonElement
