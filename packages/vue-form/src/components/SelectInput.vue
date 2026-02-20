@@ -65,7 +65,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { toFieldValidator } from "@vee-validate/zod";
+import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { computed } from "vue";
 import { z } from "zod";
@@ -164,7 +164,7 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
-let fieldSchema: object;
+let fieldSchema: ReturnType<typeof toTypedSchema> | undefined;
 
 const normalizedOptions = computed(() =>
   normalizeOptions(props.options, props.labelKey, props.valueKey),
@@ -175,7 +175,7 @@ const activeOptions = computed(() =>
 );
 
 if (Object.keys(props.schema).length > 0) {
-  fieldSchema = toFieldValidator(props.schema);
+  fieldSchema = toTypedSchema(props.schema);
 } else if ((props.maxSelection || props.minSelection) && props.multiple) {
   const currentLength = activeOptions.value.length;
   const max = props.maxSelection ?? 0;
@@ -208,7 +208,7 @@ if (Object.keys(props.schema).length > 0) {
     ),
   );
 
-  fieldSchema = toFieldValidator(arraySchema);
+  fieldSchema = toTypedSchema(arraySchema);
 }
 
 const onSelect = (value: string | number | []) => {

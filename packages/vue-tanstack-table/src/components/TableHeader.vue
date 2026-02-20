@@ -126,7 +126,9 @@
           >
             <SelectInput
               :model-value="getColumnFilterValue(column)"
-              :options="column.columnDef.meta?.filterOptions || []"
+              :options="
+                (column.columnDef.meta?.filterOptions || []) as SelectOption[]
+              "
               :placeholder="column.columnDef.filterPlaceholder"
               :name="`multiselect-filter-${column.columnDef.accessorKey}`"
               :multiple="column.columnDef.meta?.filterVariant === 'multiselect'"
@@ -211,6 +213,7 @@ import { FlexRender } from "@tanstack/vue-table";
 
 import { getAlignValue } from "../utilities";
 
+import type { SelectOption } from "@prefabs.tech/vue3-form";
 import type { Column, Table } from "@tanstack/vue-table";
 
 const props = defineProps({

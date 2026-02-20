@@ -81,7 +81,9 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const fieldSchema = computed(() =>
-  Object.keys(props.schema).length > 0 ? toTypedSchema(props.schema) : null,
+  Object.keys(props.schema).length > 0
+    ? toTypedSchema(props.schema)
+    : undefined,
 );
 
 const onChange = (event: Event) => {
