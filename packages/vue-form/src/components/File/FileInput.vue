@@ -37,7 +37,15 @@
         :index="index"
         @on:remove="onRemove"
         @update:file="updateFile"
-      />
+      >
+        <template #details="{ file: inputFile, index: fileIndex }">
+          <slot :file="inputFile" :index="fileIndex" name="details" />
+        </template>
+
+        <template #preview="{ file: inputFile }">
+          <slot :file="inputFile" name="preview" />
+        </template>
+      </SelectedFile>
     </ul>
   </div>
 </template>
@@ -88,12 +96,12 @@ const props = defineProps({
     default: () => ({}),
     type: Object,
   },
+  enableDescription: Boolean,
   errorMessages: {
     default: undefined,
     required: false,
     type: Object as PropType<FileErrorMessages>,
   },
-  enableDescription: Boolean,
   inputMethod: {
     default: "button",
     type: String,
