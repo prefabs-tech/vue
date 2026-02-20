@@ -67,6 +67,8 @@ import type { FileErrorMessages, FileExtended } from "../../types/index";
 import type { PropType } from "vue";
 import type { FileRejectReason } from "vue3-dropzone";
 
+type ButtonElementProperties = InstanceType<typeof ButtonElement>["$props"];
+
 const props = defineProps({
   addDescriptionLabel: {
     default: undefined,
@@ -82,7 +84,7 @@ const props = defineProps({
   },
   buttonProps: {
     default: () => ({}),
-    type: Object,
+    type: Object as PropType<ButtonElementProperties>,
   },
   descriptionPlaceholder: {
     default: undefined,
