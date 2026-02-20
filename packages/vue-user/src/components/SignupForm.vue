@@ -94,6 +94,7 @@ import TermsAndConditions from "./TermsAndConditions.vue";
 import useUserStore from "../store";
 
 import type { LoginCredentials } from "../types";
+import type { SubmissionHandler } from "vee-validate";
 
 defineProps({
   loading: Boolean,
@@ -179,8 +180,8 @@ const validationSchema = toTypedSchema(
 
 const disableButton = ref<boolean>(true);
 
-const onSubmit = (credentials: LoginCredentials) => {
-  emit("submit", credentials);
+const onSubmit: SubmissionHandler = (values) => {
+  emit("submit", values as LoginCredentials);
 };
 
 onMounted(() => {

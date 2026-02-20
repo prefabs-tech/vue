@@ -146,7 +146,7 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+    type: Object as PropType<z.ZodTypeAny>,
   },
   showRemoveSelection: {
     default: true,

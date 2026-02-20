@@ -63,6 +63,7 @@ import { LOGIN_TYPE_USERNAME } from "../constant";
 import { useTranslations } from "../index";
 
 import type { LoginCredentials } from "../types";
+import type { SubmissionHandler } from "vee-validate";
 
 const config = useConfig();
 
@@ -78,8 +79,8 @@ const credentials = reactive({
 
 const emit = defineEmits(["submit"]);
 
-const onSubmit = (credentials: LoginCredentials) => {
-  emit("submit", credentials);
+const onSubmit: SubmissionHandler = (values) => {
+  emit("submit", values as LoginCredentials);
 };
 
 defineProps({

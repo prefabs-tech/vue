@@ -41,18 +41,7 @@ describe("SidebarOnlyLayout", () => {
         },
       },
       props: {
-        menu: [
-          {
-            name: "Menu1",
-            routeName: "menu-1",
-            shortName: "M1",
-          },
-          {
-            name: "Menu2",
-            routeName: "menu-2",
-            shortName: "M2",
-          },
-        ],
+        menu: [],
       },
       slots: {
         afterNavLinks: "<div class='after-nav'></div>",

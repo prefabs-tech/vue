@@ -113,7 +113,7 @@ const useUserStore = defineStore("user", () => {
     return await doGetInvitation(token, apiBaseUrl);
   };
 
-  const getUser = (): UserType => {
+  const getUser = (): UserType | undefined => {
     if (user.value) {
       return user.value;
     }
