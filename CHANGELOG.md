@@ -1,3 +1,13 @@
+# [0.32.0](https://github.com/prefabs-tech/vue/compare/v0.31.0...v0.32.0) (2026-02-23)
+
+
+### Features
+
+* **form/file-input:** add slot for custom file preview and details with demo and documentation ([#966](https://github.com/prefabs-tech/vue/issues/966)) ([0803edc](https://github.com/prefabs-tech/vue/commit/0803edc5287cc03c20d319667e24484805519680))
+* **form/typeahead:** add loading, empty message, helper text, and custom rendering support ([#965](https://github.com/prefabs-tech/vue/issues/965)) ([beeb411](https://github.com/prefabs-tech/vue/commit/beeb41163c3b4366a547c14dee39f6bbbf85da01))
+
+
+
 # [0.31.0](https://github.com/prefabs-tech/vue/compare/v0.30.0...v0.31.0) (2026-02-11)
 
 
