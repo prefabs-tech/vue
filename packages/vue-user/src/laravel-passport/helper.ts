@@ -8,7 +8,7 @@ export async function verifySessionRoles(
   const userStore = useUserStore();
   const { logout } = userStore;
 
-  const user: UserType | null = userStore.getUser();
+  const user: UserType | undefined = userStore.getUser();
 
   if (user && user.roles) {
     const hasSupportedRoles = await user.roles.some((userRole) => {

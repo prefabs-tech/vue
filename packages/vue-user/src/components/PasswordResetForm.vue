@@ -48,6 +48,7 @@ import { z } from "zod";
 import { useTranslations } from "../index";
 
 import type { PasswordResetPayload } from "../types";
+import type { SubmissionHandler } from "vee-validate";
 
 defineProps({
   loading: Boolean,
@@ -107,7 +108,9 @@ const validationSchema = toTypedSchema(
 const route = useRoute();
 const router = useRouter();
 
-const onSubmit = (payload: PasswordResetPayload) => {
+const onSubmit: SubmissionHandler = (values) => {
+  const payload = values as PasswordResetPayload;
+
   payload.token =
     typeof route.query.token === "string"
       ? route.query.token

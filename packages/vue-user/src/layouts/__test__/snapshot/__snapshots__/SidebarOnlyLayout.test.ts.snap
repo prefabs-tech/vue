@@ -65,62 +65,7 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
         <nav
           class="nav-menu"
         >
-          <div
-            class="menu"
-          >
-            
-            <div
-              class="nav-menu-item"
-            >
-              <a
-                aria-label="open menu"
-                class="link"
-              >
-                <!---->
-                <!---->
-                <span
-                  class="item-name"
-                >
-                  Menu1
-                </span>
-                <!---->
-              </a>
-              <transition-stub
-                appear="false"
-                css="true"
-                name="fade"
-                persisted="false"
-              >
-                <!---->
-              </transition-stub>
-            </div>
-            <div
-              class="nav-menu-item"
-            >
-              <a
-                aria-label="open menu"
-                class="link"
-              >
-                <!---->
-                <!---->
-                <span
-                  class="item-name"
-                >
-                  Menu2
-                </span>
-                <!---->
-              </a>
-              <transition-stub
-                appear="false"
-                css="true"
-                name="fade"
-                persisted="false"
-              >
-                <!---->
-              </transition-stub>
-            </div>
-            
-          </div>
+          <!---->
         </nav>
         
         

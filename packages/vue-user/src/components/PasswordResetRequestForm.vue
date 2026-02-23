@@ -40,6 +40,7 @@ import { Form } from "vee-validate";
 import { useTranslations } from "../index";
 
 import type { PasswordResetRequestPayload } from "../types";
+import type { SubmissionHandler } from "vee-validate";
 
 const messages = useTranslations();
 
@@ -59,7 +60,7 @@ let payload = {
 
 const emit = defineEmits(["submit"]);
 
-const onSubmit = (payload: PasswordResetRequestPayload) => {
-  emit("submit", payload);
+const onSubmit: SubmissionHandler = (values) => {
+  emit("submit", values as PasswordResetRequestPayload);
 };
 </script>

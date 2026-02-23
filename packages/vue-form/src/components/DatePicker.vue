@@ -114,7 +114,7 @@ const dzangolabVueDatePicker = ref();
 
 const attributes = useAttrs();
 
-const fieldSchema = props.schema ? toTypedSchema(props.schema) : null;
+const fieldSchema = props.schema ? toTypedSchema(props.schema) : undefined;
 
 const filteredAttributes = computed(() => {
   const { class: _, ...rest } = attributes;
