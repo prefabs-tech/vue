@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.currencyPicker')" class="demo">
+  <FormPage
+    :subtitle="t('form.subtitle.currencyPicker')"
+    :title="$t('form.label.currencyPicker')"
+    class="demo"
+  >
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -322,6 +326,24 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'CurrencyPickerProperties' })
+      "
+      :slots-data="slotsData"
+    />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface CurrencyOption extends SelectOption {
+        code?: string;
+        symbol?: string;
+      }
+    </SshPre>
+    <!-- eslint-enable -->
   </FormPage>
 </template>
 
@@ -334,9 +356,10 @@ export default {
 <script setup lang="ts">
 import { CurrencyPicker, Form } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { reactive } from "vue";
+import { computed, reactive } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import { currencies } from "../data";
 import FormPage from "../FormPage.vue";
 
@@ -353,13 +376,6 @@ const formData = reactive({
   validationInput: undefined,
 });
 
-const inputSchema = z.preprocess(
-  (value) => (value === null || value === undefined ? [] : value),
-  z
-    .array(z.string())
-    .min(1, { message: t("form.errors.currencyPicker.invalid") }),
-);
-
 const options = [
   { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
   { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
@@ -374,4 +390,112 @@ const options = [
   },
   { code: "NPR", label: "Nepalese rupee", symbol: "Rs", value: "NPR" },
 ] as CurrencyOption[];
+
+const eventsData = computed(() => [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "string | number | string[] | number[] | null | undefined",
+  },
+  {
+    description: t(
+      "form.documentation.eventDescription.currencyPicker.searchInput",
+    ),
+    name: "update:searchInput",
+    payload: "string",
+  },
+]);
+
+const inputSchema = computed(() =>
+  z.preprocess(
+    (value) => (value === null || value === undefined ? [] : value),
+    z
+      .array(z.string())
+      .min(1, { message: t("form.errors.currencyPicker.invalid") }),
+  ),
+);
+
+const propsData = computed(() => [
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "boolean | number | string | (number | string)[] | null",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.select.multiple"),
+    prop: "multiple",
+    type: "Boolean",
+  },
+  {
+    default: '"currency"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: '["code", "label", "symbol"]',
+    description: t(
+      "form.documentation.propsDescription.currencyPicker.optionLabelOrder",
+    ),
+    prop: "optionLabelOrder",
+    type: "Array<keyof CurrencyOption>",
+  },
+  {
+    default: "-",
+    description: t(
+      "form.documentation.propsDescription.currencyPicker.options",
+    ),
+    prop: "options",
+    type: "CurrencyOption[]",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number | string[] | number[]>",
+  },
+  {
+    default: "-",
+    description: t(
+      "form.documentation.propsDescription.currencyPicker.selectionOptions",
+    ),
+    prop: "selectionOptions",
+    type: "Object",
+  },
+]);
+
+const slotsData = computed(() => [
+  {
+    description: t("form.documentation.slotDescription.currencyPicker.option"),
+    name: "option",
+    props: "{ multiple: boolean, option: CurrencyOption, selected: boolean }",
+  },
+  {
+    description: t(
+      "form.documentation.slotDescription.currencyPicker.selection",
+    ),
+    name: "selection",
+    props: "{ selectedLabels: string[] }",
+  },
+]);
 </script>

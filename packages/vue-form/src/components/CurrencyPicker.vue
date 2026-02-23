@@ -63,6 +63,8 @@ import SelectInput from "./SelectInput.vue";
 import type { CurrencyOption } from "../types";
 import type { PropType } from "vue";
 
+type SelectInputProperties = InstanceType<typeof SelectInput>["$props"];
+
 const props = defineProps({
   disabled: {
     default: false,
@@ -87,7 +89,7 @@ const props = defineProps({
   name: {
     default: "currency",
     required: false,
-    type: String as PropType<string>,
+    type: String,
   },
   optionLabelOrder: {
     type: Array as PropType<Array<keyof CurrencyOption>>,
@@ -110,7 +112,7 @@ const props = defineProps({
   },
   selectionOptions: {
     default: () => ({}),
-    type: Object,
+    type: Object as PropType<SelectInputProperties>,
   },
 });
 
