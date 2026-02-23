@@ -1,3 +1,29 @@
+# [0.32.0](https://github.com/prefabs-tech/vue/compare/v0.31.0...v0.32.0) (2026-02-23)
+
+### Breaking Changes
+
+* **form:** update flag icon css to generate in separate chunk ([#959](https://github.com/prefabs-tech/vue/issues/959)) ([27bffeb](https://github.com/prefabs-tech/vue/commit/27bffeba28ee9e1ae7071673d5bb675766998df))
+* **ui/badge:** update background and text color css variable name ([#954](https://github.com/prefabs-tech/vue/issues/954)) ([34f8039](https://github.com/prefabs-tech/vue/commit/34f8039ed1d5160339b6ba28a8e9eebd8650bab3))
+
+
+### Features
+
+* **form/file-input:** add slot for custom file preview and details with demo and documentation ([#966](https://github.com/prefabs-tech/vue/issues/966)) ([0803edc](https://github.com/prefabs-tech/vue/commit/0803edc5287cc03c20d319667e24484805519680))
+* **form/typeahead:** add loading, empty message, helper text, and custom rendering support ([#965](https://github.com/prefabs-tech/vue/issues/965)) ([beeb411](https://github.com/prefabs-tech/vue/commit/beeb41163c3b4366a547c14dee39f6bbbf85da01))
+
+
+### Refactor
+
+* **form:** update input components and improve validation logic ([#956](https://github.com/prefabs-tech/vue/issues/956)) ([255ce22](https://github.com/prefabs-tech/vue/commit/255ce22795fbd058297b8d38fa418e8a70cebb9e))
+* **form/radio:** add component props and event documentation ([#963](https://github.com/prefabs-tech/vue/issues/963)) ([b382b81](https://github.com/prefabs-tech/vue/commit/b382b814d8232c1c9a4cd741a6a50bda1070eccf))
+* **form/select:** Improve single select unselect behavior, keyboard navigation and validation ([#961](https://github.com/prefabs-tech/vue/issues/961)) ([86ff06e](https://github.com/prefabs-tech/vue/commit/86ff06ec492c756db4a1bd6f03f18e447f935386))
+* **form/switch-input:** add component props and event documentation ([#964](https://github.com/prefabs-tech/vue/issues/964)) ([1c384a8](https://github.com/prefabs-tech/vue/commit/1c384a878e9457e3aa2933a7ed18cd224896160d))
+* **layout:** update padding for mobile view ([#958](https://github.com/prefabs-tech/vue/issues/958)) ([90ac5d8](https://github.com/prefabs-tech/vue/commit/90ac5d8c47b8c331248b8c67972e78333dd28f91))
+* **ui/badge:** improve badge component mark up ([#962](https://github.com/prefabs-tech/vue/issues/962)) ([bc33a5f](https://github.com/prefabs-tech/vue/commit/bc33a5f39fc6a5cac2e3b23037deffbf46b5cff8))
+* **user:** update invitation and users table invitation submitted method ([#957](https://github.com/prefabs-tech/vue/issues/957)) ([4bd8acb](https://github.com/prefabs-tech/vue/commit/4bd8acbb5201c55588290a5cbc82e06d56a64fa0))
+* **user:** update user packages and related components ([#954](https://github.com/prefabs-tech/vue/issues/954)) ([34f8039](https://github.com/prefabs-tech/vue/commit/34f8039ed1d5160339b6ba28a8e9eebd8650bab3))
+* **user/invitation:** reset invitation form on cancel and success submit ([#960](https://github.com/prefabs-tech/vue/issues/960)) ([b8f0894](https://github.com/prefabs-tech/vue/commit/b8f0894847f84b727e3de7c12c0dc190c6fe7d2c))
+
 # [0.31.0](https://github.com/prefabs-tech/vue/compare/v0.30.0...v0.31.0) (2026-02-11)
 
 

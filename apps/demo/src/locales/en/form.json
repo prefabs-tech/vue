@@ -4,6 +4,9 @@
   },
   "documentation": {
     "eventDescription": {
+      "currencyPicker": {
+        "searchInput": "Emitted when the search input value changes."
+      },
       "daysInput": {
         "date": "Emitted when a new date is calculated based on the number of days entered"
       },
@@ -18,6 +21,11 @@
       "countryPicker": {
         "groups": "An object to organize countries into specific categories (e.g., EU, ASEAN)",
         "hasSortedOptions":"By default, options are sorted alphabetically. If false, countries are sorted by priority in the order groups → favorites → include → fallback-locale translations, preserving the defined order."
+      },
+      "currencyPicker": {
+        "optionLabelOrder": "Order of currency option fields (code, label, symbol) to display in the dropdown.",
+        "options": "Array of currency options with code, label, symbol, and value (required).",
+        "selectionOptions": "Options passed to the underlying select (e.g. maxSelection, minSelection, showRemoveSelection, hasSortedOptions)."
       },
       "datePicker": {
         "autoApply": "Automatically apply date selection without needing confirm button",
@@ -92,6 +100,10 @@
       },
       "countryPicker": {
         "option": "Slot to customize the rendering of each country option"
+      },
+      "currencyPicker": {
+        "option": "Slot to customize the rendering of each currency option in the dropdown.",
+        "selection": "Slot to customize the rendering of the selected value(s)."
       },
       "fileInput": {
         "details": "Custom content for file details section with access to file and index",
@@ -331,6 +343,7 @@
     "checkbox": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
     "country": "Country shows the selected country with internationalization support.",
     "countryPicker": "Country picker is a reusable component for selecting single or multiple countries with internationalization support and search functionality.",
+    "currencyPicker": "Currency picker is a reusable component for selecting single or multiple currencies with search and customizable option display (code, label, symbol).",
     "datePicker": "The date picker component is a customizable date selection component with time selection and form validation support",
     "daysInput": "The days input component is a form input field that that calculates dates based on the number of days entered.",
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",

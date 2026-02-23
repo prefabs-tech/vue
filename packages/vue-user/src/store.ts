@@ -157,6 +157,7 @@ const useUserStore = defineStore("user", () => {
     await selectedAuthProvider.doLogout().then(() => {
       removeUser();
       user.value = undefined;
+      isEmailVerified.value = undefined;
 
       // FIXME [SS 17 MARCH 2023]
       // eslint-disable-next-line unicorn/no-document-cookie

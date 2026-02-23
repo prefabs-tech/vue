@@ -6,7 +6,6 @@ import { inject } from "vue";
 
 import client from "./api/axios";
 import initAuthProvider from "./auth-provider";
-import { ERROR_UNAUTHORIZED } from "./constant";
 import messages from "./locales/messages.json";
 import updateRouter from "./router";
 import userStore from "./store";
@@ -30,16 +29,6 @@ const plugin: Plugin = {
 
     if (options?.config?.user?.features?.authProvider !== "laravel-passport") {
       initSupertokens(options.config);
-    }
-
-    if (options?.config?.user?.features?.signUp?.emailVerification) {
-      const { getVerificationStatus, logout } = userStore();
-
-      getVerificationStatus().catch((error) => {
-        if (error.status === ERROR_UNAUTHORIZED) {
-          logout();
-        }
-      });
     }
 
     initAuthProvider(options.config);
