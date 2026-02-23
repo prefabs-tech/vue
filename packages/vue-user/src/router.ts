@@ -2,6 +2,7 @@ import { storeToRefs } from "pinia";
 import { Router } from "vue-router";
 
 import AuthSocialLoginCallback from "./components/AuthSocialLoginCallback.vue";
+import { ERROR_UNAUTHORIZED } from "./constant";
 import useUserStore from "./store";
 import AcceptInvitation from "./views/AcceptInvitation.vue";
 import VerifyEmailReminder from "./views/EmailVerificationReminder.vue";
@@ -217,8 +218,13 @@ const addAuthenticationGuard = (
 
     const name = to.name as string;
     const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
-    const { user } = storeToRefs(userStore);
-    const { isLoggedIn: getIsLoggedin, getUser } = userStore;
+    const { user, isEmailVerified } = storeToRefs(userStore);
+    const {
+      isLoggedIn: getIsLoggedin,
+      getUser,
+      getVerificationStatus,
+      logout,
+    } = userStore;
 
     const isLoggedIn = await getIsLoggedin();
 
@@ -235,10 +241,18 @@ const addAuthenticationGuard = (
     }
 
     if (meta.authenticated && EmailVerificationEnabled && user.value) {
-      const isEmailVerified = userStore.isEmailVerified;
+      if (isEmailVerified.value === undefined) {
+        await getVerificationStatus().catch((error) => {
+          if (error.status === ERROR_UNAUTHORIZED) {
+            logout().then(() => {
+              router.push({ name: "login" });
+            });
+          }
+        });
+      }
 
       if (
-        isEmailVerified === false &&
+        isEmailVerified.value === false &&
         ![...routesToRedirect, "profile"].includes(name) &&
         router.hasRoute("verifyEmailReminder")
       ) {
@@ -246,7 +260,7 @@ const addAuthenticationGuard = (
 
         return;
       } else if (
-        isEmailVerified &&
+        isEmailVerified.value &&
         routesToRedirect[1] === name &&
         router.hasRoute("home")
       ) {
