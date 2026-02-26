@@ -980,9 +980,9 @@
     <SshPre language="html-vue">
       interface SelectOption extends Record&lt;string, unknown&gt; {
         disabled?: boolean;
+        groupLabel?: string;
         label?: string;
         value?: string | number;
-        groupLabel?: string;
       }
 
       interface GroupedOption {
@@ -1014,11 +1014,6 @@ import FormPage from "../FormPage.vue";
 import type { GroupedOption, SelectOption } from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
-
-const inputSchema = z
-  .string({ invalid_type_error: t("form.errors.multiselect.invalid") })
-  .array()
-  .min(1, { message: t("form.errors.multiselect.invalid") });
 
 let formData = reactive({
   customSelectedLabelSelect: ref([]),
@@ -1092,6 +1087,13 @@ const eventsData = computed(() => [
     payload: "string",
   },
 ]);
+
+const inputSchema = computed(() =>
+  z
+    .string({ invalid_type_error: t("form.errors.multiselect.invalid") })
+    .array()
+    .min(1, { message: t("form.errors.multiselect.invalid") }),
+);
 
 const propsData = computed(() => [
   {
@@ -1240,17 +1242,17 @@ const propsData = computed(() => [
 
 const slotsData = computed(() => [
   {
-    description: t("form.documentation.slotDescription.selectInput.group"),
+    description: t("form.documentation.slotDescription.select.group"),
     name: "group",
     props: "{ label: string, selected: boolean }",
   },
   {
-    description: t("form.documentation.slotDescription.selectInput.option"),
+    description: t("form.documentation.slotDescription.select.option"),
     name: "option",
     props: "{ multiple: boolean, option: SelectOption, selected: boolean }",
   },
   {
-    description: t("form.documentation.slotDescription.selectInput.selection"),
+    description: t("form.documentation.slotDescription.select.selection"),
     name: "selection",
     props: "{ selectedLabels: string[] }",
   },

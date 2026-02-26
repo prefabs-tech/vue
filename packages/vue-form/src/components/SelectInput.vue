@@ -164,8 +164,6 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
-let fieldSchema: ReturnType<typeof toTypedSchema> | undefined;
-
 const normalizedOptions = computed(() =>
   normalizeOptions(props.options, props.labelKey, props.valueKey),
 );
@@ -174,42 +172,46 @@ const activeOptions = computed(() =>
   [...normalizedOptions.value]?.filter((option) => !option?.disabled),
 );
 
-if (Object.keys(props.schema).length > 0) {
-  fieldSchema = toTypedSchema(props.schema);
-} else if ((props.maxSelection || props.minSelection) && props.multiple) {
-  const currentLength = activeOptions.value.length;
-  const max = props.maxSelection ?? 0;
-  const min = props.minSelection ?? 0;
+const fieldSchema = computed(() => {
+  if (Object.keys(props.schema).length > 0) {
+    return toTypedSchema(props.schema);
+  } else if ((props.maxSelection || props.minSelection) && props.multiple) {
+    const currentLength = activeOptions.value.length;
+    const max = props.maxSelection ?? 0;
+    const min = props.minSelection ?? 0;
 
-  const minValue =
-    min > currentLength
-      ? currentLength
-      : props.maxSelection && max < min
-        ? max
-        : min;
-  const maxValue = props.maxSelection ? Math.max(min, max) : undefined;
+    const minValue =
+      min > currentLength
+        ? currentLength
+        : props.maxSelection && max < min
+          ? max
+          : min;
+    const maxValue = props.maxSelection ? Math.max(min, max) : undefined;
 
-  const arraySchema = z.preprocess(
-    (value) => (value === null || value === undefined ? [] : value),
-    z.array(z.string()).refine(
-      (value) => {
-        return (
-          (!maxValue || value.length <= maxValue) &&
-          (!minValue || value.length >= minValue)
-        );
-      },
-      {
-        message: `Please select ${
-          minValue === maxValue
-            ? minValue
-            : `between ${minValue} and ${maxValue ?? "available"}`
-        } options`,
-      },
-    ),
-  );
+    const arraySchema = z.preprocess(
+      (value) => (value === null || value === undefined ? [] : value),
+      z.array(z.string()).refine(
+        (value) => {
+          return (
+            (!maxValue || value.length <= maxValue) &&
+            (!minValue || value.length >= minValue)
+          );
+        },
+        {
+          message: `Please select ${
+            minValue === maxValue
+              ? minValue
+              : `between ${minValue} and ${maxValue ?? "available"}`
+          } options`,
+        },
+      ),
+    );
 
-  fieldSchema = toTypedSchema(arraySchema);
-}
+    return toTypedSchema(arraySchema);
+  }
+
+  return undefined;
+});
 
 const onSelect = (value: string | number | []) => {
   emit("update:modelValue", value);
