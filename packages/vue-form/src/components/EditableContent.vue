@@ -15,7 +15,7 @@
         <component
           :is="contentElement"
           :class="{ disabled: !allowEdit }"
-          @click="allowEdit && (editContent = true)"
+          @click="onEditContent"
         >
           {{ modelValue }}
         </component>
@@ -33,7 +33,7 @@ export default {
 <script setup lang="ts">
 import { Card } from "@prefabs.tech/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
-import { ref } from "vue";
+import { nextTick, ref } from "vue";
 
 import TextareaInput from "./TextareaInput.vue";
 
@@ -78,6 +78,16 @@ onClickOutside(dzangolabVueEditInput, (event) => {
     editContent.value = false;
   }
 });
+
+const onEditContent = () => {
+  if (props.allowEdit) {
+    editContent.value = true;
+
+    nextTick(() => {
+      dzangolabVueEditInput.value?.$el?.querySelector("textarea")?.focus();
+    });
+  }
+};
 
 const onInput = (value: string) => {
   emit("update:modelValue", value);
