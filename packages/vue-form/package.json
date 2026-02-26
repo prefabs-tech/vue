@@ -34,10 +34,10 @@
   },
   "devDependencies": {
     "@dzangolab/flag-icon-css": "3.4.5",
-    "@prefabs.tech/eslint-config": "0.4.0",
-    "@prefabs.tech/tsconfig": "0.4.0",
+    "@prefabs.tech/eslint-config": "0.5.0",
+    "@prefabs.tech/tsconfig": "0.5.0",
     "@prefabs.tech/vue3-ui": "0.32.0",
-    "@types/node": "22.13.5",
+    "@types/node": "25.3.1",
     "@types/validator": "13.12.2",
     "@vee-validate/i18n": "4.15.1",
     "@vee-validate/rules": "4.15.1",
