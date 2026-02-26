@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.select')" class="demo">
+  <FormPage
+    :subtitle="$t('form.subtitle.select')"
+    :title="$t('form.label.select')"
+    class="demo"
+  >
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -962,6 +966,31 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'SelectInputProperties' })
+      "
+      :slots-data="slotsData"
+    />
+
+    <!-- eslint-disable -->
+    <SshPre language="html-vue">
+      interface SelectOption extends Record&lt;string, unknown&gt; {
+        disabled?: boolean;
+        label?: string;
+        value?: string | number;
+        groupLabel?: string;
+      }
+
+      interface GroupedOption {
+        label: string;
+        options: SelectOption[];
+      }
+    </SshPre>
+    <!-- eslint-enable -->
   </FormPage>
 </template>
 
@@ -975,9 +1004,10 @@ export default {
 import { Form, SelectInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { BadgeComponent } from "@prefabs.tech/vue3-ui";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { z } from "zod";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import { countries } from "../data";
 import FormPage from "../FormPage.vue";
 
@@ -1049,6 +1079,182 @@ const groupedOptions = ref([
     ],
   },
 ] as GroupedOption[]);
+
+const eventsData = computed(() => [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "string | number | (string | number)[] | null | undefined",
+  },
+  {
+    description: t("form.documentation.eventDescription.select.searchInput"),
+    name: "update:searchInput",
+    payload: "string",
+  },
+]);
+
+const propsData = computed(() => [
+  {
+    default: "-",
+    description: t(
+      "form.documentation.propsDescription.select.customSearchHelperText",
+    ),
+    prop: "customSearchHelperText",
+    type: "String",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.input.disabled"),
+    prop: "disabled",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.select.disableSearch"),
+    prop: "disableSearch",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: t(
+      "form.documentation.propsDescription.select.enableCustomSearch",
+    ),
+    prop: "enableCustomSearch",
+    type: "Boolean",
+  },
+  {
+    default: "true",
+    description: t("form.documentation.propsDescription.select.enableTooltip"),
+    prop: "enableTooltip",
+    type: "Boolean",
+  },
+  {
+    default: "true",
+    description: t(
+      "form.documentation.propsDescription.select.hasSortedOptions",
+    ),
+    prop: "hasSortedOptions",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.label"),
+    prop: "label",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.select.labelKey"),
+    prop: "labelKey",
+    type: "String",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.select.loading"),
+    prop: "loading",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.select.maxSelection"),
+    prop: "maxSelection",
+    type: "Number",
+  },
+  {
+    default: "-",
+    description: t(
+      "form.documentation.propsDescription.selectInput.minSelection",
+    ),
+    prop: "minSelection",
+    type: "Number",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "boolean | number | string | (number | string)[] | null",
+  },
+  {
+    default: "false",
+    description: t("form.documentation.propsDescription.select.multiple"),
+    prop: "multiple",
+    type: "Boolean",
+  },
+  {
+    default: '"select"',
+    description: t("form.documentation.propsDescription.input.name"),
+    prop: "name",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t(
+      "form.documentation.propsDescription.select.noOptionsMessage",
+    ),
+    prop: "noOptionsMessage",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.select.options", {
+      required: true,
+    }),
+    prop: "options",
+    type: "SelectOption[] | GroupedOption[]",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.placeholder"),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.schema"),
+    prop: "schema",
+    type: "z.ZodType<string | number | string[] | number[]>",
+  },
+  {
+    default: "true",
+    description: t(
+      "form.documentation.propsDescription.selectInput.showRemoveSelection",
+    ),
+    prop: "showRemoveSelection",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t(
+      "form.documentation.propsDescription.selectInput.tooltipOptions",
+    ),
+    prop: "tooltipOptions",
+    type: "Object",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.selectInput.valueKey"),
+    prop: "valueKey",
+    type: "String",
+  },
+]);
+
+const slotsData = computed(() => [
+  {
+    description: t("form.documentation.slotDescription.selectInput.group"),
+    name: "group",
+    props: "{ label: string, selected: boolean }",
+  },
+  {
+    description: t("form.documentation.slotDescription.selectInput.option"),
+    name: "option",
+    props: "{ multiple: boolean, option: SelectOption, selected: boolean }",
+  },
+  {
+    description: t("form.documentation.slotDescription.selectInput.selection"),
+    name: "selection",
+    props: "{ selectedLabels: string[] }",
+  },
+]);
 
 const fetchRoles = async (searchInput?: string) => {
   const payload = {
