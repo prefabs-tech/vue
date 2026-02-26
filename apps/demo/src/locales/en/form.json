@@ -15,6 +15,9 @@
       },
       "input": {
         "modelValue": "Emitted when the input value changes (v-model support)."
+      },
+      "select": {
+        "searchInput": "Emitted when the search input value changes"
       }
     },
     "propsDescription": {
@@ -66,8 +69,12 @@
       },
       "select": {
         "countryCode": "The ISO country code to display (e.g., 'US', 'GB')",
+        "customSearchHelperText": "Custom text to display in the search input helper text",
+        "disableSearch": "If true, the search input will be disabled",
+        "enableCustomSearch": "If true, the custom search will be enabled",
+        "enableTooltip": "If true, the tooltip will be enabled",
         "exclude": "An array of country codes to remove from the list.",
-        "fallbackLocale": "Locale used when active locale translation is missing.",
+        "fallbackLocale": "Locale used when active locale translatioen is missing.",
         "favorites": "An array of country codes to prioritize and display at the top of the list.",
         "flags": "If true, displays country flags alongside country names",
         "flagsPath": "Custom function to resolve image paths for flags",
@@ -76,9 +83,18 @@
         "hasSortedOption": "If true, the options will be sorted alphabetically.",
         "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
         "includeFavorites": "If false, removes favorite items from the main list.",
+        "labelKey": "The key to use for the label of the options",
+        "loading": "If true, the loading state will be enabled",
         "locale": "The target locale for translation (e.g., 'en', 'fr')",
         "locales": "Additional translation catalogues to be supported",
+        "maxSelection": "The maximum number of selections allowed",
+        "minSelection": "The minimum number of selections allowed",
         "multiple": "If true, allows selecting multiple countries",
+        "noOptionsMessage": "The message to display when there are no options",
+        "options": "Array of options to display in the dropdown",
+        "showRemoveSelection": "If true, the remove selection button will be displayed",
+        "tooltipOptions": "Options to pass through to the tooltip",
+        "valueKey": "The key to use for the value of the options",
         "showFlag": "If false, the flag will not be displayed"
       },
       "switch": {
@@ -111,6 +127,11 @@
       },
       "password": {
         "icon": "Slot for custom icon inside the password input field."
+      },
+      "select": {
+        "group": "Slot to customize the rendering of each group in the dropdown.",
+        "option": "Slot to customize the rendering of each option in the dropdown.",
+        "selection": "Slot to customize the rendering of the selected value(s)."
       },
       "typeahead": {
         "suggestion": "Custom content for rendering suggestion items with access to the suggestion data"
@@ -352,6 +373,7 @@
     "number": "A number input component is a form input field that allows users to enter, increment, or decrement numerical values with validation.",
     "password": "The password component is a specialized input field for password entry, featuring a toggle to show or hide the password, customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
     "radio": "The radio input component is a radio button group component for selecting a single option from a list with validation support.",
+    "select": "Select input is a dropdown component that allows users to select a single value from a list with search and validation support.",
     "switch": "Switch input is a toggle component that allows users to turn input on or off, with support for custom labels, validation, and form integration.",
     "text": "The text input component is a form field that allows users to enter and edit textual content with validation",
     "textarea": "The textarea input component is a multi-line text input field that allows users to enter and edit larger blocks of text, with support for validation, error messages, and customizable properties such as rows and columns.",
