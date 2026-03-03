@@ -1,4 +1,25 @@
 {
+  "documentation": {
+    "eventDescription": {
+      "invitationForm": {
+        "cancel": "Emitted when the form is cancelled",
+        "submitted": "Emitted when the invitation is successfully submitted"
+      }
+    },
+    "propsDescription": {
+      "invitationForm": {
+        "apps": "List of available applications for invitation",
+        "appSchema": "Zod validation schema for app selection",
+        "expiresAfterSchema": "Zod validation schema for days-based expiration",
+        "expiresAtSchema": "Zod validation schema for calendar-based expiration",
+        "expiryMode": "Expiration input mode: calendar date picker or days input",
+        "invitationData": "Initial data to populate the form",
+        "roles": "List of available roles for invitation",
+        "roleSchema": "Zod validation schema for role selection",
+        "submitLabel": "Custom label for the submit button"
+      }
+    }
+  },
   "message": {
     "invitation": {
       "success": "Invitation sent to {user} successfully"
@@ -23,6 +44,9 @@
     "withExpiryDays": "With expiry days field",
     "withRoleField": "With role field",
     "withTitle": "With title"
+  },
+  "subtitle": {
+    "invitationForm": "Invitation form is a comprehensive form component for sending user invitations with support for app selection, role assignment, and expiration settings."
   },
   "title": "User library"
 }
