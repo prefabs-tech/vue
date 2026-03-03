@@ -62,14 +62,13 @@ defineProps({
 const { layout: layoutConfig } = useConfig();
 const { width: windowWidth } = useWindowSize();
 
-const dzangolabVueAppHeader = ref(null);
 const expanded = ref(true);
 
 const home =
   layoutConfig && layoutConfig?.homeRoute ? layoutConfig.homeRoute : undefined;
 const showBadges = layoutConfig?.localeSwitcher?.showBadges;
 
-const isLargeScreen = computed(() => windowWidth.value > 576);
+const isLargeScreen = computed(() => windowWidth.value > 768);
 
 const close = () => {
   expanded.value = false;
@@ -79,7 +78,7 @@ const handleResize = () => {
   const header = document.querySelector(".layout > header") as HTMLElement;
   const nav = document.querySelector(".layout > header > nav") as HTMLElement;
 
-  if (window.innerWidth >= 576) {
+  if (window.innerWidth >= 768) {
     expanded.value = true;
   } else {
     if (!header || !nav || isLargeScreen.value) {

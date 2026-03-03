@@ -33,7 +33,7 @@ defineProps({
 </script>
 
 <style lang="css">
-.locale {
+ul.dropdown .locale {
   align-items: center;
   display: flex;
   gap: 0.5rem;
