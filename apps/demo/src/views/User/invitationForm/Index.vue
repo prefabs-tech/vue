@@ -1,5 +1,6 @@
 <template>
   <UserPage
+    :subtitle="$t('user.subtitle.invitationForm')"
     :title="$t('user.label.invitationForm')"
     class="demo-invitation-form"
   >
@@ -196,14 +197,50 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'InvitationFormProperties' })
+      "
+    />
+
+    <section>
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        interface InvitationAppOption {
+          id: number;
+          label?: string;
+          name: string;
+          origin: string;
+          supportedRoles: InvitationRoleOption[];
+        }
+
+        interface InvitationPayload {
+          appId?: number;
+          email: string;
+          expiresAt?: Date | string;
+          role?: string;
+        }
+
+        interface InvitationRoleOption {
+          id: number;
+          name: string;
+        }
+      </SshPre>
+      <!-- eslint-enable -->
+    </section>
   </UserPage>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { InvitationForm } from "@prefabs.tech/vue3-user";
+import { computed } from "vue";
 import { toast } from "vue3-toastify";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UserPage from "../UserPage.vue";
 
 import type { InvitationPayload } from "@prefabs.tech/vue3-user";
@@ -253,6 +290,92 @@ const apps = [
     ],
   },
 ];
+
+const eventsData = computed(() => [
+  {
+    description: t("user.documentation.eventDescription.invitationForm.cancel"),
+    name: "cancel",
+    payload: "-",
+  },
+  {
+    description: t(
+      "user.documentation.eventDescription.invitationForm.submitted",
+    ),
+    name: "submitted",
+    payload: "-",
+  },
+]);
+
+const propsData = computed(() => [
+  {
+    default: "-",
+    description: t("user.documentation.propsDescription.invitationForm.apps"),
+    prop: "apps",
+    type: "Array<InvitationAppOption>",
+  },
+  {
+    default: "z.coerce.number().gte(1)",
+    description: t(
+      "user.documentation.propsDescription.invitationForm.appSchema",
+    ),
+    prop: "appSchema",
+    type: "z.ZodType<string | number | string[] | number[]>",
+  },
+  {
+    default: "z.coerce.number().gte(1)",
+    description: t(
+      "user.documentation.propsDescription.invitationForm.expiresAfterSchema",
+    ),
+    prop: "expiresAfterSchema",
+    type: "z.ZodType<string | number>",
+  },
+  {
+    default: "z.coerce.date().min(new Date(new Date().setHours(0,0,0,0)))",
+    description: t(
+      "user.documentation.propsDescription.invitationForm.expiresAtSchema",
+    ),
+    prop: "expiresAtSchema",
+    type: "z.ZodType<string | number | Date | object>",
+  },
+  {
+    default: "-",
+    description: t(
+      "user.documentation.propsDescription.invitationForm.expiryMode",
+    ),
+    prop: "expiryMode",
+    type: '"calendar" | "days"',
+  },
+  {
+    default: "-",
+    description: t(
+      "user.documentation.propsDescription.invitationForm.invitationData",
+    ),
+    prop: "invitationData",
+    type: "InvitationPayload",
+  },
+  {
+    default: "-",
+    description: t("user.documentation.propsDescription.invitationForm.roles"),
+    prop: "roles",
+    type: "Array<InvitationRoleOption>",
+  },
+  {
+    default: "z.string()",
+    description: t(
+      "user.documentation.propsDescription.invitationForm.roleSchema",
+    ),
+    prop: "roleSchema",
+    type: "z.ZodType<string | number | string[] | number[]>",
+  },
+  {
+    default: '"Invite user"',
+    description: t(
+      "user.documentation.propsDescription.invitationForm.submitLabel",
+    ),
+    prop: "submitLabel",
+    type: "String",
+  },
+]);
 
 const onSubmit = (formData: InvitationPayload) => {
   toast(t("user.message.invitation.success", { user: formData.email }), {
