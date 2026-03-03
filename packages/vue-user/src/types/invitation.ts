@@ -19,22 +19,22 @@ interface Invitation {
 
 interface InvitationAppOption {
   id: number;
+  label?: string;
   name: string;
   origin: string;
   supportedRoles: InvitationRoleOption[];
-  label?: string;
 }
 
 interface InvitationPayload {
-  email: string;
-  role?: string;
   appId?: number;
+  email: string;
   expiresAt?: Date | string;
+  role?: string;
 }
 
 interface InvitationRoleOption {
-  name: string;
   id: number;
+  name: string;
 }
 
 export type {
