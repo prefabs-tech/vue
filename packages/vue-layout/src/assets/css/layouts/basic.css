@@ -32,6 +32,7 @@
 
 .layout.basic > header {
   grid-area: header;
+  flex-direction: row-reverse;
 }
 
 .layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {
@@ -63,7 +64,25 @@
   overflow-y: auto;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
+  .layout.basic > header {
+    flex-direction: row;
+  }
+
+  .layout.basic > header > nav {
+    align-items: center;
+    background: var(--_layout-header-bg);
+    display: flex;
+    flex-direction: row;
+    gap: var(--_layout-header-gap);
+    height: auto !important;
+    max-width: none;
+    padding: 0;
+    position: unset;
+    transform: none;
+    transition: none;
+  }
+
   .layout.basic nav.user-menu-dropdown > ul.dropdown,
   .layout.basic nav.locale-switcher > ul.dropdown
   {
@@ -71,11 +90,17 @@
   }
 
   .layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {
-    --locale-switcher-width: 10rem;
+    --locale-switcher-width: 8rem;
   }
 
   .layout.basic nav.locale-switcher>.locale-trigger {
     --locale-switcher-padding-h: 1rem;
     --locale-switcher-padding-v: var(--layout-nav-item-padding-v, .625rem);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {
+    --locale-switcher-width: 10rem;
   }
 }

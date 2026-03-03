@@ -91,17 +91,16 @@
     position: relative;
   }
 
-  .layout > header > nav {
+  .layout:not(.basic) > header > nav {
     align-items: center;
-    display: flex;
     background: var(--_layout-header-bg);
-    gap: var(--_layout-header-gap);
+    display: flex;
     flex-direction: row;
+    gap: var(--_layout-header-gap);
     height: auto !important;
-    padding: 0;
-    position: unset;
     max-width: none;
     padding: 0;
+    position: unset;
     transform: none;
     transition: none;
   }

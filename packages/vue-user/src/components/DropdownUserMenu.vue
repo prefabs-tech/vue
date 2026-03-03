@@ -241,7 +241,7 @@ nav.user-menu-dropdown > ul.dropdown > li i {
   padding: 0.2rem;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
   nav.user-menu-dropdown > .trigger {
     --_padding-h: 1rem;
     --_padding-v: 0.625rem;

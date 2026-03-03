@@ -11,7 +11,7 @@
   --layout-sidebar-separator-color: var(--border-color, #e5e7eb);
   --layout-sidebar-width: 16rem;
 
-  --layout-nav-item-padding-h: 2rem;
+  --layout-nav-item-padding-h: 1.5rem;
   --layout-nav-item-padding-v: 0.5rem;
   --layout-nav-menu-padding-h: 0;
   --layout-nav-menu-padding-v: 1rem;
@@ -28,11 +28,12 @@
   --layout-header-logo-max-width: var(--layout-logo-max-width);
   --layout-header-max-width: 1920px;
   --layout-header-padding-h: var(--layout-main-padding-h, 1rem);
-  --layout-header-padding-v: 0.5rem;
+  --layout-header-padding-v: 0.75rem;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
   :root {
+    --layout-header-gap: 1.5rem;
     --layout-main-padding-h: 2rem;
     --layout-main-padding-v: 1.25rem;
 

@@ -2,7 +2,7 @@
   --_padding-h: var(--nav-item-padding-h, 1rem);
   --_padding-v: var(--nav-item-padding-v, .5rem);
 
-  display: block;
+  display: none;
   padding: var(--_padding-v) var(--_padding-h);
 }
 
@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 1024px) {
   .layout header .addon {
     display: block;
   }

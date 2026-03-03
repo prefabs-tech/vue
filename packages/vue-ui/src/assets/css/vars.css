@@ -53,7 +53,7 @@
   --nav-item-color: var(--color);
   --nav-item-hover-bg: var(--hover-bg);
   --nav-item-hover-color: var(--hover-color);
-  --nav-item-padding-h: 2rem;
+  --nav-item-padding-h: 1.5rem;
   --nav-item-padding-v: 0.5rem;
   --nav-menu-label-color: var(--color);
   --nav-menu-padding-h: 0;
