@@ -1,5 +1,6 @@
 <template>
   <UserPage
+    :subtitle="$t('user.subtitle.invitationModal')"
     :title="$t('user.label.invitationModal')"
     class="demo-invitation-modal"
   >
@@ -12,11 +13,7 @@
           @click="showModal = true"
         />
 
-        <InvitationModal
-          :show="showModal"
-          @on:close="showModal = false"
-          @submit="onSubmit"
-        />
+        <InvitationModal :show="showModal" @on:close="showModal = false" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
@@ -29,7 +26,6 @@
             &lt;InvitationModal
               :show="showModal"
               @on:close="showModal = false"
-              @submit="onSubmit"
             /&gt;
           &lt;/template&gt;
 
@@ -37,16 +33,8 @@
           import { ButtonElement } from "@prefabs.tech/vue3-ui";
           import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-
-            showModal.value = false;
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -66,7 +54,6 @@
           :show="showTitleModal"
           :title="$t('user.label.invite')"
           @on:close="showTitleModal = false"
-          @submit="onSubmit"
         />
 
         <!-- eslint-disable -->
@@ -81,7 +68,6 @@
               :show="showModal"
               title="Invite"
               @on:close="showModal = false"
-              @submit="onSubmit"
             /&gt;
           &lt;/template&gt;
 
@@ -89,16 +75,8 @@
           import { ButtonElement } from "@prefabs.tech/vue3-ui";
           import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-
-            showModal.value = false;
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -119,7 +97,6 @@
           :title="$t('user.label.inviteUser')"
           dismiss-on-click-out
           @on:close="showDisableDismissModal = false"
-          @submit="onSubmit"
         />
 
         <!-- eslint-disable -->
@@ -135,7 +112,6 @@
               dismiss-on-click-out
               title="Invite user"
               @on:close="showModal = false"
-              @submit="onSubmit"
             /&gt;
           &lt;/template&gt;
 
@@ -143,16 +119,8 @@
           import { ButtonElement } from "@prefabs.tech/vue3-ui";
           import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-
-            showModal.value = false;
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -173,7 +141,6 @@
           :show="showAppFieldModal"
           :title="$t('user.label.inviteToApp')"
           @on:close="showAppFieldModal = false"
-          @submit="onSubmit"
         />
 
         <!-- eslint-disable -->
@@ -189,7 +156,6 @@
               :show="showModal"
               title="Invite to app"
               @on:close="showModal = false"
-              @submit="onSubmit"
             /&gt;
           &lt;/template&gt;
 
@@ -197,8 +163,6 @@
           import { ButtonElement } from "@prefabs.tech/vue3-ui";
           import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
@@ -230,12 +194,6 @@
               ],
             },
           ];
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-
-            showModal.value = false;
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -256,7 +214,6 @@
           :show="showRoleFieldModal"
           :title="$t('user.label.inviteWithRole')"
           @on:close="showRoleFieldModal = false"
-          @submit="onSubmit"
         />
 
         <!-- eslint-disable -->
@@ -272,7 +229,6 @@
               :show="showModal"
               title="Invite with role"
               @on:close="showModal = false"
-              @submit="onSubmit"
             /&gt;
           &lt;/template&gt;
 
@@ -280,8 +236,6 @@
           import { ButtonElement } from "@prefabs.tech/vue3-ui";
           import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
@@ -299,10 +253,6 @@
               name: "USER",
             },
           ];
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -324,7 +274,6 @@
           :title="$t('user.label.inviteWithExpiry')"
           expiry-mode="calendar"
           @on:close="showExpiryFieldModal = false"
-          @submit="onSubmit"
         />
 
         <!-- eslint-disable -->
@@ -341,7 +290,6 @@
               expiry-mode="calendar"
               title="Invite with expiry date"
               @on:close="showModal = false"
-              @submit="onSubmit"
             /&gt;
           &lt;/template&gt;
 
@@ -349,18 +297,12 @@
           import { ButtonElement } from "@prefabs.tech/vue3-ui";
           import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
           const roles = [
             ...
           ];
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -382,7 +324,6 @@
           :title="$t('user.label.inviteWithExpiry')"
           expiry-mode="days"
           @on:close="showExpiryDaysModal = false"
-          @submit="onSubmit"
         />
 
         <!-- eslint-disable -->
@@ -399,7 +340,6 @@
               expiry-mode="days"
               title="Invite with expiry date"
               @on:close="showModal = false"
-              @submit="onSubmit"
             /&gt;
           &lt;/template&gt;
 
@@ -407,22 +347,50 @@
           import { ButtonElement } from "@prefabs.tech/vue3-ui";
           import { InvitationModal } from "@prefabs.tech/vue3-user";
           import { ref } from "vue";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
           
           const showModal = ref(false);
 
           const roles = [
             ...
           ];
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
       </div>
+    </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'InvitationModalProperties' })
+      "
+    />
+
+    <section>
+      <!-- eslint-disable -->
+      <SshPre language="html-vue">
+        interface InvitationAppOption {
+          id: number;
+          label?: string;
+          name: string;
+          origin: string;
+          supportedRoles: InvitationRoleOption[];
+        }
+
+        interface InvitationPayload {
+          appId?: number;
+          email: string;
+          expiresAt?: Date | string;
+          role?: string;
+        }
+
+        interface InvitationRoleOption {
+          id: number;
+          name: string;
+        }
+      </SshPre>
+      <!-- eslint-enable -->
     </section>
   </UserPage>
 </template>
@@ -431,12 +399,10 @@
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { InvitationModal } from "@prefabs.tech/vue3-user";
-import { ref } from "vue";
-import { toast } from "vue3-toastify";
+import { computed, ref } from "vue";
 
 import UserPage from "./UserPage.vue";
-
-import type { InvitationPayload } from "@prefabs.tech/vue3-user";
+import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
 
 const { t } = useI18n();
 
@@ -492,17 +458,101 @@ const apps = [
   },
 ];
 
-const onSubmit = (formData: InvitationPayload) => {
-  toast(t("user.message.invitation.success", { user: formData.email }), {
-    type: "success",
-  });
+const eventsData = computed(() => [
+  {
+    description: t("user.documentation.eventDescription.invitation.close"),
+    name: "on:close",
+    payload: "-",
+  },
+  {
+    description: t("user.documentation.eventDescription.invitation.submitted"),
+    name: "submitted",
+    payload: "-",
+  },
+]);
 
-  showAppFieldModal.value = false;
-  showDisableDismissModal.value = false;
-  showExpiryDaysModal.value = false;
-  showExpiryFieldModal.value = false;
-  showModal.value = false;
-  showRoleFieldModal.value = false;
-  showTitleModal.value = false;
-};
+const propsData = computed(() => [
+  {
+    default: "-",
+    description: t("user.documentation.propsDescription.invitation.apps"),
+    prop: "apps",
+    type: "Array<InvitationAppOption>",
+  },
+  {
+    default: "-",
+    description: t("user.documentation.propsDescription.invitation.appSchema"),
+    prop: "appSchema",
+    type: "z.ZodType<string | number | string[] | number[]>",
+  },
+  {
+    default: "false",
+    description: t(
+      "user.documentation.propsDescription.invitation.dismissOnClickOut",
+    ),
+    prop: "dismissOnClickOut",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t(
+      "user.documentation.propsDescription.invitation.expiresAfterSchema",
+    ),
+    prop: "expiresAfterSchema",
+    type: "z.ZodType<string | number>",
+  },
+  {
+    default: "-",
+    description: t(
+      "user.documentation.propsDescription.invitation.expiresAtSchema",
+    ),
+    prop: "expiresAtSchema",
+    type: "z.ZodType<string | number | Date | object>",
+  },
+  {
+    default: "-",
+    description: t("user.documentation.propsDescription.invitation.expiryMode"),
+    prop: "expiryMode",
+    type: '"calendar" | "days"',
+  },
+  {
+    default: "-",
+    description: t(
+      "user.documentation.propsDescription.invitation.invitationData",
+    ),
+    prop: "invitationData",
+    type: "InvitationPayload",
+  },
+  {
+    default: "-",
+    description: t("user.documentation.propsDescription.invitation.roles"),
+    prop: "roles",
+    type: "Array<InvitationRoleOption>",
+  },
+  {
+    default: "-",
+    description: t("user.documentation.propsDescription.invitation.roleSchema"),
+    prop: "roleSchema",
+    type: "z.ZodType<string | number | string[] | number[]>",
+  },
+  {
+    default: "false",
+    description: t("user.documentation.propsDescription.invitation.show"),
+    prop: "show",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: t(
+      "user.documentation.propsDescription.invitation.submitLabel",
+    ),
+    prop: "submitLabel",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("user.documentation.propsDescription.invitation.title"),
+    prop: "title",
+    type: "String",
+  },
+]);
 </script>
