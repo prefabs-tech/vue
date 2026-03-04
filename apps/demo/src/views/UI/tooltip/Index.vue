@@ -263,6 +263,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "TooltipDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { ButtonElement, Tooltip } from "@prefabs.tech/vue3-ui";
 

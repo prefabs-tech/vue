@@ -44,6 +44,12 @@
   </UserPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "UsersTableDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { UsersTable } from "@prefabs.tech/vue3-user";
 

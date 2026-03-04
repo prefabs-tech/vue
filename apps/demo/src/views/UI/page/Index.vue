@@ -332,6 +332,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "PageDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import {

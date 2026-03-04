@@ -153,7 +153,7 @@
 
 <script lang="ts">
 export default {
-  name: "FilesTable",
+  name: "FilesTableDemo",
 };
 </script>
 

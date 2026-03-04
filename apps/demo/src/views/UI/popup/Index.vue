@@ -235,6 +235,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "PopupDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { ButtonElement, Popup } from "@prefabs.tech/vue3-ui";
 

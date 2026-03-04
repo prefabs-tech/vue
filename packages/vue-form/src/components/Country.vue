@@ -17,6 +17,12 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: "CountryDisplay",
+};
+</script>
+
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 

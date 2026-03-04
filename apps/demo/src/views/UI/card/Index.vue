@@ -146,6 +146,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "CardDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { Card } from "@prefabs.tech/vue3-ui";
 

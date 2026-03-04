@@ -60,7 +60,7 @@
 
 <script lang="ts">
 export default {
-  name: "Page",
+  name: "PageComponent",
 };
 </script>
 

@@ -117,6 +117,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "DividerDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { Divider } from "@prefabs.tech/vue3-ui";
 

@@ -387,6 +387,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "ModalDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { Email, Form, FormActions, Password } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";

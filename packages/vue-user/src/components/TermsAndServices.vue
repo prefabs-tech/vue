@@ -8,6 +8,12 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: "TermsAndServices",
+};
+</script>
+
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { computed } from "vue";

@@ -107,7 +107,7 @@
 
 <script lang="ts">
 export default {
-  name: "EmailInputField",
+  name: "EditableContentDemo",
 };
 </script>
 

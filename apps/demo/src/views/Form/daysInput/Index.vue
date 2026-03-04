@@ -196,7 +196,7 @@
 
 <script lang="ts">
 export default {
-  name: "DaysInput",
+  name: "DaysInputDemo",
 };
 </script>
 

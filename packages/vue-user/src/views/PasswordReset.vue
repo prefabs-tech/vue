@@ -16,7 +16,7 @@
 
 <script lang="ts">
 export default {
-  name: "PasswordReset",
+  name: "PasswordResetPage",
 };
 </script>
 

@@ -233,7 +233,7 @@
 
 <script lang="ts">
 export default {
-  name: "MultiSelect",
+  name: "SelectElement",
 };
 </script>
 

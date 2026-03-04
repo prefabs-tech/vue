@@ -447,6 +447,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "StepperDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { TextInput, NumberInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";

@@ -418,7 +418,7 @@
 
 <script lang="ts">
 export default {
-  name: "TableFilters",
+  name: "TableFiltersDemo",
 };
 </script>
 

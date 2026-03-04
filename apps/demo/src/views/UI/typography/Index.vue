@@ -51,7 +51,7 @@
 
 <script lang="ts">
 export default {
-  name: "TypographyPage",
+  name: "TypographyDemo",
 };
 </script>
 

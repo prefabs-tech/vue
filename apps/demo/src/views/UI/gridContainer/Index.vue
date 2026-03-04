@@ -68,6 +68,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "GridContainerDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { Card, GridContainer } from "@prefabs.tech/vue3-ui";
 

@@ -555,6 +555,12 @@
   </FormPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "CountryPickerDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { CountryPicker } from "@prefabs.tech/vue3-form";
 import { reactive } from "vue";

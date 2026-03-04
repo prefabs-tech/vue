@@ -221,7 +221,7 @@
 
 <script lang="ts">
 export default {
-  name: "FilesPresentation",
+  name: "FilesPresentationDemo",
 };
 </script>
 

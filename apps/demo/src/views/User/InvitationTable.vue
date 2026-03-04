@@ -64,6 +64,12 @@
   </UserPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "InvitationTableDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { InvitationTable } from "@prefabs.tech/vue3-user";
 

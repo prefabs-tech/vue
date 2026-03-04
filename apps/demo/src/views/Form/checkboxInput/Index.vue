@@ -252,7 +252,7 @@
 
 <script lang="ts">
 export default {
-  name: "CheckboxInput",
+  name: "CheckboxInputDemo",
 };
 </script>
 

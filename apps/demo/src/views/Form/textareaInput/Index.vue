@@ -310,7 +310,7 @@
 
 <script lang="ts">
 export default {
-  name: "TextareaInputField",
+  name: "TextareaInputDemo",
 };
 </script>
 

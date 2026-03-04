@@ -147,6 +147,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "DataDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import { Data, GridContainer } from "@prefabs.tech/vue3-ui";

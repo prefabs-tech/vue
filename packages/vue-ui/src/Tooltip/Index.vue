@@ -26,7 +26,7 @@
 
 <script lang="ts">
 export default {
-  name: "Tooltip",
+  name: "TooltipComponent",
 };
 </script>
 
