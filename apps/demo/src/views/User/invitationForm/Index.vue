@@ -8,22 +8,16 @@
       <h2>{{ $t("user.label.basic") }}</h2>
 
       <div class="section-content">
-        <InvitationForm @submit="onSubmit" />
+        <InvitationForm />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;InvitationForm @submit="onSubmit" /&gt;
+            &lt;InvitationForm /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { InvitationForm } from "@prefabs.tech/vue3-user";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -34,18 +28,16 @@
       <h2>{{ $t("user.label.withAppField") }}</h2>
 
       <div class="section-content">
-        <InvitationForm :apps="apps" @submit="onSubmit" />
+        <InvitationForm :apps="apps" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;InvitationForm :apps="apps" @submit="onSubmit" /&gt;
+            &lt;InvitationForm :apps="apps" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { InvitationForm } from "@prefabs.tech/vue3-user";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
           const apps = [
             {
@@ -75,10 +67,6 @@
               ],
             },
           ];
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -89,18 +77,16 @@
       <h2>{{ $t("user.label.withRoleField") }}</h2>
 
       <div class="section-content">
-        <InvitationForm :roles="roles" @submit="onSubmit" />
+        <InvitationForm :roles="roles" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;InvitationForm :roles="roles" @submit="onSubmit" /&gt;
+            &lt;InvitationForm :roles="roles" /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { InvitationForm } from "@prefabs.tech/vue3-user";
-
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
           const roles = [
             {
@@ -116,10 +102,6 @@
               name: "USER",
             },
           ];
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -130,11 +112,7 @@
       <h2>{{ $t("user.label.withExpiryDate") }}</h2>
 
       <div class="section-content">
-        <InvitationForm
-          :roles="roles"
-          expiry-mode="calendar"
-          @submit="onSubmit"
-        />
+        <InvitationForm :roles="roles" expiry-mode="calendar" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
@@ -142,22 +120,15 @@
             &lt;InvitationForm
               :roles="roles"
               expiry-mode="calendar"
-              @submit="onSubmit"
             /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { InvitationForm } from "@prefabs.tech/vue3-user";
 
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
-
           const roles = [
             ...
           ];
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -168,7 +139,7 @@
       <h2>{{ $t("user.label.withExpiryDays") }}</h2>
 
       <div class="section-content">
-        <InvitationForm :roles="roles" expiry-mode="days" @submit="onSubmit" />
+        <InvitationForm :roles="roles" expiry-mode="days" />
 
         <!-- eslint-disable -->
         <SshPre language="html-vue">
@@ -176,22 +147,15 @@
             &lt;InvitationForm
               :roles="roles"
               expiry-mode="days"
-              @submit="onSubmit"
             /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
           import { InvitationForm } from "@prefabs.tech/vue3-user";
 
-          import type { InvitationPayload } from "@prefabs.tech/vue3-user";
-
           const roles = [
             ...
           ];
-
-          const onSubmit = (formData: InvitationPayload) => {
-            ...
-          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -238,12 +202,9 @@
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { InvitationForm } from "@prefabs.tech/vue3-user";
 import { computed } from "vue";
-import { toast } from "vue3-toastify";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UserPage from "../UserPage.vue";
-
-import type { InvitationPayload } from "@prefabs.tech/vue3-user";
 
 const { t } = useI18n();
 
@@ -293,14 +254,12 @@ const apps = [
 
 const eventsData = computed(() => [
   {
-    description: t("user.documentation.eventDescription.invitationForm.cancel"),
+    description: t("user.documentation.eventDescription.invitation.cancel"),
     name: "cancel",
     payload: "-",
   },
   {
-    description: t(
-      "user.documentation.eventDescription.invitationForm.submitted",
-    ),
+    description: t("user.documentation.eventDescription.invitation.submitted"),
     name: "submitted",
     payload: "-",
   },
@@ -309,22 +268,20 @@ const eventsData = computed(() => [
 const propsData = computed(() => [
   {
     default: "-",
-    description: t("user.documentation.propsDescription.invitationForm.apps"),
+    description: t("user.documentation.propsDescription.invitation.apps"),
     prop: "apps",
     type: "Array<InvitationAppOption>",
   },
   {
     default: "z.coerce.number().gte(1)",
-    description: t(
-      "user.documentation.propsDescription.invitationForm.appSchema",
-    ),
+    description: t("user.documentation.propsDescription.invitation.appSchema"),
     prop: "appSchema",
     type: "z.ZodType<string | number | string[] | number[]>",
   },
   {
     default: "z.coerce.number().gte(1)",
     description: t(
-      "user.documentation.propsDescription.invitationForm.expiresAfterSchema",
+      "user.documentation.propsDescription.invitation.expiresAfterSchema",
     ),
     prop: "expiresAfterSchema",
     type: "z.ZodType<string | number>",
@@ -332,54 +289,44 @@ const propsData = computed(() => [
   {
     default: "z.coerce.date().min(new Date(new Date().setHours(0,0,0,0)))",
     description: t(
-      "user.documentation.propsDescription.invitationForm.expiresAtSchema",
+      "user.documentation.propsDescription.invitation.expiresAtSchema",
     ),
     prop: "expiresAtSchema",
     type: "z.ZodType<string | number | Date | object>",
   },
   {
     default: "-",
-    description: t(
-      "user.documentation.propsDescription.invitationForm.expiryMode",
-    ),
+    description: t("user.documentation.propsDescription.invitation.expiryMode"),
     prop: "expiryMode",
     type: '"calendar" | "days"',
   },
   {
     default: "-",
     description: t(
-      "user.documentation.propsDescription.invitationForm.invitationData",
+      "user.documentation.propsDescription.invitation.invitationData",
     ),
     prop: "invitationData",
     type: "InvitationPayload",
   },
   {
     default: "-",
-    description: t("user.documentation.propsDescription.invitationForm.roles"),
+    description: t("user.documentation.propsDescription.invitation.roles"),
     prop: "roles",
     type: "Array<InvitationRoleOption>",
   },
   {
     default: "z.string()",
-    description: t(
-      "user.documentation.propsDescription.invitationForm.roleSchema",
-    ),
+    description: t("user.documentation.propsDescription.invitation.roleSchema"),
     prop: "roleSchema",
     type: "z.ZodType<string | number | string[] | number[]>",
   },
   {
     default: '"Invite user"',
     description: t(
-      "user.documentation.propsDescription.invitationForm.submitLabel",
+      "user.documentation.propsDescription.invitation.submitLabel",
     ),
     prop: "submitLabel",
     type: "String",
   },
 ]);
-
-const onSubmit = (formData: InvitationPayload) => {
-  toast(t("user.message.invitation.success", { user: formData.email }), {
-    type: "success",
-  });
-};
 </script>

@@ -1,22 +1,26 @@
 {
   "documentation": {
     "eventDescription": {
-      "invitationForm": {
+      "invitation": {
         "cancel": "Emitted when the form is cancelled",
+        "close": "Emitted when the modal is closed (via close button, cancel, or click-out)",
         "submitted": "Emitted when the invitation is successfully submitted"
       }
     },
     "propsDescription": {
-      "invitationForm": {
+      "invitation": {
         "apps": "List of available applications for invitation",
         "appSchema": "Zod validation schema for app selection",
+        "dismissOnClickOut": "Whether to close the modal when clicking outside",
         "expiresAfterSchema": "Zod validation schema for days-based expiration",
         "expiresAtSchema": "Zod validation schema for calendar-based expiration",
         "expiryMode": "Expiration input mode: calendar date picker or days input",
         "invitationData": "Initial data to populate the form",
         "roles": "List of available roles for invitation",
         "roleSchema": "Zod validation schema for role selection",
-        "submitLabel": "Custom label for the submit button"
+        "show": "Control visibility of the modal",
+        "submitLabel": "Custom label for the submit button",
+        "title": "Title text displayed in the modal header"
       }
     }
   },
@@ -46,7 +50,8 @@
     "withTitle": "With title"
   },
   "subtitle": {
-    "invitationForm": "Invitation form is a comprehensive form component for sending user invitations with support for app selection, role assignment, and expiration settings."
+    "invitationForm": "Invitation form is a comprehensive form component for sending user invitations with support for app selection, role assignment, and expiration settings.",
+    "invitationModal": "Invitation modal is a dialog component that wraps the invitation form in a modal overlay for sending user invitations."
   },
   "title": "User library"
 }
