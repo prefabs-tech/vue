@@ -1,0 +1,1 @@
+import{_ as e}from"./LayoutPage.vue_vue_type_style_index_0_lang-D_sLLB_C.js";import{d as o,o as a,e as n}from"./index-CFIu6tXg.js";const _={name:"LayoutView"},i=o({..._,setup(r){return(t,s)=>(a(),n(e,{title:t.$t("layout.title")},null,8,["title"]))}});export{i as default};
