@@ -23,7 +23,7 @@
 
 <script lang="ts">
 export default {
-  name: "UiPage",
+  name: "UIPage",
 };
 </script>
 

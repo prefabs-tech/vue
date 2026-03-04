@@ -22,7 +22,7 @@
 
 <script lang="ts">
 export default {
-  name: "Popup",
+  name: "PopupComponent",
 };
 </script>
 

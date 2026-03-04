@@ -265,7 +265,7 @@
 
 <script lang="ts">
 export default {
-  name: "TextInputField",
+  name: "TextInputDemo",
 };
 </script>
 

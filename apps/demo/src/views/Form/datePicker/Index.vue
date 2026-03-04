@@ -466,7 +466,7 @@
 
 <script lang="ts">
 export default {
-  name: "DatePickerInput",
+  name: "DatePickerDemo",
 };
 </script>
 

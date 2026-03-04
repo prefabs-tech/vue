@@ -223,6 +223,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "DropdownDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Dropdown } from "@prefabs.tech/vue3-ui";

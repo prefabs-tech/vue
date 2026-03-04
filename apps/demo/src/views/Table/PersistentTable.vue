@@ -97,7 +97,7 @@
 
 <script lang="ts">
 export default {
-  name: "PersistentTable",
+  name: "PersistentTableDemo",
 };
 </script>
 

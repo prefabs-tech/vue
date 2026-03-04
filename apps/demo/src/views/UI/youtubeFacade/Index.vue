@@ -103,6 +103,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "YoutubeFacadeDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { YoutubeFacade } from "@prefabs.tech/vue3-ui";
 

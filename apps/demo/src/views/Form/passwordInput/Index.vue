@@ -321,7 +321,7 @@
 
 <script lang="ts">
 export default {
-  name: "PasswordInputField",
+  name: "PasswordInputDemo",
 };
 </script>
 

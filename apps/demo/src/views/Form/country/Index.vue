@@ -344,6 +344,12 @@
   </FormPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "CountryDisplayDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { Country } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";

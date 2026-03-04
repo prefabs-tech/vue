@@ -53,6 +53,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "LoadingPageDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { ButtonElement, LoadingPage } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";

@@ -33,7 +33,7 @@
 
 <script lang="ts">
 export default {
-  name: "Message",
+  name: "MessageComponent",
 };
 </script>
 

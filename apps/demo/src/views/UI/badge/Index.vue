@@ -255,6 +255,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "BadgeDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { BadgeComponent } from "@prefabs.tech/vue3-ui";
 

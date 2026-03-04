@@ -71,6 +71,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "SortableListDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { SortableList } from "@prefabs.tech/vue3-ui";

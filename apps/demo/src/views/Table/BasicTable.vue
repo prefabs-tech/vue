@@ -1479,7 +1479,7 @@
 
 <script lang="ts">
 export default {
-  name: "SortableTable",
+  name: "TableDemo",
 };
 </script>
 

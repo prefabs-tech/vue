@@ -348,6 +348,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "ConfirmationModalDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, ConfirmationModal } from "@prefabs.tech/vue3-ui";

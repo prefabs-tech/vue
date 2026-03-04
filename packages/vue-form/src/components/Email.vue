@@ -29,7 +29,7 @@
 
 <script lang="ts">
 export default {
-  name: "Email",
+  name: "EmailInput",
 };
 </script>
 

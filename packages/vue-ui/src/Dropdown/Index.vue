@@ -82,7 +82,7 @@
 
 <script lang="ts">
 export default {
-  name: "Dropdown",
+  name: "DropdownComponent",
 };
 </script>
 

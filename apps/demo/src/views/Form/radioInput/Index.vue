@@ -228,7 +228,7 @@
 
 <script lang="ts">
 export default {
-  name: "RadioInput",
+  name: "RadioInputDemo",
 };
 </script>
 

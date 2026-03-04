@@ -996,7 +996,7 @@
 
 <script lang="ts">
 export default {
-  name: "SelectInputField",
+  name: "SelectInputDemo",
 };
 </script>
 

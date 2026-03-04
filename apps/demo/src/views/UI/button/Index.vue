@@ -486,6 +486,12 @@
   </UiPage>
 </template>
 
+<script lang="ts">
+export default {
+  name: "ButtonDemo",
+};
+</script>
+
 <script setup lang="ts">
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";

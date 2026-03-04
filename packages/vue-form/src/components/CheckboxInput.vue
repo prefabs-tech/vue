@@ -41,6 +41,12 @@
   </fieldset>
 </template>
 
+<script lang="ts">
+export default {
+  name: "CheckboxInput",
+};
+</script>
+
 <script lang="ts" setup>
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";

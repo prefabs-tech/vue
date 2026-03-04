@@ -191,7 +191,7 @@
 
 <script lang="ts">
 export default {
-  name: "SwitchInput",
+  name: "SwitchInputDemo",
 };
 </script>
 

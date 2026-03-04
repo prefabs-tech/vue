@@ -14,7 +14,7 @@ const NullLayout = defineAsyncComponent({
 });
 
 export default {
-  name: "Layout",
+  name: "LayoutComponent",
 };
 </script>
 

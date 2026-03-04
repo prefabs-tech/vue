@@ -37,6 +37,12 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: "CountryPicker",
+};
+</script>
+
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 

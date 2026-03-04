@@ -129,7 +129,7 @@
 
 <script lang="ts">
 export default {
-  name: "StickyCollapsibleFooter",
+  name: "StickyCollapsibleFooterDemo",
 };
 </script>
 
