@@ -1164,9 +1164,7 @@ const propsData = computed(() => [
   },
   {
     default: "-",
-    description: t(
-      "form.documentation.propsDescription.selectInput.minSelection",
-    ),
+    description: t("form.documentation.propsDescription.select.minSelection"),
     prop: "minSelection",
     type: "Number",
   },
@@ -1219,22 +1217,20 @@ const propsData = computed(() => [
   {
     default: "true",
     description: t(
-      "form.documentation.propsDescription.selectInput.showRemoveSelection",
+      "form.documentation.propsDescription.select.showRemoveSelection",
     ),
     prop: "showRemoveSelection",
     type: "Boolean",
   },
   {
     default: "-",
-    description: t(
-      "form.documentation.propsDescription.selectInput.tooltipOptions",
-    ),
+    description: t("form.documentation.propsDescription.select.tooltipOptions"),
     prop: "tooltipOptions",
     type: "Object",
   },
   {
     default: "-",
-    description: t("form.documentation.propsDescription.selectInput.valueKey"),
+    description: t("form.documentation.propsDescription.select.valueKey"),
     prop: "valueKey",
     type: "String",
   },

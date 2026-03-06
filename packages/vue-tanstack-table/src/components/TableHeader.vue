@@ -157,7 +157,8 @@
               <NumberInput
                 :model-value="
                   Array.isArray(getColumnFilterValue(column)) &&
-                  getColumnFilterValue(column)[0] !== null
+                  getColumnFilterValue(column)[0] !== null &&
+                  getColumnFilterValue(column)[0] !== undefined
                     ? Number(getColumnFilterValue(column)[0])
                     : undefined
                 "
@@ -168,7 +169,8 @@
               <NumberInput
                 :model-value="
                   Array.isArray(getColumnFilterValue(column)) &&
-                  getColumnFilterValue(column)[1] !== null
+                  getColumnFilterValue(column)[1] !== null &&
+                  getColumnFilterValue(column)[1] !== undefined
                     ? Number(getColumnFilterValue(column)[1])
                     : undefined
                 "
@@ -252,12 +254,14 @@ const getFormattedDateRange = (dateRange: Date[]) => {
 
   return (dateRange as Date[])
     .map((date, index) => {
-      const day = String(date.getDate()).padStart(2, "0");
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      const time = index === 0 ? "00:00:00" : "23:59:59";
-      const year = date.getFullYear();
+      if (date) {
+        const day = String(date.getDate()).padStart(2, "0");
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const time = index === 0 ? "00:00:00" : "23:59:59";
+        const year = date.getFullYear();
 
-      return `${year}-${month}-${day} ${time}`;
+        return `${year}-${month}-${day} ${time}`;
+      }
     })
     .filter((date) => date !== null);
 };
