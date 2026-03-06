@@ -4,10 +4,10 @@
       "invitation": {
         "cancel": "Emitted when the form is cancelled[fr]",
         "close": "Emitted when the modal is closed (via close button, cancel, or click-out)[fr]",
+        "closeInvitation": "Emitted when the invitation modal is closed[fr]",
         "delete": "Emitted when delete action is confirmed for an invitation[fr]",
         "resend": "Emitted when resend action is confirmed for an invitation[fr]",
         "revoke": "Emitted when revoke action is confirmed for an invitation[fr]",
-        "closeInvitation": "Emitted when the invitation modal is closed[fr]",
         "updateRequest": "Emitted when table request parameters change (for server-side mode)[fr]",
         "submitted": "Emitted when the invitation is successfully submitted[fr]"
       }
