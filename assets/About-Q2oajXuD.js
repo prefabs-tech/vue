@@ -1,0 +1,1 @@
+import{_ as o,M as n,o as a,e as s}from"./index-BTg9-SpC.js";const c={name:"AboutPage"};function r(e,p,_,l,u,i){const t=n("Page");return a(),s(t,{title:e.$t("about.title")},null,8,["title"])}const m=o(c,[["render",r]]);export{m as default};
