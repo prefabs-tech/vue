@@ -6,11 +6,6 @@ import DatePicker from "../../DatePicker.vue";
 describe("DatePicker", () => {
   it("matches snapshot", () => {
     const wrapper = mount(DatePicker, {
-      global: {
-        stubs: {
-          VueDatePicker: true,
-        },
-      },
       props: {
         label: "Input",
         modelValue: "Thu Aug 29 2024",

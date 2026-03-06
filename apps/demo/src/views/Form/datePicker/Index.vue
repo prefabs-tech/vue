@@ -511,6 +511,14 @@ const propsData = [
     type: "Boolean",
   },
   {
+    default: "-",
+    description: t(
+      "form.documentation.propsDescription.datePicker.disabledWeekDays",
+    ),
+    prop: "disabledWeekDays",
+    type: "Array<number>",
+  },
+  {
     default: "false",
     description: t(
       "form.documentation.propsDescription.datePicker.enableTimePicker",

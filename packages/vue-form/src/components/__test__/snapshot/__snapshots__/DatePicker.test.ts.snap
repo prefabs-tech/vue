@@ -9,89 +9,74 @@ exports[`DatePicker > matches snapshot 1`] = `
       Input
     </span>
     
-    <vue-date-picker-stub
-      actionrow="[object Object]"
-      alwaysclearable="false"
-      arialabels="[object Object]"
-      arrownavigation="false"
-      autoapply="true"
-      autocomplete="off"
-      autoposition="true"
-      canceltext="Cancel"
-      class=""
-      clearable="true"
-      dark="false"
-      disabled="false"
-      disableddates=""
-      disabledweekdays=""
-      disablemonthyearselect="false"
-      disableyearselect="false"
-      enableminutes="true"
-      enableseconds="false"
-      enabletimepicker="false"
-      escclose="true"
-      filters="[object Object]"
-      flow=""
-      focusstartdate="false"
-      hideinputicon="false"
-      hidenavigation=""
-      hideoffsetdates="false"
-      hoursgridincrement="1"
-      hoursincrement="1"
-      ignoretimevalidation="false"
-      inline="false"
-      is24="true"
-      loading="false"
-      locale="en-Us"
-      markers=""
-      minutesgridincrement="5"
-      minutesincrement="1"
-      modelauto="false"
-      modelvalue="Thu Aug 29 2024"
-      monthchangeonarrows="true"
-      monthchangeonscroll="true"
-      monthnameformat="short"
-      monthpicker="false"
-      multidates="false"
+    <div
+      class="dp__main dp__theme_light"
+      data-datepicker-instance=""
+      data-dp-mobile="true"
       name="date"
-      nohoursoverlay="false"
-      nominutesoverlay="false"
-      nosecondsoverlay="false"
-      notoday="false"
-      nowbuttonlabel="Now"
-      offset="10"
-      partialflow="false"
-      placeholder="Placeholder"
-      position="center"
-      presetdates=""
-      preventminmaxnavigation="false"
-      previewformat=""
-      quarterpicker="false"
-      range="false"
-      required="false"
-      reverseyears="false"
-      secondsgridincrement="5"
-      secondsincrement="1"
-      selecttext="Select"
-      sixweeks="false"
-      spaceconfirm="true"
       tabindex="0"
-      teleportcenter="false"
-      textinput="false"
-      timepicker="false"
-      timepickerinline="false"
-      transitions="true"
-      ui="[object Object]"
-      utc="false"
-      value="Thu Aug 29 2024"
-      vertical="false"
-      weeknumname="W"
-      weekpicker="false"
-      weekstart="1"
-      yearfirst="false"
-      yearpicker="false"
-      yearrange="1900,2100"
-    />
+    >
+      <div>
+        
+        
+        <div
+          class="dp__input_wrap"
+        >
+          
+          <input
+            aria-label="Datepicker input"
+            autocomplete="off"
+            class="dp__pointer dp__input_readonly dp__input dp__input_icon_pad dp__input_reg"
+            data-test-id="dp-input"
+            inputmode="none"
+            placeholder="Placeholder"
+            value=""
+          />
+          
+          <div>
+            <!---->
+            <svg
+              aria-hidden="true"
+              class="dp__icon dp__input_icon dp__input_icons"
+              fill="currentColor"
+              role="img"
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M29.333 8c0-2.208-1.792-4-4-4h-18.667c-2.208 0-4 1.792-4 4v18.667c0 2.208 1.792 4 4 4h18.667c2.208 0 4-1.792 4-4v-18.667zM26.667 8v18.667c0 0.736-0.597 1.333-1.333 1.333 0 0-18.667 0-18.667 0-0.736 0-1.333-0.597-1.333-1.333 0 0 0-18.667 0-18.667 0-0.736 0.597-1.333 1.333-1.333 0 0 18.667 0 18.667 0 0.736 0 1.333 0.597 1.333 1.333z"
+              />
+              <path
+                d="M20 2.667v5.333c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v-5.333c0-0.736-0.597-1.333-1.333-1.333s-1.333 0.597-1.333 1.333z"
+              />
+              <path
+                d="M9.333 2.667v5.333c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v-5.333c0-0.736-0.597-1.333-1.333-1.333s-1.333 0.597-1.333 1.333z"
+              />
+              <path
+                d="M4 14.667h24c0.736 0 1.333-0.597 1.333-1.333s-0.597-1.333-1.333-1.333h-24c-0.736 0-1.333 0.597-1.333 1.333s0.597 1.333 1.333 1.333z"
+              />
+            </svg>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <!--teleport start-->
+      <div
+        class="dp--menu-wrapper dp__outer_menu_wrap"
+        style="position: absolute; left: 0px; top: 0px;"
+      >
+        <transition-stub
+          appear="false"
+          css="false"
+          name="dp-menu-appear-bottom"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+      </div>
+      <!--teleport end-->
+    </div>
     <!---->
     
   </label>
