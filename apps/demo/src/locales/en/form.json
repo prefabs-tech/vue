@@ -32,6 +32,7 @@
       },
       "datePicker": {
         "autoApply": "Automatically apply date selection without needing confirm button",
+        "disabledWeekDays": "An array of week day numbers (0-6) to disable in the date picker",
         "enableTimePicker": "Enable time selection in addition to date selection",
         "format": "Custom date format string (e.g: format=\"yyyy/MM/dd\")",
         "teleport": "Teleport the date picker dropdown to a specific element"

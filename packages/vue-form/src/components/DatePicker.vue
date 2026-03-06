@@ -11,7 +11,7 @@
       >
         <VueDatePicker
           ref="dzangolabVueDatePicker"
-          v-bind="{ ...filteredAttributes, ...field }"
+          v-bind="filteredAttributes"
           :auto-apply="autoApply"
           :class="[
             {
@@ -20,11 +20,13 @@
             },
           ]"
           :disabled="disabled"
-          :enable-time-picker="enableTimePicker"
-          :format="format"
+          :filters="{ weekDays: disabledWeekDays }"
+          :formats="{ input: format }"
           :model-value="modelValue"
           :placeholder="placeholder"
           :teleport="teleport"
+          :time-config="{ enableTimePicker }"
+          :name="field.name"
           tabindex="0"
           @update:model-value="onUpdate"
         />
@@ -42,7 +44,7 @@ export default {
 
 <script setup lang="ts">
 import { toTypedSchema } from "@vee-validate/zod";
-import VueDatePicker from "@vuepic/vue-datepicker";
+import { VueDatePicker } from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import { ErrorMessage, Field } from "vee-validate";
 import { computed, onBeforeUnmount, onMounted, ref, useAttrs } from "vue";
@@ -59,6 +61,10 @@ const props = defineProps({
   disabled: {
     default: false,
     type: Boolean,
+  },
+  disabledWeekDays: {
+    default: undefined,
+    type: Array as PropType<number[]>,
   },
   enableTimePicker: {
     default: false,
