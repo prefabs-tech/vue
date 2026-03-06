@@ -1,1 +1,0 @@
-import{_ as t}from"./UserPage.vue_vue_type_style_index_0_lang-ySjX3N3T.js";import{d as o,o as r,e as s}from"./index-taFQezeg.js";const a={name:"UserView"},l=o({...a,setup(n){return(e,_)=>(r(),s(t,{title:e.$t("user.title")},null,8,["title"]))}});export{l as default};

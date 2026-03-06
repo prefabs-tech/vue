@@ -1,1 +1,0 @@
-import{_ as t}from"./TablePage.vue_vue_type_style_index_0_lang-CG0IGsnF.js";import{d as a,o,e as n}from"./index-taFQezeg.js";const _={name:"TableView"},i=a({..._,setup(l){return(e,r)=>(o(),n(t,{title:e.$t("table.title")},null,8,["title"]))}});export{i as default};
