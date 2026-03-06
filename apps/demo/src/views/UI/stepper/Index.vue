@@ -457,7 +457,7 @@ export default {
 import { TextInput, NumberInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, Divider, Stepper } from "@prefabs.tech/vue3-ui";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
@@ -474,21 +474,6 @@ const formData = reactive({
   phone: null,
   price: "$50",
 });
-
-const eventsData = [
-  {
-    description: t("ui.stepper.documentation.eventDescription.complete"),
-    name: "complete",
-    payload: "-",
-  },
-  {
-    description: t(
-      "ui.stepper.documentation.eventDescription.updateActiveIndex",
-    ),
-    name: "update:activeIndex",
-    payload: "activeIndex: number",
-  },
-];
 
 const list = [
   {
@@ -519,7 +504,49 @@ const previousButtonProperties = {
   variant: "filled",
 };
 
-const propsData = [
+const steps = [
+  {
+    content: "Please enter your personal details",
+    label: "Personal",
+    step: 1,
+    subtitle: "Personal information",
+  },
+  {
+    content: "Please enter your contact details",
+    label: "Contact",
+    step: 2,
+    subtitle: "Contact information",
+  },
+  {
+    content: "Please enter your payment details",
+    label: "Payment",
+    step: 3,
+    subtitle: "Payment information",
+  },
+  {
+    content: "Confirm your details",
+    label: "Confirmation",
+    step: 4,
+    subtitle: "Confirm your details",
+  },
+];
+
+const eventsData = computed(() => [
+  {
+    description: t("ui.stepper.documentation.eventDescription.complete"),
+    name: "complete",
+    payload: "-",
+  },
+  {
+    description: t(
+      "ui.stepper.documentation.eventDescription.updateActiveIndex",
+    ),
+    name: "update:activeIndex",
+    payload: "activeIndex: number",
+  },
+]);
+
+const propsData = computed(() => [
   {
     default: "-",
     description: t("ui.stepper.documentation.propsDescription.activeIndex"),
@@ -528,7 +555,7 @@ const propsData = [
   },
   {
     default: "start",
-    description: t("ui.stepper.documentation.propsDescription.start"),
+    description: t("ui.stepper.documentation.propsDescription.align"),
     prop: "align",
     type: "start | center | end",
   },
@@ -562,41 +589,14 @@ const propsData = [
     prop: "steps",
     type: "Array<StepProperties>",
   },
-];
+]);
 
-const slotsData = [
+const slotsData = computed(() => [
   {
     description: t("ui.stepper.documentation.slotDescription.step"),
     name: "{step}",
   },
-];
-
-const steps = [
-  {
-    content: "Please enter your personal details",
-    label: "Personal",
-    step: 1,
-    subtitle: "Personal information",
-  },
-  {
-    content: "Please enter your contact details",
-    label: "Contact",
-    step: 2,
-    subtitle: "Contact information",
-  },
-  {
-    content: "Please enter your payment details",
-    label: "Payment",
-    step: 3,
-    subtitle: "Payment information",
-  },
-  {
-    content: "Confirm your details",
-    label: "Confirmation",
-    step: 4,
-    subtitle: "Confirm your details",
-  },
-];
+]);
 
 const onFinish = () => {
   router.push({ name: "ui" });

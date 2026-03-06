@@ -562,6 +562,7 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
             name: "date-range",
             placeholder: t("table.label.dateRange"),
             range: true,
+            teleport: true,
             "onUpdate:modelValue": (value) => {
               dateRange.value = value;
               column.setFilterValue(value);

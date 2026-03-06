@@ -81,7 +81,7 @@
         "flagsPath": "Custom function to resolve image paths for flags",
         "flagsPosition": "Position of the flags relative to the country name",
         "flagsStyle": "Shape of the flags to be displayed",
-        "hasSortedOption": "If true, the options will be sorted alphabetically.",
+        "hasSortedOptions": "If true, the options will be sorted alphabetically.",
         "include": "An array of country codes (e.g., ['US', 'DE']). Only these countries will be visible.",
         "includeFavorites": "If false, removes favorite items from the main list.",
         "labelKey": "The key to use for the label of the options",
