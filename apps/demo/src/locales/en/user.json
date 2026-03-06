@@ -4,23 +4,44 @@
       "invitation": {
         "cancel": "Emitted when the form is cancelled",
         "close": "Emitted when the modal is closed (via close button, cancel, or click-out)",
+        "delete": "Emitted when delete action is confirmed for an invitation",
+        "resend": "Emitted when resend action is confirmed for an invitation",
+        "revoke": "Emitted when revoke action is confirmed for an invitation",
+        "closeInvitation": "Emitted when the invitation modal is closed",
+        "updateRequest": "Emitted when table request parameters change (for server-side mode)",
         "submitted": "Emitted when the invitation is successfully submitted"
       }
     },
     "propsDescription": {
       "invitation": {
+        "appFilterOptions": "Predefined filter options for the app column",
         "apps": "List of available applications for invitation",
         "appSchema": "Zod validation schema for app selection",
+        "columnsData": "Custom column definitions to override default columns",
         "dismissOnClickOut": "Whether to close the modal when clicking outside",
         "expiresAfterSchema": "Zod validation schema for days-based expiration",
         "expiresAtSchema": "Zod validation schema for calendar-based expiration",
         "expiryMode": "Expiration input mode: calendar date picker or days input",
+        "id": "Unique identifier for the table instance",
+        "initialSorting": "Initial sorting state of the table",
         "invitationData": "Initial data to populate the form",
+        "invitationModalTitle": "Title for the invitation modal",
+        "invitations": "Array of invitation data to display",
+        "isLoading": "Show loading state while fetching invitations",
+        "isServerTable": "Enable server-side pagination, filtering, and sorting",
+        "persistState": "Persist table state (sorting, filters) across sessions",
+        "persistStateStorage": "Storage type for persisting table state",
+        "roleFilterOptions": "Predefined filter options for the role column",
         "roles": "List of available roles for invitation",
         "roleSchema": "Zod validation schema for role selection",
         "show": "Control visibility of the modal",
+        "showInviteAction": "Show or hide the invite user button",
+        "statutsFilterOptions": "Predefined filter options for the status column",
         "submitLabel": "Custom label for the submit button",
-        "title": "Title text displayed in the modal header"
+        "tableOptions": "Additional options to pass to the underlying Table component",
+        "title": "Title text displayed in the modal header",
+        "totalRecords": "Total number of records (for server-side pagination)",
+        "visibleColumns": "Array of column keys to show/hide columns"
       }
     }
   },
@@ -51,7 +72,8 @@
   },
   "subtitle": {
     "invitationForm": "Invitation form is a comprehensive form component for sending user invitations with support for app selection, role assignment, and expiration settings.",
-    "invitationModal": "Invitation modal is a dialog component that wraps the invitation form in a modal overlay for sending user invitations."
+    "invitationModal": "Invitation modal is a dialog component that wraps the invitation form in a modal overlay for sending user invitations.",
+    "invitationTable": "Invitation table is a comprehensive data table component for managing user invitations with filtering, sorting, actions, and an integrated invitation modal."
   },
   "title": "User library"
 }

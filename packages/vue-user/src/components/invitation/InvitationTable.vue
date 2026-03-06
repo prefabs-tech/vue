@@ -104,6 +104,8 @@ import type {
 } from "@prefabs.tech/vue3-tanstack-table";
 import type { PropType } from "vue";
 
+type TableProperties = InstanceType<typeof Table>["$props"];
+
 const props = defineProps({
   appFilterOptions: {
     default: () => [],
@@ -163,7 +165,7 @@ const props = defineProps({
     default: true,
     type: Boolean,
   },
-  statutsFilterOptions: {
+  statusFilterOptions: {
     default: () => [],
     type: Array as PropType<Array<FilterOption>>,
   },
@@ -173,7 +175,7 @@ const props = defineProps({
   },
   tableOptions: {
     default: () => ({}),
-    type: Object,
+    type: Object as PropType<TableProperties>,
   },
   totalRecords: {
     default: 0,
@@ -401,8 +403,8 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     meta: {
       filterVariant: "multiselect",
       filterOptions:
-        props.statutsFilterOptions.length > 0
-          ? props.statutsFilterOptions
+        props.statusFilterOptions.length > 0
+          ? props.statusFilterOptions
           : [
               {
                 label: t("user.invitation.table.status.accepted"),
