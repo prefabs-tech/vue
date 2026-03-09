@@ -2,10 +2,12 @@
   "documentation": {
     "eventDescription": {
       "invitation": {
+        "actionCustom": "Emitted when a custom action is triggered from the action menu",
         "cancel": "Emitted when the form is cancelled",
         "close": "Emitted when the modal is closed (via close button, cancel, or click-out)",
         "closeInvitation": "Emitted when the invitation modal is closed",
         "delete": "Emitted when delete action is confirmed for an invitation",
+        "fetchUsers": "Emitted after enabling/disabling a user to refresh the user list",
         "resend": "Emitted when resend action is confirmed for an invitation",
         "revoke": "Emitted when revoke action is confirmed for an invitation",
         "updateRequest": "Emitted when table request parameters change (for server-side mode)",
@@ -18,6 +20,7 @@
         "apps": "List of available applications for invitation",
         "appSchema": "Zod validation schema for app selection",
         "columnsData": "Custom column definitions to override default columns",
+        "dataActionMenu": "Custom action menu items or a function to modify the default action menu",
         "dismissOnClickOut": "Whether to close the modal when clicking outside",
         "expiresAfterSchema": "Zod validation schema for days-based expiration",
         "expiresAtSchema": "Zod validation schema for calendar-based expiration",
@@ -41,6 +44,7 @@
         "tableOptions": "Additional options to pass to the underlying Table component",
         "title": "Title text displayed in the modal header",
         "totalRecords": "Total number of records (for server-side pagination)",
+        "users": "Array of user data to display",
         "visibleColumns": "Array of column keys to show/hide columns"
       }
     }
@@ -73,7 +77,8 @@
   "subtitle": {
     "invitationForm": "Invitation form is a comprehensive form component for sending user invitations with support for app selection, role assignment, and expiration settings.",
     "invitationModal": "Invitation modal is a dialog component that wraps the invitation form in a modal overlay for sending user invitations.",
-    "invitationTable": "Invitation table is a comprehensive data table component for managing user invitations with filtering, sorting, actions, and an integrated invitation modal."
+    "invitationTable": "Invitation table is a comprehensive data table component for managing user invitations with filtering, sorting, actions, and an integrated invitation modal.",
+    "usersTable": "Users table is a comprehensive data table component for managing users with filtering, sorting, actions, and an integrated invitation modal."
   },
   "title": "User library"
 }

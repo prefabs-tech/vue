@@ -92,6 +92,8 @@ const { locale, t } = useI18n({ messages });
 const userStore = useUserStore();
 const { disableUser, enableUser } = userStore;
 
+type TableProperties = InstanceType<typeof Table>["$props"];
+
 const props = defineProps({
   apps: {
     default: () => [],
@@ -152,7 +154,7 @@ const props = defineProps({
   },
   tableOptions: {
     default: () => ({}),
-    type: Object,
+    type: Object as PropType<TableProperties>,
   },
   totalRecords: {
     default: 0,
