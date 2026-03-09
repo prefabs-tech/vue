@@ -446,7 +446,7 @@
           import { z } from "zod";
   
           const inputSchema = z
-            .date({ invalid_type_error: "Please provide a present or past date" })
+            .date({ error: "Please provide a present or past date" })
             .max(new Date(), { message: "Please provide a present or past date" });
           &lt;/script&gt;
         </SshPre>
@@ -482,7 +482,7 @@ import FormPage from "../FormPage.vue";
 const { t } = useI18n();
 
 const inputSchema = z
-  .date({ invalid_type_error: t("form.errors.datePicker.invalid") })
+  .date({ error: t("form.errors.datePicker.invalid") })
   .max(new Date(), { message: t("form.errors.datePicker.invalid") });
 
 const startDate = new Date();
