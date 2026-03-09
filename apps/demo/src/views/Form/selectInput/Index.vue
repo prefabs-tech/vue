@@ -950,7 +950,7 @@
           import { ref } from "vue";
 
           const inputSchema = z
-            .string({invalid_type_error: "Please select at least one valid option"})
+            .string({error: "Please select at least one valid option"})
             .array()
             .min(1, { message: "Please select at least one valid option" });
 
@@ -1090,7 +1090,7 @@ const eventsData = computed(() => [
 
 const inputSchema = computed(() =>
   z
-    .string({ invalid_type_error: t("form.errors.multiselect.invalid") })
+    .string({ error: t("form.errors.multiselect.invalid") })
     .array()
     .min(1, { message: t("form.errors.multiselect.invalid") }),
 );
