@@ -17,15 +17,14 @@ export type FileMessages = {
 };
 
 export interface IFile {
-  id: number | string;
-  originalFileName: string;
   description?: string;
-  size?: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  uploadedBy: any;
-  uploadedAt: number;
   downloadCount?: number;
+  id: number | string;
   lastDownloadedAt?: number;
+  originalFileName: string;
+  size?: number;
+  uploadedAt: number;
+  uploadedBy: Record<string, string>;
 }
 
 export type TableMessages = {

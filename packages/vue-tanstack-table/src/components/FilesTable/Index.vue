@@ -52,6 +52,8 @@ import type {
 import type { IFile, TableMessages } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
+type TableProperties = InstanceType<typeof Table>["$props"];
+
 const props = defineProps({
   archiveFile: Boolean,
   columnsData: {
@@ -62,10 +64,6 @@ const props = defineProps({
   deleteFile: Boolean,
   downloadFile: Boolean,
   editDescription: Boolean,
-  initialSorting: {
-    default: () => [],
-    type: Array as PropType<SortingState>,
-  },
   files: {
     default: () => [],
     type: Array as PropType<IFile[]>,
@@ -74,11 +72,19 @@ const props = defineProps({
     default: "files-table",
     type: String,
   },
+  initialSorting: {
+    default: () => [],
+    type: Array as PropType<SortingState>,
+  },
   isLoading: Boolean,
   isServerTable: Boolean,
   locale: {
     default: undefined,
     type: String,
+  },
+  messages: {
+    default: undefined,
+    type: Object as PropType<TableMessages>,
   },
   persistState: {
     default: true,
@@ -90,14 +96,10 @@ const props = defineProps({
     validator: (value: string) =>
       ["localStorage", "sessionStorage"].includes(value),
   },
-  messages: {
-    default: undefined,
-    type: Object as PropType<TableMessages>,
-  },
   shareFile: Boolean,
   tableOptions: {
     default: () => ({}),
-    type: Object,
+    type: Object as PropType<TableProperties>,
   },
   totalRecords: {
     default: 0,

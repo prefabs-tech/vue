@@ -1,6 +1,6 @@
 <template>
   <TablePage
-    :subtitle="$t('table.subtitle')"
+    :subtitle="$t('table.subtitle.base')"
     :title="$t('table.title')"
     class="demo data-table"
   >
