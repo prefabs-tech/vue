@@ -166,14 +166,14 @@
       <!-- eslint-disable -->
       <SshPre language="html-vue">
         interface IFile {
-          id: number | string;
-          originalFileName: string;
           description?: string;
-          size?: number;
-          uploadedBy: Record&lt;string&comma; string&gt;&semi;
-          uploadedAt: number;
           downloadCount?: number;
+          id: number | string;
           lastDownloadedAt?: number;
+          originalFileName: string;
+          size?: number;
+          uploadedAt: number;
+          uploadedBy: Record&lt;string&comma; string&gt;&semi;
         }
       </SshPre>
       <!-- eslint-enable -->
@@ -354,11 +354,6 @@ const propsData = computed(() => [
 
 const slotsData = computed(() => [
   {
-    description: t("table.documentation.slotDescription.toolbar"),
-    name: "toolbar",
-    props: "-",
-  },
-  {
     description: t("table.documentation.slotDescription.footer"),
     name: "footer",
     props: "-",
@@ -366,6 +361,11 @@ const slotsData = computed(() => [
   {
     description: t("table.documentation.slotDescription.pagination"),
     name: "pagination",
+    props: "-",
+  },
+  {
+    description: t("table.documentation.slotDescription.toolbar"),
+    name: "toolbar",
     props: "-",
   },
 ]);
