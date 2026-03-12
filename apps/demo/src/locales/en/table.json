@@ -1,22 +1,33 @@
 {
   "documentation": {
     "eventDescription": {
+      "actionArchive": "Emitted when archive action is selected on a file row",
+      "actionDelete": "Emitted when delete action is selected on a file row",
+      "actionDownload": "Emitted when download action is selected on a file row",
+      "actionEdit": "Emitted when edit action is selected on a file row",
       "actionSelect": "Emitted when a row action is selected with row data and action key",
+      "actionShare": "Emitted when share action is selected on a file row",
+      "actionView": "Emitted when view action is selected on a file row",
       "changeRowSelection": "Emitted when the selected rows change",
       "updateRequest": "Emitted when server-side data needs to be requested"
     },
     "propsDescription": {
       "actionsMode": "Controls how row actions are displayed",
+      "archiveFile": "Enables the archive action for file rows",
       "autoModeCount": "Count threshold for auto mode that determines when to switch from buttons mode to dropdown mode",
       "dataActionMenu": "List of actions properties available for each row",
       "columnActionButtonLabel": "Label for the action button in toolbar section for sorting and visibility toggle",
       "columnsData": "Column definitions for the table",
       "customFormatters": "Collection of custom formatting functions for cell values",
       "data": "Array of table row data",
+      "deleteFile": "Enables the delete action for file rows",
       "displayActions": "Controls whether row actions are displayed",
+      "downloadFile": "Enables the download action for file rows",
+      "editDescription": "Enables the edit description action for file rows",
       "emptyTableMessage": "Message shown when the table has no data",
       "enableRowSelection": "Enables row selection using checkboxes",
       "enableSortingRemoval": "Allows a column’s sort state to toggle between ascending, descending, and none",
+      "files": "Array of file objects to display in the table",
       "highlightActiveHeaderColumn": "Highlights the currently active column header",
       "id": "Unique identifier required for persisting table state",
       "initialFilters": "Initial filter configuration for columns",
@@ -25,6 +36,7 @@
       "isLoading": "Displays a loading overlay on the table",
       "isServerTable": "Enables server-side pagination, sorting, and filtering",
       "locale": "Locale used for formatting values",
+      "messages": "Custom messages for table empty state and action labels",
       "paginated": "Enables pagination for the table",
       "paginationOptions": "Additional pagination component properties",
       "persistState": "Persists table state across page reloads",
@@ -32,12 +44,14 @@
       "resetButtonLabel": "Label for the reset button",
       "rowPerPage": "Default number of rows per page",
       "rowPerPageOptions": "Available options for rows per page",
+      "shareFile": "Enables the share action for file rows",
       "showColumnAction": "Shows a button for column sorting and visibility controls in toolbar section",
       "showResetButton": "Shows reset button in the toolbar section",
       "tableOptions": "Additional table properties supported by the tanstack table",
       "titleInfo": "Configuration for table title’s text and alignment",
       "totalRecords": "Total number of records for table",
-      "visibleColumns": "Controls column’s visibility and order initially"
+      "viewFile": "Enables the view action for file rows",
+      "visibleColumns": "Controls column's visibility and order initially"
     },
     "slotDescription": {
       "toolbar": "Slot for custom additional toolbar content",
@@ -82,7 +96,10 @@
     "search": "Search",
     "status": "Select status"
   },
-  "subtitle": "The table component is a flexible and powerful solution for managing and displaying tabular data.",
+  "subtitle": {
+    "base": "The table component is a flexible and powerful solution for managing and displaying tabular data. It supports features like pagination, sorting, filtering, and row selection, making it easy to manage and interact with data in a structured format.",
+    "files": "The table component is used to display a list of files with various actions such as view, edit, delete, download, share, and archive."
+  },
   "title": "Table",
   "usage": {
     "basic": "Basic",
