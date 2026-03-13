@@ -52,6 +52,9 @@ import FilesTable from "../FilesTable/Index.vue";
 import type { IFile, TableMessages } from "@prefabs.tech/vue3-ui";
 import type { PropType } from "vue";
 
+type ListProperties = InstanceType<typeof FilesList>["$props"];
+type TableProperties = InstanceType<typeof FilesTable>["$props"];
+
 const props = defineProps({
   actionButtonsVisibility: {
     default: () => ({
@@ -68,17 +71,17 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<IFile[]>,
   },
-  messages: {
-    default: undefined,
-    type: Object as PropType<TableMessages>,
-  },
   listProps: {
     default: () => {},
-    type: Object,
+    type: Object as PropType<ListProperties>,
   },
   locale: {
     default: undefined,
     type: String,
+  },
+  messages: {
+    default: undefined,
+    type: Object as PropType<TableMessages>,
   },
   presentation: {
     default: () => "list",
@@ -87,7 +90,7 @@ const props = defineProps({
   },
   tableProps: {
     default: () => {},
-    type: Object,
+    type: Object as PropType<TableProperties>,
   },
   visibleFileDetails: {
     default: () => [

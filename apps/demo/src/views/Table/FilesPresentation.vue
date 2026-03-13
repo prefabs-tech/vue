@@ -1,5 +1,9 @@
 <template>
-  <TablePage :title="$t('table.label.filesPresentation')" class="demo">
+  <TablePage
+    :subtitle="$t('table.subtitle.filesPresentation')"
+    :title="$t('table.label.filesPresentation')"
+    class="demo"
+  >
     <section>
       <h2>{{ $t("table.usage.tableMode") }}</h2>
 
@@ -216,6 +220,14 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'FilesPresentationProperties' })
+      "
+    />
   </TablePage>
 </template>
 
@@ -228,12 +240,14 @@ export default {
 <script setup lang="ts">
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { FilesPresentation } from "@prefabs.tech/vue3-tanstack-table";
+import { computed } from "vue";
 
 import TablePage from "./TablePage.vue";
+import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
 
 import type { IFile } from "@prefabs.tech/vue3-ui";
 
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 const files = [
   {
@@ -274,4 +288,92 @@ const files = [
     uploadedBy: { givenName: "Lamdiki", lastName: "Sherpa" },
   },
 ] as IFile[];
+
+const eventsData = computed(() => [
+  {
+    description: t("table.documentation.eventDescription.actionArchive"),
+    name: "action:archive",
+    payload: "data: IFile",
+  },
+  {
+    description: t("table.documentation.eventDescription.actionDelete"),
+    name: "action:delete",
+    payload: "data: IFile",
+  },
+  {
+    description: t("table.documentation.eventDescription.actionDownload"),
+    name: "action:download",
+    payload: "data: IFile",
+  },
+  {
+    description: t("table.documentation.eventDescription.actionEdit"),
+    name: "action:edit",
+    payload: "data: IFile",
+  },
+  {
+    description: t("table.documentation.eventDescription.actionShare"),
+    name: "action:share",
+    payload: "data: IFile",
+  },
+  {
+    description: t("table.documentation.eventDescription.actionView"),
+    name: "action:view",
+    payload: "data: IFile",
+  },
+]);
+
+const propsData = computed(() => [
+  {
+    default:
+      "{ archive: true, delete: true, download: true, edit: true, share: true, view: true }",
+    description: t(
+      "table.documentation.propsDescription.actionButtonsVisibility",
+    ),
+    prop: "actionButtonsVisibility",
+    type: "Object",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.files"),
+    prop: "files",
+    type: "Array<IFile>",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.listProps"),
+    prop: "listProps",
+    type: "Object",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.locale"),
+    prop: "locale",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.messages"),
+    prop: "messages",
+    type: "TableMessages",
+  },
+  {
+    default: "list",
+    description: t("table.documentation.propsDescription.presentation"),
+    prop: "presentation",
+    type: "list | table",
+  },
+  {
+    default: "-",
+    description: t("table.documentation.propsDescription.tableProps"),
+    prop: "tableProps",
+    type: "Object",
+  },
+  {
+    default:
+      "['actions', 'description', 'downloadCount', 'lastDownloadedAt', 'originalFileName', 'size', 'uploadedAt', 'uploadedBy']",
+    description: t("table.documentation.propsDescription.visibleFileDetails"),
+    prop: "visibleFileDetails",
+    type: "string[]",
+  },
+]);
 </script>
