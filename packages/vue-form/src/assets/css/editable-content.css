@@ -29,6 +29,8 @@
   --_height: 100%;
 
   min-height: 8rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .editable-content > .card:has(.content) {
@@ -44,9 +46,19 @@
   width: 100%;
 }
 
+.editable-content > .card.full > .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .editable-content > .card .field,
 .editable-content > .card .field > textarea {
   height: 100%;
+}
+
+.editable-content > .card.full .field {
+  flex: 1;
 }
 
 .editable-content > .card .resize-both textarea {
@@ -63,6 +75,10 @@
 
 .editable-content > .card .resize-vertical textarea {
   resize: vertical;
+}
+
+.editable-content > .card.full .field textarea {
+  flex: 1;
 }
 
 .editable-content > .card .content > .disabled {
