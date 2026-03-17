@@ -10,6 +10,9 @@
       "daysInput": {
         "date": "Emitted when a new date is calculated based on the number of days entered"
       },
+      "editableContent": {
+        "modelValue": "Emitted when the content is updated (edit mode)"
+      },
       "fileInput": {
         "filesUpdate": "Emitted when files are added, updated, or removed"
       },
@@ -36,6 +39,13 @@
         "enableTimePicker": "Enable time selection in addition to date selection",
         "format": "Custom date format string (e.g: format=\"yyyy/MM/dd\")",
         "teleport": "Teleport the date picker dropdown to a specific element"
+      },
+      "editableContent": {
+        "allowEdit": "Allow editing the content when true",
+        "contentElement": "HTML element to render the content when not editing",
+        "placeholder": "Placeholder text for the textarea in edit mode",
+        "resize": "Textarea resize mode: none, both, horizontal, vertical",
+        "size": "Size of the card: small, medium, large, or full"
       },
       "fileInput": {
         "addDescriptionLabel": "Label displayed in the file description section when no description is provided",
@@ -368,6 +378,7 @@
     "currencyPicker": "Currency picker is a reusable component for selecting single or multiple currencies with search and customizable option display (code, label, symbol).",
     "datePicker": "The date picker component is a customizable date selection component with time selection and form validation support",
     "daysInput": "The days input component is a form input field that that calculates dates based on the number of days entered.",
+    "editableContent": "EditableContent is a flexible component for displaying and editing content inline, supporting different HTML elements, sizes, and edit modes.",
     "email": "The email input component is a input field designed for email addresses, featuring customizable labels, placeholders, error messages, schema validation, and reactive model binding.",
     "fileInput": "File input is a versatile component for uploading files with support for drag-and-drop, button mode, multiple file selection, and file descriptions.",
     "input": "A versatile form input component with validation support using Zod and vee-validate",
