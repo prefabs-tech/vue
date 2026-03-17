@@ -35,7 +35,6 @@
 
 .editable-content > .card:has(.content) {
   overflow: hidden;
-  padding: 0.625rem;
 }
 
 .editable-content > .card > .card-body {
@@ -47,7 +46,6 @@
 }
 
 .editable-content > .card.full > .card-body {
-  display: flex;
   flex: 1;
   flex-direction: column;
 }
