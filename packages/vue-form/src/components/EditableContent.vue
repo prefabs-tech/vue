@@ -1,9 +1,9 @@
 <template>
   <div class="editable-content">
-    <Card :class="size">
+    <Card ref="PrefabsTechVueCard" :class="size">
       <TextareaInput
         v-if="editContent"
-        ref="dzangolabVueEditInput"
+        ref="PrefabsTechVueEditInput"
         :class="`resize-${resize} `"
         :model-value="modelValue"
         :placeholder="placeholder"
@@ -70,27 +70,55 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const dzangolabVueEditInput = ref();
+const PrefabsTechVueEditInput = ref();
+const PrefabsTechVueCard = ref();
 const editContent = ref<boolean>(false);
 
-onClickOutside(dzangolabVueEditInput, (event) => {
+onClickOutside(PrefabsTechVueEditInput, (event) => {
   if (String(props.modelValue).trim()) {
     editContent.value = false;
   }
 });
+
+const getTextarea = (): HTMLTextAreaElement | null => {
+  return PrefabsTechVueEditInput.value?.$el?.querySelector("textarea") ?? null;
+};
 
 const onEditContent = () => {
   if (props.allowEdit) {
     editContent.value = true;
 
     nextTick(() => {
-      dzangolabVueEditInput.value?.$el?.querySelector("textarea")?.focus();
+      const textarea = getTextarea();
+
+      textarea?.focus();
+      resizeContent();
     });
   }
 };
 
 const onInput = (value: string) => {
   emit("update:modelValue", value);
+
+  resizeContent();
+};
+
+const resizeContent = async () => {
+  if (props.size !== "full") {
+    return;
+  }
+
+  await nextTick();
+
+  const textarea = getTextarea();
+  const card = PrefabsTechVueCard.value?.$el;
+
+  if (!textarea) {
+    return;
+  }
+
+  card.style.height = "auto";
+  card.style.height = textarea.scrollHeight + "px";
 };
 </script>
 
