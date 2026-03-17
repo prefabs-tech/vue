@@ -1,5 +1,9 @@
 <template>
-  <FormPage :title="$t('form.label.editableContent')" class="demo">
+  <FormPage
+    :subtitle="$t('form.subtitle.editableContent')"
+    :title="$t('form.label.editableContent')"
+    class="demo"
+  >
     <section>
       <h2>{{ $t("form.label.basicInput") }}</h2>
 
@@ -102,6 +106,14 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :events-data="eventsData"
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'EditableContentProperties' })
+      "
+    />
   </FormPage>
 </template>
 
@@ -114,8 +126,9 @@ export default {
 <script setup lang="ts">
 import { EditableContent } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
 
 const { t } = useI18n();
@@ -133,6 +146,61 @@ let formData = reactive({
   smallSize: ref("Editable"),
   underline: ref(t("form.label.input")),
 });
+
+const eventsData = computed(() => [
+  {
+    description: t("form.documentation.eventDescription.input.modelValue"),
+    name: "update:modelValue",
+    payload: "string | number | undefined",
+  },
+]);
+
+const propsData = computed(() => [
+  {
+    default: "true",
+    description: t(
+      "form.documentation.propsDescription.editableContent.allowEdit",
+    ),
+    prop: "allowEdit",
+    type: "Boolean",
+  },
+  {
+    default: '"p"',
+    description: t(
+      "form.documentation.propsDescription.editableContent.contentElement",
+    ),
+    prop: "contentElement",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: t("form.documentation.propsDescription.input.modelValue"),
+    prop: "modelValue",
+    type: "string | number | undefined",
+  },
+  {
+    default: "-",
+    description: t(
+      "form.documentation.propsDescription.editableContent.placeholder",
+    ),
+    prop: "placeholder",
+    type: "String",
+  },
+  {
+    default: '"none"',
+    description: t(
+      "form.documentation.propsDescription.editableContent.resize",
+    ),
+    prop: "resize",
+    type: "String",
+  },
+  {
+    default: '"small"',
+    description: t("form.documentation.propsDescription.editableContent.size"),
+    prop: "size",
+    type: '"small" | "medium" | "large" | "full"',
+  },
+]);
 </script>
 
 <style lang="css">
