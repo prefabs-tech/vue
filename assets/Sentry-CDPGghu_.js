@@ -1,0 +1,1 @@
+import{d as o,r as n,o as a,h as s,w as c,a as _}from"./index-8hfrWEeB.js";const l={name:"SentryPage"},u=o({...l,setup(p){const e=()=>{throw new Error("Sentry error")};return(t,i)=>{const r=n("Page");return a(),s(r,{title:t.$t("sentry.title")},{default:c(()=>[_("button",{onClick:e},"Throw error")]),_:1},8,["title"])}}});export{u as default};
