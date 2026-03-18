@@ -243,8 +243,8 @@ importers:
         specifier: 12.1.0
         version: 12.1.0(vue@3.5.27(typescript@5.9.3))
       '@vueuse/core':
-        specifier: 12.7.0
-        version: 12.7.0(typescript@5.9.3)
+        specifier: 14.2.1
+        version: 14.2.1(vue@3.5.27(typescript@5.9.3))
       eslint:
         specifier: 9.39.2
         version: 9.39.2(jiti@2.4.2)
@@ -304,8 +304,8 @@ importers:
         specifier: 4.0.18
         version: 4.0.18(vitest@4.0.18(@types/node@25.3.1)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.6))(yaml@2.8.2))
       '@vueuse/core':
-        specifier: 12.7.0
-        version: 12.7.0(typescript@5.9.3)
+        specifier: 14.2.1
+        version: 14.2.1(vue@3.5.27(typescript@5.9.3))
       eslint:
         specifier: 9.39.2
         version: 9.39.2(jiti@2.4.2)
@@ -370,8 +370,8 @@ importers:
         specifier: 2.4.6
         version: 2.4.6
       '@vueuse/core':
-        specifier: 12.7.0
-        version: 12.7.0(typescript@5.9.3)
+        specifier: 14.2.1
+        version: 14.2.1(vue@3.5.27(typescript@5.9.3))
       eslint:
         specifier: 9.39.2
         version: 9.39.2(jiti@2.4.2)
@@ -434,8 +434,8 @@ importers:
         specifier: 2.4.6
         version: 2.4.6
       '@vueuse/core':
-        specifier: 12.7.0
-        version: 12.7.0(typescript@5.9.3)
+        specifier: 14.2.1
+        version: 14.2.1(vue@3.5.27(typescript@5.9.3))
       eslint:
         specifier: 9.39.2
         version: 9.39.2(jiti@2.4.2)
@@ -482,8 +482,8 @@ importers:
         specifier: 2.4.6
         version: 2.4.6
       '@vueuse/core':
-        specifier: 12.7.0
-        version: 12.7.0(typescript@5.9.3)
+        specifier: 14.2.1
+        version: 14.2.1(vue@3.5.27(typescript@5.9.3))
       eslint:
         specifier: 9.39.2
         version: 9.39.2(jiti@2.4.2)
@@ -570,8 +570,8 @@ importers:
         specifier: 2.4.6
         version: 2.4.6
       '@vueuse/core':
-        specifier: 12.7.0
-        version: 12.7.0(typescript@5.9.3)
+        specifier: 14.2.1
+        version: 14.2.1(vue@3.5.27(typescript@5.9.3))
       axios:
         specifier: 1.13.4
         version: 1.13.4
@@ -1590,9 +1590,6 @@ packages:
   '@types/validator@13.12.2':
     resolution: {integrity: sha512-6SlHBzUW8Jhf3liqrGGXyTJSIFe4nqlJ5A5KaMZ2l/vbM3Wh3KSybots/wfWVzNLK4D1NZluDlSQIbIEPx6oyA==}
 
-  '@types/web-bluetooth@0.0.20':
-    resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
-
   '@types/web-bluetooth@0.0.21':
     resolution: {integrity: sha512-oIQLCGWtcFZy2JW77j9k8nHzAOpqMHLQejDA48XXMWH6tjCQHz5RCFz1bzsmROyL6PUm+LLnUiI4BCn221inxA==}
 
@@ -1959,22 +1956,13 @@ packages:
     peerDependencies:
       vue: '>=3.5.0'
 
-  '@vueuse/core@12.7.0':
-    resolution: {integrity: sha512-jtK5B7YjZXmkGNHjviyGO4s3ZtEhbzSgrbX+s5o+Lr8i2nYqNyHuPVOeTdM1/hZ5Tkxg/KktAuAVDDiHMraMVA==}
-
   '@vueuse/core@14.2.1':
     resolution: {integrity: sha512-3vwDzV+GDUNpdegRY6kzpLm4Igptq+GA0QkJ3W61Iv27YWwW/ufSlOfgQIpN6FZRMG0mkaz4gglJRtq5SeJyIQ==}
     peerDependencies:
       vue: ^3.5.0
 
-  '@vueuse/metadata@12.7.0':
-    resolution: {integrity: sha512-4VvTH9mrjXqFN5LYa5YfqHVRI6j7R00Vy4995Rw7PQxyCL3z0Lli86iN4UemWqixxEvYfRjG+hF9wL8oLOn+3g==}
-
   '@vueuse/metadata@14.2.1':
     resolution: {integrity: sha512-1ButlVtj5Sb/HDtIy1HFr1VqCP4G6Ypqt5MAo0lCgjokrk2mvQKsK2uuy0vqu/Ks+sHfuHo0B9Y9jn9xKdjZsw==}
-
-  '@vueuse/shared@12.7.0':
-    resolution: {integrity: sha512-coLlUw2HHKsm7rPN6WqHJQr18WymN4wkA/3ThFaJ4v4gWGWAQQGK+MJxLuJTBs4mojQiazlVWAKNJNpUWGRkNw==}
 
   '@vueuse/shared@14.2.1':
     resolution: {integrity: sha512-shTJncjV9JTI4oVNyF1FQonetYAiTBd+Qj7cY89SWbXSkx7gyhrgtEdF2ZAVWS1S3SHlaROO6F2IesJxQEkZBw==}
@@ -6435,8 +6423,6 @@ snapshots:
 
   '@types/validator@13.12.2': {}
 
-  '@types/web-bluetooth@0.0.20': {}
-
   '@types/web-bluetooth@0.0.21': {}
 
   '@typescript-eslint/eslint-plugin@8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.1(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.1(jiti@2.4.2))(typescript@5.9.3)':
@@ -7119,15 +7105,6 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
 
-  '@vueuse/core@12.7.0(typescript@5.9.3)':
-    dependencies:
-      '@types/web-bluetooth': 0.0.20
-      '@vueuse/metadata': 12.7.0
-      '@vueuse/shared': 12.7.0(typescript@5.9.3)
-      vue: 3.5.27(typescript@5.9.3)
-    transitivePeerDependencies:
-      - typescript
-
   '@vueuse/core@14.2.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@types/web-bluetooth': 0.0.21
@@ -7135,15 +7112,7 @@ snapshots:
       '@vueuse/shared': 14.2.1(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@vueuse/metadata@12.7.0': {}
-
   '@vueuse/metadata@14.2.1': {}
-
-  '@vueuse/shared@12.7.0(typescript@5.9.3)':
-    dependencies:
-      vue: 3.5.27(typescript@5.9.3)
-    transitivePeerDependencies:
-      - typescript
 
   '@vueuse/shared@14.2.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
