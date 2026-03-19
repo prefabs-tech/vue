@@ -126,11 +126,6 @@ watch(
 </script>
 
 <style lang="css">
-.sidebar-only .footer {
-  background-color: var(--sidebar-bg-color, #007aff);
-  z-index: 99;
-}
-
 .sidebar-only > .sidebar .user-menu-dropdown.expanded .toggle > svg {
   transform: rotate(-180deg);
 }
@@ -151,8 +146,6 @@ watch(
     --layout-sidebar-separator-color,
     #dbdbdb
   );
-  --dropdown-container-bg-color: #0870e5;
-  --menu-highlight-color: #0870e5;
 
   font-size: var(--_font-size);
   font-weight: var(--_font-weight);
@@ -161,52 +154,55 @@ watch(
 
 .sidebar-only > .sidebar .user-menu-dropdown {
   border-top: 1px solid var(--_layout-sidebar-separator-color);
+  padding-block: 0.5rem;
+}
+
+.sidebar-only > .sidebar .user-menu-dropdown,
+.sidebar-only > .sidebar .user-menu-dropdown:hover {
+  background-color: var(--sidebar-bg-color, #fff);
 }
 
 .sidebar-only > .sidebar .user-menu-dropdown > .trigger {
-  background-color: var(--sidebar-bg-color, #007aff);
+  background-color: var(--sidebar-bg-color, #fff);
   width: 100%;
 }
 
+.sidebar-only > .sidebar .user-menu-dropdown > .trigger:hover {
+  background-color: #f0f2f7ad;
+}
+
 .sidebar-only .user-menu > ul > li:has(.router-link-exact-active) {
-  background-color: #0870e5;
+  background-color: var(--nav-item-active-bg, #eff6ff);
+  color: var(--nav-item-active-color, #2c2c2c);
 }
 
 .sidebar-only .user-menu:not(.user-menu-dropdown) > ul > li > a,
 .sidebar-only .user-menu-dropdown,
 .sidebar-only .user-menu-dropdown > ul.dropdown > li {
-  --_height: var(--nav-menu-height, 3rem);
-
   align-items: center;
   display: flex;
-  height: var(--_height);
   width: 100%;
 }
 
-.sidebar-only .user-menu-dropdown:hover {
-  background-color: #0870e5;
-}
-
 .sidebar-only .user-menu-dropdown.expanded > ul > li:hover {
-  --dropdown-bg-color-hover: #0870e5;
+  --dropdown-bg-color-hover: #f0f2f7ad;
 }
 
 .sidebar-only .user-menu-dropdown > .dropdown {
-  opacity: 0;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, -80px, 0);
   transition:
-    transform 0.3s ease,
-    opacity 0.5s ease;
+    transform 0.2s ease,
+    visibility 0.1s ease;
+  visibility: hidden;
   width: 100%;
 }
 
 .sidebar-only .user-menu-dropdown.expanded > .dropdown {
-  --dropdown-bg-color: #007aff;
-  --dropdown-border: 1px solid #007aff;
+  --dropdown-bg-color: #fff;
 
-  box-shadow: 0 -2px 10px 2px #0870e5;
-  opacity: 1;
-  transform: translate3d(0, -161.5px, 0);
+  box-shadow: 0 -2px 12px #0000001a;
+  transform: translate3d(0, -106.5px, 0);
+  visibility: visible;
   width: 100%;
 }
 </style>

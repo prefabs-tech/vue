@@ -13,11 +13,7 @@
             v-if="!noLocaleSwitcher"
             :show-badges="showBadges"
             class="locales"
-          >
-            <template #icon>
-              <img src="../assets/svg/up-chevron.svg" alt="toggle icon" />
-            </template>
-          </LocaleSwitcher>
+          />
         </slot>
       </template>
 
