@@ -16,9 +16,11 @@ interface DzangolabVueUserConfig {
     passwordReset?: string;
     passwordResetRequest?: string;
     refresh?: string;
+    sendOtp?: string;
     sendVerificationEmail?: string;
     signup?: string;
     verifyEmail?: string;
+    verifyOtp?: string;
     verifySessionRoles?: string;
   };
   features?: {

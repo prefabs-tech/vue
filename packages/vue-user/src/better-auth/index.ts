@@ -6,8 +6,10 @@ import logout from "./logout";
 import requestPasswordReset from "./request-password-reset";
 import sendVerificationEmail from "./resend-email-verification";
 import resetPassword from "./reset-password";
+import sendOtp from "./send-otp";
 import signup from "./signup";
 import { getVerificationStatus, verifyEmail } from "./verify-email";
+import verifyOtp from "./verify-otp";
 
 export {
   changeEmail,
@@ -19,8 +21,10 @@ export {
   logout,
   requestPasswordReset,
   resetPassword,
+  sendOtp,
   sendVerificationEmail,
   signup,
   verifyEmail,
+  verifyOtp,
   verifySessionRoles,
 };
