@@ -53,14 +53,14 @@ const BETTER_AUTH_PATH_CHANGE_EMAIL = "/auth/email/change";
 const BETTER_AUTH_PATH_CHANGE_PASSWORD = "/auth/password/change";
 const BETTER_AUTH_PATH_GET_VERIFICATION_STATUS =
   "/auth/email/verification-status";
-const BETTER_AUTH_PATH_LOGIN = "/auth/signin";
-const BETTER_AUTH_PATH_LOGOUT = "/auth/signout";
+const BETTER_AUTH_PATH_LOGIN = "/auth/sign-in/email";
+const BETTER_AUTH_PATH_LOGOUT = "/auth/sign-out";
 const BETTER_AUTH_PATH_PASSWORD_RESET = "/auth/password-reset/confirm";
 const BETTER_AUTH_PATH_PASSWORD_RESET_REQUEST = "/auth/password-reset/request";
 const BETTER_AUTH_PATH_SEND_OTP = "/auth/otp/send";
 const BETTER_AUTH_PATH_SEND_VERIFICATION_EMAIL =
   "/auth/email/verification-request";
-const BETTER_AUTH_PATH_SIGNUP = "/auth/signup";
+const BETTER_AUTH_PATH_SIGNUP = "/auth/sign-up/email";
 const BETTER_AUTH_PATH_VERIFY_EMAIL = "/auth/email/verify";
 const BETTER_AUTH_PATH_VERIFY_OTP = "/auth/otp/verify";
 const BETTER_AUTH_PATH_IS_LOGGED_IN = "/auth/session";
