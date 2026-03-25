@@ -21,6 +21,7 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "prepare": "vite build && vue-tsc --emitDeclarationOnly",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage --passWithNoTests",
     "test:component": "vitest --environment jsdom run component/ --passWithNoTests",
