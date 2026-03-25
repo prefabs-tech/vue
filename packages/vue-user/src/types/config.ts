@@ -9,6 +9,8 @@ interface DzangolabVueUserConfig {
     changeEmail?: string;
     changePassword?: string;
     getVerificationStatus?: string;
+    isLoggedIn?: string;
+    isProfileCompleted?: string;
     login?: string;
     logout?: string;
     passwordReset?: string;
@@ -17,6 +19,7 @@ interface DzangolabVueUserConfig {
     sendVerificationEmail?: string;
     signup?: string;
     verifyEmail?: string;
+    verifySessionRoles?: string;
   };
   features?: {
     authProvider?: string;
