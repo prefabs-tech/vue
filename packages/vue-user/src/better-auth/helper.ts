@@ -1,28 +1,35 @@
-import { AxiosError } from "axios";
-
 import client from "../api/axios";
+import useUserStore from "../store";
 
-/**
- * Verify session roles by calling the backend API
- */
-export const verifySessionRoles = async (
-  claims: string[],
-  apiBaseUrl: string,
-  path: string,
-): Promise<boolean> => {
-  try {
-    const response = await client(apiBaseUrl).get(path, {
-      params: { claims },
+import type { UserType } from "../types/auth";
+
+export async function verifySessionRoles(
+  supportedRoles: string[],
+): Promise<boolean> {
+  const userStore = useUserStore();
+  const { logout } = userStore;
+
+  const user: UserType | undefined = userStore.getUser();
+
+  if (user && user.roles) {
+    const hasSupportedRoles = await user.roles.some((userRole) => {
+      if (typeof userRole === "string") {
+        return supportedRoles.includes(userRole);
+      }
+      return supportedRoles.includes(userRole.role);
     });
 
-    return response.data.valid || false;
-  } catch (error) {
-    if (error instanceof AxiosError && error.response?.status === 401) {
-      return false;
+    if (hasSupportedRoles) {
+      return true;
+    } else {
+      await logout();
     }
-    return false;
+  } else {
+    await logout();
   }
-};
+
+  return false;
+}
 
 /**
  * Check if user is logged in

@@ -26,7 +26,6 @@ import {
   BETTER_AUTH_PATH_SEND_VERIFICATION_EMAIL,
   BETTER_AUTH_PATH_SIGNUP,
   BETTER_AUTH_PATH_VERIFY_EMAIL,
-  BETTER_AUTH_PATH_VERIFY_SESSION_ROLES,
   API_PATH_CHANGE_EMAIL,
   API_PATH_CHANGE_PASSWORD,
   API_PATH_GET_VERIFICATION_STATUS,
@@ -172,15 +171,7 @@ const providers = {
       return betterAuthIsProfileCompleted(authConfig?.apiBaseUrl || "", path);
     },
     verifySessionRoles: (claims: string[]) => {
-      const path =
-        authConfig?.user?.apiRoutes?.verifySessionRoles ||
-        BETTER_AUTH_PATH_VERIFY_SESSION_ROLES;
-
-      return betterAuthVerifySessionRoles(
-        claims,
-        authConfig?.apiBaseUrl || "",
-        path,
-      );
+      return betterAuthVerifySessionRoles(claims);
     },
   },
   "laravel-passport": {

@@ -49,23 +49,23 @@ const STATUS_OK = "OK";
 
 const SUPERTOKENS_API_BASE_PATH_DEFAULT = "/auth";
 
-const BETTER_AUTH_PATH_CHANGE_EMAIL = "/auth/email/change";
-const BETTER_AUTH_PATH_CHANGE_PASSWORD = "/auth/password/change";
+const BETTER_AUTH_PATH_CHANGE_EMAIL = "/poc/auth/email/change";
+const BETTER_AUTH_PATH_CHANGE_PASSWORD = "/poc/auth/password/change";
 const BETTER_AUTH_PATH_GET_VERIFICATION_STATUS =
   "/auth/email/verification-status";
-const BETTER_AUTH_PATH_LOGIN = "/auth/sign-in/email";
-const BETTER_AUTH_PATH_LOGOUT = "/auth/sign-out";
-const BETTER_AUTH_PATH_PASSWORD_RESET = "/auth/password-reset/confirm";
-const BETTER_AUTH_PATH_PASSWORD_RESET_REQUEST = "/auth/password-reset/request";
-const BETTER_AUTH_PATH_SEND_OTP = "/auth/otp/send";
+const BETTER_AUTH_PATH_LOGIN = "/poc/auth/signin";
+const BETTER_AUTH_PATH_LOGOUT = "/poc/auth/signout";
+const BETTER_AUTH_PATH_PASSWORD_RESET = "/poc/auth/password-reset/confirm";
+const BETTER_AUTH_PATH_PASSWORD_RESET_REQUEST =
+  "/poc/auth/password-reset/request";
+const BETTER_AUTH_PATH_SEND_OTP = "/poc/auth/otp/send";
 const BETTER_AUTH_PATH_SEND_VERIFICATION_EMAIL =
   "/auth/email/verification-request";
-const BETTER_AUTH_PATH_SIGNUP = "/auth/sign-up/email";
-const BETTER_AUTH_PATH_VERIFY_EMAIL = "/auth/email/verify";
-const BETTER_AUTH_PATH_VERIFY_OTP = "/auth/otp/verify";
-const BETTER_AUTH_PATH_IS_LOGGED_IN = "/auth/session";
-const BETTER_AUTH_PATH_IS_PROFILE_COMPLETED = "/auth/user";
-const BETTER_AUTH_PATH_VERIFY_SESSION_ROLES = "/auth/session/roles";
+const BETTER_AUTH_PATH_SIGNUP = "/poc/auth/signup";
+const BETTER_AUTH_PATH_VERIFY_EMAIL = "/poc/auth/email/verify";
+const BETTER_AUTH_PATH_VERIFY_OTP = "/poc/auth/otp/verify";
+const BETTER_AUTH_PATH_IS_LOGGED_IN = "/poc/auth/session";
+const BETTER_AUTH_PATH_IS_PROFILE_COMPLETED = "/poc/auth/user";
 
 export {
   API_PATH_CHANGE_EMAIL,
@@ -97,7 +97,6 @@ export {
   BETTER_AUTH_PATH_VERIFY_OTP,
   BETTER_AUTH_PATH_IS_LOGGED_IN,
   BETTER_AUTH_PATH_IS_PROFILE_COMPLETED,
-  BETTER_AUTH_PATH_VERIFY_SESSION_ROLES,
   EMAIL_VERIFICATION,
   ERROR_NOT_FOUND,
   ERROR_ROLE_ALREADY_EXISTS,
