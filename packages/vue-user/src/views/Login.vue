@@ -68,7 +68,6 @@ import { Divider, Message, Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
-import { auth } from "../auth-provider";
 import FacebookLogin from "../components/FacebookLogin.vue";
 import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
@@ -85,14 +84,13 @@ import type { Error as ErrorType } from "@prefabs.tech/vue3-ui";
 
 const config = useConfig() as AppConfig;
 
-const selectedAuthProvider = auth();
-
 const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
 const userStore = useUserStore();
-const { getIsFirstUser, login, removeUser, setUser } = userStore;
+const { getIsFirstUser, login, removeUser, setUser, verifySessionRoles } =
+  userStore;
 
 const router = useRouter();
 
@@ -116,8 +114,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
         setUser(response);
 
         if (
-          (supportedRoles &&
-            (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
+          (supportedRoles && (await verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
           // Check for pending redirect before default home redirect

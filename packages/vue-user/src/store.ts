@@ -275,6 +275,18 @@ const useUserStore = defineStore("user", () => {
     );
   };
 
+  const verifySessionRoles = async (claims: string[]): Promise<boolean> => {
+    const selectedAuthProvider = auth();
+
+    if ("verifySessionRoles" in selectedAuthProvider) {
+      return await selectedAuthProvider.verifySessionRoles(claims);
+    }
+
+    throw new Error(
+      "Verify session roles is not supported for the selected auth provider",
+    );
+  };
+
   return {
     accessToken,
     acceptInvitation,
@@ -306,6 +318,7 @@ const useUserStore = defineStore("user", () => {
     socialSignIn,
     user,
     verifyEmail,
+    verifySessionRoles,
   };
 });
 
