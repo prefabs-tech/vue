@@ -1,9 +1,10 @@
-.no-sidebar {
-  --_bg-color: var(--sidebar-bg-color, #007aff);
+.collapsed-sidebar {
+  --_bg-color: var(--sidebar-bg-color, #fff);
   --_border-radius: 2rem;
   --_width: 2rem;
 
   background-color: var(--_bg-color);
+  border: 1px solid var(--_border-color, #ccc);
   border-radius: 0 var(--_border-radius) var(--_border-radius) 0;
   cursor: pointer;
   margin-top: 1rem;
@@ -11,7 +12,7 @@
   width: var(--_width);
 }
 
-.no-sidebar > img {
+.collapsed-sidebar > img {
   --_width: var(--sidebar-toggle-icon-width, 1.5rem);
 
   width: var(--_width);

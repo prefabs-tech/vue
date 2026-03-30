@@ -2,9 +2,14 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "main";
-  min-height: 100dvh;
+  grid-template-areas: "sidebar main";
+  height: 100dvh;
   transition: all 0.25s ease-in-out;
+}
+
+.layout.sidebar-only .footer {
+  background-color: var(--sidebar-bg-color, #fff);
+  z-index: 1000;
 }
 
 .layout.sidebar-only footer {
@@ -33,34 +38,30 @@
   width: 100%;
 }
 
+.layout.sidebar-only .sidebar-menu-wrapper > nav {
+  padding-block: 0.5rem;
+}
+
 .layout.sidebar-only .sidebar-menu-wrapper .locales > .locale-trigger {
-  --locale-switcher-padding-v: 1rem;
-
-  height: var(--sidebar-menu-height, 3rem);
+  --locale-switcher-padding-h: var(--layout-nav-item-padding-h, 1rem);
+  --locale-switcher-padding-v: var(--layout-nav-item-padding-v, 0.625rem);
 }
 
-.layout.sidebar-only .locales.expanded,
-.layout.sidebar-only .locales:hover {
-  --locale-switcher-hover-color: #0870e5;
-}
-
-.layout.sidebar-only .locales .truncated > img {
-  transition: transform 0.3s ease;
-}
-
-.layout.sidebar-only .locales.expanded .truncated > img {
-  transform: rotate(180deg);
+.layout.sidebar-only .locales.expanded > .locale-trigger,
+.layout.sidebar-only .locales > .locale-trigger:hover {
+  --locale-switcher-hover-color: var(--nav-item-hover-bg, #f0f2f7ad);
 }
 
 .layout.sidebar-only .locales ul.dropdown {
-  --locale-switcher-bg-color: #007aff;
+  --locale-switcher-bg-color: var(--sidebar-bg-color, #fff);
   --locale-switcher-border: none;
 
   left: 0;
   right: 0;
   top: unset;
   bottom: 100%;
-  border-top: 1px solid #0870e5;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+  transform: none;
 }
 
 .layout.sidebar-only .locales ul.dropdown .badge {
@@ -72,14 +73,18 @@
   grid-template-columns: var(--sidebar-collapsed-width, 6rem) 1fr;
 }
 
-.layout.sidebar-only:has(.no-sidebar) {
+.layout.sidebar-only:has(.collapsed-sidebar) {
   grid-template-areas: "main";
   grid-template-columns: 1fr;
 }
 
-.layout.sidebar-only > .no-sidebar {
+.layout.sidebar-only > .collapsed-sidebar {
   position: fixed;
   top: 0;
+}
+
+.layout.sidebar-only > .collapsed-sidebar + main {
+  --_layout-main-padding-h: 2.5rem;
 }
 
 .layout.sidebar-only > .layout-sidebar {
@@ -90,7 +95,8 @@
 
 .layout.sidebar-only > main {
   grid-area: main;
-  transition: all 0.3s ease-in-out;
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .layout-sidebar {
@@ -104,6 +110,5 @@ main {
 @media screen and (min-width: 1024px) {
   .layout.sidebar-only {
     grid-template-columns: var(--sidebar-width, 16rem) 1fr;
-    grid-template-areas: "sidebar main";
   }
 }
