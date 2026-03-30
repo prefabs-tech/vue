@@ -1,6 +1,11 @@
 <template>
   <div class="layout sidebar-only">
-    <Sidebar :menu="menu" :no-header="noHeader" class="layout-sidebar">
+    <Sidebar
+      ref="sidebar"
+      :menu="menu"
+      :no-header="noHeader"
+      class="layout-sidebar"
+    >
       <template #afterNavLinks>
         <slot name="afterNavLinks"></slot>
       </template>
@@ -30,6 +35,8 @@
 <script setup lang="ts">
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
+import { useWindowSize } from "@vueuse/core";
+import { computed, ref, onUnmounted, onMounted } from "vue";
 
 import AppFooter from "../components/AppFooter.vue";
 import Sidebar from "../components/Sidebar.vue";
@@ -38,7 +45,11 @@ import type { SidebarMenu } from "../types";
 import type { PropType } from "vue";
 
 const { layout: layoutConfig } = useConfig();
+const { width: windowWidth } = useWindowSize();
 
+const sidebar = ref();
+
+const isLargeScreen = computed(() => windowWidth.value > 576);
 const showBadges = layoutConfig?.localeSwitcher?.showBadges;
 
 defineProps({
@@ -53,6 +64,20 @@ defineProps({
     type: Boolean,
   },
 });
+
+const handleResize = () => {
+  if (sidebar.value) {
+    sidebar.value.sidebarActive = isLargeScreen.value ? true : false;
+  }
+};
+
+onMounted(() => handleResize());
+
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
+});
+
+window.addEventListener("resize", handleResize);
 </script>
 
 <style lang="css">

@@ -10,8 +10,8 @@ nav.locale-switcher {
   width: var(--_width);
 }
 
-nav.locale-switcher.expanded,
-nav.locale-switcher:hover {
+nav.locale-switcher.expanded > .locale-trigger,
+nav.locale-switcher > .locale-trigger:hover {
   background: var(--_hover-bg);
   color: var(--_hover-color);
 }

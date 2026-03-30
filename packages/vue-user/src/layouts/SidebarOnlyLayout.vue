@@ -154,7 +154,6 @@ watch(
 
 .sidebar-only > .sidebar .user-menu-dropdown {
   border-top: 1px solid var(--_layout-sidebar-separator-color);
-  padding-block: 0.5rem;
 }
 
 .sidebar-only > .sidebar .user-menu-dropdown,
