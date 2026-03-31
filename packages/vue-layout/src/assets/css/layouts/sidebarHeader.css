@@ -111,6 +111,7 @@
 
   border-top: 1px solid var(--border-color, #e5e7eb);
   top: unset;
+  transform: none;
   bottom: 100%;
 }
 
