@@ -11,7 +11,7 @@
         ref="appHeader"
         :class="{ 'no-locale-switcher-header': noLocaleSwitcher }"
         :no-locale-switcher="noLocaleSwitcher"
-        :no-toggle="!collapsible || noSidebar"
+        :no-toggle="!collapsible"
         no-main-menu
       >
         <template
@@ -26,7 +26,6 @@
       </AppHeader>
     </slot>
     <Sidebar
-      v-if="!noSidebar || !isLargeScreen"
       ref="sidebar"
       :collapsible="collapsible && isLargeScreen"
       :menu="menu"
@@ -41,7 +40,7 @@
       <template #afterSidebarMenu>
         <slot name="afterSidebarMenu"></slot>
         <slot v-if="renderSidebarUserMenu" name="userMenu"></slot>
-        <template v-if="sidebarLocaleSwitcher">
+        <template v-if="!isLargeScreen">
           <slot name="locales">
             <LocaleSwitcher
               v-if="!noLocaleSwitcher"
@@ -68,7 +67,7 @@
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { useWindowSize } from "@vueuse/core";
-import { computed, ref, onUnmounted, onMounted } from "vue";
+import { computed, ref, watch } from "vue";
 
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
@@ -85,7 +84,6 @@ const { width: windowWidth } = useWindowSize();
 
 const appHeader = ref();
 const sidebar = ref();
-const sidebarLocaleSwitcher = ref<boolean>(false);
 
 const props = defineProps({
   collapsible: {
@@ -98,10 +96,6 @@ const props = defineProps({
   },
   noFooter: Boolean,
   noLocaleSwitcher: Boolean,
-  noSidebar: {
-    default: false,
-    type: Boolean,
-  },
   userMenuLocation: {
     default: "sidebar",
     type: String,
@@ -112,47 +106,22 @@ const props = defineProps({
 const isLargeScreen = computed(() => windowWidth.value > 576);
 
 const renderSidebarUserMenu = computed(() => {
-  return (
-    (props.userMenuLocation === "sidebar" || !isLargeScreen.value) &&
-    !props.noSidebar
-  );
+  return props.userMenuLocation === "sidebar" || !isLargeScreen.value;
 });
-
-const handleResize = () => {
-  if (window.innerWidth >= 576) {
-    sidebarLocaleSwitcher.value = false;
-
-    if (sidebar.value) {
-      sidebar.value.sidebarActive = true;
-    }
-  } else {
-    sidebarLocaleSwitcher.value = true;
-
-    if (sidebar.value) {
-      sidebar.value.sidebarActive = false;
-    }
-  }
-};
 
 const onSelectMenu = () => {
-  if (!isLargeScreen.value) {
+  if (!isLargeScreen.value && sidebar.value) {
     sidebar.value.sidebarActive = false;
   }
 };
 
-onMounted(() => {
-  if (window.innerWidth < 576 && sidebar.value) {
-    sidebar.value.sidebarActive = false;
+const updateSidebarState = () => {
+  if (sidebar.value) {
+    sidebar.value.sidebarActive = isLargeScreen.value;
   }
-});
+};
 
-onUnmounted(() => {
-  window.removeEventListener("resize", handleResize);
-});
-
-window.addEventListener("resize", handleResize);
-
-handleResize();
+watch(isLargeScreen, updateSidebarState, { immediate: true });
 
 defineExpose({
   onSelectMenu,
