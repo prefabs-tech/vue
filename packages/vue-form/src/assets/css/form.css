@@ -32,6 +32,13 @@ form .field .valid input:not(.multiselect-search) {
   background-size: 1rem;
 }
 
+form .field input.invalid,
+form .field input.valid,
+form .field .invalid input:not(.multiselect-search),
+form .field .valid input:not(.multiselect-search) {
+  padding-right: calc(1rem + 0.75 * var(--_padding-inline, 0.75rem)) !important;
+}
+
 form .field textarea.valid,
 form .field textarea.invalid {
   background-position: right calc(0.75 * var(--_padding-inline, 0.75rem) + 1rem)
