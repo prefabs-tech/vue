@@ -5,7 +5,9 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
   class="layout sidebar-only"
 >
   <div
+    aria-label="Navigation"
     class="sidebar collapsible layout-sidebar"
+    role="navigation"
   >
     <div
       class="header"
@@ -38,10 +40,14 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
         
       </div>
       
-      <div
+      <button
+        aria-expanded="true"
+        aria-label="Collapse sidebar"
         class="toggle"
+        type="button"
       >
         <svg
+          aria-hidden="true"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -50,7 +56,7 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
             fill="currentColor"
           />
         </svg>
-      </div>
+      </button>
       
     </div>
     <div
