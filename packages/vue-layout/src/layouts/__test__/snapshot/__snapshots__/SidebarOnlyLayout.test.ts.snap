@@ -5,8 +5,10 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
   class="layout sidebar-only"
 >
   <sidebar-stub
+    aria-label="Navigation"
     class="layout-sidebar"
     collapsible="true"
+    hidelogo="false"
     menu="[object Object],[object Object]"
     noheader="false"
   />
