@@ -27,7 +27,8 @@ const plugin: Plugin = {
   install: (app: App, options: DzangolabVueUserPluginOptions): void => {
     updateRouter(options.router, options.config?.user);
 
-    if (options?.config?.user?.features?.authProvider !== "laravel-passport") {
+    const authProvider = options?.config?.user?.features?.authProvider;
+    if (authProvider !== "laravel-passport" && authProvider !== "better-auth") {
       initSupertokens(options.config);
     }
 

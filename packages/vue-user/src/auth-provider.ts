@@ -1,4 +1,31 @@
 import {
+  changeEmail as betterAuthChangeEmail,
+  changePassword as betterAuthChangePassword,
+  getVerificationStatus as betterAuthGetVerificationStatus,
+  isLoggedIn as betterAuthIsLoggedIn,
+  isProfileCompleted as betterAuthIsProfileCompleted,
+  login as betterAuthLogin,
+  logout as betterAuthLogout,
+  requestPasswordReset as betterAuthRequestPasswordReset,
+  resetPassword as betterAuthResetPassword,
+  sendVerificationEmail as betterAuthSendVerificationEmail,
+  signup as betterAuthSignup,
+  verifyEmail as betterAuthVerifyEmail,
+  verifySessionRoles as betterAuthVerifySessionRoles,
+} from "./better-auth";
+import {
+  BETTER_AUTH_PATH_CHANGE_EMAIL,
+  BETTER_AUTH_PATH_CHANGE_PASSWORD,
+  BETTER_AUTH_PATH_GET_VERIFICATION_STATUS,
+  BETTER_AUTH_PATH_IS_LOGGED_IN,
+  BETTER_AUTH_PATH_IS_PROFILE_COMPLETED,
+  BETTER_AUTH_PATH_LOGIN,
+  BETTER_AUTH_PATH_LOGOUT,
+  BETTER_AUTH_PATH_PASSWORD_RESET,
+  BETTER_AUTH_PATH_PASSWORD_RESET_REQUEST,
+  BETTER_AUTH_PATH_SEND_VERIFICATION_EMAIL,
+  BETTER_AUTH_PATH_SIGNUP,
+  BETTER_AUTH_PATH_VERIFY_EMAIL,
   API_PATH_CHANGE_EMAIL,
   API_PATH_CHANGE_PASSWORD,
   API_PATH_GET_VERIFICATION_STATUS,
@@ -30,11 +57,12 @@ const initAuthProvider = (config?: AppConfig) => {
 const getAuthProvider = () => {
   if (
     authConfig?.user?.features?.authProvider &&
-    ["laravel-passport", "supertokens"].includes(
+    ["better-auth", "laravel-passport", "supertokens"].includes(
       authConfig.user.features.authProvider,
     )
   ) {
     return authConfig.user.features.authProvider as
+      | "better-auth"
       | "laravel-passport"
       | "supertokens";
   }
@@ -43,6 +71,109 @@ const getAuthProvider = () => {
 };
 
 const providers = {
+  "better-auth": {
+    doChangeEmail: (email: string) => {
+      const path =
+        authConfig?.user?.apiRoutes?.changeEmail ||
+        BETTER_AUTH_PATH_CHANGE_EMAIL;
+
+      return betterAuthChangeEmail(email, authConfig?.apiBaseUrl || "", path);
+    },
+    doChangePassword: (payload: ChangePasswordPayload) => {
+      const path =
+        authConfig?.user?.apiRoutes?.changePassword ||
+        BETTER_AUTH_PATH_CHANGE_PASSWORD;
+
+      return betterAuthChangePassword(
+        payload,
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
+    doGetVerificationStatus: () => {
+      const path =
+        authConfig?.user?.apiRoutes?.getVerificationStatus ||
+        BETTER_AUTH_PATH_GET_VERIFICATION_STATUS;
+
+      return betterAuthGetVerificationStatus(
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
+    doLogin: (credentials: LoginCredentials) => {
+      const path = authConfig?.user?.apiRoutes?.login || BETTER_AUTH_PATH_LOGIN;
+
+      return betterAuthLogin(credentials, authConfig?.apiBaseUrl || "", path);
+    },
+    doLogout: () => {
+      const path =
+        authConfig?.user?.apiRoutes?.logout || BETTER_AUTH_PATH_LOGOUT;
+
+      return betterAuthLogout(authConfig?.apiBaseUrl || "", path);
+    },
+    doRequestPasswordReset: (credentials: PasswordResetRequestPayload) => {
+      const path =
+        authConfig?.user?.apiRoutes?.passwordResetRequest ||
+        BETTER_AUTH_PATH_PASSWORD_RESET_REQUEST;
+
+      return betterAuthRequestPasswordReset(
+        credentials,
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
+    doResetPassword: (credentials: PasswordResetPayload) => {
+      const path =
+        authConfig?.user?.apiRoutes?.passwordResetRequest ||
+        BETTER_AUTH_PATH_PASSWORD_RESET;
+
+      return betterAuthResetPassword(
+        credentials,
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
+    doSendVerificationEmail: () => {
+      const path =
+        authConfig?.user?.apiRoutes?.sendVerificationEmail ||
+        BETTER_AUTH_PATH_SEND_VERIFICATION_EMAIL;
+
+      return betterAuthSendVerificationEmail(
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
+    doSignup: (credentials: LoginCredentials) => {
+      const path =
+        authConfig?.user?.apiRoutes?.signup || BETTER_AUTH_PATH_SIGNUP;
+
+      return betterAuthSignup(credentials, authConfig?.apiBaseUrl || "", path);
+    },
+    doVerifyEmail: (token: string) => {
+      const path =
+        authConfig?.user?.apiRoutes?.verifyEmail ||
+        BETTER_AUTH_PATH_VERIFY_EMAIL;
+
+      return betterAuthVerifyEmail(token, authConfig?.apiBaseUrl || "", path);
+    },
+    isLoggedIn: () => {
+      const path =
+        authConfig?.user?.apiRoutes?.isLoggedIn ||
+        BETTER_AUTH_PATH_IS_LOGGED_IN;
+
+      return betterAuthIsLoggedIn(authConfig?.apiBaseUrl || "", path);
+    },
+    isProfileCompleted: () => {
+      const path =
+        authConfig?.user?.apiRoutes?.isProfileCompleted ||
+        BETTER_AUTH_PATH_IS_PROFILE_COMPLETED;
+
+      return betterAuthIsProfileCompleted(authConfig?.apiBaseUrl || "", path);
+    },
+    verifySessionRoles: (claims: string[]) => {
+      return betterAuthVerifySessionRoles(claims);
+    },
+  },
   "laravel-passport": {
     doChangeEmail: (email: string) => {
       const path =

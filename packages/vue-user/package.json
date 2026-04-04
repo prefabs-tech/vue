@@ -19,6 +19,7 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "prepare": "vite build && vue-tsc --emitDeclarationOnly",
     "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
     "test": "pnpm build && vitest --environment jsdom run --coverage --passWithNoTests",
