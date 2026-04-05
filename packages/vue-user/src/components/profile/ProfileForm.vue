@@ -84,7 +84,7 @@ let fieldsSchema = {
   givenName: z
     .string()
     .min(1, t("user.profile.form.firstName.messages.required")),
-  middleNames: z.string().optional(),
+  middleNames: z.string(),
   surname: z.string().min(1, t("user.profile.form.lastName.messages.required")),
 };
 

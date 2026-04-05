@@ -1,0 +1,199 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoginForm > matches snapshot in en 1`] = `
+<form
+  novalidate=""
+>
+  <div
+    class="field email"
+  >
+    <label
+      for="email"
+    >
+      Your email
+    </label>
+    
+    <input
+      class=""
+      name="email"
+      placeholder="john.doe@example.com"
+      tabindex="0"
+      type="email"
+      value=""
+    />
+    <!---->
+    
+  </div>
+  <div
+    class="field password"
+  >
+    <label
+      for="password"
+    >
+      Your password
+    </label>
+    
+    <div
+      class="password-input"
+    >
+      <input
+        class=""
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        tabindex="0"
+        type="password"
+      />
+      <span
+        class="eye-icon"
+      >
+        
+        <img
+          alt="eye-icon"
+          src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='currentColor'%20d='M20.69%2011.7c-.12-.26-2.86-6.45-8.69-6.45a7.7%207.7%200%200%200-1.66.18a.75.75%200%200%200%20.32%201.46A6.6%206.6%200%200%201%2012%206.75c4.18%200%206.58%204.1%207.17%205.25a13.3%2013.3%200%200%201-1.26%202a.75.75%200%200%200%20.59%201.21a.75.75%200%200%200%20.59-.29a13.4%2013.4%200%200%200%201.6-2.59a.78.78%200%200%200%200-.63M6.53%205.47a.75.75%200%200%200-1.06%201.06l.92.92a13.2%2013.2%200%200%200-3.08%204.26a.76.76%200%200%200%200%20.59c.12.26%202.86%206.45%208.69%206.45a7.93%207.93%200%200%200%204.39-1.3l1.08%201.08a.75.75%200%200%200%201.06%200a.75.75%200%200%200%200-1.06Zm3.83%206l2.21%202.22a1.81%201.81%200%200%201-1.81-.4a1.74%201.74%200%200%201-.4-1.87ZM12%2017.25c-4.19%200-6.58-4.11-7.17-5.25a12%2012%200%200%201%202.62-3.49l1.79%201.79a3.24%203.24%200%200%200%204.46%204.46l1.61%201.61a6.5%206.5%200%200%201-3.31.88'%20/%3e%3c/svg%3e"
+        />
+        
+      </span>
+    </div>
+    <!---->
+    
+  </div>
+  <div
+    class="actions"
+  >
+    <div
+      class="form-actions"
+      data-alignment="filled"
+      data-direction="horizontal"
+      data-reverse="false"
+      tabindex="0"
+    >
+      
+      
+      
+      <button
+        aria-label="button"
+        class="button primary medium filled"
+        id="submit"
+        role="button"
+        type="submit"
+      >
+        <!---->
+        <div
+          class="label"
+        >
+          
+          <span>
+            Log in
+          </span>
+          
+        </div>
+        <!---->
+        <!---->
+      </button>
+      
+      
+      
+    </div>
+  </div>
+</form>
+`;
+
+exports[`LoginForm > matches snapshot in fr 1`] = `
+<form
+  novalidate=""
+>
+  <div
+    class="field email"
+  >
+    <label
+      for="email"
+    >
+      Votre adresse courriel
+    </label>
+    
+    <input
+      class=""
+      name="email"
+      placeholder="john.doe@example.com"
+      tabindex="0"
+      type="email"
+      value=""
+    />
+    <!---->
+    
+  </div>
+  <div
+    class="field password"
+  >
+    <label
+      for="password"
+    >
+      Votre mot de passe
+    </label>
+    
+    <div
+      class="password-input"
+    >
+      <input
+        class=""
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        tabindex="0"
+        type="password"
+      />
+      <span
+        class="eye-icon"
+      >
+        
+        <img
+          alt="eye-icon"
+          src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='currentColor'%20d='M20.69%2011.7c-.12-.26-2.86-6.45-8.69-6.45a7.7%207.7%200%200%200-1.66.18a.75.75%200%200%200%20.32%201.46A6.6%206.6%200%200%201%2012%206.75c4.18%200%206.58%204.1%207.17%205.25a13.3%2013.3%200%200%201-1.26%202a.75.75%200%200%200%20.59%201.21a.75.75%200%200%200%20.59-.29a13.4%2013.4%200%200%200%201.6-2.59a.78.78%200%200%200%200-.63M6.53%205.47a.75.75%200%200%200-1.06%201.06l.92.92a13.2%2013.2%200%200%200-3.08%204.26a.76.76%200%200%200%200%20.59c.12.26%202.86%206.45%208.69%206.45a7.93%207.93%200%200%200%204.39-1.3l1.08%201.08a.75.75%200%200%200%201.06%200a.75.75%200%200%200%200-1.06Zm3.83%206l2.21%202.22a1.81%201.81%200%200%201-1.81-.4a1.74%201.74%200%200%201-.4-1.87ZM12%2017.25c-4.19%200-6.58-4.11-7.17-5.25a12%2012%200%200%201%202.62-3.49l1.79%201.79a3.24%203.24%200%200%200%204.46%204.46l1.61%201.61a6.5%206.5%200%200%201-3.31.88'%20/%3e%3c/svg%3e"
+        />
+        
+      </span>
+    </div>
+    <!---->
+    
+  </div>
+  <div
+    class="actions"
+  >
+    <div
+      class="form-actions"
+      data-alignment="filled"
+      data-direction="horizontal"
+      data-reverse="false"
+      tabindex="0"
+    >
+      
+      
+      
+      <button
+        aria-label="button"
+        class="button primary medium filled"
+        id="submit"
+        role="button"
+        type="submit"
+      >
+        <!---->
+        <div
+          class="label"
+        >
+          
+          <span>
+            Connexion
+          </span>
+          
+        </div>
+        <!---->
+        <!---->
+      </button>
+      
+      
+      
+    </div>
+  </div>
+</form>
+`;

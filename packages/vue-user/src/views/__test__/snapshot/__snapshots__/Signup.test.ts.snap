@@ -47,17 +47,16 @@ exports[`SignUp > matches snapshot in en 1`] = `
         class="field email"
       >
         <label
-          for="input-field-email"
+          for="email"
         >
           Your email
         </label>
         
         <input
-          autocomplete="email"
           class=""
-          id="input-field-email"
           name="email"
           placeholder="john.doe@example.com"
+          tabindex="0"
           type="email"
           value=""
         />
@@ -69,7 +68,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
         class="field password"
       >
         <label
-          for="input-field-password"
+          for="password"
         >
           Your password
         </label>
@@ -78,11 +77,11 @@ exports[`SignUp > matches snapshot in en 1`] = `
           class="password-input"
         >
           <input
-            autocomplete="new-password"
             class=""
-            id="input-field-password"
+            id="password"
             name="password"
             placeholder="Enter your password"
+            tabindex="0"
             type="password"
           />
           <span
@@ -103,7 +102,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
         class="field password"
       >
         <label
-          for="input-field-confirmation"
+          for="password"
         >
           Confirm password
         </label>
@@ -112,11 +111,11 @@ exports[`SignUp > matches snapshot in en 1`] = `
           class="password-input"
         >
           <input
-            autocomplete="new-password"
             class=""
-            id="input-field-confirmation"
+            id="confirmation"
             name="confirmation"
             placeholder="Confirm your password"
+            tabindex="0"
             type="password"
           />
           <span
@@ -240,17 +239,16 @@ exports[`SignUp > matches snapshot in fr 1`] = `
         class="field email"
       >
         <label
-          for="input-field-email"
+          for="email"
         >
           Votre adresse e-mail
         </label>
         
         <input
-          autocomplete="email"
           class=""
-          id="input-field-email"
           name="email"
           placeholder="john.doe@example.com"
+          tabindex="0"
           type="email"
           value=""
         />
@@ -262,7 +260,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
         class="field password"
       >
         <label
-          for="input-field-password"
+          for="password"
         >
           Votre mot de passe
         </label>
@@ -271,11 +269,11 @@ exports[`SignUp > matches snapshot in fr 1`] = `
           class="password-input"
         >
           <input
-            autocomplete="new-password"
             class=""
-            id="input-field-password"
+            id="password"
             name="password"
             placeholder="Enter your password"
+            tabindex="0"
             type="password"
           />
           <span
@@ -296,7 +294,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
         class="field password"
       >
         <label
-          for="input-field-confirmation"
+          for="password"
         >
           Confirmez votre mot de passe
         </label>
@@ -305,11 +303,11 @@ exports[`SignUp > matches snapshot in fr 1`] = `
           class="password-input"
         >
           <input
-            autocomplete="new-password"
             class=""
-            id="input-field-confirmation"
+            id="confirmation"
             name="confirmation"
             placeholder="Confirm your password"
+            tabindex="0"
             type="password"
           />
           <span
