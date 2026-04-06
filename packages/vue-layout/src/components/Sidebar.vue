@@ -1,14 +1,26 @@
 <template>
-  <div v-if="!isInactive" :class="['sidebar', { collapsible: collapsible }]">
+  <div
+    v-if="!showOnlyToggle"
+    :aria-label="ariaLabel"
+    :class="['sidebar', { collapsible: collapsible }]"
+    role="navigation"
+  >
     <div v-if="!noHeader" class="header">
-      <Logo />
+      <Logo v-if="!hideLogo" />
       <div class="title">
         <slot name="title"></slot>
       </div>
       <slot name="toggleIcons">
-        <div class="toggle" @click="sidebarActive = !sidebarActive">
+        <button
+          :aria-expanded="sidebarActive"
+          :aria-label="sidebarActive ? 'Collapse sidebar' : 'Expand sidebar'"
+          class="toggle"
+          type="button"
+          @click="sidebarActive = !sidebarActive"
+        >
           <svg
             v-if="sidebarActive"
+            aria-hidden="true"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -19,6 +31,7 @@
           </svg>
           <svg
             v-else
+            aria-hidden="true"
             class="extend"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +41,7 @@
               fill="currentColor"
             />
           </svg>
-        </div>
+        </button>
       </slot>
     </div>
     <div class="sidebar-menu-wrapper">
@@ -49,8 +62,16 @@
       <slot name="footer"></slot>
     </div>
   </div>
-  <div v-else class="collapsed-sidebar" @click="sidebarActive = true">
+  <button
+    v-else
+    :aria-expanded="sidebarActive"
+    aria-label="Expand navigation menu"
+    class="collapsed-sidebar"
+    type="button"
+    @click="sidebarActive = true"
+  >
     <svg
+      aria-hidden="true"
       height="24"
       viewBox="0 0 24 24"
       width="24"
@@ -61,7 +82,7 @@
         fill="currentColor"
       />
     </svg>
-  </div>
+  </button>
 </template>
 
 <script lang="ts">
@@ -80,10 +101,15 @@ import type { SidebarMenu } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  ariaLabel: {
+    default: "Navigation",
+    type: String,
+  },
   collapsible: {
     default: true,
     type: Boolean,
   },
+  hideLogo: Boolean,
   menu: {
     required: true,
     type: Array as PropType<SidebarMenu[]>,
@@ -96,12 +122,12 @@ const props = defineProps({
 
 defineEmits(["select:menu"]);
 
-const isInactive = computed(() => {
-  if (!sidebarActive.value && props.collapsible) {
-    return !props.menu?.filter((item) => !!item.shortName)?.length;
+const showOnlyToggle = computed(() => {
+  if (sidebarActive.value || !props.collapsible) {
+    return false;
   }
 
-  return false;
+  return !props.menu.some((item) => !!item.shortName);
 });
 
 const slots = useSlots();
@@ -110,6 +136,9 @@ const sidebarActive = ref<boolean>(true);
 
 defineExpose({
   sidebarActive,
+  toggle() {
+    sidebarActive.value = !sidebarActive.value;
+  },
 });
 </script>
 

@@ -2,7 +2,9 @@
 
 exports[`Sidebar > matches snapshot  1`] = `
 <div
+  aria-label="Navigation"
   class="sidebar collapsible"
+  role="navigation"
 >
   <div
     class="header"
@@ -18,10 +20,14 @@ exports[`Sidebar > matches snapshot  1`] = `
       
     </div>
     
-    <div
+    <button
+      aria-expanded="true"
+      aria-label="Collapse sidebar"
       class="toggle"
+      type="button"
     >
       <svg
+        aria-hidden="true"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -30,7 +36,7 @@ exports[`Sidebar > matches snapshot  1`] = `
           fill="currentColor"
         />
       </svg>
-    </div>
+    </button>
     
   </div>
   <div

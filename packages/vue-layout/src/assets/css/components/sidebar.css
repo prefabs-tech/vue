@@ -42,6 +42,16 @@
   width: var(--_width);
 }
 
+.sidebar button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  padding: 0;
+}
+
 .sidebar .sidebar-menu-wrapper {
   display: flex;
   flex: 1;
