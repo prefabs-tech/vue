@@ -1,4 +1,4 @@
-# Shared Conventions
+# Project Conventions
 
 Rules that apply across all skills. Each SKILL.md references this file instead of repeating these.
 
@@ -63,6 +63,11 @@ const wrapper = mount(Component, {
 
 If multiple test files in the same package need the same config, create a shared test helper (e.g., `src/__test__/helpers.ts`) instead of duplicating config objects.
 
+### Cleanup
+
+- Reset any global state between tests where applicable.
+- Unmount components explicitly if testing lifecycle hooks.
+
 ### Known Vue 3 Gotchas
 
 These patterns have been validated or are known pitfalls. Follow them to avoid known issues:
@@ -97,3 +102,8 @@ Different packages require different analysis emphasis:
 | Pure components | vue-ui | No wrapper analysis needed, focus on props/slots/emits |
 
 A single package can be multiple types (e.g., vue-i18n is both a plugin and a third-party wrapper).
+
+## Reference Packages
+
+- `packages/vue3-config` — has FEATURES.md and GUIDE.md as format references
+- `packages/vue3-ui` — has comprehensive component tests as test format reference

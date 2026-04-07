@@ -3,3 +3,5 @@
 !**/.env.example
 .turbo
 node_modules
+**/skills
+**/skills.old/
