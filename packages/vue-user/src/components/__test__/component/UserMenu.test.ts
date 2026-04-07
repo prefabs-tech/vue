@@ -23,6 +23,9 @@ const mockUser = {
   surname: "User",
 };
 
+const pinia = createPinia();
+setActivePinia(pinia);
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -32,47 +35,34 @@ const router = createRouter({
   ],
 });
 
+const createWrapper = (user = undefined, mountOptions = {}) => {
+  const store = useUserStore();
+  store.$patch({ user });
+
+  return shallowMount(UserMenu, {
+    global: {
+      plugins: [
+        pinia,
+        [configPlugin, { config: appConfig }],
+        [i18nPlugin, { config: appConfig }],
+        router,
+      ],
+      stubs: { RouterLink: RouterLinkStub },
+    },
+    ...mountOptions,
+  });
+};
+
 describe("UserMenu", () => {
   it("renders SignInUpMenu when no user is authenticated", () => {
-    const pinia = createPinia();
-    setActivePinia(pinia);
-    const store = useUserStore();
-    store.$patch({ user: undefined });
-
-    const wrapper = shallowMount(UserMenu, {
-      global: {
-        plugins: [
-          pinia,
-          [configPlugin, { config: appConfig }],
-          [i18nPlugin, { config: appConfig }],
-          router,
-        ],
-        stubs: { RouterLink: RouterLinkStub },
-      },
-    });
+    const wrapper = createWrapper(undefined);
 
     expect(wrapper.findComponent(SignInUpMenu).exists()).toBe(true);
     expect(wrapper.findComponent(DropdownUserMenu).exists()).toBe(false);
   });
 
   it("renders DropdownUserMenu when user is authenticated", () => {
-    const pinia = createPinia();
-    setActivePinia(pinia);
-    const store = useUserStore();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    store.$patch({ user: mockUser as any });
-
-    const wrapper = shallowMount(UserMenu, {
-      global: {
-        plugins: [
-          pinia,
-          [configPlugin, { config: appConfig }],
-          [i18nPlugin, { config: appConfig }],
-          router,
-        ],
-        stubs: { RouterLink: RouterLinkStub },
-      },
-    });
+    const wrapper = createWrapper(mockUser);
 
     expect(wrapper.findComponent(DropdownUserMenu).exists()).toBe(true);
     expect(wrapper.findComponent(SignInUpMenu).exists()).toBe(false);

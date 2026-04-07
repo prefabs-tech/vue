@@ -7,9 +7,19 @@ import { describe, expect, it } from "vitest";
 import PasswordResetRequestAcknowledge from "../../PasswordResetRequestAcknowledge.vue";
 import appConfig from "../config";
 
+const pinia = createPinia();
+
+const createWrapper = (config = appConfig, mountOptions = {}) => {
+  return mount(PasswordResetRequestAcknowledge, {
+    global: {
+      plugins: [pinia, [configPlugin, { config }], [i18nPlugin, { config }]],
+    },
+    ...mountOptions,
+  });
+};
+
 describe("PasswordResetRequestAcknowledge", () => {
   it("shows the resend timer initially disabled when timer is configured", () => {
-    const pinia = createPinia();
     const config = {
       ...appConfig,
       user: {
@@ -17,10 +27,7 @@ describe("PasswordResetRequestAcknowledge", () => {
       },
     };
 
-    const wrapper = mount(PasswordResetRequestAcknowledge, {
-      global: {
-        plugins: [pinia, [configPlugin, { config }], [i18nPlugin, { config }]],
-      },
+    const wrapper = createWrapper(config, {
       props: { email: "user@example.com" },
     });
 
@@ -31,16 +38,12 @@ describe("PasswordResetRequestAcknowledge", () => {
   });
 
   it("uses default 30-second timer when forgotPasswordResendTimeInSeconds is not configured", () => {
-    const pinia = createPinia();
     const config = {
       ...appConfig,
       user: {},
     };
 
-    const wrapper = mount(PasswordResetRequestAcknowledge, {
-      global: {
-        plugins: [pinia, [configPlugin, { config }], [i18nPlugin, { config }]],
-      },
+    const wrapper = createWrapper(config, {
       props: { email: "user@example.com" },
     });
 
@@ -50,7 +53,6 @@ describe("PasswordResetRequestAcknowledge", () => {
   });
 
   it("shows resend link as enabled when timer is zero", () => {
-    const pinia = createPinia();
     const config = {
       ...appConfig,
       user: {
@@ -58,10 +60,7 @@ describe("PasswordResetRequestAcknowledge", () => {
       },
     };
 
-    const wrapper = mount(PasswordResetRequestAcknowledge, {
-      global: {
-        plugins: [pinia, [configPlugin, { config }], [i18nPlugin, { config }]],
-      },
+    const wrapper = createWrapper(config, {
       props: { email: "user@example.com" },
     });
 
@@ -72,16 +71,7 @@ describe("PasswordResetRequestAcknowledge", () => {
   });
 
   it("displays the email address in the acknowledgement message", () => {
-    const pinia = createPinia();
-
-    const wrapper = mount(PasswordResetRequestAcknowledge, {
-      global: {
-        plugins: [
-          pinia,
-          [configPlugin, { config: appConfig }],
-          [i18nPlugin, { config: appConfig }],
-        ],
-      },
+    const wrapper = createWrapper(appConfig, {
       props: { email: "test@example.com" },
     });
 
@@ -89,7 +79,6 @@ describe("PasswordResetRequestAcknowledge", () => {
   });
 
   it("emits resend event when resend link is clicked with timer at zero", async () => {
-    const pinia = createPinia();
     const config = {
       ...appConfig,
       user: {
@@ -97,10 +86,7 @@ describe("PasswordResetRequestAcknowledge", () => {
       },
     };
 
-    const wrapper = mount(PasswordResetRequestAcknowledge, {
-      global: {
-        plugins: [pinia, [configPlugin, { config }], [i18nPlugin, { config }]],
-      },
+    const wrapper = createWrapper(config, {
       props: { email: "user@example.com" },
     });
 

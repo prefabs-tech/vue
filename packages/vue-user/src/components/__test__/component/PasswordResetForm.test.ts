@@ -8,6 +8,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import PasswordResetForm from "../../PasswordResetForm.vue";
 import appConfig from "../config";
 
+const pinia = createPinia();
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -21,47 +23,40 @@ const router = createRouter({
   ],
 });
 
+const createWrapper = (config = appConfig, mountOptions = {}) => {
+  return mount(PasswordResetForm, {
+    global: {
+      plugins: [
+        pinia,
+        [configPlugin, { config }],
+        [i18nPlugin, { config }],
+        router,
+      ],
+      stubs: { RouterLink: RouterLinkStub },
+    },
+    ...mountOptions,
+  });
+};
+
 describe("PasswordResetForm", () => {
   it("renders confirm password field when confirmPassword feature is enabled", () => {
-    const pinia = createPinia();
     const config = {
       ...appConfig,
       user: { features: { confirmPassword: true } },
     };
 
-    const wrapper = mount(PasswordResetForm, {
-      global: {
-        plugins: [
-          pinia,
-          [configPlugin, { config }],
-          [i18nPlugin, { config }],
-          router,
-        ],
-        stubs: { RouterLink: RouterLinkStub },
-      },
-    });
+    const wrapper = createWrapper(config);
 
     expect(wrapper.text()).toContain("Confirm password");
   });
 
   it("does not render confirm password field when confirmPassword feature is disabled", () => {
-    const pinia = createPinia();
     const config = {
       ...appConfig,
       user: { features: { confirmPassword: false } },
     };
 
-    const wrapper = mount(PasswordResetForm, {
-      global: {
-        plugins: [
-          pinia,
-          [configPlugin, { config }],
-          [i18nPlugin, { config }],
-          router,
-        ],
-        stubs: { RouterLink: RouterLinkStub },
-      },
-    });
+    const wrapper = createWrapper(config);
 
     expect(wrapper.text()).not.toContain("Confirm password");
   });
