@@ -50,11 +50,7 @@ const parseAppName = computed(() => {
 });
 
 const logoAlt =
-  props.alt ||
-  layoutConfig?.logoAlt ||
-  parseAppName.value ||
-  appTitle ||
-  "My App";
+  props.alt || layoutConfig?.logoAlt || parseAppName.value || appTitle;
 const logoSource = props.src || layoutConfig?.logo;
 const logoRoute = props.route || layoutConfig?.logoRoute || "home";
 </script>
