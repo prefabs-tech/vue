@@ -67,6 +67,19 @@ describe("Sidebar", () => {
     expect(wrapper.find(".sidebar").exists()).toBe(false);
   });
 
+  it("clicking the expand button restores the sidebar when in collapsed-only state", async () => {
+    const wrapper = shallowMount(Sidebar, {
+      props: { menu, collapsible: true },
+    });
+
+    wrapper.vm.sidebarActive = false;
+    await wrapper.vm.$nextTick();
+
+    await wrapper.find(".collapsed-sidebar").trigger("click");
+
+    expect(wrapper.vm.sidebarActive).toBe(true);
+  });
+
   it("keeps the sidebar visible when collapsed but items have shortNames", async () => {
     const wrapper = shallowMount(Sidebar, {
       props: { menu: menuWithShortNames, collapsible: true },
