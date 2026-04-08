@@ -2,7 +2,7 @@ import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 import { createApp, defineComponent, inject } from "vue";
 
-import layoutPlugin from "@/index";
+import layoutPlugin, { useTranslations } from "@/index";
 import Layout from "@/Layout.vue";
 
 import type { AppConfig } from "@prefabs.tech/vue3-config";
@@ -62,5 +62,25 @@ describe("plugin", () => {
     expect(translations?.en?.copyright?.disclaimer).toBe(
       "Custom disclaimer text",
     );
+  });
+});
+
+describe("useTranslations", () => {
+  it("falls back to bundled messages when called outside the plugin context", () => {
+    const Probe = defineComponent({
+      setup() {
+        const translations = useTranslations() as Record<
+          string,
+          Record<string, unknown>
+        >;
+        return { translations };
+      },
+      template: "<div />",
+    });
+
+    const wrapper = mount(Probe);
+
+    expect(wrapper.vm.translations).toHaveProperty("en");
+    expect(wrapper.vm.translations.en.copyright).toBeDefined();
   });
 });

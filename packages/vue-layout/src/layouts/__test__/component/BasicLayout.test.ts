@@ -2,6 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import AppFooter from "@/components/AppFooter.vue";
+import AppHeader from "@/components/AppHeader.vue";
 import BasicLayout from "@/layouts/BasicLayout.vue";
 
 describe("BasicLayout", () => {
@@ -17,6 +18,16 @@ describe("BasicLayout", () => {
     });
 
     expect(wrapper.findComponent(AppFooter).exists()).toBe(false);
+  });
+
+  it("passes noLocaleSwitcher to AppHeader", () => {
+    const wrapper = shallowMount(BasicLayout, {
+      props: { noLocaleSwitcher: true },
+    });
+
+    expect(wrapper.findComponent(AppHeader).props("noLocaleSwitcher")).toBe(
+      true,
+    );
   });
 
   it("renders default slot content inside main", () => {
