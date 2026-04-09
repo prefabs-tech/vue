@@ -1,221 +1,215 @@
 <!-- Package analysis — produced by /analyze-package. Do not edit manually. -->
 
-# Package Analysis: @prefabs.tech/vue3-ui
+# Package Analysis: `@prefabs.tech/vue3-ui`
 
 ## Overview
 
-A Vue3 UI component library providing 22+ reusable components and 5+ utility functions. This is a **pure custom component library** with no wrapped third-party dependencies (except vue-draggable-next which is directly passed through).
+A standalone Vue 3 UI component library with no third-party UI framework dependency. All components are custom-built. The only external runtime dependencies are `@vueuse/core` (composables used internally) and `vue-draggable-next` (used in SortableList). There is no wrapping of a base component library — this is pure custom code.
 
-**Package Type:** Component library (per CONVENTIONS.md)
-**Peer Dependency:** Vue >=3.2
-**Key Dependency:** @vueuse/core (for window size and click-outside utilities)
+**Package type:** Component library (per CONVENTIONS.md)
+**Peer dependency:** `vue >=3.2`
 
 ---
 
 ## Base Library Passthrough Analysis
 
-No wrapped dependencies — this is a custom component library.
+### @vueuse/core — PARTIAL PASSTHROUGH (utility use)
 
-**Note:** SortableList uses `vue-draggable-next` but imports it directly as `VueDraggableNext` and passes props through without transformation. This is passthrough usage, not a wrapped API.
+- **Options type:** Composables used internally, not re-exported.
+- **Options passed:** N/A — `onClickOutside` and `useWindowSize` used as implementation details only.
+- **Features restricted:** N/A
+- **Features added:** Components build viewport-aware positioning logic, scroll-parent tracking, and click-outside dismissal on top of these composables.
+
+### vue-draggable-next — PARTIAL PASSTHROUGH
+
+- **Options type:** Custom subset — only `:list` and `@change` are wired.
+- **Options passed:** Transformed — `@change` is intercepted to emit `onDrag` with the updated list.
+- **Features restricted:** Most vue-draggable-next options (animation, group, handle, filter, etc.) are not surfaced.
+- **Features added:** Custom per-item render function (`element.render(element.data)`); grab-icon SVG injected.
 
 ---
 
 ## Summary
 
-### Exports
+### Vue Plugin (Default Export)
 
-#### Vue Plugin (Default Export)
+`install(app)` registers three components globally:
 
-- **install()** — Registers three components globally: `LoadingButton`, `LoadingIcon`, `Page`
+- `"LoadingButton"` → `LoadingButton`
+- `"LoadingIcon"` → `LoadingIcon`
+- `"Page"` → `Page`
 
-#### Components (Individual Exports)
-
-All components are exported as Vue 3 single-file components with `<script setup>`:
-
-1. **Accordion** — Collapsible accordion/expansion panels
-2. **BadgeComponent** — Small badge/label component with optional `title` prop
-3. **ButtonElement** — Versatile button with props:
-   - Severity levels: primary, secondary, alternate, success, danger, warning
-   - Sizes: small, medium, large
-   - Variants: outlined, filled, textOnly
-   - Icon support (left/right), loading state, optional link behavior (`to` prop)
-   - Emits: click
-4. **Card** — Container component with header, body, footer slots; title prop
-5. **LoadingButton** — Button with loading spinner overlay; props: `disabled`, `label`, `loading`; emits: click
-6. **LoadingIcon** — Spinner icon component
-7. **SubPane** — Sub-pane container
-8. **ConfirmationModal** — Modal dialog for confirmation; props: `show`, `dismissOnClickOut`, `size`, `title`; emits: on:close
-9. **Data** — Data display component
-10. **Divider** — Visual divider/separator
-11. **Dropdown** — Dropdown menu; accepts `menu` prop (array of DropdownMenu items); emits: select
-12. **Errors** — Error display component with Error type support
-13. **FileCard** — Card component for file display/actions
-14. **FilesList** — List of files with actions
-15. **DebouncedInput** — Input with debounced value handling
-16. **GridContainer** — Grid layout container
-17. **LoadingPage** — Full-page loading overlay; props: `loading`
-18. **Message** — Message/notification component
-19. **Modal** — Modal dialog; props: `show`, `dismissOnClickOut`, `size`, `title`; emits: on:close
-20. **Page** — Full page layout with title, subtitle, toolbar, loading state
-
-- Props: `centered`, `loading`, `subtitle`, `title`, `titleElement` (h1-h6), `titleTag`, `toolbarActionsMenu`
-- Emits: action:click
-- Responsive: collapses toolbar to dropdown on small screens
-
-21. **Popup** — Popup/popover component
-22. **ResponsiveMenu** — Navigation menu with responsive behavior
-23. **SortableList** — Draggable list using vue-draggable-next
-
-- Accepts list of `{ id, data, render? }` items
-- Props: `list` (required)
-- Emits: onDrag
-
-24. **Stepper** — Multi-step form/wizard
-
-- Props: `activeIndex`, `align` (start/center/end), `direction` (horizontal/vertical), `hideButtons`, `nextButtonProperties`, `previousButtonProperties`, `steps` (required)
-- Emits: update:activeIndex, complete
-- Exposes: `activeStepIndex`, `onNext()`, `onPrevious()`
-
-25. **TabbedPanel** — Tab panel for organizing content
-26. **TabView** — Advanced tab component with persistence and routing
-
-- Props: `activeKey` (required), `enableHashRouting`, `id`, `interceptTabChange`, `interceptTabClose`, `lazy`, `persistState`, `persistStateStorage`, `position` (top/bottom/left/right), `tabs` (required), `visibleTabs`
-- Emits: beforeTabChange, beforeTabClose, update:activeKey, update:visibleTabs
-- Features: localStorage/sessionStorage persistence, hash-based routing, lazy loading, tab close interception
-- Exposes: `closeTab()`, `setActiveTab()`
-
-27. **Tooltip** — Tooltip component
-28. **YoutubeFacade** — Facade component for YouTube video embeds
-29. **FacebookSignInButton** — SSO button for Facebook login
-
-- Props: `baseButtonOptions`, `disabled`, `loading`, `title` (required)
-- Emits: click
-- Inherits BaseButton styling (variant: light/dark, borderType: rectangular/pill)
-
-30. **GoogleSignInButton** — SSO button for Google login
-
-- Props: `baseButtonOptions`, `disabled`, `loading`, `title` (required)
-- Emits: click
-- Inherits BaseButton styling
-
-#### Utility Functions
-
-All exported from `src/utils/`:
-
-1. **formatDate(date, locale?, options?)** — Format date using Intl.DateTimeFormat
-   - Default options: year, month (short), day
-   - Default locale: en-GB
-   - Returns: formatted string or null if invalid
-2. **formatDateTime(date, locale?, options?)** — Format date + time
-   - Default options: year, month (short), day, hour (numeric), minute (numeric), hour12: true
-   - Default locale: en-GB
-   - Returns: formatted string or null if invalid
-3. **formatDuration(timer: number)** — Format seconds as "mm:ss"
-4. **getBestPosition(triggerRect)** — Calculate best overlay position (top/bottom/left/right)
-   - Uses @vueuse/core `useWindowSize()` to measure available space
-   - Returns position key as string
-5. **getScrollableParents(element)** — Find all scrollable parent elements
-   - Walks up DOM checking overflow CSS properties
-   - Returns array of parent elements
-6. **getStorage(storageType)** — Return localStorage or sessionStorage
-   - Type: StorageType = "localStorage" | "sessionStorage"
-   - Pure delegation
-7. **useDebouncedValue<T>(value, delay)** — Vue composition function
-   - Returns Promise<Ref<T>> of debounced value
-   - Watches input, debounces with setTimeout
-   - Clears previous timeout on new value
-
-#### Types (Re-exports from `src/types/`)
-
-1. **DropdownMenu** — Menu item type with: class?, disabled?, display?, icon?, key?, label?, severity?, value?
-2. **Error** — Error object: { code: string; message?: string }
-3. **FileMessages** — Message keys for file UI (archive, delete, download, rename, upload, etc.)
-4. **IFile** — File object: { description?, downloadCount?, id (required), lastDownloadedAt?, originalFileName (required), size?, uploadedAt (required), uploadedBy (required) }
-5. **TableMessages** — FileMessages + search/table-specific messages (searchPlaceholder, tableEmpty, fileSizeHeader)
-6. **ToolbarActionMenu** — Extends DropdownMenu + ButtonElement props (combined type for Page toolbar)
-7. **Tab** — Tab definition: { children?, closable?, icon?, key (required), label (required) }
-8. **StepProperties** — Step in Stepper: { completedStepIcon?, content?, label?, step?, subtitle? }
-9. **ActionButtonProperties** — Button properties for Stepper actions: { disabled?, iconLeft?, iconRight?, label?, rounded?, severity?, size?, variant? }
+All other components are named exports only.
 
 ---
 
-## Framework Constructs Identified
+### Components
 
-### Vue 3 Script Setup Pattern
+| Export | Description | Classification |
+|---|---|---|
+| `Accordion` | Slot-driven accordion. Filters default slots by `title` prop. Supports vertical/horizontal layout, custom active/inactive icons, self-collapse via `canSelfCollapse`. | OURS |
+| `BadgeComponent` | Simple label badge. | OURS |
+| `ButtonElement` | Polymorphic button/link. Renders `<a>` when `to` prop is set. Supports `severity`, `size`, `variant`, loading state, left/right icons. | OURS |
+| `Card` | Slot-based card container. | OURS |
+| `LoadingButton` | Button with inline `LoadingIcon`; disables when `loading` or `disabled`. Also globally registered. | OURS |
+| `LoadingIcon` | Animated loading spinner. Also globally registered. | OURS |
+| `SubPane` | Sub-pane layout container. | OURS |
+| `ConfirmationModal` | `<dialog>`-based confirm/cancel dialog. Uses `@vueuse/core` `onClickOutside`. Calls `dialog.showModal()` on mount. `closable` and `dismissOnClickOut` flags. | OURS |
+| `Data` | Data display component. | OURS |
+| `Divider` | Horizontal/vertical divider. | OURS |
+| `Dropdown` | Menu dropdown built on `Popup`. Filters `display !== false`, disables items, closes popup on select, emits `select`. | OURS |
+| `DebouncedInput` | Form input with debounced value emission. | OURS |
+| `Errors` | Renders a list of `Error` objects via `Error.vue` sub-component. | OURS |
+| `FacebookSignInButton` | SSO button for Facebook using `BaseButton`. | OURS |
+| `FileCard` | File display card with optional `ConfirmationFileActions`. | OURS |
+| `FilesList` | List of `FileCard` items. | OURS |
+| `GoogleSignInButton` | SSO button for Google using `BaseButton`; injects Google SVG logo. | OURS |
+| `GridContainer` | CSS grid layout wrapper. | OURS |
+| `LoadingPage` | Fixed full-screen overlay with `LoadingIcon`, shown when `loading` is true. | OURS |
+| `Message` | Alert box with `severity`, icon, optional close button. Accepts string or string array as `message`. | OURS |
+| `Modal` | Div-based modal overlay. Uses `@vueuse/core` `onClickOutside`. `dismissOnClickOut` flag. | OURS |
+| `Page` | Page layout with header, title/subtitle/titleTag, responsive toolbar, loading overlay. Uses `useWindowSize` to collapse toolbar to dropdown at ≤576px. Also globally registered. | OURS |
+| `Popup` | Positioned popup with smart viewport-aware placement. Tracks scroll parents and window resize. Exposes `isVisible`, `togglePopup`. | OURS |
+| `ResponsiveMenu` | Nav menu using `<router-link>`. Emits `change-route` on click. Requires Vue Router. | OURS |
+| `SortableList` | Draggable list using `vue-draggable-next`. Per-item render function support. | OURS (thin wrapper) |
+| `Stepper` | Multi-step wizard. Horizontal and vertical layout. Controlled (`activeIndex` prop) or uncontrolled. Exposes `activeStepIndex`, `onNext`, `onPrevious`. | OURS |
+| `TabbedPanel` | Slot-driven tab panel. Simpler than `TabView` — no persistence, no hash routing. | OURS |
+| `TabView` | Full-featured tab component. Lazy/eager rendering, `persistState` (localStorage/sessionStorage), hash routing, `interceptTabChange`/`interceptTabClose`, closable tabs, `visibleTabs` filter. Exposes `closeTab`, `setActiveTab`. | OURS |
+| `Tooltip` | Positioned tooltip with hover + click modes, configurable delay, viewport-aware placement, scroll-parent tracking. | OURS |
+| `YoutubeFacade` | Lazy YouTube embed (facade pattern). Shows thumbnail until click, then swaps `<img>` for `<iframe>`. Falls back to YouTube thumbnail URL. | OURS |
 
-All components use `<script setup lang="ts">` with:
+---
 
-- `defineProps()` for prop definitions with validators and defaults
-- `defineEmits()` for event emissions
-- `defineExpose()` for template/parent access (Stepper, TabView)
+### Utility Exports (`./utils`)
 
-### Composition API Usage
+| Export | Description | Classification |
+|---|---|---|
+| `formatDate(date, locale?, options?)` | Formats date via `Intl`; defaults locale `"en-GB"`, format `{ year, month: "short", day }`; returns `null` on invalid input. | OURS |
+| `formatDateTime(date, locale?, options?)` | Same as `formatDate` but adds `hour`, `minute`, `hour12: true`; strips a comma from result. | OURS |
+| `formatDuration(timer: number)` | Converts seconds to `M:SS` string. | OURS |
+| `getBestPosition(triggerRect: DOMRect)` | Returns side (`top`/`bottom`/`left`/`right`) with most available viewport space using `useWindowSize`. | OURS |
+| `getScrollableParents(element: HTMLElement)` | Walks up DOM collecting elements with `overflow: auto/scroll`. | OURS |
+| `getStorage(storageType: StorageType)` | Returns `sessionStorage` or `localStorage`. | OURS |
+| `useDebouncedValue<T>(value, delay)` | Returns `Promise<Ref<T>>` that resolves after debounce. **Note:** uses module-level `timerId`, not instance-scoped — a known quirk. | OURS |
 
-- `useSlots()` — Access slot existence (Button, Card, Modal, etc.)
-- `computed()` — Derived state (ButtonElement className, Page visibleActions, TabView activeTabComponent, etc.)
-- `ref()` — Local reactive state (Modal ref, TabView activeTab/visibleTabs, Stepper activeStepIndex)
-- `watch()` — Reactive watchers (TabView props, useDebouncedValue)
-- `watchEffect()` — Stepper activeIndex synchronization
-- `onMounted()` — Initialization (TabView persistence/routing)
-- `onClickOutside()` from @vueuse/core — Modal dismiss behavior
+---
 
-### Prop Validators
+### Exported Types
 
-- ButtonElement: severity (enum), size (enum), variant (enum)
-- Page: titleElement (h1-h6)
-- Modal/ConfirmationModal: size (auto/medium/large)
-- BaseButton (SSO): borderType (rectangular/pill), variant (dark/light)
-- TabView: position (top/bottom/left/right), persistStateStorage (localStorage/sessionStorage)
-- Stepper: direction (horizontal/vertical), align (start/center/end)
+| Type | Description |
+|---|---|
+| `DropdownMenu` | Menu item: `{ class?, disabled?, display?, icon?, key?, label?, severity?, value? }` |
+| `Error` | `{ code: string; message?: string }` |
+| `FileMessages` | Message key map for file UI actions |
+| `IFile` | File object: `{ id, originalFileName, uploadedAt, uploadedBy, description?, size?, ... }` |
+| `TableMessages` | `FileMessages` + table-specific keys |
+| `ToolbarActionMenu` | Extends `DropdownMenu` + `ButtonElement` props for `Page` toolbar |
+| `Tab` | `{ key, label, children?, closable?, icon? }` |
+| `StepProperties` | `{ step?, label?, subtitle?, content?, completedStepIcon? }` |
+| `StorageType` | `"localStorage" | "sessionStorage"` |
 
-### Conditional Logic & Feature Flags
+---
 
-- **ButtonElement:** Conditional icon rendering, loading state disables button, optional link behavior
-- **Page:** Responsive toolbar (collapses to dropdown on small screens, determined by useWindowSize)
-- **Modal/ConfirmationModal:** v-show for visibility, dismissOnClickOut interception
-- **TabView:** Feature flags for persistState, enableHashRouting, interceptTabChange, interceptTabClose
-- **Stepper:** hideButtons flag, direction-dependent rendering (vertical content only on vertical), lazy loading in TabView
-- **Card:** Conditional header/footer based on slots
+### Framework Constructs
+
+- **`app.component()` registrations:** `LoadingButton`, `LoadingIcon`, `Page` (in plugin `install`).
+- **`defineExpose`:**
+  - `Popup` → `isVisible`, `togglePopup`
+  - `Stepper` → `activeStepIndex`, `onNext`, `onPrevious`
+  - `TabView` → `closeTab`, `setActiveTab`
+- **`onClickOutside` (@vueuse/core):** `Modal`, `ConfirmationModal`, `Popup`.
+- **`useWindowSize` (@vueuse/core):** `Page`, `Popup`, `Tooltip`, `utils/overlay.ts`.
+- **`onBeforeUnmount` cleanup:** `Popup` and `Tooltip` remove all scroll/resize event listeners.
+- **`watchEffect`:** `Stepper` syncs internal `activeStepIndex` to `activeIndex` prop.
+- **`onMounted`:** `ConfirmationModal` calls `dialog.showModal()`; `TabView` restores persisted state and sets up hash routing listener.
+- **`watch`:** `TabView` watches `props.activeKey`, `props.visibleTabs`, and combined `[visibleTabs, activeTab]` to sync state and persist to storage.
+
+---
+
+### Conditional Branches / Feature Flags
+
+| Component | Condition | Effect |
+|---|---|---|
+| `ButtonElement` | `to` prop set | Renders `<a>` instead of `<button>`, sets `role="link"` |
+| `ButtonElement` | `loading` | Disables, shows `LoadingIcon`, adds `loading` CSS class |
+| `ButtonElement` | No `label`/`label` slot | Adds `icon-only` CSS class |
+| `ConfirmationModal` | `closable && dismissOnClickOut` | Dismisses on outside click |
+| `ConfirmationModal` | `closable` | Shows close icon button |
+| `Dropdown` | `item.display !== false` | Filters item from rendered list |
+| `Dropdown` | `item.disabled` | Prevents select emit and popup close |
+| `Modal` | `dismissOnClickOut` | Dismisses on outside click |
+| `Page` | `windowWidth > 576` | Shows individual buttons vs. Dropdown for toolbar |
+| `Page` | `action.display !== false` | Filters toolbar action |
+| `Popup` | `props.position` set | Uses fixed position; otherwise `getBestPosition()` auto-detects |
+| `Stepper` | `direction === 'vertical'` | Renders `StepperContent` inline per-step vs. once below all steps |
+| `Stepper` | `activeIndex !== undefined` | Controlled mode — `watchEffect` syncs internal state |
+| `Stepper` | `hideButtons` | `onNext`/`onPrevious` are no-ops |
+| `TabView` | `lazy` (default `true`) | Renders only active tab; `false` renders all with `v-show` |
+| `TabView` | `persistState && id` | Saves/restores active tab + visible tabs to storage |
+| `TabView` | `enableHashRouting` | Syncs active tab to/from URL hash via `hashchange` listener |
+| `TabView` | `interceptTabChange` | Emits `beforeTabChange` instead of changing tab directly |
+| `TabView` | `interceptTabClose` | Emits `beforeTabClose` instead of closing tab directly |
+| `Tooltip` | `clickable` | Toggles visibility on click in addition to hover |
+| `YoutubeFacade` | `imageSource` not set | Falls back to `https://img.youtube.com/vi/{token}/maxresdefault.jpg` |
+| `SortableList` | `element.render` present | Renders via function; otherwise renders `element.data` as text |
+| `Message` | `Array.isArray(message)` | Renders as `<ul>` list vs. single string |
+| `Message` | `enableClose` (default `true`) | Shows close button |
+
+---
 
 ### Default Values
 
-- ButtonElement: severity="primary", size="medium", variant="filled", ariaLabel="button"
-- Modal: size="medium", show=false, dismissOnClickOut=false
-- TabView: lazy=true, persistState=true, persistStateStorage="localStorage", position="top"
-- Stepper: direction="horizontal", align="start"
-- formatDate/formatDateTime: locale="en-GB", default Intl options
-- getStorage: defaults to localStorage if not sessionStorage
-
-### Storage & Persistence
-
-- TabView: Persists active tab and visible tabs to localStorage/sessionStorage as JSON
-- getOrientation utility: Maps tab position to aria-orientation
-- clearSavedTabState utility: Removes persisted state
-
-### Responsive Behavior
-
-- Page: Uses useWindowSize to determine small/large screen threshold (576px)
-- getBestPosition: Measures window dimensions to find optimal overlay placement
-
-### Event Emission & Parent Communication
-
-- All interactive components emit typed events (click, on:close, update:activeKey, etc.)
-- Page delegates toolbar actions via action:click with menu item payload
-- TabView emits before\* interceptors for cancel/custom handling
-- Stepper exposes methods for parent control (onNext, onPrevious)
-
-### Slot Patterns
-
-- Named slots: header, footer, titleTag, subtitle, toolbar, label, iconLeft, iconRight
-- Default slot fallback content in header/footer presence checks
-- Slot passthrough in Stepper for step content
+| Component | Prop | Default |
+|---|---|---|
+| `ButtonElement` | `severity` | `"primary"` |
+| `ButtonElement` | `size` | `"medium"` |
+| `ButtonElement` | `variant` | `"filled"` |
+| `ButtonElement` | `ariaLabel` | `"button"` |
+| `Modal` | `size` | `"medium"` |
+| `Modal` | `dismissOnClickOut` | `false` |
+| `ConfirmationModal` | `header` | `"Confirmation required"` |
+| `ConfirmationModal` | `message` | `"Are you sure you want to proceed?"` |
+| `ConfirmationModal` | `closeIcon` | `"pi pi-times"` |
+| `ConfirmationModal` | `icon` | `"pi pi-exclamation-triangle"` |
+| `ConfirmationModal` | `closable` | `true` |
+| `ConfirmationModal` | `dismissOnClickOut` | `true` |
+| `ConfirmationModal` | `cancelButtonOptions.label` (applied in template) | `"No"` |
+| `ConfirmationModal` | `cancelButtonOptions.severity` (applied in template) | `"secondary"` |
+| `ConfirmationModal` | `cancelButtonOptions.variant` (applied in template) | `"outlined"` |
+| `ConfirmationModal` | `acceptButtonOptions.label` (applied in template) | `"Yes"` |
+| `Popup` | `offset` | `10` |
+| `Popup` | `ariaLabel` | `"popup"` |
+| `Tooltip` | `delay` | `100` |
+| `Tooltip` | `offset` | `10` |
+| `Stepper` | `align` | `"start"` |
+| `Stepper` | `direction` | `"horizontal"` |
+| `Page` | `titleElement` | `"h1"` |
+| `Page` | `toolbarActionsMenu` | `[]` |
+| `TabView` | `lazy` | `true` |
+| `TabView` | `persistState` | `true` |
+| `TabView` | `persistStateStorage` | `"localStorage"` |
+| `TabView` | `position` | `"top"` |
+| `TabView` | `visibleTabs` | `[]` (resolved to all tab keys) |
+| `TabbedPanel` | `defaultIndex` | `0` |
+| `TabbedPanel` | `position` | `"top"` |
+| `Accordion` | `defaultIndex` | `0` |
+| `Accordion` | `direction` | `"vertical"` |
+| `Accordion` | `canSelfCollapse` | `false` |
+| `Message` | `severity` | `"info"` |
+| `Message` | `enableClose` | `true` |
+| `Message` | `showIcon` | `true` |
+| `SSOBaseButton` | `variant` | `"light"` |
+| `SSOBaseButton` | `borderType` | `"rectangular"` |
+| `YoutubeFacade` | `aspectRatio` | `"16/9"` |
+| `formatDate` | `locale` | `"en-GB"` |
+| `formatDateTime` | `locale` | `"en-GB"` |
 
 ---
 
 ## Completeness Checklist
 
-- [x] Classified every public export as "ours" (all custom Vue components and utilities)
-- [x] Listed every framework construct added (Script setup, composition API usage, prop validators, conditional logic)
-- [x] Identified every conditional branch (feature flags, responsive logic, slot presence checks)
+- [x] Classified every public export as "ours" or "theirs"
+- [x] Listed every framework construct added (plugin install, defineExpose, vueuse hooks, lifecycle registrations)
+- [x] Identified every conditional branch (feature flags, responsive logic, slot/prop presence checks)
 - [x] Documented default values for all options we define
-- [x] No wrapped dependencies — this is a pure component library
+- [x] Produced a passthrough classification for every wrapped dependency (`@vueuse/core`, `vue-draggable-next`)
