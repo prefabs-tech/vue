@@ -4,21 +4,18 @@ import { describe, expect, it } from "vitest";
 import LoadingPage from "../../Index.vue";
 
 describe("LoadingPage", () => {
-  it("renders loading overlay when loading is true", () => {
-    const wrapper = mount(LoadingPage, { props: { loading: true } });
+  it("does not render when loading=false", () => {
+    const wrapper = mount(LoadingPage, { props: { loading: false } });
+    expect(wrapper.find(".loading-page").exists()).toBe(false);
+  });
 
+  it("renders the loading overlay when loading=true", () => {
+    const wrapper = mount(LoadingPage, { props: { loading: true } });
     expect(wrapper.find(".loading-page").exists()).toBe(true);
   });
 
-  it("does not render loading overlay when loading is false", () => {
-    const wrapper = mount(LoadingPage, { props: { loading: false } });
-
-    expect(wrapper.find(".loading-page").exists()).toBe(false);
-  });
-
-  it("does not render loading overlay with default loading prop", () => {
-    const wrapper = mount(LoadingPage);
-
-    expect(wrapper.find(".loading-page").exists()).toBe(false);
+  it("renders a loading icon inside the overlay", () => {
+    const wrapper = mount(LoadingPage, { props: { loading: true } });
+    expect(wrapper.find(".loading-icon").exists()).toBe(true);
   });
 });
