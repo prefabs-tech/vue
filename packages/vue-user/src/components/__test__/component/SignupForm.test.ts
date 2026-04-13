@@ -95,4 +95,78 @@ describe("SignupForm", () => {
 
     expect(wrapper.text()).toContain("Your username");
   });
+
+  it("shows checkbox when showCheckbox is true", () => {
+    const config = {
+      ...appConfig,
+      user: {
+        features: {
+          signUp: {
+            termsAndConditions: { display: true, showCheckbox: true },
+          },
+        },
+      },
+    };
+
+    const wrapper = createWrapper(config);
+
+    expect(wrapper.find('input[type="checkbox"]').exists()).toBe(true);
+  });
+
+  it("hides checkbox when showCheckbox is false", () => {
+    const config = {
+      ...appConfig,
+      user: {
+        features: {
+          signUp: {
+            termsAndConditions: { display: true, showCheckbox: false },
+          },
+        },
+      },
+    };
+
+    const wrapper = createWrapper(config);
+
+    expect(wrapper.find('input[type="checkbox"]').exists()).toBe(false);
+  });
+
+  it("disables submit button when checkbox is required but unchecked", () => {
+    const config = {
+      ...appConfig,
+      user: {
+        features: {
+          signUp: {
+            termsAndConditions: { display: true, showCheckbox: true },
+          },
+        },
+      },
+    };
+
+    const wrapper = createWrapper(config);
+
+    const submitButton = wrapper.find('button[type="submit"]');
+    expect(submitButton.attributes("disabled")).toBeDefined();
+  });
+
+  it("enables submit button when checkbox is checked", async () => {
+    const config = {
+      ...appConfig,
+      user: {
+        features: {
+          signUp: {
+            termsAndConditions: { display: true, showCheckbox: true },
+          },
+        },
+      },
+    };
+
+    const wrapper = createWrapper(config);
+
+    const checkbox = wrapper.find('input[type="checkbox"]');
+    await checkbox.setValue(true);
+    await wrapper.vm.$nextTick();
+
+    const submitButton = wrapper.find('button[type="submit"]');
+    expect(submitButton.attributes("disabled")).toBeUndefined();
+  });
 });
