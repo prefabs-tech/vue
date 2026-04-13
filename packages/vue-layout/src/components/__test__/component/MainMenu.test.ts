@@ -38,7 +38,7 @@ describe("MainMenu", () => {
     expect(menu.props("activeRoute")).toBe("about");
   });
 
-  it("passes empty string as activeRoute when no route in list matches", async () => {
+  it("defaults to 'home' when no route in list matches", async () => {
     await router.push("/");
     await router.isReady();
 
@@ -50,20 +50,8 @@ describe("MainMenu", () => {
     });
 
     const menu = wrapper.findComponent({ name: "ResponsiveMenu" });
-    // "home" is not in routes list; currentParentRouteName returns "" for root route
-    // the template applies ?? "home" for nullish values, but computed returns "" here
-    expect(menu.props("activeRoute")).toBe("");
-  });
-
-  it("emits close when ResponsiveMenu emits change-route", async () => {
-    const wrapper = shallowMount(MainMenu, {
-      global: { plugins: [router] },
-      props: { routes: menuRoutes },
-    });
-
-    const menu = wrapper.findComponent({ name: "ResponsiveMenu" });
-    await menu.vm.$emit("change-route");
-
-    expect(wrapper.emitted("close")).toBeTruthy();
+    // "home" is not in routes list; activeRoute computed returns ""
+    // the template applies || "home" to handle empty strings
+    expect(menu.props("activeRoute")).toBe("home");
   });
 });

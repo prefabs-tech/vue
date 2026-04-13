@@ -7,10 +7,18 @@ import Logo from "@/components/Logo.vue";
 import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const makeConfig = (overrides: Partial<AppConfig> = {}): AppConfig => ({
-  apiBaseUrl: "http://localhost",
-  appTitle: "My App",
-  appVersion: "1.0.0",
   ...overrides,
+  apiBaseUrl: overrides.apiBaseUrl ?? "http://localhost",
+  appTitle: overrides.appTitle ?? "My App",
+  appVersion: overrides.appVersion ?? "1.0.0",
+  features: overrides.features ?? {
+    showVersion: true,
+  },
+  i18n: overrides.i18n ?? {
+    supportedLocales: ["en"],
+  },
+  slug: overrides.slug ?? "my-app",
+  websiteDomain: overrides.websiteDomain ?? "localhost",
 });
 
 const mountLogo = (

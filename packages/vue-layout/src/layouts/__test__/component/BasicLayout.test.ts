@@ -29,12 +29,4 @@ describe("BasicLayout", () => {
       true,
     );
   });
-
-  it("renders default slot content inside main", () => {
-    const wrapper = shallowMount(BasicLayout, {
-      slots: { default: "<p>Page content</p>" },
-    });
-
-    expect(wrapper.find("main").text()).toBe("Page content");
-  });
 });

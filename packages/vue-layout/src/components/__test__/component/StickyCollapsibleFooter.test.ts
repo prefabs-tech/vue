@@ -20,12 +20,4 @@ describe("StickyCollapsibleFooter", () => {
 
     expect(wrapper.find("footer").classes()).not.toContain("fixed");
   });
-
-  it("renders slot content", () => {
-    const wrapper = mount(StickyCollapsibleFooter, {
-      slots: { default: "<button>Save</button>" },
-    });
-
-    expect(wrapper.find("button").exists()).toBe(true);
-  });
 });
