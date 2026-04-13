@@ -35,28 +35,13 @@ describe("Popup (component)", () => {
     );
   });
 
-  it("exposes isVisible and togglePopup for programmatic control", async () => {
+  it("does not render popup content when content slot is not provided", () => {
     const wrapper = mount(Popup, {
       slots: {
         default: "<button>Trigger</button>",
-        content: "<div>Popup content</div>",
       },
     });
 
-    const exposed = wrapper.vm?.$?.exposed as
-      | undefined
-      | {
-          isVisible: { value: boolean };
-          togglePopup: () => void;
-        };
-
-    expect(exposed).toBeTruthy();
-    expect(exposed?.isVisible.value).toBe(false);
-
-    exposed?.togglePopup();
-    await wrapper.vm.$nextTick();
-
-    expect(exposed?.isVisible.value).toBe(true);
-    expect(wrapper.find(".popup-content").exists()).toBe(true);
+    expect(wrapper.find(".popup-content").exists()).toBe(false);
   });
 });

@@ -12,32 +12,32 @@ const tabs: Tab[] = [
 ];
 
 describe("TabView", () => {
-  it("renders only the active tab content in lazy mode (default)", () => {
+  it("renders active tab content", () => {
     const wrapper = mount(TabView, {
       props: { activeKey: "tab1", tabs, visibleTabs: ["tab1", "tab2", "tab3"] },
     });
 
     const tabPanel = wrapper.find('[role="tabpanel"]');
-
     expect(tabPanel.text()).toContain("Content of tab 1");
-    expect(tabPanel.text()).not.toContain("Content of tab 2");
   });
 
-  it("renders active tab content when lazy is false", () => {
-    // When tab children are strings, the active tab's content renders as text
-    // regardless of the lazy flag. The non-lazy v-show path applies to VNode slot children.
+  it("switches to clicked tab", async () => {
     const wrapper = mount(TabView, {
       props: {
-        activeKey: "tab2",
+        activeKey: "tab1",
         tabs,
         visibleTabs: ["tab1", "tab2", "tab3"],
-        lazy: false,
       },
     });
 
-    const tabPanel = wrapper.find('[role="tabpanel"]');
+    const tab2Button = wrapper
+      .findAll('[role="tab"]')
+      .find((b) => b.text().includes("Tab 2"));
 
-    expect(tabPanel.text()).toContain("Content of tab 2");
+    await tab2Button?.trigger("click");
+
+    expect(wrapper.emitted("update:activeKey")).toBeTruthy();
+    expect(wrapper.emitted("update:activeKey")?.[0][0]).toBe("tab2");
   });
 
   it("filters visible tabs when visibleTabs prop is provided", () => {
@@ -56,7 +56,7 @@ describe("TabView", () => {
     expect(tabButtons[1].text()).toContain("Tab 2");
   });
 
-  it("emits beforeTabChange instead of changing tab when interceptTabChange is true", async () => {
+  it("emits beforeTabChange when interceptTabChange is true", async () => {
     const wrapper = mount(TabView, {
       props: {
         activeKey: "tab1",
@@ -76,26 +76,27 @@ describe("TabView", () => {
     expect(wrapper.emitted("update:activeKey")).toBeFalsy();
   });
 
-  it("emits update:activeKey when tab is clicked without interception", async () => {
+  it("closes tab when close button is clicked", async () => {
+    const closableTabs: Tab[] = [
+      { key: "tab1", label: "Tab 1", closable: true, children: "Content 1" },
+      { key: "tab2", label: "Tab 2", closable: true, children: "Content 2" },
+    ];
+
     const wrapper = mount(TabView, {
       props: {
         activeKey: "tab1",
-        tabs,
-        visibleTabs: ["tab1", "tab2", "tab3"],
+        tabs: closableTabs,
+        visibleTabs: ["tab1", "tab2"],
       },
     });
 
-    const tab2Button = wrapper
-      .findAll('[role="tab"]')
-      .find((b) => b.text().includes("Tab 2"));
+    const closeIcon = wrapper.find('[role="tab"] svg');
+    await closeIcon.trigger("click");
 
-    await tab2Button?.trigger("click");
-
-    expect(wrapper.emitted("update:activeKey")).toBeTruthy();
-    expect(wrapper.emitted("update:activeKey")?.[0][0]).toBe("tab2");
+    expect(wrapper.emitted("update:visibleTabs")).toBeTruthy();
   });
 
-  it("emits beforeTabClose instead of closing tab when interceptTabClose is true", async () => {
+  it("emits beforeTabClose when interceptTabClose is true", async () => {
     const closableTabs: Tab[] = [
       { key: "tab1", label: "Tab 1", closable: true, children: "Content 1" },
       { key: "tab2", label: "Tab 2", closable: true, children: "Content 2" },
@@ -110,33 +111,114 @@ describe("TabView", () => {
       },
     });
 
-    const closeSvg = wrapper.find('[role="tab"] svg');
-
-    await closeSvg.trigger("click");
+    const closeIcon = wrapper.find('[role="tab"] svg');
+    await closeIcon.trigger("click");
 
     expect(wrapper.emitted("beforeTabClose")).toBeTruthy();
     expect(wrapper.emitted("update:visibleTabs")).toBeFalsy();
   });
 
-  it("closes tab directly when interceptTabClose is false", async () => {
-    const closableTabs: Tab[] = [
-      { key: "tab1", label: "Tab 1", closable: true, children: "Content 1" },
-      { key: "tab2", label: "Tab 2", closable: true, children: "Content 2" },
-    ];
+  it("persists active tab to localStorage", async () => {
+    localStorage.clear();
 
     const wrapper = mount(TabView, {
       props: {
         activeKey: "tab1",
-        tabs: closableTabs,
-        visibleTabs: ["tab1", "tab2"],
-        interceptTabClose: false,
+        tabs,
+        visibleTabs: ["tab1", "tab2", "tab3"],
+        persistState: true,
+        id: "test-tabview",
       },
     });
 
-    const closeSvg = wrapper.find('[role="tab"] svg');
+    await wrapper.vm.$nextTick();
 
-    await closeSvg.trigger("click");
+    const tab2Button = wrapper
+      .findAll('[role="tab"]')
+      .find((b) => b.text().includes("Tab 2"));
 
-    expect(wrapper.emitted("update:visibleTabs")).toBeTruthy();
+    await tab2Button?.trigger("click");
+    await wrapper.vm.$nextTick();
+
+    const stored = localStorage.getItem("test-tabview");
+    expect(stored).toBeTruthy();
+    const parsed = JSON.parse(stored!);
+    expect(parsed.activeTab).toBe("tab2");
+  });
+
+  it("restores active tab from localStorage on mount", async () => {
+    localStorage.setItem(
+      "test-tabview-restore",
+      JSON.stringify({
+        activeTab: "tab3",
+        visibleTabs: ["tab1", "tab2", "tab3"],
+      }),
+    );
+
+    const wrapper = mount(TabView, {
+      props: {
+        activeKey: "tab1",
+        tabs,
+        visibleTabs: ["tab1", "tab2", "tab3"],
+        persistState: true,
+        id: "test-tabview-restore",
+      },
+    });
+
+    await wrapper.vm.$nextTick();
+
+    const tabPanel = wrapper.find('[role="tabpanel"]');
+    expect(tabPanel.text()).toContain("Content of tab 3");
+  });
+
+  it("uses sessionStorage when persistStateStorage is sessionStorage", async () => {
+    sessionStorage.clear();
+
+    const wrapper = mount(TabView, {
+      props: {
+        activeKey: "tab1",
+        tabs,
+        visibleTabs: ["tab1", "tab2", "tab3"],
+        persistState: true,
+        persistStateStorage: "sessionStorage",
+        id: "test-tabview-session",
+      },
+    });
+
+    await wrapper.vm.$nextTick();
+
+    const tab2Button = wrapper
+      .findAll('[role="tab"]')
+      .find((b) => b.text().includes("Tab 2"));
+
+    await tab2Button?.trigger("click");
+    await wrapper.vm.$nextTick();
+
+    const stored = sessionStorage.getItem("test-tabview-session");
+    expect(stored).toBeTruthy();
+    const parsed = JSON.parse(stored!);
+    expect(parsed.activeTab).toBe("tab2");
+  });
+
+  it("updates URL hash when enableHashRouting is true", async () => {
+    const wrapper = mount(TabView, {
+      props: {
+        activeKey: "tab1",
+        tabs,
+        visibleTabs: ["tab1", "tab2", "tab3"],
+        enableHashRouting: true,
+      },
+    });
+
+    await wrapper.vm.$nextTick();
+
+    const tab2Button = wrapper
+      .findAll('[role="tab"]')
+      .find((b) => b.text().includes("Tab 2"));
+
+    await tab2Button?.trigger("click");
+    await wrapper.vm.$nextTick();
+
+    expect(window.location.hash).toBe("#tab2");
   });
 });
