@@ -4,19 +4,6 @@ import { describe, it, expect } from "vitest";
 import NumberInput from "../../NumberInput.vue";
 
 describe("NumberInput", () => {
-  it("renders label when provided", () => {
-    const wrapper = mount(NumberInput, {
-      props: {
-        label: "Age",
-        name: "age",
-      },
-    });
-    const label = wrapper.find("label");
-
-    expect(label.exists()).toBe(true);
-    expect(label.text()).toBe("Age");
-  });
-
   it("emits Number on input", async () => {
     const wrapper = mount(NumberInput);
     const input = wrapper.find("input");

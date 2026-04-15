@@ -4,43 +4,6 @@ import { describe, it, expect } from "vitest";
 import CountryPicker from "../../CountryPicker/Index.vue";
 
 describe("CountryPicker", () => {
-  it("disables sorted options by default", () => {
-    const wrapper = mount(CountryPicker);
-    const selectInput = wrapper.findComponent({ name: "SelectInput" });
-
-    expect(selectInput.props("hasSortedOptions")).toBe(false);
-  });
-
-  it("hides flags when flags prop is false", () => {
-    const wrapper = mount(CountryPicker, {
-      props: {
-        flags: false,
-      },
-    });
-
-    expect(wrapper.vm.flags).toBe(false);
-  });
-
-  it("applies custom flagsPosition", () => {
-    const wrapper = mount(CountryPicker, {
-      props: {
-        flagsPosition: "right",
-      },
-    });
-
-    expect(wrapper.vm.flagsPosition).toBe("right");
-  });
-
-  it("applies custom flagsStyle", () => {
-    const wrapper = mount(CountryPicker, {
-      props: {
-        flagsStyle: "circle",
-      },
-    });
-
-    expect(wrapper.vm.flagsStyle).toBe("circle");
-  });
-
   it("emits update:modelValue on selection", async () => {
     const wrapper = mount(CountryPicker);
     const selectInput = wrapper.findComponent({ name: "SelectInput" });

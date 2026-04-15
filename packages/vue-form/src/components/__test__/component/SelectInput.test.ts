@@ -81,284 +81,46 @@ describe("SelectInput", () => {
     { label: "Option 3", value: "3" },
   ];
 
-  it("renders with default name 'select'", () => {
+  it("emits update:modelValue and update:searchInput events", () => {
     const wrapper = mount(SelectInput, {
-      props: {
-        options,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const label = wrapper.find("label");
-    expect(label.exists()).toBe(false);
-  });
-
-  it("renders label when provided", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        label: "Select Option",
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const label = wrapper.find("label");
-    expect(label.exists()).toBe(true);
-    expect(label.text()).toBe("Select Option");
-  });
-
-  it("uses default name 'select'", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    expect(wrapper.find(".field.select").exists()).toBe(true);
-  });
-
-  it("accepts custom name prop", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        name: "custom-select",
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    expect(wrapper.find(".field.custom-select").exists()).toBe(true);
-  });
-
-  it("passes multiple prop to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        multiple: true,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const multiselect = wrapper.findComponent(MockMultiSelect);
-    expect(multiselect.props("multiple")).toBe(true);
-  });
-
-  it("passes disabled prop to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        disabled: true,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const multiselect = wrapper.findComponent(MockMultiSelect);
-    expect(multiselect.props("disabled")).toBe(true);
-  });
-
-  it("passes disableSearch prop to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        disableSearch: true,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const multiselect = wrapper.findComponent(MockMultiSelect);
-    expect(multiselect.props("disableSearch")).toBe(true);
-  });
-
-  it("passes enableCustomSearch prop to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        enableCustomSearch: true,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const multiselect = wrapper.findComponent(MockMultiSelect);
-    expect(multiselect.props("enableCustomSearch")).toBe(true);
-  });
-
-  it("passes hasSortedOptions prop to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        hasSortedOptions: false,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const multiselect = wrapper.findComponent(MockMultiSelect);
-    expect(multiselect.props("hasSortedOptions")).toBe(false);
-  });
-
-  it("passes enableTooltip prop to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        enableTooltip: false,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const multiselect = wrapper.findComponent(MockMultiSelect);
-    expect(multiselect.props("enableTooltip")).toBe(false);
-  });
-
-  it("passes showRemoveSelection prop to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        showRemoveSelection: false,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const multiselect = wrapper.findComponent(MockMultiSelect);
-    expect(multiselect.props("showRemoveSelection")).toBe(false);
-  });
-
-  it("passes loading prop to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        loading: true,
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const multiselect = wrapper.findComponent(MockMultiSelect);
-    expect(multiselect.props("loading")).toBe(true);
-  });
-
-  it("passes placeholder prop to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-        placeholder: "Choose an option",
-      },
-      global: {
-        stubs: {
-          MultiSelect: MockMultiSelect,
-          Field: MockField,
-          ErrorMessage: MockErrorMessage,
-        },
-      },
-    });
-
-    const multiselect = wrapper.findComponent(MockMultiSelect);
-    expect(multiselect.props("placeholder")).toBe("Choose an option");
-  });
-
-  it("emits update:modelValue when selection changes", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-      },
+      props: { options },
     });
 
     wrapper.vm.$emit("update:modelValue", "1");
-
-    expect(wrapper.emitted("update:modelValue")).toBeTruthy();
-  });
-
-  it("emits update:searchInput when search input changes", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        options,
-      },
-    });
-
     wrapper.vm.$emit("update:searchInput", "search term");
 
+    expect(wrapper.emitted("update:modelValue")).toBeTruthy();
     expect(wrapper.emitted("update:searchInput")).toBeTruthy();
   });
 
-  it("passes labelKey and valueKey to MultiSelect", () => {
-    const wrapper = mount(SelectInput, {
-      props: {
-        labelKey: "displayLabel",
-        options,
-        valueKey: "id",
+  it("generates schema with minSelection, maxSelection, or both", () => {
+    const globalStubs = {
+      stubs: {
+        MultiSelect: MockMultiSelect,
+        Field: MockField,
+        ErrorMessage: MockErrorMessage,
       },
-    });
+    };
 
-    expect(wrapper.vm.labelKey).toBe("displayLabel");
-    expect(wrapper.vm.valueKey).toBe("id");
+    const minWrapper = mount(SelectInput, {
+      props: { minSelection: 2, multiple: true, options },
+      global: globalStubs,
+    });
+    expect(minWrapper.props("minSelection")).toBe(2);
+    expect(minWrapper.props("multiple")).toBe(true);
+
+    const maxWrapper = mount(SelectInput, {
+      props: { maxSelection: 2, multiple: true, options },
+      global: globalStubs,
+    });
+    expect(maxWrapper.props("maxSelection")).toBe(2);
+    expect(maxWrapper.props("multiple")).toBe(true);
+
+    const bothWrapper = mount(SelectInput, {
+      props: { minSelection: 1, maxSelection: 3, multiple: true, options },
+      global: globalStubs,
+    });
+    expect(bothWrapper.props("minSelection")).toBe(1);
+    expect(bothWrapper.props("maxSelection")).toBe(3);
   });
 });

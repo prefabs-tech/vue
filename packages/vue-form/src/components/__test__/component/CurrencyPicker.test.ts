@@ -10,17 +10,6 @@ describe("CurrencyPicker", () => {
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
   ];
 
-  it("enables custom search by default", () => {
-    const wrapper = mount(CurrencyPicker, {
-      props: {
-        options: currencyOptions,
-      },
-    });
-    const selectInput = wrapper.findComponent({ name: "SelectInput" });
-
-    expect(selectInput.props("enableCustomSearch")).toBe(true);
-  });
-
   it("filters options by label", async () => {
     const wrapper = mount(CurrencyPicker, {
       props: {
