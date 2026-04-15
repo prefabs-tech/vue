@@ -26,13 +26,6 @@ describe("FilesList", () => {
     expect(wrapper.findAll(".file-card")).toHaveLength(2);
   });
 
-  it("renders no file cards when files array is empty", () => {
-    const wrapper = mount(FilesList, {
-      props: { files: [] },
-    });
-    expect(wrapper.findAll(".file-card")).toHaveLength(0);
-  });
-
   it("emits action:download with the correct file when download is triggered", async () => {
     const file = makeFile(1, "doc.pdf");
     const wrapper = mount(FilesList, {

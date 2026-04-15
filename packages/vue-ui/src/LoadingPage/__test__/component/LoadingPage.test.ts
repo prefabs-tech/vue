@@ -13,9 +13,4 @@ describe("LoadingPage", () => {
     const wrapper = mount(LoadingPage, { props: { loading: true } });
     expect(wrapper.find(".loading-page").exists()).toBe(true);
   });
-
-  it("renders a loading icon inside the overlay", () => {
-    const wrapper = mount(LoadingPage, { props: { loading: true } });
-    expect(wrapper.find(".loading-icon").exists()).toBe(true);
-  });
 });

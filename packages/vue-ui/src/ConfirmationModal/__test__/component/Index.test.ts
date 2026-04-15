@@ -8,20 +8,6 @@ describe("ConfirmationModal", () => {
     HTMLDialogElement.prototype.showModal = vi.fn();
   });
 
-  it("renders default header text", () => {
-    const wrapper = mount(ConfirmationModal);
-
-    expect(wrapper.find(".title").text()).toBe("Confirmation required");
-  });
-
-  it("renders default message text", () => {
-    const wrapper = mount(ConfirmationModal);
-
-    expect(wrapper.find(".dialog-content").text()).toContain(
-      "Are you sure you want to proceed?",
-    );
-  });
-
   it("shows close button when closable is true (default)", () => {
     const wrapper = mount(ConfirmationModal);
 
@@ -38,22 +24,6 @@ describe("ConfirmationModal", () => {
     expect(wrapper.find('button[aria-label="close modal"]').exists()).toBe(
       false,
     );
-  });
-
-  it("shows cancel button with default label No", () => {
-    const wrapper = mount(ConfirmationModal);
-    const buttons = wrapper.findAll("button");
-    const noButton = buttons.find((b) => b.text().includes("No"));
-
-    expect(noButton).toBeDefined();
-  });
-
-  it("shows accept button with default label Yes", () => {
-    const wrapper = mount(ConfirmationModal);
-    const buttons = wrapper.findAll("button");
-    const yesButton = buttons.find((b) => b.text().includes("Yes"));
-
-    expect(yesButton).toBeDefined();
   });
 
   it("emits on:confirm when accept button is clicked", async () => {

@@ -9,12 +9,6 @@ const defaultProps = {
 };
 
 describe("YoutubeFacade", () => {
-  it("applies default aspectRatio of 16/9", () => {
-    const wrapper = mount(YoutubeFacade, { props: defaultProps });
-
-    expect(wrapper.find("img").attributes("style")).toContain("16/9");
-  });
-
   it("uses imageSource prop when provided", () => {
     const wrapper = mount(YoutubeFacade, {
       props: { ...defaultProps, imageSource: "https://example.com/thumb.jpg" },

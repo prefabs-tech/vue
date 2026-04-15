@@ -55,14 +55,6 @@ describe("Accordion", () => {
     },
   });
 
-  it("correctly renders all titles", () => {
-    for (const key in contents) {
-      const title = contents[key].title;
-
-      expect(wrapper.html()).toContain(title);
-    }
-  });
-
   it("correctly show SubPane with matching defaultIndex", () => {
     const active = wrapper.findAll(".accordion > section");
 

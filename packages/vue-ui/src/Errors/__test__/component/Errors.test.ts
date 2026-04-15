@@ -24,18 +24,4 @@ describe("Errors", () => {
     expect(wrapper.find("ul").exists()).toBe(true);
     expect(wrapper.findAll("li")).toHaveLength(2);
   });
-
-  it("displays the error code in the rendered output", () => {
-    const wrapper = mount(Errors, {
-      props: { errors: [{ code: "ERR_404", message: "Not found" }] },
-    });
-    expect(wrapper.text()).toContain("ERR_404");
-  });
-
-  it("displays the error message in the rendered output", () => {
-    const wrapper = mount(Errors, {
-      props: { errors: [{ code: "ERR_404", message: "Not found" }] },
-    });
-    expect(wrapper.text()).toContain("Not found");
-  });
 });

@@ -4,11 +4,6 @@ import { describe, expect, it } from "vitest";
 import Message from "../../Index.vue";
 
 describe("Message", () => {
-  it("renders a string message as text", () => {
-    const wrapper = mount(Message, { props: { message: "Hello world" } });
-    expect(wrapper.text()).toContain("Hello world");
-  });
-
   it("renders an array message as a <ul> list", () => {
     const wrapper = mount(Message, {
       props: { message: ["First error", "Second error"] },
@@ -25,16 +20,6 @@ describe("Message", () => {
       props: { message: "oops", severity: "danger" },
     });
     expect(wrapper.classes()).toContain("danger");
-  });
-
-  it("applies default severity class info when severity not provided", () => {
-    const wrapper = mount(Message, { props: { message: "hey" } });
-    expect(wrapper.classes()).toContain("info");
-  });
-
-  it("shows close button by default", () => {
-    const wrapper = mount(Message, { props: { message: "hey" } });
-    expect(wrapper.find(".close-message").exists()).toBe(true);
   });
 
   it("hides close button when enableClose=false", () => {

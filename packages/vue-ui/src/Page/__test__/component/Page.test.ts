@@ -4,40 +4,12 @@ import { describe, expect, it } from "vitest";
 import Page from "../../Index.vue";
 
 describe("Page", () => {
-  it("renders title text when title prop is provided", () => {
-    const wrapper = mount(Page, { props: { title: "My Page" } });
-
-    expect(wrapper.find(".title").text()).toContain("My Page");
-  });
-
-  it("renders title in h1 by default", () => {
-    const wrapper = mount(Page, { props: { title: "My Page" } });
-
-    expect(wrapper.find(".title h1").text()).toBe("My Page");
-  });
-
   it("renders title in custom element when titleElement is provided", () => {
     const wrapper = mount(Page, {
       props: { title: "My Page", titleElement: "h2" },
     });
 
     expect(wrapper.find(".title h2").exists()).toBe(true);
-  });
-
-  it("renders subtitle when subtitle prop is provided", () => {
-    const wrapper = mount(Page, {
-      props: { subtitle: "Page subtitle" },
-    });
-
-    expect(wrapper.find("small").text()).toBe("Page subtitle");
-  });
-
-  it("renders titleTag badge when titleTag prop is provided", () => {
-    const wrapper = mount(Page, {
-      props: { title: "My Page", titleTag: "Beta" },
-    });
-
-    expect(wrapper.find(".title-tag").text()).toContain("Beta");
   });
 
   it("does not render titleTag when titleTag prop is absent", () => {

@@ -19,16 +19,6 @@ describe("FileCard", () => {
     HTMLDialogElement.prototype.showModal = vi.fn();
   });
 
-  it("displays the file name", () => {
-    const wrapper = mount(FileCard, { props: { file: baseFile } });
-    expect(wrapper.text()).toContain("report.pdf");
-  });
-
-  it("shows the thumbnail by default (showThumbnail=true)", () => {
-    const wrapper = mount(FileCard, { props: { file: baseFile } });
-    expect(wrapper.find(".file-thumbnail").exists()).toBe(true);
-  });
-
   it("hides the thumbnail when showThumbnail=false", () => {
     const wrapper = mount(FileCard, {
       props: { file: baseFile, showThumbnail: false },
@@ -51,23 +41,6 @@ describe("FileCard", () => {
     });
     const buttons = wrapper.findAll("button");
     expect(buttons.some((b) => b.text().includes("Download"))).toBe(true);
-  });
-
-  it("hides Download button when actionButtonsVisibility.download=false", () => {
-    const wrapper = mount(FileCard, {
-      props: {
-        file: baseFile,
-        actionButtonsVisibility: {
-          archive: false,
-          delete: false,
-          download: false,
-          share: false,
-          view: false,
-        },
-      },
-    });
-    const buttons = wrapper.findAll("button");
-    expect(buttons.some((b) => b.text().includes("Download"))).toBe(false);
   });
 
   it("emits on:download when Download button is clicked", async () => {

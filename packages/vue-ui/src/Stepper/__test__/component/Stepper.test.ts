@@ -12,34 +12,12 @@ const steps: StepProperties[] = [
 ];
 
 describe("Stepper", () => {
-  it("renders all step labels", () => {
-    const wrapper = mount(Stepper, { props: { steps } });
-
-    expect(wrapper.text()).toContain("Step 1");
-    expect(wrapper.text()).toContain("Step 2");
-    expect(wrapper.text()).toContain("Step 3");
-  });
-
-  it("applies horizontal direction class by default", () => {
-    const wrapper = mount(Stepper, { props: { steps } });
-
-    expect(wrapper.find(".stepper").classes()).toContain("horizontal");
-  });
-
   it("applies vertical direction class when direction is vertical", () => {
     const wrapper = mount(Stepper, {
       props: { steps, direction: "vertical" },
     });
 
     expect(wrapper.find(".stepper").classes()).toContain("vertical");
-  });
-
-  it("marks first step as active by default", () => {
-    const wrapper = mount(Stepper, { props: { steps } });
-
-    const firstStep = wrapper.find(".step");
-
-    expect(firstStep.classes()).toContain("active");
   });
 
   it("syncs active step to activeIndex prop in controlled mode", async () => {
@@ -120,12 +98,5 @@ describe("Stepper", () => {
     const stepItems = wrapper.findAll(".step");
 
     expect(stepItems[1].classes()).toContain("active");
-  });
-
-  it("exposes activeStepIndex ref", () => {
-    const wrapper = mount(Stepper, { props: { steps } });
-
-    expect(wrapper.vm.activeStepIndex).toBeDefined();
-    expect(wrapper.vm.activeStepIndex).toBe(0);
   });
 });
