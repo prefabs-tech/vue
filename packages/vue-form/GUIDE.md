@@ -26,15 +26,15 @@ All components are tree-shakeable named exports. Import only what you need. Ther
 
 ```typescript
 import {
-  Form,
-  FormActions,
-  Email,
-  Password,
-  TextInput,
-  NumberInput,
-  SelectInput,
   CountryPicker,
   DatePicker,
+  Email,
+  Form,
+  FormActions,
+  NumberInput,
+  Password,
+  SelectInput,
+  TextInput,
 } from "@prefabs.tech/vue3-form";
 ```
 
@@ -125,22 +125,23 @@ We derive `multiple` and `noDrag` from our own props; additional dropzone option
 ```typescript
 // template
 <Form ref="myForm" @submit="onSubmit">
-  <TextInput name="username" label="Username" />
+  <TextInput label="Username" name="username" />
   <FormActions />
 </Form>
 
 // script
 const myForm = ref();
+
 const onSubmit = (data: object) => console.log(data);
 
 // reset programmatically
 myForm.value?.resetForm();
 
 // check overall validity
-console.log(myForm.value?.meta.valid);
+myForm.value?.meta.valid;
 
 // read a single field's value
-console.log(myForm.value?.getFieldValue("username"));
+myForm.value?.getFieldValue("username");
 ```
 
 ### FormActions
@@ -149,16 +150,16 @@ console.log(myForm.value?.getFieldValue("username"));
 
 ```typescript
 // Default: Submit (type="submit") + Cancel (secondary, outlined)
-<FormActions @submit="..." @cancel="..." />
+<FormActions @cancel="..." @submit="..." />
 
 // Custom labels
-<FormActions submit-label="Save" cancel-label="Discard" />
+<FormActions cancel-label="Discard" submit-label="Save" />
 
 // Add a third button, keep the defaults
 <FormActions
   :actions="[
-    { id: 'submit', label: 'Save' },
     { id: 'cancel', label: 'Discard' },
+    { id: 'submit', label: 'Save' },
     { id: 'preview', label: 'Preview', severity: 'info' },
   ]"
   @preview="openPreview"
@@ -172,7 +173,7 @@ console.log(myForm.value?.getFieldValue("username"));
 </FormActions>
 
 // Layout control
-<FormActions alignment="left" flow-direction="vertical" :reverse="true" />
+<FormActions :reverse="true" alignment="left" flow-direction="vertical" />
 ```
 
 ### TextInput
@@ -180,11 +181,14 @@ console.log(myForm.value?.getFieldValue("username"));
 ```typescript
 <TextInput
   v-model="username"
-  name="username"
+  :error-messages="{
+    invalid: 'Invalid characters',
+    required: 'Username is required',
+  }"
+  :options="{ ignore_whitespace: true, required: true }"
   label="Username"
+  name="username"
   placeholder="Enter username"
-  :error-messages="{ required: 'Username is required', invalid: 'Invalid characters' }"
-  :options="{ required: true, ignore_whitespace: true }"
 />
 ```
 
@@ -193,9 +197,9 @@ console.log(myForm.value?.getFieldValue("username"));
 ```typescript
 <NumberInput
   v-model="age"
-  name="age"
-  label="Age"
   :options="{ min: '0', max: '120' }"
+  label="Age"
+  name="age"
 />
 ```
 
@@ -204,11 +208,11 @@ console.log(myForm.value?.getFieldValue("username"));
 ```typescript
 <TextareaInput
   v-model="bio"
-  name="bio"
-  label="Bio"
-  :rows="5"
   :cols="40"
   :options="{ required: true }"
+  :rows="5"
+  label="Bio"
+  name="bio"
 />
 ```
 
@@ -217,9 +221,9 @@ console.log(myForm.value?.getFieldValue("username"));
 ```typescript
 <Email
   v-model="email"
-  name="email"
-  label="Email address"
   :options="{ domain_specific_validation: true }"
+  label="Email address"
+  name="email"
 />
 ```
 
@@ -230,13 +234,16 @@ The show/hide eye icon can be replaced via the `#icon` slot.
 ```typescript
 <Password
   v-model="password"
-  name="password"
-  label="Password"
+  :error-messages="{
+    required: 'Required',
+    weak: 'Must be at least 12 chars with a number and symbol'
+  }"
   :options="{ minLength: 12, minNumbers: 1, minSymbols: 1 }"
-  :error-messages="{ required: 'Required', weak: 'Must be at least 12 chars with a number and symbol' }"
+  label="Password"
+  name="password"
 >
   <template #icon="{ showPassword }">
-    <span>{{ showPassword ? '🙈' : '👁' }}</span>
+    <span>{{ showPassword ? 'hide' : 'show' }}</span>
   </template>
 </Password>
 ```
@@ -250,10 +257,10 @@ import { z } from "zod";
 
 <Input
   v-model="url"
-  name="url"
-  label="Website"
-  type="url"
   :schema="z.string().url('Must be a valid URL')"
+  label="Website"
+  name="url"
+  type="url"
 />
 ```
 
@@ -264,15 +271,15 @@ Use the factories directly when building forms with your own `<Field>` or when c
 ```typescript
 import {
   emailSchema,
+  numberSchema,
   passwordSchema,
   textSchema,
-  numberSchema,
 } from "@prefabs.tech/vue3-form";
 import { toTypedSchema } from "@vee-validate/zod";
 
 // Email with custom messages
 const myEmailSchema = emailSchema(
-  { required: "Email is required", invalid: "Not a valid email" },
+  { invalid: "Not a valid email", required: "Email is required" },
   { allow_utf8_local_part: false },
 );
 
@@ -284,14 +291,14 @@ const myPasswordSchema = passwordSchema(
 
 // Text with required enforcement (trims whitespace)
 const myTextSchema = textSchema(
-  { required: "This field is required", invalid: "Invalid" },
-  { required: true, ignore_whitespace: true },
+  { invalid: "Invalid", required: "This field is required" },
+  { ignore_whitespace: true, required: true },
 );
 
 // Number with range
 const myNumberSchema = numberSchema(
-  { required: "Required", invalid: "Must be an integer 1–100" },
-  { min: "1", max: "100" },
+  { invalid: "Must be an integer 1–100", required: "Required" },
+  { max: "100", min: "1" },
 );
 ```
 
@@ -302,23 +309,23 @@ const myNumberSchema = numberSchema(
 ```typescript
 <SelectInput
   v-model="role"
-  name="role"
-  label="Role"
   :options="[
     { label: 'Admin', value: 'admin' },
     { label: 'User', value: 'user' },
   ]"
+  label="Role"
+  name="role"
 />
 
 // Multi-select with min/max constraint (auto-generates Zod schema)
 <SelectInput
   v-model="tags"
-  name="tags"
+  :max-selection="3"
+  :min-selection="1"
+  :options="tagOptions"
   label="Tags"
   multiple
-  :min-selection="1"
-  :max-selection="3"
-  :options="tagOptions"
+  name="tags"
 />
 ```
 
@@ -330,18 +337,18 @@ const myNumberSchema = numberSchema(
 // Single select with search disabled
 <Select
   v-model="country"
-  :options="countryOptions"
   :disable-search="true"
+  :options="countryOptions"
 />
 
 // Multi-select with server-side search
 <Select
   v-model="selectedUsers"
-  :options="searchResults"
-  multiple
-  enable-custom-search
   :loading="isSearching"
+  :options="searchResults"
+  enable-custom-search
   custom-search-helper-text="Type a name to search..."
+  multiple
   @update:search-input="fetchUsers"
 />
 
@@ -383,13 +390,13 @@ const myNumberSchema = numberSchema(
 ```typescript
 <CountryPicker
   v-model="country"
-  name="country"
+  :exclude="['KP']"
+  :favorites="['US', 'GB', 'CA']"
+  :locales="{ fr: { US: 'États-Unis', GB: 'Royaume-Uni' } }"
+  flags-style="circle"
   label="Country"
   locale="fr"
-  :locales="{ fr: { US: 'États-Unis', GB: 'Royaume-Uni' } }"
-  :favorites="['US', 'GB', 'CA']"
-  :exclude="['KP']"
-  flags-style="circle"
+  name="country"
 />
 
 // Custom flag images
@@ -419,10 +426,10 @@ const myNumberSchema = numberSchema(
 
 ```typescript
 // Resolves code to localised label + flag
-<Country code="US" locale="fr" :locales="{ fr: { US: 'États-Unis' } }" />
+<Country :locales="{ fr: { US: 'États-Unis' } }" code="US" locale="fr" />
 
 // No flag
-<Country code="DE" :show-flag="false" />
+<Country :show-flag="false" code="DE" />
 
 // Custom rendering via slot
 <Country code="JP">
@@ -441,14 +448,14 @@ const currencies = [
 ];
 
 // Default: shows code, label, symbol
-<CurrencyPicker v-model="currency" name="currency" :options="currencies" />
+<CurrencyPicker v-model="currency" :options="currencies" name="currency" />
 
 // Show symbol first
 <CurrencyPicker
   v-model="currency"
-  name="currency"
-  :options="currencies"
   :option-label-order="['symbol', 'label', 'code']"
+  :options="currencies"
+  name="currency"
 />
 ```
 
@@ -458,17 +465,17 @@ const currencies = [
 import { z } from "zod";
 
 // Basic date picker
-<DatePicker v-model="date" name="startDate" label="Start date" />
+<DatePicker v-model="date" label="Start date" name="startDate" />
 
 // With time, disabled weekends, validation
 <DatePicker
   v-model="appointmentDate"
-  name="appointment"
-  label="Appointment"
-  :enable-time-picker="true"
   :disabled-week-days="[0, 6]"
-  format="dd/MM/yyyy HH:mm"
+  :enable-time-picker="true"
   :schema="z.date().min(new Date(), 'Must be in the future')"
+  format="dd/MM/yyyy HH:mm"
+  label="Appointment"
+  name="appointment"
 />
 
 // Teleported calendar (closes on scroll)
@@ -482,8 +489,8 @@ import { z } from "zod";
 ```typescript
 <DaysInput
   v-model="trialDays"
-  name="trialDays"
   label="Trial period (days)"
+  name="trialDays"
   @update:date="onDateCalculated"
 />
 
@@ -502,20 +509,20 @@ const suggestions = ref([
 
 <Typeahead
   v-model="fruit"
-  name="fruit"
-  label="Fruit"
-  :suggestions="suggestions"
   :debounce-time="300"
+  :suggestions="suggestions"
   empty-message="No matching fruit"
   helper-text="Start typing to search"
+  label="Fruit"
+  name="fruit"
 />
 
 // Server-side suggestions
 <Typeahead
   v-model="query"
-  name="search"
-  :suggestions="serverResults"
   :loading="isFetching"
+  :suggestions="serverResults"
+  name="search"
   @update:model-value="fetchSuggestions"
 >
   <template #suggestion="{ suggestion }">
@@ -530,22 +537,22 @@ const suggestions = ref([
 // Single checkbox (boolean)
 <CheckboxInput
   name="agree"
-  input-label="I agree to the terms"
   :checked="agreedToTerms"
+  input-label="I agree to the terms"
   @update:checked="agreedToTerms = $event"
 />
 
 // Checkbox group (array of values)
 <CheckboxInput
   v-model="selectedRoles"
-  name="roles"
-  label="Roles"
-  direction="horizontal"
   :options="[
     { label: 'Admin', value: 'admin' },
     { label: 'Editor', value: 'editor' },
     { label: 'Viewer', value: 'viewer' },
   ]"
+  direction="horizontal"
+  label="Roles"
+  name="roles"
 />
 ```
 
@@ -554,10 +561,10 @@ const suggestions = ref([
 ```typescript
 <SwitchInput
   v-model="isEnabled"
-  name="enabled"
   label="Enable notifications"
-  on-label="On"
+  name="enabled"
   off-label="Off"
+  on-label="On"
 />
 ```
 
@@ -566,15 +573,15 @@ const suggestions = ref([
 ```typescript
 <RadioInput
   v-model="plan"
-  name="plan"
-  label="Subscription plan"
-  direction="horizontal"
-  helper-text="Choose the plan that suits you"
   :options="[
     { label: 'Free', value: 'free' },
     { label: 'Pro', value: 'pro' },
     { label: 'Enterprise', value: 'enterprise' },
   ]"
+  direction="horizontal"
+  helper-text="Choose the plan that suits you"
+  label="Subscription plan"
+  name="plan"
 />
 ```
 
@@ -584,36 +591,36 @@ const suggestions = ref([
 // Button mode (default)
 <FileInput
   name="avatar"
-  label="Avatar"
-  button-label="Upload photo"
+  :dropzone-options="{ accept: { 'image/*': [] }, maxSize: 2_000_000 }"
   :error-messages="{
     invalid: 'Only PNG/JPG allowed',
     maxSize: 'File too large (max 2 MB)',
   }"
-  :dropzone-options="{ accept: { 'image/*': [] }, maxSize: 2_000_000 }"
+  button-label="Upload photo"
+  label="Avatar"
   @on:files-update="files = $event"
 />
 
 // Dropzone mode with multi-file append
 <FileInput
-  name="attachments"
-  label="Attachments"
+  :show-error-message="true"
+  dropzone-message="Drop files here or click to browse"
   input-method="dropzone"
+  label="Attachments"
   mode="append"
   multiple
-  dropzone-message="Drop files here or click to browse"
-  :show-error-message="true"
+  name="attachments"
   @on:files-update="attachments = $event"
 />
 
 // With per-file descriptions
 <FileInput
-  name="docs"
-  input-method="dropzone"
-  multiple
-  enable-description
   add-description-label="Add a note"
   description-placeholder="Describe this file..."
+  enable-description
+  input-method="dropzone"
+  multiple
+  name="docs"
   @on:files-update="docs = $event"
 />
 ```
@@ -623,9 +630,9 @@ const suggestions = ref([
 ```typescript
 <EditableContent
   v-model="bio"
+  content-element="h2"
   placeholder="Click to add a bio..."
   size="full"
-  content-element="h2"
 />
 
 // Read-only display
@@ -652,8 +659,8 @@ const onSubmit = async (data: { email: string; password: string }) => {
 
 <template>
   <Form ref="formRef" @submit="onSubmit">
-    <Email v-model="email" name="email" label="Email" />
-    <Password v-model="password" name="password" label="Password" />
+    <Email v-model="email" label="Email" name="email" />
+    <Password v-model="password" label="Password" name="password" />
     <FormActions submit-label="Log in" @cancel="router.push('/')" />
   </Form>
 </template>
@@ -677,16 +684,16 @@ const usernameSchema = z
   <Form @submit="onSubmit">
     <TextInput
       v-model="username"
-      name="username"
-      label="Username"
       :schema="usernameSchema"
+      label="Username"
+      name="username"
     />
-    <Email v-model="email" name="email" label="Email" />
+    <Email v-model="email" label="Email" name="email" />
     <Password
       v-model="password"
-      name="password"
-      label="Password"
       :options="{ minLength: 10, minNumbers: 1 }"
+      label="Password"
+      name="password"
     />
     <FormActions submit-label="Create account" @cancel="router.back()" />
   </Form>
@@ -710,16 +717,16 @@ const currencies = [
   <Form @submit="onSubmit">
     <CountryPicker
       v-model="country"
-      name="country"
-      label="Country"
       :favorites="['US', 'GB', 'AU', 'CA']"
       flags-style="circle"
+      label="Country"
+      name="country"
     />
     <CurrencyPicker
       v-model="currency"
-      name="currency"
-      label="Currency"
       :options="currencies"
+      label="Currency"
+      name="currency"
     />
     <FormActions />
   </Form>
@@ -733,12 +740,12 @@ const currencies = [
   <Form @submit="onSubmit">
     <SelectInput
       v-model="skills"
-      name="skills"
-      label="Skills (choose 2–5)"
-      multiple
       :min-selection="2"
       :max-selection="5"
       :options="skillOptions"
+      label="Skills (choose 2–5)"
+      multiple
+      name="skills"
     />
     <FormActions submit-label="Save profile" />
   </Form>
@@ -758,19 +765,19 @@ const attachments = ref<File[]>([]);
 <template>
   <Form @submit="onSubmit">
     <FileInput
-      name="attachments"
-      label="Attachments"
-      input-method="dropzone"
-      mode="append"
-      multiple
-      enable-description
-      :show-error-message="true"
+      :dropzone-options="{ maxFiles: 10, maxSize: 10_000_000 }"
       :error-messages="{
         invalid: 'Unsupported file type',
-        maxSize: 'File exceeds 10 MB limit',
         maxFiles: 'Maximum 10 files allowed',
+        maxSize: 'File exceeds 10 MB limit',
       }"
-      :dropzone-options="{ maxFiles: 10, maxSize: 10_000_000 }"
+      :show-error-message="true"
+      enable-description
+      input-method="dropzone"
+      label="Attachments"
+      mode="append"
+      multiple
+      name="attachments"
       @on:files-update="attachments = $event"
     />
     <FormActions submit-label="Upload" />
@@ -791,10 +798,10 @@ const description = ref("Click to edit this description.");
 <template>
   <EditableContent
     v-model="description"
-    size="full"
     content-element="p"
     placeholder="Add a description..."
     resize="vertical"
+    size="full"
   />
 </template>
 ```
@@ -816,14 +823,14 @@ const trialEndDate = ref<string>();
   <Form @submit="onSubmit">
     <DatePicker
       v-model="startDate"
-      name="startDate"
-      label="Start date"
       :schema="z.date().min(new Date(), 'Must start today or later')"
+      label="Start date"
+      name="startDate"
     />
     <DaysInput
       v-model="trialDays"
-      name="trialDays"
       label="Trial length (days)"
+      name="trialDays"
       @update:date="trialEndDate = $event"
     />
     <p v-if="trialEndDate">Trial ends: {{ trialEndDate }}</p>
@@ -841,8 +848,8 @@ import { ref } from "vue";
 import type { SelectOption } from "@prefabs.tech/vue3-form";
 
 const assignee = ref("");
-const suggestions = ref<SelectOption[]>([]);
 const isSearching = ref(false);
+const suggestions = ref<SelectOption[]>([]);
 
 const fetchUsers = async (query: string) => {
   isSearching.value = true;
@@ -855,12 +862,12 @@ const fetchUsers = async (query: string) => {
   <Form @submit="onSubmit">
     <Typeahead
       v-model="assignee"
-      name="assignee"
-      label="Assign to"
-      :suggestions="suggestions"
-      :loading="isSearching"
-      empty-message="No users found"
       :debounce-time="300"
+      :loading="isSearching"
+      :suggestions="suggestions"
+      empty-message="No users found"
+      label="Assign to"
+      name="assignee"
       @update:model-value="fetchUsers"
     />
     <FormActions submit-label="Assign" />
