@@ -154,6 +154,6 @@
 
 98. `PrefabsTechVue3LayoutConfig` — typed config shape for `AppConfig.layout`.
 99. `PrefabsTechVue3LayoutPluginOptions` — typed plugin install options (`config`, `translations?`).
-100. `LayoutType` — instance type of `Layout`, used for `route.meta.layout` typing.
-101. `MenuItem` — menu item shape for `layoutConfig.mainMenu` (`name`, `route`, `children?`, `hide?`, `icon?`, `shortName?`).
-102. `SidebarMenu` — sidebar menu item shape (`name`, `routeName`, `children?`, `hide?`, `icon?`, `shortName?`).
+100.  `LayoutType` — instance type of `Layout`, used for `route.meta.layout` typing.
+101.  `MenuItem` — menu item shape for `layoutConfig.mainMenu` (`name`, `route`, `children?`, `hide?`, `icon?`, `shortName?`).
+102.  `SidebarMenu` — sidebar menu item shape (`name`, `routeName`, `children?`, `hide?`, `icon?`, `shortName?`).

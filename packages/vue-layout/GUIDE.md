@@ -77,22 +77,22 @@ Provides typed runtime config via `useConfig()`. This package adds a `layout` ke
 
 **Config fields we consume from `AppConfig.layout`:**
 
-| Field | Used by |
-|-------|---------|
-| `homeRoute` | `AppHeader` (logo link destination) |
-| `logo` | `Logo` (image source fallback) |
-| `logoAlt` | `Logo` (alt text fallback) |
-| `logoRoute` | `Logo` (link route fallback) |
+| Field                       | Used by                                                 |
+| --------------------------- | ------------------------------------------------------- |
+| `homeRoute`                 | `AppHeader` (logo link destination)                     |
+| `logo`                      | `Logo` (image source fallback)                          |
+| `logoAlt`                   | `Logo` (alt text fallback)                              |
+| `logoRoute`                 | `Logo` (link route fallback)                            |
 | `localeSwitcher.showBadges` | `AppHeader`, `SidebarHeaderLayout`, `SidebarOnlyLayout` |
-| `mainMenu` | `AppHeader` → `MainMenu` |
+| `mainMenu`                  | `AppHeader` → `MainMenu`                                |
 
 **Other fields consumed from `AppConfig` (top-level):**
 
-| Field | Used by |
-|-------|---------|
-| `appVersion` | `AppFooter` (version slot default content) |
-| `copyright.holder` / `copyright.url` | `AppFooter` → `Copyright` |
-| `appName` / `appTitle` | `Logo` (alt text fallback chain) |
+| Field                                | Used by                                    |
+| ------------------------------------ | ------------------------------------------ |
+| `appVersion`                         | `AppFooter` (version slot default content) |
+| `copyright.holder` / `copyright.url` | `AppFooter` → `Copyright`                  |
+| `appName` / `appTitle`               | `Logo` (alt text fallback chain)           |
 
 ### `@prefabs.tech/vue3-i18n` — Partial Passthrough
 
@@ -189,26 +189,26 @@ import { BasicLayout } from "@prefabs.tech/vue3-layout";
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `noFooter` | Boolean | `false` | Hides `AppFooter` |
+| Prop               | Type    | Default | Description                         |
+| ------------------ | ------- | ------- | ----------------------------------- |
+| `noFooter`         | Boolean | `false` | Hides `AppFooter`                   |
 | `noLocaleSwitcher` | Boolean | `false` | Hides locale switcher in the header |
 
 **Slots:**
 
-| Slot | Description |
-|------|-------------|
-| `header` | Replaces the entire `AppHeader` |
-| `logo` | Logo area inside `AppHeader` |
-| `menu` | Nav menu area inside `AppHeader` |
-| `userMenu` | User menu area inside `AppHeader` |
-| `addon` | Extra content inside `AppHeader` nav |
-| `locales` | Locale switcher area in `AppHeader` |
-| `default` | Main page content |
-| `footer` | Replaces the entire `AppFooter` |
-| `copyright` | Copyright area inside `AppFooter` |
-| `social` | Social links area inside `AppFooter` |
-| `version` | Version area inside `AppFooter` |
+| Slot        | Description                          |
+| ----------- | ------------------------------------ |
+| `header`    | Replaces the entire `AppHeader`      |
+| `logo`      | Logo area inside `AppHeader`         |
+| `menu`      | Nav menu area inside `AppHeader`     |
+| `userMenu`  | User menu area inside `AppHeader`    |
+| `addon`     | Extra content inside `AppHeader` nav |
+| `locales`   | Locale switcher area in `AppHeader`  |
+| `default`   | Main page content                    |
+| `footer`    | Replaces the entire `AppFooter`      |
+| `copyright` | Copyright area inside `AppFooter`    |
+| `social`    | Social links area inside `AppFooter` |
+| `version`   | Version area inside `AppFooter`      |
 
 ### `SidebarHeaderLayout` — Sidebar + Header (Responsive)
 
@@ -242,25 +242,25 @@ const menu: SidebarMenu[] = [
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `menu` | `SidebarMenu[]` | required | Navigation items |
-| `collapsible` | Boolean | `true` | Enables sidebar collapse on large screens |
-| `userMenuLocation` | `"sidebar"` \| `"header"` | `"sidebar"` | Where to render the `userMenu` slot |
-| `noFooter` | Boolean | `false` | Hides `AppFooter` |
-| `noLocaleSwitcher` | Boolean | `false` | Hides locale switcher |
+| Prop               | Type                      | Default     | Description                               |
+| ------------------ | ------------------------- | ----------- | ----------------------------------------- |
+| `menu`             | `SidebarMenu[]`           | required    | Navigation items                          |
+| `collapsible`      | Boolean                   | `true`      | Enables sidebar collapse on large screens |
+| `userMenuLocation` | `"sidebar"` \| `"header"` | `"sidebar"` | Where to render the `userMenu` slot       |
+| `noFooter`         | Boolean                   | `false`     | Hides `AppFooter`                         |
+| `noLocaleSwitcher` | Boolean                   | `false`     | Hides locale switcher                     |
 
 **Slots:**
 
-| Slot | Description |
-|------|-------------|
-| `header` | Replaces the entire `AppHeader` |
-| `userMenu` | User menu (placed per `userMenuLocation`) |
-| `locales` | Locale switcher |
-| `afterNavLinks` | Content after the nav list in sidebar |
-| `afterSidebarMenu` | Content after the entire sidebar menu |
-| `footer` | Replaces the default `AppFooter` |
-| `default` | Main page content |
+| Slot               | Description                               |
+| ------------------ | ----------------------------------------- |
+| `header`           | Replaces the entire `AppHeader`           |
+| `userMenu`         | User menu (placed per `userMenuLocation`) |
+| `locales`          | Locale switcher                           |
+| `afterNavLinks`    | Content after the nav list in sidebar     |
+| `afterSidebarMenu` | Content after the entire sidebar menu     |
+| `footer`           | Replaces the default `AppFooter`          |
+| `default`          | Main page content                         |
 
 Place the user menu in the header on large screens:
 
@@ -299,12 +299,12 @@ const menu: SidebarMenu[] = [
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `menu` | `SidebarMenu[]` | required | Navigation items |
-| `noHeader` | Boolean | `false` | Hides sidebar header (logo + toggle) |
-| `noFooter` | Boolean | `false` | Hides `AppFooter` |
-| `noLocaleSwitcher` | Boolean | `false` | Hides locale switcher |
+| Prop               | Type            | Default  | Description                          |
+| ------------------ | --------------- | -------- | ------------------------------------ |
+| `menu`             | `SidebarMenu[]` | required | Navigation items                     |
+| `noHeader`         | Boolean         | `false`  | Hides sidebar header (logo + toggle) |
+| `noFooter`         | Boolean         | `false`  | Hides `AppFooter`                    |
+| `noLocaleSwitcher` | Boolean         | `false`  | Hides locale switcher                |
 
 **Slots:** `afterNavLinks`, `afterSidebarMenu`, `userMenu`, `locales`, `default`
 
@@ -344,12 +344,12 @@ import { AppHeader } from "@prefabs.tech/vue3-layout";
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `noLogo` | Boolean | `false` | Hides the logo |
-| `noMainMenu` | Boolean | `false` | Hides the main nav menu |
-| `noToggle` | Boolean | `false` | Hides the toggle on large screens |
-| `noLocaleSwitcher` | Boolean | `false` | Hides the locale switcher |
+| Prop               | Type    | Default | Description                       |
+| ------------------ | ------- | ------- | --------------------------------- |
+| `noLogo`           | Boolean | `false` | Hides the logo                    |
+| `noMainMenu`       | Boolean | `false` | Hides the main nav menu           |
+| `noToggle`         | Boolean | `false` | Hides the toggle on large screens |
+| `noLocaleSwitcher` | Boolean | `false` | Hides the locale switcher         |
 
 **Exposes:** `expanded` (Boolean ref) — `true` when the nav is open.
 
@@ -384,9 +384,7 @@ Collapsible sidebar with header, nav, and footer areas. Normally used via a layo
 import { Sidebar } from "@prefabs.tech/vue3-layout";
 import type { SidebarMenu } from "@prefabs.tech/vue3-layout";
 
-const menu: SidebarMenu[] = [
-  { name: "Home", routeName: "home" },
-];
+const menu: SidebarMenu[] = [{ name: "Home", routeName: "home" }];
 </script>
 
 <template>
@@ -403,15 +401,16 @@ const menu: SidebarMenu[] = [
 
 **Props:**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `menu` | `SidebarMenu[]` | required | Nav items |
-| `collapsible` | Boolean | `true` | Show collapse toggle |
-| `noHeader` | Boolean | `false` | Hide sidebar header |
-| `hideLogo` | Boolean | `false` | Hide logo inside header |
-| `ariaLabel` | String | `"Navigation"` | Accessible label for the nav region |
+| Prop          | Type            | Default        | Description                         |
+| ------------- | --------------- | -------------- | ----------------------------------- |
+| `menu`        | `SidebarMenu[]` | required       | Nav items                           |
+| `collapsible` | Boolean         | `true`         | Show collapse toggle                |
+| `noHeader`    | Boolean         | `false`        | Hide sidebar header                 |
+| `hideLogo`    | Boolean         | `false`        | Hide logo inside header             |
+| `ariaLabel`   | String          | `"Navigation"` | Accessible label for the nav region |
 
 **Exposes:**
+
 - `sidebarActive` — Boolean ref controlling open/closed state
 - `toggle()` — flips `sidebarActive`
 
@@ -440,9 +439,9 @@ const routes = [
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `routes` | `{ name: string; route: string }[]` | Menu items |
+| Prop     | Type                                | Description |
+| -------- | ----------------------------------- | ----------- |
+| `routes` | `{ name: string; route: string }[]` | Menu items  |
 
 **Emits:** `close` — when a route change triggers a close action
 
@@ -475,6 +474,7 @@ const menu: SidebarMenu[] = [
 ```
 
 `NavMenuItem` handles:
+
 - Active highlighting (matches current route or parent route)
 - Expand/collapse for items with children
 - Short name display when sidebar is collapsed
@@ -502,11 +502,11 @@ import { Logo } from "@prefabs.tech/vue3-layout";
 
 **Props:**
 
-| Prop | Fallback chain |
-|------|----------------|
-| `src` | `layoutConfig.logo` → no image (text fallback) |
-| `alt` | `layoutConfig.logoAlt` → `appName` → `appTitle` → `"My App"` |
-| `route` | `layoutConfig.logoRoute` → `"home"` |
+| Prop    | Fallback chain                                               |
+| ------- | ------------------------------------------------------------ |
+| `src`   | `layoutConfig.logo` → no image (text fallback)               |
+| `alt`   | `layoutConfig.logoAlt` → `appName` → `appTitle` → `"My App"` |
+| `route` | `layoutConfig.logoRoute` → `"home"`                          |
 
 ### `Copyright` Component
 
@@ -523,7 +523,11 @@ import { Copyright } from "@prefabs.tech/vue3-layout";
 
 <!-- With disclaimer -->
 <template>
-  <Copyright holder="Acme Corp" url="https://acme.example.com" show-disclaimer />
+  <Copyright
+    holder="Acme Corp"
+    url="https://acme.example.com"
+    show-disclaimer
+  />
 </template>
 ```
 
@@ -607,7 +611,12 @@ const mainMenu: MenuItem[] = [
 import type { SidebarMenu } from "@prefabs.tech/vue3-layout";
 
 const sidebarMenu: SidebarMenu[] = [
-  { name: "Dashboard", routeName: "dashboard", shortName: "Dash", icon: "prime:home" },
+  {
+    name: "Dashboard",
+    routeName: "dashboard",
+    shortName: "Dash",
+    icon: "prime:home",
+  },
   { name: "Analytics", routeName: "analytics", shortName: "Stats" },
 ];
 ```
@@ -658,9 +667,24 @@ When sidebar space is limited, provide `shortName` on each menu item. The sideba
 
 ```typescript
 const menu: SidebarMenu[] = [
-  { name: "Dashboard", routeName: "dashboard", shortName: "Dash", icon: "prime:home" },
-  { name: "User Management", routeName: "users", shortName: "Users", icon: "prime:users" },
-  { name: "System Settings", routeName: "settings", shortName: "Cfg", icon: "prime:cog" },
+  {
+    name: "Dashboard",
+    routeName: "dashboard",
+    shortName: "Dash",
+    icon: "prime:home",
+  },
+  {
+    name: "User Management",
+    routeName: "users",
+    shortName: "Users",
+    icon: "prime:users",
+  },
+  {
+    name: "System Settings",
+    routeName: "settings",
+    shortName: "Cfg",
+    icon: "prime:cog",
+  },
 ];
 ```
 
