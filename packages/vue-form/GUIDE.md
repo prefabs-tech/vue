@@ -262,7 +262,12 @@ import { z } from "zod";
 Use the factories directly when building forms with your own `<Field>` or when composing schemas.
 
 ```typescript
-import { emailSchema, passwordSchema, textSchema, numberSchema } from "@prefabs.tech/vue3-form";
+import {
+  emailSchema,
+  passwordSchema,
+  textSchema,
+  numberSchema,
+} from "@prefabs.tech/vue3-form";
 import { toTypedSchema } from "@vee-validate/zod";
 
 // Email with custom messages
@@ -359,19 +364,19 @@ const myNumberSchema = numberSchema(
 
 **Props:**
 
-| Prop | Default | Description |
-|---|---|---|
-| `multiple` | `false` | Multi-select mode |
-| `disableSearch` | `false` | Hide search input |
-| `enableCustomSearch` | `false` | Disable client-side filtering |
-| `hasSortedOptions` | `true` | Alphabetically sort options |
-| `loading` | `false` | Show loading spinner |
-| `disableGroupSelect` | `false` | Disable group-level selection |
-| `enableTooltip` | `true` | Tooltip for selected labels |
-| `showRemoveSelection` | `true` | Show clear (×) button |
-| `noOptionsMessage` | `"No options available"` | Empty state text |
-| `labelKey` | `undefined` | Custom field mapped to `label` |
-| `valueKey` | `undefined` | Custom field mapped to `value` |
+| Prop                  | Default                  | Description                    |
+| --------------------- | ------------------------ | ------------------------------ |
+| `multiple`            | `false`                  | Multi-select mode              |
+| `disableSearch`       | `false`                  | Hide search input              |
+| `enableCustomSearch`  | `false`                  | Disable client-side filtering  |
+| `hasSortedOptions`    | `true`                   | Alphabetically sort options    |
+| `loading`             | `false`                  | Show loading spinner           |
+| `disableGroupSelect`  | `false`                  | Disable group-level selection  |
+| `enableTooltip`       | `true`                   | Tooltip for selected labels    |
+| `showRemoveSelection` | `true`                   | Show clear (×) button          |
+| `noOptionsMessage`    | `"No options available"` | Empty state text               |
+| `labelKey`            | `undefined`              | Custom field mapped to `label` |
+| `valueKey`            | `undefined`              | Custom field mapped to `value` |
 
 ### CountryPicker
 
