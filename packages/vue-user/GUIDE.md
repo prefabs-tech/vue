@@ -23,7 +23,9 @@ import i18nPlugin from "@prefabs.tech/vue3-i18n";
 import userPlugin from "@prefabs.tech/vue3-user";
 
 const pinia = createPinia();
-const router = createRouter({ /* ... */ });
+const router = createRouter({
+  /* ... */
+});
 
 const config: AppConfig = {
   apiBaseUrl: "https://api.example.com",
@@ -51,8 +53,8 @@ app.use(userPlugin, {
   pinia,
   router,
   notification: (message) => console.log(message), // optional
-  termsComponent: MyTermsComponent,                  // optional
-  translations: myCustomTranslations,                // optional
+  termsComponent: MyTermsComponent, // optional
+  translations: myCustomTranslations, // optional
 });
 app.use(router);
 app.mount("#app");
@@ -69,6 +71,7 @@ We initialize SuperTokens with `ThirdPartyEmailPassword`, `Session`, and optiona
 Docs: https://supertokens.com/docs/thirdpartyemailpassword/quick-setup/frontend
 
 **What we change/add:**
+
 - `apiBasePath` defaults to `"/auth"` unless `config.authBasePath` is set
 - `EmailVerification` recipe only added when `features.signUp.emailVerification` is true
 - Session event handler calls `attemptRefreshingSession()` on UNAUTHORISED/SESSION_EXPIRED
@@ -84,21 +87,22 @@ Docs: https://laravel.com/docs/passport
 
 **Default API paths:**
 
-| Operation | Default path |
-|---|---|
-| login | `POST /api/login` |
-| logout | `POST /api/logout` |
-| signup | `POST /api/signup` |
-| changeEmail | `PUT /api/user/change-email-username` |
-| changePassword | `PUT <changePassword>` |
-| passwordResetRequest | `POST /api/reset-password-request` |
-| passwordReset | `POST /api/reset-password` |
-| getVerificationStatus | `GET /api/email/verification-status` |
-| sendVerificationEmail | `POST /api/email/send-verification` |
-| verifyEmail | `POST /api/email/verify` |
-| refresh | `POST /api/login/refresh` |
+| Operation             | Default path                          |
+| --------------------- | ------------------------------------- |
+| login                 | `POST /api/login`                     |
+| logout                | `POST /api/logout`                    |
+| signup                | `POST /api/signup`                    |
+| changeEmail           | `PUT /api/user/change-email-username` |
+| changePassword        | `PUT <changePassword>`                |
+| passwordResetRequest  | `POST /api/reset-password-request`    |
+| passwordReset         | `POST /api/reset-password`            |
+| getVerificationStatus | `GET /api/email/verification-status`  |
+| sendVerificationEmail | `POST /api/email/send-verification`   |
+| verifyEmail           | `POST /api/email/verify`              |
+| refresh               | `POST /api/login/refresh`             |
 
 **What we add:**
+
 - Automatic token refresh interceptor: on 401, retries via POST to refresh route (once per request)
 - Error normalization to `"401"` / `"SOMETHING_WRONG"` string codes
 
@@ -108,9 +112,9 @@ Docs: https://laravel.com/docs/passport
 
 ```typescript
 app.use(userPlugin, {
-  config,    // AppConfig — required
-  pinia,     // Pinia instance — required
-  router,    // Vue Router instance — required
+  config, // AppConfig — required
+  pinia, // Pinia instance — required
+  router, // Vue Router instance — required
 });
 ```
 
@@ -119,7 +123,7 @@ app.use(userPlugin, {
 Set the provider in config. The plugin auto-selects; no component changes needed.
 
 ```typescript
-config.user.features.authProvider = "supertokens";     // default
+config.user.features.authProvider = "supertokens"; // default
 config.user.features.authProvider = "laravel-passport";
 ```
 
@@ -201,6 +205,7 @@ await store.verifySessionRoles(["ADMIN"]);
 ```
 
 **Error codes thrown:**
+
 - `"401"` — wrong credentials
 - `"409"` — email already exists (signup)
 - `"SOMETHING_WRONG"` — unexpected errors
@@ -214,20 +219,20 @@ The axios client (`import { client } from "@prefabs.tech/vue3-user"`) automatica
 
 All routes are added in `updateRouter()` during plugin install:
 
-| Route name | Path | Conditional |
-|---|---|---|
-| `login` | `/login` | always |
-| `signup` | `/signup` | unless `routes.signup.disabled` |
-| `signupFirstUser` | `/signup-first-user` | only if signup disabled + signupFirstUser not disabled |
-| `passwordReset` | `/reset-password/:token?` | always |
-| `passwordResetRequest` | `/reset-password-request` | always |
-| `profile` | `/profile` | always (authenticated) |
-| `roles` | `/roles` | always (authenticated) |
-| `acceptInvitation` | `/signup/token/:token?` | always |
-| `authGoogleCallback` | `/auth/callback/google` | always |
-| `authFacebookCallback` | `/auth/callback/facebook` | always |
-| `verifyEmail` | `/verify-email` | only if `emailVerification` feature on |
-| `verifyEmailReminder` | `/verify-email-reminder` | only if `emailVerification` feature on |
+| Route name             | Path                      | Conditional                                            |
+| ---------------------- | ------------------------- | ------------------------------------------------------ |
+| `login`                | `/login`                  | always                                                 |
+| `signup`               | `/signup`                 | unless `routes.signup.disabled`                        |
+| `signupFirstUser`      | `/signup-first-user`      | only if signup disabled + signupFirstUser not disabled |
+| `passwordReset`        | `/reset-password/:token?` | always                                                 |
+| `passwordResetRequest` | `/reset-password-request` | always                                                 |
+| `profile`              | `/profile`                | always (authenticated)                                 |
+| `roles`                | `/roles`                  | always (authenticated)                                 |
+| `acceptInvitation`     | `/signup/token/:token?`   | always                                                 |
+| `authGoogleCallback`   | `/auth/callback/google`   | always                                                 |
+| `authFacebookCallback` | `/auth/callback/facebook` | always                                                 |
+| `verifyEmail`          | `/verify-email`           | only if `emailVerification` feature on                 |
+| `verifyEmailReminder`  | `/verify-email-reminder`  | only if `emailVerification` feature on                 |
 
 Override any route's path, component, or meta:
 
@@ -244,6 +249,7 @@ config.user.routes = {
 Three guards are installed automatically:
 
 **Authentication guard** — redirects unauthenticated users to login when `route.meta.authenticated` is true:
+
 ```typescript
 // Mark any route as requiring auth:
 { meta: { authenticated: true }, ... }
@@ -258,9 +264,11 @@ Three guards are installed automatically:
 ### 24. Post-Login Redirect Restoration
 
 When an unauthenticated user is redirected to login, their destination is saved:
+
 ```typescript
 sessionStorage.setItem("redirectAfterLogin", routeName);
 ```
+
 After successful login, the Login view restores and clears this key automatically.
 
 ### 28. Dynamic Route Display
@@ -321,14 +329,14 @@ await roles.updateRolePermissions({ role: "EDITOR", permissions: [...] }, config
 
 ```html
 <script setup lang="ts">
-import { LoginForm } from "@prefabs.tech/vue3-user";
-import useUserStore from "@prefabs.tech/vue3-user";
+  import { LoginForm } from "@prefabs.tech/vue3-user";
+  import useUserStore from "@prefabs.tech/vue3-user";
 
-const store = useUserStore();
+  const store = useUserStore();
 
-const handleSubmit = async (credentials) => {
-  await store.login(credentials);
-};
+  const handleSubmit = async (credentials) => {
+    await store.login(credentials);
+  };
 </script>
 
 <template>
@@ -347,6 +355,7 @@ Shows email field by default. Shows username field when `config.user.features.lo
 ```
 
 Feature flags affect what fields appear:
+
 - `confirmPassword: true` → shows confirmation field
 - `loginType: "username"` → shows username field
 - `signUp.termsAndConditions.display: true` → shows T&C section
@@ -393,6 +402,7 @@ Feature flags affect what fields appear:
 `UserMenu` automatically renders `DropdownUserMenu` (logged in) or `SignInUpMenu` (logged out).
 
 Extra menu items extend the dropdown:
+
 ```typescript
 const extraItems: UserMenuItem[] = [
   { label: "Settings", route: "settings", icon: "pi pi-cog" },
@@ -409,6 +419,7 @@ const extraItems: UserMenuItem[] = [
 ```
 
 Register the callback routes (auto-added by plugin):
+
 - `/auth/callback/google` → `AuthSocialLoginCallback`
 - `/auth/callback/facebook` → `AuthSocialLoginCallback`
 
@@ -490,15 +501,16 @@ Register the callback routes (auto-added by plugin):
 ```
 
 Override or extend default columns:
+
 ```typescript
 const extraColumns = [
   {
     accessorKey: "appId",
-    header: "Application",  // overrides default "appId" column
+    header: "Application", // overrides default "appId" column
   },
   {
     accessorKey: "customField",
-    header: "Custom",       // appended after defaults
+    header: "Custom", // appended after defaults
   },
 ];
 ```
@@ -520,6 +532,7 @@ const extraColumns = [
 ```
 
 Customize action menu:
+
 ```typescript
 // Replace defaults
 const actionMenu = [{ key: "view", label: "View Profile", ... }];
@@ -557,15 +570,14 @@ const actionMenu = (defaults) => [
 ```
 
 Configure menus in `AppConfig`:
+
 ```typescript
 config.layout = {
   mainMenu: [
     { name: "Dashboard", route: "home" },
     { name: "Users", route: "users", icon: "pi pi-users" },
   ],
-  userMenu: [
-    { label: "Settings", route: "settings", icon: "pi pi-cog" },
-  ],
+  userMenu: [{ label: "Settings", route: "settings", icon: "pi pi-cog" }],
   homeRoute: "home",
 };
 ```
@@ -628,9 +640,10 @@ router.addRoute({
   component: AdminView,
   meta: {
     authenticated: true,
-    display: (user) => user.roles.some(r =>
-      typeof r === "string" ? r === "ADMIN" : r.role === "ADMIN"
-    ),
+    display: (user) =>
+      user.roles.some((r) =>
+        typeof r === "string" ? r === "ADMIN" : r.role === "ADMIN",
+      ),
   },
 });
 ```
@@ -641,21 +654,21 @@ The layout components call `filterRoutes(router)` when the user changes, so the 
 
 ```html
 <script setup lang="ts">
-import { InvitationTable } from "@prefabs.tech/vue3-user";
-import useUserStore from "@prefabs.tech/vue3-user";
-import { useConfig } from "@prefabs.tech/vue3-config";
-import { ref } from "vue";
+  import { InvitationTable } from "@prefabs.tech/vue3-user";
+  import useUserStore from "@prefabs.tech/vue3-user";
+  import { useConfig } from "@prefabs.tech/vue3-config";
+  import { ref } from "vue";
 
-const config = useConfig();
-const store = useUserStore();
-const invitations = ref([]);
-const total = ref(0);
+  const config = useConfig();
+  const store = useUserStore();
+  const invitations = ref([]);
+  const total = ref(0);
 
-const fetchInvitations = async (request) => {
-  const result = await myApi.getInvitations(request);
-  invitations.value = result.data;
-  total.value = result.total;
-};
+  const fetchInvitations = async (request) => {
+    const result = await myApi.getInvitations(request);
+    invitations.value = result.data;
+    total.value = result.total;
+  };
 </script>
 
 <template>

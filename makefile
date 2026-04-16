@@ -4,6 +4,10 @@ build:
 
 dev: run
 
+format.md:
+	@printf "\033[0;32m>>> Format markdown\033[0m\n"
+	pnpm format:md
+
 install:
 	@printf "\033[0;32m>>> Installing dependencies\033[0m\n"
 	pnpm -r install
