@@ -35,6 +35,7 @@ Follow the existing test script conventions. Each package has separate scripts f
 - **Unit tests:** `src/__test__/unit/{name}.test.ts`
 
 This matches the package.json test scripts:
+
 - `test:snapshot` runs `vitest run snapshot/`
 - `test:component` runs `vitest run component/`
 - `test:unit` runs `vitest run unit/`
@@ -51,11 +52,7 @@ import { createPinia } from "pinia";
 
 const wrapper = mount(Component, {
   global: {
-    plugins: [
-      createPinia(),
-      [configPlugin, { config: testConfig }],
-      router,
-    ],
+    plugins: [createPinia(), [configPlugin, { config: testConfig }], router],
     stubs: { RouterLink: RouterLinkStub },
   },
 });
@@ -94,12 +91,12 @@ These patterns have been validated or are known pitfalls. Follow them to avoid k
 
 Different packages require different analysis emphasis:
 
-| Type | Examples | Key constructs to analyze |
-| --- | --- | --- |
-| Vue plugins | vue-config, vue-i18n, vue-user | `install()`, `provide/inject`, `app.component()`, router injection |
-| Component libraries | vue-ui, vue-form, vue-layout, vue-tanstack-table | Props, emits, slots, computed, template logic |
-| Third-party wrappers | vue-config (sentry), vue-form (vee-validate), vue-i18n (vue-i18n), vue-tanstack-table, vue-user (supertokens) | Passthrough analysis, option transformation, API surface wrapping |
-| Pure components | vue-ui | No wrapper analysis needed, focus on props/slots/emits |
+| Type                 | Examples                                                                                                      | Key constructs to analyze                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Vue plugins          | vue-config, vue-i18n, vue-user                                                                                | `install()`, `provide/inject`, `app.component()`, router injection |
+| Component libraries  | vue-ui, vue-form, vue-layout, vue-tanstack-table                                                              | Props, emits, slots, computed, template logic                      |
+| Third-party wrappers | vue-config (sentry), vue-form (vee-validate), vue-i18n (vue-i18n), vue-tanstack-table, vue-user (supertokens) | Passthrough analysis, option transformation, API surface wrapping  |
+| Pure components      | vue-ui                                                                                                        | No wrapper analysis needed, focus on props/slots/emits             |
 
 A single package can be multiple types (e.g., vue-i18n is both a plugin and a third-party wrapper).
 

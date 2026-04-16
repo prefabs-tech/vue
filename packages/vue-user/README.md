@@ -23,6 +23,7 @@ Docs: https://laravel.com/docs/passport
 ### Added by This Package
 
 **Auth & Security**
+
 - Auth provider abstraction — switch between SuperTokens and Laravel Passport with one config key
 - Authentication guard — automatic redirect to login for protected routes
 - Email verification guard — unverified users redirected to reminder page
@@ -33,16 +34,19 @@ Docs: https://laravel.com/docs/passport
 - Axios client with automatic token refresh on 401
 
 **Router**
+
 - Dynamic registration of all user routes on plugin install
 - Route registration is conditional: signup, first-user signup, and email verification routes respect config flags
 - `filterRoutes()` — removes routes with `meta.display: false` or a failing display function
 
 **Stores (Pinia)**
+
 - `useUserStore` — login, logout, signup, password reset, email verification, profile updates, social sign-in, invitation management
 - `useRolesStore` — CRUD for roles and permissions
 - User and token persistence in localStorage; full cleanup on logout
 
 **Ready-to-use Components**
+
 - `LoginForm` — email or username login
 - `SignupForm` — optional username, confirm password, and terms & conditions gate
 - `PasswordResetRequestForm` + `PasswordResetRequestAcknowledge` (with countdown timer)
@@ -58,9 +62,11 @@ Docs: https://laravel.com/docs/passport
 - `ResetPasswordModal` for admin password reset flows
 
 **Layout Components**
+
 - `BasicLayout`, `SidebarHeaderLayout`, `SidebarOnlyLayout` — all wrap `@prefabs.tech/vue3-layout` with integrated `UserMenu` and auth-aware menu filtering
 
 **Module Augmentation**
+
 - Extends `AppConfig` with `user?: DzangolabVueUserConfig`
 - Extends layout config with `userMenu?: UserMenuItem[]`
 
@@ -69,6 +75,7 @@ Docs: https://laravel.com/docs/passport
 ## Requirements
 
 **Peer dependencies:**
+
 - `vue >= 3.2`
 - `vue-router >= 4.0`
 - `pinia >= 2.0`
@@ -80,6 +87,7 @@ Docs: https://laravel.com/docs/passport
 - `@vueuse/core >= 9.4.0`
 
 **Sibling packages (required):**
+
 - `@prefabs.tech/vue3-config`
 - `@prefabs.tech/vue3-i18n`
 - `@prefabs.tech/vue3-layout`
@@ -92,9 +100,9 @@ Docs: https://laravel.com/docs/passport
 import userPlugin from "@prefabs.tech/vue3-user";
 
 app.use(userPlugin, {
-  config,   // AppConfig with config.user settings
-  pinia,    // createPinia() result
-  router,   // createRouter() result
+  config, // AppConfig with config.user settings
+  pinia, // createPinia() result
+  router, // createRouter() result
   notification: ({ text, type }) => myToast.show(text, type), // optional
 });
 ```
