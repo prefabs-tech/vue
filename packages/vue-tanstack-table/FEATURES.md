@@ -79,11 +79,11 @@ const customFormatters = {
 
 ```typescript
 <Table
-  :data="serverData"
   :columns="columns"
-  :isServerTable="true"
-  :totalRecords="totalRecords"
-  @fetchData="handleFetchData"
+  :data="serverData"
+  :total-records="totalRecords"
+  is-server-table
+  @update:request="handleFetchData"
 />
 ```
 
@@ -115,13 +115,13 @@ const customFormatters = {
 ```typescript
 const actions: DataActionsMenuItem[] = [
   {
-    label: "Delete",
     action: "delete",
-    requireConfirmationModal: true,
     confirmationOptions: {
       title: "Confirm Delete",
       message: "Are you sure?",
     },
+    label: "Delete",
+    requireConfirmationModal: true,
   },
 ];
 ```
