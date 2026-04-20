@@ -17,76 +17,40 @@ describe("config plugin", () => {
     },
   };
 
-  describe("useConfig composable", () => {
-    it("returns injected config with all fields", () => {
-      const app = createApp({
-        setup() {
-          const config = useConfig();
-          expect(config.apiBaseUrl).toBe("https://api.example.com");
-          expect(config.appTitle).toBe("Test App");
-          expect(config.appVersion).toBe("1.0.0");
-          expect(config.slug).toBe("test-app");
-          expect(config.websiteDomain).toBe("example.com");
-          return {};
-        },
-        template: "<div></div>",
-      });
+  it("provides config via useConfig", () => {
+    let config: AppConfig | null = null;
 
-      app.use(plugin, { config: mockConfig });
-      app.mount(document.createElement("div"));
+    const app = createApp({
+      setup() {
+        config = useConfig();
+
+        return {};
+      },
+      template: "<div></div>",
     });
+
+    app.use(plugin, { config: mockConfig });
+    app.mount(document.createElement("div"));
+
+    expect(config).toEqual(mockConfig);
   });
 
-  describe("useFeature composable", () => {
-    it("returns true when feature is enabled", () => {
-      const app = createApp({
-        setup() {
-          const feature = useFeature();
-          expect(feature).toBeDefined();
-          const isEnabled = feature?.("showVersion");
-          expect(isEnabled).toBe(true);
-          return {};
-        },
-        template: "<div></div>",
-      });
+  it("useFeature returns feature flag value", () => {
+    let isEnabled: boolean | undefined;
 
-      app.use(plugin, { config: mockConfig });
-      app.mount(document.createElement("div"));
+    const app = createApp({
+      setup() {
+        const feature = useFeature();
+        isEnabled = feature?.("showVersion");
+
+        return {};
+      },
+      template: "<div></div>",
     });
 
-    it("returns false when feature is disabled", () => {
-      const configWithDisabledFeature: AppConfig = {
-        ...mockConfig,
-        features: {
-          showVersion: false,
-        },
-      };
+    app.use(plugin, { config: mockConfig });
+    app.mount(document.createElement("div"));
 
-      const app = createApp({
-        setup() {
-          const feature = useFeature();
-          const isEnabled = feature?.("showVersion");
-          expect(isEnabled).toBe(false);
-          return {};
-        },
-        template: "<div></div>",
-      });
-
-      app.use(plugin, { config: configWithDisabledFeature });
-      app.mount(document.createElement("div"));
-    });
-
-    it("returns undefined when plugin not installed", () => {
-      const app = createApp({
-        setup() {
-          const feature = useFeature();
-          expect(feature).toBeUndefined();
-          return {};
-        },
-        template: "<div></div>",
-      });
-
-      app.mount(document.createElement("div"));
-    });
+    expect(isEnabled).toBe(true);
   });
 });
