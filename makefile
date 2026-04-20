@@ -2,6 +2,8 @@ build:
 	@printf "\033[0;32m>>> Build packages\033[0m\n"
 	pnpm build
 
+demo: run
+
 dev: run
 
 install:
@@ -55,6 +57,10 @@ test.integration:
 test.unit:
 	@printf "\033[0;32m>>> Running unit tests\033[0m\n"
 	pnpm test:unit
+
+test.watch:
+	@printf "\033[0;32m>>> Watch running tests\033[0m\n"
+	pnpm test:watch
 
 typecheck:
 	@printf "\033[0;32m>>> Running Type check\033[0m\n"
