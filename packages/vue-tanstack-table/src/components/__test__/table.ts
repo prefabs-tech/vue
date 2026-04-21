@@ -6,6 +6,8 @@ import {
   useVueTable,
 } from "@tanstack/vue-table";
 
+import type { Table } from "@tanstack/vue-table";
+
 export const mockedTable = useVueTable({
   columns: [
     {
@@ -44,4 +46,4 @@ export const mockedTable = useVueTable({
   getFilteredRowModel: getFilteredRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
   getSortedRowModel: getSortedRowModel(),
-});
+}) as Table<unknown>;

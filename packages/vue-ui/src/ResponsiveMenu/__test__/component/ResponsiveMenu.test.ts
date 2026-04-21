@@ -59,9 +59,10 @@ describe("ResponsiveMenu", () => {
   });
 
   it("should render each route ", () => {
-    const renderedRoutes = wrapper
-      .findAll(" nav.menu > ul > li")
-      .map((li) => li.findComponent(RouterLinkStub).props().to.name);
+    const renderedRoutes = wrapper.findAll(" nav.menu > ul > li").map((li) => {
+      const to = li.findComponent(RouterLinkStub).props().to;
+      return typeof to === "string" ? to : to.name;
+    });
 
     expect(routes.map((route) => route.route)).toEqual(renderedRoutes);
   });
