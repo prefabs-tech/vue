@@ -83,7 +83,7 @@
           id: number;
           invitedBy?: UserType;
           invitedById: string;
-          payload: any;
+          payload: Record&lt;string, unknown&gt;;
           revokedAt: number | null;
           role: string;
           token?: string;

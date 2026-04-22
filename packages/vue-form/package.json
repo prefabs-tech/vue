@@ -36,7 +36,7 @@
   "devDependencies": {
     "@dzangolab/flag-icon-css": "3.4.5",
     "@prefabs.tech/eslint-config": "0.5.0",
-    "@prefabs.tech/tsconfig": "0.5.0",
+    "@prefabs.tech/tsconfig": "git+https://github.com/prefabs-tech/tools.git#refactor/tsconfig&path:packages/tsconfig",
     "@prefabs.tech/vue3-ui": "0.32.0",
     "@types/node": "25.3.1",
     "@types/validator": "13.12.2",

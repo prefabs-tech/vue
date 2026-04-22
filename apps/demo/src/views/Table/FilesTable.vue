@@ -12,9 +12,7 @@
             {
               accessorKey: 'uploadedBy',
               header: $t('table.label.uploadedBy'),
-              tooltip: ({ row: { original } }) => {
-                return `${original.uploadedBy?.givenName} ${original.uploadedBy?.lastName}`;
-              },
+              tooltip: uploadedByTooltip,
             },
             {
               accessorKey: 'uploadedAt',
@@ -195,7 +193,17 @@ import { computed } from "vue";
 import TablePage from "./TablePage.vue";
 import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
 
+import type { IFile } from "@prefabs.tech/vue3-ui";
+
 const { locale, t } = useI18n();
+
+const uploadedByTooltip = ({
+  row: { original },
+}: {
+  row: { original: IFile };
+}) => {
+  return `${original.uploadedBy?.givenName} ${original.uploadedBy?.lastName}`;
+};
 
 const eventsData = computed(() => [
   {

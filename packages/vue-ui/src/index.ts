@@ -83,6 +83,7 @@ export type {
   FileMessages,
   IFile,
   TableMessages,
+  ToolbarActionMenu,
 } from "./types";
 
 export type { Tab } from "./TabView/types";
