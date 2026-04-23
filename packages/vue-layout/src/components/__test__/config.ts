@@ -16,7 +16,6 @@ const config: AppConfig = {
   },
   features: {
     showVersion: true,
-    sentry: true,
   },
   layout: {
     mainMenu: [
@@ -29,6 +28,9 @@ const config: AppConfig = {
         route: "about",
       },
     ],
+    localeSwitcher: {
+      showBadges: true,
+    },
   },
   sentry: {
     dsn: "tbd",

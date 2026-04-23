@@ -28,7 +28,7 @@
     "test:snapshot": "vitest --environment jsdom run snapshot/ --passWithNoTests",
     "test:unit": "vitest --environment jsdom run unit/ --passWithNoTests",
     "test:watch": "vitest --environment jsdom",
-    "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
+    "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
     "@sentry/core": "10.42.0",

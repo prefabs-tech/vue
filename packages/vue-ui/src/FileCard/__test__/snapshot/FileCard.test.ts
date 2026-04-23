@@ -14,14 +14,15 @@ describe("FileCard", () => {
       id: 1,
       originalFileName: "file.png",
       size: 4,
+      uploadedAt: Date.now(),
       uploadedBy: { givenName: "Test", lastName: "user" },
     } as IFile;
 
     const wrapper: VueWrapper = mount(FileCard, {
       global: {
         stubs: {
-          ButtonElement: "<button-stub></button-stub>",
-          Card: "<card-stub><slot></slot></card-stub>",
+          ButtonElement: true,
+          Card: true,
           ConfirmationFileActions: true,
         },
       },

@@ -3,13 +3,12 @@
 exports[`Data > matches snapshot 1`] = `
 <div
   class="data direction-vertical"
-  label="Email"
 >
   <div
     class="label"
   >
     
-    
+    Email
     
   </div>
   <div

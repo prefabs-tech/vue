@@ -7,7 +7,7 @@ describe("Data", () => {
   it("matches snapshot", () => {
     const wrapper = mount(Data, {
       props: {
-        label: "Email",
+        caption: "Email",
         value: "john.doe@example.com",
       },
     });
