@@ -11,7 +11,7 @@ exports[`Button > matches snapshot 1`] = `
   >
     
     <i
-      class=""
+      class="pi pi-pencil"
     />
     
   </span>
@@ -29,7 +29,7 @@ exports[`Button > matches snapshot 1`] = `
   >
     
     <i
-      class=""
+      class="pi pi-eye"
     />
     
   </span>

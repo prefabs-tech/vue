@@ -54,12 +54,12 @@ const props = defineProps({
     type: Boolean,
   },
   iconLeft: {
-    default: null,
-    type: [String, Boolean],
+    default: undefined,
+    type: String,
   },
   iconRight: {
-    default: null,
-    type: [String, Boolean],
+    default: undefined,
+    type: String,
   },
   label: {
     default: null,
