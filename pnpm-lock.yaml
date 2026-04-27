@@ -79,8 +79,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.5.4)
       '@prefabs.tech/tsconfig':
-        specifier: git+https://github.com/prefabs-tech/tools.git#refactor/tsconfig&path:packages/tsconfig
-        version: https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig
+        specifier: 0.6.0
+        version: 0.6.0
       '@types/jsdom':
         specifier: 21.1.7
         version: 21.1.7
@@ -155,8 +155,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: git+https://github.com/prefabs-tech/tools.git#refactor/tsconfig&path:packages/tsconfig
-        version: https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig
+        specifier: 0.6.0
+        version: 0.6.0
       '@types/node':
         specifier: 25.3.5
         version: 25.3.5
@@ -207,8 +207,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: git+https://github.com/prefabs-tech/tools.git#refactor/tsconfig&path:packages/tsconfig
-        version: https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-ui':
         specifier: 0.32.0
         version: link:../vue-ui
@@ -286,8 +286,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: git+https://github.com/prefabs-tech/tools.git#refactor/tsconfig&path:packages/tsconfig
-        version: https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-config':
         specifier: 0.32.0
         version: link:../vue-config
@@ -343,8 +343,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: git+https://github.com/prefabs-tech/tools.git#refactor/tsconfig&path:packages/tsconfig
-        version: https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-config':
         specifier: 0.32.0
         version: link:../vue-config
@@ -410,8 +410,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: git+https://github.com/prefabs-tech/tools.git#refactor/tsconfig&path:packages/tsconfig
-        version: https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-form':
         specifier: 0.32.0
         version: link:../vue-form
@@ -464,8 +464,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: git+https://github.com/prefabs-tech/tools.git#refactor/tsconfig&path:packages/tsconfig
-        version: https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig
+        specifier: 0.6.0
+        version: 0.6.0
       '@types/node':
         specifier: 25.3.5
         version: 25.3.5
@@ -525,8 +525,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: git+https://github.com/prefabs-tech/tools.git#refactor/tsconfig&path:packages/tsconfig
-        version: https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-config':
         specifier: 0.32.0
         version: link:../vue-config
@@ -1500,9 +1500,8 @@ packages:
       prettier: '>=3.3.3'
       typescript: '>=4.9.5'
 
-  '@prefabs.tech/tsconfig@https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig':
-    resolution: {path: packages/tsconfig, tarball: https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52}
-    version: 0.5.0
+  '@prefabs.tech/tsconfig@0.6.0':
+    resolution: {integrity: sha512-CuXKJujWd6S/Jqci04Nk7fVA0j66v9A8uGQTscTMrTRGHcfLNSmNkvvmqZG9jEvSahmXmrlJbmyTcwEwXrSBew==}
 
   '@rolldown/pluginutils@1.0.0-rc.13':
     resolution: {integrity: sha512-3ngTAv6F/Py35BsYbeeLeecvhMKdsKm4AoOETVhAA+Qc8nrA2I0kF7oa93mE9qnIurngOSpMnQ0x2nQY2FPviA==}
@@ -6026,7 +6025,7 @@ snapshots:
       eslint-config-prettier: 10.1.8(eslint@9.39.4(jiti@2.4.2))
       eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.32.0)
       eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.32.0)(eslint@9.39.4(jiti@2.4.2))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-n: 17.20.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4)
       eslint-plugin-prettier: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.4(jiti@2.4.2)))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)
@@ -6055,7 +6054,7 @@ snapshots:
       eslint-config-prettier: 10.1.8(eslint@9.39.4(jiti@2.4.2))
       eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.32.0)
       eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.32.0)(eslint@9.39.4(jiti@2.4.2))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.4(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-n: 17.20.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3)
       eslint-plugin-prettier: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.4(jiti@2.4.2)))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)
@@ -6077,7 +6076,7 @@ snapshots:
       - eslint-plugin-import-x
       - supports-color
 
-  '@prefabs.tech/tsconfig@https://codeload.github.com/prefabs-tech/tools/tar.gz/2794762828d2eb539f7635bef34da7ccda9c0b52#path:packages/tsconfig': {}
+  '@prefabs.tech/tsconfig@0.6.0': {}
 
   '@rolldown/pluginutils@1.0.0-rc.13': {}
 
@@ -7719,7 +7718,7 @@ snapshots:
 
   eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.32.0):
     dependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))
 
   eslint-import-resolver-node@0.3.9:
     dependencies:
@@ -7740,7 +7739,7 @@ snapshots:
       tinyglobby: 0.2.15
       unrs-resolver: 1.11.1
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))
     transitivePeerDependencies:
       - supports-color
 
@@ -7773,7 +7772,7 @@ snapshots:
       eslint: 9.39.4(jiti@2.4.2)
       eslint-compat-utils: 0.5.1(eslint@9.39.4(jiti@2.4.2))
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2)):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.4(jiti@2.4.2)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -7802,7 +7801,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.4(jiti@2.4.2)):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
