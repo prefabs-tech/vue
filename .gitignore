@@ -1,7 +1,7 @@
 **/*.log*
 **/.env*
 !**/.env.example
-.turbo
-node_modules
 **/skills
 **/skills.old/
+.turbo
+node_modules
