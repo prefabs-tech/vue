@@ -9,8 +9,8 @@ describe("Button", () => {
       props: {
         children: false,
         className: "rounded",
-        iconLeft: true,
-        iconRight: true,
+        iconLeft: "pi pi-pencil",
+        iconRight: "pi pi-eye",
         loading: false,
         label: "Submit",
         severity: "primary",
