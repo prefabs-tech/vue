@@ -79,8 +79,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.5.4)
       '@prefabs.tech/tsconfig':
-        specifier: 0.5.0
-        version: 0.5.0(@types/node@25.3.5)
+        specifier: 0.6.0
+        version: 0.6.0
       '@types/jsdom':
         specifier: 21.1.7
         version: 21.1.7
@@ -104,7 +104,7 @@ importers:
         version: 5.1.5(vite@7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.33(typescript@5.5.4))
       '@vitest/coverage-istanbul':
         specifier: 4.0.18
-        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2))
+        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2))
       '@vue/test-utils':
         specifier: 2.4.6
         version: 2.4.6
@@ -116,7 +116,7 @@ importers:
         version: 9.39.4(jiti@2.4.2)
       jsdom:
         specifier: 27.0.1
-        version: 27.0.1(postcss@8.5.10)
+        version: 27.0.1(postcss@8.5.12)
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -134,7 +134,7 @@ importers:
         version: 7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2)
       vitest:
         specifier: 4.0.18
-        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2)
+        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2)
       vue-tsc:
         specifier: 1.2.1
         version: 1.2.1(typescript@5.5.4)
@@ -155,8 +155,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: 0.5.0
-        version: 0.5.0(@types/node@25.3.5)
+        specifier: 0.6.0
+        version: 0.6.0
       '@types/node':
         specifier: 25.3.5
         version: 25.3.5
@@ -168,7 +168,7 @@ importers:
         version: 5.1.5(vite@7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.33(typescript@5.9.3))
       '@vitest/coverage-istanbul':
         specifier: 4.0.18
-        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2))
+        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2))
       eslint:
         specifier: 9.39.4
         version: 9.39.4(jiti@2.4.2)
@@ -183,7 +183,7 @@ importers:
         version: 7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2)
       vitest:
         specifier: 4.0.18
-        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2)
+        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2)
       vue:
         specifier: 3.5.33
         version: 3.5.33(typescript@5.9.3)
@@ -207,8 +207,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: 0.5.0
-        version: 0.5.0(@types/node@25.3.5)
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-ui':
         specifier: 0.32.0
         version: link:../vue-ui
@@ -235,7 +235,7 @@ importers:
         version: 5.1.5(vite@7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.33(typescript@5.9.3))
       '@vitest/coverage-istanbul':
         specifier: 4.0.18
-        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2))
+        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2))
       '@vue/test-utils':
         specifier: 2.4.6
         version: 2.4.6
@@ -262,7 +262,7 @@ importers:
         version: 7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2)
       vitest:
         specifier: 4.0.18
-        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2)
+        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2)
       vue:
         specifier: 3.5.33
         version: 3.5.33(typescript@5.9.3)
@@ -286,8 +286,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: 0.5.0
-        version: 0.5.0(@types/node@25.3.5)
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-config':
         specifier: 0.32.0
         version: link:../vue-config
@@ -302,7 +302,7 @@ importers:
         version: 5.1.5(vite@7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.33(typescript@5.9.3))
       '@vitest/coverage-istanbul':
         specifier: 4.0.18
-        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2))
+        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2))
       '@vueuse/core':
         specifier: 14.2.1
         version: 14.2.1(vue@3.5.33(typescript@5.9.3))
@@ -311,7 +311,7 @@ importers:
         version: 9.39.4(jiti@2.4.2)
       jsdom:
         specifier: 27.0.1
-        version: 27.0.1(postcss@8.5.10)
+        version: 27.0.1(postcss@8.5.12)
       pinia:
         specifier: 3.0.4
         version: 3.0.4(typescript@5.9.3)(vue@3.5.33(typescript@5.9.3))
@@ -326,7 +326,7 @@ importers:
         version: 7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2)
       vitest:
         specifier: 4.0.18
-        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2)
+        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2)
       vue:
         specifier: 3.5.33
         version: 3.5.33(typescript@5.9.3)
@@ -343,8 +343,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: 0.5.0
-        version: 0.5.0(@types/node@25.3.5)
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-config':
         specifier: 0.32.0
         version: link:../vue-config
@@ -365,7 +365,7 @@ importers:
         version: 5.1.5(vite@7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.33(typescript@5.9.3))
       '@vitest/coverage-istanbul':
         specifier: 4.0.18
-        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2))
+        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2))
       '@vue/test-utils':
         specifier: 2.4.6
         version: 2.4.6
@@ -386,7 +386,7 @@ importers:
         version: 7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2)
       vitest:
         specifier: 4.0.18
-        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2)
+        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2)
       vue:
         specifier: 3.5.33
         version: 3.5.33(typescript@5.9.3)
@@ -410,8 +410,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: 0.5.0
-        version: 0.5.0(@types/node@25.3.5)
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-form':
         specifier: 0.32.0
         version: link:../vue-form
@@ -429,7 +429,7 @@ importers:
         version: 5.1.5(vite@7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.33(typescript@5.9.3))
       '@vitest/coverage-istanbul':
         specifier: 4.0.18
-        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2))
+        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2))
       '@vue/test-utils':
         specifier: 2.4.6
         version: 2.4.6
@@ -450,7 +450,7 @@ importers:
         version: 7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2)
       vitest:
         specifier: 4.0.18
-        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2)
+        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2)
       vue:
         specifier: 3.5.33
         version: 3.5.33(typescript@5.9.3)
@@ -464,8 +464,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: 0.5.0
-        version: 0.5.0(@types/node@25.3.5)
+        specifier: 0.6.0
+        version: 0.6.0
       '@types/node':
         specifier: 25.3.5
         version: 25.3.5
@@ -477,7 +477,7 @@ importers:
         version: 5.1.5(vite@7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.33(typescript@5.9.3))
       '@vitest/coverage-istanbul':
         specifier: 4.0.18
-        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2))
+        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2))
       '@vue/test-utils':
         specifier: 2.4.6
         version: 2.4.6
@@ -498,7 +498,7 @@ importers:
         version: 7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2)
       vitest:
         specifier: 4.0.18
-        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2)
+        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2)
       vue:
         specifier: 3.5.33
         version: 3.5.33(typescript@5.9.3)
@@ -525,8 +525,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)(typescript@5.9.3)
       '@prefabs.tech/tsconfig':
-        specifier: 0.5.0
-        version: 0.5.0(@types/node@25.3.5)
+        specifier: 0.6.0
+        version: 0.6.0
       '@prefabs.tech/vue3-config':
         specifier: 0.32.0
         version: link:../vue-config
@@ -565,7 +565,7 @@ importers:
         version: 5.1.5(vite@7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2))(vue@3.5.33(typescript@5.9.3))
       '@vitest/coverage-istanbul':
         specifier: 4.0.18
-        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2))
+        version: 4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2))
       '@vue/test-utils':
         specifier: 2.4.6
         version: 2.4.6
@@ -598,7 +598,7 @@ importers:
         version: 7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2)
       vitest:
         specifier: 4.0.18
-        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2)
+        version: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2)
       vue:
         specifier: 3.5.33
         version: 3.5.33(typescript@5.9.3)
@@ -1500,8 +1500,8 @@ packages:
       prettier: '>=3.3.3'
       typescript: '>=4.9.5'
 
-  '@prefabs.tech/tsconfig@0.5.0':
-    resolution: {integrity: sha512-lpu9UPVDpbpMKlClhImF8x0YIqSm6dTtBpVK8/BFkhfOrJR1hp5l1EBlvbkzEL2hxx1vx/cQ43dEDobAZvBBQA==}
+  '@prefabs.tech/tsconfig@0.6.0':
+    resolution: {integrity: sha512-CuXKJujWd6S/Jqci04Nk7fVA0j66v9A8uGQTscTMrTRGHcfLNSmNkvvmqZG9jEvSahmXmrlJbmyTcwEwXrSBew==}
 
   '@rolldown/pluginutils@1.0.0-rc.13':
     resolution: {integrity: sha512-3ngTAv6F/Py35BsYbeeLeecvhMKdsKm4AoOETVhAA+Qc8nrA2I0kF7oa93mE9qnIurngOSpMnQ0x2nQY2FPviA==}
@@ -2151,8 +2151,8 @@ packages:
     resolution: {integrity: sha512-jRR5wdylq8CkOe6hei19GGZnxM6rBGwFl3Bg0YItGDimvjGtAvdZk4Pu6Cl4u4Igsws4a1fd1Vq3ezrhn4KmFw==}
     engines: {node: '>= 14'}
 
-  ajv@6.14.0:
-    resolution: {integrity: sha512-IWrosm/yrn43eiKqkfkHis7QioDleaXQHdDVPKg0FSwwd/DuvyX79TZnFOnYpB7dcsFAMmtFztZuXPDvSePkFw==}
+  ajv@6.15.0:
+    resolution: {integrity: sha512-fgFx7Hfoq60ytK2c7DhnF8jIvzYgOMxfugjLOSMHjLIPgenqa7S7oaagATUq99mV6IYvN2tRmC0wnTYX6iPbMw==}
 
   ajv@8.11.0:
     resolution: {integrity: sha512-wGgprdCvMalC0BztXvitD2hC04YffAvtsUn93JbGXYLAtCUO4xd17mCCZQxUOItiBwZvJScWo8NIvQMQ71rdpg==}
@@ -4074,8 +4074,8 @@ packages:
     resolution: {integrity: sha512-orRsuYpJVw8LdAwqqLykBj9ecS5/cRHlI5+nvTo8LcCKmzDmqVORXtOIYEEQuL9D4BxtA1lm5isAqzQZCoQ6Eg==}
     engines: {node: '>=4'}
 
-  postcss@8.5.10:
-    resolution: {integrity: sha512-pMMHxBOZKFU6HgAZ4eyGnwXF/EvPGGqUr0MnZ5+99485wwW41kW91A4LOGxSHhgugZmSChL5AlElNdwlNgcnLQ==}
+  postcss@8.5.12:
+    resolution: {integrity: sha512-W62t/Se6rA0Az3DfCL0AqJwXuKwBeYg6nOaIgzP+xZ7N5BFCI7DYi1qs6ygUYT6rvfi6t9k65UMLJC+PHZpDAA==}
     engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.6:
@@ -5513,9 +5513,9 @@ snapshots:
     dependencies:
       '@csstools/css-tokenizer': 3.0.4
 
-  '@csstools/css-syntax-patches-for-csstree@1.0.14(postcss@8.5.10)':
+  '@csstools/css-syntax-patches-for-csstree@1.0.14(postcss@8.5.12)':
     dependencies:
-      postcss: 8.5.10
+      postcss: 8.5.12
 
   '@csstools/css-tokenizer@3.0.4': {}
 
@@ -5642,7 +5642,7 @@ snapshots:
 
   '@eslint/eslintrc@3.3.5':
     dependencies:
-      ajv: 6.14.0
+      ajv: 6.15.0
       debug: 4.4.3
       espree: 10.4.0
       globals: 14.0.0
@@ -6025,7 +6025,7 @@ snapshots:
       eslint-config-prettier: 10.1.8(eslint@9.39.4(jiti@2.4.2))
       eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.32.0)
       eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.32.0)(eslint@9.39.4(jiti@2.4.2))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-n: 17.20.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4)
       eslint-plugin-prettier: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.4(jiti@2.4.2)))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)
@@ -6054,7 +6054,7 @@ snapshots:
       eslint-config-prettier: 10.1.8(eslint@9.39.4(jiti@2.4.2))
       eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.32.0)
       eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.32.0)(eslint@9.39.4(jiti@2.4.2))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.4(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-n: 17.20.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3)
       eslint-plugin-prettier: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.4(jiti@2.4.2)))(eslint@9.39.4(jiti@2.4.2))(prettier@3.8.3)
@@ -6076,11 +6076,7 @@ snapshots:
       - eslint-plugin-import-x
       - supports-color
 
-  '@prefabs.tech/tsconfig@0.5.0(@types/node@25.3.5)':
-    dependencies:
-      '@vue/tsconfig': 0.1.3(@types/node@25.3.5)
-    transitivePeerDependencies:
-      - '@types/node'
+  '@prefabs.tech/tsconfig@0.6.0': {}
 
   '@rolldown/pluginutils@1.0.0-rc.13': {}
 
@@ -6565,7 +6561,7 @@ snapshots:
       vite: 7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2)
       vue: 3.5.33(typescript@5.9.3)
 
-  '@vitest/coverage-istanbul@4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2))':
+  '@vitest/coverage-istanbul@4.0.18(vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2))':
     dependencies:
       '@istanbuljs/schema': 0.1.3
       '@jridgewell/gen-mapping': 0.3.13
@@ -6577,7 +6573,7 @@ snapshots:
       magicast: 0.5.1
       obug: 2.1.1
       tinyrainbow: 3.0.3
-      vitest: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2)
+      vitest: 4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -6757,7 +6753,7 @@ snapshots:
       '@vue/shared': 3.5.33
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.10
+      postcss: 8.5.12
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.27':
@@ -6921,7 +6917,7 @@ snapshots:
 
   agent-base@7.1.3: {}
 
-  ajv@6.14.0:
+  ajv@6.15.0:
     dependencies:
       fast-deep-equal: 3.1.3
       fast-json-stable-stringify: 2.1.0
@@ -7339,10 +7335,10 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  cssstyle@5.3.1(postcss@8.5.10):
+  cssstyle@5.3.1(postcss@8.5.12):
     dependencies:
       '@asamuzakjp/css-color': 4.0.5
-      '@csstools/css-syntax-patches-for-csstree': 1.0.14(postcss@8.5.10)
+      '@csstools/css-syntax-patches-for-csstree': 1.0.14(postcss@8.5.12)
       css-tree: 3.1.0
     transitivePeerDependencies:
       - postcss
@@ -7722,7 +7718,7 @@ snapshots:
 
   eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.32.0):
     dependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))
 
   eslint-import-resolver-node@0.3.9:
     dependencies:
@@ -7743,7 +7739,7 @@ snapshots:
       tinyglobby: 0.2.15
       unrs-resolver: 1.11.1
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))
     transitivePeerDependencies:
       - supports-color
 
@@ -7776,7 +7772,7 @@ snapshots:
       eslint: 9.39.4(jiti@2.4.2)
       eslint-compat-utils: 0.5.1(eslint@9.39.4(jiti@2.4.2))
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint@9.39.4(jiti@2.4.2)):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.5.4))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.4(jiti@2.4.2)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -7805,7 +7801,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.4(jiti@2.4.2)):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -8005,7 +8001,7 @@ snapshots:
       '@humanwhocodes/module-importer': 1.0.1
       '@humanwhocodes/retry': 0.4.2
       '@types/estree': 1.0.8
-      ajv: 6.14.0
+      ajv: 6.15.0
       chalk: 4.1.2
       cross-spawn: 7.0.6
       debug: 4.4.3
@@ -8711,10 +8707,10 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  jsdom@27.0.1(postcss@8.5.10):
+  jsdom@27.0.1(postcss@8.5.12):
     dependencies:
       '@asamuzakjp/dom-selector': 6.7.3
-      cssstyle: 5.3.1(postcss@8.5.10)
+      cssstyle: 5.3.1(postcss@8.5.12)
       data-urls: 6.0.0
       decimal.js: 10.6.0
       html-encoding-sniffer: 4.0.0
@@ -9182,7 +9178,7 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss@8.5.10:
+  postcss@8.5.12:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1
@@ -10004,7 +10000,7 @@ snapshots:
       jiti: 2.4.2
       yaml: 2.8.2
 
-  vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.10))(yaml@2.8.2):
+  vitest@4.0.18(@types/node@25.3.5)(jiti@2.4.2)(jsdom@27.0.1(postcss@8.5.12))(yaml@2.8.2):
     dependencies:
       '@vitest/expect': 4.0.18
       '@vitest/mocker': 4.0.18(vite@7.3.2(@types/node@25.3.5)(jiti@2.4.2)(yaml@2.8.2))
@@ -10028,7 +10024,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 25.3.5
-      jsdom: 27.0.1(postcss@8.5.10)
+      jsdom: 27.0.1(postcss@8.5.12)
     transitivePeerDependencies:
       - jiti
       - less

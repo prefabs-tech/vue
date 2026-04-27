@@ -518,9 +518,11 @@ const slotsData = computed(() => [
 ]);
 
 const formatBytes = (bytes: number): string => {
-  const kiloBytes = (bytes / 1024).toFixed(2);
+  const kiloBytes = Number((bytes / 1024).toFixed(2));
 
-  return kiloBytes >= 1024 ? `${kiloBytes / 1024} MB` : `${kiloBytes} KB`;
+  return kiloBytes >= 1024
+    ? `${(kiloBytes / 1024).toFixed(2)} MB`
+    : `${kiloBytes} KB`;
 };
 
 const getPreview = (file: File) => URL?.createObjectURL(file);

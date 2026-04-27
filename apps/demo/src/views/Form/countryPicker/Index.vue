@@ -705,9 +705,12 @@ const formData = reactive({
   customLocale: undefined,
   excludedCountries: [],
   fallback: undefined,
+  favorites: undefined as string | undefined,
   flags: undefined,
   groups: undefined,
+  groupsWithFavorites: undefined as string | undefined,
   groupsWithTranslations: undefined,
+  includeFavorites: undefined as string | undefined,
   includedCountries: [],
   multiselect: [] as string[],
 });
