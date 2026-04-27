@@ -1483,30 +1483,6 @@ import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
 
 const { t } = useI18n();
 
-// Helper functions for callbacks to avoid implicit any types
-const isRowDisabled = (rowData: { id: number }) => rowData.id !== 11;
-const shouldDisplayAction = (data: { id: number }) => data.id !== 12;
-const getDeleteConfirmation = (rowData: { name?: string }) => {
-  return {
-    body: t("table.label.deleteUserMessage", {
-      user: rowData?.name,
-    }),
-    header: t("table.label.confirmation"),
-  };
-};
-const getDeleteConfirmationWithI18n = (rowData: { name?: string }) => {
-  return {
-    body: h(
-      resolveComponent("i18n-t"),
-      { keypath: "table.label.deleteUserMessage", tag: "p" },
-      {
-        user: h("strong", rowData?.name || ""),
-      },
-    ),
-    header: t("table.label.confirmation"),
-  };
-};
-
 const alignmentColumns = [
   {
     accessorKey: "email",
@@ -2002,6 +1978,32 @@ const slotsData = [
     name: "pagination",
   },
 ];
+
+const getDeleteConfirmation = (rowData: { name?: string }) => {
+  return {
+    body: t("table.label.deleteUserMessage", {
+      user: rowData?.name,
+    }),
+    header: t("table.label.confirmation"),
+  };
+};
+
+const getDeleteConfirmationWithI18n = (rowData: { name?: string }) => {
+  return {
+    body: h(
+      resolveComponent("i18n-t"),
+      { keypath: "table.label.deleteUserMessage", tag: "p" },
+      {
+        user: h("strong", rowData?.name || ""),
+      },
+    ),
+    header: t("table.label.confirmation"),
+  };
+};
+
+const isRowDisabled = (rowData: { id: number }) => rowData.id !== 11;
+
+const shouldDisplayAction = (data: { id: number }) => data.id !== 12;
 </script>
 
 <style lang="css">

@@ -12,7 +12,7 @@
             {
               accessorKey: 'uploadedBy',
               header: $t('table.label.uploadedBy'),
-              tooltip: uploadedByTooltip,
+              tooltip: uploadedBy,
             },
             {
               accessorKey: 'uploadedAt',
@@ -197,14 +197,6 @@ import type { IFile } from "@prefabs.tech/vue3-ui";
 
 const { locale, t } = useI18n();
 
-const uploadedByTooltip = ({
-  row: { original },
-}: {
-  row: { original: IFile };
-}) => {
-  return `${original.uploadedBy?.givenName} ${original.uploadedBy?.lastName}`;
-};
-
 const eventsData = computed(() => [
   {
     description: t("table.documentation.eventDescription.actionArchive"),
@@ -377,4 +369,8 @@ const slotsData = computed(() => [
     props: "-",
   },
 ]);
+
+const uploadedBy = ({ row: { original } }: { row: { original: IFile } }) => {
+  return `${original.uploadedBy?.givenName} ${original.uploadedBy?.lastName}`;
+};
 </script>

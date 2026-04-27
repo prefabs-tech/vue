@@ -11,7 +11,7 @@
               icon-left="pi pi-chevron-left"
               size="medium"
               variant="textOnly"
-              @click="() => $router.push({ name: 'table' })"
+              @click="() => router.push({ name: 'table' })"
             />
           </slot>
         </template>
@@ -35,8 +35,6 @@ import { useRouter } from "vue-router";
 
 import type { PropType } from "vue";
 
-const $router = useRouter();
-
 defineProps({
   subtitle: {
     default: undefined,
@@ -49,6 +47,8 @@ defineProps({
     type: String as PropType<string>,
   },
 });
+
+const router = useRouter();
 
 const { t } = useI18n();
 
