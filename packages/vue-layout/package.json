@@ -37,28 +37,28 @@
     "@prefabs.tech/vue3-i18n": "0.32.0",
     "@prefabs.tech/vue3-ui": "0.32.0",
     "@iconify/vue": "4.3.0",
-    "@types/node": "25.3.5",
+    "@types/node": "25.6.0",
     "@vitejs/plugin-vue": "6.0.6",
     "@vitejs/plugin-vue-jsx": "5.1.5",
-    "@vitest/coverage-istanbul": "4.0.18",
-    "@vue/test-utils": "2.4.6",
+    "@vitest/coverage-istanbul": "4.1.5",
+    "@vue/test-utils": "2.4.7",
     "@vueuse/core": "14.2.1",
     "eslint": "9.39.4",
     "prettier": "3.8.3",
     "typescript": "5.9.3",
     "vite": "7.3.2",
-    "vitest": "4.0.18",
+    "vitest": "4.1.5",
     "vue": "3.5.33",
     "vue-router": "5.0.6",
-    "vue-tsc": "3.2.7"
+    "vue-tsc": "2.2.12"
   },
   "peerDependencies": {
     "@prefabs.tech/vue3-config": "0.32.0",
     "@prefabs.tech/vue3-i18n": "0.32.0",
     "@prefabs.tech/vue3-ui": "0.32.0",
-    "@vueuse/core": ">=9.4.0",
-    "vue": ">=3.2",
-    "vue-router": ">=4.0"
+    "@vueuse/core": ">=9.13.0",
+    "vue": ">=3.5",
+    "vue-router": ">=4.6"
   },
   "engines": {
     "node": ">=18",

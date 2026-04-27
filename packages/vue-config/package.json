@@ -31,28 +31,28 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "@sentry/core": "10.42.0",
-    "@sentry/vue": "10.42.0"
+    "@sentry/core": "10.50.0",
+    "@sentry/vue": "10.50.0"
   },
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.5.0",
     "@prefabs.tech/tsconfig": "0.5.0",
-    "@types/node": "25.3.5",
+    "@types/node": "25.6.0",
     "@vitejs/plugin-vue": "6.0.6",
     "@vitejs/plugin-vue-jsx": "5.1.5",
-    "@vitest/coverage-istanbul": "4.0.18",
+    "@vitest/coverage-istanbul": "4.1.5",
     "eslint": "9.39.4",
     "prettier": "3.8.3",
     "typescript": "5.9.3",
     "vite": "7.3.2",
-    "vitest": "4.0.18",
+    "vitest": "4.1.5",
     "vue": "3.5.33",
     "vue-router": "5.0.6",
-    "vue-tsc": "3.2.7"
+    "vue-tsc": "2.2.12"
   },
   "peerDependencies": {
-    "vue": ">=3.2",
-    "vue-router": ">=4.0"
+    "vue": ">=3.5",
+    "vue-router": ">=4.6"
   },
   "engines": {
     "node": ">=18",
