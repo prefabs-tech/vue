@@ -149,6 +149,12 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type {
+  AccessorFn,
+  ColumnDef,
+  DisplayColumnDef,
+} from "@tanstack/vue-table";
+
 import { Icon } from "@iconify/vue";
 import {
   createColumnHelper,
@@ -162,12 +168,6 @@ import {
 } from "@tanstack/vue-table";
 import { PropType, ref } from "vue";
 
-import type {
-  AccessorFn,
-  ColumnDef,
-  DisplayColumnDef,
-} from "@tanstack/vue-table";
-
 type ColumnProperty = {
   accessorKey: string;
   header: string;
@@ -177,16 +177,16 @@ type ColumnProperty = {
 
 const props = defineProps({
   columnsData: {
+    default: () => [],
     type: Array as PropType<ColumnProperty[]>,
-    default: () => [],
-  },
-  rows: {
-    type: Array,
-    default: () => [],
   },
   enableToggle: {
-    type: Boolean,
     default: () => false,
+    type: Boolean,
+  },
+  rows: {
+    default: () => [],
+    type: Array,
   },
 });
 
@@ -198,9 +198,9 @@ for (const column of props.columnsData) {
   const columnDef = columnHelper.accessor(
     column.accessorKey as string as unknown as AccessorFn<unknown>,
     {
-      header: () => column.header,
-      footer: (props: { column: { id: string | number } }) => props.column.id,
       enableSorting: column.sort !== undefined ? column.sort : false,
+      footer: (props: { column: { id: number | string } }) => props.column.id,
+      header: () => column.header,
     } as object as unknown as DisplayColumnDef<unknown>,
   ) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);
@@ -209,24 +209,24 @@ for (const column of props.columnsData) {
 const sorting = ref<SortingState>([]);
 
 const table = useVueTable({
+  columnResizeMode: "onChange",
   columns,
-  state: {
-    get sorting() {
-      return sorting.value;
-    },
-  },
+  data: props.rows,
+  getCoreRowModel: getCoreRowModel(),
+  getFilteredRowModel: getFilteredRowModel(),
+  getPaginationRowModel: getPaginationRowModel(),
+  getSortedRowModel: getSortedRowModel(),
   onSortingChange: (updaterOrValue) => {
     sorting.value =
       typeof updaterOrValue === "function"
         ? updaterOrValue(sorting.value)
         : updaterOrValue;
   },
-  columnResizeMode: "onChange",
-  data: props.rows,
-  getCoreRowModel: getCoreRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
+  state: {
+    get sorting() {
+      return sorting.value;
+    },
+  },
 });
 
 const expand = ref(false);

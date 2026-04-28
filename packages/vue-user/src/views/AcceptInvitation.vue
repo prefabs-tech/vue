@@ -25,6 +25,10 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { Error as ErrorType } from "@prefabs.tech/vue3-ui";
+import type { Ref } from "vue";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Card, Errors, Page } from "@prefabs.tech/vue3-ui";
@@ -32,14 +36,11 @@ import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-import SignupForm from "../components/SignupForm.vue";
-import { useTranslations, emitter } from "../index";
-import useUserStore from "../store";
-
 import type { LoginCredentials } from "../types";
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-import type { Error as ErrorType } from "@prefabs.tech/vue3-ui";
-import type { Ref } from "vue";
+
+import SignupForm from "../components/SignupForm.vue";
+import { emitter, useTranslations } from "../index";
+import useUserStore from "../store";
 
 const config = useConfig() as AppConfig;
 

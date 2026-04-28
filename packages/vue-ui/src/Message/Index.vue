@@ -38,9 +38,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, useSlots } from "vue";
-
 import type { PropType } from "vue";
+
+import { ref, useSlots } from "vue";
 
 const emits = defineEmits(["close"]);
 
@@ -58,8 +58,8 @@ defineProps({
     type: [String, Array] as PropType<string | string[]>,
   },
   severity: {
-    type: String,
     default: "info",
+    type: String,
     validator: (value: string) =>
       ["danger", "info", "success", "tip", "warning"].includes(value),
   },

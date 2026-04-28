@@ -24,8 +24,8 @@ describe("Card", () => {
   it("should render slot content when passed", () => {
     const slotData = {
       default: "This is test card content.",
-      header: `<h3 class="header">Test header</h3>`,
       footer: "Footer content",
+      header: `<h3 class="header">Test header</h3>`,
     };
 
     const wrapper = getWrapper({}, slotData);

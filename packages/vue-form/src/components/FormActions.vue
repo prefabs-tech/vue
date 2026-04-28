@@ -30,10 +30,10 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { computed } from "vue";
-
-import type { PropType } from "vue";
 
 const props = defineProps({
   actions: {

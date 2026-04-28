@@ -19,10 +19,10 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { computed } from "vue";
-
-import type { PropType } from "vue";
 
 const props = defineProps({
   alt: {

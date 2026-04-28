@@ -45,9 +45,9 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, ref, useSlots } from "vue";
-
 import type { PropType } from "vue";
+
+import { computed, ref, useSlots } from "vue";
 
 const slots = useSlots();
 

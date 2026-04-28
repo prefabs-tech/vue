@@ -1,5 +1,7 @@
 import "./assets/css/index.css";
 
+import type { App } from "vue";
+
 import Accordion from "./Accordion/Index.vue";
 import BadgeComponent from "./Badge/Index.vue";
 import ButtonElement from "./Button/Index.vue";
@@ -30,8 +32,6 @@ import TabView from "./TabView/Index.vue";
 import Tooltip from "./Tooltip/Index.vue";
 import YoutubeFacade from "./YoutubeFacade/Index.vue";
 
-import type { App } from "vue";
-
 const plugin = {
   install: (app: App): void => {
     app.component("LoadingButton", LoadingButton);
@@ -42,24 +42,24 @@ const plugin = {
 
 export default plugin;
 
-export * from "./utils";
+export type { Tab } from "./TabView/types";
 
 export {
   Accordion,
   BadgeComponent,
   ButtonElement,
   Card,
+  ConfirmationModal,
   Data,
+  DebouncedInput,
   Divider,
   Dropdown,
-  ConfirmationModal,
-  DebouncedInput,
   Errors,
   FacebookSignInButton,
   FileCard,
   FilesList,
-  GridContainer,
   GoogleSignInButton,
+  GridContainer,
   LoadingButton,
   LoadingIcon,
   LoadingPage,
@@ -86,4 +86,4 @@ export type {
   ToolbarActionMenu,
 } from "./types";
 
-export type { Tab } from "./TabView/types";
+export * from "./utils";

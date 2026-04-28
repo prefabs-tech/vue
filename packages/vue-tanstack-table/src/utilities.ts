@@ -1,11 +1,16 @@
+import type { StorageType } from "@prefabs.tech/vue3-ui";
+import type {
+  ColumnFilter,
+  ColumnFiltersState,
+  PaginationState,
+  SortingState,
+} from "@tanstack/vue-table";
+
 import {
   formatDate as baseFormatDate,
   formatDateTime as baseFormatDateTime,
   getStorage,
 } from "@prefabs.tech/vue3-ui";
-
-import { TABLE_STATE_PREFIX } from "./constants";
-import { FILTER_FUNCTIONS_ENUM, FILTER_OPERATORS_ENUM } from "./enums";
 
 import type {
   CellAlignmentType,
@@ -16,13 +21,9 @@ import type {
   TRequestJSON,
   TSortDirection,
 } from "./types";
-import type { StorageType } from "@prefabs.tech/vue3-ui";
-import type {
-  ColumnFilter,
-  ColumnFiltersState,
-  PaginationState,
-  SortingState,
-} from "@tanstack/vue-table";
+
+import { TABLE_STATE_PREFIX } from "./constants";
+import { FILTER_FUNCTIONS_ENUM, FILTER_OPERATORS_ENUM } from "./enums";
 
 const defaultDateOptions: Intl.DateTimeFormatOptions = {
   day: "2-digit",
@@ -33,14 +34,14 @@ const defaultDateOptions: Intl.DateTimeFormatOptions = {
 const defaultDateTimeOptions: Intl.DateTimeFormatOptions = {
   ...defaultDateOptions,
   hour: "2-digit",
-  minute: "2-digit",
   hour12: false,
+  minute: "2-digit",
 };
 
 export const formatNumber = ({
-  value,
-  locale = "en-GB",
   formatOptions,
+  locale = "en-GB",
+  value,
 }: FormatNumberType) => {
   if (typeof value !== "number" || Number.isNaN(value)) {
     return value;
@@ -72,11 +73,11 @@ export const formatDateTime = (
 
 const getFilterOperator = (filterFunction: TFilterFunction) => {
   switch (filterFunction) {
+    case FILTER_FUNCTIONS_ENUM.BETWEEN: {
+      return { operator: FILTER_OPERATORS_ENUM.BETWEEN };
+    }
     case FILTER_FUNCTIONS_ENUM.CONTAINS: {
       return { operator: FILTER_OPERATORS_ENUM.CONTAINS };
-    }
-    case FILTER_FUNCTIONS_ENUM.STARTS_WITH: {
-      return { operator: FILTER_OPERATORS_ENUM.STARTS_WITH };
     }
     case FILTER_FUNCTIONS_ENUM.ENDS_WITH: {
       return { operator: FILTER_OPERATORS_ENUM.ENDS_WITH };
@@ -84,14 +85,26 @@ const getFilterOperator = (filterFunction: TFilterFunction) => {
     case FILTER_FUNCTIONS_ENUM.EQUALS: {
       return { operator: FILTER_OPERATORS_ENUM.EQUALS };
     }
-    case FILTER_FUNCTIONS_ENUM.NOT_EQUAL: {
-      return { operator: FILTER_OPERATORS_ENUM.EQUALS, not: true };
-    }
     case FILTER_FUNCTIONS_ENUM.GREATER_THAN: {
       return { operator: FILTER_OPERATORS_ENUM.GREATER_THAN };
     }
     case FILTER_FUNCTIONS_ENUM.GREATER_THAN_OR_EQUAL: {
       return { operator: FILTER_OPERATORS_ENUM.GREATER_THAN_OR_EQUAL };
+    }
+    case FILTER_FUNCTIONS_ENUM.IN: {
+      return { operator: FILTER_OPERATORS_ENUM.IN };
+    }
+    case FILTER_FUNCTIONS_ENUM.IS_EMPTY: {
+      return { operator: FILTER_OPERATORS_ENUM.EMPTY };
+    }
+    case FILTER_FUNCTIONS_ENUM.IS_NOT_EMPTY: {
+      return { not: true, operator: FILTER_OPERATORS_ENUM.EMPTY };
+    }
+    case FILTER_FUNCTIONS_ENUM.IS_NOT_NULL: {
+      return { not: true, operator: FILTER_OPERATORS_ENUM.NULL };
+    }
+    case FILTER_FUNCTIONS_ENUM.IS_NULL: {
+      return { operator: FILTER_OPERATORS_ENUM.NULL };
     }
     case FILTER_FUNCTIONS_ENUM.LESS_THAN: {
       return { operator: FILTER_OPERATORS_ENUM.LESS_THAN };
@@ -99,35 +112,23 @@ const getFilterOperator = (filterFunction: TFilterFunction) => {
     case FILTER_FUNCTIONS_ENUM.LESS_THAN_OR_EQUAL: {
       return { operator: FILTER_OPERATORS_ENUM.LESS_THAN_OR_EQUAL };
     }
-    case FILTER_FUNCTIONS_ENUM.IS_NULL: {
-      return { operator: FILTER_OPERATORS_ENUM.NULL };
-    }
-    case FILTER_FUNCTIONS_ENUM.IS_NOT_NULL: {
-      return { operator: FILTER_OPERATORS_ENUM.NULL, not: true };
-    }
-    case FILTER_FUNCTIONS_ENUM.IS_EMPTY: {
-      return { operator: FILTER_OPERATORS_ENUM.EMPTY };
-    }
-    case FILTER_FUNCTIONS_ENUM.IS_NOT_EMPTY: {
-      return { operator: FILTER_OPERATORS_ENUM.EMPTY, not: true };
-    }
     case FILTER_FUNCTIONS_ENUM.LIKE: {
       return { operator: FILTER_OPERATORS_ENUM.LIKE };
     }
-    case FILTER_FUNCTIONS_ENUM.NOT_LIKE: {
-      return { operator: FILTER_OPERATORS_ENUM.LIKE, not: true };
+    case FILTER_FUNCTIONS_ENUM.NOT_BETWEEN: {
+      return { not: true, operator: FILTER_OPERATORS_ENUM.BETWEEN };
     }
-    case FILTER_FUNCTIONS_ENUM.IN: {
-      return { operator: FILTER_OPERATORS_ENUM.IN };
+    case FILTER_FUNCTIONS_ENUM.NOT_EQUAL: {
+      return { not: true, operator: FILTER_OPERATORS_ENUM.EQUALS };
     }
     case FILTER_FUNCTIONS_ENUM.NOT_IN: {
-      return { operator: FILTER_OPERATORS_ENUM.IN, not: true };
+      return { not: true, operator: FILTER_OPERATORS_ENUM.IN };
     }
-    case FILTER_FUNCTIONS_ENUM.BETWEEN: {
-      return { operator: FILTER_OPERATORS_ENUM.BETWEEN };
+    case FILTER_FUNCTIONS_ENUM.NOT_LIKE: {
+      return { not: true, operator: FILTER_OPERATORS_ENUM.LIKE };
     }
-    case FILTER_FUNCTIONS_ENUM.NOT_BETWEEN: {
-      return { operator: FILTER_OPERATORS_ENUM.BETWEEN, not: true };
+    case FILTER_FUNCTIONS_ENUM.STARTS_WITH: {
+      return { operator: FILTER_OPERATORS_ENUM.STARTS_WITH };
     }
 
     default: {
@@ -284,15 +285,15 @@ export const getRequestJSON = (
 
     if (sortingState.length > 1) {
       return sortingState.map((state) => ({
-        key: state.id,
         direction: getSortDirection(state.desc),
+        key: state.id,
       }));
     }
 
     return [
       {
-        key: sortingState[0].id,
         direction: getSortDirection(sortingState[0].desc),
+        key: sortingState[0].id,
       },
     ];
   };
@@ -300,15 +301,15 @@ export const getRequestJSON = (
   return {
     filter: getFilter(),
     limit: getLimit(),
-    sort: getSort(),
     offset: getOffset(),
+    sort: getSort(),
   };
 };
 
 export const getSavedTableState = (
   id: string,
   storage: Storage,
-): PersistentTableState | null => {
+): null | PersistentTableState => {
   try {
     const savedState = storage.getItem(`${TABLE_STATE_PREFIX}-${id}`);
 
@@ -348,13 +349,13 @@ export const clearSavedTableStates = (
 
 export const isRangeFilter = (filterFunction: TFilterFunction) => {
   return [
-    FILTER_FUNCTIONS_ENUM.IN,
-    FILTER_FUNCTIONS_ENUM.NOT_IN,
     FILTER_FUNCTIONS_ENUM.BETWEEN,
+    FILTER_FUNCTIONS_ENUM.IN,
     FILTER_FUNCTIONS_ENUM.NOT_BETWEEN,
+    FILTER_FUNCTIONS_ENUM.NOT_IN,
   ].includes(filterFunction as FILTER_FUNCTIONS_ENUM);
 };
 
-export const isDefined = <T>(value: T | undefined | null) => {
+export const isDefined = <T>(value: null | T | undefined) => {
   return value !== undefined && value !== null;
 };

@@ -17,11 +17,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { z } from "zod";
 
 import NumberInput from "./NumberInput.vue";
-
-import type { PropType } from "vue";
 
 const props = defineProps({
   disabled: {
@@ -35,7 +35,7 @@ const props = defineProps({
   },
   modelValue: {
     default: undefined,
-    type: Number as PropType<number | null | undefined>,
+    type: Number as PropType<null | number | undefined>,
   },
   name: {
     default: "days-input",
@@ -49,7 +49,7 @@ const props = defineProps({
   schema: {
     default: z.coerce.number().optional(),
     required: false,
-    type: Object as PropType<z.ZodType<string | number>>,
+    type: Object as PropType<z.ZodType<number | string>>,
   },
 });
 

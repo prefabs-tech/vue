@@ -30,14 +30,15 @@ export default {
 </script>
 
 <script setup lang="ts">
-import type { InputOption } from "../types";
 import type { PropType } from "vue";
+
+import type { InputOption } from "../types";
 
 defineProps({
   direction: {
     default: "vertical",
     type: String,
-    validator: (value: string) => ["vertical", "horizontal"].includes(value),
+    validator: (value: string) => ["horizontal", "vertical"].includes(value),
   },
   disabled: {
     default: false,

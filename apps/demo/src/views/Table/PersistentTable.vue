@@ -102,13 +102,13 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
 
 import { city, data } from "./data";
 import TablePage from "./TablePage.vue";
-
-import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
 
 const { t } = useI18n();
 
@@ -128,8 +128,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     header: "Full name",
   },
   {
-    align: "right",
     accessorKey: "age",
+    align: "right",
     enableColumnFilter: true,
     enableSorting: true,
     filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
@@ -145,8 +145,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     filterPlaceholder: t("table.placeholder.city"),
     header: "City",
     meta: {
-      filterVariant: "multiselect",
       filterOptions: city,
+      filterVariant: "multiselect",
     },
   },
 ];

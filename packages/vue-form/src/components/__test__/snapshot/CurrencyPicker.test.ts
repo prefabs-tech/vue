@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import CurrencyPicker from "../../CurrencyPicker.vue";
-
 import type { CurrencyOption } from "../../../types";
+
+import CurrencyPicker from "../../CurrencyPicker.vue";
 
 describe("CurrencyPicker", () => {
   const options = [

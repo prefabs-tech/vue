@@ -1,6 +1,6 @@
 const parse = (
-  value: bigint | number | string | boolean | undefined,
-  fallback: bigint | number | string | null | boolean,
+  value: bigint | boolean | number | string | undefined,
+  fallback: bigint | boolean | null | number | string,
 ) => {
   if (value === undefined) {
     return fallback;

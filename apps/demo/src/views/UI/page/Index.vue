@@ -339,6 +339,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { ToolbarActionMenu } from "@prefabs.tech/vue3-ui";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import {
   BadgeComponent,
@@ -350,8 +352,6 @@ import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
-
-import type { ToolbarActionMenu } from "@prefabs.tech/vue3-ui";
 
 const { t } = useI18n();
 
@@ -456,12 +456,12 @@ const onActionClick = (actionMenu: ToolbarActionMenu) => {
       pageContent.value = t("ui.page.label.addContent");
       break;
     }
-    case "edit": {
-      pageContent.value = t("ui.page.label.editContent");
-      break;
-    }
     case "delete": {
       showDeleteModal.value = true;
+      break;
+    }
+    case "edit": {
+      pageContent.value = t("ui.page.label.editContent");
       break;
     }
   }

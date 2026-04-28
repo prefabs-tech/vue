@@ -1,3 +1,7 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { App, Plugin } from "vue";
+import type { I18nOptions, LocaleMessages, VueMessageType } from "vue-i18n";
+
 import { createI18n as baseCreateI18n, useI18n } from "vue-i18n";
 
 import LocaleSwitcher from "./locale-switcher/Index.vue";
@@ -7,10 +11,6 @@ import {
   getPreferredLocale,
   prependMessages,
 } from "./utilities";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-import type { App, Plugin } from "vue";
-import type { I18nOptions, LocaleMessages, VueMessageType } from "vue-i18n";
 
 const createI18n = (options: DzangolabVueI18nPluginOptions): Plugin => {
   const i18nOptions = options.config.i18n;

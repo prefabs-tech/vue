@@ -92,13 +92,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { computed, ref, useSlots } from "vue";
+
+import type { SidebarMenu } from "../types";
 
 import Logo from "./Logo.vue";
 import NavMenu from "./NavMenu.vue";
-
-import type { SidebarMenu } from "../types";
-import type { PropType } from "vue";
 
 const props = defineProps({
   ariaLabel: {

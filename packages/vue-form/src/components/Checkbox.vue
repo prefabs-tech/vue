@@ -30,7 +30,7 @@ defineProps({
   label: {
     default: undefined,
     required: false,
-    type: String as PropType<string | null | undefined>,
+    type: String as PropType<null | string | undefined>,
   },
   modelValue: {
     default: false,
@@ -44,7 +44,7 @@ defineProps({
   value: {
     default: undefined,
     required: false,
-    type: [String, Number, Boolean] as PropType<string | number | boolean>,
+    type: [String, Number, Boolean] as PropType<boolean | number | string>,
   },
 });
 

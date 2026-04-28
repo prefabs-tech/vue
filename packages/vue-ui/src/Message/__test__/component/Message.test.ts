@@ -6,8 +6,8 @@ import Message from "../../Index.vue";
 describe("Message", () => {
   const propsData = {
     enableClose: true,
-    message: "This is a test message.",
     icon: "test-icon",
+    message: "This is a test message.",
   };
 
   const wrapper = mount(Message, {

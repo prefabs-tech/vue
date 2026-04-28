@@ -27,7 +27,7 @@ defineProps({
   borderType: {
     default: "rectangular",
     type: String,
-    validator: (value: string) => ["rectangular", "pill"].includes(value),
+    validator: (value: string) => ["pill", "rectangular"].includes(value),
   },
   disabled: {
     default: false,

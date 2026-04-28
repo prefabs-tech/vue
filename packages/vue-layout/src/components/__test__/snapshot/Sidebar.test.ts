@@ -1,9 +1,9 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import { shallowMount } from "@vue/test-utils";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import Sidebar from "@/components/Sidebar.vue";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("Sidebar", () => {
   const wrapper: VueWrapper = shallowMount(Sidebar, {
@@ -22,11 +22,11 @@ describe("Sidebar", () => {
       ],
     },
     slots: {
-      title: "<h3>Test</h3>",
-      default: "<div class='before-nav'></div>",
       afterNavLinks: "<div class='after-nav'></div>",
       afterSidebarMenu: "<div class='after-sidebar'></div>",
+      default: "<div class='before-nav'></div>",
       footer: "<p><small>This is some smaller text.</small></p>",
+      title: "<h3>Test</h3>",
     },
   });
 

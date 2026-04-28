@@ -1,6 +1,6 @@
-import nativeLocaleNames from "./locales/native-locale-names";
-
 import type { LocaleMessages, VueMessageType } from "vue-i18n";
+
+import nativeLocaleNames from "./locales/native-locale-names";
 
 const getLocaleNames = (supportedLocales: string[]) => {
   const names: LocaleMessages<VueMessageType> = {};

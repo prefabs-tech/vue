@@ -40,10 +40,10 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
-
-import type { PropType } from "vue";
 
 defineProps({
   eventsData: {

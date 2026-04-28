@@ -47,7 +47,7 @@ import { Icon } from "@iconify/vue";
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { useWindowSize } from "@vueuse/core";
-import { computed, ref, onMounted, onUnmounted } from "vue";
+import { computed, onMounted, onUnmounted, ref } from "vue";
 
 import Logo from "./Logo.vue";
 import MainMenu from "./MainMenu.vue";

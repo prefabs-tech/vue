@@ -65,16 +65,17 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useWindowSize } from "@vueuse/core";
 import { computed } from "vue";
+
+import type { ToolbarActionMenu } from "../types/page";
 
 import BadgeComponent from "../Badge/Index.vue";
 import ButtonElement from "../Button/Index.vue";
 import Dropdown from "../Dropdown/Index.vue";
 import LoadingPage from "../LoadingPage/Index.vue";
-
-import type { ToolbarActionMenu } from "../types/page";
-import type { PropType } from "vue";
 
 const { width: windowWidth } = useWindowSize();
 

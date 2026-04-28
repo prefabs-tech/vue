@@ -69,6 +69,9 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { PropType } from "vue";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import {
   DatePicker,
@@ -83,17 +86,15 @@ import { Message } from "@prefabs.tech/vue3-ui";
 import { computed, ref } from "vue";
 import { z } from "zod";
 
-import { ERROR_SOMETHING_WRONG } from "../../constant";
-import { emitter, useTranslations } from "../../index";
-import useUserStore from "../../store";
-
 import type {
   InvitationAppOption,
   InvitationPayload,
   InvitationRoleOption,
 } from "../../types";
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-import type { PropType } from "vue";
+
+import { ERROR_SOMETHING_WRONG } from "../../constant";
+import { emitter, useTranslations } from "../../index";
+import useUserStore from "../../store";
 
 const props = defineProps({
   apps: {
@@ -107,21 +108,21 @@ const props = defineProps({
       })
       .gte(1, "Please select at least one valid option"),
     required: false,
-    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+    type: Object as PropType<z.ZodType<number | number[] | string | string[]>>,
   },
   expiresAfterSchema: {
     default: z.coerce
       .number({ invalid_type_error: "Expiry days is required" })
       .gte(1, "please provide valid days"),
     required: false,
-    type: Object as PropType<z.ZodType<string | number>>,
+    type: Object as PropType<z.ZodType<number | string>>,
   },
   expiresAtSchema: {
     default: z.coerce.date().min(new Date(new Date().setHours(0, 0, 0, 0)), {
       message: "Please provide a present or future date",
     }),
     required: false,
-    type: Object as PropType<z.ZodType<string | number | Date | object>>,
+    type: Object as PropType<z.ZodType<Date | number | object | string>>,
   },
   expiryMode: {
     default: undefined,
@@ -141,7 +142,7 @@ const props = defineProps({
       invalid_type_error: "Please select at least one valid option",
     }),
     required: false,
-    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+    type: Object as PropType<z.ZodType<number | number[] | string | string[]>>,
   },
   submitLabel: {
     default: "Invite user",
@@ -180,12 +181,12 @@ const updatedApps = computed(() => {
 
   const modifiedLabels = modifiedApps.map((app) => {
     if (app.label) {
-      return { value: app.id, label: app.label };
+      return { label: app.label, value: app.id };
     }
 
     return {
-      value: app.id,
       label: app.name,
+      value: app.id,
     };
   });
 

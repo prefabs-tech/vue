@@ -12,7 +12,7 @@ interface DropdownMenu {
     | "secondary"
     | "success"
     | "warning";
-  value?: string | number;
+  value?: number | string;
 }
 
 export type { DropdownMenu };

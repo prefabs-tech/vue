@@ -57,23 +57,24 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { computed, nextTick, onMounted, ref, useSlots, watch } from "vue";
 
-import { getOrientation } from "./utilities";
-import { getStorage } from "../utils";
-
 import type { Tab } from "./types";
-import type { PropType } from "vue";
+
+import { getStorage } from "../utils";
+import { getOrientation } from "./utilities";
 
 const props = defineProps({
   activeKey: {
-    type: String,
     required: true,
+    type: String,
   },
   enableHashRouting: Boolean,
   id: {
-    type: String,
     default: "",
+    type: String,
   },
   interceptTabChange: Boolean,
   interceptTabClose: Boolean,
@@ -82,22 +83,22 @@ const props = defineProps({
     type: Boolean,
   },
   persistState: {
-    type: Boolean,
     default: true,
+    type: Boolean,
   },
   persistStateStorage: {
-    type: String as PropType<"localStorage" | "sessionStorage">,
     default: "localStorage",
+    type: String as PropType<"localStorage" | "sessionStorage">,
   },
   position: {
-    type: String as PropType<"top" | "bottom" | "left" | "right">,
     default: "top",
+    type: String as PropType<"bottom" | "left" | "right" | "top">,
     validator: (value: string) =>
-      ["top", "bottom", "left", "right"].includes(value),
+      ["bottom", "left", "right", "top"].includes(value),
   },
   tabs: {
-    type: Array as PropType<Tab[]>,
     required: true,
+    type: Array as PropType<Tab[]>,
   },
   visibleTabs: {
     default: () => [],

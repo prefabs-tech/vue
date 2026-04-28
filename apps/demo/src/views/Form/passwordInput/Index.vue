@@ -326,6 +326,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type {
+  PasswordErrorMessages,
+  StrongPasswordOptions,
+} from "@prefabs.tech/vue3-form";
+
 import { Form, Password } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { reactive, ref } from "vue";
@@ -333,11 +338,6 @@ import { z } from "zod";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
-
-import type {
-  PasswordErrorMessages,
-  StrongPasswordOptions,
-} from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
 
@@ -427,8 +427,8 @@ const validationMessages = {
 const validationOptions = {
   minLength: 10,
   minLowercase: 1,
-  minUppercase: 1,
   minSymbols: 1,
+  minUppercase: 1,
 } as StrongPasswordOptions;
 
 let formData = reactive({

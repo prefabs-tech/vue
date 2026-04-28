@@ -11,8 +11,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import type { Error as ErrorType } from "../types";
 import type { PropType } from "vue";
+
+import type { Error as ErrorType } from "../types";
 
 defineProps({
   error: {

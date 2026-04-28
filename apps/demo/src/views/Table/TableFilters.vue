@@ -423,6 +423,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type {
+  FilterFunction,
+  TableColumnDefinition,
+} from "@prefabs.tech/vue3-tanstack-table";
+
 import { DatePicker } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
@@ -431,11 +436,6 @@ import { h, ref } from "vue";
 
 import { city, data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
-
-import type {
-  FilterFunction,
-  TableColumnDefinition,
-} from "@prefabs.tech/vue3-tanstack-table";
 
 const { locale, t } = useI18n();
 
@@ -472,8 +472,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     filterPlaceholder: t("table.placeholder.city"),
     header: "City",
     meta: {
-      filterVariant: "multiselect",
       filterOptions: city,
+      filterVariant: "multiselect",
     },
   },
 ];
@@ -489,10 +489,10 @@ const customColumns = columns.map((columnData) => {
         return h(DebouncedInput, {
           debounceTime: 200,
           modelValue: column.getFilterValue() as string,
-          placeholder: t("table.label.customFilter"),
           "onUpdate:modelValue": (value) => {
             column.setFilterValue(value);
           },
+          placeholder: t("table.label.customFilter"),
         });
       },
       meta: {
@@ -563,13 +563,13 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
             modelValue: dateRange.value,
             multiCalendars: true,
             name: "date-range",
-            placeholder: t("table.label.dateRange"),
-            range: true,
-            teleport: true,
             "onUpdate:modelValue": (value) => {
               dateRange.value = value;
               column.setFilterValue(value);
             },
+            placeholder: t("table.label.dateRange"),
+            range: true,
+            teleport: true,
           }),
         ],
       );

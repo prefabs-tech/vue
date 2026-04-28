@@ -34,10 +34,10 @@ export default {
 import { useWindowSize } from "@vueuse/core";
 import {
   computed,
-  ref,
   nextTick,
   onBeforeUnmount,
   onMounted,
+  ref,
   useSlots,
 } from "vue";
 
@@ -49,12 +49,12 @@ const props = defineProps({
     type: String,
   },
   clickable: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
   delay: {
-    type: Number,
     default: 100,
+    type: Number,
   },
   offset: {
     default: 10,
@@ -64,7 +64,7 @@ const props = defineProps({
     default: undefined,
     type: String,
     validator(value: string) {
-      return ["top", "bottom", "left", "right"].includes(value);
+      return ["bottom", "left", "right", "top"].includes(value);
     },
   },
 });
@@ -74,13 +74,13 @@ const dzangolabVueUITooltipContent = ref<HTMLElement | null>(null);
 const dzangolabVueUITooltipTrigger = ref<HTMLElement | null>(null);
 const isVisible = ref<boolean>(false);
 const tooltipPosition = ref<string>();
-const tooltipStyles = ref({ top: "0", left: "0" });
+const tooltipStyles = ref({ left: "0", top: "0" });
 const scrollListeners = ref<{ element: Element; listener: () => void }[]>([]);
 const isTriggerClicked = ref<boolean>(false);
-const timerId = ref<ReturnType<typeof setTimeout> | null>(null);
+const timerId = ref<null | ReturnType<typeof setTimeout>>(null);
 
 const slots = useSlots();
-const { width: windowWidth, height: windowHeight } = useWindowSize();
+const { height: windowHeight, width: windowWidth } = useWindowSize();
 
 const hasContentSlot = computed(() => !!slots.content);
 
@@ -157,14 +157,6 @@ const updatePosition = () => {
     triggerRect.top + triggerRect.height / 2 - contentRect.height / 2;
 
   switch (position) {
-    case "top": {
-      top = fitsAbove
-        ? triggerRect.top - contentRect.height - props.offset
-        : triggerRect.bottom + props.offset;
-      left = horizontalCenter;
-      break;
-    }
-
     case "bottom": {
       top = fitsBelow
         ? triggerRect.bottom + props.offset
@@ -182,6 +174,14 @@ const updatePosition = () => {
     case "right": {
       left = triggerRect.left + triggerRect.width + props.offset;
       top = verticalCenter;
+      break;
+    }
+
+    case "top": {
+      top = fitsAbove
+        ? triggerRect.top - contentRect.height - props.offset
+        : triggerRect.bottom + props.offset;
+      left = horizontalCenter;
       break;
     }
   }
@@ -204,8 +204,8 @@ const updatePosition = () => {
   }
 
   tooltipStyles.value = {
-    top: `${top}px`,
     left: `${left}px`,
+    top: `${top}px`,
   };
   tooltipPosition.value = position;
 };

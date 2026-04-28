@@ -64,17 +64,18 @@
 </template>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { useWindowSize } from "@vueuse/core";
 import { computed, ref, watch } from "vue";
 
+import type { SidebarMenu } from "../types";
+
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
 import Sidebar from "../components/Sidebar.vue";
-
-import type { SidebarMenu } from "../types";
-import type { PropType } from "vue";
 
 const { layout: layoutConfig } = useConfig();
 

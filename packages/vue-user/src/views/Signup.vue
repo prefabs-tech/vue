@@ -36,11 +36,11 @@ import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
+import type { LoginCredentials } from "../types";
+
 import SignupForm from "../components/SignupForm.vue";
 import { emitter, useTranslations } from "../index";
 import useUserStore from "../store";
-
-import type { LoginCredentials } from "../types";
 
 const messages = useTranslations();
 

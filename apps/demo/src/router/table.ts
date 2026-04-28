@@ -7,7 +7,6 @@ const TableFilters = () => import("@/views/Table/TableFilters.vue");
 
 const routes = [
   {
-    path: "/table",
     children: [
       {
         component: Table,
@@ -40,6 +39,7 @@ const routes = [
         path: "filters",
       },
     ],
+    path: "/table",
   },
 ];
 

@@ -1,8 +1,9 @@
+import type { App, Plugin } from "vue";
+import type { Router } from "vue-router";
+
 import * as Sentry from "@sentry/vue";
 
 import type { AppConfig } from "./types";
-import type { App, Plugin } from "vue";
-import type { Router } from "vue-router";
 
 const plugin: Plugin = {
   install: (app: App, options: DzangolabVueSentryPluginOptions): void => {
@@ -18,8 +19,8 @@ const plugin: Plugin = {
             router: options.router,
           }),
         ],
-        tracePropagationTargets: ["localhost", config.websiteDomain, /^\//],
         release: options.config.appVersion,
+        tracePropagationTargets: ["localhost", config.websiteDomain, /^\//],
       });
     }
   },

@@ -31,16 +31,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { Column, Table } from "@tanstack/vue-table";
+import type { VNode } from "vue";
+
 import { Checkbox } from "@prefabs.tech/vue3-form";
 import { ButtonElement, Popup, SortableList } from "@prefabs.tech/vue3-ui";
 import { computed, h } from "vue";
 
-import type { Column, Table } from "@tanstack/vue-table";
-import type { VNode } from "vue";
-
 type List = {
-  id: number | string;
   data: Column<unknown, unknown>;
+  id: number | string;
   render?: (data: unknown) => VNode;
 };
 
@@ -70,8 +70,8 @@ const items = computed(() =>
     .getAllLeafColumns()
     .filter((column) => column.id !== "select" && column.id !== "actions")
     .map((column, index) => ({
-      id: index,
       data: column,
+      id: index,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       render: (data: any) => {
         let header = data.columnDef.header;

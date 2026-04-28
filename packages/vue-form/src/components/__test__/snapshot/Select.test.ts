@@ -5,11 +5,11 @@ import MultiSelect from "../../Select.vue";
 
 describe("MultiSelect", () => {
   const options = [
-    { value: "FR", label: "FR" },
-    { value: "DE", label: "DE" },
-    { value: "BE", label: "BE" },
-    { value: "FE", label: "FE" },
-    { value: "RE", label: "RE" },
+    { label: "FR", value: "FR" },
+    { label: "DE", value: "DE" },
+    { label: "BE", value: "BE" },
+    { label: "FE", value: "FE" },
+    { label: "RE", value: "RE" },
   ];
 
   it("matches snapshot for multiple select", async () => {
@@ -17,8 +17,8 @@ describe("MultiSelect", () => {
       global: {
         mocks: {
           selectedOptions: [
-            { value: "FR", label: "FR" },
-            { value: "FE", label: "FE" },
+            { label: "FR", value: "FR" },
+            { label: "FE", value: "FE" },
           ],
           showDropdownMenu: true,
         },
@@ -39,7 +39,7 @@ describe("MultiSelect", () => {
     const wrapper = mount(MultiSelect, {
       global: {
         mocks: {
-          selectedOptions: [{ value: "FR", label: "FR" }],
+          selectedOptions: [{ label: "FR", value: "FR" }],
         },
       },
       props: {

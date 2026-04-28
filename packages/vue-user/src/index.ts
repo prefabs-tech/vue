@@ -1,8 +1,13 @@
 import "./assets/css/index.css";
 
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
+import type { App, Plugin } from "vue";
+
 import { prependMessages } from "@prefabs.tech/vue3-i18n";
 import mitt from "mitt";
 import { inject } from "vue";
+
+import type { DzangolabVueUserPluginOptions } from "./types";
 
 import client from "./api/axios";
 import initAuthProvider from "./auth-provider";
@@ -12,10 +17,6 @@ import userStore from "./store";
 import initSupertokens from "./supertokens";
 import ChangePassword from "./views/ChangePassword.vue";
 import { ProfilePage, ProfileTabsPage } from "./views/Profile";
-
-import type { DzangolabVueUserPluginOptions } from "./types";
-import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
-import type { App, Plugin } from "vue";
 
 const __dzangolabVueUserTranslations = Symbol.for(
   "dzangolab.vue-user.translations",
@@ -57,7 +58,7 @@ const useTranslations = () => {
 
 export default plugin;
 
-export { client, userStore, useTranslations, emitter };
+export { client, emitter, userStore, useTranslations };
 
 export * from "./api/roles";
 
@@ -73,8 +74,8 @@ export type {
   DzangolabVueUserPluginOptions,
   Invitation,
   InvitationAppOption,
-  InvitationRoleOption,
   InvitationPayload,
+  InvitationRoleOption,
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,

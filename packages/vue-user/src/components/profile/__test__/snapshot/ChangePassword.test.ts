@@ -1,14 +1,14 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import configPlugin from "@prefabs.tech/vue3-config";
 import i18Plugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import router from "../../../../views/__test__/router";
 import appConfig from "../../../__test__/config";
 import ChangePassword from "../../ChangePassword.vue";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("ChangePassword", () => {
   const pinia = createPinia();
@@ -22,6 +22,9 @@ describe("ChangePassword", () => {
 
     const wrapper: VueWrapper = mount(ChangePassword, {
       global: {
+        mocks: {
+          errorMessage: "401",
+        },
         plugins: [
           [
             configPlugin,
@@ -38,9 +41,6 @@ describe("ChangePassword", () => {
           ],
           router,
         ],
-        mocks: {
-          errorMessage: "401",
-        },
         stubs: {
           ChangePasswordForm: true,
         },

@@ -83,15 +83,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 
-import { useTranslations } from "../index";
-
 import type { UserType } from "../types";
 import type { UserMenuItem } from "../types/user-menu";
-import type { PropType } from "vue";
+
+import { useTranslations } from "../index";
 
 const expanded = ref(false);
 const messages = useTranslations();

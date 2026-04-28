@@ -31,7 +31,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "0.5.0",
+    "@prefabs.tech/eslint-config": "git+https://github.com/prefabs-tech/tools.git#refactor/eslint-config&path:packages/eslint-config",
     "@prefabs.tech/tsconfig": "0.6.0",
     "@prefabs.tech/vue3-config": "0.32.0",
     "@prefabs.tech/vue3-i18n": "0.32.0",

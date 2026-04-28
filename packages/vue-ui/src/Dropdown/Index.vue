@@ -87,12 +87,13 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { computed, ref } from "vue";
 
-import Popup from "../Popup/Index.vue";
-
 import type { DropdownMenu } from "../types";
-import type { PropType } from "vue";
+
+import Popup from "../Popup/Index.vue";
 
 const props = defineProps({
   icon: {
@@ -100,8 +101,8 @@ const props = defineProps({
     type: String,
   },
   label: {
-    type: String,
     default: null,
+    type: String,
   },
   menu: {
     required: true,

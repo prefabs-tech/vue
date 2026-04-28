@@ -281,6 +281,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type {
+  IsIntOptions,
+  NumberErrorMessages,
+} from "@prefabs.tech/vue3-form";
+
 import { Form, NumberInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { reactive, ref } from "vue";
@@ -288,11 +293,6 @@ import { z } from "zod";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
-
-import type {
-  NumberErrorMessages,
-  IsIntOptions,
-} from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
 
@@ -366,9 +366,9 @@ const validationMessages = {
 } as NumberErrorMessages;
 
 const validationOptions = {
-  min: 1,
-  max: 100,
   allow_leading_zeroes: false,
+  max: 100,
+  min: 1,
 } as IsIntOptions;
 
 let formData = reactive({
