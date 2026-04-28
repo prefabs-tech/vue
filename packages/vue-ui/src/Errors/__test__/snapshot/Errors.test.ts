@@ -1,9 +1,9 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import { shallowMount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import Index from "../../Index.vue";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("Errors", () => {
   it("should matches snapshot", () => {

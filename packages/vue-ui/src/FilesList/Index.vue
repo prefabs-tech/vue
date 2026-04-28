@@ -39,9 +39,9 @@ export default {
 <script setup lang="ts">
 import { PropType } from "vue";
 
-import FileCard from "../FileCard/Index.vue";
-
 import type { FileMessages, IFile } from "../types/file";
+
+import FileCard from "../FileCard/Index.vue";
 
 defineProps({
   actionButtonsVisibility: {
@@ -71,6 +71,19 @@ defineProps({
     default: () => {},
     type: Object,
   },
+  fileDetailVisibility: {
+    default: () => ({
+      actions: true,
+      description: true,
+      downloadCount: true,
+      lastDownloadedAt: true,
+      originalFileName: true,
+      size: true,
+      uploadedAt: true,
+      uploadedBy: true,
+    }),
+    type: Object,
+  },
   files: {
     required: true,
     type: Array as PropType<IFile[]>,
@@ -93,19 +106,6 @@ defineProps({
   },
   viewButtonProps: {
     default: undefined,
-    type: Object,
-  },
-  fileDetailVisibility: {
-    default: () => ({
-      actions: true,
-      description: true,
-      downloadCount: true,
-      lastDownloadedAt: true,
-      originalFileName: true,
-      size: true,
-      uploadedAt: true,
-      uploadedBy: true,
-    }),
     type: Object,
   },
 });

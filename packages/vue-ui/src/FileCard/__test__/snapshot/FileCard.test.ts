@@ -1,10 +1,11 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import FileCard from "../../Index.vue";
-
 import type { IFile } from "../../../types/file";
-import type { VueWrapper } from "@vue/test-utils";
+
+import FileCard from "../../Index.vue";
 
 describe("FileCard", () => {
   it("matches snapshot", () => {

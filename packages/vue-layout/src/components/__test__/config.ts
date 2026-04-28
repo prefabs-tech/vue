@@ -9,14 +9,14 @@ const config: AppConfig = {
     holder: "Dzango Technologies Limited",
     url: "https://dzango.com",
   },
+  features: {
+    sentry: true,
+    showVersion: true,
+  },
   i18n: {
     fallbackLocale: "en",
     messages: {} as LocaleMessages<VueMessageType>,
     supportedLocales: ["en", "fr"],
-  },
-  features: {
-    showVersion: true,
-    sentry: true,
   },
   layout: {
     mainMenu: [

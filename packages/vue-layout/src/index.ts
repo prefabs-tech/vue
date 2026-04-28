@@ -1,7 +1,15 @@
 import "./assets/css/index.css";
 
+import type { App } from "vue";
+
 import { prependMessages } from "@prefabs.tech/vue3-i18n";
 import { inject } from "vue";
+
+import type {
+  LayoutType,
+  PrefabsTechVue3LayoutConfig,
+  PrefabsTechVue3LayoutPluginOptions,
+} from "./types";
 
 import AppFooter from "./components/AppFooter.vue";
 import AppHeader from "./components/AppHeader.vue";
@@ -16,13 +24,6 @@ import NullLayout from "./layouts/NullLayout.vue";
 import SidebarHeaderLayout from "./layouts/SidebarHeaderLayout.vue";
 import SidebarOnlyLayout from "./layouts/SidebarOnlyLayout.vue";
 import messages from "./locales/messages.json";
-
-import type {
-  PrefabsTechVue3LayoutConfig,
-  PrefabsTechVue3LayoutPluginOptions,
-  LayoutType,
-} from "./types";
-import type { App } from "vue";
 
 declare module "@prefabs.tech/vue3-config" {
   interface AppConfig {
@@ -75,9 +76,9 @@ export {
 };
 
 export type {
-  PrefabsTechVue3LayoutConfig,
-  PrefabsTechVue3LayoutPluginOptions,
   LayoutType,
   MenuItem,
+  PrefabsTechVue3LayoutConfig,
+  PrefabsTechVue3LayoutPluginOptions,
   SidebarMenu,
 } from "./types";

@@ -53,14 +53,14 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { ref, useSlots } from "vue";
-
 import type { PropType, VNode } from "vue";
+
+import { ref, useSlots } from "vue";
 
 const props = defineProps({
   activeIcon: {
     default: undefined,
-    type: [String, Function] as PropType<string | (() => VNode)>,
+    type: [String, Function] as PropType<(() => VNode) | string>,
   },
   canSelfCollapse: {
     default: false,
@@ -75,11 +75,11 @@ const props = defineProps({
   direction: {
     default: "vertical",
     required: false,
-    type: String as PropType<"vertical" | "horizontal">,
+    type: String as PropType<"horizontal" | "vertical">,
   },
   inactiveIcon: {
     default: undefined,
-    type: [String, Function] as PropType<string | (() => VNode)>,
+    type: [String, Function] as PropType<(() => VNode) | string>,
   },
 });
 

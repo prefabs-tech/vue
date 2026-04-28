@@ -43,15 +43,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { toTypedSchema } from "@vee-validate/zod";
-import { VueDatePicker } from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
+import { VueDatePicker } from "@vuepic/vue-datepicker";
 import { ErrorMessage, Field } from "vee-validate";
 import { computed, onBeforeUnmount, onMounted, ref, useAttrs } from "vue";
 import { z } from "zod";
 
 import type { MonthPickerValue } from "../types";
-import type { PropType } from "vue";
 
 const props = defineProps({
   autoApply: {
@@ -106,7 +107,7 @@ const props = defineProps({
   schema: {
     default: undefined,
     required: false,
-    type: Object as PropType<z.ZodType<string | number | Date | object>>,
+    type: Object as PropType<z.ZodType<Date | number | object | string>>,
   },
   teleport: {
     default: undefined,
@@ -134,13 +135,13 @@ const closeOnScroll = () => {
 
 const onUpdate = (
   date:
-    | string
-    | string[]
-    | number
-    | number[]
     | Date
     | Date[]
-    | MonthPickerValue,
+    | MonthPickerValue
+    | number
+    | number[]
+    | string
+    | string[],
 ) => {
   emit("update:modelValue", date);
 };

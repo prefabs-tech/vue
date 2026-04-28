@@ -1,33 +1,33 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
+import type {
+  AuthTokens,
+  ChangePasswordPayload,
+  Invitation,
+  LoginCredentials,
+  PasswordResetPayload,
+  PasswordResetRequestPayload,
+  UserType,
+} from "./types";
+
 import {
   acceptInvitation as doAcceptInvitation,
   addInvitation as doAddInvitation,
   disableUser as doDisableUser,
   enableUser as doEnableUser,
-  getIsFirstUser as doGetIsFirstUser,
   getInvitationByToken as doGetInvitation,
+  getIsFirstUser as doGetIsFirstUser,
   signUpFirstUser as doSignUpFirstUser,
 } from "./api/user";
 import { auth } from "./auth-provider";
-
-import type {
-  AuthTokens,
-  Invitation,
-  LoginCredentials,
-  PasswordResetPayload,
-  PasswordResetRequestPayload,
-  ChangePasswordPayload,
-  UserType,
-} from "./types";
 
 const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
   const invitation = ref<Invitation>();
   const isEmailVerified = ref<boolean>();
-  const user = ref<UserType | undefined>(undefined);
+  const user = ref<undefined | UserType>(undefined);
   const accessToken = ref(localStorage.getItem("accessToken") || null);
   const refreshToken = ref(localStorage.getItem("refreshToken") || null);
 
@@ -113,7 +113,7 @@ const useUserStore = defineStore("user", () => {
     return await doGetInvitation(token, apiBaseUrl);
   };
 
-  const getUser = (): UserType | undefined => {
+  const getUser = (): undefined | UserType => {
     if (user.value) {
       return user.value;
     }
@@ -217,7 +217,7 @@ const useUserStore = defineStore("user", () => {
     invitation.value = invitationData;
   };
 
-  const setUser = async (userData: UserType | undefined) => {
+  const setUser = async (userData: undefined | UserType) => {
     const selectedAuthProvider = auth();
 
     user.value = userData;
@@ -234,7 +234,7 @@ const useUserStore = defineStore("user", () => {
 
   const setAuthTokens = (authTokens: AuthTokens) => {
     accessToken.value = authTokens.accessToken;
-    refreshToken.value = authTokens.refreshToken as string | null;
+    refreshToken.value = authTokens.refreshToken as null | string;
 
     localStorage.setItem("accessToken", authTokens.accessToken as string);
     localStorage.setItem("refreshToken", authTokens.refreshToken as string);
@@ -288,33 +288,33 @@ const useUserStore = defineStore("user", () => {
   };
 
   return {
-    accessToken,
     acceptInvitation,
+    accessToken,
     addInvitation,
     changeEmail,
     changePassword,
     disableUser,
     enableUser,
-    getIsFirstUser,
     getInvitationByToken,
+    getIsFirstUser,
     getUser,
     getVerificationStatus,
-    isLoggedIn,
-    isEmailVerified,
     invitation,
+    isEmailVerified,
+    isLoggedIn,
     login,
     logout,
     refreshToken,
     removeAuthTokens,
     removeUser,
-    resetPassword,
     requestPasswordReset,
+    resetPassword,
     sendVerificationEmail,
     setAuthTokens,
-    signUpFirstUser,
     setInvitation,
     setUser,
     signup,
+    signUpFirstUser,
     socialSignIn,
     user,
     verifyEmail,

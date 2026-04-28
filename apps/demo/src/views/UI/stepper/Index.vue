@@ -454,7 +454,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { TextInput, NumberInput } from "@prefabs.tech/vue3-form";
+import { NumberInput, TextInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, Divider, Stepper } from "@prefabs.tech/vue3-ui";
 import { computed, reactive, ref } from "vue";

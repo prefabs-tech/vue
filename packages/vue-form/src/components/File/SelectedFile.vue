@@ -68,14 +68,15 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 
-import Input from "../Input.vue";
-
 import type { FileExtended } from "../../types/index";
-import type { PropType } from "vue";
+
+import Input from "../Input.vue";
 
 const props = defineProps({
   addDescriptionLabel: {
@@ -88,12 +89,12 @@ const props = defineProps({
   },
   enableDescription: Boolean,
   file: {
-    type: Object as PropType<FileExtended>,
     required: true,
+    type: Object as PropType<FileExtended>,
   },
   index: {
-    type: Number,
     required: true,
+    type: Number,
   },
 });
 

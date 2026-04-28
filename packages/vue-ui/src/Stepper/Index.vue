@@ -95,14 +95,15 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { computed, ref, watchEffect } from "vue";
+
+import type { ActionButtonProperties, StepProperties } from "../types/stepper";
 
 import StepperContent from "./_components/StepperContent.vue";
 
-import type { ActionButtonProperties, StepProperties } from "../types/stepper";
-import type { PropType } from "vue";
-
-type AlignType = "start" | "center" | "end";
+type AlignType = "center" | "end" | "start";
 
 const props = defineProps({
   activeIndex: {
@@ -113,7 +114,7 @@ const props = defineProps({
     default: "start",
     type: String as PropType<AlignType>,
     validator: (value: string) => {
-      return ["start", "center", "end"].includes(value);
+      return ["center", "end", "start"].includes(value);
     },
   },
   direction: {
@@ -133,8 +134,8 @@ const props = defineProps({
     type: Object as PropType<ActionButtonProperties>,
   },
   steps: {
-    type: Array as PropType<StepProperties[]>,
     required: true,
+    type: Array as PropType<StepProperties[]>,
   },
 });
 

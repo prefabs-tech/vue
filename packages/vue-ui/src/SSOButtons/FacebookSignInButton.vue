@@ -17,8 +17,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import BaseButton from "./BaseButton.vue";
 import FacebookLogo from "../assets/svg/facebook.svg";
+import BaseButton from "./BaseButton.vue";
 
 defineEmits(["click"]);
 

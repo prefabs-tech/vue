@@ -36,13 +36,14 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ButtonElement } from "../../index";
+import type { PropType } from "vue";
 
 import type {
   ActionButtonProperties,
   StepProperties,
 } from "../../types/stepper";
-import type { PropType } from "vue";
+
+import { ButtonElement } from "../../index";
 
 defineProps({
   activeIndex: {
@@ -59,8 +60,8 @@ defineProps({
     type: Object as PropType<ActionButtonProperties>,
   },
   steps: {
-    type: Array as PropType<StepProperties[]>,
     required: true,
+    type: Array as PropType<StepProperties[]>,
   },
 });
 

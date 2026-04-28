@@ -238,6 +238,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { ComponentPublicInstance, PropType, Ref } from "vue";
+
 import {
   DebouncedInput,
   Divider,
@@ -256,11 +258,10 @@ import {
   watch,
 } from "vue";
 
+import type { GroupedOption, SelectOption } from "../types";
+
 import { normalizeOptions } from "../utils";
 import Checkbox from "./Checkbox.vue";
-
-import type { GroupedOption, SelectOption } from "../types";
-import type { ComponentPublicInstance, PropType, Ref } from "vue";
 
 const props = defineProps({
   customSearchHelperText: {
@@ -300,7 +301,7 @@ const props = defineProps({
     default: () => [],
     required: false,
     type: [Boolean, Number, String, Array] as PropType<
-      boolean | number | string | (number | string)[]
+      (number | string)[] | boolean | number | string
     >,
   },
   multiple: {
@@ -313,7 +314,7 @@ const props = defineProps({
   },
   options: {
     required: true,
-    type: Array as PropType<SelectOption[] | GroupedOption[]>,
+    type: Array as PropType<GroupedOption[] | SelectOption[]>,
   },
   placeholder: {
     default: undefined,
@@ -462,7 +463,7 @@ const focusSearchInput = async () => {
   )?.focus();
 };
 
-const getSelectedOption = (value: number | string | boolean) => {
+const getSelectedOption = (value: boolean | number | string) => {
   return (
     normalizedOptions.value?.find((option) => option.value === value) ||
     selectedOptions.value.find((option) => option.value === value)
@@ -576,7 +577,7 @@ const onKeyDown = (event: KeyboardEvent) => {
           ? dzangolabVueSelectAll.value
           : dzangolabVueFormSelectOptions.value[focusedOptionIndex.value];
 
-      element?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      element?.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
   } else {
     toggleKeys.push("ArrowUp", "ArrowDown");
@@ -707,7 +708,7 @@ const prepareComponent = () => {
     (normalizedOptions.value?.length || selectedOptions.value?.length)
   ) {
     selectedOptions.value = props.modelValue.map((value) => {
-      return getSelectedOption(value as string | number);
+      return getSelectedOption(value as number | string);
     }) as SelectOption[];
   } else if (
     props.modelValue &&
@@ -734,7 +735,7 @@ const previousIndex = (startIndex: number): number => {
 };
 
 const setOptionReference =
-  (index: number) => (element: Element | ComponentPublicInstance | null) => {
+  (index: number) => (element: ComponentPublicInstance | Element | null) => {
     dzangolabVueFormSelectOptions.value[index] = element as HTMLElement | null;
   };
 

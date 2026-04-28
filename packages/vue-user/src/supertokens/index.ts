@@ -1,8 +1,14 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import SuperTokens from "supertokens-web-js";
 import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+import type { UserType } from "../types";
+
+import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "../constant";
+import useUserStore from "../store";
 import changeEmail from "./change-email";
 import changePassword from "./change-password";
 import { isProfileCompleted, verifySessionRoles } from "./helper";
@@ -13,12 +19,7 @@ import resendVerificationEmail from "./resend-email-verification";
 import resetPassword from "./reset-password";
 import signup from "./signup";
 import socialSignIn from "./social-signin";
-import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "../constant";
-import useUserStore from "../store";
 import verifyEmail, { getVerificationStatus } from "./verify-email";
-
-import type { UserType } from "../types";
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const initSupertokens = (config: AppConfig) => {
   useUserStore();
@@ -48,9 +49,9 @@ const initSupertokens = (config: AppConfig) => {
 
   SuperTokens.init({
     appInfo: {
+      apiBasePath: config.authBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
       apiDomain: config.apiBaseUrl,
       appName: config.appTitle,
-      apiBasePath: config.authBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
     },
     recipeList: recipeList,
   });
@@ -73,7 +74,7 @@ const isLoggedIn = async () => {
   }
 };
 
-const getUser = async (): Promise<UserType | undefined> => {
+const getUser = async (): Promise<undefined | UserType> => {
   const { getUser } = useUserStore();
 
   if (await isLoggedIn()) {
@@ -88,8 +89,8 @@ export {
   changePassword,
   getUser,
   getVerificationStatus,
-  isProfileCompleted,
   isLoggedIn,
+  isProfileCompleted,
   login,
   logout,
   requestPasswordReset,

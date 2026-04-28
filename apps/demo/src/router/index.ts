@@ -1,3 +1,7 @@
+import type { AppFeatures } from "@prefabs.tech/vue3-config";
+import type { LayoutType } from "@prefabs.tech/vue3-layout";
+import type { RouteMeta, Router, RouterOptions } from "vue-router";
+
 import { createRouter, createWebHistory } from "vue-router";
 
 import { feature } from "@/config";
@@ -5,17 +9,12 @@ import Home from "@/views/Home.vue";
 
 import form from "./form";
 import layout from "./layout";
-import table from "./table";
-import ui from "./ui";
-import user from "./user";
-
 // import About from "@/views/About.vue";
 // import Layout from "@/views/Layout/Index.vue";
 // import Sentry from "@/views/Sentry.vue";
-
-import type { AppFeatures } from "@prefabs.tech/vue3-config";
-import type { LayoutType } from "@prefabs.tech/vue3-layout";
-import type { RouteMeta, Router, RouterOptions } from "vue-router";
+import table from "./table";
+import ui from "./ui";
+import user from "./user";
 
 interface AppRouteMeta extends RouteMeta {
   authenticated?: boolean | null;

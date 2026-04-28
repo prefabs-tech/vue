@@ -53,17 +53,18 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { SubmissionHandler } from "vee-validate";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { Email, FormActions, Input, Password } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Form } from "vee-validate";
 import { reactive } from "vue";
 
+import type { LoginCredentials } from "../types";
+
 import { LOGIN_TYPE_USERNAME } from "../constant";
 import { useTranslations } from "../index";
-
-import type { LoginCredentials } from "../types";
-import type { SubmissionHandler } from "vee-validate";
 
 const config = useConfig();
 
@@ -85,8 +86,8 @@ const onSubmit: SubmissionHandler = (values) => {
 
 defineProps({
   loading: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
 });
 

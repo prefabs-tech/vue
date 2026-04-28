@@ -1,10 +1,10 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import { mount, RouterLinkStub } from "@vue/test-utils";
-import { describe, it, expect, beforeAll } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 
 import ResponsiveMenu from "../../Index.vue";
 import { routes } from "../routes";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("ResponsiveMenu", () => {
   let wrapper: VueWrapper;

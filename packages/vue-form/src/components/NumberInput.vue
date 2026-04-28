@@ -33,14 +33,15 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
 
-import { numberSchema } from "../schemas";
+import type { IsIntOptions, NumberErrorMessages } from "../types";
 
-import type { NumberErrorMessages, IsIntOptions } from "../types";
-import type { PropType } from "vue";
+import { numberSchema } from "../schemas";
 
 const props = defineProps({
   disabled: {
@@ -64,7 +65,7 @@ const props = defineProps({
   },
   modelValue: {
     default: undefined,
-    type: Number as PropType<number | null | undefined>,
+    type: Number as PropType<null | number | undefined>,
   },
   name: {
     default: "number",
@@ -85,7 +86,7 @@ const props = defineProps({
   schema: {
     default: undefined,
     required: false,
-    type: Object as PropType<z.ZodType<string | number>>,
+    type: Object as PropType<z.ZodType<number | string>>,
   },
 });
 

@@ -23,11 +23,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 
 import Copyright from "./Copyright.vue";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const config = useConfig() as AppConfig;
 </script>

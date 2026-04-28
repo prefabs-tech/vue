@@ -20,9 +20,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useDebouncedValue } from "../../utils";
-
 import type { PropType } from "vue";
+
+import { useDebouncedValue } from "../../utils";
 
 defineOptions({
   inheritAttrs: false,
@@ -45,7 +45,7 @@ const props = defineProps({
   modelValue: {
     default: "",
     required: false,
-    type: [String, Number] as PropType<string | number | null | undefined>,
+    type: [String, Number] as PropType<null | number | string | undefined>,
   },
   placeholder: {
     default: "Search...",

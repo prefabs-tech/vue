@@ -50,6 +50,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { MenuItem, SidebarMenu } from "@prefabs.tech/vue3-layout";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { SidebarHeaderLayout as Layout } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
@@ -59,8 +61,6 @@ import { useRouter } from "vue-router";
 import UserMenu from "../components/UserMenu.vue";
 import { filterRoutes } from "../router";
 import useUserStore from "../store";
-
-import type { MenuItem, SidebarMenu } from "@prefabs.tech/vue3-layout";
 
 defineProps({
   collapsible: {
@@ -126,11 +126,6 @@ const menu = computed(() => {
   });
 
   return menuItems.map((item: MenuItem) => ({
-    hide: item?.hide,
-    icon: item?.icon,
-    name: item.name,
-    routeName: item.route,
-    shortName: item?.shortName,
     children: item.children?.map((child: MenuItem) => ({
       hide: child?.hide,
       icon: child?.icon,
@@ -138,6 +133,11 @@ const menu = computed(() => {
       routeName: child.route,
       shortName: child?.shortName,
     })),
+    hide: item?.hide,
+    icon: item?.icon,
+    name: item.name,
+    routeName: item.route,
+    shortName: item?.shortName,
   })) as SidebarMenu[];
 });
 

@@ -78,24 +78,24 @@ const props = defineProps({
     type: String,
     validator: (value: string) =>
       [
+        "alternate",
+        "danger",
         "primary",
         "secondary",
-        "alternate",
         "success",
-        "danger",
         "warning",
       ].includes(value),
   },
   size: {
     default: "medium",
     type: String,
-    validator: (value: string) => ["small", "medium", "large"].includes(value),
+    validator: (value: string) => ["large", "medium", "small"].includes(value),
   },
-  to: {
+  title: {
     default: null,
     type: String,
   },
-  title: {
+  to: {
     default: null,
     type: String,
   },
@@ -103,7 +103,7 @@ const props = defineProps({
     default: "filled",
     type: String,
     validator: (value: string) =>
-      ["outlined", "filled", "textOnly"].includes(value),
+      ["filled", "outlined", "textOnly"].includes(value),
   },
 });
 

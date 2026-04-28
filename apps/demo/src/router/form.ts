@@ -20,7 +20,6 @@ const Typeahead = () => import("@/views/Form/typeahead/Index.vue");
 
 const routes = [
   {
-    path: "/form",
     children: [
       {
         component: CheckboxInput,
@@ -118,6 +117,7 @@ const routes = [
         path: "typeahead",
       },
     ],
+    path: "/form",
   },
 ];
 

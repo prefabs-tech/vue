@@ -53,9 +53,9 @@ import { ButtonElement, Data } from "@prefabs.tech/vue3-ui";
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 
-import UpdateEmailModal from "./UpdateEmailModal.vue";
 import { useTranslations } from "../../index";
 import useUserStore from "../../store";
+import UpdateEmailModal from "./UpdateEmailModal.vue";
 
 const messages = useTranslations();
 const { t } = useI18n({ messages });

@@ -62,6 +62,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { DebouncedInput, LoadingIcon } from "@prefabs.tech/vue3-ui";
 import { toTypedSchema } from "@vee-validate/zod";
 import { onClickOutside } from "@vueuse/core";
@@ -70,7 +72,6 @@ import { computed, ref } from "vue";
 import { z } from "zod";
 
 import type { SelectOption } from "../types";
-import type { PropType } from "vue";
 
 const props = defineProps({
   debounceTime: {
@@ -96,15 +97,11 @@ const props = defineProps({
   loading: Boolean,
   modelValue: {
     default: "",
-    type: [String, Number] as PropType<string | number | null | undefined>,
+    type: [String, Number] as PropType<null | number | string | undefined>,
   },
   name: {
     default: "typeahead",
     type: String,
-  },
-  suggestions: {
-    required: true,
-    type: Array as PropType<SelectOption[]>,
   },
   placeholder: {
     default: undefined,
@@ -112,7 +109,11 @@ const props = defineProps({
   },
   schema: {
     default: undefined,
-    type: Object as PropType<z.ZodType<string | number | object>>,
+    type: Object as PropType<z.ZodType<number | object | string>>,
+  },
+  suggestions: {
+    required: true,
+    type: Array as PropType<SelectOption[]>,
   },
   type: {
     default: "text",
@@ -124,7 +125,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 const dzangolabVueFormTypeahead = ref(null);
 
-const inputValue = ref<string | number | null | undefined>(props.modelValue);
+const inputValue = ref<null | number | string | undefined>(props.modelValue);
 
 const showSuggestions = ref<boolean>(false);
 
@@ -146,7 +147,7 @@ const filteredSuggestions = computed(() => {
     : [];
 });
 
-const onInput = (value: string | number) => {
+const onInput = (value: number | string) => {
   inputValue.value = value;
 
   if (filteredSuggestions.value?.length || props.emptyMessage) {

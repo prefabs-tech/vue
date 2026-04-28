@@ -126,10 +126,10 @@ import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { InvitationTable } from "@prefabs.tech/vue3-user";
 import { computed } from "vue";
 
-import { apps } from "./data";
-import UserPage from "./UserPage.vue";
 import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
 import { invitations } from "../Table/data";
+import { apps } from "./data";
+import UserPage from "./UserPage.vue";
 
 const { t } = useI18n();
 

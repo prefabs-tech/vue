@@ -23,29 +23,29 @@ import { Card } from "@prefabs.tech/vue3-ui";
 
 const packages = [
   {
+    description: "@prefabs.tech/vue3-ui components and utilities",
     name: "ui",
     route: "/ui",
-    description: "@prefabs.tech/vue3-ui components and utilities",
   },
   {
+    description: "@prefabs.tech/vue3-user components and utilities",
     name: "user",
     route: "/user",
-    description: "@prefabs.tech/vue3-user components and utilities",
   },
   {
+    description: "@prefabs.tech/vue3-form components and utilities",
     name: "form",
     route: "/form",
-    description: "@prefabs.tech/vue3-form components and utilities",
   },
   {
+    description: "@prefabs.tech/vue3-layout components and utilities",
     name: "layout",
     route: "/layout",
-    description: "@prefabs.tech/vue3-layout components and utilities",
   },
   {
+    description: "@prefabs.tech/vue3-tanstack-table components and utilities",
     name: "table",
     route: "/table",
-    description: "@prefabs.tech/vue3-tanstack-table components and utilities",
   },
 ];
 </script>

@@ -26,11 +26,11 @@ export default {
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Message, TabbedPanel } from "@prefabs.tech/vue3-ui";
 
+import UiPage from "../UiPage.vue";
 import BasicUsage from "./BasicUsage.vue";
 import Colorized from "./Colorized.vue";
 import ColorizedWithShadow from "./ColorizedWithShadow.vue";
 import CustomIcons from "./CustomIcons.vue";
-import UiPage from "../UiPage.vue";
 
 const { t } = useI18n();
 </script>

@@ -25,16 +25,16 @@ defineEmits(["click"]);
 
 defineProps({
   disabled: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
   label: {
-    type: String,
     required: true,
+    type: String,
   },
   loading: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
 });
 </script>

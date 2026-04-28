@@ -1,10 +1,11 @@
+import type { App, Plugin } from "vue";
+
 import { inject } from "vue";
+
+import type { AppConfig, AppFeatures } from "./types";
 
 import parse from "./parse";
 import sentry from "./sentry";
-
-import type { AppConfig, AppFeatures } from "./types";
-import type { App, Plugin } from "vue";
 
 const feature = (name: keyof AppFeatures): boolean => {
   const config = useConfig();

@@ -23,8 +23,8 @@ import { useTranslations } from "../index";
 
 const props = defineProps({
   route: {
-    type: String,
     default: undefined,
+    type: String,
   },
 });
 

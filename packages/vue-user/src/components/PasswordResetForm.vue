@@ -37,6 +37,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { SubmissionHandler } from "vee-validate";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { FormActions, Password, passwordSchema } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
@@ -45,10 +47,9 @@ import { Form } from "vee-validate";
 import { useRoute, useRouter } from "vue-router";
 import { z } from "zod";
 
-import { useTranslations } from "../index";
-
 import type { PasswordResetPayload } from "../types";
-import type { SubmissionHandler } from "vee-validate";
+
+import { useTranslations } from "../index";
 
 defineProps({
   loading: Boolean,

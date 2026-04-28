@@ -1,7 +1,7 @@
+import type { Role, RolePermissionsInput } from "../types";
+
 import { STATUS_ERROR } from "../constant";
 import client, { encodeURIParameter } from "./axios";
-
-import type { Role, RolePermissionsInput } from "../types";
 
 export const createRole = async (
   data: Role,

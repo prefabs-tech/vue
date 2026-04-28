@@ -58,18 +58,18 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Accordion } from "@prefabs.tech/vue3-ui";
-
 import type { PropType, VNode } from "vue";
+
+import { Accordion } from "@prefabs.tech/vue3-ui";
 
 defineProps({
   activeIcon: {
     default: undefined,
-    type: [String, Function] as PropType<string | (() => VNode)>,
+    type: [String, Function] as PropType<(() => VNode) | string>,
   },
   inactiveIcon: {
     default: undefined,
-    type: [String, Function] as PropType<string | (() => VNode)>,
+    type: [String, Function] as PropType<(() => VNode) | string>,
   },
 });
 </script>

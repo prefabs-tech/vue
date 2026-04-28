@@ -29,14 +29,14 @@ defineEmits<{
 }>();
 
 defineProps({
-  routes: {
-    required: true,
-    type: Array as PropType<{ name: string; route: string }[]>,
-  },
   activeRoute: {
     default: "",
     required: false,
     type: String,
+  },
+  routes: {
+    required: true,
+    type: Array as PropType<{ name: string; route: string }[]>,
   },
 });
 </script>

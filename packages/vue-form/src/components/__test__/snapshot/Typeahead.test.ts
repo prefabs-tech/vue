@@ -6,52 +6,52 @@ import Typeahead from "../../Typeahead.vue";
 describe("Typeahead", () => {
   const suggestionItems = [
     {
-      value: "Roslabel",
       label: "Roslabel - A fragrant flower often associated with romance",
+      value: "Roslabel",
     },
     {
-      value: "Tulip",
       label: "Tulip - A bright, cup-shaped flower popular in spring",
+      value: "Tulip",
     },
     {
-      value: "Daisy",
       label: "Daisy - A simple, white flower with a yellow center",
+      value: "Daisy",
     },
     {
-      value: "Sunflower",
       label: "Sunflower - A tall plant with a large, yellow flower head",
+      value: "Sunflower",
     },
     {
-      value: "Lily",
       label: "Lily - An elegant flower often used in bouquets",
+      value: "Lily",
     },
     {
-      value: "Orchid",
       label: "Orchid - An exotic flower with a unique shape",
+      value: "Orchid",
     },
     {
-      value: "Marigold",
       label: "Marigold - A vibrant, orange or yellow flower",
+      value: "Marigold",
     },
     {
-      value: "Lavender",
       label: "Lavender - A fragrant flower known for its calming scent",
+      value: "Lavender",
     },
     {
-      value: "Peony",
       label: "Peony - A lush, full flower often used in weddings",
+      value: "Peony",
     },
     {
-      value: "Chrysanthemum",
       label: "Chrysanthemum - A hardy flower with a variety of colors",
+      value: "Chrysanthemum",
     },
     {
-      value: "Daffodil",
       label: "Daffodil - A bright, yellow flower that blooms in spring",
+      value: "Daffodil",
     },
     {
-      value: "Hydrangea",
       label: "Hydrangea - A large, cluster-like flower that changes color",
+      value: "Hydrangea",
     },
   ];
 

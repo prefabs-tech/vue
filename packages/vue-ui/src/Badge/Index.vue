@@ -42,11 +42,11 @@ const props = defineProps({
     type: String,
     validator: (value: string) =>
       [
+        "alternate",
+        "danger",
         "primary",
         "secondary",
-        "alternate",
         "success",
-        "danger",
         "warning",
       ].includes(value),
   },

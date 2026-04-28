@@ -1,13 +1,5 @@
 import { VNode } from "vue";
 
-interface StepProperties {
-  completedStepIcon?: string | VNode;
-  content?: string | VNode;
-  label?: string;
-  step?: number | string;
-  subtitle?: string;
-}
-
 interface ActionButtonProperties {
   disabled?: boolean;
   iconLeft?: string;
@@ -17,6 +9,14 @@ interface ActionButtonProperties {
   severity?: string;
   size?: string;
   variant?: string;
+}
+
+interface StepProperties {
+  completedStepIcon?: string | VNode;
+  content?: string | VNode;
+  label?: string;
+  step?: number | string;
+  subtitle?: string;
 }
 
 export type { ActionButtonProperties, StepProperties };

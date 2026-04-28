@@ -1,15 +1,15 @@
 import { AxiosError } from "axios";
 
-import client from "../api/axios";
-
 import type { LoginCredentials, UserType } from "../types";
+
+import client from "../api/axios";
 
 const login = async (
   credentials: LoginCredentials,
   apiBaseUrl: string,
   path: string,
-): Promise<UserType | undefined> => {
-  let user: UserType | undefined;
+): Promise<undefined | UserType> => {
+  let user: undefined | UserType;
   let response;
 
   try {

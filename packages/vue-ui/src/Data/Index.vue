@@ -30,8 +30,8 @@ import type { PropType } from "vue";
 
 defineProps({
   caption: {
-    type: String,
     required: true,
+    type: String,
   },
   direction: {
     default: "vertical",
@@ -45,7 +45,7 @@ defineProps({
   },
   value: {
     default: "",
-    type: [String, Number] as PropType<string | number>,
+    type: [String, Number] as PropType<number | string>,
   },
 });
 </script>

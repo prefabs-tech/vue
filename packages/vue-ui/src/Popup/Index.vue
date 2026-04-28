@@ -28,7 +28,7 @@ export default {
 
 <script setup lang="ts">
 import { onClickOutside, useWindowSize } from "@vueuse/core";
-import { computed, ref, useSlots, onBeforeUnmount, nextTick } from "vue";
+import { computed, nextTick, onBeforeUnmount, ref, useSlots } from "vue";
 
 import { getBestPosition, getScrollableParents } from "../utils";
 
@@ -38,12 +38,12 @@ const props = defineProps({
     type: String,
   },
   offset: {
-    type: Number,
     default: 10,
+    type: Number,
   },
   position: {
-    type: String,
     default: null,
+    type: String,
   },
 });
 
@@ -56,10 +56,10 @@ const dzangolabVueUIPopupContent = ref<HTMLElement | null>(null);
 const dzangolabVueUIPopupTrigger = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
 const popupPosition = ref<string>("bottom");
-const popupStyles = ref({ top: "0", left: "0" });
+const popupStyles = ref({ left: "0", top: "0" });
 const scrollListeners = ref<{ element: Element; listener: () => void }[]>([]);
 
-const { width: windowWidth, height: windowHeight } = useWindowSize();
+const { height: windowHeight, width: windowWidth } = useWindowSize();
 
 const hasContent = computed(() => !!slots.content);
 
@@ -119,16 +119,6 @@ const updatePosition = () => {
   const fitsAbove = triggerRect.top - contentRect.height - props.offset >= 0;
 
   switch (position) {
-    case "top": {
-      top = fitsAbove
-        ? triggerRect.top - contentRect.height - props.offset
-        : triggerRect.bottom + props.offset;
-      left = isRightAligned
-        ? triggerRect.right - contentRect.width
-        : triggerRect.left;
-      break;
-    }
-
     case "bottom": {
       top = fitsBelow
         ? triggerRect.bottom + props.offset
@@ -148,6 +138,16 @@ const updatePosition = () => {
     case "right": {
       left = triggerRect.left + triggerRect.width + props.offset;
       top = triggerRect.top;
+      break;
+    }
+
+    case "top": {
+      top = fitsAbove
+        ? triggerRect.top - contentRect.height - props.offset
+        : triggerRect.bottom + props.offset;
+      left = isRightAligned
+        ? triggerRect.right - contentRect.width
+        : triggerRect.left;
       break;
     }
   }
@@ -170,8 +170,8 @@ const updatePosition = () => {
   }
 
   popupStyles.value = {
-    top: `${top}px`,
     left: `${left}px`,
+    top: `${top}px`,
   };
   popupPosition.value = position;
 };

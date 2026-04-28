@@ -6,7 +6,6 @@ const UsersTable = () => import("@/views/User/UsersTable.vue");
 
 const routes = [
   {
-    path: "/user",
     children: [
       {
         component: InvitationForm,
@@ -34,6 +33,7 @@ const routes = [
         path: "users-table",
       },
     ],
+    path: "/user",
   },
 ];
 

@@ -1,6 +1,6 @@
-import { ref, watch, Ref } from "vue";
+import { ref, Ref, watch } from "vue";
 
-let timerId: ReturnType<typeof setTimeout> | null = null;
+let timerId: null | ReturnType<typeof setTimeout> = null;
 
 export function useDebouncedValue<T>(value: T, delay: number): Promise<Ref<T>> {
   const debouncedValue = ref();

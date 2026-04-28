@@ -1,11 +1,11 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import configPlugin from "@prefabs.tech/vue3-config";
 import { shallowMount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import config from "../../../components/__test__/config";
 import SidebarOnlyLayout from "../../SidebarOnlyLayout.vue";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("SidebarOnlyLayout", () => {
   it("matches snapshot", () => {
