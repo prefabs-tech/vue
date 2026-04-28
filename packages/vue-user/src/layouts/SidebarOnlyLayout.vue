@@ -126,12 +126,12 @@ watch(
 </script>
 
 <style lang="css">
-.sidebar-only > .sidebar .user-menu-dropdown.expanded .toggle > svg {
-  transform: rotate(-180deg);
-}
-
 .sidebar-only > .sidebar .user-menu-dropdown .toggle > svg {
   transform: rotate(0);
+}
+
+.sidebar-only > .sidebar .user-menu-dropdown.expanded .toggle > svg {
+  transform: rotate(-180deg);
 }
 
 .sidebar-only .user-menu > ul {
@@ -149,6 +149,14 @@ watch(
 
   font-size: var(--_font-size);
   font-weight: var(--_font-weight);
+  width: 100%;
+}
+
+.sidebar-only .user-menu:not(.user-menu-dropdown) > ul > li > a,
+.sidebar-only .user-menu-dropdown,
+.sidebar-only .user-menu-dropdown > ul.dropdown > li {
+  align-items: center;
+  display: flex;
   width: 100%;
 }
 
@@ -173,14 +181,6 @@ watch(
 .sidebar-only .user-menu > ul > li:has(.router-link-exact-active) {
   background-color: var(--nav-item-active-bg, #eff6ff);
   color: var(--nav-item-active-color, #2c2c2c);
-}
-
-.sidebar-only .user-menu:not(.user-menu-dropdown) > ul > li > a,
-.sidebar-only .user-menu-dropdown,
-.sidebar-only .user-menu-dropdown > ul.dropdown > li {
-  align-items: center;
-  display: flex;
-  width: 100%;
 }
 
 .sidebar-only .user-menu-dropdown.expanded > ul > li:hover {

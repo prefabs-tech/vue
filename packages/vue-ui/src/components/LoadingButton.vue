@@ -43,8 +43,8 @@ defineProps({
 .loading-button {
   align-items: center;
   background: var(--loading-button-bg-color, #1c4786);
-  border-radius: 6px;
   border: none;
+  border-radius: 6px;
   color: var(--loading-button-color, #ffffff);
   cursor: pointer;
   display: flex;

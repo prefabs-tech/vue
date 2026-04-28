@@ -11,9 +11,9 @@
   border-radius: 5px;
   box-shadow: 0 0 10px #0003;
   color: var(--modal-color, inherit);
+  left: 50%;
   max-height: 80%;
   min-width: 300px;
-  left: 50%;
   overflow-y: auto;
   padding: 1rem;
   position: fixed;
@@ -37,8 +37,8 @@
 .modal .header {
   align-items: flex-start;
   display: flex;
-  margin-bottom: 0.5rem;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
   padding: 0.7rem;
 }
 

@@ -4,9 +4,9 @@
 }
 
 .table-roles .column-role {
-  width: 10rem;
-  min-width: 10rem;
   max-width: 10rem;
+  min-width: 10rem;
+  width: 10rem;
 }
 
 .table-roles .column-permissions {
@@ -14,9 +14,9 @@
 }
 
 .table-roles .column-actions {
-  width: 4rem;
-  min-width: 4rem;
   max-width: 4rem;
+  min-width: 4rem;
+  width: 4rem;
 }
 
 .role-modal > .dialog {

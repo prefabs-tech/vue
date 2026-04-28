@@ -126,8 +126,8 @@ const onRemove = () => {
 
 <style scoped>
 .info {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 .preview {
   /* Add your styles for file preview here */
@@ -137,8 +137,8 @@ const onRemove = () => {
   margin-left: 10px;
 }
 .description-wrapper {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 .description {
   cursor: pointer;

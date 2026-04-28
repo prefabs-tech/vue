@@ -618,10 +618,10 @@ const startLoading = () => {
 
 <style lang="css" scoped>
 .demo-button .container {
-  display: flex;
   align-items: center;
-  gap: 1rem;
+  display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .demo-button section {

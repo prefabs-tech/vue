@@ -10,8 +10,8 @@
 
 .field input {
   background-color: var(--_background-color);
-  border-radius: var(--_border-radius);
   border: 1px solid var(--_border-color);
+  border-radius: var(--_border-radius);
   outline: var(--_outline);
   padding-block: var(--_padding-block);
   padding-inline: var(--_padding-inline);
