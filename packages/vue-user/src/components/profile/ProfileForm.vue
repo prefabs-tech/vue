@@ -84,14 +84,14 @@ let fieldsSchema = {
   givenName: z
     .string()
     .min(1, t("user.profile.form.firstName.messages.required")),
-  middleNames: z.string(),
+  middleNames: z.string().optional(),
   surname: z.string().min(1, t("user.profile.form.lastName.messages.required")),
 };
 
 const formValues = reactive({
-  givenName: user.value?.givenName || "",
-  middleNames: user.value?.middleNames || "",
-  surname: user.value?.surname || "",
+  givenName: user.value?.givenName,
+  middleNames: user.value?.middleNames,
+  surname: user.value?.surname,
 });
 
 const prefabsTechVueUpdateProfile = ref();
