@@ -53,7 +53,7 @@
     "@vitest/coverage-istanbul": "4.0.18",
     "@vue/test-utils": "2.4.6",
     "@vueuse/core": "14.2.1",
-    "axios": "1.13.6",
+    "axios": "1.15.0",
     "eslint": "9.39.4",
     "prettier": "3.8.3",
     "mitt": "3.0.1",
