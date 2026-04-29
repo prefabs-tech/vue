@@ -15,8 +15,8 @@
   background-color: var(--pagination-bg-color);
   display: flex;
   flex-wrap: wrap-reverse;
-  justify-content: space-between;
   gap: var(--pagination-gap);
+  justify-content: space-between;
   list-style: none;
   padding: var(--pagination-padding);
 }

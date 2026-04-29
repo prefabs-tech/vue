@@ -24,9 +24,9 @@
   color: var(--_color);
   content: attr(data-off);
   font-weight: 500;
+  margin-block: -0.25rem;
   padding-inline: 0.5rem;
   text-align: end;
-  margin-block: -0.25rem;
   width: 100%;
 }
 

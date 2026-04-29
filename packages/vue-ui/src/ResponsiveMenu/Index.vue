@@ -61,6 +61,12 @@ nav.menu li {
   border-radius: 0.325rem;
 }
 
+nav.menu a {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
 nav.menu li > a {
   --_padding-h: var(--nav-item-padding-h, 1rem);
   --_padding-v: var(--nav-item-padding-v, 0.5rem);
@@ -76,12 +82,6 @@ nav.menu li.active {
 nav.menu li:not(.active):hover {
   background: var(--_hover-bg);
   color: var(--_hover-color);
-}
-
-nav.menu a {
-  color: inherit;
-  display: block;
-  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {

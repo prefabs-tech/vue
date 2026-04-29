@@ -41,8 +41,8 @@ section {
 }
 
 .sub-pane {
-  padding: var(--accordion-subpane, 1rem);
   border: 1px solid var(--tabbedpanel-subpane-border-color, black);
+  padding: var(--accordion-subpane, 1rem);
 }
 
 .tabbed-panel.colorized {

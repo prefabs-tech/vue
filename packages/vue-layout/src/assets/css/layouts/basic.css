@@ -2,11 +2,11 @@
   --layout-basic-padding-h: 1em;
 
   display: grid;
+  gap: var(--layout-basic-gap);
   grid-template-areas:
     "header"
     "main"
     "footer";
-  gap: var(--layout-basic-gap);
   grid-template-rows: auto 1fr auto;
   height: 100dvh;
   min-height: 100dvh;
@@ -31,8 +31,8 @@
 }
 
 .layout.basic > header {
-  grid-area: header;
   flex-direction: row-reverse;
+  grid-area: header;
 }
 
 .layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {
@@ -58,9 +58,9 @@
 }
 
 .layout.basic > main {
+  grid-area: main;
   max-width: 100%;
   min-width: 100%;
-  grid-area: main;
   overflow-y: auto;
 }
 

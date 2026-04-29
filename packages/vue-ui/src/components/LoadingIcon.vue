@@ -10,19 +10,19 @@ export default {
 
 <style scoped>
 .loading {
-  color: var(--loading-icon-color, #ffffff);
-  font-size: 0.2rem;
-  margin: 0 1.5rem;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  position: relative;
-  text-indent: -9999em;
   -webkit-animation: load4 1.3s infinite linear;
   animation: load4 1.3s infinite linear;
+  border-radius: 50%;
+  color: var(--loading-icon-color, #ffffff);
+  font-size: 0.2rem;
+  height: 1em;
+  margin: 0 1.5rem;
+  position: relative;
+  text-indent: -9999em;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
+  width: 1em;
 }
 
 @-webkit-keyframes load4 {
