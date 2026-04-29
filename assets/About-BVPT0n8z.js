@@ -1,1 +1,0 @@
-import{_ as o,r as n,o as a,h as s}from"./index-uzHpboRu.js";const r={name:"AboutPage"};function c(t,p,_,l,u,i){const e=n("Page");return a(),s(e,{title:t.$t("about.title")},null,8,["title"])}const m=o(r,[["render",c]]);export{m as default};
