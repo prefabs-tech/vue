@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@prefabs.tech/eslint-config": "git+https://github.com/prefabs-tech/tools.git#refactor/eslint-config&path:packages/eslint-config",
+    "@prefabs.tech/stylelint-config": "git+https://github.com/prefabs-tech/tools.git#refactor/eslint-config&path:packages/stylelint-config",
     "@prefabs.tech/tsconfig": "0.6.0",
     "@types/node": "25.3.5",
     "@vitejs/plugin-vue": "6.0.6",

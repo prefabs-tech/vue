@@ -1,3 +1,3 @@
-import stylelintConfig from "@prefabs.tech/eslint-config/stylelint-vue.js";
+import stylelintConfig from "@prefabs.tech/stylelint-config/vue.js";
 
 export default stylelintConfig;
