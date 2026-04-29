@@ -11,8 +11,10 @@ import {
   SIDEBAR_ONLY_LAYOUT,
 } from "../_constants/layout";
 
+import type { Component } from "vue";
+
 const activeLayout = ref<string>("basic");
-const currentLayout = shallowRef(BasicLayout);
+const currentLayout = shallowRef<Component>(BasicLayout);
 const layoutKey = ref(BASIC_LAYOUT);
 
 const switchLayout = (layout: string) => {
@@ -31,7 +33,7 @@ const switchLayout = (layout: string) => {
     }
     case SIDEBAR_HEADER_LAYOUT: {
       layoutKey.value = SIDEBAR_HEADER_LAYOUT;
-      currentLayout.value = SidebarHeaderLayout;
+      currentLayout.value = SidebarHeaderLayout as Component;
       break;
     }
     default: {

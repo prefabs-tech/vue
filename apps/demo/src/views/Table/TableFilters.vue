@@ -482,7 +482,10 @@ const customColumns = columns.map((columnData) => {
   if (columnData.accessorKey === "email") {
     return {
       ...columnData,
-      customFilterComponent: (column) => {
+      customFilterComponent: (column: {
+        getFilterValue: () => unknown;
+        setFilterValue: (value: unknown) => void;
+      }) => {
         return h(DebouncedInput, {
           debounceTime: 200,
           modelValue: column.getFilterValue() as string,

@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.5.0",
-    "@prefabs.tech/tsconfig": "0.5.0",
+    "@prefabs.tech/tsconfig": "0.6.0",
     "@types/node": "25.3.5",
     "@vitejs/plugin-vue": "6.0.6",
     "@vitejs/plugin-vue-jsx": "5.1.5",

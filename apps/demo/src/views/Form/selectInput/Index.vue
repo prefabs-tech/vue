@@ -1255,7 +1255,11 @@ const slotsData = computed(() => [
 ]);
 
 const fetchRoles = async (searchInput?: string) => {
-  const payload = {
+  const payload: {
+    filters: {
+      OR: Array<{ key: string; operator: string; value: string | string[] }>;
+    };
+  } = {
     filters: {
       OR: [],
     },

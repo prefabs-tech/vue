@@ -43,14 +43,16 @@ export default {
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
 
+import type { PropType } from "vue";
+
 defineProps({
   eventsData: {
     default: () => [],
-    type: Array as Record<string, string>[],
+    type: Array as PropType<Record<string, string>[]>,
   },
   propsData: {
     default: () => [],
-    type: Array as Record<string, string>[],
+    type: Array as PropType<Record<string, string>[]>,
   },
   propsTableTitle: {
     default: undefined,
@@ -58,7 +60,7 @@ defineProps({
   },
   slotsData: {
     default: () => [],
-    type: Array as Record<string, string>[],
+    type: Array as PropType<Record<string, string>[]>,
   },
 });
 

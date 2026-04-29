@@ -244,7 +244,7 @@
           originalFileName: string;
           description?: string;
           size?: number;
-          uploadedBy: any;
+          uploadedBy: Record&lt;string, string&gt;;
           uploadedAt: number;
           downloadCount?: number;
           lastDownloadedAt?: number;
