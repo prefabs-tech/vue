@@ -1,5 +1,7 @@
 **/*.log*
 **/.env*
 !**/.env.example
+**/skills
+**/skills.old/
 .turbo
 node_modules

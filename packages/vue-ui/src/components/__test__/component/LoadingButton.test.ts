@@ -4,24 +4,32 @@ import { describe, expect, it } from "vitest";
 import LoadingButton from "../../LoadingButton.vue";
 
 describe("LoadingButton", () => {
-  const options = [true, false];
-
-  for (const loading of options) {
+  it("is disabled when loading=true", () => {
     const wrapper = mount(LoadingButton, {
-      props: {
-        label: "Login",
-        loading,
-      },
+      props: { label: "Save", loading: true },
     });
+    expect((wrapper.element as HTMLButtonElement).disabled).toBe(true);
+  });
 
-    it(`should show loading component based on Loading props: ${loading}`, () => {
-      expect(wrapper.find(".loading-button > .loading").exists()).toBe(loading);
+  it("is disabled when disabled=true", () => {
+    const wrapper = mount(LoadingButton, {
+      props: { label: "Save", disabled: true },
     });
+    expect((wrapper.element as HTMLButtonElement).disabled).toBe(true);
+  });
 
-    it(`should be disabled based on loading props: ${loading}`, async () => {
-      expect(wrapper.find(".loading-button").attributes().disabled).toBe(
-        loading ? "" : undefined,
-      );
+  it("shows LoadingIcon when loading=true", () => {
+    const wrapper = mount(LoadingButton, {
+      props: { label: "Save", loading: true },
     });
-  }
+    // LoadingIcon renders a <div class="loading"> spinner
+    expect(wrapper.find("div.loading").exists()).toBe(true);
+  });
+
+  it("does not show LoadingIcon when loading=false", () => {
+    const wrapper = mount(LoadingButton, {
+      props: { label: "Save", loading: false },
+    });
+    expect(wrapper.find("div.loading").exists()).toBe(false);
+  });
 });

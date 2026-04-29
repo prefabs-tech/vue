@@ -89,9 +89,9 @@ let fieldsSchema = {
 };
 
 const formValues = reactive({
-  givenName: user.value?.givenName || "",
-  middleNames: user.value?.middleNames || "",
-  surname: user.value?.surname || "",
+  givenName: user.value?.givenName,
+  middleNames: user.value?.middleNames,
+  surname: user.value?.surname,
 });
 
 const prefabsTechVueUpdateProfile = ref();

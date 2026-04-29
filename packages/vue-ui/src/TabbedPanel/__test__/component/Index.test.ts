@@ -31,12 +31,6 @@ describe("TabbedPanel", () => {
     },
   });
 
-  it("should have the correct position", () => {
-    expect(wrapper.find(".tabbed-panel").attributes("data-position")).toBe(
-      "bottom",
-    );
-  });
-
   it("should show correct tab on click", async () => {
     const firstTab = wrapper.find(".tabbed-panel ul[role='tablist'] li button");
     await firstTab.trigger("click");

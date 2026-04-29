@@ -75,7 +75,6 @@ const props = defineProps({
     required: true,
     type: Object,
   },
-
   sidebarActive: {
     default: true,
     type: Boolean,

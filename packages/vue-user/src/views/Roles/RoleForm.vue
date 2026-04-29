@@ -74,10 +74,7 @@ const { t } = useI18n({ messages });
 const formData = ref<Role>({} as Role);
 const permissionOptions = ref<SelectOption[]>([]);
 
-const permissionsSchema = z
-  .array(z.string().nullable())
-  .refine((permission) => permission != null)
-  .optional();
+const permissionsSchema = z.array(z.string());
 const roleSchema = z
   .string()
   .max(255, { message: t("roles.form.messages.invalidRole") })
