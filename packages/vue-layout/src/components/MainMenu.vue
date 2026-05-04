@@ -1,7 +1,7 @@
 <template>
   <ResponsiveMenu
     ref="mainMenu"
-    :active-route="activeRoute ?? 'home'"
+    :active-route="activeRoute || 'home'"
     :routes="routes"
     @change-route="$emit('close')"
   />

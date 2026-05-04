@@ -6,6 +6,10 @@ demo: run
 
 dev: run
 
+lint.md:
+	@printf "\033[0;32m>>> Lint markdown\033[0m\n"
+	pnpm lint:md
+
 install:
 	@printf "\033[0;32m>>> Installing dependencies\033[0m\n"
 	pnpm -r install

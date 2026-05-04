@@ -5,19 +5,80 @@ exports[`BasicLayout > matches snapshot 1`] = `
   class="layout basic"
 >
   
-  <app-header-stub
-    nolocaleswitcher="false"
-    nologo="false"
-    nomainmenu="false"
-    notoggle="true"
-  />
+  <header>
+    <!--v-if-->
+    
+    
+    <div>
+      Logo
+    </div>
+    
+    
+    <nav
+      data-expanded="true"
+    >
+      
+      
+      <div>
+        Menu
+      </div>
+      
+      
+      
+      
+      <div>
+        User Menu
+      </div>
+      
+      
+      
+      
+      <div>
+        Addon
+      </div>
+      
+      
+      
+      
+      <div>
+        Locales
+      </div>
+      
+      
+    </nav>
+  </header>
   
   <main>
     
+    <div>
+      Page content
+    </div>
     
   </main>
   
-  <app-footer-stub />
+  <footer>
+    
+    
+    <div>
+      Copyright
+    </div>
+    
+    
+    
+    
+    <div>
+      Social
+    </div>
+    
+    
+    
+    
+    <div>
+      Version
+    </div>
+    
+    
+  </footer>
   
 </div>
 `;
