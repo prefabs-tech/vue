@@ -7,6 +7,7 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
+    "lint:md": "pnpx prettier --write '*.md' 'docs/**/*.md' '.claude/**/*.md'",
     "prepare": "husky install",
     "sort-package": "npx sort-package-json && turbo run sort-package",
     "test": "turbo run test --parallel",
