@@ -354,11 +354,11 @@ export default {
 import { Country } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 
-import englishTranslation from "./en.json";
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import frenchTranslation from "../countryPicker/fr.json";
 import nepaliTranslation from "../countryPicker/np.json";
 import FormPage from "../FormPage.vue";
+import englishTranslation from "./en.json";
 
 const { t } = useI18n();
 

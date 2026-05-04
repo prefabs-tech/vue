@@ -6,7 +6,7 @@ import FacebookSignInButton from "../../FacebookSignInButton.vue";
 describe("FacebookSignInButton", () => {
   it("passes disabled prop to the base button", () => {
     const wrapper = mount(FacebookSignInButton, {
-      props: { title: "Sign in with Facebook", disabled: true },
+      props: { disabled: true, title: "Sign in with Facebook" },
     });
 
     expect(wrapper.find("button").attributes("disabled")).toBeDefined();

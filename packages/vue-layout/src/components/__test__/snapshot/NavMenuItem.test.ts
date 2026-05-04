@@ -1,10 +1,10 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import { mount } from "@vue/test-utils";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import router from "@/__test__/router";
 import NavMenuItem from "@/components/NavMenuItem.vue";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("NavMenuItem", () => {
   const wrapper: VueWrapper = mount(NavMenuItem, {
@@ -16,9 +16,6 @@ describe("NavMenuItem", () => {
     },
     props: {
       item: {
-        name: "Menu1",
-        routeName: "menu-1",
-        shortName: "M1",
         children: [
           {
             name: "child1",
@@ -31,6 +28,9 @@ describe("NavMenuItem", () => {
             shortName: "C2",
           },
         ],
+        name: "Menu1",
+        routeName: "menu-1",
+        shortName: "M1",
       },
       sidebarActive: true,
     },

@@ -6,13 +6,13 @@ import Password from "../../Password.vue";
 
 // Mock vee-validate components
 const MockField = defineComponent({
+  emits: ["update:modelValue"],
   name: "MockField",
   props: {
-    name: { type: String, default: "field" },
-    modelValue: { type: [String, Number], default: undefined },
+    modelValue: { default: undefined, type: [String, Number] },
+    name: { default: "field", type: String },
   },
-  emits: ["update:modelValue"],
-  setup(props, { slots, emit }) {
+  setup(props, { emit, slots }) {
     const meta = ref({ dirty: false, touched: false, valid: true });
     const handleChange = (event: Event) => {
       const value = (event.target as HTMLInputElement).value;
@@ -21,8 +21,8 @@ const MockField = defineComponent({
     return () =>
       slots.default?.({
         field: { name: props.name, value: props.modelValue },
-        meta: meta.value,
         handleChange,
+        meta: meta.value,
       }) || h("div");
   },
 });
@@ -30,7 +30,7 @@ const MockField = defineComponent({
 const MockErrorMessage = defineComponent({
   name: "MockErrorMessage",
   props: {
-    name: { type: String, default: "" },
+    name: { default: "", type: String },
   },
   setup(props) {
     return () => h("span", { class: "error-message" }, props.name + "-error");
@@ -42,8 +42,8 @@ describe("Password", () => {
     const wrapper = mount(Password, {
       global: {
         stubs: {
-          Field: MockField,
           ErrorMessage: MockErrorMessage,
+          Field: MockField,
         },
       },
     });
@@ -61,14 +61,14 @@ describe("Password", () => {
 
   it("does not toggle password visibility when disabled", async () => {
     const wrapper = mount(Password, {
-      props: {
-        disabled: true,
-      },
       global: {
         stubs: {
-          Field: MockField,
           ErrorMessage: MockErrorMessage,
+          Field: MockField,
         },
+      },
+      props: {
+        disabled: true,
       },
     });
 

@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, it, expect, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { mockedTable } from "../../components/__test__/table";
 import TableHeader from "../../components/TableHeader.vue";
@@ -9,8 +9,8 @@ describe("TableHeader", () => {
     it("formats date range with start time 00:00:00 and end time 23:59:59", () => {
       const wrapper = mount(TableHeader, {
         props: {
-          table: mockedTable,
           isFilterRowVisible: false,
+          table: mockedTable,
         },
       });
 
@@ -23,8 +23,8 @@ describe("TableHeader", () => {
     it("returns null for empty date range", () => {
       const wrapper = mount(TableHeader, {
         props: {
-          table: mockedTable,
           isFilterRowVisible: false,
+          table: mockedTable,
         },
       });
 
@@ -35,8 +35,8 @@ describe("TableHeader", () => {
     it("filters out null dates from range", () => {
       const wrapper = mount(TableHeader, {
         props: {
-          table: mockedTable,
           isFilterRowVisible: false,
+          table: mockedTable,
         },
       });
 
@@ -49,8 +49,8 @@ describe("TableHeader", () => {
     it("pads single digit days and months with zero", () => {
       const wrapper = mount(TableHeader, {
         props: {
-          table: mockedTable,
           isFilterRowVisible: false,
+          table: mockedTable,
         },
       });
 
@@ -71,8 +71,8 @@ describe("TableHeader", () => {
 
       const wrapper = mount(TableHeader, {
         props: {
-          table: mockedTable,
           isFilterRowVisible: false,
+          table: mockedTable,
         },
       });
 
@@ -90,8 +90,8 @@ describe("TableHeader", () => {
 
       const wrapper = mount(TableHeader, {
         props: {
-          table: mockedTable,
           isFilterRowVisible: false,
+          table: mockedTable,
         },
       });
 
@@ -109,8 +109,8 @@ describe("TableHeader", () => {
 
       const wrapper = mount(TableHeader, {
         props: {
-          table: mockedTable,
           isFilterRowVisible: false,
+          table: mockedTable,
         },
       });
 
@@ -128,8 +128,8 @@ describe("TableHeader", () => {
 
       const wrapper = mount(TableHeader, {
         props: {
-          table: mockedTable,
           isFilterRowVisible: false,
+          table: mockedTable,
         },
       });
 
@@ -147,8 +147,8 @@ describe("TableHeader", () => {
 
       const wrapper = mount(TableHeader, {
         props: {
-          table: mockedTable,
           isFilterRowVisible: false,
+          table: mockedTable,
         },
       });
 

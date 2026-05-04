@@ -71,6 +71,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { SubmissionHandler } from "vee-validate";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import {
   Email,
@@ -88,13 +90,12 @@ import { inject, onMounted, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 import { z } from "zod";
 
+import type { LoginCredentials } from "../types";
+
 import { LOGIN_TYPE_USERNAME } from "../constant";
 import { useTranslations } from "../index";
-import TermsAndConditions from "./TermsAndConditions.vue";
 import useUserStore from "../store";
-
-import type { LoginCredentials } from "../types";
-import type { SubmissionHandler } from "vee-validate";
+import TermsAndConditions from "./TermsAndConditions.vue";
 
 defineProps({
   loading: Boolean,
@@ -151,19 +152,19 @@ const validationSchema = toTypedSchema(
     ? z
         .object({
           ...fieldSchema,
-          password: passwordSchema(
-            {
-              required: t("user.signup.form.password.errors.required"),
-              weak: t("user.signup.form.password.errors.weak"),
-            },
-            config?.user?.options?.password,
-          ),
           confirmation: passwordSchema(
             {
               required: t("user.signup.form.password.errors.required"),
               weak: t("user.signup.form.password.errors.weak"),
             },
             { minLength: 0 },
+          ),
+          password: passwordSchema(
+            {
+              required: t("user.signup.form.password.errors.required"),
+              weak: t("user.signup.form.password.errors.weak"),
+            },
+            config?.user?.options?.password,
           ),
         })
         .refine(

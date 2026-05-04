@@ -65,6 +65,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { Cell, NoInfer, Table } from "@tanstack/vue-table";
+
 import { Tooltip } from "@prefabs.tech/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
@@ -74,8 +76,6 @@ import {
   formatNumber,
   getAlignValue,
 } from "../utilities";
-
-import type { Cell, NoInfer, Table } from "@tanstack/vue-table";
 
 const props = defineProps({
   customFormatters: {
@@ -110,11 +110,15 @@ const getFormattedValueContext = (cell: Cell<unknown, unknown>) => {
       (value: any) => NoInfer<never>
     > = {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      number: (value: any) =>
+      currency: (value: any) =>
         formatNumber({
-          value: Number(value),
+          formatOptions: {
+            currency: "USD",
+            style: "currency",
+            ...(numberOptions?.formatOptions && numberOptions.formatOptions),
+          },
           locale: numberOptions?.locale ?? props.locale,
-          formatOptions: numberOptions?.formatOptions,
+          value: Number(value),
         }) as NoInfer<never>,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       date: (value: any) =>
@@ -131,15 +135,11 @@ const getFormattedValueContext = (cell: Cell<unknown, unknown>) => {
           dateOptions?.formatOptions,
         ) as NoInfer<never>,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      currency: (value: any) =>
+      number: (value: any) =>
         formatNumber({
-          value: Number(value),
+          formatOptions: numberOptions?.formatOptions,
           locale: numberOptions?.locale ?? props.locale,
-          formatOptions: {
-            style: "currency",
-            currency: "USD",
-            ...(numberOptions?.formatOptions && numberOptions.formatOptions),
-          },
+          value: Number(value),
         }) as NoInfer<never>,
       ...props.customFormatters,
     };

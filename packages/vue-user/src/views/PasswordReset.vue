@@ -26,11 +26,11 @@ import { Message, Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
+import type { PasswordResetPayload } from "../types";
+
 import PasswordResetForm from "../components/PasswordResetForm.vue";
 import { emitter, useTranslations } from "../index";
 import useUserStore from "../store";
-
-import type { PasswordResetPayload } from "../types";
 
 const messages = useTranslations();
 

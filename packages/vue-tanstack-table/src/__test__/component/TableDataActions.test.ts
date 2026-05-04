@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
-import { describe, it, expect } from "vitest";
-
-import TableDataActions from "../../components/TableDataActions.vue";
+import { describe, expect, it } from "vitest";
 
 import type { DataActionsMenuItem } from "../../types";
+
+import TableDataActions from "../../components/TableDataActions.vue";
 
 describe("TableDataActions", () => {
   const mockData = { id: 1, name: "Test Item" };
@@ -12,11 +12,11 @@ describe("TableDataActions", () => {
     ButtonElement: {
       template: "<button><slot /></button>",
     },
-    Dropdown: {
-      template: "<div><slot /></div>",
-    },
     ConfirmationModal: {
       template: '<div class="confirmation-modal"><slot /></div>',
+    },
+    Dropdown: {
+      template: "<div><slot /></div>",
     },
     Icon: {
       template: '<span class="icon"></span>',
@@ -26,18 +26,18 @@ describe("TableDataActions", () => {
   describe("action filtering with display function", () => {
     it("filters actions based on display function", () => {
       const actions: DataActionsMenuItem[] = [
-        { label: "Edit", action: "edit", display: (data) => data.id === 1 },
-        { label: "Delete", action: "delete", display: (data) => data.id === 2 },
+        { action: "edit", display: (data) => data.id === 1, label: "Edit" },
+        { action: "delete", display: (data) => data.id === 2, label: "Delete" },
       ];
 
       const wrapper = mount(TableDataActions, {
+        global: {
+          stubs: globalStubs,
+        },
         props: {
           actions,
           data: mockData,
           mode: "buttons",
-        },
-        global: {
-          stubs: globalStubs,
         },
       });
 
@@ -48,18 +48,18 @@ describe("TableDataActions", () => {
 
     it("shows all actions when no display function provided", () => {
       const actions: DataActionsMenuItem[] = [
-        { label: "Edit", action: "edit" },
-        { label: "Delete", action: "delete" },
+        { action: "edit", label: "Edit" },
+        { action: "delete", label: "Delete" },
       ];
 
       const wrapper = mount(TableDataActions, {
+        global: {
+          stubs: globalStubs,
+        },
         props: {
           actions,
           data: mockData,
           mode: "buttons",
-        },
-        global: {
-          stubs: globalStubs,
         },
       });
 
@@ -70,17 +70,17 @@ describe("TableDataActions", () => {
   describe("action disabled state", () => {
     it("disables actions based on disabled function", () => {
       const actions: DataActionsMenuItem[] = [
-        { label: "Edit", action: "edit", disabled: (data) => data.id === 1 },
+        { action: "edit", disabled: (data) => data.id === 1, label: "Edit" },
       ];
 
       const wrapper = mount(TableDataActions, {
+        global: {
+          stubs: globalStubs,
+        },
         props: {
           actions,
           data: mockData,
           mode: "buttons",
-        },
-        global: {
-          stubs: globalStubs,
         },
       });
 
@@ -89,17 +89,17 @@ describe("TableDataActions", () => {
 
     it("enables actions when disabled function returns false", () => {
       const actions: DataActionsMenuItem[] = [
-        { label: "Edit", action: "edit", disabled: (data) => data.id === 2 },
+        { action: "edit", disabled: (data) => data.id === 2, label: "Edit" },
       ];
 
       const wrapper = mount(TableDataActions, {
+        global: {
+          stubs: globalStubs,
+        },
         props: {
           actions,
           data: mockData,
           mode: "buttons",
-        },
-        global: {
-          stubs: globalStubs,
         },
       });
 
@@ -110,17 +110,17 @@ describe("TableDataActions", () => {
   describe("displayActions prop", () => {
     it("hides all actions when displayActions is false", () => {
       const actions: DataActionsMenuItem[] = [
-        { label: "Edit", action: "edit" },
+        { action: "edit", label: "Edit" },
       ];
 
       const wrapper = mount(TableDataActions, {
+        global: {
+          stubs: globalStubs,
+        },
         props: {
           actions,
           data: mockData,
           displayActions: false,
-        },
-        global: {
-          stubs: globalStubs,
         },
       });
 
@@ -129,19 +129,19 @@ describe("TableDataActions", () => {
 
     it("evaluates displayActions function with data", () => {
       const actions: DataActionsMenuItem[] = [
-        { label: "Edit", action: "edit" },
+        { action: "edit", label: "Edit" },
       ];
 
       const displayFunction = (data: { id: number }) => data.id === 1;
 
       const wrapper = mount(TableDataActions, {
+        global: {
+          stubs: globalStubs,
+        },
         props: {
           actions,
           data: mockData,
           displayActions: displayFunction,
-        },
-        global: {
-          stubs: globalStubs,
         },
       });
 
@@ -150,19 +150,19 @@ describe("TableDataActions", () => {
 
     it("hides actions when displayActions function returns false", () => {
       const actions: DataActionsMenuItem[] = [
-        { label: "Edit", action: "edit" },
+        { action: "edit", label: "Edit" },
       ];
 
       const displayFunction = (data: { id: number }) => data.id === 2;
 
       const wrapper = mount(TableDataActions, {
+        global: {
+          stubs: globalStubs,
+        },
         props: {
           actions,
           data: mockData,
           displayActions: displayFunction,
-        },
-        global: {
-          stubs: globalStubs,
         },
       });
 
@@ -174,24 +174,24 @@ describe("TableDataActions", () => {
     it("shows confirmation state when action requires confirmation", async () => {
       const actions: DataActionsMenuItem[] = [
         {
-          label: "Delete",
           action: "delete",
-          requireConfirmationModal: true,
           confirmationOptions: {
-            title: "Confirm Delete",
             message: "Are you sure?",
+            title: "Confirm Delete",
           },
+          label: "Delete",
+          requireConfirmationModal: true,
         },
       ];
 
       const wrapper = mount(TableDataActions, {
+        global: {
+          stubs: globalStubs,
+        },
         props: {
           actions,
           data: mockData,
           mode: "buttons",
-        },
-        global: {
-          stubs: globalStubs,
         },
       });
 
@@ -204,17 +204,17 @@ describe("TableDataActions", () => {
 
     it("does not show confirmation when requireConfirmationModal is false", async () => {
       const actions: DataActionsMenuItem[] = [
-        { label: "Edit", action: "edit" },
+        { action: "edit", label: "Edit" },
       ];
 
       const wrapper = mount(TableDataActions, {
+        global: {
+          stubs: globalStubs,
+        },
         props: {
           actions,
           data: mockData,
           mode: "buttons",
-        },
-        global: {
-          stubs: globalStubs,
         },
       });
 

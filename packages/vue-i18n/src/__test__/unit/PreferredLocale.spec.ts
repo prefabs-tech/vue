@@ -5,33 +5,33 @@ import { getPreferredLocale } from "../../utilities";
 const dataset = [
   {
     languages: ["fr"],
-    locales: ["en", "fr", "de"],
     locale: "fr",
+    locales: ["en", "fr", "de"],
   },
   {
     languages: ["fr-CA"],
-    locales: ["en", "fr", "de"],
     locale: "fr",
+    locales: ["en", "fr", "de"],
   },
   {
     languages: ["fr", "en"],
-    locales: ["en", "fr", "de"],
     locale: "fr",
+    locales: ["en", "fr", "de"],
   },
   {
     languages: ["de-DE", "fr", "en"],
-    locales: ["en", "fr", "de"],
     locale: "de",
+    locales: ["en", "fr", "de"],
   },
   {
     languages: ["de-DE-bavarian", "fr", "en"],
-    locales: ["en", "fr", "de"],
     locale: "de",
+    locales: ["en", "fr", "de"],
   },
   {
     languages: ["de-DE-bavarian", "fr", "en"],
-    locales: ["en", "fr", "de", "de-DE"],
     locale: "de-DE",
+    locales: ["en", "fr", "de", "de-DE"],
   },
 ];
 

@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import FilesList from "../../Index.vue";
-
 import type { IFile } from "../../../types/file";
+
+import FilesList from "../../Index.vue";
 
 const makeFile = (id: number, name: string): IFile => ({
   id,
@@ -30,7 +30,6 @@ describe("FilesList", () => {
     const file = makeFile(1, "doc.pdf");
     const wrapper = mount(FilesList, {
       props: {
-        files: [file],
         actionButtonsVisibility: {
           archive: false,
           delete: false,
@@ -39,6 +38,7 @@ describe("FilesList", () => {
           share: false,
           view: false,
         },
+        files: [file],
       },
     });
     const downloadButton = wrapper
@@ -53,7 +53,6 @@ describe("FilesList", () => {
     const file = makeFile(2, "image.png");
     const wrapper = mount(FilesList, {
       props: {
-        files: [file],
         actionButtonsVisibility: {
           archive: false,
           delete: false,
@@ -62,6 +61,7 @@ describe("FilesList", () => {
           share: true,
           view: false,
         },
+        files: [file],
       },
     });
     const shareButton = wrapper

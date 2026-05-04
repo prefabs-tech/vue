@@ -6,8 +6,8 @@ describe("numberSchema", () => {
   it("creates a valid Zod coerce.number schema", () => {
     const schema = numberSchema(
       {
-        required: "This field is required",
         invalid: "Must be a valid integer",
+        required: "This field is required",
       },
       undefined,
     );
@@ -28,8 +28,8 @@ describe("numberSchema", () => {
   it("validates integer constraint", () => {
     const schema = numberSchema(
       {
-        required: "This field is required",
         invalid: "Must be a valid integer",
+        required: "This field is required",
       },
       undefined,
     );
@@ -50,8 +50,8 @@ describe("numberSchema", () => {
 
   it("accepts custom error messages", () => {
     const customMessages = {
-      required: "Please enter a number",
       invalid: "Please enter a valid whole number",
+      required: "Please enter a number",
     };
 
     const schema = numberSchema(customMessages, undefined);
@@ -68,10 +68,10 @@ describe("numberSchema", () => {
   it("respects min and max options", () => {
     const schema = numberSchema(
       {
-        required: "Required",
         invalid: "Invalid",
+        required: "Required",
       },
-      { min: 10, max: 100 },
+      { max: 100, min: 10 },
     );
 
     // Below minimum should fail
@@ -90,8 +90,8 @@ describe("numberSchema", () => {
   it("respects allow_leading_zeroes option", () => {
     const schema = numberSchema(
       {
-        required: "Required",
         invalid: "Invalid",
+        required: "Required",
       },
       { allow_leading_zeroes: true },
     );

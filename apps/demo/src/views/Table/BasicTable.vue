@@ -1466,6 +1466,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import {
@@ -1475,11 +1477,9 @@ import {
 } from "@prefabs.tech/vue3-ui";
 import { h, ref, resolveComponent } from "vue";
 
+import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
 import { city, data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
-import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
-
-import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
 
 const { t } = useI18n();
 
@@ -1518,8 +1518,8 @@ const alignmentColumns = [
     filterPlaceholder: t("table.placeholder.city"),
     header: "City",
     meta: {
-      filterVariant: "multiselect",
       filterOptions: city,
+      filterVariant: "multiselect",
     },
   },
 ];
@@ -1540,8 +1540,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     header: "Full name",
   },
   {
-    align: "right",
     accessorKey: "age",
+    align: "right",
     enableColumnFilter: true,
     enableSorting: true,
     filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
@@ -1557,8 +1557,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     filterPlaceholder: t("table.placeholder.city"),
     header: "City",
     meta: {
-      filterVariant: "multiselect",
       filterOptions: city,
+      filterVariant: "multiselect",
     },
   },
 ];
@@ -1590,7 +1590,6 @@ const centerAlignedTableColumns = [
     filterPlaceholder: t("table.placeholder.status"),
     header: "Status",
     meta: {
-      filterVariant: "select",
       filterOptions: [
         {
           label: t("table.label.enabled"),
@@ -1601,6 +1600,7 @@ const centerAlignedTableColumns = [
           value: true,
         },
       ],
+      filterVariant: "select",
     },
   },
 ];
@@ -1655,18 +1655,18 @@ const customFormattedTableColumns = [
     },
   },
   {
-    id: "action",
     cell: () =>
       h(ButtonElement, {
         iconLeft: "pi pi-eye",
-        variant: "textOnly",
         rounded: true,
+        variant: "textOnly",
       }),
     dataType: "other",
     header: () =>
       h("i", {
         class: "pi pi-cog",
       }),
+    id: "action",
   },
 ];
 
@@ -1740,28 +1740,28 @@ const formattedTableColumns = [
   },
   {
     accessorKey: "datetime",
+    dataType: "datetime",
     enableColumnFilter: true,
     enableSorting: true,
     filterPlaceholder: t("table.placeholder.dateRange"),
     header: "Datetime",
-    dataType: "datetime",
     meta: {
       filterVariant: "dateRange",
     },
   },
   {
-    id: "action",
     cell: () =>
       h(ButtonElement, {
         iconLeft: "pi pi-eye",
-        variant: "textOnly",
         rounded: true,
+        variant: "textOnly",
       }),
     dataType: "other",
     header: () =>
       h("i", {
         class: "pi pi-cog",
       }),
+    id: "action",
   },
 ];
 

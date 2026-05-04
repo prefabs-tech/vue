@@ -1,10 +1,10 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import configPlugin from "@prefabs.tech/vue3-config";
-import { RouterLinkStub, mount } from "@vue/test-utils";
+import { mount, RouterLinkStub } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import Logo from "@/components/Logo.vue";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const makeConfig = (overrides: Partial<AppConfig> = {}): AppConfig => ({
   ...overrides,
@@ -35,7 +35,7 @@ const mountLogo = (
 
 describe("Logo", () => {
   it("renders an img when src prop is provided", () => {
-    const wrapper = mountLogo({ src: "/my-logo.svg", alt: "My Logo" });
+    const wrapper = mountLogo({ alt: "My Logo", src: "/my-logo.svg" });
 
     expect(wrapper.find("img").exists()).toBe(true);
     expect(wrapper.find("img").attributes("src")).toBe("/my-logo.svg");
@@ -64,7 +64,7 @@ describe("Logo", () => {
   });
 
   it("uses the alt prop when provided", () => {
-    const wrapper = mountLogo({ src: "/logo.svg", alt: "Custom Alt" });
+    const wrapper = mountLogo({ alt: "Custom Alt", src: "/logo.svg" });
 
     expect(wrapper.find("img").attributes("alt")).toBe("Custom Alt");
   });

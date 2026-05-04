@@ -57,17 +57,18 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { StrongPasswordOptions } from "@prefabs.tech/vue3-form";
+import type { PropType } from "vue";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { FormActions, Password } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Form } from "vee-validate";
 import { z } from "zod";
 
-import { useTranslations } from "../index";
-
 import type { ChangePasswordPayload } from "../types";
-import type { StrongPasswordOptions } from "@prefabs.tech/vue3-form";
-import type { PropType } from "vue";
+
+import { useTranslations } from "../index";
 
 const messages = useTranslations();
 
@@ -82,21 +83,21 @@ defineProps({
     required: false,
     type: Object as PropType<StrongPasswordOptions>,
   },
+  loading: {
+    default: false,
+    type: Boolean,
+  },
   newPasswordOptions: {
     default: () => {
       return {
         minLength: 8,
         minLowercase: 1,
-        minUppercase: 1,
         minNumbers: 1,
+        minUppercase: 1,
       };
     },
     required: false,
     type: Object as PropType<StrongPasswordOptions>,
-  },
-  loading: {
-    type: Boolean,
-    default: false,
   },
 });
 

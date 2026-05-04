@@ -33,16 +33,17 @@
 </template>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
 import { useWindowSize } from "@vueuse/core";
-import { computed, ref, onUnmounted, onMounted } from "vue";
+import { computed, onMounted, onUnmounted, ref } from "vue";
+
+import type { SidebarMenu } from "../types";
 
 import AppFooter from "../components/AppFooter.vue";
 import Sidebar from "../components/Sidebar.vue";
-
-import type { SidebarMenu } from "../types";
-import type { PropType } from "vue";
 
 const { layout: layoutConfig } = useConfig();
 const { width: windowWidth } = useWindowSize();
@@ -58,11 +59,11 @@ defineProps({
     type: Array as PropType<SidebarMenu[]>,
   },
   noFooter: Boolean,
-  noLocaleSwitcher: Boolean,
   noHeader: {
     default: false,
     type: Boolean,
   },
+  noLocaleSwitcher: Boolean,
 });
 
 const handleResize = () => {

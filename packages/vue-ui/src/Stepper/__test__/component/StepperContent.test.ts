@@ -1,20 +1,20 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import StepperContent from "../../_components/StepperContent.vue";
-
 import type { StepProperties } from "../../../types/stepper";
 
+import StepperContent from "../../_components/StepperContent.vue";
+
 const steps: StepProperties[] = [
-  { step: "1", label: "Step 1", content: "Content of step 1" },
-  { step: "2", label: "Step 2", content: "Content of step 2" },
-  { step: "3", label: "Step 3", content: "Content of step 3" },
+  { content: "Content of step 1", label: "Step 1", step: "1" },
+  { content: "Content of step 2", label: "Step 2", step: "2" },
+  { content: "Content of step 3", label: "Step 3", step: "3" },
 ];
 
 describe("StepperContent", () => {
   it("shows 'Next' button with primary severity on non-final steps", () => {
     const wrapper = mount(StepperContent, {
-      props: { steps, activeIndex: 0 },
+      props: { activeIndex: 0, steps },
     });
 
     const nextButton = wrapper
@@ -26,7 +26,7 @@ describe("StepperContent", () => {
 
   it("shows 'Finish' button with success severity on the last step", () => {
     const wrapper = mount(StepperContent, {
-      props: { steps, activeIndex: 2 },
+      props: { activeIndex: 2, steps },
     });
 
     const finishButton = wrapper
@@ -42,11 +42,11 @@ describe("StepperContent", () => {
     };
 
     const stepsWithComponent: StepProperties[] = [
-      { step: "1", label: "Step 1", content: ComponentContent },
+      { content: ComponentContent, label: "Step 1", step: "1" },
     ];
 
     const wrapper = mount(StepperContent, {
-      props: { steps: stepsWithComponent, activeIndex: 0 },
+      props: { activeIndex: 0, steps: stepsWithComponent },
     });
 
     expect(wrapper.find(".custom-component").exists()).toBe(true);

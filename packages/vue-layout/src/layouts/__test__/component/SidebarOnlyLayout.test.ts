@@ -1,13 +1,13 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import configPlugin from "@prefabs.tech/vue3-config";
-import { RouterLinkStub, mount } from "@vue/test-utils";
+import { mount, RouterLinkStub } from "@vue/test-utils";
 import { afterEach, describe, expect, it } from "vitest";
 import { nextTick } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 import Sidebar from "@/components/Sidebar.vue";
 import SidebarOnlyLayout from "@/layouts/SidebarOnlyLayout.vue";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const baseConfig: AppConfig = {
   apiBaseUrl: "http://localhost",
@@ -23,14 +23,14 @@ const menu = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [{ path: "/", name: "home", component: { template: "<div />" } }],
+  routes: [{ component: { template: "<div />" }, name: "home", path: "/" }],
 });
 
 const setScreenWidth = (width: number) => {
   Object.defineProperty(window, "innerWidth", {
-    writable: true,
     configurable: true,
     value: width,
+    writable: true,
   });
 };
 
@@ -39,7 +39,7 @@ const mountLayout = (width = 1024, props: Record<string, unknown> = {}) => {
   return mount(SidebarOnlyLayout, {
     global: {
       plugins: [[configPlugin, { config: baseConfig }], router],
-      stubs: { LocaleSwitcher: true, Icon: true, RouterLink: RouterLinkStub },
+      stubs: { Icon: true, LocaleSwitcher: true, RouterLink: RouterLinkStub },
     },
     props: { menu, ...props },
   });

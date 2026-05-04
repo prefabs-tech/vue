@@ -8,23 +8,23 @@ const createRouter_ = () =>
   createRouter({
     history: createWebHistory(),
     routes: [
-      { path: "/", name: "home", component: { template: "<div />" } },
+      { component: { template: "<div />" }, name: "home", path: "/" },
       {
-        path: "/dashboard",
-        name: "dashboard",
         component: { template: "<div />" },
+        name: "dashboard",
+        path: "/dashboard",
       },
       {
-        path: "/settings",
-        name: "settings",
-        component: { template: "<div />" },
         children: [
           {
-            path: "profile",
-            name: "settings-profile",
             component: { template: "<div />" },
+            name: "settings-profile",
+            path: "profile",
           },
         ],
+        component: { template: "<div />" },
+        name: "settings",
+        path: "/settings",
       },
     ],
   });
@@ -101,11 +101,11 @@ describe("NavMenuItem", () => {
       global: { plugins: [router] },
       props: {
         item: {
-          name: "Settings",
           children: [
             { name: "Profile", routeName: "settings-profile" },
             { name: "Security", routeName: "settings-security" },
           ],
+          name: "Settings",
         },
         sidebarActive: true,
       },
@@ -122,8 +122,8 @@ describe("NavMenuItem", () => {
       global: { plugins: [router] },
       props: {
         item: {
-          name: "Settings",
           children: [{ name: "Profile", routeName: "settings-profile" }],
+          name: "Settings",
         },
         sidebarActive: true,
       },
@@ -140,8 +140,8 @@ describe("NavMenuItem", () => {
       global: { plugins: [router] },
       props: {
         item: {
-          name: "Settings",
           children: [{ name: "Profile", routeName: "settings-profile" }],
+          name: "Settings",
         },
         sidebarActive: true,
       },

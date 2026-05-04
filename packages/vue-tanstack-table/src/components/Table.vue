@@ -64,6 +64,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { StorageType } from "@prefabs.tech/vue3-ui";
+import type {
+  ColumnDef,
+  ColumnFiltersState,
+  ColumnOrderState,
+  SortingState,
+  VisibilityState,
+} from "@tanstack/vue-table";
+import type { PropType } from "vue";
+
 import { Icon } from "@iconify/vue";
 import { Checkbox } from "@prefabs.tech/vue3-form";
 import { getStorage, LoadingIcon } from "@prefabs.tech/vue3-ui";
@@ -76,33 +86,24 @@ import {
 } from "@tanstack/vue-table";
 import { computed, h, ref, watch } from "vue";
 
-import { FILTER_FUNCTIONS_ENUM } from "../enums";
-import Pagination from "./Pagination.vue";
-import TableBody from "./TableBody.vue";
-import TableDataActions from "./TableDataActions.vue";
-import TableHeader from "./TableHeader.vue";
-import TableToolbar from "./TableToolbar.vue";
+import type { DataActionsMenuItem, PersistentTableState } from "../types";
+
 import {
   DEFAULT_PAGE_INDEX,
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
 } from "../constants";
+import { FILTER_FUNCTIONS_ENUM } from "../enums";
 import {
   getRequestJSON,
   getSavedTableState,
   saveTableState,
 } from "../utilities";
-
-import type { DataActionsMenuItem, PersistentTableState } from "../types";
-import type { StorageType } from "@prefabs.tech/vue3-ui";
-import type {
-  ColumnDef,
-  ColumnFiltersState,
-  ColumnOrderState,
-  SortingState,
-  VisibilityState,
-} from "@tanstack/vue-table";
-import type { PropType } from "vue";
+import Pagination from "./Pagination.vue";
+import TableBody from "./TableBody.vue";
+import TableDataActions from "./TableDataActions.vue";
+import TableHeader from "./TableHeader.vue";
+import TableToolbar from "./TableToolbar.vue";
 
 const props = defineProps({
   actionsMode: {
@@ -115,31 +116,31 @@ const props = defineProps({
     default: 1,
     type: Number,
   },
-  dataActionMenu: {
-    default: () => [],
-    type: Array as PropType<DataActionsMenuItem[]>,
-  },
   columnActionButtonLabel: {
     default: undefined,
     type: String,
   },
   columnsData: {
+    default: () => [],
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type: Array as PropType<ColumnDef<any>[]>,
-    default: () => [],
   },
   customFormatters: {
     default: () => ({}),
     type: Object as () => Record<string, (value: unknown) => unknown>,
   },
   data: {
-    type: Array,
     default: () => [],
+    type: Array,
+  },
+  dataActionMenu: {
+    default: () => [],
+    type: Array as PropType<DataActionsMenuItem[]>,
   },
   displayActions: {
     default: true,
     type: [Boolean, Function] as PropType<
-      boolean | ((data: object) => boolean)
+      ((data: object) => boolean) | boolean
     >,
   },
   emptyTableMessage: {
@@ -215,7 +216,7 @@ const props = defineProps({
   },
   titleInfo: {
     default: undefined,
-    type: Object as () => { text: string; align?: string },
+    type: Object as () => { align?: string; text: string },
   },
   totalRecords: {
     default: 0,
@@ -280,19 +281,17 @@ const selectedRows = computed(() =>
 
 const table = computed(() =>
   useVueTable({
+    columnResizeMode: "onChange",
     columns,
-    state: {
-      columnFilters: columnFilters.value,
-      columnOrder: columnOrder.value?.length
-        ? columnOrder.value
-        : props.visibleColumns,
-      columnVisibility: columnVisibility.value,
-      pagination: pagination.value,
-      rowSelection: rowSelection.value,
-      get sorting() {
-        return sorting.value;
-      },
-    },
+    data: props.data,
+    enableSortingRemoval: props.enableSortingRemoval,
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    manualFiltering: props.isServerTable,
+    manualPagination: props.isServerTable,
+    manualSorting: props.isServerTable,
     onColumnFiltersChange: (updaterOrValue) => {
       columnFilters.value =
         typeof updaterOrValue === "function"
@@ -395,16 +394,18 @@ const table = computed(() =>
         fetchData();
       }
     },
-    columnResizeMode: "onChange",
-    data: props.data,
-    enableSortingRemoval: props.enableSortingRemoval,
-    getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    manualFiltering: props.isServerTable,
-    manualSorting: props.isServerTable,
-    manualPagination: props.isServerTable,
+    state: {
+      columnFilters: columnFilters.value,
+      columnOrder: columnOrder.value?.length
+        ? columnOrder.value
+        : props.visibleColumns,
+      columnVisibility: columnVisibility.value,
+      pagination: pagination.value,
+      rowSelection: rowSelection.value,
+      get sorting() {
+        return sorting.value;
+      },
+    },
     ...props.tableOptions,
   }),
 );
@@ -443,6 +444,15 @@ const prepareComponent = () => {
   if (props.enableRowSelection) {
     columns.push({
       accessorKey: "select",
+      align: "center",
+      cell: ({ row }) =>
+        h(Checkbox, {
+          "aria-label": "Select row",
+          modelValue: row.getIsSelected(),
+          "onUpdate:modelValue": () => row.toggleSelected(!row.getIsSelected()),
+        }),
+      enableColumnFilter: false,
+      enableSorting: false,
       header: ({ table }) =>
         h(Checkbox, {
           "aria-label": "Select all",
@@ -450,15 +460,6 @@ const prepareComponent = () => {
           "onUpdate:modelValue": () =>
             table.toggleAllPageRowsSelected(!table.getIsAllPageRowsSelected()),
         }),
-      cell: ({ row }) =>
-        h(Checkbox, {
-          "aria-label": "Select row",
-          modelValue: row.getIsSelected(),
-          "onUpdate:modelValue": () => row.toggleSelected(!row.getIsSelected()),
-        }),
-      align: "center",
-      enableColumnFilter: false,
-      enableSorting: false,
     });
   }
 
@@ -476,7 +477,7 @@ const prepareComponent = () => {
           return row;
         }
 
-        return filterValue.some((value: string | number | boolean) => {
+        return filterValue.some((value: boolean | number | string) => {
           return row.getValue(columnId) == value;
         });
       };
@@ -492,7 +493,7 @@ const prepareComponent = () => {
       column.filterFn = (row, columnId, filterValue) => {
         if (filterValue?.length) {
           const endDate = new Date(filterValue[1]).setHours(23, 59, 59, 999);
-          const rowData = new Date(row.getValue<string | Date>(columnId));
+          const rowData = new Date(row.getValue<Date | string>(columnId));
           const startDate = new Date(filterValue[0]).setHours(0, 0, 0, 0);
 
           return rowData.getTime() >= startDate && rowData.getTime() <= endDate;
@@ -532,14 +533,6 @@ const prepareComponent = () => {
     columns.push({
       accessorKey: "actions",
       align: "center",
-      enableColumnFilter: false,
-      enableSorting: false,
-      header: () => {
-        return h(Icon, {
-          icon: "prime:cog",
-          width: "24",
-        });
-      },
       cell: ({ row }) =>
         h(TableDataActions, {
           actions: props.dataActionMenu,
@@ -554,6 +547,14 @@ const prepareComponent = () => {
               data: row.original,
             }),
         }),
+      enableColumnFilter: false,
+      enableSorting: false,
+      header: () => {
+        return h(Icon, {
+          icon: "prime:cog",
+          width: "24",
+        });
+      },
     });
   }
 

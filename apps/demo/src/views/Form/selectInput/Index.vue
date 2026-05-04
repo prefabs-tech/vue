@@ -1001,6 +1001,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { GroupedOption, SelectOption } from "@prefabs.tech/vue3-form";
+
 import { Form, SelectInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { BadgeComponent } from "@prefabs.tech/vue3-ui";
@@ -1011,17 +1013,15 @@ import ComponentDocumentation from "../../../components/ComponentDocumentation.v
 import { countries } from "../data";
 import FormPage from "../FormPage.vue";
 
-import type { GroupedOption, SelectOption } from "@prefabs.tech/vue3-form";
-
 const { t } = useI18n();
 
 let formData = reactive({
-  customSelectedLabelSelect: ref([]),
   customLabelSelect: ref(),
+  customSelectedLabelSelect: ref([]),
   disabled: ref("NP"),
   disabledMultiselect: ref(["FR", "NP"]),
-  disableSearchInput: ref(),
   disabledSortInput: ref(),
+  disableSearchInput: ref(),
   groupingSelect: ref(),
   i18nSelect: ref(),
   input: ref(),

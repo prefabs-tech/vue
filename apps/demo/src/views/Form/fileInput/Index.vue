@@ -383,8 +383,8 @@ const { t } = useI18n();
 const customMessageDropzoneOptions = {
   accept: ["image/jpeg", "image/png"],
   maxFiles: 2,
-  minSize: 10240,
   maxSize: 1_048_576,
+  minSize: 10240,
 };
 
 const eventsData = computed(() => [

@@ -1,24 +1,24 @@
-import { describe, it, expect, beforeEach, vi } from "vitest";
+import type {
+  ColumnFiltersState,
+  PaginationState,
+  SortingState,
+} from "@tanstack/vue-table";
+
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { FILTER_FUNCTIONS_ENUM } from "../../enums";
 import {
-  formatNumber,
+  clearSavedTableStates,
   formatDate,
   formatDateTime,
+  formatNumber,
   getAlignValue,
   getRequestJSON,
   getSavedTableState,
-  saveTableState,
-  clearSavedTableStates,
-  isRangeFilter,
   isDefined,
+  isRangeFilter,
+  saveTableState,
 } from "../../utilities";
-
-import type {
-  ColumnFiltersState,
-  SortingState,
-  PaginationState,
-} from "@tanstack/vue-table";
 
 vi.mock("@prefabs.tech/vue3-ui", async () => {
   const actual = await vi.importActual("@prefabs.tech/vue3-ui");
@@ -41,14 +41,14 @@ describe("utilities", () => {
     });
 
     it("formats number with custom locale", () => {
-      const result = formatNumber({ value: 1234.56, locale: "de-DE" });
+      const result = formatNumber({ locale: "de-DE", value: 1234.56 });
       expect(result).toBe("1.234,56");
     });
 
     it("formats number with custom options", () => {
       const result = formatNumber({
+        formatOptions: { maximumFractionDigits: 2, minimumFractionDigits: 2 },
         value: 1234.56,
-        formatOptions: { minimumFractionDigits: 2, maximumFractionDigits: 2 },
       });
       expect(result).toBe("1,234.56");
     });
@@ -79,9 +79,9 @@ describe("utilities", () => {
 
     it("formats date with custom options", () => {
       const result = formatDate("2024-01-15", "en-US", {
-        year: "numeric",
-        month: "long",
         day: "numeric",
+        month: "long",
+        year: "numeric",
       });
       expect(result).toContain("January");
     });
@@ -137,32 +137,32 @@ describe("utilities", () => {
       expect(result).toEqual({
         filter: null,
         limit: null,
-        sort: null,
         offset: null,
+        sort: null,
       });
     });
 
     it("generates sort request for single column", () => {
-      const sortingState: SortingState = [{ id: "name", desc: false }];
+      const sortingState: SortingState = [{ desc: false, id: "name" }];
       const result = getRequestJSON(sortingState);
-      expect(result.sort).toEqual([{ key: "name", direction: "ASC" }]);
+      expect(result.sort).toEqual([{ direction: "ASC", key: "name" }]);
     });
 
     it("generates sort request for multiple columns", () => {
       const sortingState: SortingState = [
-        { id: "name", desc: false },
-        { id: "age", desc: true },
+        { desc: false, id: "name" },
+        { desc: true, id: "age" },
       ];
       const result = getRequestJSON(sortingState);
       expect(result.sort).toEqual([
-        { key: "name", direction: "ASC" },
-        { key: "age", direction: "DESC" },
+        { direction: "ASC", key: "name" },
+        { direction: "DESC", key: "age" },
       ]);
     });
 
     it("generates filter request for single text filter", () => {
       const filterState: ColumnFiltersState = [
-        { id: "name", value: "John", filterFn: FILTER_FUNCTIONS_ENUM.CONTAINS },
+        { filterFn: FILTER_FUNCTIONS_ENUM.CONTAINS, id: "name", value: "John" },
       ];
       const result = getRequestJSON(undefined, filterState);
       expect(result.filter).toEqual({
@@ -174,8 +174,8 @@ describe("utilities", () => {
 
     it("generates filter request for multiple filters with AND", () => {
       const filterState: ColumnFiltersState = [
-        { id: "name", value: "John", filterFn: FILTER_FUNCTIONS_ENUM.CONTAINS },
-        { id: "age", value: "30", filterFn: FILTER_FUNCTIONS_ENUM.EQUALS },
+        { filterFn: FILTER_FUNCTIONS_ENUM.CONTAINS, id: "name", value: "John" },
+        { filterFn: FILTER_FUNCTIONS_ENUM.EQUALS, id: "age", value: "30" },
       ];
       const result = getRequestJSON(undefined, filterState);
       expect(result.filter).toHaveProperty("AND");
@@ -185,9 +185,9 @@ describe("utilities", () => {
     it("generates filter request for array values (IN operator)", () => {
       const filterState: ColumnFiltersState = [
         {
+          filterFn: FILTER_FUNCTIONS_ENUM.IN,
           id: "status",
           value: ["active", "pending"],
-          filterFn: FILTER_FUNCTIONS_ENUM.IN,
         },
       ];
       const result = getRequestJSON(undefined, filterState);
@@ -201,9 +201,9 @@ describe("utilities", () => {
     it("generates filter request for BETWEEN operator", () => {
       const filterState: ColumnFiltersState = [
         {
+          filterFn: FILTER_FUNCTIONS_ENUM.BETWEEN,
           id: "age",
           value: ["20", "30"],
-          filterFn: FILTER_FUNCTIONS_ENUM.BETWEEN,
         },
       ];
       const result = getRequestJSON(undefined, filterState);
@@ -216,7 +216,7 @@ describe("utilities", () => {
 
     it("ignores empty string filters", () => {
       const filterState: ColumnFiltersState = [
-        { id: "name", value: "  ", filterFn: FILTER_FUNCTIONS_ENUM.CONTAINS },
+        { filterFn: FILTER_FUNCTIONS_ENUM.CONTAINS, id: "name", value: "  " },
       ];
       const result = getRequestJSON(undefined, filterState);
       expect(result.filter).toBeNull();
@@ -224,7 +224,7 @@ describe("utilities", () => {
 
     it("ignores empty array filters", () => {
       const filterState: ColumnFiltersState = [
-        { id: "status", value: [], filterFn: FILTER_FUNCTIONS_ENUM.IN },
+        { filterFn: FILTER_FUNCTIONS_ENUM.IN, id: "status", value: [] },
       ];
       const result = getRequestJSON(undefined, filterState);
       expect(result.filter).toBeNull();
@@ -238,9 +238,9 @@ describe("utilities", () => {
     });
 
     it("generates complete request with all states", () => {
-      const sortingState: SortingState = [{ id: "name", desc: false }];
+      const sortingState: SortingState = [{ desc: false, id: "name" }];
       const filterState: ColumnFiltersState = [
-        { id: "name", value: "John", filterFn: FILTER_FUNCTIONS_ENUM.CONTAINS },
+        { filterFn: FILTER_FUNCTIONS_ENUM.CONTAINS, id: "name", value: "John" },
       ];
       const paginationState: PaginationState = { pageIndex: 0, pageSize: 20 };
       const result = getRequestJSON(sortingState, filterState, paginationState);
@@ -256,12 +256,12 @@ describe("utilities", () => {
 
     beforeEach(() => {
       mockStorage = {
-        getItem: () => null,
-        setItem: () => {},
-        removeItem: () => {},
         clear: () => {},
+        getItem: () => null,
         key: () => null,
         length: 0,
+        removeItem: () => {},
+        setItem: () => {},
       };
     });
 
@@ -269,7 +269,7 @@ describe("utilities", () => {
       it("saves table state to storage", () => {
         const state = {
           columnFilters: [{ id: "name", value: "test" }],
-          sorting: [{ id: "name", desc: false }],
+          sorting: [{ desc: false, id: "name" }],
         };
         let savedKey = "";
         let savedValue = "";
@@ -289,7 +289,7 @@ describe("utilities", () => {
       it("retrieves saved table state from storage", () => {
         const state = {
           columnFilters: [{ id: "name", value: "test" }],
-          sorting: [{ id: "name", desc: false }],
+          sorting: [{ desc: false, id: "name" }],
         };
         mockStorage.getItem = (key) => {
           if (key === "table-my-table") {
@@ -320,22 +320,27 @@ describe("utilities", () => {
         const removedKeys: string[] = [];
         const storageKeys = ["table-table1", "table-table2", "other-key"];
         const storageData: Record<string, string> = {
+          "other-key": "{}",
           "table-table1": "{}",
           "table-table2": "{}",
-          "other-key": "{}",
         };
 
         const mockLocalStorage = Object.create(Object.prototype, {
+          clear: {
+            value: () => {
+              for (const key of Object.keys(storageData))
+                delete storageData[key];
+              storageKeys.length = 0;
+            },
+          },
           getItem: {
             value: (key: string) => storageData[key] || null,
           },
-          setItem: {
-            value: (key: string, value: string) => {
-              storageData[key] = value;
-              if (!storageKeys.includes(key)) {
-                storageKeys.push(key);
-              }
-            },
+          key: {
+            value: (index: number) => storageKeys[index] || null,
+          },
+          length: {
+            get: () => storageKeys.length,
           },
           removeItem: {
             value: (key: string) => {
@@ -347,34 +352,29 @@ describe("utilities", () => {
               }
             },
           },
-          clear: {
-            value: () => {
-              for (const key of Object.keys(storageData))
-                delete storageData[key];
-              storageKeys.length = 0;
+          setItem: {
+            value: (key: string, value: string) => {
+              storageData[key] = value;
+              if (!storageKeys.includes(key)) {
+                storageKeys.push(key);
+              }
             },
-          },
-          key: {
-            value: (index: number) => storageKeys[index] || null,
-          },
-          length: {
-            get: () => storageKeys.length,
           },
         });
 
         // Add enumerable properties for Object.keys() to work
         for (const key of storageKeys) {
           Object.defineProperty(mockLocalStorage, key, {
-            value: storageData[key],
-            enumerable: true,
             configurable: true,
+            enumerable: true,
+            value: storageData[key],
           });
         }
 
         Object.defineProperty(global, "localStorage", {
+          configurable: true,
           value: mockLocalStorage,
           writable: true,
-          configurable: true,
         });
 
         clearSavedTableStates("localStorage");

@@ -1,5 +1,13 @@
+import type { RouteMeta, RouteRecord, RouteRecordRaw } from "vue-router";
+
 import { storeToRefs } from "pinia";
 import { Router } from "vue-router";
+
+import type {
+  DzangolabVueUserConfig,
+  RouteOverride,
+  RouteOverrides,
+} from "./types";
 
 import AuthSocialLoginCallback from "./components/AuthSocialLoginCallback.vue";
 import { ERROR_UNAUTHORIZED } from "./constant";
@@ -14,13 +22,6 @@ import Roles from "./views/Roles/Index.vue";
 import Signup from "./views/Signup.vue";
 import SignupFirstUser from "./views/SignupFirstUser.vue";
 import VerifyEmail from "./views/VerifyEmail.vue";
-
-import type {
-  DzangolabVueUserConfig,
-  RouteOverride,
-  RouteOverrides,
-} from "./types";
-import type { RouteMeta, RouteRecord, RouteRecordRaw } from "vue-router";
 
 const _routes = {
   acceptInvitation: {
@@ -43,19 +44,29 @@ const _routes = {
     name: "login",
     path: "/login",
   } as RouteRecordRaw,
+  passwordReset: {
+    component: PasswordReset,
+    name: "resetPassword",
+    path: "/reset-password/:token?",
+  } as RouteRecordRaw,
+  passwordResetRequest: {
+    component: PasswordResetRequest,
+    name: "resetPasswordRequest",
+    path: "/reset-password-request",
+  } as RouteRecordRaw,
   profile: {
+    component: Profile,
     meta: {
       authenticated: true,
     } as RouteMeta,
-    component: Profile,
     name: "profile",
     path: "/profile",
   } as RouteRecordRaw,
   roles: {
+    component: Roles,
     meta: {
       authenticated: true,
     } as RouteMeta,
-    component: Roles,
     name: "roles",
     path: "/roles",
   } as RouteRecordRaw,
@@ -69,29 +80,19 @@ const _routes = {
     name: "signupFirstUser",
     path: "/signup-first-user",
   } as RouteRecordRaw,
-  passwordReset: {
-    component: PasswordReset,
-    name: "resetPassword",
-    path: "/reset-password/:token?",
-  } as RouteRecordRaw,
-  passwordResetRequest: {
-    component: PasswordResetRequest,
-    name: "resetPasswordRequest",
-    path: "/reset-password-request",
-  } as RouteRecordRaw,
   verifyEmail: {
+    component: VerifyEmail,
     meta: {
       authenticated: true,
     } as RouteMeta,
-    component: VerifyEmail,
     name: "verifyEmail",
     path: "/verify-email",
   },
   verifyEmailReminder: {
+    component: VerifyEmailReminder,
     meta: {
       authenticated: true,
     } as RouteMeta,
-    component: VerifyEmailReminder,
     name: "verifyEmailReminder",
     path: "/verify-email-reminder",
   },
@@ -218,11 +219,11 @@ const addAuthenticationGuard = (
 
     const name = to.name as string;
     const routesToRedirect = ["verifyEmail", "verifyEmailReminder"];
-    const { user, isEmailVerified } = storeToRefs(userStore);
+    const { isEmailVerified, user } = storeToRefs(userStore);
     const {
-      isLoggedIn: getIsLoggedin,
       getUser,
       getVerificationStatus,
+      isLoggedIn: getIsLoggedin,
       logout,
     } = userStore;
 

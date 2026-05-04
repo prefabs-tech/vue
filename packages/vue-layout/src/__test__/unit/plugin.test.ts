@@ -1,12 +1,12 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
+
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 import { createApp, defineComponent, inject } from "vue";
 
 import layoutPlugin, { useTranslations } from "@/index";
 import Layout from "@/Layout.vue";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 
 const config: AppConfig = {
   apiBaseUrl: "http://localhost",

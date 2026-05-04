@@ -18,8 +18,8 @@ describe("Switch", () => {
   it("applies labeled class when onLabel or offLabel is provided", () => {
     const wrapper = mount(Switch, {
       props: {
-        onLabel: "On",
         offLabel: "Off",
+        onLabel: "On",
       },
     });
 

@@ -1,9 +1,9 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import { mount } from "@vue/test-utils";
-import { describe, expect, it, vi, afterEach } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import Tooltip from "../../Index.vue";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 const flushMicrotasks = async () => {
   await Promise.resolve();

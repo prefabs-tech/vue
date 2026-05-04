@@ -230,14 +230,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { DropdownMenu } from "@prefabs.tech/vue3-ui";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Dropdown } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
-
-import type { DropdownMenu } from "@prefabs.tech/vue3-ui";
 
 const { t } = useI18n();
 

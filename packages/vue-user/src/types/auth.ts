@@ -1,9 +1,15 @@
 import type { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 interface AuthTokens {
-  accessToken: string | null;
-  expiresIn?: number | null;
-  refreshToken?: string | null;
+  accessToken: null | string;
+  expiresIn?: null | number;
+  refreshToken?: null | string;
+}
+
+interface ChangePasswordPayload {
+  confirmPassword: string;
+  currentPassword: string;
+  newPassword: string;
 }
 
 interface LoginCredentials {
@@ -14,27 +20,21 @@ interface LoginCredentials {
 }
 
 interface PasswordResetPayload {
-  password: string | null | undefined;
-  token: string | null | undefined;
+  password: null | string | undefined;
+  token: null | string | undefined;
 }
 
 interface PasswordResetRequestPayload {
-  email: string | null | undefined;
-  url: string | null | undefined;
-}
-
-interface ChangePasswordPayload {
-  confirmPassword: string;
-  currentPassword: string;
-  newPassword: string;
+  email: null | string | undefined;
+  url: null | string | undefined;
 }
 
 type UpdateProfileInputType = {
+  [key: string]: unknown;
   email: string;
   givenName: string;
   middleNames?: string;
   surname: string;
-  [key: string]: unknown;
 };
 
 interface User extends EmailPasswordUserType {
@@ -45,21 +45,21 @@ interface User extends EmailPasswordUserType {
 
 interface UserRole {
   id: number;
-  role: string;
   name: string;
+  role: string;
 }
 
 interface UserType extends EmailPasswordUserType {
   disabled?: boolean;
-  givenName: string | null;
+  givenName: null | string;
   isEmailVerified?: boolean;
   isProfileCompleted?: boolean;
   lastLoginAt: number;
-  middleNames: string | null;
-  name: string | null;
+  middleNames: null | string;
+  name: null | string;
   roles: string[] | UserRole[];
   signedUpAt: number;
-  surname: string | null;
+  surname: null | string;
   thirdParty?: {
     id: string;
     userId: string;

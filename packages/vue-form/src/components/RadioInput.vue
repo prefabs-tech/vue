@@ -35,21 +35,22 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { computed } from "vue";
 import { z } from "zod";
 
-import Radio from "./Radio.vue";
-
 import type { InputOption } from "../types";
-import type { PropType } from "vue";
+
+import Radio from "./Radio.vue";
 
 const props = defineProps({
   direction: {
     default: undefined,
     type: String,
-    validator: (value: string) => ["vertical", "horizontal"].includes(value),
+    validator: (value: string) => ["horizontal", "vertical"].includes(value),
   },
   disabled: {
     default: false,
@@ -82,7 +83,7 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<z.ZodType<string | number | boolean>>,
+    type: Object as PropType<z.ZodType<boolean | number | string>>,
   },
 });
 

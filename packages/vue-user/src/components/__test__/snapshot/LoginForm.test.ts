@@ -1,3 +1,5 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import configPlugin from "@prefabs.tech/vue3-config";
 import i18nPlugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { mount } from "@vue/test-utils";
@@ -6,8 +8,6 @@ import { describe, expect, it } from "vitest";
 
 import LoginForm from "../../LoginForm.vue";
 import appConfig from "../config";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("LoginForm", () => {
   const pinia = createPinia();

@@ -37,15 +37,15 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { SelectOption } from "@prefabs.tech/vue3-form";
+import type { PropType } from "vue";
+
 import { Form, SelectInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { ButtonElement, Modal, Message } from "@prefabs.tech/vue3-ui";
+import { ButtonElement, Message, Modal } from "@prefabs.tech/vue3-ui";
 import { ref, watch } from "vue";
 
 import { useTranslations } from "../index";
-
-import type { SelectOption } from "@prefabs.tech/vue3-form";
-import type { PropType } from "vue";
 
 const props = defineProps({
   errorMessage: {

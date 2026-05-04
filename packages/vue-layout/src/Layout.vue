@@ -20,8 +20,8 @@ export default {
 
 <script setup lang="ts">
 import {
-  defineAsyncComponent,
   computed,
+  defineAsyncComponent,
   markRaw,
   shallowRef,
   useSlots,

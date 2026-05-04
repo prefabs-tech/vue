@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, expect, it, vi, afterEach } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import DebouncedInput from "../../Index.vue";
 
@@ -18,8 +18,8 @@ describe("DebouncedInput (component)", () => {
 
     const wrapper = mount(DebouncedInput, {
       props: {
-        modelValue: "",
         debounceTime: 50,
+        modelValue: "",
       },
     });
 

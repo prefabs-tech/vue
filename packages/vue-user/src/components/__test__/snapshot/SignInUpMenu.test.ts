@@ -1,14 +1,14 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import configPlugin from "@prefabs.tech/vue3-config";
 import i18nPlugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { createPinia } from "pinia";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import SignInUpMenu from "@/components/SignInUpMenu.vue";
 
 import appConfig from "../config";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("SignInUpMenu", () => {
   const pinia = createPinia();

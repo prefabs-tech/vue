@@ -29,9 +29,9 @@ setActivePinia(pinia);
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: { template: "<div />" } },
-    { path: "/login", name: "login", component: { template: "<div />" } },
-    { path: "/profile", name: "profile", component: { template: "<div />" } },
+    { component: { template: "<div />" }, path: "/" },
+    { component: { template: "<div />" }, name: "login", path: "/login" },
+    { component: { template: "<div />" }, name: "profile", path: "/profile" },
   ],
 });
 

@@ -56,11 +56,11 @@
 
 <script lang="ts">
 export default {
-  name: "NavMenuItem",
-
   components: {
     NavMenuItem: () => import("./NavMenuItem.vue"),
   },
+
+  name: "NavMenuItem",
 };
 </script>
 

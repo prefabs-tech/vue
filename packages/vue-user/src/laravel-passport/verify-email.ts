@@ -1,7 +1,7 @@
 import client from "../api/axios";
 import { EMAIL_VERIFICATION } from "../constant";
 
-type emailVerificationStatus = "OK" | "EMAIL_ALREADY_VERIFIED_ERROR";
+type emailVerificationStatus = "EMAIL_ALREADY_VERIFIED_ERROR" | "OK";
 
 const getVerificationStatus = async (
   apiBaseUrl: string,

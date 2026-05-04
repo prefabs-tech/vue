@@ -1,6 +1,6 @@
-import client from "../api/axios";
-
 import type { ChangePasswordPayload } from "../types";
+
+import client from "../api/axios";
 
 const changePassword = async (
   payload: ChangePasswordPayload,
@@ -13,8 +13,8 @@ const changePassword = async (
     response = await client(apiBaseUrl).post(
       "/change_password",
       {
-        oldPassword: payload.currentPassword,
         newPassword: payload.newPassword,
+        oldPassword: payload.currentPassword,
       },
       {
         withCredentials: true,

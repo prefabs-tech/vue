@@ -7,8 +7,8 @@ describe("Popup (component)", () => {
   it("opens and closes on trigger click when content slot exists", async () => {
     const wrapper = mount(Popup, {
       slots: {
-        default: "<button>Trigger</button>",
         content: "<div>Popup content</div>",
+        default: "<button>Trigger</button>",
       },
     });
 
@@ -51,8 +51,8 @@ describe("Popup (component)", () => {
         ariaLabel: "custom popup label",
       },
       slots: {
-        default: "<button>Trigger</button>",
         content: "<div>Popup content</div>",
+        default: "<button>Trigger</button>",
       },
     });
 
@@ -66,8 +66,8 @@ describe("Popup (component)", () => {
 
     const wrapper = mount(Popup, {
       slots: {
-        default: "<button>Trigger</button>",
         content: "<div>Popup content</div>",
+        default: "<button>Trigger</button>",
       },
     });
 

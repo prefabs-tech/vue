@@ -1,20 +1,20 @@
 import { describe, expect, it } from "vitest";
 import { createApp } from "vue";
 
-import plugin, { useConfig, useFeature } from "../../index";
-
 import type { AppConfig } from "../../types";
+
+import plugin, { useConfig, useFeature } from "../../index";
 
 describe("config plugin", () => {
   const mockConfig: AppConfig = {
     apiBaseUrl: "https://api.example.com",
     appTitle: "Test App",
     appVersion: "1.0.0",
-    slug: "test-app",
-    websiteDomain: "example.com",
     features: {
       showVersion: true,
     },
+    slug: "test-app",
+    websiteDomain: "example.com",
   };
 
   describe("useConfig composable", () => {

@@ -6,21 +6,21 @@ import SelectInput from "../../SelectInput.vue";
 
 // Mock the MultiSelect component (Select.vue)
 const MockMultiSelect = defineComponent({
+  emits: ["update:modelValue", "update:searchInput"],
   name: "MockMultiSelect",
   props: {
-    modelValue: { type: [String, Number, Array], default: () => [] },
-    multiple: { type: Boolean, default: false },
-    options: { type: Array, default: () => [] },
-    disabled: { type: Boolean, default: false },
-    disableSearch: { type: Boolean, default: false },
-    enableCustomSearch: { type: Boolean, default: false },
-    enableTooltip: { type: Boolean, default: true },
-    hasSortedOptions: { type: Boolean, default: true },
-    loading: { type: Boolean, default: false },
-    showRemoveSelection: { type: Boolean, default: true },
-    placeholder: { type: String, default: "" },
+    disabled: { default: false, type: Boolean },
+    disableSearch: { default: false, type: Boolean },
+    enableCustomSearch: { default: false, type: Boolean },
+    enableTooltip: { default: true, type: Boolean },
+    hasSortedOptions: { default: true, type: Boolean },
+    loading: { default: false, type: Boolean },
+    modelValue: { default: () => [], type: [String, Number, Array] },
+    multiple: { default: false, type: Boolean },
+    options: { default: () => [], type: Array },
+    placeholder: { default: "", type: String },
+    showRemoveSelection: { default: true, type: Boolean },
   },
-  emits: ["update:modelValue", "update:searchInput"],
   setup(props, { emit }) {
     const showDropdown = ref(false);
     return () =>
@@ -33,7 +33,7 @@ const MockMultiSelect = defineComponent({
             style: { display: showDropdown.value ? "block" : "none" },
           },
           props.options?.map((opt: unknown) => {
-            const option = opt as { label: string; value: string | number };
+            const option = opt as { label: string; value: number | string };
             return h(
               "div",
               { onClick: () => emit("update:modelValue", option.value) },
@@ -47,13 +47,13 @@ const MockMultiSelect = defineComponent({
 
 // Mock vee-validate Field and ErrorMessage
 const MockField = defineComponent({
+  emits: ["update:modelValue"],
   name: "MockField",
   props: {
-    name: { type: String, default: "field" },
-    rules: { type: [Object, Function], default: undefined },
-    modelValue: { type: [String, Number, Array, Boolean], default: undefined },
+    modelValue: { default: undefined, type: [String, Number, Array, Boolean] },
+    name: { default: "field", type: String },
+    rules: { default: undefined, type: [Object, Function] },
   },
-  emits: ["update:modelValue"],
   setup(props, { slots }) {
     const meta = ref({ dirty: true, touched: false, valid: true });
     return () =>
@@ -67,7 +67,7 @@ const MockField = defineComponent({
 const MockErrorMessage = defineComponent({
   name: "MockErrorMessage",
   props: {
-    name: { type: String, default: "" },
+    name: { default: "", type: String },
   },
   setup(props) {
     return () => h("span", { class: "error-message" }, props.name + "-error");
@@ -96,29 +96,29 @@ describe("SelectInput", () => {
   it("generates schema with minSelection, maxSelection, or both", () => {
     const globalStubs = {
       stubs: {
-        MultiSelect: MockMultiSelect,
-        Field: MockField,
         ErrorMessage: MockErrorMessage,
+        Field: MockField,
+        MultiSelect: MockMultiSelect,
       },
     };
 
     const minWrapper = mount(SelectInput, {
-      props: { minSelection: 2, multiple: true, options },
       global: globalStubs,
+      props: { minSelection: 2, multiple: true, options },
     });
     expect(minWrapper.props("minSelection")).toBe(2);
     expect(minWrapper.props("multiple")).toBe(true);
 
     const maxWrapper = mount(SelectInput, {
-      props: { maxSelection: 2, multiple: true, options },
       global: globalStubs,
+      props: { maxSelection: 2, multiple: true, options },
     });
     expect(maxWrapper.props("maxSelection")).toBe(2);
     expect(maxWrapper.props("multiple")).toBe(true);
 
     const bothWrapper = mount(SelectInput, {
-      props: { minSelection: 1, maxSelection: 3, multiple: true, options },
       global: globalStubs,
+      props: { maxSelection: 3, minSelection: 1, multiple: true, options },
     });
     expect(bothWrapper.props("minSelection")).toBe(1);
     expect(bothWrapper.props("maxSelection")).toBe(3);

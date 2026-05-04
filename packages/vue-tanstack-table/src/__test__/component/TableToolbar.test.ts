@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { mockedTable } from "../../components/__test__/table";
 import TableToolbar from "../../components/TableToolbar.vue";
@@ -16,7 +16,7 @@ describe("TableToolbar", () => {
       const items = wrapper.vm.items;
       expect(
         items.every(
-          (item: { id: string | number }) =>
+          (item: { id: number | string }) =>
             item.id !== "select" && item.id !== "actions",
         ),
       ).toBe(true);
@@ -27,15 +27,15 @@ describe("TableToolbar", () => {
     it("emits sorted column order without select and actions", () => {
       const wrapper = mount(TableToolbar, {
         props: {
-          table: mockedTable,
-          hasSelectionColumn: false,
           hasActionsColumn: false,
+          hasSelectionColumn: false,
+          table: mockedTable,
         },
       });
 
       const sortedList = [
-        { id: 1, data: { id: "age" } },
-        { id: 0, data: { id: "name" } },
+        { data: { id: "age" }, id: 1 },
+        { data: { id: "name" }, id: 0 },
       ];
 
       wrapper.vm.onDrag(sortedList);
@@ -47,15 +47,15 @@ describe("TableToolbar", () => {
     it("prepends select column when hasSelectionColumn is true", () => {
       const wrapper = mount(TableToolbar, {
         props: {
-          table: mockedTable,
-          hasSelectionColumn: true,
           hasActionsColumn: false,
+          hasSelectionColumn: true,
+          table: mockedTable,
         },
       });
 
       const sortedList = [
-        { id: 0, data: { id: "name" } },
-        { id: 1, data: { id: "age" } },
+        { data: { id: "name" }, id: 0 },
+        { data: { id: "age" }, id: 1 },
       ];
 
       wrapper.vm.onDrag(sortedList);
@@ -68,15 +68,15 @@ describe("TableToolbar", () => {
     it("appends actions column when hasActionsColumn is true", () => {
       const wrapper = mount(TableToolbar, {
         props: {
-          table: mockedTable,
-          hasSelectionColumn: false,
           hasActionsColumn: true,
+          hasSelectionColumn: false,
+          table: mockedTable,
         },
       });
 
       const sortedList = [
-        { id: 0, data: { id: "name" } },
-        { id: 1, data: { id: "age" } },
+        { data: { id: "name" }, id: 0 },
+        { data: { id: "age" }, id: 1 },
       ];
 
       wrapper.vm.onDrag(sortedList);
@@ -89,15 +89,15 @@ describe("TableToolbar", () => {
     it("includes both select and actions columns in correct positions", () => {
       const wrapper = mount(TableToolbar, {
         props: {
-          table: mockedTable,
-          hasSelectionColumn: true,
           hasActionsColumn: true,
+          hasSelectionColumn: true,
+          table: mockedTable,
         },
       });
 
       const sortedList = [
-        { id: 0, data: { id: "name" } },
-        { id: 1, data: { id: "age" } },
+        { data: { id: "name" }, id: 0 },
+        { data: { id: "age" }, id: 1 },
       ];
 
       wrapper.vm.onDrag(sortedList);

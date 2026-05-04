@@ -1,14 +1,14 @@
 import { mount } from "@vue/test-utils";
-import { describe, expect, it, beforeEach } from "vitest";
-
-import Dropdown from "../../Index.vue";
+import { beforeEach, describe, expect, it } from "vitest";
 
 import type { DropdownMenu } from "../../../types";
 
+import Dropdown from "../../Index.vue";
+
 const menu: DropdownMenu[] = [
-  { label: "Edit", key: "edit" },
-  { label: "Delete", key: "delete", disabled: true },
-  { label: "Hidden", key: "hidden", display: false },
+  { key: "edit", label: "Edit" },
+  { disabled: true, key: "delete", label: "Delete" },
+  { display: false, key: "hidden", label: "Hidden" },
 ];
 
 const openPopup = async (wrapper: ReturnType<typeof mount>) => {
@@ -20,14 +20,14 @@ const openPopup = async (wrapper: ReturnType<typeof mount>) => {
 describe("Dropdown", () => {
   beforeEach(() => {
     Object.defineProperty(window, "innerWidth", {
-      writable: true,
       configurable: true,
       value: 1200,
+      writable: true,
     });
     Object.defineProperty(window, "innerHeight", {
-      writable: true,
       configurable: true,
       value: 800,
+      writable: true,
     });
   });
 
@@ -57,7 +57,7 @@ describe("Dropdown", () => {
     const emitted = wrapper.emitted("select");
 
     expect(emitted).toBeTruthy();
-    expect(emitted?.[0][0]).toMatchObject({ label: "Edit", key: "edit" });
+    expect(emitted?.[0][0]).toMatchObject({ key: "edit", label: "Edit" });
   });
 
   it("does not emit select when a disabled item is clicked", async () => {

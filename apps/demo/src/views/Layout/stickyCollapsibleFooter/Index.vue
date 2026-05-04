@@ -177,7 +177,7 @@ const showAlert = (message: string) => {
 }
 
 .sticky-collapsible-footer .card {
-  position: relative;
   min-height: 15rem;
+  position: relative;
 }
 </style>

@@ -7,8 +7,8 @@ const client = (baseURL: string) => {
   const instance = axios.create({
     baseURL,
     headers: {
-      "Content-Type": "application/json",
       Accept: "application/json",
+      "Content-Type": "application/json",
     },
     withCredentials: true,
   });

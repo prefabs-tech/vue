@@ -13,8 +13,8 @@ describe("Radio", () => {
   it("highlights selected option based on modelValue", () => {
     const wrapper = mount(Radio, {
       props: {
-        options,
         modelValue: "2",
+        options,
       },
     });
 

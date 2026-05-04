@@ -209,14 +209,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { SelectOption } from "@prefabs.tech/vue3-form";
+import type { Column, Table } from "@tanstack/vue-table";
+
 import { DatePicker, NumberInput, SelectInput } from "@prefabs.tech/vue3-form";
 import { DebouncedInput } from "@prefabs.tech/vue3-ui";
 import { FlexRender } from "@tanstack/vue-table";
 
 import { getAlignValue } from "../utilities";
-
-import type { SelectOption } from "@prefabs.tech/vue3-form";
-import type { Column, Table } from "@tanstack/vue-table";
 
 const props = defineProps({
   highlightActiveColumn: Boolean,

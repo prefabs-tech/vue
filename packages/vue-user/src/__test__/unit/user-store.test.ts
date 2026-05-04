@@ -6,13 +6,13 @@ vi.mock("../../auth-provider", () => ({
     doLogout: vi.fn().mockResolvedValue(undefined),
     isProfileCompleted: vi.fn().mockResolvedValue(true),
   })),
-  default: vi.fn(),
   authConfig: undefined,
+  default: vi.fn(),
 }));
 
-import useUserStore from "../../store";
-
 import type { Invitation, UserType } from "../../types";
+
+import useUserStore from "../../store";
 
 const mockUser: Partial<UserType> = {
   email: "test@example.com",
@@ -125,17 +125,17 @@ describe("useUserStore", () => {
     it("stores invitation in state", () => {
       const store = useUserStore();
       const invitation: Invitation = {
-        id: 1,
-        email: "invited@example.com",
-        role: "USER",
+        acceptedAt: null,
         appId: 1,
         createdAt: Date.now(),
-        updatedAt: Date.now(),
+        email: "invited@example.com",
         expiresAt: Date.now() + 86_400_000,
-        acceptedAt: null,
-        revokedAt: null,
+        id: 1,
         invitedById: "user-123",
         payload: null,
+        revokedAt: null,
+        role: "USER",
+        updatedAt: Date.now(),
       };
 
       store.setInvitation(invitation);

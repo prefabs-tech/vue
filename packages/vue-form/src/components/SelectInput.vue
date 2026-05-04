@@ -65,16 +65,17 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { computed } from "vue";
 import { z } from "zod";
 
+import type { GroupedOption, SelectOption } from "../types";
+
 import { normalizeOptions } from "../utils";
 import MultiSelect from "./Select.vue";
-
-import type { GroupedOption, SelectOption } from "../types";
-import type { PropType } from "vue";
 
 const props = defineProps({
   customSearchHelperText: {
@@ -117,7 +118,7 @@ const props = defineProps({
     default: () => null,
     required: false,
     type: [Boolean, Number, String, Array] as PropType<
-      boolean | number | string | (number | string)[]
+      (number | string)[] | boolean | number | string
     >,
   },
   multiple: {
@@ -213,7 +214,7 @@ const fieldSchema = computed(() => {
   return undefined;
 });
 
-const onSelect = (value: string | number | []) => {
+const onSelect = (value: [] | number | string) => {
   emit("update:modelValue", value);
 };
 </script>

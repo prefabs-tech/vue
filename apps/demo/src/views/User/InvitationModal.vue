@@ -407,8 +407,8 @@ import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { InvitationModal } from "@prefabs.tech/vue3-user";
 import { computed, ref } from "vue";
 
-import UserPage from "./UserPage.vue";
 import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
+import UserPage from "./UserPage.vue";
 
 const { t } = useI18n();
 

@@ -7,8 +7,8 @@ describe("emailSchema", () => {
   it("creates a valid Zod schema with default error messages", () => {
     const schema = emailSchema(
       {
-        required: "Email is required",
         invalid: "Invalid email format",
+        required: "Email is required",
       },
       undefined,
     );
@@ -33,8 +33,8 @@ describe("emailSchema", () => {
   it("validates empty string returns invalid error (not required)", () => {
     const schema = emailSchema(
       {
-        required: "Email is required",
         invalid: "Invalid email format",
+        required: "Email is required",
       },
       undefined,
     );
@@ -50,8 +50,8 @@ describe("emailSchema", () => {
 
   it("accepts custom error messages", () => {
     const customMessages = {
-      required: "Please enter your email",
       invalid: "Must be a valid email address",
+      required: "Please enter your email",
     };
 
     const schema = emailSchema(customMessages, undefined);
@@ -68,8 +68,8 @@ describe("emailSchema", () => {
   it("forwards options to validator.isEmail", () => {
     const schema = emailSchema(
       {
-        required: "Email is required",
         invalid: "Invalid email",
+        required: "Email is required",
       },
       { allow_utf8_local_part: true },
     );

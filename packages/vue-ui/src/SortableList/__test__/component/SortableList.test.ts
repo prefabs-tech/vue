@@ -8,8 +8,8 @@ import SortableList from "../../Index.vue";
 describe("SortableList", () => {
   it("renders each item as text when no render function is provided", () => {
     const list = [
-      { id: 1, data: "First item" },
-      { id: 2, data: "Second item" },
+      { data: "First item", id: 1 },
+      { data: "Second item", id: 2 },
     ];
 
     const wrapper = mount(SortableList, { props: { list } });
@@ -21,8 +21,8 @@ describe("SortableList", () => {
   it("renders items via the render function when provided", () => {
     const list = [
       {
-        id: 1,
         data: "rendered item",
+        id: 1,
         render: (data: unknown) =>
           h("span", { class: "custom-rendered" }, String(data)),
       },
@@ -36,8 +36,8 @@ describe("SortableList", () => {
 
   it("emits onDrag with the current list when draggable fires change", async () => {
     const list = [
-      { id: 1, data: "Item A" },
-      { id: 2, data: "Item B" },
+      { data: "Item A", id: 1 },
+      { data: "Item B", id: 2 },
     ];
 
     const wrapper = mount(SortableList, { props: { list } });

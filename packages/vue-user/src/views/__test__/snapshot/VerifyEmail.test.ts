@@ -1,12 +1,12 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import i18nPlugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import appConfig from "../../../components/__test__/config";
 import VerifyEmail from "../../VerifyEmail.vue";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("VerifyEmail", () => {
   const pinia = createPinia();

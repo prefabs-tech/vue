@@ -21,22 +21,23 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { PropType } from "vue";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 
+import type { UserMenuItem } from "../types/user-menu";
+
+import useUserStore from "../store";
 import DropdownUserMenu from "./DropdownUserMenu.vue";
 import SignInUpMenu from "./SignInUpMenu.vue";
-import useUserStore from "../store";
-
-import type { UserMenuItem } from "../types/user-menu";
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-import type { PropType } from "vue";
 
 defineProps({
   userMenuItems: {
-    type: Array as PropType<UserMenuItem[]>,
     default: () => [],
+    type: Array as PropType<UserMenuItem[]>,
   },
 });
 

@@ -1,14 +1,14 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import TabView from "../../Index.vue";
-
 import type { Tab } from "../../types";
 
+import TabView from "../../Index.vue";
+
 const tabs: Tab[] = [
-  { key: "tab1", label: "Tab 1", children: "Content of tab 1" },
-  { key: "tab2", label: "Tab 2", children: "Content of tab 2" },
-  { key: "tab3", label: "Tab 3", children: "Content of tab 3" },
+  { children: "Content of tab 1", key: "tab1", label: "Tab 1" },
+  { children: "Content of tab 2", key: "tab2", label: "Tab 2" },
+  { children: "Content of tab 3", key: "tab3", label: "Tab 3" },
 ];
 
 describe("TabView", () => {
@@ -60,9 +60,9 @@ describe("TabView", () => {
     const wrapper = mount(TabView, {
       props: {
         activeKey: "tab1",
+        interceptTabChange: true,
         tabs,
         visibleTabs: ["tab1", "tab2", "tab3"],
-        interceptTabChange: true,
       },
     });
 
@@ -78,8 +78,8 @@ describe("TabView", () => {
 
   it("closes tab when close button is clicked", async () => {
     const closableTabs: Tab[] = [
-      { key: "tab1", label: "Tab 1", closable: true, children: "Content 1" },
-      { key: "tab2", label: "Tab 2", closable: true, children: "Content 2" },
+      { children: "Content 1", closable: true, key: "tab1", label: "Tab 1" },
+      { children: "Content 2", closable: true, key: "tab2", label: "Tab 2" },
     ];
 
     const wrapper = mount(TabView, {
@@ -98,16 +98,16 @@ describe("TabView", () => {
 
   it("emits beforeTabClose when interceptTabClose is true", async () => {
     const closableTabs: Tab[] = [
-      { key: "tab1", label: "Tab 1", closable: true, children: "Content 1" },
-      { key: "tab2", label: "Tab 2", closable: true, children: "Content 2" },
+      { children: "Content 1", closable: true, key: "tab1", label: "Tab 1" },
+      { children: "Content 2", closable: true, key: "tab2", label: "Tab 2" },
     ];
 
     const wrapper = mount(TabView, {
       props: {
         activeKey: "tab1",
+        interceptTabClose: true,
         tabs: closableTabs,
         visibleTabs: ["tab1", "tab2"],
-        interceptTabClose: true,
       },
     });
 
@@ -124,10 +124,10 @@ describe("TabView", () => {
     const wrapper = mount(TabView, {
       props: {
         activeKey: "tab1",
+        id: "test-tabview",
+        persistState: true,
         tabs,
         visibleTabs: ["tab1", "tab2", "tab3"],
-        persistState: true,
-        id: "test-tabview",
       },
     });
 
@@ -158,10 +158,10 @@ describe("TabView", () => {
     const wrapper = mount(TabView, {
       props: {
         activeKey: "tab1",
+        id: "test-tabview-restore",
+        persistState: true,
         tabs,
         visibleTabs: ["tab1", "tab2", "tab3"],
-        persistState: true,
-        id: "test-tabview-restore",
       },
     });
 
@@ -177,11 +177,11 @@ describe("TabView", () => {
     const wrapper = mount(TabView, {
       props: {
         activeKey: "tab1",
-        tabs,
-        visibleTabs: ["tab1", "tab2", "tab3"],
+        id: "test-tabview-session",
         persistState: true,
         persistStateStorage: "sessionStorage",
-        id: "test-tabview-session",
+        tabs,
+        visibleTabs: ["tab1", "tab2", "tab3"],
       },
     });
 
@@ -204,9 +204,9 @@ describe("TabView", () => {
     const wrapper = mount(TabView, {
       props: {
         activeKey: "tab1",
+        enableHashRouting: true,
         tabs,
         visibleTabs: ["tab1", "tab2", "tab3"],
-        enableHashRouting: true,
       },
     });
 
