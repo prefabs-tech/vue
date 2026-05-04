@@ -39,8 +39,8 @@ const country = computed(() => {
 
 <style lang="css" scoped>
 .country {
-  bottom: -0.35rem;
   background: var(--locale-switcher-badge-country-bf-color, #007aff);
+  bottom: -0.35rem;
   color: var(--locale-switcher-badge-country-color, #fff);
   font-size: 0.5rem;
   font-weight: bold;

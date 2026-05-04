@@ -29,8 +29,8 @@ defineProps({
 }
 
 .error .code {
-  font-style: italic;
   font-size: 85%;
+  font-style: italic;
   opacity: 0.8;
 }
 </style>

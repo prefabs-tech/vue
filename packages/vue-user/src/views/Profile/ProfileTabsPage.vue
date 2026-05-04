@@ -126,7 +126,6 @@ const mergedTabs = computed(() => [
   gap: 2rem;
 }
 
-.page.profile .tabbed-panel h2,
 .page.profile .tabbed-panel h2 {
   font-weight: 500;
   margin-bottom: 1rem;

@@ -5,8 +5,8 @@
 }
 
 .popup-container {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
 .popup-trigger {

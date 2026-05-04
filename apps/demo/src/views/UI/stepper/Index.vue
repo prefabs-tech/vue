@@ -657,10 +657,10 @@ const renderStepContent = (step: number) => {
 }
 
 .demo-stepper-buttons-wrapper {
-  margin-top: 1rem;
   display: flex;
-  justify-content: flex-start;
   gap: 1rem;
+  justify-content: flex-start;
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 576px) {

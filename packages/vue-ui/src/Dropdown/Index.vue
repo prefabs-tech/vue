@@ -126,5 +126,3 @@ const onSelect = (item: DropdownMenu) => {
   }
 };
 </script>
-
-<style lang="css"></style>
