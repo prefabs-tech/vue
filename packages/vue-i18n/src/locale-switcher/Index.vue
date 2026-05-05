@@ -51,16 +51,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { Locale } from "vue-i18n";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { onClickOutside } from "@vueuse/core";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-import LocaleOption from "./LocaleOption.vue";
 import useLocaleStore from "../store";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-import type { Locale } from "vue-i18n";
+import LocaleOption from "./LocaleOption.vue";
 
 defineProps({
   showBadges: {

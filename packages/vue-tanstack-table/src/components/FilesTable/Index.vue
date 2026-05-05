@@ -39,9 +39,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, h } from "vue";
+import type { IFile, TableMessages } from "@prefabs.tech/vue3-ui";
+import type { PropType } from "vue";
 
-import Table from "../Table.vue";
+import { computed, h } from "vue";
 
 import type {
   DataActionsMenuItem,
@@ -49,8 +50,8 @@ import type {
   TableColumnDefinition,
   TRequestJSON,
 } from "../../types";
-import type { IFile, TableMessages } from "@prefabs.tech/vue3-ui";
-import type { PropType } from "vue";
+
+import Table from "../Table.vue";
 
 type TableProperties = InstanceType<typeof Table>["$props"];
 
@@ -167,9 +168,9 @@ const defaultColumns: TableColumnDefinition<IFile>[] = [
     enableSorting: !props.isServerTable,
     filterFn: (row, columnId, filterValue) => {
       const value = row.getValue(columnId) as {
+        email?: string;
         givenName?: string;
         lastName?: string;
-        email?: string;
       };
       if (!filterValue || filterValue.length === 0) {
         return true;
@@ -283,8 +284,8 @@ const actionMenuData = computed(() => {
         header: props.messages?.deleteConfirmationHeader || "Delete file",
       },
       icon: "pi pi-trash",
-      label: props.messages?.deleteAction || "Delete",
       key: "delete",
+      label: props.messages?.deleteAction || "Delete",
       requireConfirmationModal: true,
     });
   }

@@ -1,11 +1,17 @@
-interface CurrencyOption extends SelectOption {
-  code?: string;
-  symbol?: string;
-}
+type CountryPickerGroups = Record<string, string[]>;
 
 interface CountryPickerLabels {
   allCountries?: string;
   favorites?: string;
+}
+
+type CountryPickerLocales = Record<string, CountryPickerTranslation>;
+
+type CountryPickerTranslation = Record<string, string>;
+
+interface CurrencyOption extends SelectOption {
+  code?: string;
+  symbol?: string;
 }
 
 interface EmailErrorMessages {
@@ -15,18 +21,23 @@ interface EmailErrorMessages {
 
 interface FileErrorMessages {
   invalid?: string;
+  maxFiles?: string;
   maxSize?: string;
   minSize?: string;
-  maxFiles?: string;
 }
 
 interface FileExtended extends File {
   description?: string;
 }
 
+interface GroupedOption {
+  label: string;
+  options: SelectOption[];
+}
+
 interface InputOption {
   label: string;
-  value: string | number;
+  value: number | string;
 }
 
 interface MonthPickerValue {
@@ -39,33 +50,22 @@ interface NumberErrorMessages {
   required?: string;
 }
 
+type Options = GroupedOption[] | SelectOption[];
 interface PasswordErrorMessages {
   required?: string;
   weak?: string;
 }
-
 interface SelectOption extends Record<string, unknown> {
   disabled?: boolean;
-  label?: string;
-  value?: string | number;
   groupLabel?: string;
-}
-
-interface GroupedOption {
-  label: string;
-  options: SelectOption[];
+  label?: string;
+  value?: number | string;
 }
 
 interface TextErrorMessages {
   invalid?: string;
   required?: string;
 }
-
-type CountryPickerTranslation = Record<string, string>;
-type CountryPickerLocales = Record<string, CountryPickerTranslation>;
-type CountryPickerGroups = Record<string, string[]>;
-
-type Options = SelectOption[] | GroupedOption[];
 
 export type {
   CountryPickerGroups,
@@ -88,7 +88,7 @@ export type {
 
 export type {
   IsEmailOptions,
-  IsTextOptions,
   IsIntOptions,
+  IsTextOptions,
   StrongPasswordOptions,
 } from "./validator";

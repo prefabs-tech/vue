@@ -1,13 +1,13 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import i18Plugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import appConfig from "../../../components/__test__/config";
 import Profile from "../../Profile/ProfileTabsPage.vue";
 import router from "../router";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("ProfileTabsPage", () => {
   const pinia = createPinia();

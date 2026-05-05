@@ -1,3 +1,5 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import {
   API_PATH_CHANGE_EMAIL,
   API_PATH_CHANGE_PASSWORD,
@@ -18,8 +20,6 @@ import {
   PasswordResetPayload,
   PasswordResetRequestPayload,
 } from "./types";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 let authConfig: AppConfig | undefined;
 

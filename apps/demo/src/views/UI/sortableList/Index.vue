@@ -89,24 +89,24 @@ const { t } = useI18n();
 
 const list = ref([
   {
-    id: 1,
     data: t("ui.sortableList.games.basketball"),
+    id: 1,
   },
   {
-    id: 2,
     data: t("ui.sortableList.games.cricket"),
+    id: 2,
   },
   {
-    id: 3,
     data: t("ui.sortableList.games.football"),
+    id: 3,
   },
   {
-    id: 4,
     data: t("ui.sortableList.games.hockey"),
+    id: 4,
   },
   {
-    id: 5,
     data: t("ui.sortableList.games.volleyball"),
+    id: 5,
   },
 ]);
 
@@ -131,7 +131,7 @@ const propsData = [
   },
 ];
 
-const onDrag = (sortedList: [{ id: number; data: string }]) => {
+const onDrag = (sortedList: [{ data: string; id: number }]) => {
   mostFavourite.value = sortedList[0].data;
 };
 </script>

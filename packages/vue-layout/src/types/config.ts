@@ -1,6 +1,7 @@
-import type { MenuItem } from "./menu";
 import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
+
+import type { MenuItem } from "./menu";
 
 interface PrefabsTechVue3LayoutConfig {
   homeRoute?: "home" | string;

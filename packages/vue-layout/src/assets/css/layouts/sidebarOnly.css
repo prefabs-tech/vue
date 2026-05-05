@@ -1,8 +1,8 @@
 .layout.sidebar-only {
   display: grid;
+  grid-template-areas: "sidebar main";
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "sidebar main";
   height: 100dvh;
   transition: all 0.25s ease-in-out;
 }
@@ -55,12 +55,12 @@
 .layout.sidebar-only .locales ul.dropdown {
   --locale-switcher-bg-color: var(--sidebar-bg-color, #fff);
   --locale-switcher-border: none;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+  bottom: 100%;
 
   left: 0;
   right: 0;
   top: unset;
-  bottom: 100%;
-  border-top: 1px solid var(--border-color, #e5e7eb);
   transform: none;
 }
 
@@ -95,8 +95,8 @@
 
 .layout.sidebar-only > main {
   grid-area: main;
-  overflow-y: auto;
   min-height: 0;
+  overflow-y: auto;
 }
 
 .layout-sidebar {

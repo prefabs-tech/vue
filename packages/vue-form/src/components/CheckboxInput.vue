@@ -48,14 +48,15 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import type { PropType } from "vue";
+
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
 
-import Checkbox from "./Checkbox.vue";
-
 import type { InputOption } from "../types";
-import type { PropType } from "vue";
+
+import Checkbox from "./Checkbox.vue";
 
 const props = defineProps({
   checked: {
@@ -65,7 +66,7 @@ const props = defineProps({
   direction: {
     default: "vertical",
     type: String,
-    validator: (value: string) => ["vertical", "horizontal"].includes(value),
+    validator: (value: string) => ["horizontal", "vertical"].includes(value),
   },
   disabled: {
     default: false,
@@ -81,8 +82,8 @@ const props = defineProps({
     type: String as PropType<string>,
   },
   modelValue: {
-    default: () => [] as string[] | number[],
-    type: Array as PropType<string[] | number[]>,
+    default: () => [] as number[] | string[],
+    type: Array as PropType<number[] | string[]>,
   },
   name: {
     default: "checkbox",
@@ -90,13 +91,13 @@ const props = defineProps({
     type: String as PropType<string>,
   },
   options: {
-    default: () => [] as string[] | number[],
+    default: () => [] as number[] | string[],
     type: Array as PropType<InputOption[]>,
   },
   schema: {
     default: undefined,
     required: false,
-    type: Object as PropType<z.ZodType<string | number | boolean>>,
+    type: Object as PropType<z.ZodType<boolean | number | string>>,
   },
 });
 
@@ -106,10 +107,10 @@ const fieldSchema = props.schema ? toTypedSchema(props.schema) : undefined;
 
 const hasOptions = Array.isArray(props.options) && props.options.length > 0;
 
-const isOptionChecked = (value: string | number) => {
+const isOptionChecked = (value: number | string) => {
   return (
     Array.isArray(props.modelValue) &&
-    (props.modelValue as (string | number)[]).includes(value)
+    (props.modelValue as (number | string)[]).includes(value)
   );
 };
 
@@ -117,7 +118,7 @@ const handleChange = (event: Event) => {
   const target = event.target as HTMLInputElement;
   const isChecked = target.checked;
   const value = target.value;
-  let updatedValues = [...(props.modelValue as (string | number)[])];
+  let updatedValues = [...(props.modelValue as (number | string)[])];
 
   if (hasOptions) {
     if (isChecked) {

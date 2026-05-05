@@ -52,27 +52,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@prefabs.tech/vue3-config";
-import { useI18n } from "@prefabs.tech/vue3-i18n";
-import { Table } from "@prefabs.tech/vue3-tanstack-table";
-import { BadgeComponent, ButtonElement } from "@prefabs.tech/vue3-ui";
-import { computed, h, ref, toRef } from "vue";
-
-import {
-  ROLE_ADMIN,
-  ROLE_SUPERADMIN,
-  ROLE_USER,
-  STATUS_OK,
-} from "../../constant";
-import { useTranslations, emitter } from "../../index";
-import useUserStore from "../../store";
-import InvitationModal from "../invitation/InvitationModal.vue";
-
-import type {
-  InvitationAppOption,
-  InvitationRoleOption,
-  UserType,
-} from "../../types";
 import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type {
   DataActionsMenuItem,
@@ -82,6 +61,28 @@ import type {
   TRequestJSON,
 } from "@prefabs.tech/vue3-tanstack-table";
 import type { PropType } from "vue";
+
+import { useConfig } from "@prefabs.tech/vue3-config";
+import { useI18n } from "@prefabs.tech/vue3-i18n";
+import { Table } from "@prefabs.tech/vue3-tanstack-table";
+import { BadgeComponent, ButtonElement } from "@prefabs.tech/vue3-ui";
+import { computed, h, ref, toRef } from "vue";
+
+import type {
+  InvitationAppOption,
+  InvitationRoleOption,
+  UserType,
+} from "../../types";
+
+import {
+  ROLE_ADMIN,
+  ROLE_SUPERADMIN,
+  ROLE_USER,
+  STATUS_OK,
+} from "../../constant";
+import { emitter, useTranslations } from "../../index";
+import useUserStore from "../../store";
+import InvitationModal from "../invitation/InvitationModal.vue";
 
 const config = useConfig() as AppConfig;
 
@@ -107,8 +108,8 @@ const props = defineProps({
   dataActionMenu: {
     default: undefined,
     type: [Array, Function] as PropType<
-      | DataActionsMenuItem[]
       | ((defaultActionsMenu: DataActionsMenuItem[]) => DataActionsMenuItem[])
+      | DataActionsMenuItem[]
     >,
   },
   expiryMode: {
@@ -201,62 +202,62 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
     header: t("user.table.defaultColumns.name"),
   },
   {
-    align: "center",
     accessorKey: "roles",
+    align: "center",
     cell: ({ getValue, row }) => {
       const roles = (row.original as unknown as { roles: string[] })?.roles;
       if (Array.isArray(roles)) {
         return roles.map((role, index) =>
           h(BadgeComponent, {
-            label: role,
-            severity: role === ROLE_ADMIN ? "primary" : "success",
             fullWidth: true,
             key: role + index,
+            label: role,
+            severity: role === ROLE_ADMIN ? "primary" : "success",
           }),
         );
       }
       const role = getValue() as string;
       return h(BadgeComponent, {
+        fullWidth: true,
         label: role,
         severity: role === ROLE_ADMIN ? "primary" : "success",
-        fullWidth: true,
       });
     },
     enableColumnFilter: true,
     enableSorting: true,
     header: t("user.table.defaultColumns.roles"),
     meta: {
-      filterVariant: "multiselect",
       filterOptions: [
         {
-          value: ROLE_ADMIN,
           label: t("user.table.role.admin"),
+          value: ROLE_ADMIN,
         },
         {
-          value: ROLE_SUPERADMIN,
           label: t("user.table.role.superadmin"),
+          value: ROLE_SUPERADMIN,
         },
         {
-          value: ROLE_USER,
           label: t("user.table.role.user"),
+          value: ROLE_USER,
         },
       ],
+      filterVariant: "multiselect",
     },
   },
   {
     accessorKey: "signedUpAt",
-    header: t("user.table.defaultColumns.signedUpAt"),
     dataType: "date",
     enableColumnFilter: true,
     enableSorting: true,
+    header: t("user.table.defaultColumns.signedUpAt"),
     meta: {
       filterVariant: "dateRange",
       serverFilterFn: "between",
     },
   },
   {
-    align: "center",
     accessorKey: "disabled",
+    align: "center",
     cell: ({ row }: { row: { original: UserType } }) => {
       return h(BadgeComponent, {
         label: row.original.disabled
@@ -269,7 +270,6 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
     enableSorting: true,
     header: t("user.table.defaultColumns.status"),
     meta: {
-      filterVariant: "select",
       filterOptions: [
         {
           label: t("user.table.status.enabled"),
@@ -280,6 +280,7 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
           value: true,
         },
       ] as FilterOption[],
+      filterVariant: "select",
     },
   },
 ];
@@ -340,12 +341,12 @@ const mergedColumns = computed(() => [
 
 const onActionSelect = (rowData: { action: string; data: UserType }) => {
   switch (rowData.action) {
-    case "enableUser": {
-      onEnableUser(rowData.data?.id);
-      break;
-    }
     case "disableUser": {
       onDisableUser(rowData.data?.id);
+      break;
+    }
+    case "enableUser": {
+      onEnableUser(rowData.data?.id);
       break;
     }
     default: {

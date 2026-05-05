@@ -90,9 +90,9 @@ import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { UsersTable } from "@prefabs.tech/vue3-user";
 import { computed } from "vue";
 
+import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
 import { allUsers } from "./data";
 import UserPage from "./UserPage.vue";
-import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
 
 const visibleColumns = ["email", "name", "roles", "signedUpAt", "disabled"];
 

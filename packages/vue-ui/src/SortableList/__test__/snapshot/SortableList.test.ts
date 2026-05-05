@@ -7,24 +7,24 @@ describe("SortableList", () => {
   it("matches snapshot", () => {
     const list = [
       {
-        id: 1,
         data: "item1",
+        id: 1,
       },
       {
-        id: 2,
         data: "item2",
+        id: 2,
       },
       {
-        id: 3,
         data: "item3",
+        id: 3,
       },
       {
-        id: 4,
         data: "item4",
+        id: 4,
       },
       {
-        id: 5,
         data: "item5",
+        id: 5,
       },
     ];
 

@@ -73,6 +73,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { Icon } from "@iconify/vue";
 import {
   ButtonElement,
@@ -82,12 +84,11 @@ import {
 import { computed, ref } from "vue";
 
 import type { DataActionsMenuItem } from "../types";
-import type { PropType } from "vue";
 
 const props = defineProps({
   actions: {
-    type: Array as PropType<DataActionsMenuItem[]>,
     required: true,
+    type: Array as PropType<DataActionsMenuItem[]>,
   },
   autoModeCount: {
     default: 1,
@@ -100,7 +101,7 @@ const props = defineProps({
   displayActions: {
     default: true,
     type: [Boolean, Function] as PropType<
-      boolean | ((data: object) => boolean)
+      ((data: object) => boolean) | boolean
     >,
   },
   mode: {
@@ -120,14 +121,14 @@ const filteredItems = computed(() =>
   props.actions
     .map((action) => ({
       ...action,
-      display:
-        typeof action.display === "function"
-          ? action.display(props.data)
-          : (action.display ?? true),
       disabled:
         typeof action.disabled === "function"
           ? action.disabled(props.data)
           : action.disabled,
+      display:
+        typeof action.display === "function"
+          ? action.display(props.data)
+          : (action.display ?? true),
     }))
     .filter((action) => action.display),
 );

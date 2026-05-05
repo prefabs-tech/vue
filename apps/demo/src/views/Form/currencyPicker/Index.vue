@@ -354,6 +354,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { CurrencyOption } from "@prefabs.tech/vue3-form";
+
 import { CurrencyPicker, Form } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { computed, reactive } from "vue";
@@ -362,8 +364,6 @@ import { z } from "zod";
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import { currencies } from "../data";
 import FormPage from "../FormPage.vue";
-
-import type { CurrencyOption } from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
 

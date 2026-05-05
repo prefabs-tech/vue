@@ -44,13 +44,13 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { IFile, TableMessages } from "@prefabs.tech/vue3-ui";
+import type { PropType } from "vue";
+
 import { FilesList } from "@prefabs.tech/vue3-ui";
 import { computed } from "vue";
 
 import FilesTable from "../FilesTable/Index.vue";
-
-import type { IFile, TableMessages } from "@prefabs.tech/vue3-ui";
-import type { PropType } from "vue";
 
 type ListProperties = InstanceType<typeof FilesList>["$props"];
 type TableProperties = InstanceType<typeof FilesTable>["$props"];

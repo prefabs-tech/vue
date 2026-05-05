@@ -33,11 +33,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
-
-import type { PropType } from "vue";
 
 const props = defineProps({
   disabled: {
@@ -51,7 +51,7 @@ const props = defineProps({
   },
   modelValue: {
     default: "",
-    type: [String, Number] as PropType<string | number | null | undefined>,
+    type: [String, Number] as PropType<null | number | string | undefined>,
   },
   name: {
     default: "input",

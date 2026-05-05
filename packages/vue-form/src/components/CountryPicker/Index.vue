@@ -44,15 +44,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import type { PropType } from "vue";
 
-import {
-  getFallbackTranslation,
-  getFlagClass as getCountryFlagClass,
-  getLabel as getCountryLabel,
-  sortByLabel,
-} from "../../utils/country-picker";
-import SelectInput from "../SelectInput.vue";
+import { computed, onMounted } from "vue";
 
 import type {
   CountryPickerGroups,
@@ -62,16 +56,16 @@ import type {
   Options,
   SelectOption,
 } from "../../types";
-import type { PropType } from "vue";
+
+import {
+  getFlagClass as getCountryFlagClass,
+  getLabel as getCountryLabel,
+  getFallbackTranslation,
+  sortByLabel,
+} from "../../utils/country-picker";
+import SelectInput from "../SelectInput.vue";
 
 const props = defineProps({
-  labels: {
-    default: () => ({
-      allCountries: "All Countries",
-      favorites: "Favorites",
-    }),
-    type: Object as PropType<CountryPickerLabels>,
-  },
   exclude: {
     default: () => [],
     type: Array as PropType<string[]>,
@@ -120,6 +114,13 @@ const props = defineProps({
     default: true,
     type: Boolean,
   },
+  labels: {
+    default: () => ({
+      allCountries: "All Countries",
+      favorites: "Favorites",
+    }),
+    type: Object as PropType<CountryPickerLabels>,
+  },
   locale: {
     default: "en",
     type: String,
@@ -131,7 +132,7 @@ const props = defineProps({
   modelValue: {
     default: undefined,
     type: [String, Number, Array] as PropType<
-      string | number | (string | number)[] | undefined
+      (number | string)[] | number | string | undefined
     >,
   },
   multiple: {
@@ -151,7 +152,7 @@ const props = defineProps({
 const emit = defineEmits<{
   (
     event: "update:modelValue",
-    value: string | number | (string | number)[] | undefined,
+    value: (number | string)[] | number | string | undefined,
   ): void;
 }>();
 

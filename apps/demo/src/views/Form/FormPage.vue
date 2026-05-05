@@ -11,7 +11,7 @@
               icon-left="pi pi-chevron-left"
               size="medium"
               variant="textOnly"
-              @click="$router.push({ name: 'form' })"
+              @click="() => router.push({ name: 'form' })"
             />
           </slot>
         </template>
@@ -28,11 +28,12 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Sidebar } from "@prefabs.tech/vue3-layout";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
-
-import type { PropType } from "vue";
+import { useRouter } from "vue-router";
 
 defineProps({
   subtitle: {
@@ -47,6 +48,8 @@ defineProps({
   },
 });
 
+const router = useRouter();
+
 const { t } = useI18n();
 
 const menu = [
@@ -55,7 +58,6 @@ const menu = [
     routeName: "",
   },
   {
-    name: t("form.label.dateTime"),
     children: [
       {
         name: t("form.label.datePicker"),
@@ -66,9 +68,9 @@ const menu = [
         routeName: "daysInput",
       },
     ],
+    name: t("form.label.dateTime"),
   },
   {
-    name: t("form.label.input"),
     children: [
       {
         name: t("form.label.email"),
@@ -99,9 +101,9 @@ const menu = [
         routeName: "textareaInput",
       },
     ],
+    name: t("form.label.input"),
   },
   {
-    name: t("form.label.selection"),
     children: [
       {
         name: t("form.label.checkbox"),
@@ -128,9 +130,9 @@ const menu = [
         routeName: "switchInput",
       },
     ],
+    name: t("form.label.selection"),
   },
   {
-    name: t("form.label.misc"),
     children: [
       {
         name: t("form.label.country"),
@@ -145,6 +147,7 @@ const menu = [
         routeName: "typeahead",
       },
     ],
+    name: t("form.label.misc"),
   },
 ];
 </script>

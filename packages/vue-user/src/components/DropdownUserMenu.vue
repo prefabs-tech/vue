@@ -83,15 +83,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 
-import { useTranslations } from "../index";
-
 import type { UserType } from "../types";
 import type { UserMenuItem } from "../types/user-menu";
-import type { PropType } from "vue";
+
+import { useTranslations } from "../index";
 
 const expanded = ref(false);
 const messages = useTranslations();
@@ -166,13 +167,17 @@ nav.user-menu-dropdown:hover {
   color: var(--_hover-color);
 }
 
-nav.user-menu-dropdown.expanded span.toggle > svg {
-  transform: rotate(0);
-}
-
 nav.user-menu-dropdown span.toggle > svg {
   transform: rotate(-180deg);
   transition: transform 0.5s ease;
+}
+
+nav.user-menu-dropdown > ul.dropdown > li svg {
+  margin-right: 0.5rem;
+}
+
+nav.user-menu-dropdown.expanded span.toggle > svg {
+  transform: rotate(0);
 }
 
 nav.user-menu-dropdown > ul.dropdown {
@@ -210,11 +215,6 @@ nav.user-menu-dropdown > ul.dropdown > li {
   transition: all var(--transition-duration) ease 0s;
 }
 
-nav.user-menu-dropdown > .dropdown > li:hover {
-  background: var(--_hover-bg);
-  color: var(--_hover-color);
-}
-
 nav.user-menu > ul > li:has(.router-link-exact-active) {
   background: var(--_active-bg);
   color: var(--_active-color);
@@ -229,8 +229,9 @@ nav.user-menu-dropdown > ul.dropdown > li:not(:has(a)) {
   width: 100%;
 }
 
-nav.user-menu-dropdown > ul.dropdown > li svg {
-  margin-right: 0.5rem;
+nav.user-menu-dropdown > .dropdown > li:hover {
+  background: var(--_hover-bg);
+  color: var(--_hover-color);
 }
 
 nav.user-menu-dropdown > ul.dropdown > li i {

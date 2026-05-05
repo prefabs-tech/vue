@@ -79,9 +79,9 @@
 }
 
 .file-input .selected li .info .details > span {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical; 
   display: -webkit-box;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   overflow-wrap: break-word; 
   text-overflow: ellipsis;
@@ -102,12 +102,12 @@
 }
 
 .file-input .description-wrapper .description {
-  cursor: pointer;
   color: rgba(0, 0, 0, 0.514);
-  text-overflow: ellipsis;
+  cursor: pointer;
   height: 2.3rem;
   max-width: 40rem;
   overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 

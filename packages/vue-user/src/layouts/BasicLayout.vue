@@ -47,12 +47,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { MenuItem } from "@prefabs.tech/vue3-layout";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import {
   AppHeader,
-  BasicLayout as OriginalBasicLayout,
   Logo,
   MainMenu,
+  BasicLayout as OriginalBasicLayout,
 } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
 import { computed, ref, watch } from "vue";
@@ -61,8 +63,6 @@ import { useRouter } from "vue-router";
 import UserMenu from "../components/UserMenu.vue";
 import { filterRoutes } from "../router";
 import useUserStore from "../store";
-
-import type { MenuItem } from "@prefabs.tech/vue3-layout";
 
 defineProps({
   noFooter: Boolean,

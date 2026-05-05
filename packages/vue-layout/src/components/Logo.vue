@@ -19,10 +19,10 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { computed } from "vue";
-
-import type { PropType } from "vue";
 
 const props = defineProps({
   alt: {
@@ -50,11 +50,7 @@ const parseAppName = computed(() => {
 });
 
 const logoAlt =
-  props.alt ||
-  layoutConfig?.logoAlt ||
-  parseAppName.value ||
-  appTitle ||
-  "My App";
+  props.alt || layoutConfig?.logoAlt || parseAppName.value || appTitle;
 const logoSource = props.src || layoutConfig?.logo;
 const logoRoute = props.route || layoutConfig?.logoRoute || "home";
 </script>

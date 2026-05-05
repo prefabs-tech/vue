@@ -10,7 +10,7 @@ export const normalizeOptions = (
   }
 
   const isGrouped = (
-    providedOptions: (SelectOption | GroupedOption)[],
+    providedOptions: (GroupedOption | SelectOption)[],
   ): providedOptions is GroupedOption[] => "options" in providedOptions[0];
 
   const normalize = (option: SelectOption, groupLabel?: string) => ({
@@ -22,7 +22,7 @@ export const normalizeOptions = (
     )?.toString(),
     value: (valueKey
       ? option[valueKey as keyof SelectOption]
-      : option.value) as string | number,
+      : option.value) as number | string,
   });
 
   if (isGrouped(options)) {

@@ -31,13 +31,13 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { Card } from "@prefabs.tech/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
 import { nextTick, ref } from "vue";
 
 import TextareaInput from "./TextareaInput.vue";
-
-import type { PropType } from "vue";
 
 const props = defineProps({
   allowEdit: {
@@ -50,7 +50,7 @@ const props = defineProps({
   },
   modelValue: {
     required: true,
-    type: String as PropType<string | number | undefined>,
+    type: String as PropType<number | string | undefined>,
   },
   placeholder: {
     default: "",
@@ -64,7 +64,7 @@ const props = defineProps({
     default: "small",
     type: String,
     validator: (value: string) =>
-      ["small", "medium", "large", "full"].includes(value),
+      ["full", "large", "medium", "small"].includes(value),
   },
 });
 

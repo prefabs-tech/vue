@@ -1,5 +1,7 @@
 import { describe, expect, test } from "vitest";
 
+import type { CountryPickerLocales, SelectOption } from "../../../types";
+
 import defaultEnglishTranslation from "../../../components/CountryPicker/en.json";
 import {
   getFallbackTranslation,
@@ -8,46 +10,44 @@ import {
   sortByLabel,
 } from "../../country-picker";
 
-import type { CountryPickerLocales, SelectOption } from "../../../types";
-
 const fallbackTranslation = {
-  US: "United States",
-  FR: "France",
   DE: "Germany",
+  FR: "France",
   JP: "Japan",
+  US: "United States",
 };
 
 const frenchTranslation = {
-  DE: "Allemagne",
   BR: "Brésil",
   CA: "Canada",
   CN: "Chine",
+  DE: "Allemagne",
   ES: "Espagne",
-  US: "États‑Unis",
   FR: "France",
+  GB: "Royaume‑Uni",
   IT: "Italie",
   JP: "Japon",
-  GB: "Royaume‑Uni",
   RU: "Russie",
+  US: "États‑Unis",
 };
 
 const spanishTranslation = {
-  DE: "Alemania",
   BR: "Brasil",
   CA: "Canadá",
   CN: "China",
+  DE: "Alemania",
   ES: "España",
-  US: "Estados Unidos",
   FR: "Francia",
+  GB: "Reino Unido",
   IT: "Italia",
   JP: "Japón",
-  GB: "Reino Unido",
   RU: "Rusia",
+  US: "Estados Unidos",
 };
 
 const locales = {
-  fr: frenchTranslation,
   es: spanishTranslation,
+  fr: frenchTranslation,
 };
 
 const customEnglishTranslation = { FR: "France" };
@@ -238,7 +238,7 @@ describe("getLabel", () => {
   ];
 
   testCases.map((testCase) => {
-    const { code, locale, locales, fallbackTranslation } = testCase.arguments;
+    const { code, fallbackTranslation, locale, locales } = testCase.arguments;
 
     test(testCase.name, () => {
       const result = getLabel(code, locale, locales, fallbackTranslation);

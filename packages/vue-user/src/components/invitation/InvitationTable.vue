@@ -69,6 +69,15 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type {
+  FilterOption,
+  SortingState,
+  TableColumnDefinition,
+  TableRow,
+  TRequestJSON,
+} from "@prefabs.tech/vue3-tanstack-table";
+import type { PropType } from "vue";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import {
@@ -78,7 +87,12 @@ import {
 } from "@prefabs.tech/vue3-ui";
 import { computed, h, ref } from "vue";
 
-import InvitationModal from "./InvitationModal.vue";
+import type {
+  Invitation,
+  InvitationAppOption,
+  InvitationRoleOption,
+} from "../../types";
+
 import {
   INVITATION_STATUS_ACCEPTED,
   INVITATION_STATUS_EXPIRED,
@@ -89,20 +103,7 @@ import {
   ROLE_USER,
 } from "../../constant";
 import { useTranslations } from "../../index";
-
-import type {
-  Invitation,
-  InvitationAppOption,
-  InvitationRoleOption,
-} from "../../types";
-import type {
-  FilterOption,
-  SortingState,
-  TableColumnDefinition,
-  TableRow,
-  TRequestJSON,
-} from "@prefabs.tech/vue3-tanstack-table";
-import type { PropType } from "vue";
+import InvitationModal from "./InvitationModal.vue";
 
 type TableProperties = InstanceType<typeof Table>["$props"];
 
@@ -259,11 +260,12 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     header: t("user.invitation.table.defaultColumns.email"),
   },
   {
-    align: "center",
     accessorKey: "appId",
+    align: "center",
     cell: ({ row }) => appNameMap.value?.get(row.original.appId) || "-",
     enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: t("user.invitation.table.placeholder.app"),
     header: t("user.invitation.table.defaultColumns.app"),
     meta: {
       filterOptions:
@@ -277,7 +279,6 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
             : [],
       filterVariant: "multiselect",
     },
-    filterPlaceholder: t("user.invitation.table.placeholder.app"),
     sortingFn: (rowA, rowB, columnId) => {
       const appRowA = appNameMap.value.get(rowA.original.appId) || "";
       const appRowB = appNameMap.value.get(rowB.original.appId) || "";
@@ -286,32 +287,32 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     },
   },
   {
-    align: "center",
     accessorKey: "role",
+    align: "center",
     cell: ({ getValue, row: original }) => {
       const roles = (original as unknown as { roles: string[] })?.roles;
       if (Array.isArray(roles)) {
         return roles.map((role, index) =>
           h(BadgeComponent, {
-            label: role,
-            severity: role === ROLE_ADMIN ? "primary" : "success",
             fullWidth: true,
             key: role + index,
+            label: role,
+            severity: role === ROLE_ADMIN ? "primary" : "success",
           }),
         );
       }
       const role = getValue() as string;
       return h(BadgeComponent, {
+        fullWidth: true,
         label: role,
         severity: role === ROLE_ADMIN ? "primary" : "success",
-        fullWidth: true,
       });
     },
     enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: t("user.invitation.table.placeholder.role"),
     header: t("user.invitation.table.defaultColumns.role"),
     meta: {
-      filterVariant: "multiselect",
       filterOptions:
         props.roleFilterOptions.length > 0
           ? props.roleFilterOptions
@@ -329,8 +330,8 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
                 value: ROLE_USER,
               },
             ],
+      filterVariant: "multiselect",
     },
-    filterPlaceholder: t("user.invitation.table.placeholder.role"),
   },
   {
     accessorFn: (original: Invitation) => {
@@ -348,28 +349,40 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
     cell: ({ getValue }) => getValue(),
     enableColumnFilter: true,
     enableSorting: true,
-    header: t("user.invitation.table.defaultColumns.invitedBy"),
     filterPlaceholder: t("user.invitation.table.placeholder.search"),
+    header: t("user.invitation.table.defaultColumns.invitedBy"),
   },
   {
     accessorKey: "expiresAt",
     dataType: "datetime",
     enableColumnFilter: true,
     enableSorting: true,
+    filterPlaceholder: t("user.invitation.table.placeholder.date"),
     header: t("user.invitation.table.defaultColumns.expiresAt"),
     meta: {
       filterVariant: "dateRange",
       serverFilterFn: "between",
     },
-    filterPlaceholder: t("user.invitation.table.placeholder.date"),
   },
   {
-    align: "center",
     accessorKey: "status",
+    align: "center",
+    cell: ({ row }) => {
+      const { acceptedAt, expiresAt, revokedAt } = row.original;
+      const label = getStatusLabel(row);
+      const severity = acceptedAt
+        ? "success"
+        : revokedAt
+          ? "danger"
+          : isExpired(expiresAt)
+            ? "secondary"
+            : "warning";
+      return h(BadgeComponent, { label, severity });
+    },
     enableColumnFilter: true,
     enableSorting: !props.isServerTable,
     filterFn: (row, columnId, filterValue) => {
-      const { acceptedAt, revokedAt, expiresAt } = row.original;
+      const { acceptedAt, expiresAt, revokedAt } = row.original;
 
       if (!filterValue || filterValue.length === 0) {
         return true;
@@ -387,21 +400,9 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
 
       return filterValue.includes(status);
     },
+    filterPlaceholder: t("user.invitation.table.placeholder.status"),
     header: t("user.invitation.table.defaultColumns.status"),
-    cell: ({ row }) => {
-      const { acceptedAt, revokedAt, expiresAt } = row.original;
-      const label = getStatusLabel(row);
-      const severity = acceptedAt
-        ? "success"
-        : revokedAt
-          ? "danger"
-          : isExpired(expiresAt)
-            ? "secondary"
-            : "warning";
-      return h(BadgeComponent, { label, severity });
-    },
     meta: {
-      filterVariant: "multiselect",
       filterOptions:
         props.statusFilterOptions.length > 0
           ? props.statusFilterOptions
@@ -423,8 +424,8 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
                 value: INVITATION_STATUS_PENDING,
               },
             ],
+      filterVariant: "multiselect",
     },
-    filterPlaceholder: t("user.invitation.table.placeholder.status"),
     sortingFn: (rowA, rowB, columnId) => {
       return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));
     },
@@ -446,7 +447,7 @@ const mergedColumns = computed(() => [
   ),
 ]);
 
-const isExpired = (date?: string | Date | number) => {
+const isExpired = (date?: Date | number | string) => {
   return !!(date && new Date(date) < new Date());
 };
 

@@ -6,6 +6,10 @@ demo: run
 
 dev: run
 
+lint.md:
+	@printf "\033[0;32m>>> Lint markdown\033[0m\n"
+	pnpm lint:md
+
 install:
 	@printf "\033[0;32m>>> Installing dependencies\033[0m\n"
 	pnpm -r install
@@ -41,6 +45,14 @@ snapshot-update:
 sort-package:
 	@printf "\033[0;32m>>> Format package.json\033[0m\n"
 	pnpm sort-package
+
+stylelint:
+	@printf "\033[0;32m>>> Lint style\033[0m\n"
+	pnpm stylelint
+
+stylelint.fix:
+	@printf "\033[0;32m>>>Fix lint style\033[0m\n"
+	pnpm stylelint:fix
 
 test:
 	@printf "\033[0;32m>>> Running tests\033[0m\n"

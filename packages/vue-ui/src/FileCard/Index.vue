@@ -262,15 +262,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { ref } from "vue";
+
+import type { FileMessages, IFile } from "../types/file";
 
 import ButtonElement from "../Button/Index.vue";
 import Card from "../Card/Index.vue";
 import { formatDate, formatDateTime } from "../utils";
 import ConfirmationFileActions from "./ConfirmationFileActions.vue";
-
-import type { FileMessages, IFile } from "../types/file";
-import type { PropType } from "vue";
 
 const props = defineProps({
   actionButtonsVisibility: {
@@ -301,8 +302,8 @@ const props = defineProps({
     type: Object,
   },
   file: {
-    type: Object as PropType<IFile>,
     required: true,
+    type: Object as PropType<IFile>,
   },
   locale: {
     default: undefined,

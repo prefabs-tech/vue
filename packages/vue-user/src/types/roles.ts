@@ -1,9 +1,9 @@
 export interface Role {
-  role: string;
   permissions: string[];
+  role: string;
 }
 
 export interface RolePermissionsInput {
-  role: string;
   permissions?: string[];
+  role: string;
 }

@@ -56,11 +56,11 @@
 
 <script lang="ts">
 export default {
-  name: "NavMenuItem",
-
   components: {
     NavMenuItem: () => import("./NavMenuItem.vue"),
   },
+
+  name: "NavMenuItem",
 };
 </script>
 
@@ -75,7 +75,6 @@ const props = defineProps({
     required: true,
     type: Object,
   },
-
   sidebarActive: {
     default: true,
     type: Boolean,

@@ -11,8 +11,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import type { Error as ErrorType } from "../types";
 import type { PropType } from "vue";
+
+import type { Error as ErrorType } from "../types";
 
 defineProps({
   error: {
@@ -28,8 +29,8 @@ defineProps({
 }
 
 .error .code {
-  font-style: italic;
   font-size: 85%;
+  font-style: italic;
   opacity: 0.8;
 }
 </style>
