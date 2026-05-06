@@ -254,17 +254,17 @@ const menu = [
 const severityMenu = [
   {
     label: t("ui.dropdown.label.view"),
-    severity: "primary",
+    severity: "primary" as const,
     value: "view",
   },
   {
     label: t("ui.dropdown.label.edit"),
-    severity: "warning",
+    severity: "warning" as const,
     value: "edit",
   },
   {
     label: t("ui.dropdown.label.delete"),
-    severity: "danger",
+    severity: "danger" as const,
     value: "delete",
   },
 ];

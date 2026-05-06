@@ -12,7 +12,7 @@
             {
               accessorKey: 'uploadedBy',
               header: $t('table.label.uploadedBy'),
-              tooltip: uploadedBy,
+              tooltip: String(uploadedBy),
             },
             {
               accessorKey: 'uploadedAt',

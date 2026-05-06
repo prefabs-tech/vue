@@ -42,7 +42,7 @@
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Age",
               meta: {
-                filterVariant: "range",
+                filterVariant: "range" as const,
               },
             },
             {
@@ -52,7 +52,7 @@
               filterPlaceholder: t("table.placeholder.city"),
               header: "City",
               meta: {
-                filterVariant: "multiselect",
+                filterVariant: "multiselect" as const,
                 filterOptions: city,
               },
             },
@@ -147,7 +147,7 @@
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: () => "Quantity",
               meta: {
-                filterVariant: "range",
+                filterVariant: "range" as const,
               },
               numberOptions: {
                 locale: "en-IN",
@@ -161,7 +161,7 @@
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Amount",
               meta: {
-                filterVariant: "range",
+                filterVariant: "range" as const,
               },
               numberOptions: {
                 formatOptions: {
@@ -339,7 +339,7 @@
                 return {
                   ...columnData,
                   meta: {
-                    filterVariant: "range",
+                    filterVariant: "range" as const,
                   },
                 }
               }
@@ -396,7 +396,7 @@
                 return {
                   ...columnData,
                   meta: {
-                    filterVariant: "range",
+                    filterVariant: "range" as const,
                   },
                 };
               }
@@ -496,7 +496,7 @@ const customColumns = columns.map((columnData) => {
         });
       },
       meta: {
-        serverFilterFn: "contains",
+        serverFilterFn: "contains" as const,
       },
     };
   } else if (columnData.accessorKey === "age") {
@@ -509,7 +509,7 @@ const customColumns = columns.map((columnData) => {
   }
 
   return columnData;
-});
+}) as TableColumnDefinition<string, unknown>[];
 const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "description",
@@ -602,7 +602,7 @@ const equalFilterColumns = columns.map((columnData) => {
     return {
       ...columnData,
       meta: {
-        serverFilterFn: "equals",
+        serverFilterFn: "equals" as const,
       },
     };
   } else if (columnData.accessorKey === "age") {
@@ -615,7 +615,7 @@ const equalFilterColumns = columns.map((columnData) => {
   }
 
   return columnData;
-});
+}) as TableColumnDefinition<string, unknown>[];
 const dateRange = ref([]);
 
 const customEqualStringFilter: FilterFunction<unknown> = (

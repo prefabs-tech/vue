@@ -202,12 +202,14 @@
             v-model="formData.selectOptionsInput"
             :options="options"
             :placeholder="$t('form.placeholder.currency')"
-            :selection-options="{
-              hasSortedOptions: false,
-              maxSelection: 3,
-              minSelection: 2,
-              showRemoveSelection: true,
-            }"
+            :selection-options="
+              {
+                hasSortedOptions: false,
+                maxSelection: 3,
+                minSelection: 2,
+                showRemoveSelection: true,
+              } as SelectInputProperties
+            "
             multiple
             name="select-currency"
           />
@@ -225,7 +227,7 @@
                   maxSelection: 3,
                   minSelection: 2,
                   showRemoveSelection: true,
-                }"
+                } as SelectInputProperties"
                 multiple
                 name="currency"
                 placeholder="Select a currency"
@@ -234,10 +236,10 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
+          import type { CurrencyOption, SelectInputProperties } from "@prefabs.tech/vue3-form";
+
           import { CurrencyPicker, Form } from "@prefabs.tech/vue3-form";
           import { ref } from "vue";
-
-          import type { CurrencyOption } from "@prefabs.tech/vue3-form";
 
           const input = ref();
 
@@ -354,7 +356,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import type { CurrencyOption } from "@prefabs.tech/vue3-form";
+import type {
+  CurrencyOption,
+  SelectInputProperties,
+} from "@prefabs.tech/vue3-form";
 
 import { CurrencyPicker, Form } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";

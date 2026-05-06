@@ -60,11 +60,9 @@ import type { PropType } from "vue";
 import { computed, ref } from "vue";
 import { z } from "zod";
 
-import type { CurrencyOption } from "../types";
+import type { CurrencyOption, SelectInputProperties } from "../types";
 
 import SelectInput from "./SelectInput.vue";
-
-type SelectInputProperties = InstanceType<typeof SelectInput>["$props"];
 
 const props = defineProps({
   disabled: {
@@ -109,7 +107,7 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<z.ZodType<number | number[] | string | string[]>>,
+    type: Object as PropType<z.ZodTypeAny>,
   },
   selectionOptions: {
     default: () => ({}),

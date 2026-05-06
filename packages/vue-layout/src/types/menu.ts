@@ -12,7 +12,7 @@ interface SidebarMenu {
   hide?: boolean;
   icon?: string;
   name: string;
-  routeName: string;
+  routeName?: string;
   shortName?: string;
 }
 

@@ -443,7 +443,7 @@ const actions = [
     icon: "pi pi-trash",
     key: "delete",
     label: "Delete",
-    severity: "danger",
+    severity: "danger" as const,
   },
 ];
 
