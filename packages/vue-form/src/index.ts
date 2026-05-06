@@ -13,6 +13,7 @@ export type {
   IsTextOptions,
   NumberErrorMessages,
   PasswordErrorMessages,
+  SelectInputProperties,
   SelectOption,
   StrongPasswordOptions,
   TextErrorMessages,

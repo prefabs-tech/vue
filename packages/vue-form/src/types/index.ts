@@ -1,3 +1,5 @@
+import type SelectInput from "../components/SelectInput.vue";
+
 type CountryPickerGroups = Record<string, string[]>;
 
 interface CountryPickerLabels {
@@ -55,6 +57,9 @@ interface PasswordErrorMessages {
   required?: string;
   weak?: string;
 }
+
+type SelectInputProperties = InstanceType<typeof SelectInput>["$props"];
+
 interface SelectOption extends Record<string, unknown> {
   disabled?: boolean;
   groupLabel?: string;
@@ -82,6 +87,7 @@ export type {
   NumberErrorMessages,
   Options,
   PasswordErrorMessages,
+  SelectInputProperties,
   SelectOption,
   TextErrorMessages,
 };

@@ -127,7 +127,8 @@ const props = defineProps({
   },
   customFormatters: {
     default: () => ({}),
-    type: Object as () => Record<string, (value: unknown) => unknown>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: Object as () => Record<string, (value: any) => unknown>,
   },
   data: {
     default: () => [],

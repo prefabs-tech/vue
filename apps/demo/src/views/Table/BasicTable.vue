@@ -1507,7 +1507,7 @@ const alignmentColumns = [
     filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Age",
     meta: {
-      filterVariant: "range",
+      filterVariant: "range" as const,
     },
   },
   {
@@ -1522,7 +1522,7 @@ const alignmentColumns = [
       filterVariant: "multiselect",
     },
   },
-];
+] as TableColumnDefinition<string, unknown>[];
 
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
@@ -1603,7 +1603,7 @@ const centerAlignedTableColumns = [
       filterVariant: "select",
     },
   },
-];
+] as TableColumnDefinition<string, unknown>[];
 
 const columnsWithTooltip = columns.map((column, index) => ({
   ...column,
@@ -1668,7 +1668,7 @@ const customFormattedTableColumns = [
       }),
     id: "action",
   },
-];
+] as TableColumnDefinition<string, unknown>[];
 
 const eventsData = [
   {
@@ -1763,7 +1763,7 @@ const formattedTableColumns = [
       }),
     id: "action",
   },
-];
+] as TableColumnDefinition<string, unknown>[];
 
 const propsData = [
   {
@@ -2003,7 +2003,8 @@ const getDeleteConfirmationWithI18n = (rowData: { name?: string }) => {
 
 const isRowDisabled = (rowData: { id: number }) => rowData.id !== 11;
 
-const shouldDisplayAction = (data: { id: number }) => data.id !== 12;
+const shouldDisplayAction = (data: object) =>
+  (data as { id: number }).id !== 12;
 </script>
 
 <style lang="css">

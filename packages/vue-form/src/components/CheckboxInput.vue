@@ -97,7 +97,9 @@ const props = defineProps({
   schema: {
     default: undefined,
     required: false,
-    type: Object as PropType<z.ZodType<boolean | number | string>>,
+    type: Object as PropType<
+      z.ZodType<Array<boolean | number | string> | boolean | number | string>
+    >,
   },
 });
 

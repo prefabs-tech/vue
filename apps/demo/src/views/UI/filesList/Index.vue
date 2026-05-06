@@ -199,7 +199,7 @@ const files = [
   },
 ] as IFile[];
 
-const propsData = [
+const propsData: Array<Record<string, string>> = [
   {
     default: `{
       archive: true,

@@ -64,6 +64,13 @@ export type DataActionsMenuItem = {
   key?: string;
   label?: string;
   requireConfirmationModal?: boolean;
+  severity?:
+    | "alternate"
+    | "danger"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "warning";
 };
 
 export type FilterOption = {

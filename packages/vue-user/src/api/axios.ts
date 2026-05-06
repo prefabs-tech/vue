@@ -1,10 +1,10 @@
-import axios from "axios";
+import { create } from "axios";
 
 import { authConfig } from "../auth-provider";
 import { API_PATH_REFRESH } from "../constant";
 
 const client = (baseURL: string) => {
-  const instance = axios.create({
+  const instance = create({
     baseURL,
     headers: {
       Accept: "application/json",
