@@ -238,14 +238,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { IFile } from "@prefabs.tech/vue3-ui";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { FilesPresentation } from "@prefabs.tech/vue3-tanstack-table";
 import { computed } from "vue";
 
-import TablePage from "./TablePage.vue";
 import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
-
-import type { IFile } from "@prefabs.tech/vue3-ui";
+import TablePage from "./TablePage.vue";
 
 const { locale, t } = useI18n();
 

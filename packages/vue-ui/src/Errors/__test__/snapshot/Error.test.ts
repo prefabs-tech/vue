@@ -1,9 +1,9 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import { shallowMount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import Error from "../../Error.vue";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("Error", () => {
   it("should matches snapshot", () => {

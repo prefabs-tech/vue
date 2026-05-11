@@ -23,8 +23,8 @@ import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Modal } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 
-import UpdateEmailForm from "./UpdateEmailForm.vue";
 import { useTranslations } from "../../index";
+import UpdateEmailForm from "./UpdateEmailForm.vue";
 
 const messages = useTranslations();
 const { t } = useI18n({ messages });

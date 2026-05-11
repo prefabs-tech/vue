@@ -1,6 +1,6 @@
-import useUserStore from "../store";
-
 import type { UserType } from "../types/auth";
+
+import useUserStore from "../store";
 
 export async function verifySessionRoles(
   supportedRoles: string[],
@@ -8,7 +8,7 @@ export async function verifySessionRoles(
   const userStore = useUserStore();
   const { logout } = userStore;
 
-  const user: UserType | undefined = userStore.getUser();
+  const user: undefined | UserType = userStore.getUser();
 
   if (user && user.roles) {
     const hasSupportedRoles = await user.roles.some((userRole) => {

@@ -1,13 +1,13 @@
-import { getStorage } from "../utils";
+import type { StorageType, TOrientation, TPosition } from "./types";
 
-import type { TOrientation, TPosition, StorageType } from "./types";
+import { getStorage } from "../utils";
 
 const getOrientation = (position: TPosition) => {
   let orientation: TOrientation;
 
   switch (position) {
-    case "top":
-    case "bottom": {
+    case "bottom":
+    case "top": {
       orientation = "horizontal";
       break;
     }
@@ -36,4 +36,4 @@ const clearSavedTabState = (
   storage.removeItem(key);
 };
 
-export { getOrientation, clearSavedTabState };
+export { clearSavedTabState, getOrientation };

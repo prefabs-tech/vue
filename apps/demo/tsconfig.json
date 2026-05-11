@@ -1,14 +1,5 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.config.json"
-    },
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.vitest.json"
-    }
-  ]
+  "extends": "@prefabs.tech/tsconfig/vue-app",
+  "include": ["*.d.ts", "src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

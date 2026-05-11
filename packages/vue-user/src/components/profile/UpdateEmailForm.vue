@@ -83,6 +83,24 @@ const onSubmit = async (data: UpdateEmailFormData) => {
   try {
     const result = await userStore.changeEmail(data.email, config.apiBaseUrl);
     switch (result) {
+      case "EMAIL_ALREADY_EXISTS_ERROR": {
+        errorMessage.value = t(
+          "user.profile.accountInfo.messages.alreadyExist",
+        );
+        break;
+      }
+      case "EMAIL_FEATURE_DISABLED_ERROR": {
+        errorMessage.value = t("user.profile.accountInfo.messages.disabled");
+        break;
+      }
+      case "EMAIL_INVALID_ERROR": {
+        errorMessage.value = t("user.profile.accountInfo.messages.invalid");
+        break;
+      }
+      case "EMAIL_SAME_AS_CURRENT_ERROR": {
+        errorMessage.value = t("user.profile.accountInfo.messages.duplicate");
+        break;
+      }
       case "OK": {
         const userInfo = await getMe(config.apiBaseUrl);
         const isSameEmail = userInfo.data.email === user.value?.email;
@@ -105,24 +123,6 @@ const onSubmit = async (data: UpdateEmailFormData) => {
         prefabsTechVueUpdateEmail.value?.resetForm();
 
         errorMessage.value = undefined;
-        break;
-      }
-      case "EMAIL_ALREADY_EXISTS_ERROR": {
-        errorMessage.value = t(
-          "user.profile.accountInfo.messages.alreadyExist",
-        );
-        break;
-      }
-      case "EMAIL_SAME_AS_CURRENT_ERROR": {
-        errorMessage.value = t("user.profile.accountInfo.messages.duplicate");
-        break;
-      }
-      case "EMAIL_INVALID_ERROR": {
-        errorMessage.value = t("user.profile.accountInfo.messages.invalid");
-        break;
-      }
-      case "EMAIL_FEATURE_DISABLED_ERROR": {
-        errorMessage.value = t("user.profile.accountInfo.messages.disabled");
         break;
       }
       default: {

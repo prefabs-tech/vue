@@ -1,16 +1,16 @@
 interface Route {
-  route: string;
   name: string;
+  route: string;
 }
 
 const routes: Route[] = [
-  { route: "home", name: "Home" },
-  { route: "about", name: "About" },
-  { route: "test", name: "Test" },
-  { route: "abc", name: "Abc" },
-  { route: "hello", name: "Hello" },
-  { route: "namaste", name: "Namaste" },
-  { route: "check", name: "Check" },
+  { name: "Home", route: "home" },
+  { name: "About", route: "about" },
+  { name: "Test", route: "test" },
+  { name: "Abc", route: "abc" },
+  { name: "Hello", route: "hello" },
+  { name: "Namaste", route: "namaste" },
+  { name: "Check", route: "check" },
 ];
 
 export { routes };

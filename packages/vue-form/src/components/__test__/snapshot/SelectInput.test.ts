@@ -5,11 +5,11 @@ import SelectInput from "../../SelectInput.vue";
 
 describe("SelectInput", () => {
   const options = [
-    { value: "FR", label: "FR" },
-    { value: "DE", label: "DE" },
-    { value: "BE", label: "BE" },
-    { value: "FE", label: "FE" },
-    { value: "RE", label: "RE" },
+    { label: "FR", value: "FR" },
+    { label: "DE", value: "DE" },
+    { label: "BE", value: "BE" },
+    { label: "FE", value: "FE" },
+    { label: "RE", value: "RE" },
   ];
 
   it("matches snapshot", async () => {

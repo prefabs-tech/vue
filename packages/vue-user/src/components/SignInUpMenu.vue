@@ -9,14 +9,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ResponsiveMenu } from "@prefabs.tech/vue3-ui";
 import { computed } from "vue";
 
 import { useTranslations } from "../index";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 defineEmits<{
   (e: "select:menu"): void;

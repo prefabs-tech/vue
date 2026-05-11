@@ -101,7 +101,7 @@ export default {
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import { ButtonElement, DebouncedInput } from "@prefabs.tech/vue3-ui";
-import { ref, computed } from "vue";
+import { computed, ref } from "vue";
 
 const props = defineProps({
   currentPage: {
@@ -141,8 +141,8 @@ const props = defineProps({
     type: Boolean,
   },
   showPageInput: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
   showPreviousNextButtons: {
     default: true,
@@ -178,12 +178,20 @@ const onItemsPerPageChange = (event: Event) => {
   emit("update:itemsPerPage", itemsPerPage.value);
 };
 
-const onPageInputChange = (value: string | number) => {
+const onPageInputChange = (value: number | string) => {
   const newPage = Number.parseInt(value.toString(), 10) - 1;
   if (!Number.isNaN(newPage) && newPage >= 0 && newPage < lastPage.value) {
     emit("update:currentPage", newPage);
   }
 };
+
+defineExpose({
+  itemsPerPage,
+  lastPage,
+  onItemsPerPageChange,
+  onPageInputChange,
+  pages,
+});
 </script>
 
 <style lang="css">

@@ -48,12 +48,12 @@ import { Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 
+import type { PasswordResetRequestPayload } from "../types";
+
 import PasswordResetRequestAcknowledge from "../components/PasswordResetRequestAcknowledge.vue";
 import PasswordResetRequestForm from "../components/PasswordResetRequestForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
-
-import type { PasswordResetRequestPayload } from "../types";
 
 const messages = useTranslations();
 

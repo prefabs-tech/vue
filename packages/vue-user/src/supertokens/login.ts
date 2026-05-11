@@ -4,8 +4,8 @@ import type { LoginCredentials, UserType } from "../types";
 
 const login = async (
   credentials: LoginCredentials,
-): Promise<UserType | undefined> => {
-  let user: UserType | undefined;
+): Promise<undefined | UserType> => {
+  let user: undefined | UserType;
   let response;
 
   const data = {

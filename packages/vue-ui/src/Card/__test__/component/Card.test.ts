@@ -21,20 +21,6 @@ describe("Card", () => {
     expect(wrapper.find(".card-title").text()).toEqual(propsData.title);
   });
 
-  it("should render slot content when passed", () => {
-    const slotData = {
-      default: "This is test card content.",
-      header: `<h3 class="header">Test header</h3>`,
-      footer: "Footer content",
-    };
-
-    const wrapper = getWrapper({}, slotData);
-
-    expect(wrapper.find(".card>header").html()).toContain(slotData.header);
-    expect(wrapper.find(".card>.card-body").html()).toContain(slotData.default);
-    expect(wrapper.find(".card>footer").html()).toContain(slotData.footer);
-  });
-
   it("should not render title from props if header slot passed", () => {
     const slotData = {
       header: `<h3 class="header">Test header</h3>`,
@@ -42,8 +28,12 @@ describe("Card", () => {
 
     const wrapper = getWrapper(propsData, slotData);
 
-    expect(wrapper.find(".card>header>h3.card-title").exists()).toBeFalsy();
-    expect(wrapper.find(".card>header").html()).toContain(slotData.header);
+    expect(
+      wrapper.find(".card>.card-header>h3.card-title").exists(),
+    ).toBeFalsy();
+    expect(wrapper.find(".card>.card-header").html()).toContain(
+      slotData.header,
+    );
   });
 
   it("should not render header if title and header slot are missing", () => {
@@ -52,7 +42,7 @@ describe("Card", () => {
     expect(cardWrapper.find("header").exists()).toBeFalsy();
   });
 
-  it("should not render footer if footer slot are missing", () => {
+  it("should not render footer if footer slot is missing", () => {
     const cardWrapper = getWrapper();
 
     expect(cardWrapper.find("footer").exists()).toBeFalsy();

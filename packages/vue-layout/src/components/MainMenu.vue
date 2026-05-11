@@ -1,7 +1,7 @@
 <template>
   <ResponsiveMenu
     ref="mainMenu"
-    :active-route="activeRoute ?? 'home'"
+    :active-route="activeRoute || 'home'"
     :routes="routes"
     @change-route="$emit('close')"
   />
@@ -14,11 +14,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { ResponsiveMenu } from "@prefabs.tech/vue3-ui";
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-
-import type { PropType } from "vue";
 
 defineEmits<{
   (e: "close"): void;

@@ -219,10 +219,10 @@ export default {
 <script lang="ts" setup>
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 
-import DemoAccordion from "./DemoAccordion.vue";
-import DemoAccordionWithIcons from "./DemoAccordionWithIcons.vue";
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
+import DemoAccordion from "./DemoAccordion.vue";
+import DemoAccordionWithIcons from "./DemoAccordionWithIcons.vue";
 
 import "@/assets/css/ui/accordion.css";
 

@@ -36,8 +36,8 @@
   display: flex;
   flex-direction: column;
   height: var(--_height);
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: auto;
   transition: width var(--_transition-duration) ease-in;
   width: var(--_width);
 }

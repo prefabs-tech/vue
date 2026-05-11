@@ -49,7 +49,7 @@ exports[`Dropdown > matches snapshot 1`] = `
   </div>
   <div
     class="popup-content bottom"
-    style="top: 0px; left: 0px;"
+    style="left: 0px; top: 0px;"
   >
     
     <ul

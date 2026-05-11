@@ -14,8 +14,8 @@
   padding: 0.25rem;
   position: fixed;
   white-space: normal;
-  word-wrap: break-word;
   word-break: break-word;
+  word-wrap: break-word;
   z-index: 999;
 }
 
@@ -57,8 +57,8 @@
 }
 
 .tooltip-trigger {
-  position: relative;
   cursor: default;
+  position: relative;
 }
 
 .tooltip-trigger.clickable {

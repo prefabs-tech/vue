@@ -55,15 +55,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { computed, ref } from "vue";
 import { z } from "zod";
 
+import type { CurrencyOption, SelectInputProperties } from "../types";
+
 import SelectInput from "./SelectInput.vue";
-
-import type { CurrencyOption } from "../types";
-import type { PropType } from "vue";
-
-type SelectInputProperties = InstanceType<typeof SelectInput>["$props"];
 
 const props = defineProps({
   disabled: {
@@ -79,7 +78,7 @@ const props = defineProps({
     default: () => null,
     required: false,
     type: [Boolean, Number, String, Array] as PropType<
-      boolean | number | string | (number | string)[]
+      (number | string)[] | boolean | number | string
     >,
   },
   multiple: {
@@ -92,8 +91,8 @@ const props = defineProps({
     type: String,
   },
   optionLabelOrder: {
-    type: Array as PropType<Array<keyof CurrencyOption>>,
     default: () => ["code", "label", "symbol"],
+    type: Array as PropType<Array<keyof CurrencyOption>>,
   },
   options: {
     required: true,
@@ -108,7 +107,7 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+    type: Object as PropType<z.ZodTypeAny>,
   },
   selectionOptions: {
     default: () => ({}),

@@ -51,6 +51,9 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
@@ -62,14 +65,12 @@ import {
 } from "@prefabs.tech/vue3-ui";
 import { h, ref } from "vue";
 
-import RoleForm from "./RoleForm.vue";
+import type { Role } from "../../types";
+
 import { ERROR_ROLE_ALREADY_EXISTS } from "../../constant";
 import { emitter, useTranslations } from "../../index";
 import useRolesStore from "../../stores/roles";
-
-import type { Role } from "../../types";
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
+import RoleForm from "./RoleForm.vue";
 
 const config = useConfig() as AppConfig;
 
@@ -123,7 +124,6 @@ const columns: TableColumnDefinition<Role>[] = [
   },
   {
     accessorKey: "permissions",
-    header: t("roles.table.columns.permissions"),
     cell: ({ getValue }) => {
       const permissionData = getValue() as string[];
 
@@ -133,24 +133,25 @@ const columns: TableColumnDefinition<Role>[] = [
           label: permission,
           severity: "success",
           style: {
-            marginTop: "0.1rem",
             marginBottom: "0.1rem",
             marginRight: "1rem",
+            marginTop: "0.1rem",
           },
         });
       });
     },
+    header: t("roles.table.columns.permissions"),
   },
 ];
 
 const onActionSelect = (rowData: { action: string; data: Role }) => {
   switch (rowData.action) {
-    case "editRole": {
-      onEditRole(rowData.data);
-      break;
-    }
     case "deleteRole": {
       onDeleteRole(rowData.data);
+      break;
+    }
+    case "editRole": {
+      onEditRole(rowData.data);
       break;
     }
   }
@@ -160,8 +161,8 @@ const onCancel = () => {
   errorMessage.value = undefined;
   showModal.value = false;
   role.value = {
-    role: "",
     permissions: [] as string[],
+    role: "",
   } as Role;
 };
 

@@ -82,32 +82,32 @@ import UiPage from "../UiPage.vue";
 
 const packages = [
   {
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     name: "Card 1",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
   },
   {
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     name: "Card 2",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
   },
   {
-    name: "Card 3",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    name: "Card 3",
   },
 
   {
-    name: "Card 4",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    name: "Card 4",
   },
   {
-    name: "Card 5",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    name: "Card 5",
   },
 ];
 
 const slotsData = [
   {
-    name: "default",
     description: "Default slot to render grid items inside the container.",
+    name: "default",
   },
 ];
 </script>

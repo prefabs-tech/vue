@@ -454,7 +454,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { TextInput, NumberInput } from "@prefabs.tech/vue3-form";
+import { NumberInput, TextInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, Divider, Stepper } from "@prefabs.tech/vue3-ui";
 import { computed, reactive, ref } from "vue";
@@ -657,10 +657,10 @@ const renderStepContent = (step: number) => {
 }
 
 .demo-stepper-buttons-wrapper {
-  margin-top: 1rem;
   display: flex;
-  justify-content: flex-start;
   gap: 1rem;
+  justify-content: flex-start;
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 576px) {

@@ -20,10 +20,10 @@
 
 .dropdown-menu-trigger .dropdown-icon {
   display: inline-block;
-  transition: transform 0.3s ease;
-  transform-origin: center;
   margin-left: 0.5rem;
   min-width: fit-content;
+  transform-origin: center;
+  transition: transform 0.3s ease;
 }
 
 .popup-content:has(.dropdown-menu) {
@@ -53,9 +53,9 @@ ul.dropdown-menu {
 
 ul.dropdown-menu li {
   --_color: var(--color);
+  background-color: white;
 
   color: var(--_color);
-  background-color: white;
   cursor: pointer;
   padding: 0.7rem 1.25rem;
   transition: all var(--transition-duration) ease 0s;
@@ -86,10 +86,10 @@ ul.dropdown-menu li.warning {
 }
 
 ul.dropdown-menu li[aria-disabled="true"] {
-  opacity: 0.6;
   cursor: default !important;
-  user-select: none;
+  opacity: 0.6;
   pointer-events: none;
+  user-select: none;
 }
 
 ul.dropdown-menu li:hover {

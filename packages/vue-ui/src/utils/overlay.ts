@@ -1,13 +1,13 @@
 import { useWindowSize } from "@vueuse/core";
 
 export const getBestPosition = (triggerRect: DOMRect): string => {
-  const { width: windowWidth, height: windowHeight } = useWindowSize();
+  const { height: windowHeight, width: windowWidth } = useWindowSize();
 
   const positions = {
-    top: triggerRect.top,
     bottom: windowHeight.value - triggerRect.bottom,
     left: triggerRect.left,
     right: windowWidth.value - triggerRect.right,
+    top: triggerRect.top,
   };
 
   const maxSpace = Math.max(...Object.values(positions));

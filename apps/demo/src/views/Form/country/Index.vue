@@ -354,11 +354,11 @@ export default {
 import { Country } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 
-import englishTranslation from "./en.json";
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import frenchTranslation from "../countryPicker/fr.json";
 import nepaliTranslation from "../countryPicker/np.json";
 import FormPage from "../FormPage.vue";
+import englishTranslation from "./en.json";
 
 const { t } = useI18n();
 
@@ -372,60 +372,60 @@ const locales = {
 
 const selectedLocale = "np";
 
-const propsData = [
+const propsData: Array<Record<string, string>> = [
   {
     default: "-",
     description: t("form.documentation.propsDescription.select.countryCode"),
-    id: 1,
+    id: "1",
     prop: "code",
     type: "String",
   },
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.fallbackLocale"),
-    id: 2,
+    id: "2",
     prop: "fallbackLocale",
     type: "String",
   },
   {
     default: "-",
     description: t("form.documentation.propsDescription.select.flagsPath"),
-    id: 3,
+    id: "3",
     prop: "flagsPath",
     type: "(code: string) => string",
   },
   {
     default: "left",
     description: t("form.documentation.propsDescription.select.flagsPosition"),
-    id: 4,
+    id: "4",
     prop: "flagsPosition",
     type: "left | right | right-edge",
   },
   {
     default: "rectangular",
     description: t("form.documentation.propsDescription.select.flagsStyle"),
-    id: 5,
+    id: "5",
     prop: "flagsStyle",
     type: "circle | rectangular | square",
   },
   {
     default: "en",
     description: t("form.documentation.propsDescription.select.locale"),
-    id: 6,
+    id: "6",
     prop: "locale",
     type: "String",
   },
   {
     default: "{ en: defaultEnCatalogue }",
     description: t("form.documentation.propsDescription.select.locales"),
-    id: 7,
+    id: "7",
     prop: "locales",
     type: "Record<string, Record<string, string>>",
   },
   {
     default: "true",
     description: t("form.documentation.propsDescription.select.showFlag"),
-    id: 8,
+    id: "8",
     prop: "showFlag",
     type: "Boolean",
   },

@@ -62,11 +62,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { Error as ErrorType } from "@prefabs.tech/vue3-ui";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Divider, Message, Page } from "@prefabs.tech/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+
+import type { LoginCredentials } from "../types";
 
 import FacebookLogin from "../components/FacebookLogin.vue";
 import GoogleLogin from "../components/GoogleLogin.vue";
@@ -77,10 +82,6 @@ import {
 } from "../constant";
 import { emitter, useTranslations } from "../index";
 import useUserStore from "../store";
-
-import type { LoginCredentials } from "../types";
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-import type { Error as ErrorType } from "@prefabs.tech/vue3-ui";
 
 const config = useConfig() as AppConfig;
 

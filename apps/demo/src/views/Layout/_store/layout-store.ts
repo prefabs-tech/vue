@@ -1,7 +1,9 @@
+import type { Component } from "vue";
+
 import {
   BasicLayout,
-  SidebarOnlyLayout,
   SidebarHeaderLayout,
+  SidebarOnlyLayout,
 } from "@prefabs.tech/vue3-user";
 import { ref, shallowRef } from "vue";
 
@@ -12,7 +14,7 @@ import {
 } from "../_constants/layout";
 
 const activeLayout = ref<string>("basic");
-const currentLayout = shallowRef(BasicLayout);
+const currentLayout = shallowRef<Component>(BasicLayout);
 const layoutKey = ref(BASIC_LAYOUT);
 
 const switchLayout = (layout: string) => {
@@ -24,14 +26,14 @@ const switchLayout = (layout: string) => {
       currentLayout.value = BasicLayout;
       break;
     }
+    case SIDEBAR_HEADER_LAYOUT: {
+      layoutKey.value = SIDEBAR_HEADER_LAYOUT;
+      currentLayout.value = SidebarHeaderLayout as Component;
+      break;
+    }
     case SIDEBAR_ONLY_LAYOUT: {
       layoutKey.value = SIDEBAR_ONLY_LAYOUT;
       currentLayout.value = SidebarOnlyLayout;
-      break;
-    }
-    case SIDEBAR_HEADER_LAYOUT: {
-      layoutKey.value = SIDEBAR_HEADER_LAYOUT;
-      currentLayout.value = SidebarHeaderLayout;
       break;
     }
     default: {

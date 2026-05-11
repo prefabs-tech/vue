@@ -1,3 +1,10 @@
+import type {
+  Invitation,
+  LoginCredentials,
+  UpdateProfileInputType,
+  UserType,
+} from "../../types";
+
 import { authConfig } from "../../auth-provider";
 import {
   API_PATH_ME,
@@ -6,13 +13,6 @@ import {
   STATUS_ERROR,
 } from "../../constant";
 import client from "../axios";
-
-import type {
-  Invitation,
-  LoginCredentials,
-  UpdateProfileInputType,
-  UserType,
-} from "../../types";
 
 export const acceptInvitation = async (
   token: string,

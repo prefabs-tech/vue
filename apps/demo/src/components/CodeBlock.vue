@@ -34,8 +34,8 @@ defineProps({
 <style lang="css">
 .code-block pre {
   background-color: #f5f5f5;
-  padding: 1rem;
   border-radius: 5px;
   overflow-x: auto;
+  padding: 1rem;
 }
 </style>

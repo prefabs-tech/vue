@@ -42,13 +42,13 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { VueDraggableNext as draggable } from "vue-draggable-next";
-
 import type { PropType, VNode } from "vue";
 
+import { VueDraggableNext as draggable } from "vue-draggable-next";
+
 type List = {
-  id: number | string;
   data: string | unknown;
+  id: number | string;
   render?: (data: unknown) => VNode;
 };
 

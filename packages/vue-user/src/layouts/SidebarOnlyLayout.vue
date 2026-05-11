@@ -35,6 +35,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { MenuItem, SidebarMenu } from "@prefabs.tech/vue3-layout";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { SidebarOnlyLayout as Layout } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
@@ -44,8 +46,6 @@ import { useRouter } from "vue-router";
 import UserMenu from "../components/UserMenu.vue";
 import { filterRoutes } from "../router";
 import useUserStore from "../store";
-
-import type { MenuItem, SidebarMenu } from "@prefabs.tech/vue3-layout";
 
 defineProps({
   noFooter: Boolean,
@@ -100,11 +100,6 @@ const menu = computed(() => {
   });
 
   return menuItems.map((item: MenuItem) => ({
-    hide: item?.hide,
-    icon: item?.icon,
-    name: item.name,
-    routeName: item.route,
-    shortName: item?.shortName,
     children: item.children?.map((child: MenuItem) => ({
       hide: child?.hide,
       icon: child?.icon,
@@ -112,6 +107,11 @@ const menu = computed(() => {
       routeName: child.route,
       shortName: child?.shortName,
     })),
+    hide: item?.hide,
+    icon: item?.icon,
+    name: item.name,
+    routeName: item.route,
+    shortName: item?.shortName,
   })) as SidebarMenu[];
 });
 
@@ -126,12 +126,12 @@ watch(
 </script>
 
 <style lang="css">
-.sidebar-only > .sidebar .user-menu-dropdown.expanded .toggle > svg {
-  transform: rotate(-180deg);
-}
-
 .sidebar-only > .sidebar .user-menu-dropdown .toggle > svg {
   transform: rotate(0);
+}
+
+.sidebar-only > .sidebar .user-menu-dropdown.expanded .toggle > svg {
+  transform: rotate(-180deg);
 }
 
 .sidebar-only .user-menu > ul {
@@ -149,6 +149,14 @@ watch(
 
   font-size: var(--_font-size);
   font-weight: var(--_font-weight);
+  width: 100%;
+}
+
+.sidebar-only .user-menu:not(.user-menu-dropdown) > ul > li > a,
+.sidebar-only .user-menu-dropdown,
+.sidebar-only .user-menu-dropdown > ul.dropdown > li {
+  align-items: center;
+  display: flex;
   width: 100%;
 }
 
@@ -173,14 +181,6 @@ watch(
 .sidebar-only .user-menu > ul > li:has(.router-link-exact-active) {
   background-color: var(--nav-item-active-bg, #eff6ff);
   color: var(--nav-item-active-color, #2c2c2c);
-}
-
-.sidebar-only .user-menu:not(.user-menu-dropdown) > ul > li > a,
-.sidebar-only .user-menu-dropdown,
-.sidebar-only .user-menu-dropdown > ul.dropdown > li {
-  align-items: center;
-  display: flex;
-  width: 100%;
 }
 
 .sidebar-only .user-menu-dropdown.expanded > ul > li:hover {

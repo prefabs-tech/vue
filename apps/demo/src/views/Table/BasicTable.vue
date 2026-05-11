@@ -712,7 +712,7 @@
           :initial-sorting="[{ id: 'email', desc: false }]"
           :paginated="false"
           actions-mode="buttons"
-          @action:select="(data) => {}"
+          @action:select="() => {}"
         />
 
         <!-- eslint-disable -->
@@ -731,7 +731,7 @@
               :initial-sorting="[{ id: 'email', desc: false }]"
               :paginated="false"
               actions-mode="buttons"
-              @action:select="(data) => {}"
+              @action:select="() => {}"
             /&gt;
           &lt;/template&gt;
     
@@ -788,7 +788,7 @@
           :initial-sorting="[{ id: 'email', desc: false }]"
           :paginated="false"
           actions-mode="buttons"
-          @action:select="(data) => {}"
+          @action:select="() => {}"
         />
 
         <!-- eslint-disable -->
@@ -824,7 +824,7 @@
               :initial-sorting="[{ id: 'email', desc: false }]"
               :paginated="false"
               actions-mode="buttons"
-              @action:select="(data) => {}"
+              @action:select="() => {}"
             /&gt;
           &lt;/template&gt;
     
@@ -863,26 +863,19 @@
               label: $t('table.label.edit'),
             },
             {
-              disabled: (rowData) => rowData.id !== 11,
+              disabled: isRowDisabled,
               label: $t('table.label.share'),
             },
             {
-              confirmationOptions: (rowData) => {
-                return {
-                  body: $t('table.label.deleteUserMessage', {
-                    user: rowData?.name,
-                  }),
-                  header: $t('table.label.confirmation'),
-                };
-              },
+              confirmationOptions: getDeleteConfirmation,
               label: $t('table.label.delete'),
               requireConfirmationModal: true,
             },
           ]"
-          :display-actions="(data) => data.id !== 12"
+          :display-actions="shouldDisplayAction"
           :initial-sorting="[{ id: 'email', desc: false }]"
           :paginated="false"
-          @action:select="(data) => {}"
+          @action:select="() => {}"
         />
 
         <!-- eslint-disable -->
@@ -917,10 +910,10 @@
                   requireConfirmationModal: true,'
                 },
               ]"
-              :display-actions="(data) => data.id !== 12"
+              :display-actions="shouldDisplayAction"
               :initial-sorting="[{ id: 'email', desc: false }]"
               :paginated="false"
-              @action:select="(data) => {}"
+              @action:select="() => {}"
             /&gt;
           &lt;/template&gt;
     
@@ -952,39 +945,28 @@
           :data="data.slice(10, 15)"
           :data-action-menu="[
             {
-              display: (rowData) => rowData.id !== 12,
+              display: shouldDisplayAction,
               label: $t('table.label.view'),
             },
             {
               disabled: true,
-              display: (rowData) => rowData.id !== 12,
+              display: shouldDisplayAction,
               label: $t('table.label.edit'),
             },
             {
-              disabled: (rowData) => rowData.id !== 11,
-              display: (rowData) => rowData.id !== 12,
+              disabled: isRowDisabled,
+              display: shouldDisplayAction,
               label: $t('table.label.share'),
             },
             {
-              confirmationOptions: (rowData) => {
-                return {
-                  body: h(
-                    resolveComponent('i18n-t'),
-                    { keypath: 'table.label.deleteUserMessage', tag: 'p' },
-                    {
-                      user: h('strong', rowData?.name || ''),
-                    },
-                  ),
-                  header: $t('table.label.confirmation'),
-                };
-              },
+              confirmationOptions: getDeleteConfirmationWithI18n,
               label: $t('table.label.delete'),
               requireConfirmationModal: true,
             },
           ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
           actions-mode="dropdown"
-          @action:select="(rowData) => {}"
+          @action:select="() => {}"
         />
 
         <!-- eslint-disable -->
@@ -1028,7 +1010,7 @@
               ]"
               :initial-sorting="[{ id: 'email', desc: false }]"
               actions-mode="dropdown"
-              @action:select="(rowData) => {}"
+              @action:select="() => {}"
             /&gt;
           &lt;/template&gt;
     
@@ -1066,7 +1048,7 @@
           ]"
           :initial-sorting="[{ id: 'email', desc: false }]"
           actions-mode="dropdown"
-          @action:select="(rowData) => {}"
+          @action:select="() => {}"
         />
 
         <!-- eslint-disable -->
@@ -1084,7 +1066,7 @@
               :initial-sorting="[{ id: 'email', desc: false }]"
               :paginated="false"
               actions-mode="dropdown"
-              @action:select="(rowData) => {}"
+              @action:select="() => {}"
             /&gt;
           &lt;/template&gt;
     
@@ -1229,8 +1211,8 @@
           id="custom-cell-data-formatting"
           :columns-data="customFormattedTableColumns"
           :custom-formatters="{
-            currency: (value) => `$${value}`,
-            number: (value) => `~${value}`,
+            currency: (value: number) => `$${value}`,
+            number: (value: number) => `~${value}`,
           }"
           :data="formatDemoData"
           :initial-sorting="[{ id: 'quantity', desc: true }]"
@@ -1484,6 +1466,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import {
@@ -1493,11 +1477,9 @@ import {
 } from "@prefabs.tech/vue3-ui";
 import { h, ref, resolveComponent } from "vue";
 
+import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
 import { city, data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
-import ComponentDocumentation from "../../components/ComponentDocumentation.vue";
-
-import type { TableColumnDefinition } from "@prefabs.tech/vue3-tanstack-table";
 
 const { t } = useI18n();
 
@@ -1525,7 +1507,7 @@ const alignmentColumns = [
     filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     header: "Age",
     meta: {
-      filterVariant: "range",
+      filterVariant: "range" as const,
     },
   },
   {
@@ -1536,11 +1518,11 @@ const alignmentColumns = [
     filterPlaceholder: t("table.placeholder.city"),
     header: "City",
     meta: {
-      filterVariant: "multiselect",
       filterOptions: city,
+      filterVariant: "multiselect",
     },
   },
-];
+] as TableColumnDefinition<string, unknown>[];
 
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
@@ -1558,8 +1540,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     header: "Full name",
   },
   {
-    align: "right",
     accessorKey: "age",
+    align: "right",
     enableColumnFilter: true,
     enableSorting: true,
     filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
@@ -1575,8 +1557,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     filterPlaceholder: t("table.placeholder.city"),
     header: "City",
     meta: {
-      filterVariant: "multiselect",
       filterOptions: city,
+      filterVariant: "multiselect",
     },
   },
 ];
@@ -1595,7 +1577,7 @@ const centerAlignedTableColumns = [
   {
     accessorKey: "disabled",
     align: "center",
-    cell: ({ row }) => {
+    cell: ({ row }: { row: { original?: { disabled?: boolean } } }) => {
       return h(BadgeComponent, {
         label: row.original?.disabled
           ? t("table.label.disabled")
@@ -1608,7 +1590,6 @@ const centerAlignedTableColumns = [
     filterPlaceholder: t("table.placeholder.status"),
     header: "Status",
     meta: {
-      filterVariant: "select",
       filterOptions: [
         {
           label: t("table.label.enabled"),
@@ -1619,9 +1600,10 @@ const centerAlignedTableColumns = [
           value: true,
         },
       ],
+      filterVariant: "select",
     },
   },
-];
+] as TableColumnDefinition<string, unknown>[];
 
 const columnsWithTooltip = columns.map((column, index) => ({
   ...column,
@@ -1673,20 +1655,20 @@ const customFormattedTableColumns = [
     },
   },
   {
-    id: "action",
     cell: () =>
       h(ButtonElement, {
         iconLeft: "pi pi-eye",
-        variant: "textOnly",
         rounded: true,
+        variant: "textOnly",
       }),
     dataType: "other",
     header: () =>
       h("i", {
         class: "pi pi-cog",
       }),
+    id: "action",
   },
-];
+] as TableColumnDefinition<string, unknown>[];
 
 const eventsData = [
   {
@@ -1758,30 +1740,30 @@ const formattedTableColumns = [
   },
   {
     accessorKey: "datetime",
+    dataType: "datetime",
     enableColumnFilter: true,
     enableSorting: true,
     filterPlaceholder: t("table.placeholder.dateRange"),
     header: "Datetime",
-    dataType: "datetime",
     meta: {
       filterVariant: "dateRange",
     },
   },
   {
-    id: "action",
     cell: () =>
       h(ButtonElement, {
         iconLeft: "pi pi-eye",
-        variant: "textOnly",
         rounded: true,
+        variant: "textOnly",
       }),
     dataType: "other",
     header: () =>
       h("i", {
         class: "pi pi-cog",
       }),
+    id: "action",
   },
-];
+] as TableColumnDefinition<string, unknown>[];
 
 const propsData = [
   {
@@ -1996,6 +1978,33 @@ const slotsData = [
     name: "pagination",
   },
 ];
+
+const getDeleteConfirmation = (rowData: { name?: string }) => {
+  return {
+    body: t("table.label.deleteUserMessage", {
+      user: rowData?.name,
+    }),
+    header: t("table.label.confirmation"),
+  };
+};
+
+const getDeleteConfirmationWithI18n = (rowData: { name?: string }) => {
+  return {
+    body: h(
+      resolveComponent("i18n-t"),
+      { keypath: "table.label.deleteUserMessage", tag: "p" },
+      {
+        user: h("strong", rowData?.name || ""),
+      },
+    ),
+    header: t("table.label.confirmation"),
+  };
+};
+
+const isRowDisabled = (rowData: { id: number }) => rowData.id !== 11;
+
+const shouldDisplayAction = (data: object) =>
+  (data as { id: number }).id !== 12;
 </script>
 
 <style lang="css">

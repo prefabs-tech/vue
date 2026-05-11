@@ -9,15 +9,18 @@ const config: AppConfig = {
     holder: "Dzango Technologies Limited",
     url: "https://dzango.com",
   },
+  features: {
+    showVersion: true,
+  },
   i18n: {
     fallbackLocale: "en",
     messages: {} as LocaleMessages<VueMessageType>,
     supportedLocales: ["en", "fr"],
   },
-  features: {
-    showVersion: true,
-  },
   layout: {
+    localeSwitcher: {
+      showBadges: true,
+    },
     mainMenu: [
       {
         name: "Home",
@@ -28,9 +31,6 @@ const config: AppConfig = {
         route: "about",
       },
     ],
-    localeSwitcher: {
-      showBadges: true,
-    },
   },
   sentry: {
     dsn: "tbd",

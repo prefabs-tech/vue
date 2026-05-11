@@ -1,9 +1,9 @@
 .layout.sidebar-header-layout {
   display: grid;
-  grid-template-rows: auto 1fr;
   grid-template-areas:
     "header"
     "main";
+  grid-template-rows: auto 1fr;
   height: 100dvh;
   transition: all 0.25s ease-in-out;
 }
@@ -110,9 +110,9 @@
   --locale-switcher-border: none;
 
   border-top: 1px solid var(--border-color, #e5e7eb);
+  bottom: 100%;
   top: unset;
   transform: none;
-  bottom: 100%;
 }
 
 .sidebar-header-layout .sidebar-menu-wrapper .locales ul.dropdown .badge {
@@ -129,10 +129,10 @@
 
 @media screen and (min-width: 576px) {
   .layout.sidebar-header-layout {
-    grid-template-columns: auto 1fr;
     grid-template-areas:
       "header header"
       "sidebar main";
+    grid-template-columns: auto 1fr;
     overflow: hidden;
   }
 

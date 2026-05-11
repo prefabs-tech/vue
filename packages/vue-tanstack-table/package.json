@@ -14,13 +14,17 @@
   "main": "./dist/PrefabsTechVue3TanstackTable.umd.js",
   "module": "./dist/PrefabsTechVue3TanstackTable.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "snapshot:update": "vitest --environment jsdom run --update --passWithNoTests",
     "sort-package": "npx sort-package-json",
+    "stylelint": "stylelint \"src/**/*.{css,vue}\" --allow-empty-input",
+    "stylelint:fix": "stylelint \"src/**/*.{css,vue}\" --fix --allow-empty-input",
     "test": "vitest --environment jsdom run --coverage --passWithNoTests",
     "test:component": "vitest --environment jsdom run component/ --passWithNoTests",
     "test:snapshot": "vitest --environment jsdom run snapshot/ --passWithNoTests",
@@ -32,29 +36,33 @@
     "@tanstack/vue-table": "8.21.3"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "0.5.0",
-    "@prefabs.tech/tsconfig": "0.5.0",
+    "@prefabs.tech/eslint-config": "0.7.0",
+    "@prefabs.tech/stylelint-config": "0.7.0",
+    "@prefabs.tech/tsconfig": "0.7.0",
     "@prefabs.tech/vue3-form": "0.32.0",
     "@prefabs.tech/vue3-ui": "0.32.0",
     "@iconify/vue": "4.3.0",
-    "@types/node": "25.3.1",
-    "@vitejs/plugin-vue": "6.0.4",
-    "@vitejs/plugin-vue-jsx": "5.1.4",
-    "@vitest/coverage-istanbul": "4.0.18",
-    "@vue/test-utils": "2.4.6",
-    "@vueuse/core": "14.2.1",
-    "eslint": "9.39.2",
-    "prettier": "3.8.1",
+    "@types/node": "25.6.0",
+    "@vitejs/plugin-vue": "6.0.6",
+    "@vitejs/plugin-vue-jsx": "5.1.5",
+    "@vitest/coverage-istanbul": "4.1.5",
+    "@vue/test-utils": "2.4.10",
+    "@vueuse/core": "14.3.0",
+    "eslint": "9.39.4",
+    "prettier": "3.8.3",
+    "stylelint": "17.10.0",
+    "stylelint-config-recommended-vue": "1.6.1",
+    "stylelint-order": "8.1.1",
     "typescript": "5.9.3",
-    "vite": "7.3.1",
-    "vitest": "4.0.18",
-    "vue": "3.5.27",
-    "vue-tsc": "3.2.4"
+    "vite": "7.3.2",
+    "vitest": "4.1.5",
+    "vue": "3.5.33",
+    "vue-tsc": "2.2.12"
   },
   "peerDependencies": {
     "@prefabs.tech/vue3-form": "0.32.0",
     "@prefabs.tech/vue3-ui": "0.32.0",
-    "vue": ">=3.2"
+    "vue": ">=3.5"
   },
   "engines": {
     "node": ">=18",

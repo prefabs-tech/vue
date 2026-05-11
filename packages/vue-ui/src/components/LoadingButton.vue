@@ -25,16 +25,16 @@ defineEmits(["click"]);
 
 defineProps({
   disabled: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
   label: {
-    type: String,
     required: true,
+    type: String,
   },
   loading: {
-    type: Boolean,
     default: false,
+    type: Boolean,
   },
 });
 </script>
@@ -43,8 +43,8 @@ defineProps({
 .loading-button {
   align-items: center;
   background: var(--loading-button-bg-color, #1c4786);
-  border-radius: 6px;
   border: none;
+  border-radius: 6px;
   color: var(--loading-button-color, #ffffff);
   cursor: pointer;
   display: flex;

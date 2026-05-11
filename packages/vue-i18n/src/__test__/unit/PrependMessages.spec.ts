@@ -4,26 +4,18 @@ import { prependMessages } from "../../utilities";
 
 it("prepends messages", () => {
   const messages = {
-    en: {
-      x: "X",
-      y: "Y",
-    },
-    fr: {
-      locales: {
-        de: "Deutsch",
-        es: "Español",
-      },
-      x: "X",
-      y: "Y",
-    },
     de: {
       locales: {
-        en: "English",
         de: "Deutsch",
+        en: "English",
         es: "Español",
         fr: "French",
         th: "Thai",
       },
+      x: "X",
+      y: "Y",
+    },
+    en: {
       x: "X",
       y: "Y",
     },
@@ -35,10 +27,18 @@ it("prepends messages", () => {
       x: "X",
       y: "Y",
     },
+    fr: {
+      locales: {
+        de: "Deutsch",
+        es: "Español",
+      },
+      x: "X",
+      y: "Y",
+    },
     th: {
       locales: {
-        en: "English [th]",
         de: "Deutsch [th]",
+        en: "English [th]",
         es: "Español [th]",
         fr: "French [th]",
         th: "Thai [th]",

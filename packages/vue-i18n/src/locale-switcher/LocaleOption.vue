@@ -12,9 +12,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import Badge from "./Badge.vue";
-
 import type { PropType } from "vue";
+
+import Badge from "./Badge.vue";
 
 defineProps({
   locale: {

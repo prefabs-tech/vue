@@ -5,13 +5,13 @@ const config: AppConfig = {
   apiBaseUrl: "http://localhost",
   appTitle: "Test app",
   appVersion: "0.1.0",
+  features: {
+    showVersion: true,
+  },
   i18n: {
     fallbackLocale: "en",
     messages: {} as LocaleMessages<VueMessageType>,
     supportedLocales: ["en", "fr"],
-  },
-  features: {
-    showVersion: true,
   },
   sentry: {
     dsn: "tbd",

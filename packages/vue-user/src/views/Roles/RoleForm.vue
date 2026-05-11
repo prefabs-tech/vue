@@ -38,19 +38,20 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { SelectOption } from "@prefabs.tech/vue3-form";
+import type { PropType } from "vue";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { Form, FormActions, Input, SelectInput } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ref, watch } from "vue";
 import { z } from "zod";
 
+import type { Role } from "../../types";
+
 import { useTranslations } from "../../index";
 import useRolesStore from "../../stores/roles";
-
-import type { Role } from "../../types";
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-import type { SelectOption } from "@prefabs.tech/vue3-form";
-import type { PropType } from "vue";
 
 const props = defineProps({
   loading: Boolean,
@@ -74,10 +75,7 @@ const { t } = useI18n({ messages });
 const formData = ref<Role>({} as Role);
 const permissionOptions = ref<SelectOption[]>([]);
 
-const permissionsSchema = z
-  .array(z.string().nullable())
-  .refine((permission) => permission != null)
-  .optional();
+const permissionsSchema = z.array(z.string());
 const roleSchema = z
   .string()
   .max(255, { message: t("roles.form.messages.invalidRole") })
@@ -91,8 +89,8 @@ watch(
     formData.value =
       props.role ||
       ({
-        role: "",
         permissions: [] as string[],
+        role: "",
       } as Role);
   },
   { immediate: true },

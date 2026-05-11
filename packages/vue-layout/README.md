@@ -2,9 +2,9 @@
 
 ## Requirements
 
-* `@prefabs.tech/vue3-config: >= 0.6.5`
-* `vue: >= 3.2`
-* `vue-router: >= 4.0`
+- `@prefabs.tech/vue3-config: >= 0.6.5`
+- `vue: >= 3.2`
+- `vue-router: >= 4.0`
 
 ## Installation
 
@@ -45,8 +45,8 @@ app.mount("#app");
 
 ### App.vue
 
-* Wrap your router view in the `Layout` component.
-* Optionnally, set a default layout. You can use one of our built-in layouts, or create your own. The default layout will be applied to all routes for which no layout is set.
+- Wrap your router view in the `Layout` component.
+- Optionnally, set a default layout. You can use one of our built-in layouts, or create your own. The default layout will be applied to all routes for which no layout is set.
 
 ```vue
 <template>
@@ -105,41 +105,40 @@ export default router;
 
 ## Configuration
 
-| Name | Type | Description | Default value |
-|------|------|-------------|---------------|
-| `homeRoute` | `string` | The name of the "home" route, ie the route that points to your app's home page | `home` |
-| `logo` `string` | The path to the logo | `/logo.png` |
-| `mainMenu` | `{ name: string; route: string; }[]` | An array of items to display in the app header's main menu | none |
-
+| Name            | Type                                 | Description                                                                    | Default value |
+| --------------- | ------------------------------------ | ------------------------------------------------------------------------------ | ------------- |
+| `homeRoute`     | `string`                             | The name of the "home" route, ie the route that points to your app's home page | `home`        |
+| `logo` `string` | The path to the logo                 | `/logo.png`                                                                    |
+| `mainMenu`      | `{ name: string; route: string; }[]` | An array of items to display in the app header's main menu                     | none          |
 
 ## CSS Variables
 
 ### Basic layout
 
-| Name | Description | Default value |
-|-------|------------|---------------|
-| `layout-basic-gap` | Size of basic layout flex-box gap | `1rem` |
-| `layout-basic-max-width` | Maximum width of header, main and footer elements | `1200px` |
-| `layout-basic-padding-left` | Left padding for header, main and footer elements | `0.8rem` |
-| `layout-basic-padding-right` | Right padding for header, main and footer elements | `0.8rem` |
+| Name                         | Description                                        | Default value |
+| ---------------------------- | -------------------------------------------------- | ------------- |
+| `layout-basic-gap`           | Size of basic layout flex-box gap                  | `1rem`        |
+| `layout-basic-max-width`     | Maximum width of header, main and footer elements  | `1200px`      |
+| `layout-basic-padding-left`  | Left padding for header, main and footer elements  | `0.8rem`      |
+| `layout-basic-padding-right` | Right padding for header, main and footer elements | `0.8rem`      |
 
 ### AppHeader
 
-| Name | Description | Default value |
-|-------|------------|---------------|
-| `header-bg-color` | Color of header background | `transparent` |
-| `header-border-color` | Color of header (bottom) border | `#4169e1` |
-| `header-font-size` | Font size of header text | `1rem` |
-| `header-padding-bottom` | Bottom padding for header | `0.8rem` |
-| `header-padding-top` | Top padding for header | `0.8rem` |
+| Name                    | Description                     | Default value |
+| ----------------------- | ------------------------------- | ------------- |
+| `header-bg-color`       | Color of header background      | `transparent` |
+| `header-border-color`   | Color of header (bottom) border | `#4169e1`     |
+| `header-font-size`      | Font size of header text        | `1rem`        |
+| `header-padding-bottom` | Bottom padding for header       | `0.8rem`      |
+| `header-padding-top`    | Top padding for header          | `0.8rem`      |
 
 ### App footer
 
-| Name | Description | Default value |
-|-------|------------|---------------|
-| `footer-bg-color` | Color of footer background | `transparent` |
-| `footer-border-color` | Color of footer (top) border | `#4169e1` |
-| `footer-font-size` | Font size of footer text | `1rem` |
-| `footer-gap` | Size of footer flex-box gap | `0.5rem` |
-| `footer-padding-bottom` | Bottom padding for footer | `0.8rem` |
-| `footer-padding-top` | Top padding for footer | `0.8rem` |
+| Name                    | Description                  | Default value |
+| ----------------------- | ---------------------------- | ------------- |
+| `footer-bg-color`       | Color of footer background   | `transparent` |
+| `footer-border-color`   | Color of footer (top) border | `#4169e1`     |
+| `footer-font-size`      | Font size of footer text     | `1rem`        |
+| `footer-gap`            | Size of footer flex-box gap  | `0.5rem`      |
+| `footer-padding-bottom` | Bottom padding for footer    | `0.8rem`      |
+| `footer-padding-top`    | Top padding for footer       | `0.8rem`      |

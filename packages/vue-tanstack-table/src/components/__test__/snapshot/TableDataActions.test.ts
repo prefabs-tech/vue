@@ -25,8 +25,8 @@ describe("TableDataActions", () => {
             label: "Edit",
           },
           {
-            label: "Share",
             disabled: (rowData) => rowData.id !== 11,
+            label: "Share",
           },
           {
             confirmationOptions: {

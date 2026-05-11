@@ -30,14 +30,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { formatDuration } from "@prefabs.tech/vue3-ui";
 import { onMounted, ref } from "vue";
 
 import { useTranslations } from "../index";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const { user: userConfig } = useConfig() as AppConfig;
 

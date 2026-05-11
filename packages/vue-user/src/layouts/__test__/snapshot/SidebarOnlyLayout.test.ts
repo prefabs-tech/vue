@@ -1,3 +1,5 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import configPlugin from "@prefabs.tech/vue3-config";
 import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
@@ -7,8 +9,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import SidebarOnlyLayout from "../../SidebarOnlyLayout.vue";
 import appConfig from "../config";
 
-import type { VueWrapper } from "@vue/test-utils";
-
 describe("SidebarOnlyLayout", () => {
   it("matches snapshot", () => {
     const pinia = createPinia();
@@ -16,9 +16,9 @@ describe("SidebarOnlyLayout", () => {
       history: createWebHistory(),
       routes: [
         {
-          path: "/",
-          name: "home",
           component: SidebarOnlyLayout,
+          name: "home",
+          path: "/",
         },
       ],
     });
@@ -36,8 +36,8 @@ describe("SidebarOnlyLayout", () => {
           router,
         ],
         stubs: {
-          UserMenu: true,
           LocaleSwitcher: true,
+          UserMenu: true,
         },
       },
       props: {

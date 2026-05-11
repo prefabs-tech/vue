@@ -11,7 +11,7 @@
               icon-left="pi pi-chevron-left"
               size="medium"
               variant="textOnly"
-              @click="$router.push({ name: 'user' })"
+              @click="() => router.push({ name: 'user' })"
             />
           </slot>
         </template>
@@ -28,11 +28,12 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Sidebar } from "@prefabs.tech/vue3-layout";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
-
-import type { PropType } from "vue";
+import { useRouter } from "vue-router";
 
 defineProps({
   subtitle: {
@@ -46,6 +47,8 @@ defineProps({
     type: String as PropType<string>,
   },
 });
+
+const router = useRouter();
 
 const { t } = useI18n();
 

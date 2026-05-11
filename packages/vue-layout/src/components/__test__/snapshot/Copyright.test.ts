@@ -1,12 +1,12 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import i18nPlugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { shallowMount } from "@vue/test-utils";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import Copyright from "@/components/Copyright.vue";
 
 import appConfig from "../config";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 describe("Copyright", () => {
   const { setLocale } = useLocaleStore(appConfig.slug);

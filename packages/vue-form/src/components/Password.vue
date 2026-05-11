@@ -44,17 +44,18 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { ref } from "vue";
 import { z } from "zod";
 
+import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
+
 import { passwordSchema } from "../schemas";
 import eyeOpenIcon from "./../assets/svg/eye-open.svg";
 import eyeSlashIcon from "./../assets/svg/eye-slash.svg";
-
-import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
-import type { PropType } from "vue";
 
 const props = defineProps({
   autocomplete: {
@@ -78,12 +79,12 @@ const props = defineProps({
   label: {
     default: null,
     required: false,
-    type: String as PropType<string | null | undefined>,
+    type: String as PropType<null | string | undefined>,
   },
   modelValue: {
     default: null,
     required: false,
-    type: String as PropType<string | null | undefined>,
+    type: String as PropType<null | string | undefined>,
   },
   name: {
     default: "password",

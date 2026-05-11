@@ -1,6 +1,6 @@
-import client from "../api/axios";
-
 import type { PasswordResetPayload } from "../types";
+
+import client from "../api/axios";
 
 const resetPassword = async (
   credentials: PasswordResetPayload,

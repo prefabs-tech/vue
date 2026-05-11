@@ -23,6 +23,8 @@
     "lint:fix": "eslint . --fix",
     "snapshot:update": "vitest --environment jsdom run --update --passWithNoTests",
     "sort-package": "npx sort-package-json",
+    "stylelint": "stylelint \"src/**/*.{css,vue}\" --allow-empty-input",
+    "stylelint:fix": "stylelint \"src/**/*.{css,vue}\" --fix --allow-empty-input",
     "test": "vitest --environment jsdom run --coverage --passWithNoTests",
     "test:component": "vitest --environment jsdom run component/ --passWithNoTests",
     "test:snapshot": "vitest --environment jsdom run snapshot/ --passWithNoTests",
@@ -31,28 +33,32 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@sentry/core": "10.42.0",
-    "@sentry/vue": "10.42.0"
+    "@sentry/core": "10.51.0",
+    "@sentry/vue": "10.51.0"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "0.5.0",
-    "@prefabs.tech/tsconfig": "0.5.0",
-    "@types/node": "25.3.1",
-    "@vitejs/plugin-vue": "6.0.4",
-    "@vitejs/plugin-vue-jsx": "5.1.4",
-    "@vitest/coverage-istanbul": "4.0.18",
-    "eslint": "9.39.1",
-    "prettier": "3.8.1",
+    "@prefabs.tech/eslint-config": "0.7.0",
+    "@prefabs.tech/stylelint-config": "0.7.0",
+    "@prefabs.tech/tsconfig": "0.7.0",
+    "@types/node": "25.6.0",
+    "@vitejs/plugin-vue": "6.0.6",
+    "@vitejs/plugin-vue-jsx": "5.1.5",
+    "@vitest/coverage-istanbul": "4.1.5",
+    "eslint": "9.39.4",
+    "prettier": "3.8.3",
+    "stylelint": "17.10.0",
+    "stylelint-config-recommended-vue": "1.6.1",
+    "stylelint-order": "8.1.1",
     "typescript": "5.9.3",
-    "vite": "7.3.1",
-    "vitest": "4.0.18",
-    "vue": "3.5.27",
-    "vue-router": "5.0.2",
-    "vue-tsc": "3.2.4"
+    "vite": "7.3.2",
+    "vitest": "4.1.5",
+    "vue": "3.5.33",
+    "vue-router": "5.0.6",
+    "vue-tsc": "2.2.12"
   },
   "peerDependencies": {
-    "vue": ">=3.2",
-    "vue-router": ">=4.0"
+    "vue": ">=3.5",
+    "vue-router": ">=4.6"
   },
   "engines": {
     "node": ">=18",
