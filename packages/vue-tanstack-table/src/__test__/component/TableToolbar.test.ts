@@ -105,7 +105,7 @@ describe("TableToolbar", () => {
       const sortedList = [
         { data: { id: "name" }, id: 0 },
         { data: { id: "age" }, id: 1 },
-      ] as unknown as List[];
+      ] as List[];
 
       wrapper.vm.onDrag(sortedList);
 
