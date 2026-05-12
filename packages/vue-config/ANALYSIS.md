@@ -27,15 +27,6 @@
 - `useConfig()` composable — injects config via Symbol.for("dzangolab.vue-config.config")
 - `useFeature()` composable — injects feature function via Symbol.for("dzangolab.vue-config.feature")
 
-**Parse utility (`src/parse.ts`):**
-
-- `parse()` function — type-aware config value parser with fallback logic
-  - Returns fallback if value is undefined
-  - Passes through boolean values unchanged
-  - Converts string to boolean if fallback is boolean
-  - Converts string to number if fallback is number
-  - Returns value as-is for other types
-
 **Sentry plugin (`src/sentry.ts`):**
 
 - `plugin.install()` — conditional Sentry initialization
@@ -82,7 +73,6 @@
 
 ### Named Exports
 
-- `parse` — utility function for parsing config values with type-aware fallback
 - `sentry` — Vue plugin for conditional Sentry initialization
 - `useConfig` — composable to access injected config
 - `useFeature` — composable to access feature check function
@@ -105,32 +95,6 @@ if (!config || !config?.features) {
 - Returns false if config is missing or features object is missing
 - Otherwise returns the boolean value of the requested feature
 
-### Parse Fallback (`src/parse.ts:5-7`)
-
-```typescript
-if (value === undefined) {
-  return fallback;
-}
-```
-
-- Returns fallback value if input is undefined
-
-### Parse Boolean Passthrough (`src/parse.ts:9-11`)
-
-```typescript
-if (typeof value === "boolean") {
-  return value;
-}
-```
-
-- Returns boolean values unchanged
-
-### Parse Type Conversion (`src/parse.ts:13-25`)
-
-- Converts string to boolean if fallback is boolean
-- Converts string to number if fallback is number
-- Returns value as-is for other fallback types
-
 ### Sentry Conditional Initialization (`src/sentry.ts:12`)
 
 ```typescript
@@ -146,10 +110,6 @@ if (sentryOptions?.enabled && sentryOptions?.dsn) {
 ### Feature Check Function
 
 - Returns `false` if config or features object is missing
-
-### Parse Function
-
-- Returns provided `fallback` parameter if value is `undefined`
 
 ### Sentry Plugin
 
@@ -187,6 +147,5 @@ Note: This interface is designed for module augmentation. Other packages (vue-i1
 
 - [x] Classified every public export as "ours" or "theirs"
 - [x] Listed every framework construct added (plugin, provide/inject, composables)
-- [x] Identified every conditional branch (feature check, parse fallback, Sentry init)
 - [x] Documented default values for all options we define
 - [x] Produced a passthrough classification for every wrapped dependency (@sentry/vue)
