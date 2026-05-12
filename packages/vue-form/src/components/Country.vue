@@ -24,16 +24,17 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { computed, onMounted } from "vue";
 
+import type { CountryPickerTranslation } from "../types";
+
 import {
-  getFallbackTranslation,
   getFlagClass as getCountryFlagClass,
+  getFallbackTranslation,
   getLabel,
 } from "../utils/country-picker";
-
-import type { CountryPickerTranslation } from "../types";
-import type { PropType } from "vue";
 
 type I18nConfigData = Record<string, Record<string, string>>;
 
@@ -71,8 +72,8 @@ const props = defineProps({
     type: Object as () => I18nConfigData,
   },
   showFlag: {
-    type: Boolean,
     default: true,
+    type: Boolean,
   },
 });
 

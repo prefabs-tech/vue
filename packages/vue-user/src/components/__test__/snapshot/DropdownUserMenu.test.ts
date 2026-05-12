@@ -1,3 +1,5 @@
+import type { VueWrapper } from "@vue/test-utils";
+
 import i18nPlugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { createPinia } from "pinia";
@@ -6,8 +8,6 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import DropdownUserMenu from "../../DropdownUserMenu.vue";
 import appConfig from "../config";
-
-import type { VueWrapper } from "@vue/test-utils";
 
 const mockUser = {
   email: "test@example.com",
@@ -24,8 +24,8 @@ const mockUser = {
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: { template: "<div />" } },
-    { path: "/profile", name: "profile", component: { template: "<div />" } },
+    { component: { template: "<div />" }, path: "/" },
+    { component: { template: "<div />" }, name: "profile", path: "/profile" },
   ],
 });
 

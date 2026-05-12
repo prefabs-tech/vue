@@ -2,17 +2,17 @@ export type FileMessages = {
   archiveAction?: string;
   archiveConfirmationHeader?: string;
   archiveConfirmationMessage?: string;
-  downloadAction?: string;
-  editDescriptionAction?: string;
-  renameAction?: string;
   deleteAction?: string;
   deleteConfirmationHeader?: string;
   deleteConfirmationMessage?: string;
+  downloadAction?: string;
   downloadCountHeader?: string;
+  editDescriptionAction?: string;
   lastDownloadedAtHeader?: string;
-  uploadedByHeader?: string;
-  uploadedAtHeader?: string;
+  renameAction?: string;
   shareAction?: string;
+  uploadedAtHeader?: string;
+  uploadedByHeader?: string;
   viewAction?: string;
 };
 
@@ -27,8 +27,8 @@ export interface IFile {
   uploadedBy: Record<string, string>;
 }
 
-export type TableMessages = {
+export type TableMessages = FileMessages & {
+  fileSizeHeader?: string;
   searchPlaceholder?: string;
   tableEmpty?: string;
-  fileSizeHeader?: string;
-} & FileMessages;
+};

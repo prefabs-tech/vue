@@ -7,8 +7,8 @@ describe("textSchema", () => {
   it("creates a valid Zod schema with optional validation by default", () => {
     const schema = textSchema(
       {
-        required: "This field is required",
         invalid: "Invalid input",
+        required: "This field is required",
       },
       undefined,
     );
@@ -28,8 +28,8 @@ describe("textSchema", () => {
   it("validates required fields", () => {
     const schema = textSchema(
       {
-        required: "This field is required",
         invalid: "Invalid input",
+        required: "This field is required",
       },
       { required: true },
     );
@@ -52,8 +52,8 @@ describe("textSchema", () => {
 
   it("accepts custom error messages", () => {
     const customMessages = {
-      required: "Please fill in this field",
       invalid: "Invalid value",
+      required: "Please fill in this field",
     };
 
     const schema = textSchema(customMessages, { required: true });

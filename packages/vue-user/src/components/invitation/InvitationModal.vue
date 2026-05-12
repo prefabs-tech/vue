@@ -29,17 +29,18 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { Modal } from "@prefabs.tech/vue3-ui";
 import { z } from "zod";
-
-import InvitationForm from "./InvitationForm.vue";
 
 import type {
   InvitationAppOption,
   InvitationPayload,
   InvitationRoleOption,
 } from "../../types";
-import type { PropType } from "vue";
+
+import InvitationForm from "./InvitationForm.vue";
 
 defineProps({
   apps: {
@@ -49,7 +50,7 @@ defineProps({
   appSchema: {
     default: undefined,
     required: false,
-    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+    type: Object as PropType<z.ZodType<number | number[] | string | string[]>>,
   },
   dismissOnClickOut: {
     default: false,
@@ -58,12 +59,12 @@ defineProps({
   expiresAfterSchema: {
     default: undefined,
     required: false,
-    type: Object as PropType<z.ZodType<string | number>>,
+    type: Object as PropType<z.ZodType<number | string>>,
   },
   expiresAtSchema: {
     default: undefined,
     required: false,
-    type: Object as PropType<z.ZodType<string | number | Date | object>>,
+    type: Object as PropType<z.ZodType<Date | number | object | string>>,
   },
   expiryMode: {
     default: undefined,
@@ -81,7 +82,7 @@ defineProps({
   roleSchema: {
     default: undefined,
     required: false,
-    type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
+    type: Object as PropType<z.ZodType<number | number[] | string | string[]>>,
   },
   show: {
     default: false,

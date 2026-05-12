@@ -35,14 +35,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { computed } from "vue";
 import { z } from "zod";
 
 import Switch from "./Switch.vue";
-
-import type { PropType } from "vue";
 
 const props = defineProps({
   disabled: {
@@ -74,7 +74,7 @@ const props = defineProps({
       return {};
     },
     required: false,
-    type: Object as PropType<z.ZodType<string | number | boolean>>,
+    type: Object as PropType<z.ZodType<boolean | number | string>>,
   },
 });
 

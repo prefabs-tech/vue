@@ -1,5 +1,7 @@
 import { defineStore } from "pinia";
 
+import type { Role, RolePermissionsInput } from "../types";
+
 import {
   createRole as doCreateRole,
   deleteRole as doDeleteRole,
@@ -7,8 +9,6 @@ import {
   getRoles as doGetRoles,
   updateRolePermissions as doUpdateRolePermissions,
 } from "../api/roles";
-
-import type { Role, RolePermissionsInput } from "../types";
 
 const useRolesStore = defineStore("roles", () => {
   const createRole = async (data: Role, apiBaseUrl: string) => {

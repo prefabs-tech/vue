@@ -22,8 +22,8 @@ describe("Page", () => {
     const wrapper = mount(Page, {
       props: {
         toolbarActionsMenu: [
-          { label: "Visible Action", display: true },
-          { label: "Hidden Action", display: false },
+          { display: true, label: "Visible Action" },
+          { display: false, label: "Hidden Action" },
         ],
       },
     });

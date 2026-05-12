@@ -1,8 +1,9 @@
-import type { RouteOverrides } from "./router";
 import type {
   IsEmailOptions,
   StrongPasswordOptions,
 } from "@prefabs.tech/vue3-form";
+
+import type { RouteOverrides } from "./router";
 
 interface DzangolabVueUserConfig {
   apiRoutes?: {
@@ -34,12 +35,12 @@ interface DzangolabVueUserConfig {
     updateEmail?: boolean;
   };
   logoutRedirectRoute?: string;
-  password?: {
-    minLength: number;
-  };
   options?: {
     email?: IsEmailOptions;
     password?: StrongPasswordOptions;
+  };
+  password?: {
+    minLength: number;
   };
   routes?: RouteOverrides;
   socialLogins?: string[];

@@ -24,7 +24,7 @@ describe("Message", () => {
 
   it("hides close button when enableClose=false", () => {
     const wrapper = mount(Message, {
-      props: { message: "hey", enableClose: false },
+      props: { enableClose: false, message: "hey" },
     });
     expect(wrapper.find(".close-message").exists()).toBe(false);
   });

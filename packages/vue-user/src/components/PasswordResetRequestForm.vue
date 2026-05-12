@@ -33,14 +33,15 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { SubmissionHandler } from "vee-validate";
+
 import { Email, FormActions } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Form } from "vee-validate";
 
-import { useTranslations } from "../index";
-
 import type { PasswordResetRequestPayload } from "../types";
-import type { SubmissionHandler } from "vee-validate";
+
+import { useTranslations } from "../index";
 
 const messages = useTranslations();
 

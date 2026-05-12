@@ -9,11 +9,11 @@ interface MenuItem {
 
 interface SidebarMenu {
   children?: Array<SidebarMenu>;
-  name: string;
-  icon?: string;
-  routeName: string;
-  shortName?: string;
   hide?: boolean;
+  icon?: string;
+  name: string;
+  routeName?: string;
+  shortName?: string;
 }
 
 export type { MenuItem, SidebarMenu };

@@ -5,8 +5,8 @@ import { isProfileCompleted } from "../../supertokens/helper";
 
 vi.mock("supertokens-web-js/recipe/session", () => ({
   default: {
-    getClaimValue: vi.fn(),
     doesSessionExist: vi.fn(),
+    getClaimValue: vi.fn(),
     validateClaims: vi.fn(),
   },
 }));
@@ -55,8 +55,8 @@ describe("isProfileCompleted()", () => {
     const futureTime = Date.now() + 60000; // 1 minute in the future
 
     vi.mocked(Session.getClaimValue).mockResolvedValueOnce({
-      isVerified: false,
       gracePeriodEndsAt: futureTime,
+      isVerified: false,
     });
 
     const result = await isProfileCompleted();
@@ -68,8 +68,8 @@ describe("isProfileCompleted()", () => {
     const pastTime = Date.now() - 60000; // 1 minute in the past
 
     vi.mocked(Session.getClaimValue).mockResolvedValueOnce({
-      isVerified: false,
       gracePeriodEndsAt: pastTime,
+      isVerified: false,
     });
 
     const result = await isProfileCompleted();

@@ -257,7 +257,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, CheckboxInput } from "@prefabs.tech/vue3-form";
+import { CheckboxInput, Form } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
 import { reactive, ref } from "vue";

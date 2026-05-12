@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import FilesTable from "../../components/FilesTable/Index.vue";
 
@@ -17,8 +17,8 @@ describe("FilesTable", () => {
 
       const wrapper = mount(FilesTable, {
         props: {
-          files,
           columns: customColumns,
+          files,
         },
       });
 
@@ -33,8 +33,8 @@ describe("FilesTable", () => {
 
       const wrapper = mount(FilesTable, {
         props: {
-          files,
           columnsData: customColumns,
+          files,
         },
       });
 

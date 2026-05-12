@@ -23,7 +23,7 @@ describe("NavMenu", () => {
       props: {
         menu: [
           { name: "Visible", routeName: "visible" },
-          { name: "Hidden", routeName: "hidden", hide: true },
+          { hide: true, name: "Hidden", routeName: "hidden" },
         ],
       },
     });
@@ -36,12 +36,12 @@ describe("NavMenu", () => {
       props: {
         menu: [
           {
+            children: [
+              { hide: true, name: "Child 1", routeName: "child-1" },
+              { hide: true, name: "Child 2", routeName: "child-2" },
+            ],
             name: "Parent",
             routeName: "parent",
-            children: [
-              { name: "Child 1", routeName: "child-1", hide: true },
-              { name: "Child 2", routeName: "child-2", hide: true },
-            ],
           },
         ],
       },
@@ -55,12 +55,12 @@ describe("NavMenu", () => {
       props: {
         menu: [
           {
-            name: "Parent",
-            routeName: "parent",
             children: [
               { name: "Visible Child", routeName: "child-visible" },
-              { name: "Hidden Child", routeName: "child-hidden", hide: true },
+              { hide: true, name: "Hidden Child", routeName: "child-hidden" },
             ],
+            name: "Parent",
+            routeName: "parent",
           },
         ],
       },

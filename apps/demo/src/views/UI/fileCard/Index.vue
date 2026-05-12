@@ -244,7 +244,7 @@
           originalFileName: string;
           description?: string;
           size?: number;
-          uploadedBy: any;
+          uploadedBy: Record&lt;string, string&gt;;
           uploadedAt: number;
           downloadCount?: number;
           lastDownloadedAt?: number;
@@ -280,13 +280,13 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { FileMessages, IFile } from "@prefabs.tech/vue3-ui";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { FileCard } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
-
-import type { FileMessages, IFile } from "@prefabs.tech/vue3-ui";
 
 const { locale } = useI18n();
 
@@ -355,8 +355,8 @@ const file = {
   lastDownloadedAt: Date.now(),
   originalFileName: "file.png",
   size: 4,
-  uploadedBy: { givenName: "Test", lastName: "user" },
   uploadedAt: Date.now(),
+  uploadedBy: { givenName: "Test", lastName: "user" },
 } as IFile;
 
 const messages = {

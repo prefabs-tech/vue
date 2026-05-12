@@ -1,11 +1,11 @@
-import defaultEnglishCatalogue from "../components/CountryPicker/en.json";
-
 import type {
   CountryPickerLocales,
   CountryPickerTranslation,
   GroupedOption as OptionGroup,
   SelectOption,
 } from "../types";
+
+import defaultEnglishCatalogue from "../components/CountryPicker/en.json";
 
 export const getFallbackTranslation = (
   fallbackLocale: string,
@@ -48,6 +48,6 @@ export const getLabel = (
 };
 
 export const sortByLabel = (
-  optionA: SelectOption | OptionGroup,
-  optionB: SelectOption | OptionGroup,
+  optionA: OptionGroup | SelectOption,
+  optionB: OptionGroup | SelectOption,
 ) => (optionA.label ?? "").localeCompare(optionB.label ?? "");

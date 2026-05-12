@@ -91,7 +91,7 @@ const props = defineProps({
   },
   icon: {
     default: "pi pi-exclamation-triangle",
-    type: [Boolean, String],
+    type: String,
   },
   message: {
     default: "Are you sure you want to proceed?",

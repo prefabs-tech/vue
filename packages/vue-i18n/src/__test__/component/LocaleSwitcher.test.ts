@@ -1,3 +1,5 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import configPlugin from "@prefabs.tech/vue3-config";
 import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
@@ -5,8 +7,6 @@ import { beforeEach, describe, expect, it } from "vitest";
 
 import plugin from "../../index";
 import LocaleSwitcher from "../../locale-switcher/Index.vue";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 describe("LocaleSwitcher", () => {
   const config: AppConfig = {
@@ -140,15 +140,15 @@ describe("LocaleSwitcher", () => {
 
   it("renders custom icon slot", () => {
     const wrapper = mount(LocaleSwitcher, {
-      slots: {
-        icon: '<span class="custom-icon">▼</span>',
-      },
       global: {
         plugins: [
           createPinia(),
           [configPlugin, { config }],
           [plugin, { config }],
         ],
+      },
+      slots: {
+        icon: '<span class="custom-icon">▼</span>',
       },
     });
 

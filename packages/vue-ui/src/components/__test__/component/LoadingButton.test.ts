@@ -13,7 +13,7 @@ describe("LoadingButton", () => {
 
   it("is disabled when disabled=true", () => {
     const wrapper = mount(LoadingButton, {
-      props: { label: "Save", disabled: true },
+      props: { disabled: true, label: "Save" },
     });
     expect((wrapper.element as HTMLButtonElement).disabled).toBe(true);
   });

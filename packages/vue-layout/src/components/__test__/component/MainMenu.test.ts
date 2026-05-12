@@ -13,8 +13,8 @@ const createRouter_ = () =>
   createRouter({
     history: createWebHistory(),
     routes: [
-      { path: "/", name: "home", component: { template: "<div />" } },
-      { path: "/about", name: "about", component: { template: "<div />" } },
+      { component: { template: "<div />" }, name: "home", path: "/" },
+      { component: { template: "<div />" }, name: "about", path: "/about" },
     ],
   });
 

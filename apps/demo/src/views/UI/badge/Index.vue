@@ -316,10 +316,10 @@ const slotsData = [
 
 <style lang="css" scoped>
 .demo-badge .container {
-  display: flex;
   align-items: center;
-  gap: 1rem;
+  display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .demo-badge section {

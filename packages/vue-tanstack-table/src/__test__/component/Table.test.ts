@@ -1,19 +1,19 @@
 import { mount } from "@vue/test-utils";
-import { describe, it, expect } from "vitest";
-
-import Table from "../../components/Table.vue";
+import { describe, expect, it } from "vitest";
 
 import type { TableColumnDefinition } from "../../types";
 
+import Table from "../../components/Table.vue";
+
 describe("Table", () => {
-  const columnsData: TableColumnDefinition<{ name: string; age: number }>[] = [
-    { accessorKey: "name", header: "Name", enableColumnFilter: true },
-    { accessorKey: "age", header: "Age", dataType: "number" },
+  const columnsData: TableColumnDefinition<{ age: number; name: string }>[] = [
+    { accessorKey: "name", enableColumnFilter: true, header: "Name" },
+    { accessorKey: "age", dataType: "number", header: "Age" },
   ];
 
   const data = [
-    { name: "John", age: 30 },
-    { name: "Jane", age: 25 },
+    { age: 30, name: "John" },
+    { age: 25, name: "Jane" },
   ];
 
   describe("isFilterRowVisible computed property", () => {
@@ -74,8 +74,8 @@ describe("Table", () => {
         props: {
           columnsData,
           data,
-          id: "test-table",
           enableRowSelection: true,
+          id: "test-table",
         },
       });
 
@@ -90,8 +90,8 @@ describe("Table", () => {
         props: {
           columnsData,
           data,
-          id: "test-table",
           enableRowSelection: true,
+          id: "test-table",
         },
       });
 
@@ -107,8 +107,8 @@ describe("Table", () => {
         props: {
           columnsData,
           data,
-          id: "test-table",
           enableRowSelection: false,
+          id: "test-table",
         },
       });
 
@@ -122,13 +122,13 @@ describe("Table", () => {
 
   describe("actions column", () => {
     it("adds actions column when dataActionMenu is provided", () => {
-      const actions = [{ label: "Edit", action: "edit" }];
+      const actions = [{ action: "edit", label: "Edit" }];
       const wrapper = mount(Table, {
         props: {
           columnsData,
           data,
-          id: "test-table",
           dataActionMenu: actions,
+          id: "test-table",
         },
       });
 
@@ -144,8 +144,8 @@ describe("Table", () => {
         props: {
           columnsData,
           data,
-          id: "test-table",
           dataActionMenu: [],
+          id: "test-table",
         },
       });
 

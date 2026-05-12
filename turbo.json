@@ -2,8 +2,12 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "dev": {
       "cache": false,
@@ -17,6 +21,9 @@
     "lint:fix": {
       "outputs": []
     },
+    "outdated": {
+      "outputs": []
+    },
     "publish": {
       "outputs": []
     },
@@ -24,6 +31,12 @@
       "outputs": []
     },
     "sort-package": {
+      "outputs": []
+    },
+    "stylelint": {
+      "outputs": []
+    },
+    "stylelint:fix": {
       "outputs": []
     },
     "test": {
@@ -36,6 +49,9 @@
       "outputs": []
     },
     "test:unit": {
+      "outputs": []
+    },
+    "test:watch": {
       "outputs": []
     },
     "typecheck": {

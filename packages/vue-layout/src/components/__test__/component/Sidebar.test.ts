@@ -37,7 +37,7 @@ describe("Sidebar", () => {
 
   it("hides the Logo when hideLogo is true", () => {
     const wrapper = shallowMount(Sidebar, {
-      props: { menu, hideLogo: true },
+      props: { hideLogo: true, menu },
     });
 
     expect(wrapper.findComponent(Logo).exists()).toBe(false);
@@ -45,7 +45,7 @@ describe("Sidebar", () => {
 
   it("renders the full sidebar when sidebarActive is true", () => {
     const wrapper = shallowMount(Sidebar, {
-      props: { menu, collapsible: true },
+      props: { collapsible: true, menu },
     });
 
     // sidebarActive defaults to true → full sidebar visible, not collapsed-only button
@@ -55,7 +55,7 @@ describe("Sidebar", () => {
 
   it("shows only the expand button when collapsed and no item has a shortName", async () => {
     const wrapper = shallowMount(Sidebar, {
-      props: { menu, collapsible: true },
+      props: { collapsible: true, menu },
     });
 
     // Collapse the sidebar
@@ -69,7 +69,7 @@ describe("Sidebar", () => {
 
   it("clicking the expand button restores the sidebar when in collapsed-only state", async () => {
     const wrapper = shallowMount(Sidebar, {
-      props: { menu, collapsible: true },
+      props: { collapsible: true, menu },
     });
 
     wrapper.vm.sidebarActive = false;
@@ -82,7 +82,7 @@ describe("Sidebar", () => {
 
   it("keeps the sidebar visible when collapsed but items have shortNames", async () => {
     const wrapper = shallowMount(Sidebar, {
-      props: { menu: menuWithShortNames, collapsible: true },
+      props: { collapsible: true, menu: menuWithShortNames },
     });
 
     wrapper.vm.sidebarActive = false;

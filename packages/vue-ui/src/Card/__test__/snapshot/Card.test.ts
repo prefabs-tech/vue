@@ -8,8 +8,8 @@ describe("Card", () => {
     const wrapper = mount(Card, {
       slots: {
         default: "<p>This is a card body.</p>",
-        header: "<h3>Test</h3>",
         footer: "This is a footer.",
+        header: "<h3>Test</h3>",
       },
     });
 

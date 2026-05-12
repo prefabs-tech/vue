@@ -11,7 +11,7 @@
               icon-left="pi pi-chevron-left"
               size="medium"
               variant="textOnly"
-              @click="$router.push({ name: 'ui' })"
+              @click="() => router.push({ name: 'ui' })"
             />
           </slot>
         </template>
@@ -28,11 +28,12 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Sidebar } from "@prefabs.tech/vue3-layout";
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
-
-import type { PropType } from "vue";
+import { useRouter } from "vue-router";
 
 defineProps({
   subtitle: {
@@ -47,6 +48,8 @@ defineProps({
   },
 });
 
+const router = useRouter();
+
 const { t } = useI18n();
 
 const menu = [
@@ -55,25 +58,24 @@ const menu = [
     routeName: "",
   },
   {
-    name: t("ui.buttons"),
     children: [
       {
         name: t("ui.button.title"),
         routeName: "button",
       },
     ],
+    name: t("ui.buttons"),
   },
   {
-    name: t("ui.data.title"),
     children: [
       {
         name: t("ui.data.title"),
         routeName: "data",
       },
     ],
+    name: t("ui.data.title"),
   },
   {
-    name: t("ui.file"),
     children: [
       {
         name: t("ui.fileCard.title"),
@@ -84,27 +86,27 @@ const menu = [
         routeName: "filesList",
       },
     ],
+    name: t("ui.file"),
   },
   {
-    name: t("ui.menu"),
     children: [
       {
         name: t("ui.dropdown.title"),
         routeName: "dropdown",
       },
     ],
+    name: t("ui.menu"),
   },
   {
-    name: t("ui.messages"),
     children: [
       {
         name: t("ui.message.title"),
         routeName: "message",
       },
     ],
+    name: t("ui.messages"),
   },
   {
-    name: t("ui.overlay"),
     children: [
       {
         name: t("ui.confirmationModal.title"),
@@ -123,9 +125,9 @@ const menu = [
         routeName: "tooltip",
       },
     ],
+    name: t("ui.overlay"),
   },
   {
-    name: t("ui.panel"),
     children: [
       {
         name: t("ui.accordion.title"),
@@ -148,9 +150,9 @@ const menu = [
         routeName: "tabView",
       },
     ],
+    name: t("ui.panel"),
   },
   {
-    name: t("ui.misc"),
     children: [
       {
         name: t("ui.badge.title"),
@@ -185,6 +187,7 @@ const menu = [
         routeName: "youtubeFacade",
       },
     ],
+    name: t("ui.misc"),
   },
 ];
 </script>

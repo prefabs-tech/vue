@@ -12,7 +12,7 @@ const pinia = createPinia();
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [{ path: "/", component: { template: "<div />" } }],
+  routes: [{ component: { template: "<div />" }, path: "/" }],
 });
 
 const createWrapper = (config = appConfig, mountOptions = {}) => {

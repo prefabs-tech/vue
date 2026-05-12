@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { normalizeOptions } from "../../select";
 
@@ -18,8 +18,8 @@ describe("normalizeOptions", () => {
     const result = normalizeOptions(options);
 
     expect(result).toEqual([
-      { label: "Option 1", value: "opt1", groupLabel: undefined },
-      { label: "Option 2", value: "opt2", groupLabel: undefined },
+      { groupLabel: undefined, label: "Option 1", value: "opt1" },
+      { groupLabel: undefined, label: "Option 2", value: "opt2" },
     ]);
   });
 
@@ -41,9 +41,9 @@ describe("normalizeOptions", () => {
     const result = normalizeOptions(options);
 
     expect(result).toEqual([
-      { label: "Option 1", value: "opt1", groupLabel: "Group 1" },
-      { label: "Option 2", value: "opt2", groupLabel: "Group 1" },
-      { label: "Option 3", value: "opt3", groupLabel: "Group 2" },
+      { groupLabel: "Group 1", label: "Option 1", value: "opt1" },
+      { groupLabel: "Group 1", label: "Option 2", value: "opt2" },
+      { groupLabel: "Group 2", label: "Option 3", value: "opt3" },
     ]);
   });
 
@@ -57,56 +57,56 @@ describe("normalizeOptions", () => {
 
     expect(result).toEqual([
       {
-        name: "Option 1",
-        label: "Option 1",
-        value: "opt1",
         groupLabel: undefined,
+        label: "Option 1",
+        name: "Option 1",
+        value: "opt1",
       },
       {
-        name: "Option 2",
-        label: "Option 2",
-        value: "opt2",
         groupLabel: undefined,
+        label: "Option 2",
+        name: "Option 2",
+        value: "opt2",
       },
     ]);
   });
 
   it("remaps value using custom valueKey", () => {
     const options = [
-      { label: "Option 1", id: 1 },
-      { label: "Option 2", id: 2 },
+      { id: 1, label: "Option 1" },
+      { id: 2, label: "Option 2" },
     ];
 
     const result = normalizeOptions(options, undefined, "id");
 
     expect(result).toEqual([
-      { label: "Option 1", id: 1, value: 1, groupLabel: undefined },
-      { label: "Option 2", id: 2, value: 2, groupLabel: undefined },
+      { groupLabel: undefined, id: 1, label: "Option 1", value: 1 },
+      { groupLabel: undefined, id: 2, label: "Option 2", value: 2 },
     ]);
   });
 
   it("remaps both label and value using custom keys", () => {
     const options = [
-      { name: "Option 1", id: 1 },
-      { name: "Option 2", id: 2 },
+      { id: 1, name: "Option 1" },
+      { id: 2, name: "Option 2" },
     ];
 
     const result = normalizeOptions(options, "name", "id");
 
     expect(result).toEqual([
       {
-        name: "Option 1",
+        groupLabel: undefined,
         id: 1,
         label: "Option 1",
+        name: "Option 1",
         value: 1,
-        groupLabel: undefined,
       },
       {
-        name: "Option 2",
+        groupLabel: undefined,
         id: 2,
         label: "Option 2",
+        name: "Option 2",
         value: 2,
-        groupLabel: undefined,
       },
     ]);
   });
@@ -125,17 +125,17 @@ describe("normalizeOptions", () => {
 
   it("preserves additional option properties", () => {
     const options = [
-      { label: "Option 1", value: "opt1", disabled: true, custom: "data" },
+      { custom: "data", disabled: true, label: "Option 1", value: "opt1" },
     ];
 
     const result = normalizeOptions(options);
 
     expect(result[0]).toEqual({
+      custom: "data",
+      disabled: true,
+      groupLabel: undefined,
       label: "Option 1",
       value: "opt1",
-      disabled: true,
-      custom: "data",
-      groupLabel: undefined,
     });
   });
 

@@ -34,8 +34,8 @@ describe("Select", () => {
 
   const createWrapper = (props = {}) => {
     return mount(Select, {
-      props: { options, ...props },
       attachTo: document.body,
+      props: { options, ...props },
     });
   };
 
@@ -247,7 +247,7 @@ describe("Select", () => {
     });
 
     it("displays multiple selected options", async () => {
-      const wrapper = createWrapper({ multiple: true, modelValue: ["1", "2"] });
+      const wrapper = createWrapper({ modelValue: ["1", "2"], multiple: true });
       await wrapper.vm.$nextTick();
 
       const selectedText = wrapper.find(".selected-options").text();
@@ -366,8 +366,8 @@ describe("Select", () => {
 
     it("allows group selection in multiple mode", async () => {
       const wrapper = createWrapper({
-        options: groupedOptions,
         multiple: true,
+        options: groupedOptions,
       });
 
       await wrapper.find(".multiselect-input").trigger("click");

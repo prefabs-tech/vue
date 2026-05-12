@@ -24,19 +24,19 @@ const columns = [
 
 const rows = [
   {
+    age: 30,
     id: 1,
     name: "John",
-    age: 30,
   },
   {
+    age: 25,
     id: 2,
     name: "Jane",
-    age: 25,
   },
   {
+    age: 45,
     id: 3,
     name: "Bob",
-    age: 45,
   },
 ];
 </script>

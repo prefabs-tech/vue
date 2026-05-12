@@ -1,20 +1,20 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import Stepper from "../../Index.vue";
-
 import type { StepProperties } from "../../../types/stepper";
 
+import Stepper from "../../Index.vue";
+
 const steps: StepProperties[] = [
-  { step: "1", label: "Step 1", content: "Content of step 1" },
-  { step: "2", label: "Step 2", content: "Content of step 2" },
-  { step: "3", label: "Step 3", content: "Content of step 3" },
+  { content: "Content of step 1", label: "Step 1", step: "1" },
+  { content: "Content of step 2", label: "Step 2", step: "2" },
+  { content: "Content of step 3", label: "Step 3", step: "3" },
 ];
 
 describe("Stepper", () => {
   it("applies vertical direction class when direction is vertical", () => {
     const wrapper = mount(Stepper, {
-      props: { steps, direction: "vertical" },
+      props: { direction: "vertical", steps },
     });
 
     expect(wrapper.find(".stepper").classes()).toContain("vertical");
@@ -22,7 +22,7 @@ describe("Stepper", () => {
 
   it("syncs active step to activeIndex prop in controlled mode", async () => {
     const wrapper = mount(Stepper, {
-      props: { steps, activeIndex: 1 },
+      props: { activeIndex: 1, steps },
     });
 
     const stepItems = wrapper.findAll(".step");
@@ -52,7 +52,7 @@ describe("Stepper", () => {
 
   it("exposes onPrevious which goes back a step", async () => {
     const wrapper = mount(Stepper, {
-      props: { steps, activeIndex: 1 },
+      props: { activeIndex: 1, steps },
     });
 
     wrapper.vm.onPrevious();
@@ -65,7 +65,7 @@ describe("Stepper", () => {
 
   it("emits complete when onNext is called on the last step", async () => {
     const wrapper = mount(Stepper, {
-      props: { steps, activeIndex: 2 },
+      props: { activeIndex: 2, steps },
     });
 
     wrapper.vm.onNext();
@@ -75,7 +75,7 @@ describe("Stepper", () => {
 
   it("onNext is a no-op when hideButtons is true", async () => {
     const wrapper = mount(Stepper, {
-      props: { steps, hideButtons: true },
+      props: { hideButtons: true, steps },
     });
 
     wrapper.vm.onNext();
@@ -89,7 +89,7 @@ describe("Stepper", () => {
 
   it("onPrevious is a no-op when hideButtons is true", async () => {
     const wrapper = mount(Stepper, {
-      props: { steps, activeIndex: 1, hideButtons: true },
+      props: { activeIndex: 1, hideButtons: true, steps },
     });
 
     wrapper.vm.onPrevious();

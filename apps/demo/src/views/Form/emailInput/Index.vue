@@ -312,18 +312,18 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Form, Email } from "@prefabs.tech/vue3-form";
+import type {
+  EmailErrorMessages,
+  IsEmailOptions,
+} from "@prefabs.tech/vue3-form";
+
+import { Email, Form } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { reactive, ref } from "vue";
 import { z } from "zod";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
-
-import type {
-  EmailErrorMessages,
-  IsEmailOptions,
-} from "@prefabs.tech/vue3-form";
 
 const { t } = useI18n();
 
@@ -391,10 +391,10 @@ const propsData = [
 ];
 
 const validationMessages = {
-  required: t("form.errors.input.required"),
   invalid: t("form.errors.email.invalid", {
     list: "(dzangolab.com, dzango.com, gmail.com)",
   }),
+  required: t("form.errors.input.required"),
 } as EmailErrorMessages;
 
 const validationOptions = {

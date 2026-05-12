@@ -42,7 +42,7 @@
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Age",
               meta: {
-                filterVariant: "range",
+                filterVariant: "range" as const,
               },
             },
             {
@@ -52,7 +52,7 @@
               filterPlaceholder: t("table.placeholder.city"),
               header: "City",
               meta: {
-                filterVariant: "multiselect",
+                filterVariant: "multiselect" as const,
                 filterOptions: city,
               },
             },
@@ -147,7 +147,7 @@
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: () => "Quantity",
               meta: {
-                filterVariant: "range",
+                filterVariant: "range" as const,
               },
               numberOptions: {
                 locale: "en-IN",
@@ -161,7 +161,7 @@
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
               header: "Amount",
               meta: {
-                filterVariant: "range",
+                filterVariant: "range" as const,
               },
               numberOptions: {
                 formatOptions: {
@@ -339,7 +339,7 @@
                 return {
                   ...columnData,
                   meta: {
-                    filterVariant: "range",
+                    filterVariant: "range" as const,
                   },
                 }
               }
@@ -396,7 +396,7 @@
                 return {
                   ...columnData,
                   meta: {
-                    filterVariant: "range",
+                    filterVariant: "range" as const,
                   },
                 };
               }
@@ -423,6 +423,11 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type {
+  FilterFunction,
+  TableColumnDefinition,
+} from "@prefabs.tech/vue3-tanstack-table";
+
 import { DatePicker } from "@prefabs.tech/vue3-form";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Table } from "@prefabs.tech/vue3-tanstack-table";
@@ -431,11 +436,6 @@ import { h, ref } from "vue";
 
 import { city, data, formatDemoData } from "./data";
 import TablePage from "./TablePage.vue";
-
-import type {
-  FilterFunction,
-  TableColumnDefinition,
-} from "@prefabs.tech/vue3-tanstack-table";
 
 const { locale, t } = useI18n();
 
@@ -472,8 +472,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     filterPlaceholder: t("table.placeholder.city"),
     header: "City",
     meta: {
-      filterVariant: "multiselect",
       filterOptions: city,
+      filterVariant: "multiselect",
     },
   },
 ];
@@ -482,18 +482,21 @@ const customColumns = columns.map((columnData) => {
   if (columnData.accessorKey === "email") {
     return {
       ...columnData,
-      customFilterComponent: (column) => {
+      customFilterComponent: (column: {
+        getFilterValue: () => unknown;
+        setFilterValue: (value: unknown) => void;
+      }) => {
         return h(DebouncedInput, {
           debounceTime: 200,
           modelValue: column.getFilterValue() as string,
-          placeholder: t("table.label.customFilter"),
           "onUpdate:modelValue": (value) => {
             column.setFilterValue(value);
           },
+          placeholder: t("table.label.customFilter"),
         });
       },
       meta: {
-        serverFilterFn: "contains",
+        serverFilterFn: "contains" as const,
       },
     };
   } else if (columnData.accessorKey === "age") {
@@ -506,7 +509,7 @@ const customColumns = columns.map((columnData) => {
   }
 
   return columnData;
-});
+}) as TableColumnDefinition<string, unknown>[];
 const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "description",
@@ -560,13 +563,13 @@ const customFilterColumns: Array<TableColumnDefinition<unknown, unknown>> = [
             modelValue: dateRange.value,
             multiCalendars: true,
             name: "date-range",
-            placeholder: t("table.label.dateRange"),
-            range: true,
-            teleport: true,
             "onUpdate:modelValue": (value) => {
               dateRange.value = value;
               column.setFilterValue(value);
             },
+            placeholder: t("table.label.dateRange"),
+            range: true,
+            teleport: true,
           }),
         ],
       );
@@ -599,7 +602,7 @@ const equalFilterColumns = columns.map((columnData) => {
     return {
       ...columnData,
       meta: {
-        serverFilterFn: "equals",
+        serverFilterFn: "equals" as const,
       },
     };
   } else if (columnData.accessorKey === "age") {
@@ -612,7 +615,7 @@ const equalFilterColumns = columns.map((columnData) => {
   }
 
   return columnData;
-});
+}) as TableColumnDefinition<string, unknown>[];
 const dateRange = ref([]);
 
 const customEqualStringFilter: FilterFunction<unknown> = (

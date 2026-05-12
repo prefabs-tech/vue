@@ -88,7 +88,7 @@
           originalFileName: string;
           description?: string;
           size?: number;
-          uploadedBy: any;
+          uploadedBy: Record&lt;string, string&gt;;
           uploadedAt: number;
           downloadCount?: number;
           lastDownloadedAt?: number;
@@ -124,12 +124,12 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { IFile } from "@prefabs.tech/vue3-ui";
+
 import { FilesList } from "@prefabs.tech/vue3-ui";
 
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
-
-import type { IFile } from "@prefabs.tech/vue3-ui";
 
 const eventsData = [
   {
@@ -199,7 +199,7 @@ const files = [
   },
 ] as IFile[];
 
-const propsData = [
+const propsData: Array<Record<string, string>> = [
   {
     default: `{
       archive: true,
@@ -241,8 +241,8 @@ const propsData = [
     default: "-",
     description: "Array of file objects (required)",
     prop: "files",
-    type: "Array<IFile>",
     required: "true",
+    type: "Array<IFile>",
   },
   {
     default: "-",

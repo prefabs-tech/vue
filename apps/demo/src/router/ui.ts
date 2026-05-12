@@ -27,7 +27,6 @@ const YoutubeFacade = () => import("@/views/UI/youtubeFacade/Index.vue");
 
 const routes = [
   {
-    path: "/ui",
     children: [
       {
         component: Accordion,
@@ -155,6 +154,7 @@ const routes = [
         path: "youtube-facade",
       },
     ],
+    path: "/ui",
   },
 ];
 

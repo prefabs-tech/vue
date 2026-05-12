@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import Pagination from "../../components/Pagination.vue";
 
@@ -13,8 +13,8 @@ describe("Pagination", () => {
     const wrapper = mount(Pagination, {
       props: {
         ...defaultProps,
-        totalItems: 55,
         defaultItemsPerPage: 10,
+        totalItems: 55,
       },
     });
 
@@ -25,8 +25,8 @@ describe("Pagination", () => {
     const wrapper = mount(Pagination, {
       props: {
         ...defaultProps,
-        totalItems: 30,
         defaultItemsPerPage: 10,
+        totalItems: 30,
       },
     });
 
@@ -37,8 +37,8 @@ describe("Pagination", () => {
     const wrapper = mount(Pagination, {
       props: {
         ...defaultProps,
-        totalItems: 5,
         defaultItemsPerPage: 10,
+        totalItems: 5,
       },
     });
 
@@ -65,8 +65,8 @@ describe("Pagination", () => {
       const wrapper = mount(Pagination, {
         props: {
           ...defaultProps,
-          totalItems: 100,
           defaultItemsPerPage: 10,
+          totalItems: 100,
         },
       });
 
@@ -87,8 +87,8 @@ describe("Pagination", () => {
       const wrapper = mount(Pagination, {
         props: {
           ...defaultProps,
-          totalItems: 50,
           defaultItemsPerPage: 10,
+          totalItems: 50,
         },
       });
 
@@ -101,8 +101,8 @@ describe("Pagination", () => {
       const wrapper = mount(Pagination, {
         props: {
           ...defaultProps,
-          totalItems: 50,
           defaultItemsPerPage: 10,
+          totalItems: 50,
         },
       });
 
@@ -115,8 +115,8 @@ describe("Pagination", () => {
       const wrapper = mount(Pagination, {
         props: {
           ...defaultProps,
-          totalItems: 50,
           defaultItemsPerPage: 10,
+          totalItems: 50,
         },
       });
 
@@ -129,8 +129,8 @@ describe("Pagination", () => {
       const wrapper = mount(Pagination, {
         props: {
           ...defaultProps,
-          totalItems: 50,
           defaultItemsPerPage: 10,
+          totalItems: 50,
         },
       });
 
@@ -143,8 +143,8 @@ describe("Pagination", () => {
       const wrapper = mount(Pagination, {
         props: {
           ...defaultProps,
-          totalItems: 50,
           defaultItemsPerPage: 10,
+          totalItems: 50,
         },
       });
 

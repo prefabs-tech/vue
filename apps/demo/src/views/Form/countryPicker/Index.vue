@@ -566,11 +566,11 @@ import { CountryPicker } from "@prefabs.tech/vue3-form";
 import { reactive } from "vue";
 import { useI18n } from "vue-i18n";
 
-import englishTranslation from "./en.json";
-import nepaliTranslation from "./np.json";
 import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import FormPage from "../FormPage.vue";
+import englishTranslation from "./en.json";
 import frenchTranslation from "./fr.json";
+import nepaliTranslation from "./np.json";
 
 const { locale, t } = useI18n();
 
@@ -705,28 +705,31 @@ const formData = reactive({
   customLocale: undefined,
   excludedCountries: [],
   fallback: undefined,
+  favorites: undefined as string | undefined,
   flags: undefined,
   groups: undefined,
+  groupsWithFavorites: undefined as string | undefined,
   groupsWithTranslations: undefined,
   includedCountries: [],
+  includeFavorites: undefined as string | undefined,
   multiselect: [] as string[],
 });
 
 const continentCountryGroups = {
-  "North America": ["US", "CA"],
   Europe: ["FR", "DE", "IT", "ES"],
+  "North America": ["US", "CA"],
 };
 const excludedCountries = ["FR", "CN", "BR"];
 const favoriteCountries = ["NP", "US", "GB"];
 const groups = {
+  "European Hubs": ["GB", "DE", "FR"],
   "North America HQ": ["US", "CA"],
   "Offshore Dev Center": ["IN", "VN", "PH"],
-  "European Hubs": ["GB", "DE", "FR"],
 };
 const includedCountries = ["US", "GB", "DE", "FR", "JP"];
 const regionalCountryGroups = {
-  EU: ["FR", "DE", "IT", "ES"],
   ASEAN: ["VN", "TH", "SG"],
+  EU: ["FR", "DE", "IT", "ES"],
 };
 
 const slotsData = [

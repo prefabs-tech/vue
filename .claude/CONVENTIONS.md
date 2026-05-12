@@ -84,7 +84,7 @@ These patterns have been validated or are known pitfalls. Follow them to avoid k
 ## Base Library Documentation
 
 - **Do not repeat base library documentation in detail.** Link to their docs.
-- **For doc links:** use the library's official docs URL. If unsure, use the npm page: `https://www.npmjs.com/package/{package-name}`.
+- **For doc links:** use the library's official docs URL. If unsure, search for the npm page: `https://www.npmjs.com/package/{package-name}`, if the page doesn't exist, do not add the link.
 - **List only the delta** for partial/modified passthroughs — what we change, not what we preserve.
 
 ## Package Types

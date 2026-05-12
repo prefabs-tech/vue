@@ -1,17 +1,17 @@
 import { mount } from "@vue/test-utils";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import FileCard from "../../Index.vue";
-
 import type { IFile } from "../../../types/file";
 
+import FileCard from "../../Index.vue";
+
 const baseFile: IFile = {
+  description: "Monthly report",
   id: 1,
   originalFileName: "report.pdf",
+  size: 1024,
   uploadedAt: Date.UTC(2025, 0, 1),
   uploadedBy: { givenName: "Alice", lastName: "Smith" },
-  description: "Monthly report",
-  size: 1024,
 };
 
 describe("FileCard", () => {
@@ -29,7 +29,6 @@ describe("FileCard", () => {
   it("shows Download button when actionButtonsVisibility.download=true", () => {
     const wrapper = mount(FileCard, {
       props: {
-        file: baseFile,
         actionButtonsVisibility: {
           archive: false,
           delete: false,
@@ -37,6 +36,7 @@ describe("FileCard", () => {
           share: false,
           view: false,
         },
+        file: baseFile,
       },
     });
     const buttons = wrapper.findAll("button");
@@ -46,7 +46,6 @@ describe("FileCard", () => {
   it("emits on:download when Download button is clicked", async () => {
     const wrapper = mount(FileCard, {
       props: {
-        file: baseFile,
         actionButtonsVisibility: {
           archive: false,
           delete: false,
@@ -54,6 +53,7 @@ describe("FileCard", () => {
           share: false,
           view: false,
         },
+        file: baseFile,
       },
     });
     const downloadButton = wrapper
@@ -67,7 +67,6 @@ describe("FileCard", () => {
   it("shows the archive confirmation dialog when Archive button is clicked", async () => {
     const wrapper = mount(FileCard, {
       props: {
-        file: baseFile,
         actionButtonsVisibility: {
           archive: true,
           delete: false,
@@ -75,6 +74,7 @@ describe("FileCard", () => {
           share: false,
           view: false,
         },
+        file: baseFile,
       },
     });
     const archiveButton = wrapper
@@ -95,14 +95,14 @@ describe("FileCard", () => {
           uploadedBy: { givenName: "Alice", lastName: "Smith" },
         },
         visibilityDetail: {
-          uploadedBy: true,
-          uploadedAt: false,
+          actions: false,
+          description: false,
           downloadCount: false,
           lastDownloadedAt: false,
           originalFileName: true,
           size: false,
-          description: false,
-          actions: false,
+          uploadedAt: false,
+          uploadedBy: true,
         },
       },
     });
@@ -115,14 +115,14 @@ describe("FileCard", () => {
       props: {
         file: { ...baseFile, uploadedBy: { email: "alice@example.com" } },
         visibilityDetail: {
-          uploadedBy: true,
-          uploadedAt: false,
+          actions: false,
+          description: false,
           downloadCount: false,
           lastDownloadedAt: false,
           originalFileName: true,
           size: false,
-          description: false,
-          actions: false,
+          uploadedAt: false,
+          uploadedBy: true,
         },
       },
     });

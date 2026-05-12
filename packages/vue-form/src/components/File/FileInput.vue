@@ -57,15 +57,16 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+import type { FileRejectReason } from "vue3-dropzone";
+
 import { ButtonElement } from "@prefabs.tech/vue3-ui";
 import { computed, ref } from "vue";
 import { useDropzone } from "vue3-dropzone";
 
-import SelectedFile from "./SelectedFile.vue";
-
 import type { FileErrorMessages, FileExtended } from "../../types/index";
-import type { PropType } from "vue";
-import type { FileRejectReason } from "vue3-dropzone";
+
+import SelectedFile from "./SelectedFile.vue";
 
 type ButtonElementProperties = InstanceType<typeof ButtonElement>["$props"];
 

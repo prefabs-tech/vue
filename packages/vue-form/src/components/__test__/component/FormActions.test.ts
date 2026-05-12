@@ -6,12 +6,6 @@ import FormActions from "../../FormActions.vue";
 describe("FormActions", () => {
   it("renders custom actions when provided", () => {
     const wrapper = mount(FormActions, {
-      props: {
-        actions: [
-          { id: "save", label: "Save Changes", type: "submit" },
-          { id: "delete", label: "Delete", severity: "danger" },
-        ],
-      },
       global: {
         stubs: {
           ButtonElement: {
@@ -19,6 +13,12 @@ describe("FormActions", () => {
             template: `<button :data-id="id" :type="type" :data-severity="severity">{{ label }}</button>`,
           },
         },
+      },
+      props: {
+        actions: [
+          { id: "save", label: "Save Changes", type: "submit" },
+          { id: "delete", label: "Delete", severity: "danger" },
+        ],
       },
     });
 
@@ -30,9 +30,6 @@ describe("FormActions", () => {
 
   it("merges custom actions with defaults by id", () => {
     const wrapper = mount(FormActions, {
-      props: {
-        actions: [{ id: "submit", label: "Send Form", customProp: "value" }],
-      },
       global: {
         stubs: {
           ButtonElement: {
@@ -40,6 +37,9 @@ describe("FormActions", () => {
             template: `<button :type="type" :data-custom="customProp">{{ label }}</button>`,
           },
         },
+      },
+      props: {
+        actions: [{ customProp: "value", id: "submit", label: "Send Form" }],
       },
     });
 
@@ -89,9 +89,6 @@ describe("FormActions", () => {
 
   it("disables all buttons when disabled prop is true", () => {
     const wrapper = mount(FormActions, {
-      props: {
-        disabled: true,
-      },
       global: {
         stubs: {
           ButtonElement: {
@@ -99,6 +96,9 @@ describe("FormActions", () => {
             template: `<button :disabled="disabled">Button</button>`,
           },
         },
+      },
+      props: {
+        disabled: true,
       },
     });
 
@@ -109,9 +109,6 @@ describe("FormActions", () => {
 
   it("disables all buttons when loading prop is true", () => {
     const wrapper = mount(FormActions, {
-      props: {
-        loading: true,
-      },
       global: {
         stubs: {
           ButtonElement: {
@@ -119,6 +116,9 @@ describe("FormActions", () => {
             template: `<button :disabled="disabled">Button</button>`,
           },
         },
+      },
+      props: {
+        loading: true,
       },
     });
 

@@ -1,3 +1,5 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import configPlugin from "@prefabs.tech/vue3-config";
 import i18nPlugin from "@prefabs.tech/vue3-i18n";
 import { mount } from "@vue/test-utils";
@@ -7,8 +9,6 @@ import { defineComponent } from "vue";
 import Layout from "@/Layout.vue";
 
 import router from "../router";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const config: AppConfig = {
   apiBaseUrl: "http://localhost",
@@ -30,11 +30,11 @@ describe("Layout", () => {
     await router.isReady();
 
     const wrapper = mount(Layout, {
-      props: {
-        defaultLayout: CustomLayout,
-      },
       global: {
         plugins: [[configPlugin, { config }], [i18nPlugin, { config }], router],
+      },
+      props: {
+        defaultLayout: CustomLayout,
       },
       slots: {
         default: "<div>Content</div>",

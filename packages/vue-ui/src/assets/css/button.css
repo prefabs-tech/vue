@@ -7,8 +7,8 @@
 
   align-items: center;
   background-color: var(--_button-color);
-  border-radius: var(--_button-border-radius);
   border: none;
+  border-radius: var(--_button-border-radius);
   color: #ffffff;
   cursor: pointer;
   display: flex;

@@ -1,3 +1,5 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import configPlugin from "@prefabs.tech/vue3-config";
 import i18nPlugin from "@prefabs.tech/vue3-i18n";
 import { mount, RouterLinkStub } from "@vue/test-utils";
@@ -9,30 +11,28 @@ import MainMenu from "@/components/MainMenu.vue";
 
 import router from "../../../__test__/router";
 
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-
 const config: AppConfig = {
   apiBaseUrl: "http://localhost",
   appTitle: "Test App",
   appVersion: "1.0.0",
   i18n: {
-    supportedLocales: ["en"],
     defaultLocale: "en",
+    supportedLocales: ["en"],
   },
 };
 
 describe("AppHeader", () => {
   it("hides Logo when noLogo prop is true", () => {
     const wrapper = mount(AppHeader, {
-      props: {
-        noLogo: true,
-      },
       global: {
         plugins: [[configPlugin, { config }], [i18nPlugin, { config }], router],
         stubs: {
-          RouterLink: RouterLinkStub,
           LocaleSwitcher: true,
+          RouterLink: RouterLinkStub,
         },
+      },
+      props: {
+        noLogo: true,
       },
     });
 
@@ -48,9 +48,6 @@ describe("AppHeader", () => {
     };
 
     const wrapper = mount(AppHeader, {
-      props: {
-        noMainMenu: true,
-      },
       global: {
         plugins: [
           [configPlugin, { config: configWithMenu }],
@@ -58,9 +55,12 @@ describe("AppHeader", () => {
           router,
         ],
         stubs: {
-          RouterLink: RouterLinkStub,
           LocaleSwitcher: true,
+          RouterLink: RouterLinkStub,
         },
+      },
+      props: {
+        noMainMenu: true,
       },
     });
 
@@ -69,14 +69,14 @@ describe("AppHeader", () => {
 
   it("hides LocaleSwitcher when noLocaleSwitcher prop is true", () => {
     const wrapper = mount(AppHeader, {
-      props: {
-        noLocaleSwitcher: true,
-      },
       global: {
         plugins: [[configPlugin, { config }], [i18nPlugin, { config }], router],
         stubs: {
           RouterLink: RouterLinkStub,
         },
+      },
+      props: {
+        noLocaleSwitcher: true,
       },
     });
 

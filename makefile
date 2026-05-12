@@ -2,11 +2,13 @@ build:
 	@printf "\033[0;32m>>> Build packages\033[0m\n"
 	pnpm build
 
+demo: run
+
 dev: run
 
-format.md:
-	@printf "\033[0;32m>>> Format markdown\033[0m\n"
-	pnpm format:md
+lint.md:
+	@printf "\033[0;32m>>> Lint markdown\033[0m\n"
+	pnpm lint:md
 
 install:
 	@printf "\033[0;32m>>> Installing dependencies\033[0m\n"
@@ -44,6 +46,14 @@ sort-package:
 	@printf "\033[0;32m>>> Format package.json\033[0m\n"
 	pnpm sort-package
 
+stylelint:
+	@printf "\033[0;32m>>> Lint style\033[0m\n"
+	pnpm stylelint
+
+stylelint.fix:
+	@printf "\033[0;32m>>>Fix lint style\033[0m\n"
+	pnpm stylelint:fix
+
 test:
 	@printf "\033[0;32m>>> Running tests\033[0m\n"
 	pnpm test
@@ -59,6 +69,10 @@ test.integration:
 test.unit:
 	@printf "\033[0;32m>>> Running unit tests\033[0m\n"
 	pnpm test:unit
+
+test.watch:
+	@printf "\033[0;32m>>> Watch running tests\033[0m\n"
+	pnpm test:watch
 
 typecheck:
 	@printf "\033[0;32m>>> Running Type check\033[0m\n"

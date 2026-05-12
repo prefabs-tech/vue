@@ -1,11 +1,11 @@
+import type { AppConfig } from "@prefabs.tech/vue3-config";
+
 import configPlugin from "@prefabs.tech/vue3-config";
 import { shallowMount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import AppFooter from "@/components/AppFooter.vue";
 import Copyright from "@/components/Copyright.vue";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
 
 const baseConfig: AppConfig = {
   apiBaseUrl: "http://localhost",

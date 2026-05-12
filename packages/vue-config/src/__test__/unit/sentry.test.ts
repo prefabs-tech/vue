@@ -3,13 +3,13 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { createApp } from "vue";
 import { createMemoryHistory, createRouter } from "vue-router";
 
-import sentryPlugin from "../../sentry";
-
 import type { AppConfig } from "../../types";
 
+import sentryPlugin from "../../sentry";
+
 vi.mock("@sentry/vue", () => ({
-  init: vi.fn(),
   browserTracingIntegration: vi.fn(() => ({ name: "BrowserTracing" })),
+  init: vi.fn(),
 }));
 
 describe("sentry plugin", () => {
@@ -22,11 +22,11 @@ describe("sentry plugin", () => {
     apiBaseUrl: "https://api.example.com",
     appTitle: "Test App",
     appVersion: "1.2.3",
-    slug: "test-app",
-    websiteDomain: "example.com",
     features: {
       showVersion: true,
     },
+    slug: "test-app",
+    websiteDomain: "example.com",
   };
 
   beforeEach(() => {
@@ -42,8 +42,8 @@ describe("sentry plugin", () => {
       const config: AppConfig = {
         ...baseConfig,
         sentry: {
-          enabled: true,
           dsn: "https://test@sentry.io/123",
+          enabled: true,
         },
       };
 
@@ -57,8 +57,8 @@ describe("sentry plugin", () => {
       const config: AppConfig = {
         ...baseConfig,
         sentry: {
-          enabled: false,
           dsn: "https://test@sentry.io/123",
+          enabled: false,
         },
       };
 

@@ -34,14 +34,15 @@ export default {
 </script>
 
 <script setup lang="ts">
+import type { PropType } from "vue";
+
 import { toTypedSchema } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 import { z } from "zod";
 
-import { emailSchema } from "../schemas";
-
 import type { EmailErrorMessages, IsEmailOptions } from "../types";
-import type { PropType } from "vue";
+
+import { emailSchema } from "../schemas";
 
 const props = defineProps({
   autocomplete: {
@@ -69,7 +70,7 @@ const props = defineProps({
   },
   modelValue: {
     default: "",
-    type: String as PropType<string | null | undefined>,
+    type: String as PropType<null | string | undefined>,
   },
   name: {
     default: "email",
@@ -88,7 +89,7 @@ const props = defineProps({
   schema: {
     default: undefined,
     required: false,
-    type: Object as PropType<z.ZodType<string | number | object>>,
+    type: Object as PropType<z.ZodType<number | object | string>>,
   },
 });
 

@@ -4,11 +4,11 @@ import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
 import { describe, expect, it } from "vitest";
 
+import type { UserType } from "../../../types";
+
 import useUserStore from "../../../store";
 import AccountInfo from "../../profile/AccountInfo.vue";
 import appConfig from "../config";
-
-import type { UserType } from "../../../types";
 
 const mockUser: Partial<UserType> = {
   email: "test@example.com",

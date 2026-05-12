@@ -1,8 +1,8 @@
 .country-display {
-  overflow: hidden;
   max-width: 100%;
-  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .country-display >.country-content {

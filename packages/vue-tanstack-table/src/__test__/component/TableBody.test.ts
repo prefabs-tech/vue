@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { mockedTable } from "../../components/__test__/table";
 import TableBody from "../../components/TableBody.vue";
@@ -14,8 +14,8 @@ describe("TableBody", () => {
 
       const wrapper = mount(TableBody, {
         props: {
-          table: emptyTable as typeof mockedTable,
           emptyTableMessage: "No data available",
+          table: emptyTable as typeof mockedTable,
         },
       });
 
@@ -42,8 +42,8 @@ describe("TableBody", () => {
     it("adds data-selected attribute when enableRowSelection is true", () => {
       const wrapper = mount(TableBody, {
         props: {
-          table: mockedTable,
           enableRowSelection: true,
+          table: mockedTable,
         },
       });
 
@@ -56,8 +56,8 @@ describe("TableBody", () => {
     it("does not add data-selected attribute when enableRowSelection is false", () => {
       const wrapper = mount(TableBody, {
         props: {
-          table: mockedTable,
           enableRowSelection: false,
+          table: mockedTable,
         },
       });
 
@@ -77,44 +77,44 @@ describe("TableBody", () => {
       // Create a table with a number dataType column
       const tableWithNumberColumn = {
         ...mockedTable,
-        getRowModel: () => ({
-          rows: [
-            {
-              id: "0",
-              getIsSelected: () => false,
-              getVisibleCells: () => [
-                {
-                  id: "0_age",
-                  column: {
-                    id: "age",
-                    columnDef: {
-                      accessorKey: "age",
-                      dataType: "number",
-                    },
-                  },
-                  getContext: () => ({
-                    getValue: () => 30,
-                  }),
-                },
-              ],
-            },
-          ],
-        }),
         getAllColumns: () => [
           {
-            id: "age",
             columnDef: {
               accessorKey: "age",
               dataType: "number",
             },
+            id: "age",
           },
         ],
+        getRowModel: () => ({
+          rows: [
+            {
+              getIsSelected: () => false,
+              getVisibleCells: () => [
+                {
+                  column: {
+                    columnDef: {
+                      accessorKey: "age",
+                      dataType: "number",
+                    },
+                    id: "age",
+                  },
+                  getContext: () => ({
+                    getValue: () => 30,
+                  }),
+                  id: "0_age",
+                },
+              ],
+              id: "0",
+            },
+          ],
+        }),
       } as typeof mockedTable;
 
       const wrapper = mount(TableBody, {
         props: {
-          table: tableWithNumberColumn as typeof mockedTable,
           customFormatters,
+          table: tableWithNumberColumn as typeof mockedTable,
         },
       });
 
