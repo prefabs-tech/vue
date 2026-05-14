@@ -32,7 +32,9 @@
     "test:watch": "vitest --environment jsdom",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@prefabs.tech/vue3-user": "0.32.0"
+  },
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.7.0",
     "@prefabs.tech/stylelint-config": "0.7.0",

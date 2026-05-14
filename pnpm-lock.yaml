@@ -458,6 +458,10 @@ importers:
         version: 2.2.12(typescript@5.9.3)
 
   packages/vue-stripe:
+    dependencies:
+      '@prefabs.tech/vue3-user':
+        specifier: 0.32.0
+        version: link:../vue-user
     devDependencies:
       '@prefabs.tech/eslint-config':
         specifier: 0.7.0
