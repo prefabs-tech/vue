@@ -1,15 +1,17 @@
 import { client } from "@prefabs.tech/vue3-user";
 
-import type { CheckoutSessionPayload } from "../types";
+import type {
+  CheckoutSessionPayload,
+  PrefabsTechVueStripeConfig,
+} from "../types";
 
 import { API_PATH_CHECKOUT_SESSION, API_PATH_STATUS } from "../constant";
-import { useStripeConfig } from "../index";
 
 export const checkoutSession = async (
   payload: CheckoutSessionPayload,
   apiBaseUrl: string,
+  config?: PrefabsTechVueStripeConfig,
 ) => {
-  const config = useStripeConfig();
   const path = config?.apiRoutes?.checkoutSession || API_PATH_CHECKOUT_SESSION;
 
   const response = await client(apiBaseUrl).post(path, payload);
@@ -24,8 +26,10 @@ export const checkoutSession = async (
   return response.data;
 };
 
-export const getStatus = async (apiBaseUrl: string) => {
-  const config = useStripeConfig();
+export const getStatus = async (
+  apiBaseUrl: string,
+  config?: PrefabsTechVueStripeConfig,
+) => {
   const path = config?.apiRoutes?.status || API_PATH_STATUS;
 
   const response = await client(apiBaseUrl).get(path);
