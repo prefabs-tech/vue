@@ -1,9 +1,11 @@
 import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 import type { Pinia } from "pinia";
 
 interface PrefabsTechVueStripePluginOptions {
   config: AppConfig;
   pinia: Pinia;
+  translations?: LocaleMessages<VueMessageType>;
 }
 
 export type { PrefabsTechVueStripePluginOptions };

@@ -13,6 +13,11 @@
   max-width: var(--_page-max-width);
 }
 
+.page[data-centered="true"] > .page-content {
+  display: flex;
+  justify-content: center;
+}
+
 .page > .page-header {
   align-items: flex-start;
   display: flex;
