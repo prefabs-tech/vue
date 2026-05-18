@@ -30,7 +30,7 @@
           :label="t('payment.button.backToHome')"
           severity="success"
           size="large"
-          @click="$emit('action:back')"
+          @click="handleBack"
         />
       </slot>
     </Card>
@@ -44,16 +44,19 @@ import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { ButtonElement, Card, LoadingPage, Page } from "@prefabs.tech/vue3-ui";
 
 import { useTranslations } from "../../index";
+import { useBackNavigation } from "../../utilities";
 
 const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
-defineEmits(["action:back"]);
+const emit = defineEmits(["action:back"]);
 
 defineProps({
   loading: Boolean,
 });
+
+const { handleBack } = useBackNavigation(() => emit("action:back"));
 </script>
 
 <style lang="css">
