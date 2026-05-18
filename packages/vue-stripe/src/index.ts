@@ -10,6 +10,7 @@ import type {
 } from "./types";
 
 import messages from "./locales/messages.json";
+import updateRouter from "./router";
 import usePaymentStore from "./stores/payment";
 import CancelledPage from "./views/payment/CancelledPage.vue";
 import SuccessPage from "./views/payment/SuccessPage.vue";
@@ -21,6 +22,8 @@ const __prefabsTechVueStripeTranslations = Symbol.for(
 export default {
   install: (app: App, options: PrefabsTechVueStripePluginOptions): void => {
     const config: PrefabsTechVueStripeConfig = options.config.stripe || {};
+
+    updateRouter(options.router, config);
 
     const store = usePaymentStore(options.pinia);
     store.setConfig(config);
