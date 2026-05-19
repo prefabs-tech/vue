@@ -45,4 +45,6 @@ const useTranslations = () => {
 
 export { CancelledPage, SuccessPage, usePaymentStore, useTranslations };
 
+export { checkoutSession, getAxiosClient, getStatus } from "./api";
+
 export type { CheckoutSessionPayload } from "./types/payment";

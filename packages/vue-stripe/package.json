@@ -32,22 +32,21 @@
     "test:watch": "vitest --environment jsdom",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
-  "dependencies": {
-    "@prefabs.tech/vue3-user": "0.32.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.7.0",
     "@prefabs.tech/stylelint-config": "0.7.0",
     "@prefabs.tech/tsconfig": "0.7.0",
     "@prefabs.tech/vue3-config": "0.32.0",
     "@prefabs.tech/vue3-i18n": "0.32.0",
-    "@prefabs.tech/vue3-layout": "0.32.0",
     "@prefabs.tech/vue3-ui": "0.32.0",
+    "@prefabs.tech/vue3-user": "0.32.0",
     "@types/jsdom": "21.1.7",
     "@types/node": "25.6.0",
     "@vitejs/plugin-vue": "6.0.6",
     "@vitejs/plugin-vue-jsx": "5.1.5",
     "@vitest/coverage-istanbul": "4.1.5",
+    "axios": "1.16.0",
     "eslint": "9.39.4",
     "pinia": "3.0.4",
     "prettier": "3.8.3",
@@ -65,9 +64,16 @@
     "@prefabs.tech/vue3-config": "0.32.0",
     "@prefabs.tech/vue3-i18n": "0.32.0",
     "@prefabs.tech/vue3-ui": "0.32.0",
+    "@prefabs.tech/vue3-user": "0.32.0",
+    "axios": ">=1.0.0",
     "pinia": ">=2.3",
     "vue": ">=3.5",
     "vue-router": ">=4.6"
+  },
+  "peerDependenciesMeta": {
+    "@prefabs.tech/vue3-user": {
+      "optional": true
+    }
   },
   "engines": {
     "node": ">=18",

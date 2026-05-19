@@ -1,9 +1,13 @@
+import type { AxiosInstance } from "axios";
+
 import type { RouteOverrides } from "./router";
+
 interface PrefabsTechVueStripeConfig {
   apiRoutes?: {
     checkoutSession?: string;
     status?: string;
   };
+  axiosClient?: (baseURL: string) => AxiosInstance;
   routes?: RouteOverrides;
 }
 
