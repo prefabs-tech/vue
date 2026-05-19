@@ -27,6 +27,8 @@ export default defineConfig(({ mode }) => {
             "@prefabs.tech/vue3-config": "PrefabsTechVue3Config",
             "@prefabs.tech/vue3-i18n": "PrefabsTechVue3I18n",
             "@prefabs.tech/vue3-ui": "PrefabsTechVue3UI",
+            "@prefabs.tech/vue3-user": "PrefabsTechVue3User",
+            axios: "Axios",
             vue: "Vue",
           },
         },
