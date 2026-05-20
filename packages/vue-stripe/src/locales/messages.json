@@ -1,0 +1,38 @@
+{
+  "en": {
+    "payment": {
+      "success": {
+        "heading1": "Payment Successful",
+        "heading2": "Thank you for your purchase",
+        "heading3": "Your order is confirmed",
+        "message1": "We've received your payment and your order is being processed.",
+        "message2": "You will receive a confirmation email shortly with your order details."
+      },
+      "cancelled": {
+        "heading": "Payment Cancelled",
+        "message": "Your payment was cancelled."
+      },
+      "button": {
+        "backToHome": "Back to Home"
+      }
+    }
+  },
+  "fr": {
+    "payment": {
+      "success": {
+        "heading1": "Paiement Réussi",
+        "heading2": "Merci pour votre achat",
+        "heading3": "Votre commande est confirmée",
+        "message1": "Nous avons reçu votre paiement et votre commande est en cours de traitement.",
+        "message2": "Vous recevrez sous peu un e-mail de confirmation avec les détails de votre commande."
+      },
+      "cancelled": {
+        "heading": "Paiement Annulé",
+        "message": "Your payment was cancelled [fr]."
+      },
+      "button": {
+        "backToHome": "Retour à l'Accueil"
+      }
+    }
+  }
+}

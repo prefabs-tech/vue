@@ -1,5 +1,7 @@
 import type { AxiosInstance } from "axios";
 
+import { create } from "axios";
+
 import type { PrefabsTechVueStripeConfig } from "../types";
 
 export const getAxiosClient = async (
@@ -14,7 +16,13 @@ export const getAxiosClient = async (
     const { client } = await import("@prefabs.tech/vue3-user");
     return client(apiBaseUrl);
   } catch {
-    throw new Error("Stripe package requires an axios instance.");
+    return create({
+      baseURL: apiBaseUrl,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    });
   }
 };
 
