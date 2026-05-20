@@ -5,13 +5,15 @@ import { createPinia, setActivePinia } from "pinia";
 import { describe, expect, it } from "vitest";
 import { createRouter, createWebHistory } from "vue-router";
 
+import type { UserType } from "../../../types";
+
 import useUserStore from "../../../store";
 import DropdownUserMenu from "../../DropdownUserMenu.vue";
 import SignInUpMenu from "../../SignInUpMenu.vue";
 import UserMenu from "../../UserMenu.vue";
 import appConfig from "../config";
 
-const mockUser = {
+const mockUser: UserType = {
   email: "test@example.com",
   givenName: "Test",
   id: "user-123",
@@ -21,6 +23,7 @@ const mockUser = {
   roles: ["USER"],
   signedUpAt: Date.now(),
   surname: "User",
+  timeJoined: Date.now(),
 };
 
 const pinia = createPinia();
@@ -35,7 +38,10 @@ const router = createRouter({
   ],
 });
 
-const createWrapper = (user = undefined, mountOptions = {}) => {
+const createWrapper = (
+  user: undefined | UserType = undefined,
+  mountOptions = {},
+) => {
   const store = useUserStore();
   store.$patch({ user });
 

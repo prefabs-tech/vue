@@ -13,7 +13,15 @@ const baseConfig: AppConfig = {
   apiBaseUrl: "http://localhost",
   appTitle: "Test App",
   appVersion: "1.0.0",
+  features: {
+    showVersion: true,
+  },
+  i18n: {
+    supportedLocales: ["en"],
+  },
   layout: { localeSwitcher: { showBadges: false } },
+  slug: "test-app",
+  websiteDomain: "localhost",
 };
 
 const menu = [

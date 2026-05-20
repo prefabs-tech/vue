@@ -10,7 +10,6 @@ const config: AppConfig = {
     url: "https://dzango.com",
   },
   features: {
-    sentry: true,
     showVersion: true,
   },
   i18n: {
@@ -19,6 +18,9 @@ const config: AppConfig = {
     supportedLocales: ["en", "fr"],
   },
   layout: {
+    localeSwitcher: {
+      showBadges: true,
+    },
     mainMenu: [
       {
         name: "Home",

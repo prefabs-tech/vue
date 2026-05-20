@@ -12,6 +12,14 @@ const config: AppConfig = {
   apiBaseUrl: "http://localhost",
   appTitle: "Test App",
   appVersion: "1.0.0",
+  features: {
+    showVersion: true,
+  },
+  i18n: {
+    supportedLocales: ["en"],
+  },
+  slug: "test-app",
+  websiteDomain: "localhost",
 };
 
 const TRANSLATIONS_KEY = Symbol.for("dzangolab.vue-layout.translations");

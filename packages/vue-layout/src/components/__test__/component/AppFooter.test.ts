@@ -11,6 +11,14 @@ const baseConfig: AppConfig = {
   apiBaseUrl: "http://localhost",
   appTitle: "Test App",
   appVersion: "2.3.4",
+  features: {
+    showVersion: true,
+  },
+  i18n: {
+    supportedLocales: ["en"],
+  },
+  slug: "test-app",
+  websiteDomain: "localhost",
 };
 
 const configWithCopyright: AppConfig = {

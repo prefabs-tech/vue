@@ -1,3 +1,10 @@
+import type { Table } from "@tanstack/vue-table";
+
+import {
+  getCoreRowModel,
+  getPaginationRowModel,
+  useVueTable,
+} from "@tanstack/vue-table";
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
@@ -6,16 +13,16 @@ import TableBody from "../../components/TableBody.vue";
 
 describe("TableBody", () => {
   describe("empty state", () => {
-    it("renders empty message when no rows", () => {
-      const emptyTable = {
-        ...mockedTable,
-        getRowModel: () => ({ rows: [] }),
-      } as typeof mockedTable;
+    const emptyTable = {
+      ...mockedTable,
+      getRowModel: () => ({ flatRows: [], rows: [], rowsById: {} }),
+    } as typeof mockedTable;
 
+    it("renders empty message when no rows", () => {
       const wrapper = mount(TableBody, {
         props: {
           emptyTableMessage: "No data available",
-          table: emptyTable as typeof mockedTable,
+          table: emptyTable,
         },
       });
 
@@ -23,11 +30,6 @@ describe("TableBody", () => {
     });
 
     it("uses default empty message when not provided", () => {
-      const emptyTable = {
-        ...mockedTable,
-        getRowModel: () => ({ rows: [] }),
-      } as typeof mockedTable;
-
       const wrapper = mount(TableBody, {
         props: {
           table: emptyTable,
@@ -75,50 +77,28 @@ describe("TableBody", () => {
       };
 
       // Create a table with a number dataType column
-      const tableWithNumberColumn = {
-        ...mockedTable,
-        getAllColumns: () => [
+      const tableWithNumberColumn = useVueTable({
+        columns: [
           {
-            columnDef: {
-              accessorKey: "age",
-              dataType: "number",
-            },
-            id: "age",
+            accessorKey: "age",
+            dataType: "number",
+            header: "Age",
           },
         ],
-        getRowModel: () => ({
-          rows: [
-            {
-              getIsSelected: () => false,
-              getVisibleCells: () => [
-                {
-                  column: {
-                    columnDef: {
-                      accessorKey: "age",
-                      dataType: "number",
-                    },
-                    id: "age",
-                  },
-                  getContext: () => ({
-                    getValue: () => 30,
-                  }),
-                  id: "0_age",
-                },
-              ],
-              id: "0",
-            },
-          ],
-        }),
-      } as typeof mockedTable;
+        data: [{ age: 30 }, { age: 25 }],
+        getCoreRowModel: getCoreRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+      }) as Table<unknown>;
 
       const wrapper = mount(TableBody, {
         props: {
           customFormatters,
-          table: tableWithNumberColumn as typeof mockedTable,
+          table: tableWithNumberColumn,
         },
       });
 
-      expect(wrapper.text()).toContain("years old");
+      expect(wrapper.text()).toContain("30 years old");
+      expect(wrapper.text()).toContain("25 years old");
     });
   });
 });

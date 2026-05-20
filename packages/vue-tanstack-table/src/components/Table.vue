@@ -128,7 +128,7 @@ const props = defineProps({
   customFormatters: {
     default: () => ({}),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    type: Object as () => Record<string, (value: any) => unknown>,
+    type: Object as () => Record<string, (value: any) => string>,
   },
   data: {
     default: () => [],
@@ -592,6 +592,13 @@ const setPersistState = () => {
 };
 
 prepareComponent();
+
+defineExpose({
+  isFilterRowVisible,
+  selectedRows,
+  table,
+  totalItems,
+});
 </script>
 
 <style lang="css">

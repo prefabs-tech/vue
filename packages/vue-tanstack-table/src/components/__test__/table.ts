@@ -1,3 +1,5 @@
+import type { Table } from "@tanstack/vue-table";
+
 import {
   getCoreRowModel,
   getFilteredRowModel,
@@ -44,4 +46,4 @@ export const mockedTable = useVueTable({
   getFilteredRowModel: getFilteredRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
   getSortedRowModel: getSortedRowModel(),
-});
+}) as Table<unknown>;

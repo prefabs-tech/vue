@@ -285,4 +285,9 @@ const updateRangeFilter = (
 
   column.setFilterValue(isFilterActive ? currentFilter : []);
 };
+
+defineExpose({
+  getFormattedDateRange,
+  updateRangeFilter,
+});
 </script>

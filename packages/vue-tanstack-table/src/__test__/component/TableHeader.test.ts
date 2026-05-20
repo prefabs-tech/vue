@@ -1,8 +1,15 @@
+import type { Column } from "@tanstack/vue-table";
+
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
 
 import { mockedTable } from "../../components/__test__/table";
 import TableHeader from "../../components/TableHeader.vue";
+
+type MockColumn = Pick<
+  Column<unknown, unknown>,
+  "getFilterValue" | "setFilterValue"
+>;
 
 describe("TableHeader", () => {
   describe("getFormattedDateRange", () => {
@@ -64,7 +71,7 @@ describe("TableHeader", () => {
   describe("updateRangeFilter", () => {
     it("updates filter value at specified index", () => {
       const mockSetFilterValue = vi.fn();
-      const mockColumn = {
+      const mockColumn: MockColumn = {
         getFilterValue: () => [10, 20],
         setFilterValue: mockSetFilterValue,
       };
@@ -76,14 +83,18 @@ describe("TableHeader", () => {
         },
       });
 
-      wrapper.vm.updateRangeFilter(mockColumn, 0, 15);
+      wrapper.vm.updateRangeFilter(
+        mockColumn as Column<unknown, unknown>,
+        0,
+        15,
+      );
 
       expect(mockSetFilterValue).toHaveBeenCalledWith([15, 20]);
     });
 
     it("clears filter when both values are undefined", () => {
       const mockSetFilterValue = vi.fn();
-      const mockColumn = {
+      const mockColumn: MockColumn = {
         getFilterValue: () => [10, undefined],
         setFilterValue: mockSetFilterValue,
       };
@@ -95,14 +106,18 @@ describe("TableHeader", () => {
         },
       });
 
-      wrapper.vm.updateRangeFilter(mockColumn, 0, undefined);
+      wrapper.vm.updateRangeFilter(
+        mockColumn as Column<unknown, unknown>,
+        0,
+        undefined,
+      );
 
       expect(mockSetFilterValue).toHaveBeenCalledWith([]);
     });
 
     it("initializes filter array when no existing filter value", () => {
       const mockSetFilterValue = vi.fn();
-      const mockColumn = {
+      const mockColumn: MockColumn = {
         getFilterValue: () => null,
         setFilterValue: mockSetFilterValue,
       };
@@ -114,14 +129,18 @@ describe("TableHeader", () => {
         },
       });
 
-      wrapper.vm.updateRangeFilter(mockColumn, 1, 50);
+      wrapper.vm.updateRangeFilter(
+        mockColumn as Column<unknown, unknown>,
+        1,
+        50,
+      );
 
       expect(mockSetFilterValue).toHaveBeenCalledWith([undefined, 50]);
     });
 
     it("keeps filter active when at least one value is defined", () => {
       const mockSetFilterValue = vi.fn();
-      const mockColumn = {
+      const mockColumn: MockColumn = {
         getFilterValue: () => [undefined, 30],
         setFilterValue: mockSetFilterValue,
       };
@@ -133,14 +152,18 @@ describe("TableHeader", () => {
         },
       });
 
-      wrapper.vm.updateRangeFilter(mockColumn, 0, 10);
+      wrapper.vm.updateRangeFilter(
+        mockColumn as Column<unknown, unknown>,
+        0,
+        10,
+      );
 
       expect(mockSetFilterValue).toHaveBeenCalledWith([10, 30]);
     });
 
     it("converts value to number", () => {
       const mockSetFilterValue = vi.fn();
-      const mockColumn = {
+      const mockColumn: MockColumn = {
         getFilterValue: () => [10, 20],
         setFilterValue: mockSetFilterValue,
       };
@@ -152,7 +175,11 @@ describe("TableHeader", () => {
         },
       });
 
-      wrapper.vm.updateRangeFilter(mockColumn, 0, 25);
+      wrapper.vm.updateRangeFilter(
+        mockColumn as Column<unknown, unknown>,
+        0,
+        25,
+      );
 
       expect(mockSetFilterValue).toHaveBeenCalledWith([25, 20]);
     });

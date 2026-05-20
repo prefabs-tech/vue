@@ -1,8 +1,15 @@
+import type { Column } from "@tanstack/vue-table";
+
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
 import { mockedTable } from "../../components/__test__/table";
 import TableToolbar from "../../components/TableToolbar.vue";
+
+type List = {
+  data: Column<unknown, unknown>;
+  id: number | string;
+};
 
 describe("TableToolbar", () => {
   describe("column visibility items", () => {
@@ -36,7 +43,7 @@ describe("TableToolbar", () => {
       const sortedList = [
         { data: { id: "age" }, id: 1 },
         { data: { id: "name" }, id: 0 },
-      ];
+      ] as List[];
 
       wrapper.vm.onDrag(sortedList);
 
@@ -56,7 +63,7 @@ describe("TableToolbar", () => {
       const sortedList = [
         { data: { id: "name" }, id: 0 },
         { data: { id: "age" }, id: 1 },
-      ];
+      ] as List[];
 
       wrapper.vm.onDrag(sortedList);
 
@@ -77,7 +84,7 @@ describe("TableToolbar", () => {
       const sortedList = [
         { data: { id: "name" }, id: 0 },
         { data: { id: "age" }, id: 1 },
-      ];
+      ] as List[];
 
       wrapper.vm.onDrag(sortedList);
 
@@ -98,7 +105,7 @@ describe("TableToolbar", () => {
       const sortedList = [
         { data: { id: "name" }, id: 0 },
         { data: { id: "age" }, id: 1 },
-      ];
+      ] as List[];
 
       wrapper.vm.onDrag(sortedList);
 

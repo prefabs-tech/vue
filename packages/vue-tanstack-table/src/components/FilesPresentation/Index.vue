@@ -146,4 +146,9 @@ const emitAction = (action: string, file: IFile) => {
     }
   }
 };
+
+defineExpose({
+  emitAction,
+  listVisibleFileDetails,
+});
 </script>
