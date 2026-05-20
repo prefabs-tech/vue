@@ -1,4 +1,4 @@
-import type { RouteRecordRaw } from "vue-router";
+import type { RouteMeta, RouteRecordRaw } from "vue-router";
 
 import { Router } from "vue-router";
 
@@ -14,11 +14,17 @@ import SuccessPage from "./views/payment/SuccessPage.vue";
 const _routes = {
   cancelled: {
     component: CancelledPage,
+    meta: {
+      authenticated: true,
+    } as RouteMeta,
     name: "paymentCancelled",
     path: "/stripe/cancelled",
   } as RouteRecordRaw,
   success: {
     component: SuccessPage,
+    meta: {
+      authenticated: true,
+    } as RouteMeta,
     name: "paymentSuccess",
     path: "/stripe/success",
   } as RouteRecordRaw,
