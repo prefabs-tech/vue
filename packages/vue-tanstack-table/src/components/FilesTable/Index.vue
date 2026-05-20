@@ -340,6 +340,10 @@ const onActionSelect = (rowData: { action: string; data: IFile }) => {
 const onUpdateRequest = (fileRequest: TRequestJSON) => {
   emit("update:request", fileRequest);
 };
+
+defineExpose({
+  mergedColumns,
+});
 </script>
 
 <style lang="css">

@@ -184,6 +184,14 @@ const onPageInputChange = (value: number | string) => {
     emit("update:currentPage", newPage);
   }
 };
+
+defineExpose({
+  itemsPerPage,
+  lastPage,
+  onItemsPerPageChange,
+  onPageInputChange,
+  pages,
+});
 </script>
 
 <style lang="css">

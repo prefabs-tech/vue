@@ -269,6 +269,7 @@ describe("utilities", () => {
       it("saves table state to storage", () => {
         const state = {
           columnFilters: [{ id: "name", value: "test" }],
+          pagination: { pageIndex: 0, pageSize: 10 },
           sorting: [{ desc: false, id: "name" }],
         };
         let savedKey = "";
@@ -289,6 +290,7 @@ describe("utilities", () => {
       it("retrieves saved table state from storage", () => {
         const state = {
           columnFilters: [{ id: "name", value: "test" }],
+          pagination: { pageIndex: 0, pageSize: 10 },
           sorting: [{ desc: false, id: "name" }],
         };
         mockStorage.getItem = (key) => {

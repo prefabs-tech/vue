@@ -5,8 +5,20 @@ import FilesPresentation from "../../components/FilesPresentation/Index.vue";
 
 describe("FilesPresentation", () => {
   const files = [
-    { id: 1, name: "file1.pdf", size: 1024, type: "application/pdf" },
-    { id: 2, name: "file2.jpg", size: 2048, type: "image/jpeg" },
+    {
+      id: 1,
+      originalFileName: "file1.pdf",
+      size: 1024,
+      uploadedAt: Date.now(),
+      uploadedBy: { name: "Test User" },
+    },
+    {
+      id: 2,
+      originalFileName: "file2.jpg",
+      size: 2048,
+      uploadedAt: Date.now(),
+      uploadedBy: { name: "Test User" },
+    },
   ];
 
   describe("presentation mode switching", () => {

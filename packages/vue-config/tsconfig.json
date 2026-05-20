@@ -6,7 +6,10 @@
     "outDir": "./dist/src"
   },
   "include": [
-    "__test__/**/*",
-    "src/**/*"
+    "src/**/*",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "src/**/__test__/**/*"
   ]
 }
