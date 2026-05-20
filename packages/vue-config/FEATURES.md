@@ -34,24 +34,19 @@ const feature = useFeature();
 const isEnabled = feature?.("showVersion");
 ```
 
-6. **Undefined fallback** — Returns fallback value when input is undefined
-7. **Boolean passthrough** — Returns boolean values unchanged without conversion
-8. **String to boolean conversion** — Converts string values to boolean when fallback is boolean
-9. **String to number conversion** — Converts string values to number when fallback is number
-
 ## Sentry Integration
 
-10. **Conditional Sentry initialization** — Only initializes Sentry when enabled flag is true AND dsn is provided
-11. **Automatic browser tracing** — Adds browserTracingIntegration with router injection automatically
-12. **Automatic trace propagation targets** — Sets tracePropagationTargets to localhost, websiteDomain, and relative paths
-13. **Automatic release tracking** — Sets release field to appVersion from config
+6. **Conditional Sentry initialization** — Only initializes Sentry when enabled flag is true AND dsn is provided
+7. **Automatic browser tracing** — Adds browserTracingIntegration with router injection automatically
+8. **Automatic trace propagation targets** — Sets tracePropagationTargets to localhost, websiteDomain, and relative paths
+9. **Automatic release tracking** — Sets release field to appVersion from config
 
 ## Type Exports
 
-14. **AppConfig type** — TypeScript interface for app configuration structure
-15. **AppFeatures type** — TypeScript interface for feature flags (designed for module augmentation)
+10. **AppConfig type** — TypeScript interface for app configuration structure
+11. **AppFeatures type** — TypeScript interface for feature flags (designed for module augmentation)
 
 ## Provide/Inject Keys
 
-16. **Config injection key** — Symbol.for("dzangolab.vue-config.config") for config injection
-17. **Feature function injection key** — Symbol.for("dzangolab.vue-config.feature") for feature check function injection
+12. **Config injection key** — Symbol.for("dzangolab.vue-config.config") for config injection
+13. **Feature function injection key** — Symbol.for("dzangolab.vue-config.feature") for feature check function injection
