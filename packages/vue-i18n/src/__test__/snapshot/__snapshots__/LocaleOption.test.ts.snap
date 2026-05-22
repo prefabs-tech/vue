@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LocaleOption > matches snapshot with badge 1`] = `"<div class="locale"><span data-v-01a2b229="" class="badge">en <!--v-if--></span> English</div>"`;
+
+exports[`LocaleOption > matches snapshot without badge 1`] = `
+"<div class="locale">
+  <!--v-if--> English
+</div>"
+`;
