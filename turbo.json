@@ -42,9 +42,6 @@
     "test": {
       "outputs": []
     },
-    "test:ci": {
-      "outputs": []
-    },
     "test:integration": {
       "outputs": []
     },

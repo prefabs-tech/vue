@@ -109,28 +109,6 @@ const showVersion = feature?.("showVersion");
 
 The feature check function returns `false` if the config or features object is missing, making it safe to use without null checks on the config itself.
 
-### Configuration Parsing Utility
-
-Parse environment variables or config values with type-aware fallback logic.
-
-```typescript
-import { parse } from "@prefabs.tech/vue3-config";
-
-const config = {
-  apiEnabled: parse(process.env.VITE_API_ENABLED, true),
-  apiPort: parse(process.env.VITE_API_PORT, 3000),
-  apiHost: parse(process.env.VITE_API_HOST, "localhost"),
-};
-```
-
-The `parse` function:
-
-- Returns the fallback if the value is `undefined`
-- Passes through boolean values unchanged
-- Converts strings to booleans when the fallback is boolean
-- Converts strings to numbers when the fallback is number
-- Returns the value as-is for other types
-
 ### Sentry Plugin
 
 Conditionally initialize Sentry error tracking with automatic configuration.
@@ -232,35 +210,6 @@ Other packages (vue-i18n, vue-layout, vue-user) extend this interface with their
 ---
 
 ## Use Cases
-
-### Environment-Specific Configuration
-
-Load different config values based on environment variables.
-
-```typescript
-import { parse } from "@prefabs.tech/vue3-config";
-
-import type { AppConfig } from "@prefabs.tech/vue3-config";
-
-const config: AppConfig = {
-  apiBaseUrl: parse(
-    import.meta.env.VITE_API_BASE_URL,
-    "https://api.example.com",
-  ),
-  appTitle: "My App",
-  appVersion: import.meta.env.VITE_APP_VERSION || "1.0.0",
-  features: {
-    showVersion: parse(import.meta.env.VITE_SHOW_VERSION, true),
-  },
-  sentry: {
-    enabled: parse(import.meta.env.VITE_SENTRY_ENABLED, false),
-    dsn: import.meta.env.VITE_SENTRY_DSN,
-    environment: import.meta.env.MODE,
-  },
-  slug: "my-app",
-  websiteDomain: parse(import.meta.env.VITE_WEBSITE_DOMAIN, "example.com"),
-};
-```
 
 ### Conditional Feature Rendering
 

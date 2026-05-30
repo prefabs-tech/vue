@@ -58,10 +58,6 @@ test:
 	@printf "\033[0;32m>>> Running tests\033[0m\n"
 	pnpm test
 
-test.ci:
-	@printf "\033[0;32m>>> Running tests\033[0m\n"
-	pnpm test:ci
-
 test.integration:
 	@printf "\033[0;32m>>> Running integration tests\033[0m\n"
 	pnpm test:integration
