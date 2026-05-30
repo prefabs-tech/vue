@@ -1,0 +1,80 @@
+{
+  "name": "@prefabs.tech/vue3-stripe",
+  "version": "0.32.0",
+  "description": "Vue3 Stripe Plugin",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/PrefabsTechVue3Stripe.es.js",
+      "require": "./dist/PrefabsTechVue3Stripe.umd.js"
+    },
+    "./dist/PrefabsTechVue3Stripe.css": "./dist/vue3-stripe.css"
+  },
+  "main": "./dist/PrefabsTechVue3Stripe.umd.js",
+  "module": "./dist/PrefabsTechVue3Stripe.es.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "snapshot:update": "vitest --environment jsdom run --update --passWithNoTests",
+    "sort-package": "npx sort-package-json",
+    "stylelint": "stylelint \"src/**/*.{css,vue}\" --allow-empty-input",
+    "stylelint:fix": "stylelint \"src/**/*.{css,vue}\" --fix --allow-empty-input",
+    "test": "pnpm build && vitest --environment jsdom run --coverage --passWithNoTests",
+    "test:component": "vitest --environment jsdom run component/ --passWithNoTests",
+    "test:snapshot": "vitest --environment jsdom run snapshot/ --passWithNoTests",
+    "test:unit": "vitest --environment jsdom run unit/ --passWithNoTests",
+    "test:watch": "vitest --environment jsdom",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@prefabs.tech/eslint-config": "0.7.0",
+    "@prefabs.tech/stylelint-config": "0.7.0",
+    "@prefabs.tech/tsconfig": "0.7.0",
+    "@prefabs.tech/vue3-config": "0.32.0",
+    "@prefabs.tech/vue3-i18n": "0.32.0",
+    "@prefabs.tech/vue3-ui": "0.32.0",
+    "@prefabs.tech/vue3-user": "0.32.0",
+    "@types/jsdom": "21.1.7",
+    "@types/node": "25.6.0",
+    "@vitejs/plugin-vue": "6.0.6",
+    "@vitejs/plugin-vue-jsx": "5.1.5",
+    "@vitest/coverage-istanbul": "4.1.5",
+    "axios": "1.16.0",
+    "eslint": "9.39.4",
+    "pinia": "3.0.4",
+    "prettier": "3.8.3",
+    "stylelint": "17.10.0",
+    "stylelint-config-recommended-vue": "1.6.1",
+    "stylelint-order": "8.1.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.2",
+    "vitest": "4.1.5",
+    "vue": "3.5.33",
+    "vue-tsc": "3.2.8"
+  },
+  "peerDependencies": {
+    "@prefabs.tech/vue3-config": "0.32.0",
+    "@prefabs.tech/vue3-i18n": "0.32.0",
+    "@prefabs.tech/vue3-ui": "0.32.0",
+    "@prefabs.tech/vue3-user": "0.32.0",
+    "axios": ">=1.0.0",
+    "pinia": ">=2.3",
+    "vue": ">=3.5"
+  },
+  "peerDependenciesMeta": {
+    "@prefabs.tech/vue3-user": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
+  }
+}
