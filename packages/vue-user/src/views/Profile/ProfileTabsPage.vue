@@ -23,9 +23,9 @@
               <AccountInfo />
             </section>
 
-            <section>
+            <section v-if="!isSocialLogin">
               <h2>{{ t("user.profile.updatePassword.title") }}</h2>
-              <ChangePassword v-if="!isSocialLogin">
+              <ChangePassword>
                 <template #instructions>
                   <slot name="changePasswordInstructions"></slot>
                 </template>
