@@ -599,8 +599,8 @@ importers:
   packages/vue-user:
     dependencies:
       supertokens-web-js:
-        specifier: 0.6.0
-        version: 0.6.0
+        specifier: 0.7.0
+        version: 0.7.0
       supertokens-website:
         specifier: 16.0.10
         version: 16.0.10
@@ -4763,8 +4763,8 @@ packages:
   supertokens-js-override@0.0.4:
     resolution: {integrity: sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==}
 
-  supertokens-web-js@0.6.0:
-    resolution: {integrity: sha512-2KOgWNGanh+/zpdaFQgiA9dQa6T9wA6LcoB6m1BTZ7JIqR3mYmpLD5uu8ERtISNAGUjcXziON/Fp5ZnlBByCcw==}
+  supertokens-web-js@0.7.0:
+    resolution: {integrity: sha512-+ojphygeSEpP7D7QJz1Yf9rI+ohwkqd+ONsthrNE+yDhKhf0Y9c3thqYMhODoCiScZFlNOFh0E+NvSPcdt1dvQ==}
 
   supertokens-website@16.0.10:
     resolution: {integrity: sha512-LjB1FxyzQk3mB5UUMC8vxpWH0ShYJ0nqwucsetO8yX+KoQDsa14BmTrZHUR5jxBb1dOPnD9XlACi8xjvYNR6gw==}
@@ -9852,7 +9852,7 @@ snapshots:
 
   supertokens-js-override@0.0.4: {}
 
-  supertokens-web-js@0.6.0:
+  supertokens-web-js@0.7.0:
     dependencies:
       supertokens-js-override: 0.0.4
       supertokens-website: 17.0.5

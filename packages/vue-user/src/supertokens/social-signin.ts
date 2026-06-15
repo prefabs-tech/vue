@@ -2,8 +2,8 @@ import { getAuthorisationURLWithQueryParamsAndSetState } from "supertokens-web-j
 
 async function socialSignIn(providerId: string, redirectURL: string) {
   const authUrl = await getAuthorisationURLWithQueryParamsAndSetState({
-    authorisationURL: redirectURL,
-    providerId: providerId,
+    frontendRedirectURI: redirectURL,
+    thirdPartyId: providerId,
   });
 
   window.location.assign(authUrl);
