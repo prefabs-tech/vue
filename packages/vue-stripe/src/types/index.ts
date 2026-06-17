@@ -1,12 +1,17 @@
 import type { AppConfig } from "@prefabs.tech/vue3-config";
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 import type { Pinia } from "pinia";
+import type { Router } from "vue-router";
 
 interface PrefabsTechVueStripePluginOptions {
   config: AppConfig;
   pinia: Pinia;
+  router: Router;
+  translations?: LocaleMessages<VueMessageType>;
 }
 
 export type { PrefabsTechVueStripePluginOptions };
 
 export type * from "./config";
 export type * from "./payment";
+export type * from "./router";
