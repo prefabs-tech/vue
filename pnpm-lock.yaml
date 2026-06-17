@@ -7145,7 +7145,7 @@ snapshots:
 
   ast-walker-scope@0.8.3:
     dependencies:
-      '@babel/parser': 7.29.2
+      '@babel/parser': 7.29.3
       ast-kit: 2.2.0
 
   astral-regex@2.0.0: {}
