@@ -461,10 +461,6 @@ importers:
         version: 2.2.12(typescript@5.9.3)
 
   packages/vue-stripe:
-    dependencies:
-      '@prefabs.tech/vue3-user':
-        specifier: 0.32.0
-        version: link:../vue-user
     devDependencies:
       '@prefabs.tech/eslint-config':
         specifier: 0.7.0
@@ -481,12 +477,12 @@ importers:
       '@prefabs.tech/vue3-i18n':
         specifier: 0.32.0
         version: link:../vue-i18n
-      '@prefabs.tech/vue3-layout':
-        specifier: 0.32.0
-        version: link:../vue-layout
       '@prefabs.tech/vue3-ui':
         specifier: 0.32.0
         version: link:../vue-ui
+      '@prefabs.tech/vue3-user':
+        specifier: 0.32.0
+        version: link:../vue-user
       '@types/jsdom':
         specifier: 21.1.7
         version: 21.1.7
@@ -502,6 +498,9 @@ importers:
       '@vitest/coverage-istanbul':
         specifier: 4.1.5
         version: 4.1.5(vitest@4.1.5)
+      axios:
+        specifier: 1.16.0
+        version: 1.16.0
       eslint:
         specifier: 9.39.4
         version: 9.39.4(jiti@2.4.2)

@@ -18,4 +18,6 @@ export default {
 
 export { usePaymentStore };
 
+export { checkoutSession, getAxiosClient, getStatus } from "./api";
+
 export type { CheckoutSessionPayload } from "./types/payment";
