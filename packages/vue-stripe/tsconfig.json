@@ -1,0 +1,15 @@
+{
+  "extends": "@prefabs.tech/tsconfig/vue",
+  "exclude": [
+    "src/**/__test__/**/*"
+  ],
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "outDir": "./dist/src"
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*/*.vue"
+  ]
+}
