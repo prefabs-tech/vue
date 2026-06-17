@@ -21,7 +21,7 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepare": "vite build && tsc --emitDeclarationOnly && mv dist/src dist/types",
+    "prepare": "vite build",
     "snapshot:update": "vitest --environment jsdom run --update --passWithNoTests",
     "sort-package": "npx sort-package-json",
     "stylelint": "stylelint \"src/**/*.{css,vue}\" --allow-empty-input",
