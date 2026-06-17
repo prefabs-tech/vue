@@ -179,4 +179,11 @@ const onSelectAction = (action: DataActionsMenuItem) => {
     emit("action:select", selectedAction.value);
   }
 };
+
+defineExpose({
+  filteredItems,
+  onSelectAction,
+  showActionsMenu,
+  showConfirmation,
+});
 </script>

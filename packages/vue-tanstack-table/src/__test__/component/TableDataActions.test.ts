@@ -26,8 +26,8 @@ describe("TableDataActions", () => {
   describe("action filtering with display function", () => {
     it("filters actions based on display function", () => {
       const actions: DataActionsMenuItem[] = [
-        { action: "edit", display: (data) => data.id === 1, label: "Edit" },
-        { action: "delete", display: (data) => data.id === 2, label: "Delete" },
+        { display: (data) => data.id === 1, key: "edit", label: "Edit" },
+        { display: (data) => data.id === 2, key: "delete", label: "Delete" },
       ];
 
       const wrapper = mount(TableDataActions, {
@@ -48,8 +48,8 @@ describe("TableDataActions", () => {
 
     it("shows all actions when no display function provided", () => {
       const actions: DataActionsMenuItem[] = [
-        { action: "edit", label: "Edit" },
-        { action: "delete", label: "Delete" },
+        { key: "edit", label: "Edit" },
+        { key: "delete", label: "Delete" },
       ];
 
       const wrapper = mount(TableDataActions, {
@@ -70,7 +70,7 @@ describe("TableDataActions", () => {
   describe("action disabled state", () => {
     it("disables actions based on disabled function", () => {
       const actions: DataActionsMenuItem[] = [
-        { action: "edit", disabled: (data) => data.id === 1, label: "Edit" },
+        { disabled: (data) => data.id === 1, key: "edit", label: "Edit" },
       ];
 
       const wrapper = mount(TableDataActions, {
@@ -89,7 +89,7 @@ describe("TableDataActions", () => {
 
     it("enables actions when disabled function returns false", () => {
       const actions: DataActionsMenuItem[] = [
-        { action: "edit", disabled: (data) => data.id === 2, label: "Edit" },
+        { disabled: (data) => data.id === 2, key: "edit", label: "Edit" },
       ];
 
       const wrapper = mount(TableDataActions, {
@@ -109,9 +109,7 @@ describe("TableDataActions", () => {
 
   describe("displayActions prop", () => {
     it("hides all actions when displayActions is false", () => {
-      const actions: DataActionsMenuItem[] = [
-        { action: "edit", label: "Edit" },
-      ];
+      const actions: DataActionsMenuItem[] = [{ key: "edit", label: "Edit" }];
 
       const wrapper = mount(TableDataActions, {
         global: {
@@ -128,11 +126,10 @@ describe("TableDataActions", () => {
     });
 
     it("evaluates displayActions function with data", () => {
-      const actions: DataActionsMenuItem[] = [
-        { action: "edit", label: "Edit" },
-      ];
+      const actions: DataActionsMenuItem[] = [{ key: "edit", label: "Edit" }];
 
-      const displayFunction = (data: { id: number }) => data.id === 1;
+      const displayFunction = (data: object) =>
+        (data as { id: number }).id === 1;
 
       const wrapper = mount(TableDataActions, {
         global: {
@@ -149,11 +146,10 @@ describe("TableDataActions", () => {
     });
 
     it("hides actions when displayActions function returns false", () => {
-      const actions: DataActionsMenuItem[] = [
-        { action: "edit", label: "Edit" },
-      ];
+      const actions: DataActionsMenuItem[] = [{ key: "edit", label: "Edit" }];
 
-      const displayFunction = (data: { id: number }) => data.id === 2;
+      const displayFunction = (data: object) =>
+        (data as { id: number }).id === 2;
 
       const wrapper = mount(TableDataActions, {
         global: {
@@ -174,11 +170,11 @@ describe("TableDataActions", () => {
     it("shows confirmation state when action requires confirmation", async () => {
       const actions: DataActionsMenuItem[] = [
         {
-          action: "delete",
           confirmationOptions: {
-            message: "Are you sure?",
-            title: "Confirm Delete",
+            body: "Are you sure you want to delete this item?",
+            header: "Confirm Delete",
           },
+          key: "delete",
           label: "Delete",
           requireConfirmationModal: true,
         },
@@ -203,9 +199,7 @@ describe("TableDataActions", () => {
     });
 
     it("does not show confirmation when requireConfirmationModal is false", async () => {
-      const actions: DataActionsMenuItem[] = [
-        { action: "edit", label: "Edit" },
-      ];
+      const actions: DataActionsMenuItem[] = [{ key: "edit", label: "Edit" }];
 
       const wrapper = mount(TableDataActions, {
         global: {

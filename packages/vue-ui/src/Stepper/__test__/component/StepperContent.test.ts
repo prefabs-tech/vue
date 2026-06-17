@@ -1,5 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
+import { h } from "vue";
 
 import type { StepProperties } from "../../../types/stepper";
 
@@ -37,9 +38,11 @@ describe("StepperContent", () => {
   });
 
   it("renders component content when stepItem.content is a component", () => {
-    const ComponentContent = {
-      template: "<div class='custom-component'>Custom Component</div>",
-    };
+    const ComponentContent = h(
+      "div",
+      { class: "custom-component" },
+      "Custom Component",
+    );
 
     const stepsWithComponent: StepProperties[] = [
       { content: ComponentContent, label: "Step 1", step: "1" },

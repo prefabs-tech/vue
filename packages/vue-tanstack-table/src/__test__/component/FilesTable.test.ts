@@ -5,8 +5,20 @@ import FilesTable from "../../components/FilesTable/Index.vue";
 
 describe("FilesTable", () => {
   const files = [
-    { id: 1, name: "file1.pdf", size: 1024, type: "application/pdf" },
-    { id: 2, name: "file2.jpg", size: 2048, type: "image/jpeg" },
+    {
+      id: 1,
+      originalFileName: "file1.pdf",
+      size: 1024,
+      uploadedAt: Date.now(),
+      uploadedBy: { name: "Test User" },
+    },
+    {
+      id: 2,
+      originalFileName: "file2.jpg",
+      size: 2048,
+      uploadedAt: Date.now(),
+      uploadedBy: { name: "Test User" },
+    },
   ];
 
   describe("column merging", () => {
@@ -17,7 +29,7 @@ describe("FilesTable", () => {
 
       const wrapper = mount(FilesTable, {
         props: {
-          columns: customColumns,
+          columnsData: customColumns,
           files,
         },
       });
@@ -40,12 +52,12 @@ describe("FilesTable", () => {
 
       const mergedColumns = wrapper.vm.mergedColumns;
       const fileNameColumn = mergedColumns.find(
-        (col: { accessorKey: string }) =>
-          col.accessorKey === "originalFileName",
+        (col) => col.accessorKey === "originalFileName",
       );
       // The merge logic spreads override over default: { ...defaultColumn, ...override }
       // So the custom header should win
-      expect(fileNameColumn.header).toBe("Custom File Name");
+      expect(fileNameColumn).toBeDefined();
+      expect(fileNameColumn?.header).toBe("Custom File Name");
     });
   });
 });

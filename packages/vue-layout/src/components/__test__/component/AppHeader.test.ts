@@ -15,10 +15,15 @@ const config: AppConfig = {
   apiBaseUrl: "http://localhost",
   appTitle: "Test App",
   appVersion: "1.0.0",
+  features: {
+    showVersion: true,
+  },
   i18n: {
-    defaultLocale: "en",
+    fallbackLocale: "en",
     supportedLocales: ["en"],
   },
+  slug: "test-app",
+  websiteDomain: "localhost",
 };
 
 describe("AppHeader", () => {
@@ -43,6 +48,9 @@ describe("AppHeader", () => {
     const configWithMenu: AppConfig = {
       ...config,
       layout: {
+        localeSwitcher: {
+          showBadges: false,
+        },
         mainMenu: [{ name: "Home", route: "home" }],
       },
     };

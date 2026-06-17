@@ -99,4 +99,9 @@ const onDrag = (sorted: List[]) => {
 
   emit("on:drag", sortedColumn);
 };
+
+defineExpose({
+  items,
+  onDrag,
+});
 </script>
