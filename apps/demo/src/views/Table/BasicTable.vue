@@ -1548,6 +1548,8 @@ const columns: Array<TableColumnDefinition<unknown, unknown>> = [
     header: "Age",
     meta: {
       filterVariant: "range",
+      rangeFilterMax: 100,
+      rangeFilterMin: 1,
     },
   },
   {
