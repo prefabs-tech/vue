@@ -284,12 +284,18 @@ const updateRangeFilter = (
   const numericValue = value !== undefined ? Number(value) : undefined;
 
   if (numericValue !== undefined) {
-    const { rangeFilterMax, rangeFilterMin } = column.columnDef.meta ?? {};
+    const meta = column.columnDef?.meta;
 
-    if (rangeFilterMin !== undefined && numericValue < rangeFilterMin) {
-      currentFilter[index] = rangeFilterMin;
-    } else if (rangeFilterMax !== undefined && numericValue > rangeFilterMax) {
-      currentFilter[index] = rangeFilterMax;
+    if (
+      meta?.rangeFilterMin !== undefined &&
+      numericValue < meta.rangeFilterMin
+    ) {
+      currentFilter[index] = meta.rangeFilterMin;
+    } else if (
+      meta?.rangeFilterMax !== undefined &&
+      numericValue > meta.rangeFilterMax
+    ) {
+      currentFilter[index] = meta.rangeFilterMax;
     } else {
       currentFilter[index] = numericValue;
     }
