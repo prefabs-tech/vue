@@ -36,6 +36,8 @@ declare module "@tanstack/vue-table" {
   interface ColumnMeta<TData extends RowData, TValue> {
     filterOptions?: FilterOption[];
     filterVariant?: TFilterVariant;
+    rangeFilterMax?: number;
+    rangeFilterMin?: number;
     serverFilterFn?: TFilterFn;
   }
 }

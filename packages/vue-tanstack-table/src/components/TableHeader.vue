@@ -155,6 +155,8 @@
           >
             <div class="number-range-filter">
               <NumberInput
+                :max="column.columnDef.meta?.rangeFilterMax"
+                :min="column.columnDef.meta?.rangeFilterMin"
                 :model-value="
                   Array.isArray(getColumnFilterValue(column)) &&
                   getColumnFilterValue(column)[0] !== null &&
@@ -167,6 +169,8 @@
                 @update:model-value="updateRangeFilter(column, 0, $event)"
               />
               <NumberInput
+                :max="column.columnDef.meta?.rangeFilterMax"
+                :min="column.columnDef.meta?.rangeFilterMin"
                 :model-value="
                   Array.isArray(getColumnFilterValue(column)) &&
                   getColumnFilterValue(column)[1] !== null &&
@@ -277,7 +281,21 @@ const updateRangeFilter = (
     ? [...filterValue]
     : [undefined, undefined];
 
-  currentFilter[index] = value !== undefined ? Number(value) : undefined;
+  const numericValue = value !== undefined ? Number(value) : undefined;
+
+  if (numericValue !== undefined) {
+    const { rangeFilterMax, rangeFilterMin } = column.columnDef.meta ?? {};
+
+    if (rangeFilterMin !== undefined && numericValue < rangeFilterMin) {
+      currentFilter[index] = rangeFilterMin;
+    } else if (rangeFilterMax !== undefined && numericValue > rangeFilterMax) {
+      currentFilter[index] = rangeFilterMax;
+    } else {
+      currentFilter[index] = numericValue;
+    }
+  } else {
+    currentFilter[index] = undefined;
+  }
 
   const isFilterActive = currentFilter.some(
     (filterInput) => filterInput !== undefined,

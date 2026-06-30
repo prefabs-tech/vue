@@ -63,6 +63,16 @@ const props = defineProps({
     required: false,
     type: String as PropType<string>,
   },
+  max: {
+    default: undefined,
+    required: false,
+    type: Number,
+  },
+  min: {
+    default: undefined,
+    required: false,
+    type: Number,
+  },
   modelValue: {
     default: undefined,
     type: Number as PropType<null | number | undefined>,
@@ -97,9 +107,23 @@ const fieldSchema = toTypedSchema(
 );
 
 const onInput = (event: Event, handleChange: (event: Event) => void) => {
+  const input = event.target as HTMLInputElement;
+  let value = input.value;
+
+  if (value !== "" && props.min !== undefined && Number(value) < props.min) {
+    value = String(props.min);
+    input.value = value;
+  } else if (
+    value !== "" &&
+    props.max !== undefined &&
+    Number(value) > props.max
+  ) {
+    value = String(props.max);
+    input.value = value;
+  }
+
   handleChange(event);
 
-  const value = (event.target as HTMLInputElement).value;
   emit("update:modelValue", value ? Number(value) : undefined);
 };
 </script>
