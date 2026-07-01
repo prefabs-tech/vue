@@ -34,6 +34,8 @@ declare module "@tanstack/vue-table" {
 
   // eslint-disable-next-line
   interface ColumnMeta<TData extends RowData, TValue> {
+    dateFilterMax?: Date;
+    dateFilterMin?: Date;
     filterOptions?: FilterOption[];
     filterVariant?: TFilterVariant;
     rangeFilterMax?: number;

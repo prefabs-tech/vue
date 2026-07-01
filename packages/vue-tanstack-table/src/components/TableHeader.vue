@@ -142,6 +142,8 @@
             <DatePicker
               :model-value="getColumnFilterValue(column)"
               :placeholder="column.columnDef.filterPlaceholder"
+              :max-date="column.columnDef.meta?.dateFilterMax"
+              :min-date="column.columnDef.meta?.dateFilterMin"
               name="`date-range-${column.columnDef.accessorKey}`"
               range
               teleport

@@ -1165,6 +1165,7 @@
               header: "Date",
               meta: {
                 filterVariant: "dateRange",
+                dateFilterMax: new Date(),
               },
             },
             {
@@ -1175,6 +1176,7 @@
               header: "Datetime",
               dataType: "datetime",
               meta: {
+                dateFilterMin: new Date(2024, 0, 1),
                 filterVariant: "dateRange",
               },
             },
@@ -1737,6 +1739,7 @@ const formattedTableColumns = [
     filterPlaceholder: t("table.placeholder.dateRange"),
     header: "Date",
     meta: {
+      dateFilterMax: new Date(),
       filterVariant: "dateRange",
     },
   },
@@ -1748,6 +1751,7 @@ const formattedTableColumns = [
     filterPlaceholder: t("table.placeholder.dateRange"),
     header: "Datetime",
     meta: {
+      dateFilterMin: new Date(2024, 0, 1),
       filterVariant: "dateRange",
     },
   },
