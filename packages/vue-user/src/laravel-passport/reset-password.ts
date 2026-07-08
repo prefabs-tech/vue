@@ -12,11 +12,7 @@ const resetPassword = async (
       withCredentials: true,
     });
 
-    if (response.data) {
-      return true;
-    }
-
-    return false;
+    return Boolean(response.data);
   } catch {
     throw new Error("SOMETHING_WRONG");
   }

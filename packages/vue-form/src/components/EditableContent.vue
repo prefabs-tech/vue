@@ -85,16 +85,18 @@ const getTextarea = (): HTMLTextAreaElement | null => {
 };
 
 const onEditContent = () => {
-  if (props.allowEdit) {
-    editContent.value = true;
-
-    nextTick(() => {
-      const textarea = getTextarea();
-
-      textarea?.focus();
-      resizeContent();
-    });
+  if (!props.allowEdit) {
+    return;
   }
+
+  editContent.value = true;
+
+  nextTick(() => {
+    const textarea = getTextarea();
+
+    textarea?.focus();
+    resizeContent();
+  });
 };
 
 const onInput = (value: string) => {

@@ -109,35 +109,37 @@ const handleSubmit = async (credentials: LoginCredentials) => {
 
   await login(finalCredentials)
     .then(async (response) => {
-      if (response) {
-        const supportedRoles = config?.user?.supportedRoles;
+      if (!response) {
+        return;
+      }
 
-        setUser(response);
+      const supportedRoles = config?.user?.supportedRoles;
 
-        if (
-          (supportedRoles && (await verifySessionRoles(supportedRoles))) ||
-          !supportedRoles?.length
-        ) {
-          // Check for pending redirect before default home redirect
-          const redirectTo = sessionStorage.getItem("redirectAfterLogin");
+      setUser(response);
 
-          if (redirectTo) {
-            sessionStorage.removeItem("redirectAfterLogin");
+      if (
+        (supportedRoles && (await verifySessionRoles(supportedRoles))) ||
+        !supportedRoles?.length
+      ) {
+        // Check for pending redirect before default home redirect
+        const redirectTo = sessionStorage.getItem("redirectAfterLogin");
 
-            // eslint-disable-next-line
-            router.hasRoute(redirectTo) && router.push({ name: redirectTo});
-          } else {
-            // eslint-disable-next-line
-            router.hasRoute("home") && router.push({ name: "home" });
-          }
+        if (redirectTo) {
+          sessionStorage.removeItem("redirectAfterLogin");
+
+          // eslint-disable-next-line
+          router.hasRoute(redirectTo) && router.push({ name: redirectTo});
         } else {
-          emitter.emit("notify", {
-            text: t("user.login.messages.permissionDenied"),
-            type: "error",
-          });
-
-          removeUser();
+          // eslint-disable-next-line
+          router.hasRoute("home") && router.push({ name: "home" });
         }
+      } else {
+        emitter.emit("notify", {
+          text: t("user.login.messages.permissionDenied"),
+          type: "error",
+        });
+
+        removeUser();
       }
     })
     .catch((error) => {
@@ -173,7 +175,7 @@ const prepareComponent = async () => {
   }
 };
 
-prepareComponent();
+await prepareComponent();
 </script>
 
 <style lang="css">

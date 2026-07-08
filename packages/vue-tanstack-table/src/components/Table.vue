@@ -344,15 +344,14 @@ const table = computed(() =>
               }
 
               return;
-            } else {
-              return {
-                filterFn: column?.meta?.serverFilterFn,
-                id: column.accessorKey,
-                value: columnFilters.value.find(
-                  (filter) => filter.id === column.accessorKey,
-                )?.value,
-              };
             }
+            return {
+              filterFn: column?.meta?.serverFilterFn,
+              id: column.accessorKey,
+              value: columnFilters.value.find(
+                (filter) => filter.id === column.accessorKey,
+              )?.value,
+            };
           })
           .filter(Boolean) as ColumnFiltersState;
 
@@ -513,9 +512,11 @@ const prepareComponent = () => {
 
         if (min && max) {
           return value >= min && value <= max;
-        } else if (min) {
+        }
+        if (min) {
           return value >= min;
-        } else if (max) {
+        }
+        if (max) {
           return value <= max;
         }
 

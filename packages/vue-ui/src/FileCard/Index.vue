@@ -357,7 +357,7 @@ const showDeleteConfirmation = ref<boolean>(false);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const checkUploadedByData = (data: any) => {
   if (!data.uploadedBy) {
-    return "\u2014";
+    return "\u{2014}";
   }
 
   if (data.uploadedBy.givenName || data.uploadedBy.lastName) {

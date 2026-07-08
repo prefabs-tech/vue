@@ -1,11 +1,10 @@
-import type { VueWrapper } from "@vue/test-utils";
-
 import configPlugin from "@prefabs.tech/vue3-config";
 import i18Plugin, { useLocaleStore } from "@prefabs.tech/vue3-i18n";
 import { LoadingButton, LoadingIcon } from "@prefabs.tech/vue3-ui";
-import { mount, RouterLinkStub } from "@vue/test-utils";
+import { flushPromises, mount, RouterLinkStub } from "@vue/test-utils";
 import { createPinia } from "pinia";
 import { describe, expect, it, vi } from "vitest";
+import { defineComponent, h, Suspense } from "vue";
 
 import appConfig from "../../../components/__test__/config";
 import Login from "../../Login.vue";
@@ -25,36 +24,50 @@ describe("Login", () => {
   for (const locale of locales) {
     setLocale(locale);
 
-    const wrapper: VueWrapper = mount(Login, {
-      global: {
-        components: {
-          LoadingButton,
-          LoadingIcon,
-        },
-        plugins: [
-          pinia,
-          [
-            configPlugin,
-            {
-              config: appConfig,
+    it("matches snapshot in " + locale, async () => {
+      const wrapper = mount(
+        defineComponent({
+          components: { Login },
+          setup() {
+            return () =>
+              h(Suspense, null, {
+                default: () => h(Login),
+                fallback: () => h("div", "Loading..."),
+              });
+          },
+        }),
+        {
+          global: {
+            components: {
+              LoadingButton,
+              LoadingIcon,
             },
-          ],
-          [
-            i18Plugin,
-            {
-              config: appConfig,
+            plugins: [
+              pinia,
+              [
+                configPlugin,
+                {
+                  config: appConfig,
+                },
+              ],
+              [
+                i18Plugin,
+                {
+                  config: appConfig,
+                },
+              ],
+              router,
+            ],
+            stubs: {
+              RouterLink: RouterLinkStub,
             },
-          ],
-          router,
-        ],
-        stubs: {
-          RouterLink: RouterLinkStub,
+          },
         },
-      },
-    });
+      );
 
-    it("matches snapshot in " + locale, () => {
-      expect(wrapper.element).toMatchSnapshot();
+      await flushPromises();
+
+      expect(wrapper.findComponent(Login).element).toMatchSnapshot();
     });
   }
 });

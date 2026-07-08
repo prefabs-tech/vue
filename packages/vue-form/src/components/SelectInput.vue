@@ -176,7 +176,8 @@ const activeOptions = computed(() =>
 const fieldSchema = computed(() => {
   if (Object.keys(props.schema).length > 0) {
     return toTypedSchema(props.schema);
-  } else if ((props.maxSelection || props.minSelection) && props.multiple) {
+  }
+  if ((props.maxSelection || props.minSelection) && props.multiple) {
     const currentLength = activeOptions.value.length;
     const max = props.maxSelection ?? 0;
     const min = props.minSelection ?? 0;

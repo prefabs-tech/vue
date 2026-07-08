@@ -26,7 +26,7 @@ describe("DatePicker", () => {
     expect(addEventListenerSpy).toHaveBeenCalledWith(
       "scroll",
       expect.any(Function),
-      true,
+      { capture: true },
     );
 
     addEventListenerSpy.mockRestore();
@@ -46,7 +46,7 @@ describe("DatePicker", () => {
     expect(removeEventListenerSpy).toHaveBeenCalledWith(
       "scroll",
       expect.any(Function),
-      true,
+      { capture: true },
     );
 
     removeEventListenerSpy.mockRestore();

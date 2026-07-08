@@ -530,9 +530,9 @@ const onArrowDown = (event: KeyboardEvent) => {
 const onArrowUp = (event: KeyboardEvent) => {
   event.preventDefault();
 
-  const reversedIndex = sortedOptions.value
-    .toReversed()
-    .findIndex((option) => !option.disabled);
+  const reversedIndex = sortedOptions.value.findLastIndex(
+    (option) => !option.disabled,
+  );
   const total = sortedOptions.value.length;
   const lastActiveIndex = total - 1 - reversedIndex;
 
@@ -630,11 +630,10 @@ const onSelectGroup = (groupLabel: string) => {
       (option) => option.groupLabel !== groupLabel,
     );
   } else {
-    const newSelections = groupOptions.filter(
-      (option) =>
-        !selectedOptions.value.some(
-          (selectedOption) => selectedOption.value === option.value,
-        ),
+    const newSelections = groupOptions.filter((option) =>
+      selectedOptions.value.every(
+        (selectedOption) => selectedOption.value !== option.value,
+      ),
     );
 
     selectedOptions.value = [...selectedOptions.value, ...newSelections];
@@ -799,7 +798,7 @@ const updateDropdownPosition = () => {
 onMounted(() => {
   prepareComponent();
 
-  window.addEventListener("scroll", updateDropdownPosition, true);
+  window.addEventListener("scroll", updateDropdownPosition, { capture: true });
   window.addEventListener("resize", updateDropdownPosition);
 });
 

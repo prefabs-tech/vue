@@ -8,4 +8,10 @@ export default [
       "vue/one-component-per-file": "off",
     },
   },
+  {
+    files: ["**/__test__/**"],
+    rules: {
+      "unicorn/filename-case": "off",
+    },
+  },
 ];

@@ -7,7 +7,7 @@ import type { AppConfig, AppFeatures } from "./types";
 import parse from "./parse";
 import sentry from "./sentry";
 
-const feature = (name: keyof AppFeatures): boolean => {
+const hasFeature = (name: keyof AppFeatures): boolean => {
   const config = useConfig();
 
   if (!config || !config?.features) {
@@ -23,7 +23,7 @@ const plugin: Plugin = {
     app.provide(configKey, options.config);
 
     const featureKey = Symbol.for("dzangolab.vue-config.feature");
-    app.provide(featureKey, feature);
+    app.provide(featureKey, hasFeature);
   },
 };
 
@@ -33,7 +33,7 @@ const useConfig = (): AppConfig => {
   ) as AppConfig;
 };
 
-const useFeature = (): typeof feature | undefined => {
+const useFeature = (): typeof hasFeature | undefined => {
   return inject(Symbol.for("dzangolab.vue-config.feature"));
 };
 

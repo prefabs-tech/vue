@@ -225,7 +225,7 @@ const closeTab = (key: string) => {
   const tabIndex = visibleTabs.value.indexOf(key);
   const newVisibleTabs = visibleTabs.value.filter((tab) => tab !== key);
 
-  let newActiveTab = "";
+  let newActiveTab;
   newActiveTab =
     tabIndex > 0 ? newVisibleTabs[tabIndex - 1] : newVisibleTabs[0];
 

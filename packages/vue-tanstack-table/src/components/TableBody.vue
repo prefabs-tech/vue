@@ -164,7 +164,8 @@ const getTooltipContent = (cell: Cell<unknown, unknown>) => {
 
   if (typeof tooltip === "string") {
     return tooltip;
-  } else if (typeof tooltip === "function") {
+  }
+  if (typeof tooltip === "function") {
     return tooltip(cell);
   }
 

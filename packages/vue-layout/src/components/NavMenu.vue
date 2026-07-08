@@ -1,8 +1,8 @@
 <template>
   <nav class="nav-menu">
-    <div v-if="sideBarMenuToShow?.length > 0" class="menu">
+    <div v-if="sidebarMenuToShow?.length > 0" class="menu">
       <NavMenuItem
-        v-for="(menuItem, index) in sideBarMenuToShow"
+        v-for="(menuItem, index) in sidebarMenuToShow"
         :key="menuItem.name + '-' + index"
         :item="menuItem"
         :sidebar-active="sidebarActive"
@@ -40,7 +40,7 @@ const props = defineProps({
 
 defineEmits(["select:menu"]);
 
-const sideBarMenuToShow = computed(() => {
+const sidebarMenuToShow = computed(() => {
   return props.menu
     ?.map((menu) => {
       if (menu.hide) {

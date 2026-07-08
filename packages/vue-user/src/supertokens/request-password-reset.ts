@@ -14,10 +14,7 @@ const requestPasswordReset = async (
     ],
   });
 
-  if (response.status == "OK") {
-    return true;
-  }
-  return false;
+  return response.status == "OK";
 };
 
 export default requestPasswordReset;

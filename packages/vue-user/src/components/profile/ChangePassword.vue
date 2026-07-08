@@ -50,22 +50,23 @@ const loading = ref(false);
 const handleSubmit = async (payload: ChangePasswordPayload) => {
   loading.value = true;
 
-  await changePassword(payload, config?.apiBaseUrl)
-    .then((response) => {
-      if (response) {
-        // eslint-disable-next-line
-        router.hasRoute("home") &&
-          router.push({ name: "home" }).then(() =>
-            emitter.emit("notify", {
-              text: t("user.changePassword.messages.success"),
-              type: "success",
-            }),
-          );
-      }
-    })
-    .catch((error) => {
-      errorMessage.value = error.message;
-    });
+  try {
+    const response = await changePassword(payload, config?.apiBaseUrl);
+
+    if (response) {
+      // eslint-disable-next-line
+      router.hasRoute("home") &&
+        router.push({ name: "home" }).then(() =>
+          emitter.emit("notify", {
+            text: t("user.changePassword.messages.success"),
+            type: "success",
+          }),
+        );
+    }
+    // eslint-disable-next-line
+  } catch (error: any) {
+    errorMessage.value = error.message;
+  }
 
   loading.value = false;
 };

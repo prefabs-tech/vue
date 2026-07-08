@@ -87,12 +87,14 @@ const handleSubmit = async (credentials: LoginCredentials) => {
       } else {
         await login(credentials)
           .then(async (response) => {
-            if (response) {
-              setUser(response);
-
-              // eslint-disable-next-line
-              router.hasRoute("home") && router.push({ name: "home" });
+            if (!response) {
+              return;
             }
+
+            setUser(response);
+
+            // eslint-disable-next-line
+            router.hasRoute("home") && router.push({ name: "home" });
           })
           .catch((error) => {
             errors.value = [
@@ -120,5 +122,5 @@ const prepareComponent = async () => {
   }
 };
 
-prepareComponent();
+await prepareComponent();
 </script>

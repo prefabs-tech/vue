@@ -258,14 +258,16 @@ const getFormattedDateRange = (dateRange: Date[]) => {
 
   return (dateRange as Date[])
     .map((date, index) => {
-      if (date) {
-        const day = String(date.getDate()).padStart(2, "0");
-        const month = String(date.getMonth() + 1).padStart(2, "0");
-        const time = index === 0 ? "00:00:00" : "23:59:59";
-        const year = date.getFullYear();
-
-        return `${year}-${month}-${day} ${time}`;
+      if (!date) {
+        return;
       }
+
+      const day = String(date.getDate()).padStart(2, "0");
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const time = index === 0 ? "00:00:00" : "23:59:59";
+      const year = date.getFullYear();
+
+      return `${year}-${month}-${day} ${time}`;
     })
     .filter((date) => date !== null);
 };

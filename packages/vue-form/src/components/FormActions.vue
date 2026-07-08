@@ -97,19 +97,21 @@ const parsedActions = computed(() => {
   }
 
   for (const defaultAction of defaultActions.value) {
-    if (mappedActions.get(defaultAction.id || defaultAction.label || "")) {
-      const previousAction = mappedActions.get(
-        defaultAction.id || defaultAction.label || "",
-      );
-
-      mappedActions.set(defaultAction.id || defaultAction.label || "", {
-        ...defaultAction,
-        ...previousAction,
-      });
+    if (!mappedActions.get(defaultAction.id || defaultAction.label || "")) {
+      continue;
     }
+
+    const previousAction = mappedActions.get(
+      defaultAction.id || defaultAction.label || "",
+    );
+
+    mappedActions.set(defaultAction.id || defaultAction.label || "", {
+      ...defaultAction,
+      ...previousAction,
+    });
   }
 
-  return [...mappedActions.values()];
+  return mappedActions.values().toArray();
 });
 
 const onActionClick = (action: Record<string, unknown>) => {
