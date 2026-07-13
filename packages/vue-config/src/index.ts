@@ -4,7 +4,6 @@ import { inject } from "vue";
 
 import type { AppConfig, AppFeatures } from "./types";
 
-import parse from "./parse";
 import sentry from "./sentry";
 
 const feature = (name: keyof AppFeatures): boolean => {
@@ -39,6 +38,6 @@ const useFeature = (): typeof feature | undefined => {
 
 export default plugin;
 
-export { parse, sentry, useConfig, useFeature };
+export { sentry, useConfig, useFeature };
 
 export type { AppConfig, AppFeatures };

@@ -1,7 +1,7 @@
 import type { AppConfig, AppFeatures } from "@prefabs.tech/vue3-config";
 import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 
-import { parse } from "@prefabs.tech/vue3-config";
+import { parse } from "@prefabs.tech/utilities";
 
 import en from "@/locales/en";
 import fr from "@/locales/fr";
