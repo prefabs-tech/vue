@@ -128,7 +128,7 @@ const showOnlyToggle = computed(() => {
     return false;
   }
 
-  return !props.menu.some((item) => !!item.shortName);
+  return props.menu.every((item) => !item.shortName);
 });
 
 const slots = useSlots();

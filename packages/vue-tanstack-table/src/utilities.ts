@@ -164,11 +164,8 @@ export const getAlignValue = ({
 
   if (dataType == "other") {
     return "center";
-  } else if (dataType == "number" || dataType == "currency") {
-    return "right";
-  } else {
-    return "left";
   }
+  return dataType == "number" || dataType == "currency" ? "right" : "left";
 };
 
 const getRangeFilter = (filterState: ColumnFilter) => {

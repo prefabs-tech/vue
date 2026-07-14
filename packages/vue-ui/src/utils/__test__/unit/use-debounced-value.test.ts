@@ -22,20 +22,21 @@ describe("useDebouncedValue", () => {
   it("does not resolve before the delay has passed", async () => {
     vi.useFakeTimers();
 
-    let resolved = false;
+    const promise = useDebouncedValue("test", 500);
+    let isResolved = false;
 
-    useDebouncedValue("test", 500).then(() => {
-      resolved = true;
+    promise.then(() => {
+      isResolved = true;
     });
 
     vi.advanceTimersByTime(499);
     await Promise.resolve();
 
-    expect(resolved).toBe(false);
+    expect(isResolved).toBe(false);
 
     vi.advanceTimersByTime(1);
     await Promise.resolve();
 
-    expect(resolved).toBe(true);
+    expect(isResolved).toBe(true);
   });
 });

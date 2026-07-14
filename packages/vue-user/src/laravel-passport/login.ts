@@ -9,15 +9,12 @@ const login = async (
   apiBaseUrl: string,
   path: string,
 ): Promise<undefined | UserType> => {
-  let user: undefined | UserType;
-  let response;
-
   try {
-    response = await client(apiBaseUrl).post(path, credentials, {
+    const response = await client(apiBaseUrl).post(path, credentials, {
       withCredentials: true,
     });
     if (response.status === 200) {
-      user = response.data.user as UserType;
+      const user: undefined | UserType = response.data.user as UserType;
 
       return user;
     }

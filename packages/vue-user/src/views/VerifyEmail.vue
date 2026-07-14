@@ -67,46 +67,48 @@ const message = computed(() => {
 });
 
 onMounted(() => {
-  if (user) {
-    loading.value = true;
+  if (!user) {
+    return;
+  }
 
-    const token =
-      typeof route.query.token === "string"
-        ? route.query.token
-        : typeof route.params.token === "string"
-          ? route.params.token
-          : undefined;
+  loading.value = true;
 
-    verifyEmail(token)
-      .then(async (response) => {
-        status.value = response.status;
+  const token =
+    typeof route.query.token === "string"
+      ? route.query.token
+      : typeof route.params.token === "string"
+        ? route.params.token
+        : undefined;
 
-        if (status.value === EMAIL_VERIFICATION.OK) {
-          const userInfo = await getMe(config.apiBaseUrl);
+  verifyEmail(token)
+    .then(async (response) => {
+      status.value = response.status;
 
-          emitter.emit("notify", {
-            text: t("user.emailVerification.messages.verify.success"),
-            type: "success",
-          });
+      if (status.value === EMAIL_VERIFICATION.OK) {
+        const userInfo = await getMe(config.apiBaseUrl);
 
-          setUser(userInfo.data);
-        } else {
-          emitter.emit("notify", {
-            text: t("user.emailVerification.messages.verify.invalidToken"),
-            type: "error",
-          });
-        }
-      })
-      .catch(() => {
         emitter.emit("notify", {
-          text: t("user.emailVerification.messages.resend.error"),
+          text: t("user.emailVerification.messages.verify.success"),
+          type: "success",
+        });
+
+        setUser(userInfo.data);
+      } else {
+        emitter.emit("notify", {
+          text: t("user.emailVerification.messages.verify.invalidToken"),
           type: "error",
         });
-      })
-      .finally(() => {
-        loading.value = false;
+      }
+    })
+    .catch(() => {
+      emitter.emit("notify", {
+        text: t("user.emailVerification.messages.resend.error"),
+        type: "error",
       });
-  }
+    })
+    .finally(() => {
+      loading.value = false;
+    });
 });
 </script>
 

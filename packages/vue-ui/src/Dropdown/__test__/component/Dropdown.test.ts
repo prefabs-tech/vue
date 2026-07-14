@@ -19,15 +19,17 @@ const openPopup = async (wrapper: ReturnType<typeof mount>) => {
 
 describe("Dropdown", () => {
   beforeEach(() => {
-    Object.defineProperty(window, "innerWidth", {
-      configurable: true,
-      value: 1200,
-      writable: true,
-    });
-    Object.defineProperty(window, "innerHeight", {
-      configurable: true,
-      value: 800,
-      writable: true,
+    Object.defineProperties(window, {
+      innerHeight: {
+        configurable: true,
+        value: 800,
+        writable: true,
+      },
+      innerWidth: {
+        configurable: true,
+        value: 1200,
+        writable: true,
+      },
     });
   });
 

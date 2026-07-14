@@ -10,7 +10,7 @@ const plugin: Plugin = {
     const { config } = options;
     const sentryOptions = config.sentry;
 
-    if (sentryOptions?.enabled && sentryOptions?.dsn) {
+    if (sentryOptions?.enabled && sentryOptions.dsn) {
       Sentry.init({
         ...sentryOptions,
         app,

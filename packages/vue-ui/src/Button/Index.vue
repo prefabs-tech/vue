@@ -115,7 +115,7 @@ const buttonClassName = computed(() => {
     props.severity,
     props.size,
     props.variant === "textOnly" ? "text-only" : props.variant,
-    !(props.label || !!slots.label) && "icon-only",
+    !props.label && !slots.label && "icon-only",
     props.loading && "loading",
     props.rounded && "rounded",
     isDisabled.value && "disabled",

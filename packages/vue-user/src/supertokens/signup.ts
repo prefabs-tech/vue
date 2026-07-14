@@ -5,7 +5,6 @@ import type { LoginCredentials, UserType } from "../types";
 const signup = async (
   credentials: LoginCredentials,
 ): Promise<undefined | UserType> => {
-  let user: undefined | UserType;
   let response;
 
   const data = {
@@ -29,7 +28,7 @@ const signup = async (
   }
 
   if (response.status === "OK") {
-    user = response.user as UserType;
+    const user: undefined | UserType = response.user as UserType;
 
     return user;
   } else if (response.status === "FIELD_ERROR") {

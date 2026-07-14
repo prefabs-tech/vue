@@ -61,8 +61,8 @@ describe("utilities", () => {
     });
 
     it("returns value unchanged for NaN", () => {
-      const result = formatNumber({ value: Number.NaN });
-      expect(result).toBe(Number.NaN);
+      const result = formatNumber({ value: NaN });
+      expect(result).toBe(NaN);
     });
   });
 

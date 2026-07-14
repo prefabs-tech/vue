@@ -106,8 +106,8 @@ const mergedTabs = computed(() => [
     const override = props.tabs.find((tab) => tab.key === defaultTab.key);
     return override ? { ...defaultTab, ...override } : defaultTab;
   }),
-  ...props.tabs.filter(
-    (tab) => !defaultTabs.some((defaultTab) => defaultTab.key === tab.key),
+  ...props.tabs.filter((tab) =>
+    defaultTabs.every((defaultTab) => defaultTab.key !== tab.key),
   ),
 ]);
 </script>

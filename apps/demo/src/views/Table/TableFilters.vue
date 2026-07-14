@@ -623,11 +623,7 @@ const customEqualStringFilter: FilterFunction<unknown> = (
   columnId,
   value: string,
 ) => {
-  if (value.includes(row.getValue(columnId) as string)) {
-    return true;
-  }
-
-  return false;
+  return Boolean(value.includes(row.getValue(columnId) as string));
 };
 
 const inDateRangeFilter: FilterFunction<unknown> = (

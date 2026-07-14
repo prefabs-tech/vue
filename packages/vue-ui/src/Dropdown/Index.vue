@@ -119,10 +119,12 @@ const filteredMenu = computed(() =>
 );
 
 const onSelect = (item: DropdownMenu) => {
-  if (!item.disabled) {
-    emit("select", item);
-
-    popup.value.isVisible = false;
+  if (item.disabled) {
+    return;
   }
+
+  emit("select", item);
+
+  popup.value.isVisible = false;
 };
 </script>

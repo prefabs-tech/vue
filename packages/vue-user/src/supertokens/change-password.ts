@@ -7,7 +7,6 @@ const changePassword = async (
   apiBaseUrl: string,
 ): Promise<boolean | undefined> => {
   let response;
-  let success = false;
 
   try {
     response = await client(apiBaseUrl).post(
@@ -23,6 +22,8 @@ const changePassword = async (
   } catch {
     throw new Error("SOMETHING_WRONG");
   }
+
+  let success = false;
 
   if (response.data.status === "OK") {
     success = true;

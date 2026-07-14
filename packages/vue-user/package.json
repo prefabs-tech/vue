@@ -37,9 +37,9 @@
     "supertokens-website": "16.0.10"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "0.7.0",
-    "@prefabs.tech/stylelint-config": "0.7.0",
-    "@prefabs.tech/tsconfig": "0.7.0",
+    "@prefabs.tech/eslint-config": "0.8.7",
+    "@prefabs.tech/stylelint-config": "0.8.7",
+    "@prefabs.tech/tsconfig": "0.8.7",
     "@prefabs.tech/vue3-config": "0.32.0",
     "@prefabs.tech/vue3-form": "0.32.0",
     "@prefabs.tech/vue3-i18n": "0.32.0",
@@ -57,7 +57,7 @@
     "@vue/test-utils": "2.4.10",
     "@vueuse/core": "14.3.0",
     "axios": "1.16.0",
-    "eslint": "9.39.4",
+    "eslint": "10.6.0",
     "prettier": "3.8.3",
     "mitt": "3.0.1",
     "pinia": "3.0.4",

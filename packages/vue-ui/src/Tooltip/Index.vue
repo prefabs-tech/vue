@@ -93,17 +93,19 @@ onBeforeUnmount(() => {
 });
 
 const showTooltip = () => {
-  if (hasContentSlot.value) {
-    if (timerId.value) {
-      clearTimeout(timerId.value);
-    }
-
-    timerId.value = setTimeout(() => {
-      isVisible.value = true;
-
-      nextTick(() => updatePosition());
-    }, props.delay);
+  if (!hasContentSlot.value) {
+    return;
   }
+
+  if (timerId.value) {
+    clearTimeout(timerId.value);
+  }
+
+  timerId.value = setTimeout(() => {
+    isVisible.value = true;
+
+    nextTick(() => updatePosition());
+  }, props.delay);
 };
 
 const toggleTooltip = () => {

@@ -331,11 +331,10 @@ const mergedColumns = computed(() => [
     );
     return override ? { ...defaultColumn, ...override } : defaultColumn;
   }),
-  ...props.columnsData.filter(
-    (column) =>
-      !defaultColumns.some(
-        (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
-      ),
+  ...props.columnsData.filter((column) =>
+    defaultColumns.every(
+      (defaultColumn) => defaultColumn.accessorKey !== column.accessorKey,
+    ),
   ),
 ]);
 

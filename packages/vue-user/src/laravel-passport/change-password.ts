@@ -9,15 +9,12 @@ const changePassword = async (
   apiBaseUrl: string,
   path: string,
 ): Promise<undefined | UserType> => {
-  let user: undefined | UserType;
-  let response;
-
   try {
-    response = await client(apiBaseUrl).put(path, payload, {
+    const response = await client(apiBaseUrl).put(path, payload, {
       withCredentials: true,
     });
     if (response.status === 200) {
-      user = response.data as UserType;
+      const user: undefined | UserType = response.data as UserType;
 
       return user;
     }

@@ -272,7 +272,7 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
         props.appFilterOptions.length > 0
           ? props.appFilterOptions
           : appNameMap.value
-            ? [...appNameMap.value.entries()].map(([id, name]) => ({
+            ? Array.from(appNameMap.value.entries(), ([id, name]) => ({
                 label: name,
                 value: id,
               }))
@@ -439,11 +439,10 @@ const mergedColumns = computed(() => [
     );
     return override ? { ...defaultColumn, ...override } : defaultColumn;
   }),
-  ...props.columnsData.filter(
-    (column) =>
-      !defaultColumns.value.some(
-        (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
-      ),
+  ...props.columnsData.filter((column) =>
+    defaultColumns.value.every(
+      (defaultColumn) => defaultColumn.accessorKey !== column.accessorKey,
+    ),
   ),
 ]);
 

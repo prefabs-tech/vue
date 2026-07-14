@@ -148,13 +148,13 @@ const onUpdate = (
 
 onMounted(() => {
   if (props.teleport) {
-    window.addEventListener("scroll", closeOnScroll, true);
+    window.addEventListener("scroll", closeOnScroll, { capture: true });
   }
 });
 
 onBeforeUnmount(() => {
   if (props.teleport) {
-    window.removeEventListener("scroll", closeOnScroll, true);
+    window.removeEventListener("scroll", closeOnScroll, { capture: true });
   }
 });
 </script>
