@@ -15,4 +15,9 @@ export default [
       "unicorn/no-unused-array-method-return": "off",
     },
   },
+  {
+    rules: {
+      "unicorn/prefer-spread": "off", // Node 20 compat (toArray() unsupported)
+    }
+  }
 ];

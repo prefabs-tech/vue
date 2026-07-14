@@ -272,13 +272,10 @@ const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
         props.appFilterOptions.length > 0
           ? props.appFilterOptions
           : appNameMap.value
-            ? appNameMap.value
-                .entries()
-                .map(([id, name]) => ({
-                  label: name,
-                  value: id,
-                }))
-                .toArray()
+            ? Array.from(appNameMap.value.entries(), ([id, name]) => ({
+                label: name,
+                value: id,
+              }))
             : [],
       filterVariant: "multiselect",
     },

@@ -111,7 +111,7 @@ const parsedActions = computed(() => {
     });
   }
 
-  return mappedActions.values().toArray();
+  return Array.from(mappedActions.values());
 });
 
 const onActionClick = (action: Record<string, unknown>) => {
