@@ -37,9 +37,9 @@
     "@sentry/vue": "10.51.0"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "git+https://github.com/prefabs-tech/tools.git#build/dependencies-update&path:packages/eslint-config",
-    "@prefabs.tech/stylelint-config": "0.7.0",
-    "@prefabs.tech/tsconfig": "0.7.0",
+    "@prefabs.tech/eslint-config": "0.8.7",
+    "@prefabs.tech/stylelint-config": "0.8.7",
+    "@prefabs.tech/tsconfig": "0.8.7",
     "@types/node": "25.6.0",
     "@vitejs/plugin-vue": "6.0.6",
     "@vitejs/plugin-vue-jsx": "5.1.5",

@@ -36,9 +36,9 @@
     "vue3-toastify": "0.2.9"
   },
   "devDependencies": {
-    "@prefabs.tech/eslint-config": "git+https://github.com/prefabs-tech/tools.git#build/dependencies-update&path:packages/eslint-config",
-    "@prefabs.tech/stylelint-config": "0.7.0",
-    "@prefabs.tech/tsconfig": "0.7.0",
+    "@prefabs.tech/eslint-config": "0.8.7",
+    "@prefabs.tech/stylelint-config": "0.8.7",
+    "@prefabs.tech/tsconfig": "0.8.7",
     "@types/jsdom": "21.1.7",
     "@types/node": "25.6.0",
     "@vee-validate/i18n": "4.15.1",
