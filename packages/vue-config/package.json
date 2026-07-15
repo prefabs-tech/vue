@@ -33,27 +33,27 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@sentry/core": "10.51.0",
-    "@sentry/vue": "10.51.0"
+    "@sentry/core": "10.65.0",
+    "@sentry/vue": "10.65.0"
   },
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.8.7",
     "@prefabs.tech/stylelint-config": "0.8.7",
     "@prefabs.tech/tsconfig": "0.8.7",
-    "@types/node": "25.6.0",
-    "@vitejs/plugin-vue": "6.0.6",
-    "@vitejs/plugin-vue-jsx": "5.1.5",
-    "@vitest/coverage-istanbul": "4.1.5",
-    "eslint": "10.6.0",
-    "prettier": "3.8.3",
-    "stylelint": "17.10.0",
+    "@types/node": "25.9.5",
+    "@vitejs/plugin-vue": "6.0.7",
+    "@vitejs/plugin-vue-jsx": "5.1.6",
+    "@vitest/coverage-istanbul": "4.1.10",
+    "eslint": "10.7.0",
+    "prettier": "3.9.5",
+    "stylelint": "17.14.0",
     "stylelint-config-recommended-vue": "1.6.1",
     "stylelint-order": "8.1.1",
     "typescript": "5.9.3",
-    "vite": "7.3.2",
-    "vitest": "4.1.5",
-    "vue": "3.5.33",
-    "vue-router": "5.0.6",
+    "vite": "7.3.6",
+    "vitest": "4.1.10",
+    "vue": "3.5.39",
+    "vue-router": "5.1.0",
     "vue-tsc": "2.2.12"
   },
   "peerDependencies": {

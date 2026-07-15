@@ -135,13 +135,7 @@ const closeOnScroll = () => {
 
 const onUpdate = (
   date:
-    | Date
-    | Date[]
-    | MonthPickerValue
-    | number
-    | number[]
-    | string
-    | string[],
+    Date | Date[] | MonthPickerValue | number | number[] | string | string[],
 ) => {
   emit("update:modelValue", date);
 };

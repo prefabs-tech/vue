@@ -6,12 +6,7 @@ interface DropdownMenu {
   key?: string;
   label?: string;
   severity?:
-    | "alternate"
-    | "danger"
-    | "primary"
-    | "secondary"
-    | "success"
-    | "warning";
+    "alternate" | "danger" | "primary" | "secondary" | "success" | "warning";
   value?: number | string;
 }
 

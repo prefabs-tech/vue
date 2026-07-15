@@ -47,12 +47,7 @@ declare module "@tanstack/vue-table" {
 export type CellAlignmentType = "center" | "left" | "right";
 
 export type CellDataType =
-  | "currency"
-  | "date"
-  | "datetime"
-  | "number"
-  | "text"
-  | string;
+  "currency" | "date" | "datetime" | "number" | "text" | string;
 
 export type DataActionsMenuItem = {
   class?: string;
@@ -69,12 +64,7 @@ export type DataActionsMenuItem = {
   label?: string;
   requireConfirmationModal?: boolean;
   severity?:
-    | "alternate"
-    | "danger"
-    | "primary"
-    | "secondary"
-    | "success"
-    | "warning";
+    "alternate" | "danger" | "primary" | "secondary" | "success" | "warning";
 };
 
 export type FilterOption = {
