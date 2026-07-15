@@ -35,8 +35,7 @@ const getAuthProvider = () => {
     )
   ) {
     return authConfig.user.features.authProvider as
-      | "laravel-passport"
-      | "supertokens";
+      "laravel-passport" | "supertokens";
   }
 
   return "supertokens"; // Default to supertokens
