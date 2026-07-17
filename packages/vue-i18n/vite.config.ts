@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
         fileName: (format) => `PrefabsTechVue3I18n.${format}.js`,
         name: "PrefabsTechVue3I18n",
       },
-      rollupOptions: {
+      rolldownOptions: {
         external: ["@prefabs.tech/vue3-config", "pinia", "vue", "vue-i18n"],
         output: {
           exports: "named",

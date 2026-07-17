@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
         fileName: (format) => `PrefabsTechVue3TanstackTable.${format}.js`,
         name: "PrefabsTechVue3TanstackTable",
       },
-      rollupOptions: {
+      rolldownOptions: {
         external: Object.keys(peerDependencies),
         output: {
           exports: "named",
