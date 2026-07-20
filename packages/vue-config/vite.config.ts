@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
         fileName: (format) => `PrefabsTechVue3Config.${format}.js`,
         name: "PrefabsTechVue3Config",
       },
-      rollupOptions: {
+      rolldownOptions: {
         external: ["vue"],
         output: {
           exports: "named",

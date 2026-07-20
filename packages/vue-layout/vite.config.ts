@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
         fileName: (format) => `PrefabsTechVue3Layout.${format}.js`,
         name: "@prefabs.tech/vue3-layout",
       },
-      rollupOptions: {
+      rolldownOptions: {
         external: Object.keys(peerDependencies),
         output: {
           exports: "named",

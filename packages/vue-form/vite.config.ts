@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
         fileName: (format) => `PrefabsTechVue3Form.${format}.js`,
         name: "PrefabsTechVue3Form",
       },
-      rollupOptions: {
+      rolldownOptions: {
         external: [
           ...Object.keys(peerDependencies),
           ...Object.keys(dependencies),

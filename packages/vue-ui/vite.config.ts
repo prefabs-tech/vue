@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
         fileName: (format) => `PrefabsTechVue3UI.${format}.js`,
         name: "PrefabsTechVue3UI",
       },
-      rollupOptions: {
+      rolldownOptions: {
         external: Object.keys(peerDependencies),
         output: {
           exports: "named",
