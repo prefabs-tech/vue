@@ -1,0 +1,1 @@
+.demo-stepper-wrapper{flex-direction:column;gap:1rem;display:flex}.demo-stepper-content-wrapper{justify-content:flex-start;display:flex}.demo-stepper-buttons-wrapper{justify-content:flex-start;gap:1rem;margin-top:1rem;display:flex}@media screen and (width>=576px){.demo-stepper-wrapper{flex-direction:row}.demo-stepper-wrapper .stepper.vertical{width:25%}}

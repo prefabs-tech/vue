@@ -1,0 +1,1 @@
+import{k as e,mt as t,v as n}from"./runtime-core.esm-bundler-CIxmKYxc.js";import{t as r}from"./FormPage-qAqvgJ-r.js";var i=e({name:`FormView`,setup(e){return(e,i)=>(t(),n(r,{title:e.$t(`form.title`)},null,8,[`title`]))}});export{i as default};
