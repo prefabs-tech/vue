@@ -13,9 +13,7 @@
   width: 100%
 }
 
-.date-picker
-  > .dp__main:has(.dp__outer_menu_wrap):not(.invalid, .valid)
-  input[aria-label="Datepicker input"] {
+.date-picker:not(.invalid, .valid) .dp--input-focus {
   outline: 1px solid var(--dz-primary-color);
 }
 
@@ -23,29 +21,29 @@
   --dp-icon-color: var(--field-icon-color, #7b7676);
 }
 
-.dp__input_icon {
+.dp--input-icon {
   --dp-icon-color: var(--field-icon-color, #7b7676);
 }
 
-.dp__input:hover:not(.dp__input_focus) {
+.dp--input:hover:not(.dp--input-focus) {
   border-color: var(--border-color);
 }
 
-.date-picker.field:has(.dp__input_icon) input {
+.date-picker.field:has(.dp--input-icon) input {
   --_padding-inline: calc(var(--field-padding-inline, 0.75rem) * 2.5);
 }
 
-.invalid .dp__input,
-.invalid .dp__input:hover:not(.dp__input_focus) {
+.invalid .dp--input,
+.invalid .dp--input:hover:not(.dp--input-focus) {
   border-color: var(--dz-danger-color);
 }
 
-.invalid .dp__input_wrap .dp--clear-btn,
-.valid .dp__input_wrap .dp--clear-btn {
+.invalid .dp--input-wrap .dp--clear-btn,
+.valid .dp--input-wrap .dp--clear-btn {
   margin-inline: 2rem;
 }
 
-.valid .dp__input,
-.valid .dp__input:hover:not(.dp__input_focus) {
+.valid .dp--input,
+.valid .dp--input:hover:not(.dp--input-focus) {
   border-color: var(--dz-success-color);
 }
