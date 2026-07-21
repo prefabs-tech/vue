@@ -52,7 +52,7 @@
     "@vitejs/plugin-vue-jsx": "5.1.6",
     "@vitest/coverage-istanbul": "4.1.10",
     "@vue/test-utils": "2.4.11",
-    "@vuepic/vue-datepicker": "14.0.0",
+    "@vuepic/vue-datepicker": "12.1.0",
     "@vueuse/core": "14.3.0",
     "eslint": "10.7.0",
     "prettier": "3.9.5",
