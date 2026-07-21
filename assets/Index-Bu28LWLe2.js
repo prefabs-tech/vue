@@ -1,0 +1,1 @@
+import{k as e,mt as t,v as n}from"./runtime-core.esm-bundler-BKdLzFmX.js";import{t as r}from"./TablePage-CBOXTkXx.js";var i=e({name:`TableView`,setup(e){return(e,i)=>(t(),n(r,{title:e.$t(`table.title`)},null,8,[`title`]))}});export{i as default};

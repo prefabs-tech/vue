@@ -1,1 +1,0 @@
-import{St as e,_ as t,k as n,mt as r,qt as i,v as a}from"./runtime-core.esm-bundler-CIxmKYxc.js";var o=n({name:`SentryPage`,setup(n){let o=()=>{throw Error(`Sentry error`)};return(n,s)=>{let c=e(`Page`);return r(),a(c,{title:n.$t(`sentry.title`)},{default:i(()=>[t(`button`,{onClick:o},`Throw error`)]),_:1},8,[`title`])}}});export{o as default};

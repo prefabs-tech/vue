@@ -1,1 +1,0 @@
-import{k as e,mt as t,v as n}from"./runtime-core.esm-bundler-CIxmKYxc.js";import{t as r}from"./UiPage-3Ir0VIur.js";var i=e({name:`UIView`,setup(e){return(e,i)=>(t(),n(r,{title:e.$t(`ui.title`)},null,8,[`title`]))}});export{i as default};
