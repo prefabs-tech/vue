@@ -1,9 +1,10 @@
 import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
+import type { LocaleMessageValue } from "vue-i18n";
 
 function getLocaleMessages(): LocaleMessages<VueMessageType> {
   const contexts = import.meta.glob("./*.json", { eager: true }) as Record<
     string,
-    LocaleMessages<VueMessageType>
+    { default: Record<string, LocaleMessageValue<VueMessageType>> }
   >;
 
   const messages: LocaleMessages<VueMessageType> = {};

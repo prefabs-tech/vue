@@ -1,3 +1,4 @@
+import type { LocaleMessages, VueMessageType } from "@prefabs.tech/vue3-i18n";
 import type { ToastContainerOptions } from "vue3-toastify";
 
 import configPlugin, { sentry } from "@prefabs.tech/vue3-config";
@@ -35,7 +36,11 @@ app.use(configPlugin, { config });
 app.use(sentry, { config, router });
 app.use(i18nPlugin, { config });
 app.use(uiPlugin);
-app.use(layoutPlugin, { config, translations: config.i18n.messages });
+
+app.use(layoutPlugin, {
+  config,
+  translations: config.i18n.messages as LocaleMessages<VueMessageType>,
+});
 // app.use(userPlugin, {
 //   config,
 //   pinia,
