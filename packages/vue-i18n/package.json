@@ -33,7 +33,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "vue-i18n": "9.1.10"
+    "vue-i18n": "11.4.7"
   },
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.8.7",
@@ -47,9 +47,9 @@
     "@vue/test-utils": "2.4.11",
     "@vueuse/core": "14.3.0",
     "eslint": "10.7.0",
-    "prettier": "3.9.5",
     "jsdom": "29.1.1",
     "pinia": "4.0.2",
+    "prettier": "3.9.5",
     "stylelint": "17.14.1",
     "stylelint-config-recommended-vue": "1.6.1",
     "stylelint-order": "8.1.1",

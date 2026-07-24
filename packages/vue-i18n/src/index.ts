@@ -1,6 +1,11 @@
 import type { AppConfig } from "@prefabs.tech/vue3-config";
 import type { App, Plugin } from "vue";
-import type { I18nOptions, LocaleMessages, VueMessageType } from "vue-i18n";
+import type {
+  I18nOptions,
+  Locale,
+  LocaleMessageValue,
+  VueMessageType,
+} from "vue-i18n";
 
 import { createI18n as baseCreateI18n, useI18n } from "vue-i18n";
 
@@ -11,6 +16,12 @@ import {
   getPreferredLocale,
   prependMessages,
 } from "./utilities";
+
+// Locale messages collection using vue-i18n's exported types (like v9)
+type LocaleMessages<Message = VueMessageType> = Record<
+  Locale,
+  Record<string, LocaleMessageValue<Message>>
+>;
 
 const createI18n = (options: DzangolabVueI18nPluginOptions): Plugin => {
   const i18nOptions = options.config.i18n;
@@ -31,7 +42,7 @@ const createI18n = (options: DzangolabVueI18nPluginOptions): Plugin => {
 
   const messages = prependMessages(
     getLocaleNames(i18nOptions.supportedLocales),
-    i18nOptions?.messages,
+    i18nOptions?.messages as LocaleMessages | undefined,
   );
 
   const i18n = baseCreateI18n({
