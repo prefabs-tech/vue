@@ -42,7 +42,7 @@ const createI18n = (options: DzangolabVueI18nPluginOptions): Plugin => {
 
   const messages = prependMessages(
     getLocaleNames(i18nOptions.supportedLocales),
-    i18nOptions?.messages as LocaleMessages | undefined,
+    i18nOptions?.messages satisfies LocaleMessages | undefined,
   );
 
   const i18n = baseCreateI18n({
