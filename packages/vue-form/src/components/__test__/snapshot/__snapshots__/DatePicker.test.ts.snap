@@ -10,26 +10,29 @@ exports[`DatePicker > matches snapshot 1`] = `
     </span>
     
     <div
-      class="dp__main dp__theme_light"
+      class="dp--main dp--theme-light"
       data-datepicker-instance=""
       data-dp-mobile="true"
-      name="date"
       tabindex="0"
     >
       <div>
         
         
         <div
-          class="dp__input_wrap"
+          class="dp--input-wrap"
         >
           
           <input
+            aria-expanded="false"
+            aria-haspopup="dialog"
             aria-label="Datepicker input"
             autocomplete="off"
-            class="dp__pointer dp__input_readonly dp__input dp__input_icon_pad dp__input_reg"
+            class="dp--pointer dp--input-readonly dp--input dp--input-icon-pad dp--input-reg"
             data-test-id="dp-input"
             inputmode="none"
+            name="date"
             placeholder="Placeholder"
+            role="combobox"
             value=""
           />
           
@@ -37,7 +40,7 @@ exports[`DatePicker > matches snapshot 1`] = `
             <!---->
             <svg
               aria-hidden="true"
-              class="dp__icon dp__input_icon dp__input_icons"
+              class="dp--icon dp--input-icon dp--input-icons"
               fill="currentColor"
               role="img"
               viewBox="0 0 32 32"
@@ -61,21 +64,9 @@ exports[`DatePicker > matches snapshot 1`] = `
           <!---->
         </div>
       </div>
-      <!--teleport start-->
-      <div
-        class="dp--menu-wrapper dp__outer_menu_wrap"
-        style="position: absolute; left: 0px; top: 0px;"
-      >
-        <transition-stub
-          appear="false"
-          css="false"
-          name="dp-menu-appear-bottom"
-          persisted="false"
-        >
-          <!---->
-        </transition-stub>
-      </div>
-      <!--teleport end-->
+      
+      <!---->
+      
     </div>
     <!---->
     
