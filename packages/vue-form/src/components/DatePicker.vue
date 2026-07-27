@@ -13,6 +13,7 @@
           ref="dzangolabVueDatePicker"
           v-bind="filteredAttributes"
           :auto-apply="autoApply"
+          :config="{ closeOnAutoApply: !attributesRange }"
           :class="[
             {
               invalid: (meta.dirty || meta.touched) && !meta.valid,
@@ -25,8 +26,9 @@
           :model-value="modelValue"
           :placeholder="placeholder"
           :teleport="teleport"
+          :week-start="1"
           :time-config="{ enableTimePicker }"
-          :name="field.name"
+          :input-attrs="{ name: field.name }"
           tabindex="0"
           @update:model-value="onUpdate"
         />
@@ -122,6 +124,8 @@ const dzangolabVueDatePicker = ref();
 const attributes = useAttrs();
 
 const fieldSchema = props.schema ? toTypedSchema(props.schema) : undefined;
+
+const attributesRange = computed(() => "range" in attributes);
 
 const filteredAttributes = computed(() => {
   const { class: _, ...rest } = attributes;
