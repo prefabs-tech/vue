@@ -23,13 +23,13 @@ describe("ResponsiveMenu", () => {
   });
 
   it("should render each route as an li element", () => {
-    const lis = wrapper.findAll(" nav.menu > ul > li");
+    const lis = wrapper.findAll("ul > li");
 
     expect(lis.length).toBe(routes.length);
   });
 
   it("should render each route ", () => {
-    const renderedRoutes = wrapper.findAll(" nav.menu > ul > li").map((li) => {
+    const renderedRoutes = wrapper.findAll("ul > li").map((li) => {
       const to = li.findComponent(RouterLinkStub).props().to;
       return typeof to === "string" ? to : to.name;
     });
