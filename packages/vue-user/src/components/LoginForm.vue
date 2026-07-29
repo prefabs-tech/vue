@@ -28,6 +28,7 @@
       :label="t('user.login.form.password.label')"
       :options="{ minLength: 6 }"
       :placeholder="t('user.login.form.password.placeholder')"
+      autocomplete="current-password"
     />
 
     <div class="actions">
