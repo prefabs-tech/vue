@@ -9,6 +9,7 @@
       :label="t('user.changePassword.form.currentPassword.label')"
       :options="currentPasswordOptions"
       :placeholder="t('user.changePassword.form.currentPassword.placeholder')"
+      autocomplete="current-password"
       name="current-password"
     />
 
