@@ -15,6 +15,9 @@
       "outputs": []
     },
     "lint": {
+      "dependsOn": [
+        "^build"
+      ],
       "env": ["NODE_ENV", "BASE_URL"],
       "outputs": []
     },
@@ -55,6 +58,9 @@
       "outputs": []
     },
     "typecheck": {
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": []
     }
   }
