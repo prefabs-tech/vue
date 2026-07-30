@@ -1,3 +1,15 @@
+# [0.33.0](https://github.com/prefabs-tech/vue/compare/v0.32.0...v0.33.0) (2026-07-30)
+
+
+### Bug Fixes
+
+* **user/ProfileTabsPage:** hide whole change password section instead of only form for social login ([#1020](https://github.com/prefabs-tech/vue/issues/1020)) ([a743cd2](https://github.com/prefabs-tech/vue/commit/a743cd244fd91485173f965337ba48588f78c094))
+
+
+### Features
+
+* **table:** add range filter min and max properties for number inputs ([#1022](https://github.com/prefabs-tech/vue/issues/1022)) ([e6b39a2](https://github.com/prefabs-tech/vue/commit/e6b39a21254908840576e740b651c44d662dab8f))
+* **table:** add support to limit date for date range filter ([#1023](https://github.com/prefabs-tech/vue/issues/1023)) ([ac7b476](https://github.com/prefabs-tech/vue/commit/ac7b47623fe5f37cd8f8a1b65bafd719af1fb0ba))
 # [0.32.0](https://github.com/prefabs-tech/vue/compare/v0.31.0...v0.32.0) (2026-02-23)
 
 ### Breaking Changes
