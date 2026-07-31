@@ -32,21 +32,17 @@ describe("TabbedPanel", () => {
   });
 
   it("should show correct tab on click", async () => {
-    const firstTab = wrapper.find(".tabbed-panel ul[role='tablist'] li button");
+    const firstTab = wrapper.find(`ul[role="tablist"] li button`);
     await firstTab.trigger("click");
 
-    expect(wrapper.find(".tabbed-panel .tabbed-pane p").text()).toBe(
-      contents.first.content,
-    );
+    expect(wrapper.find(".tabbed-pane p").text()).toBe(contents.first.content);
   });
 
   it("should show correct tab on multiple tab click", async () => {
-    const tabs = wrapper.findAll(".tabbed-panel ul[role='tablist'] li button");
+    const tabs = wrapper.findAll(`ul[role="tablist"] li button`);
     await tabs[0].trigger("click");
     await tabs[1].trigger("click");
 
-    expect(wrapper.find(".tabbed-panel .tabbed-pane p").text()).toBe(
-      contents.second.content,
-    );
+    expect(wrapper.find(".tabbed-pane p").text()).toBe(contents.second.content);
   });
 });
