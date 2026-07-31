@@ -1,12 +1,18 @@
-import type { LocaleMessages, VueMessageType } from "vue-i18n";
+import type { Locale, LocaleMessageValue, VueMessageType } from "vue-i18n";
 
 import nativeLocaleNames from "./locales/native-locale-names";
 
+// Locale messages collection using vue-i18n's exported types (like v9)
+type LocaleMessages<Message = VueMessageType> = Record<
+  Locale,
+  Record<string, LocaleMessageValue<Message>>
+>;
+
 const getLocaleNames = (supportedLocales: string[]) => {
-  const names: LocaleMessages<VueMessageType> = {};
+  const names: LocaleMessages = {};
 
   for (const locale of supportedLocales) {
-    names[locale as string] = {
+    names[locale] = {
       locales: nativeLocaleNames,
     };
   }
@@ -42,14 +48,14 @@ const getPreferredLocale = (
 };
 
 const prependMessages = (
-  messages: LocaleMessages<VueMessageType>,
-  defaults: LocaleMessages<VueMessageType> | undefined,
-): LocaleMessages<VueMessageType> => {
+  messages: LocaleMessages,
+  defaults: LocaleMessages | undefined,
+): LocaleMessages => {
   if (!defaults) {
     return messages;
   }
 
-  const m: LocaleMessages<VueMessageType> = {};
+  const m: LocaleMessages = {};
 
   for (const locale in defaults) {
     const base = defaults[locale];
