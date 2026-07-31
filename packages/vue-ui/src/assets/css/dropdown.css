@@ -93,7 +93,7 @@ ul.dropdown-menu li[aria-disabled="true"] {
 }
 
 ul.dropdown-menu li:hover {
-  background-color: var(--hover-color, #eff6ff);
+  background-color: var(--hover-bg, #eff6ff);
 }
 
 ul.dropdown-menu li .menu-item > i {
@@ -102,7 +102,7 @@ ul.dropdown-menu li .menu-item > i {
 
 @media screen and (min-width: 576px) {
   .dropdown-menu-trigger:hover {
-    background-color: var(--hover-color, #eff6ff);
+    background-color: var(--hover-bg, #eff6ff);
     border-radius: 5px;
   }
 }
