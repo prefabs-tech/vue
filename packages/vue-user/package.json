@@ -31,8 +31,7 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "supertokens-web-js": "0.6.0",
-    "supertokens-website": "16.0.10"
+    "supertokens-web-js": "0.6.0"
   },
   "devDependencies": {
     "@prefabs.tech/eslint-config": "0.8.7",
