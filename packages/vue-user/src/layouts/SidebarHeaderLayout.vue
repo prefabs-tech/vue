@@ -35,8 +35,8 @@
       <slot name="afterSidebarMenu"></slot>
     </template>
 
-    <template #footer>
-      <slot name="footer"></slot>
+    <template v-if="$slots.footer" #footer>
+      <slot name="footer" />
     </template>
 
     <slot></slot>

@@ -36,6 +36,10 @@
       </AppHeader>
     </template>
 
+    <template v-if="$slots.footer" #footer>
+      <slot name="footer" />
+    </template>
+
     <slot></slot>
   </OriginalBasicLayout>
 </template>
