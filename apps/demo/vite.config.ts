@@ -6,15 +6,6 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/vue/",
-  build: {
-    rollupOptions: {
-      output: {
-        assetFileNames: `assets/[name]-[hash]-${Date.now()}.[ext]`,
-        chunkFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
-        entryFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
-      },
-    },
-  },
   define: {
     __VUE_I18N_FULL_INSTALL__: true,
     __VUE_I18N_LEGACY_API__: false,
