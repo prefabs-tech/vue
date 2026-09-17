@@ -24,10 +24,6 @@
       <slot name="locales"></slot>
     </template>
 
-    <template v-if="$slots.footer" #footer>
-      <slot name="footer" />
-    </template>
-
     <slot></slot>
   </Layout>
 </template>
