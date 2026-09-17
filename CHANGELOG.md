@@ -1,6 +1,17 @@
 ## [0.33.1](https://github.com/prefabs-tech/vue/compare/v0.33.0...v0.33.1) (2026-09-17)
 
 
+### Bug Fixes
+
+* **vue-user:** update stale SidebarOnlyLayout snapshot; restore .npmrc ([b3379f8](https://github.com/prefabs-tech/vue/commit/b3379f8f5e9d44f97834153814b64713022c0631))
+
+
+### Features
+
+* **layouts:** support customizable footers ([#1037](https://github.com/prefabs-tech/vue/issues/1037)) ([a7b7fd9](https://github.com/prefabs-tech/vue/commit/a7b7fd92570914b41b62d97a3a4bb899e1149b34))
+## [0.33.1](https://github.com/prefabs-tech/vue/compare/v0.33.0...v0.33.1) (2026-09-17)
+
+
 ### Features
 
 * **layouts:** support customizable footers ([#1037](https://github.com/prefabs-tech/vue/issues/1037)) ([a7b7fd9](https://github.com/prefabs-tech/vue/commit/a7b7fd92570914b41b62d97a3a4bb899e1149b34))
