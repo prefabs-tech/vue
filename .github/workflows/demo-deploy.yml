@@ -17,10 +17,15 @@ jobs:
         node-version: [24.x]
 
     steps:
-      - uses: actions/checkout@v4
-        name: Use node ${{ matrix.node-version }}
+      - name: Checkout
+        uses: actions/checkout@v7
 
-      - uses: pnpm/action-setup@v4
+      - name: Use node ${{ matrix.node-version }}
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: pnpm/action-setup@v6
         name: Setup pnpm and install dependencies
 
       - name: Get current package version
