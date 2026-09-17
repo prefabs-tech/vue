@@ -1,12 +1,14 @@
+default:
+	@just --list
+
+alias demo := run
+alias dev := run
+
 build:
 	@printf "\033[0;32m>>> Build packages\033[0m\n"
 	pnpm build
 
-demo: run
-
-dev: run
-
-lint.md:
+lint-md:
 	@printf "\033[0;32m>>> Lint markdown\033[0m\n"
 	pnpm lint:md
 
@@ -18,7 +20,7 @@ lint:
 	@printf "\033[0;32m>>> Lint code\033[0m\n"
 	pnpm lint
 
-lint.fix:
+lint-fix:
 	@printf "\033[0;32m>>> Lint code\033[0m\n"
 	pnpm lint:fix
 
@@ -50,7 +52,7 @@ stylelint:
 	@printf "\033[0;32m>>> Lint style\033[0m\n"
 	pnpm stylelint
 
-stylelint.fix:
+stylelint-fix:
 	@printf "\033[0;32m>>>Fix lint style\033[0m\n"
 	pnpm stylelint:fix
 
@@ -58,19 +60,19 @@ test:
 	@printf "\033[0;32m>>> Running tests\033[0m\n"
 	pnpm test
 
-test.ci:
+test-ci:
 	@printf "\033[0;32m>>> Running tests\033[0m\n"
 	pnpm test:ci
 
-test.integration:
+test-integration:
 	@printf "\033[0;32m>>> Running integration tests\033[0m\n"
 	pnpm test:integration
 
-test.unit:
+test-unit:
 	@printf "\033[0;32m>>> Running unit tests\033[0m\n"
 	pnpm test:unit
 
-test.watch:
+test-watch:
 	@printf "\033[0;32m>>> Watch running tests\033[0m\n"
 	pnpm test:watch
 

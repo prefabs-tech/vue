@@ -11,13 +11,13 @@ git clone git@github.com:dzangolab/vue.git
 ### Install dependencies
 
 ```
-make install
+just install
 ```
 
 ### Build libraries
 
 ```
-make build
+just build
 ```
 
 ### Setup environment variables
@@ -40,7 +40,7 @@ Navigate back to root folder and copy its `.env.example` to `.env` using same co
 ### Run the server
 
 ```
-make run
+just run
 ```
 
 ### Usage

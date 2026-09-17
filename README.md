@@ -23,31 +23,31 @@ Please find out [demo app](https://prefabs-tech.github.io/vue/) for examples.
 Install dependencies recursively with this command
 
 ```
-make install
+just install
 ```
 
 ## Build all packages
 
 ```
-make build
+just build
 ```
 
 ## Lint code
 
 ```
-make lint
+just lint
 ```
 
 ## Typecheck code
 
 ```
-make typecheck
+just typecheck
 ```
 
 ## Test
 
 ```
-make test
+just test
 ```
 
 # Developing locally & testing
@@ -69,7 +69,7 @@ pnpm unlink ./<path_to_libraries_monorepo>/packages/<library_name>
 ## Running demo app
 
 ```
-make dev
+just dev
 ```
 
 ## Troubleshooting
