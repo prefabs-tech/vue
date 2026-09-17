@@ -1,0 +1,1 @@
+import{St as e,mt as t,v as n}from"./runtime-core.esm-bundler-BKdLzFmX.js";import{t as r}from"./_plugin-vue_export-helper-BDNMzG2s.js";var i={name:`AboutPage`};function a(r,i,a,o,s,c){let l=e(`Page`);return t(),n(l,{title:r.$t(`about.title`)},null,8,[`title`])}var o=r(i,[[`render`,a]]);export{o as default};
