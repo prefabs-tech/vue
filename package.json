@@ -12,11 +12,11 @@
     "sort-package": "npx sort-package-json && turbo run sort-package",
     "stylelint": "turbo run stylelint",
     "stylelint:fix": "turbo run stylelint:fix",
-    "test": "turbo run test --parallel",
-    "test:ci": "turbo run test:ci --parallel",
-    "test:integration": "turbo run test:integration --parallel",
-    "test:unit": "turbo run test:unit --parallel",
-    "test:watch": "turbo run test:watch --parallel",
+    "test": "turbo run test",
+    "test:ci": "turbo run test:ci",
+    "test:integration": "turbo run test:integration",
+    "test:unit": "turbo run test:unit",
+    "test:watch": "turbo run test:watch",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
