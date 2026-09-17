@@ -191,26 +191,26 @@ importers:
         specifier: 5.0.1
         version: 5.0.1(vue@3.5.40(typescript@6.0.3))
       '@prefabs.tech/vue3-config':
-        specifier: 0.33.0
-        version: 0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../../packages/vue-config
       '@prefabs.tech/vue3-form':
-        specifier: 0.33.0
-        version: 0.33.0(@vee-validate/i18n@4.15.1)(@vee-validate/rules@4.15.1(vue@3.5.40(typescript@6.0.3)))(@vee-validate/zod@4.15.1(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(vee-validate@4.15.1(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))(zod@3.25.76)
+        specifier: 0.34.0
+        version: link:../../packages/vue-form
       '@prefabs.tech/vue3-i18n':
-        specifier: 0.33.0
-        version: 0.33.0(@prefabs.tech/vue3-config@0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3)))(@vueuse/core@14.3.0(vue@3.5.40(typescript@6.0.3)))(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../../packages/vue-i18n
       '@prefabs.tech/vue3-layout':
-        specifier: 0.33.0
-        version: 0.33.0(ea159da7c299939a1fa78be9a4fa1733)
+        specifier: 0.34.0
+        version: link:../../packages/vue-layout
       '@prefabs.tech/vue3-tanstack-table':
-        specifier: 0.33.0
-        version: 0.33.0(@prefabs.tech/vue3-form@0.33.0(@vee-validate/i18n@4.15.1)(@vee-validate/rules@4.15.1(vue@3.5.40(typescript@6.0.3)))(@vee-validate/zod@4.15.1(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(vee-validate@4.15.1(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(@prefabs.tech/vue3-ui@0.33.0(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../../packages/vue-tanstack-table
       '@prefabs.tech/vue3-ui':
-        specifier: 0.33.0
-        version: 0.33.0(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../../packages/vue-ui
       '@prefabs.tech/vue3-user':
-        specifier: 0.33.0
-        version: 0.33.0(29761b63bf6f2397c3ef87322d6ecf76)
+        specifier: 0.34.0
+        version: link:../../packages/vue-user
       pinia:
         specifier: 4.0.2
         version: 4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3))
@@ -395,8 +395,8 @@ importers:
         specifier: 0.8.7
         version: 0.8.7
       '@prefabs.tech/vue3-ui':
-        specifier: 0.33.0
-        version: 0.33.0(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-ui
       '@types/node':
         specifier: 26.1.1
         version: 26.1.1
@@ -486,8 +486,8 @@ importers:
         specifier: 0.8.7
         version: 0.8.7
       '@prefabs.tech/vue3-config':
-        specifier: 0.33.0
-        version: 0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-config
       '@types/node':
         specifier: 26.1.1
         version: 26.1.1
@@ -558,14 +558,14 @@ importers:
         specifier: 0.8.7
         version: 0.8.7
       '@prefabs.tech/vue3-config':
-        specifier: 0.33.0
-        version: 0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-config
       '@prefabs.tech/vue3-i18n':
-        specifier: 0.33.0
-        version: 0.33.0(@prefabs.tech/vue3-config@0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3)))(@vueuse/core@14.3.0(vue@3.5.40(typescript@6.0.3)))(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-i18n
       '@prefabs.tech/vue3-ui':
-        specifier: 0.33.0
-        version: 0.33.0(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-ui
       '@types/node':
         specifier: 26.1.1
         version: 26.1.1
@@ -637,11 +637,11 @@ importers:
         specifier: 0.8.7
         version: 0.8.7
       '@prefabs.tech/vue3-form':
-        specifier: 0.33.0
-        version: 0.33.0(@vee-validate/i18n@4.15.1)(@vee-validate/rules@4.15.1(vue@3.5.40(typescript@6.0.3)))(@vee-validate/zod@4.15.1(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(vee-validate@4.15.1(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))(zod@3.25.76)
+        specifier: 0.34.0
+        version: link:../vue-form
       '@prefabs.tech/vue3-ui':
-        specifier: 0.33.0
-        version: 0.33.0(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-ui
       '@types/node':
         specifier: 26.1.1
         version: 26.1.1
@@ -776,23 +776,23 @@ importers:
         specifier: 0.8.7
         version: 0.8.7
       '@prefabs.tech/vue3-config':
-        specifier: 0.33.0
-        version: 0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-config
       '@prefabs.tech/vue3-form':
-        specifier: 0.33.0
-        version: 0.33.0(@vee-validate/i18n@4.15.1)(@vee-validate/rules@4.15.1(vue@3.5.40(typescript@6.0.3)))(@vee-validate/zod@4.15.1(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(vee-validate@4.15.1(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))(zod@3.25.76)
+        specifier: 0.34.0
+        version: link:../vue-form
       '@prefabs.tech/vue3-i18n':
-        specifier: 0.33.0
-        version: 0.33.0(@prefabs.tech/vue3-config@0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3)))(@vueuse/core@14.3.0(vue@3.5.40(typescript@6.0.3)))(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-i18n
       '@prefabs.tech/vue3-layout':
-        specifier: 0.33.0
-        version: 0.33.0(ea159da7c299939a1fa78be9a4fa1733)
+        specifier: 0.34.0
+        version: link:../vue-layout
       '@prefabs.tech/vue3-tanstack-table':
-        specifier: 0.33.0
-        version: 0.33.0(@prefabs.tech/vue3-form@0.33.0(@vee-validate/i18n@4.15.1)(@vee-validate/rules@4.15.1(vue@3.5.40(typescript@6.0.3)))(@vee-validate/zod@4.15.1(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(vee-validate@4.15.1(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(@prefabs.tech/vue3-ui@0.33.0(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-tanstack-table
       '@prefabs.tech/vue3-ui':
-        specifier: 0.33.0
-        version: 0.33.0(vue@3.5.40(typescript@6.0.3))
+        specifier: 0.34.0
+        version: link:../vue-ui
       '@types/node':
         specifier: 26.1.1
         version: 26.1.1
@@ -1860,76 +1860,6 @@ packages:
 
   '@prefabs.tech/tsconfig@0.8.7':
     resolution: {integrity: sha512-Klhzz5I/GP2yQWp+rVg3OBVpg/0UZ47nOwj77m+QukRqCH99z/Bj4VrmvUKasuRcjqjR/Hz2YNSJjNGFPbd9Gw==}
-
-  '@prefabs.tech/vue3-config@0.33.0':
-    resolution: {integrity: sha512-UXy+SPs5aSprixORDPpmTusitSOELwDiCYj8paCSW7+RZa9HCmz3eOuEAtk6on3ClZpc1kQzOevcUSLK2y4IMA==}
-    engines: {node: '>=18', pnpm: '>=9'}
-    peerDependencies:
-      vue: '>=3.5'
-      vue-router: '>=5.2'
-
-  '@prefabs.tech/vue3-form@0.33.0':
-    resolution: {integrity: sha512-p8XorQ/3P1Fl8hDo9+5owGC1BziWYm8iYCPJcHe1jLIm1tbE4DfxrXt7t4+OudsH192BI6U/Mmre8Wnxa7Yz2g==}
-    engines: {node: '>=18', pnpm: '>=9'}
-    peerDependencies:
-      '@vee-validate/i18n': '>=4.15.1'
-      '@vee-validate/rules': '>=4.15.1'
-      '@vee-validate/zod': '>=4.15.1'
-      vee-validate: '>=4.15.1'
-      vue: '>=3.5'
-      zod: '>=3.25.76'
-
-  '@prefabs.tech/vue3-i18n@0.33.0':
-    resolution: {integrity: sha512-z5toY9f+Pj+zrwnuHZ7pj8tB3a9g3vV0AM/nZ2e8n1QuzHTagsXZ1vzP6eXsyBd1nDFoD0cedKMDPJMwLRrkQA==}
-    engines: {node: '>=18', pnpm: '>=9'}
-    peerDependencies:
-      '@prefabs.tech/vue3-config': 0.33.0
-      '@vueuse/core': '>=14.3.0'
-      pinia: '>=4.0'
-      vue: '>=3.5'
-
-  '@prefabs.tech/vue3-layout@0.33.0':
-    resolution: {integrity: sha512-+tJmpj9+9vcaZ+sZCgSqIZFgMQNbmb/RFbhKQaEBdAmWCOsSBUf+z6Nebm2Oldji+nbnLucKK0lCipmzXVKc7A==}
-    engines: {node: '>=18', pnpm: '>=9'}
-    peerDependencies:
-      '@prefabs.tech/vue3-config': 0.33.0
-      '@prefabs.tech/vue3-i18n': 0.33.0
-      '@prefabs.tech/vue3-ui': 0.33.0
-      '@vueuse/core': '>=14.3.0'
-      vue: '>=3.5'
-      vue-router: '>=5.2'
-
-  '@prefabs.tech/vue3-tanstack-table@0.33.0':
-    resolution: {integrity: sha512-O+TesVsVzRsitL4VMDxrDMUWPk4HbaksqN4SuJTKLhgReox7H0bGiQUaUXBeOKLFW0TI9+6DOXHgQmjt5y8H8A==}
-    engines: {node: '>=18', pnpm: '>=9'}
-    peerDependencies:
-      '@prefabs.tech/vue3-form': 0.33.0
-      '@prefabs.tech/vue3-ui': 0.33.0
-      vue: '>=3.5'
-
-  '@prefabs.tech/vue3-ui@0.33.0':
-    resolution: {integrity: sha512-MBWwXNdjVAAoVdh9n4wYefY+pHXxD/aNFvPYKz8tfK4k/dn6mdvLNCG1X8hPejjNKbiLqDfHPhODDLxYJ0ujwA==}
-    engines: {node: '>=18', pnpm: '>=9'}
-    peerDependencies:
-      vue: '>=3.5'
-
-  '@prefabs.tech/vue3-user@0.33.0':
-    resolution: {integrity: sha512-smxXRL+7vj8jlVV+UE3JG0VdviYC1rEZ74OjIgYZvVt6N8xVxSaBJJFccxYUlQZnZhaSClDGjNtCgy25p38QkQ==}
-    engines: {node: '>=18', pnpm: '>=9'}
-    peerDependencies:
-      '@prefabs.tech/vue3-config': 0.33.0
-      '@prefabs.tech/vue3-i18n': 0.33.0
-      '@prefabs.tech/vue3-layout': 0.33.0
-      '@prefabs.tech/vue3-ui': 0.33.0
-      '@vee-validate/i18n': '>=4.15.1'
-      '@vee-validate/rules': '>=4.15.1'
-      '@vueuse/core': '>=14.3.0'
-      axios: '>=1.18.1'
-      pinia: '>=4.0'
-      vee-validate: '>=4.15.1'
-      vue: '>=3.5'
-      vue-router: '>=5.2'
-      zod: '>=3.25.76'
 
   '@rolldown/binding-android-arm64@1.1.5':
     resolution: {integrity: sha512-lZg8fqIv2v7FF237bwMgzGZEJvGL79/s5knJ/i6FmsGF4XXlzccZ4jb+TrFIxtSSxFtIpdsgrPZeMk1I9AFcyQ==}
@@ -6734,82 +6664,6 @@ snapshots:
 
   '@prefabs.tech/tsconfig@0.8.7': {}
 
-  '@prefabs.tech/vue3-config@0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))':
-    dependencies:
-      '@sentry/core': 10.66.0
-      '@sentry/vue': 10.66.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
-      vue: 3.5.40(typescript@6.0.3)
-      vue-router: 5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
-    transitivePeerDependencies:
-      - '@tanstack/vue-router'
-      - pinia
-
-  '@prefabs.tech/vue3-config@0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))':
-    dependencies:
-      '@sentry/core': 10.66.0
-      '@sentry/vue': 10.66.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
-      vue: 3.5.40(typescript@6.0.3)
-      vue-router: 5.2.0(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
-    transitivePeerDependencies:
-      - '@tanstack/vue-router'
-      - pinia
-
-  '@prefabs.tech/vue3-form@0.33.0(@vee-validate/i18n@4.15.1)(@vee-validate/rules@4.15.1(vue@3.5.40(typescript@6.0.3)))(@vee-validate/zod@4.15.1(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(vee-validate@4.15.1(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))(zod@3.25.76)':
-    dependencies:
-      '@vee-validate/i18n': 4.15.1
-      '@vee-validate/rules': 4.15.1(vue@3.5.40(typescript@6.0.3))
-      '@vee-validate/zod': 4.15.1(vue@3.5.40(typescript@6.0.3))(zod@3.25.76)
-      validator: 13.15.35
-      vee-validate: 4.15.1(vue@3.5.40(typescript@6.0.3))
-      vue: 3.5.40(typescript@6.0.3)
-      zod: 3.25.76
-
-  '@prefabs.tech/vue3-i18n@0.33.0(@prefabs.tech/vue3-config@0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3)))(@vueuse/core@14.3.0(vue@3.5.40(typescript@6.0.3)))(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))':
-    dependencies:
-      '@prefabs.tech/vue3-config': 0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
-      '@vueuse/core': 14.3.0(vue@3.5.40(typescript@6.0.3))
-      pinia: 4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3))
-      vue: 3.5.40(typescript@6.0.3)
-      vue-i18n: 9.1.10(vue@3.5.40(typescript@6.0.3))
-
-  '@prefabs.tech/vue3-layout@0.33.0(ea159da7c299939a1fa78be9a4fa1733)':
-    dependencies:
-      '@prefabs.tech/vue3-config': 0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
-      '@prefabs.tech/vue3-i18n': 0.33.0(@prefabs.tech/vue3-config@0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3)))(@vueuse/core@14.3.0(vue@3.5.40(typescript@6.0.3)))(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
-      '@prefabs.tech/vue3-ui': 0.33.0(vue@3.5.40(typescript@6.0.3))
-      '@vueuse/core': 14.3.0(vue@3.5.40(typescript@6.0.3))
-      vue: 3.5.40(typescript@6.0.3)
-      vue-router: 5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
-
-  '@prefabs.tech/vue3-tanstack-table@0.33.0(@prefabs.tech/vue3-form@0.33.0(@vee-validate/i18n@4.15.1)(@vee-validate/rules@4.15.1(vue@3.5.40(typescript@6.0.3)))(@vee-validate/zod@4.15.1(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(vee-validate@4.15.1(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(@prefabs.tech/vue3-ui@0.33.0(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))':
-    dependencies:
-      '@prefabs.tech/vue3-form': 0.33.0(@vee-validate/i18n@4.15.1)(@vee-validate/rules@4.15.1(vue@3.5.40(typescript@6.0.3)))(@vee-validate/zod@4.15.1(vue@3.5.40(typescript@6.0.3))(zod@3.25.76))(vee-validate@4.15.1(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))(zod@3.25.76)
-      '@prefabs.tech/vue3-ui': 0.33.0(vue@3.5.40(typescript@6.0.3))
-      '@tanstack/vue-table': 8.21.3(vue@3.5.40(typescript@6.0.3))
-      vue: 3.5.40(typescript@6.0.3)
-
-  '@prefabs.tech/vue3-ui@0.33.0(vue@3.5.40(typescript@6.0.3))':
-    dependencies:
-      vue: 3.5.40(typescript@6.0.3)
-
-  '@prefabs.tech/vue3-user@0.33.0(29761b63bf6f2397c3ef87322d6ecf76)':
-    dependencies:
-      '@prefabs.tech/vue3-config': 0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
-      '@prefabs.tech/vue3-i18n': 0.33.0(@prefabs.tech/vue3-config@0.33.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3)))(@vueuse/core@14.3.0(vue@3.5.40(typescript@6.0.3)))(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))
-      '@prefabs.tech/vue3-layout': 0.33.0(ea159da7c299939a1fa78be9a4fa1733)
-      '@prefabs.tech/vue3-ui': 0.33.0(vue@3.5.40(typescript@6.0.3))
-      '@vee-validate/i18n': 4.15.1
-      '@vee-validate/rules': 4.15.1(vue@3.5.40(typescript@6.0.3))
-      '@vueuse/core': 14.3.0(vue@3.5.40(typescript@6.0.3))
-      axios: 1.18.1(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
-      pinia: 4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3))
-      supertokens-web-js: 0.6.0
-      supertokens-website: 16.0.10
-      vee-validate: 4.15.1(vue@3.5.40(typescript@6.0.3))
-      vue: 3.5.40(typescript@6.0.3)
-      vue-router: 5.2.0(@vue/compiler-sfc@3.5.40)(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3))
-      zod: 3.25.76
-
   '@rolldown/binding-android-arm64@1.1.5':
     optional: true
 
@@ -6907,15 +6761,6 @@ snapshots:
       vue: 3.5.40(typescript@6.0.3)
     optionalDependencies:
       pinia: 3.0.4(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3))
-
-  '@sentry/vue@10.66.0(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(vue@3.5.40(typescript@6.0.3))':
-    dependencies:
-      '@sentry/browser': 10.66.0
-      '@sentry/conventions': 0.16.0
-      '@sentry/core': 10.66.0
-      vue: 3.5.40(typescript@6.0.3)
-    optionalDependencies:
-      pinia: 4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3))
 
   '@simple-libs/child-process-utils@1.0.2':
     dependencies:
@@ -10807,40 +10652,6 @@ snapshots:
       yaml: 2.9.0
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.40
-      pinia: 4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3))
-      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0)
-    transitivePeerDependencies:
-      - '@farmfe/core'
-      - '@rspack/core'
-      - bun-types-no-globals
-      - esbuild
-      - rolldown
-      - rollup
-      - unloader
-      - webpack
-
-  vue-router@5.2.0(esbuild@0.27.2)(pinia@4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3)))(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))(vue@3.5.40(typescript@6.0.3)):
-    dependencies:
-      '@babel/generator': 8.0.0
-      '@vue-macros/common': 3.1.4(vue@3.5.40(typescript@6.0.3))
-      '@vue/devtools-api': 8.1.5
-      ast-walker-scope: 0.9.0
-      chokidar: 5.0.0
-      json5: 2.2.3
-      local-pkg: 1.2.1
-      magic-string: 0.30.21
-      mlly: 1.8.2
-      muggle-string: 0.4.1
-      nostics: 1.2.0
-      pathe: 2.0.3
-      picomatch: 4.0.5
-      scule: 1.3.0
-      tinyglobby: 0.2.17
-      unplugin: 3.3.0(esbuild@0.27.2)(rolldown@1.1.5)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0))
-      unplugin-utils: 0.3.2
-      vue: 3.5.40(typescript@6.0.3)
-      yaml: 2.9.0
-    optionalDependencies:
       pinia: 4.0.2(@vue/devtools-api@8.1.5)(typescript@6.0.3)(vue@3.5.40(typescript@6.0.3))
       vite: 8.1.5(@types/node@26.1.1)(esbuild@0.27.2)(jiti@2.4.2)(yaml@2.9.0)
     transitivePeerDependencies:
