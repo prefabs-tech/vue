@@ -23,7 +23,9 @@
       </template>
 
       <template v-if="!noFooter" #footer>
-        <AppFooter />
+        <slot name="footer">
+          <AppFooter />
+        </slot>
       </template>
     </Sidebar>
     <main>

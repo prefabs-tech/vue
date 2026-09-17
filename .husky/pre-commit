@@ -1,6 +1,5 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+export PATH="$HOME/.config/local/share/mise/shims:$PATH"
 
 pnpm lint
+pnpm stylelint
 pnpm typecheck
-pnpm test
