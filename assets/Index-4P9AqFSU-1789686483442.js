@@ -1,0 +1,1 @@
+import{k as e,mt as t,v as n}from"./runtime-core.esm-bundler-BKdLzFmX-1789686483442.js";import{t as r}from"./UserPage-jPo1GuV6-1789686483442.js";var i=e({name:`UserView`,setup(e){return(e,i)=>(t(),n(r,{title:e.$t(`user.title`)},null,8,[`title`]))}});export{i as default};

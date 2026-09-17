@@ -1,1 +1,0 @@
-import{k as e,mt as t,v as n}from"./runtime-core.esm-bundler-BKdLzFmX.js";import{t as r}from"./LayoutPage-Ck3QNhyF.js";var i=e({name:`LayoutView`,setup(e){return(e,i)=>(t(),n(r,{title:e.$t(`layout.title`)},null,8,[`title`]))}});export{i as default};
