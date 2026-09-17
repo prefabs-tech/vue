@@ -1,3 +1,9 @@
+## [0.33.1](https://github.com/prefabs-tech/vue/compare/v0.33.0...v0.33.1) (2026-09-17)
+
+
+### Features
+
+* **layouts:** support customizable footers ([#1037](https://github.com/prefabs-tech/vue/issues/1037)) ([a7b7fd9](https://github.com/prefabs-tech/vue/commit/a7b7fd92570914b41b62d97a3a4bb899e1149b34))
 # [0.33.0](https://github.com/prefabs-tech/vue/compare/v0.32.0...v0.33.0) (2026-07-30)
 
 
