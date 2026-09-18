@@ -1,6 +1,6 @@
 {
   "name": "@prefabs.tech/vue3-i18n",
-  "version": "0.34.0",
+  "version": "0.34.1",
   "description": "Vue3 I18n Plugin",
   "type": "module",
   "exports": {
@@ -37,7 +37,7 @@
     "@prefabs.tech/eslint-config": "0.8.7",
     "@prefabs.tech/stylelint-config": "0.8.7",
     "@prefabs.tech/tsconfig": "0.8.7",
-    "@prefabs.tech/vue3-config": "0.34.0",
+    "@prefabs.tech/vue3-config": "0.34.1",
     "@types/node": "26.1.1",
     "@vitejs/plugin-vue": "6.0.8",
     "@vitejs/plugin-vue-jsx": "5.1.6",
@@ -58,7 +58,7 @@
     "vue-tsc": "3.3.7"
   },
   "peerDependencies": {
-    "@prefabs.tech/vue3-config": "0.34.0",
+    "@prefabs.tech/vue3-config": "0.34.1",
     "@vueuse/core": ">=14.3.0",
     "pinia": ">=4.0",
     "vue": ">=3.5"

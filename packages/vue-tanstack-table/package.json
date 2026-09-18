@@ -1,6 +1,6 @@
 {
   "name": "@prefabs.tech/vue3-tanstack-table",
-  "version": "0.34.0",
+  "version": "0.34.1",
   "description": "Vue3 Tanstack Table Component Library",
   "type": "module",
   "exports": {
@@ -37,8 +37,8 @@
     "@prefabs.tech/eslint-config": "0.8.7",
     "@prefabs.tech/stylelint-config": "0.8.7",
     "@prefabs.tech/tsconfig": "0.8.7",
-    "@prefabs.tech/vue3-form": "0.34.0",
-    "@prefabs.tech/vue3-ui": "0.34.0",
+    "@prefabs.tech/vue3-form": "0.34.1",
+    "@prefabs.tech/vue3-ui": "0.34.1",
     "@iconify/vue": "5.0.1",
     "@types/node": "26.1.1",
     "@vitejs/plugin-vue": "6.0.8",
@@ -58,8 +58,8 @@
     "vue-tsc": "3.3.7"
   },
   "peerDependencies": {
-    "@prefabs.tech/vue3-form": "0.34.0",
-    "@prefabs.tech/vue3-ui": "0.34.0",
+    "@prefabs.tech/vue3-form": "0.34.1",
+    "@prefabs.tech/vue3-ui": "0.34.1",
     "vue": ">=3.5"
   },
   "engines": {
