@@ -1,3 +1,15 @@
+# [0.34.0](https://github.com/prefabs-tech/vue/compare/v0.33.1...v0.34.0) (2026-09-18)
+
+
+### Bug Fixes
+
+* **demo:** add .nojekyll to prevent GitHub Pages from dropping underscore-prefixed assets ([1262ba1](https://github.com/prefabs-tech/vue/commit/1262ba1ef6197f1d63dae7ea9489bd25e1b8a941)), closes [#pages](https://github.com/prefabs-tech/vue/issues/pages)
+* **demo:** salt build output filenames to avoid stale CDN caching ([22a2a7e](https://github.com/prefabs-tech/vue/commit/22a2a7eab13cf7910b5b5133a2e5e7357ee4491d))
+
+
+### Features
+
+* **vue-user/layouts:** support customizable footer in SidebarOnlyLayout ([c0a3dc7](https://github.com/prefabs-tech/vue/commit/c0a3dc7ff309435c31bb1ed04487603a19ca5f8d))
 ## [0.33.1](https://github.com/prefabs-tech/vue/compare/v0.33.0...v0.33.1) (2026-09-17)
 
 
