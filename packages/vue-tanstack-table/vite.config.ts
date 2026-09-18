@@ -25,6 +25,7 @@ export default defineConfig(({ mode }) => {
           exports: "named",
           globals: {
             "@prefabs.tech/vue3-config": "PrefabsTechVue3Config",
+            "@prefabs.tech/vue3-form": "PrefabsTechVue3Form",
             "@prefabs.tech/vue3-i18n": "PrefabsTechVue3I18n",
             "@prefabs.tech/vue3-ui": "PrefabsTechVue3UI",
             vue: "Vue",
