@@ -1,3 +1,9 @@
+## [0.35.2](https://github.com/prefabs-tech/vue/compare/v0.35.1...v0.35.2) (2026-10-11)
+
+
+### Bug Fixes
+
+* **user:** type authenticated, verified and display on vue-router RouteMeta ([#1047](https://github.com/prefabs-tech/vue/issues/1047)) ([488f4d4](https://github.com/prefabs-tech/vue/commit/488f4d452d01585f99061ba523f109033c912421))
 ## [0.35.1](https://github.com/prefabs-tech/vue/compare/v0.34.1...v0.35.1) (2026-10-11)
 
 
