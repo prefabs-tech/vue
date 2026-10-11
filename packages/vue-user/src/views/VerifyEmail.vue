@@ -22,7 +22,7 @@ import { useConfig } from "@prefabs.tech/vue3-config";
 import { useI18n } from "@prefabs.tech/vue3-i18n";
 import { Page } from "@prefabs.tech/vue3-ui";
 import { computed, onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 import { getMe } from "../api/user";
 import { EMAIL_VERIFICATION } from "../constant";
@@ -33,11 +33,15 @@ const config = useConfig() as AppConfig;
 
 const route = useRoute();
 
+const router = useRouter();
+
 const messages = useTranslations();
 
 const { t } = useI18n({ messages });
 
-const { setUser, user, verifyEmail } = useUserStore();
+const userStore = useUserStore();
+
+const { setUser, user, verifyEmail } = userStore;
 
 const loading = ref<boolean>(false);
 const status = ref<string>();
@@ -93,6 +97,12 @@ onMounted(() => {
         });
 
         setUser(userInfo.data);
+
+        userStore.isEmailVerified = true;
+
+        if (router.hasRoute("home")) {
+          router.push({ name: "home" });
+        }
       } else {
         emitter.emit("notify", {
           text: t("user.emailVerification.messages.verify.invalidToken"),

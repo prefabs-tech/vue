@@ -210,6 +210,33 @@ describe("router", () => {
       expect(router.currentRoute.value.name).toBe("home");
     });
 
+    it("sends verified users from verify-email to home", async () => {
+      logIn();
+      authMock.doGetVerificationStatus.mockResolvedValue(true);
+      const router = setup(config);
+
+      await router.push("/verify-email");
+
+      expect(router.currentRoute.value.name).toBe("home");
+    });
+
+    it("sends verified users with an incomplete profile from verify-email to profile", async () => {
+      logIn({ ...mockUser, isProfileCompleted: false } as UserType);
+      authMock.doGetVerificationStatus.mockResolvedValue(true);
+      const router = setup(config, [
+        {
+          component: Stub,
+          meta: { authenticated: true },
+          name: "home",
+          path: "/",
+        },
+      ]);
+
+      await router.push("/verify-email");
+
+      expect(router.currentRoute.value.name).toBe("profile");
+    });
+
     it("logs out and redirects to login on 401", async () => {
       logIn();
       authMock.doGetVerificationStatus.mockRejectedValue({ status: 401 });
