@@ -278,7 +278,7 @@ const addAuthenticationGuard = (
 
       if (
         isEmailVerified.value &&
-        name === "verifyEmailReminder" &&
+        routesToRedirect.includes(name) &&
         router.hasRoute("home")
       ) {
         return { name: "home" };
