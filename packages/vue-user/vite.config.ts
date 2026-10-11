@@ -44,7 +44,6 @@ export default defineConfig(({ mode }) => {
               "SupertokensWebJsRecipeThirdpartyemailpassword",
             "supertokens-web-js/recipe/userroles":
               "SupertokensWebJsRecipeUserroles",
-            "supertokens-website": "SupertokensWebsite",
             "vee-validate": "Veevalidate",
             vue: "Vue",
             "vue-router": "VueRouter",
