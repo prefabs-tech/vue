@@ -3,8 +3,15 @@ import i18nPlugin from "@prefabs.tech/vue3-i18n";
 import { mount } from "@vue/test-utils";
 import { createPinia } from "pinia";
 import { describe, expect, it } from "vitest";
-import { createRouter, createWebHistory } from "vue-router";
+import {
+  createMemoryHistory,
+  createRouter,
+  createWebHistory,
+} from "vue-router";
 
+import type { Invitation } from "../../../types";
+
+import useUserStore from "../../../store";
 import SignupForm from "../../SignupForm.vue";
 import appConfig from "../config";
 
@@ -168,5 +175,50 @@ describe("SignupForm", () => {
 
     const submitButton = wrapper.find('button[type="submit"]');
     expect(submitButton.attributes("disabled")).toBeUndefined();
+  });
+});
+
+describe("#38 SignupForm invitation prefill", () => {
+  const mountAt = async (path: string) => {
+    const memoryRouter = createRouter({
+      history: createMemoryHistory(),
+      routes: [
+        { component: { template: "<div />" }, path: "/signup" },
+        { component: { template: "<div />" }, path: "/signup/token/:token?" },
+      ],
+    });
+
+    await memoryRouter.replace(path);
+
+    useUserStore(pinia).$patch({
+      invitation: { email: "invitee@example.com" } as Invitation,
+    });
+
+    return mount(SignupForm, {
+      global: {
+        plugins: [
+          pinia,
+          [configPlugin, { config: appConfig }],
+          [i18nPlugin, { config: appConfig }],
+          memoryRouter,
+        ],
+        provide: { dzangolabVueUserTerms: null },
+      },
+    });
+  };
+
+  const emailValue = (wrapper: Awaited<ReturnType<typeof mountAt>>) =>
+    (wrapper.find('input[name="email"]').element as HTMLInputElement).value;
+
+  it("prefills the invitation email on the token route", async () => {
+    const wrapper = await mountAt("/signup/token/abc");
+
+    expect(emailValue(wrapper)).toBe("invitee@example.com");
+  });
+
+  it("leaves the email empty without a token", async () => {
+    const wrapper = await mountAt("/signup");
+
+    expect(emailValue(wrapper)).toBe("");
   });
 });
