@@ -1,5 +1,15 @@
 import type { RouteComponent } from "vue-router";
 
+import type { UserType } from "./auth";
+
+declare module "vue-router" {
+  interface RouteMeta {
+    authenticated?: boolean | null;
+    display?: ((user: UserType) => boolean) | boolean;
+    verified?: boolean;
+  }
+}
+
 interface RouteOverride {
   component?: RouteComponent;
   meta?: {
