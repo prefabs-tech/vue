@@ -2,6 +2,11 @@
   "name": "@prefabs.tech/vue3-layout",
   "version": "0.35.0",
   "description": "Vue3 Layout Plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prefabs-tech/vue.git",
+    "directory": "packages/vue-layout"
+  },
   "type": "module",
   "exports": {
     ".": {
