@@ -7,3 +7,5 @@ allowBuilds:
   esbuild: true
   unrs-resolver: true
   vue-demi: true
+overrides:
+  shipjs>serialize-javascript: 7.1.2
