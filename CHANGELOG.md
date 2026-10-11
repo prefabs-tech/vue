@@ -1,3 +1,9 @@
+# [0.35.0](https://github.com/prefabs-tech/vue/compare/v0.34.1...v0.35.0) (2026-10-11)
+
+
+### Features
+
+* **vue-user:** add verified route meta, harden auth guard, add tests ([#1042](https://github.com/prefabs-tech/vue/issues/1042)) ([49be8c2](https://github.com/prefabs-tech/vue/commit/49be8c2524812e97f9947f64720a8e6c55a3f0f1))
 ## [0.34.1](https://github.com/prefabs-tech/vue/compare/v0.34.0...v0.34.1) (2026-09-18)
 # [0.34.0](https://github.com/prefabs-tech/vue/compare/v0.33.1...v0.34.0) (2026-09-18)
 
