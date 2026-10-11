@@ -374,7 +374,7 @@ const onDisableUser = async (id: string) => {
       } else {
         emitter.emit("notify", {
           text: t("user.messages.disable.error"),
-          type: "success",
+          type: "error",
         });
       }
     })
@@ -399,7 +399,7 @@ const onEnableUser = async (id: string) => {
       } else {
         emitter.emit("notify", {
           text: t("user.messages.enable.error"),
-          type: "success",
+          type: "error",
         });
       }
     })

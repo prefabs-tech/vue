@@ -35,7 +35,7 @@
 22. Conditional email verification routes — `verifyEmail` and `verifyEmailReminder` routes added only when `emailVerification` feature is on
 23. Authentication guard — unauthenticated access to `meta.authenticated` routes redirects to `login`
 24. Post-login redirect restoration — destination stored in `sessionStorage.redirectAfterLogin`; restored after login
-25. Email verification guard — unverified users on authenticated routes redirect to `verifyEmailReminder`
+25. Email verification guard — unverified users redirect to `verifyEmailReminder` on routes that require verification: `meta.verified` (`true`/`false`) decides, defaulting to required on authenticated routes when `emailVerification` is on; `verified: true` implies `authenticated`; package routes `profile`, `verifyEmail`, `verifyEmailReminder` set `verified: false` and can be overridden via `config.user.routes.<name>.meta.verified`
 26. Profile completion guard — users with incomplete profile on authenticated routes redirect to `profile`
 27. Auth page redirect — logged-in users navigating to login/signup/reset routes are redirected to `profile`
 28. Dynamic route display filtering — routes with `meta.display` (boolean or `(user) => boolean`) are added/removed reactively

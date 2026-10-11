@@ -125,14 +125,21 @@ const menu = computed(() => {
     return isValidItem(item, isLoggedIn);
   });
 
+  const isHiddenChild = (child: MenuItem) =>
+    !isLoggedIn &&
+    !!router.getRoutes().find((r) => r.name === child.route)?.meta
+      ?.authenticated;
+
   return menuItems.map((item: MenuItem) => ({
-    children: item.children?.map((child: MenuItem) => ({
-      hide: child?.hide,
-      icon: child?.icon,
-      name: child.name,
-      routeName: child.route,
-      shortName: child?.shortName,
-    })),
+    children: item.children
+      ?.filter((child: MenuItem) => !isHiddenChild(child))
+      .map((child: MenuItem) => ({
+        hide: child?.hide,
+        icon: child?.icon,
+        name: child.name,
+        routeName: child.route,
+        shortName: child?.shortName,
+      })),
     hide: item?.hide,
     icon: item?.icon,
     name: item.name,

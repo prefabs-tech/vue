@@ -255,7 +255,30 @@ Three guards are installed automatically:
 { meta: { authenticated: true }, ... }
 ```
 
-**Email verification guard** — unverified users on authenticated routes are redirected to `verifyEmailReminder`. Active only when `features.signUp.emailVerification` is true.
+**Email verification guard** — unverified users are redirected to `verifyEmailReminder` on routes that require verification. Active only when `features.signUp.emailVerification` is true.
+
+Which routes require verification is controlled by `route.meta.verified`:
+
+| `meta.verified` | Behaviour (email verification enabled) |
+| --------------- | -------------------------------------- |
+| not set         | required on authenticated routes       |
+| `true`          | required; also implies `authenticated` |
+| `false`         | not required                           |
+
+When email verification is disabled, `verified` has no effect on verification, but `verified: true` still requires the user to be logged in.
+
+```typescript
+// An authenticated route that unverified users may still open:
+{ meta: { authenticated: true, verified: false }, ... }
+```
+
+The package's `profile`, `verifyEmail` and `verifyEmailReminder` routes set `verified: false`; `roles` uses the default. Override them through `config.user.routes` — redefining a package route in your own router does not work, because the plugin adds its routes on install and replaces any route with the same name:
+
+```typescript
+config.user.routes = {
+  profile: { meta: { verified: true } },
+};
+```
 
 **Profile completion guard** — users with `isProfileCompleted === false` are redirected to `profile`. Active only when the provider returns an `isProfileCompleted` value (SuperTokens + `ProfileValidationClaim`).
 
@@ -263,10 +286,10 @@ Three guards are installed automatically:
 
 ### 24. Post-Login Redirect Restoration
 
-When an unauthenticated user is redirected to login, their destination is saved:
+When an unauthenticated user is redirected to login, their destination is saved as the full path, including params and query:
 
 ```typescript
-sessionStorage.setItem("redirectAfterLogin", routeName);
+sessionStorage.setItem("redirectAfterLogin", to.fullPath);
 ```
 
 After successful login, the Login view restores and clears this key automatically.

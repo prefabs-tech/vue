@@ -39,7 +39,7 @@ const loginRoute = {
 };
 
 const routes = computed(() => {
-  if (config?.user?.routes?.signup.disabled) {
+  if (config?.user?.routes?.signup?.disabled) {
     return [loginRoute];
   }
 
