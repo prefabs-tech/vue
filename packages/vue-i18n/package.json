@@ -2,6 +2,11 @@
   "name": "@prefabs.tech/vue3-i18n",
   "version": "0.35.0",
   "description": "Vue3 I18n Plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prefabs-tech/vue.git",
+    "directory": "packages/vue-i18n"
+  },
   "type": "module",
   "exports": {
     ".": {
