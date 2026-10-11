@@ -3,7 +3,9 @@ import type { RouteComponent } from "vue-router";
 interface RouteOverride {
   component?: RouteComponent;
   meta?: {
+    authenticated?: boolean;
     layout?: RouteComponent;
+    verified?: boolean;
   };
   path?: string;
 }

@@ -33,12 +33,12 @@ const _routes = {
     component: AuthSocialLoginCallback,
     name: "authFacebookCallback",
     path: "/auth/callback/facebook",
-  },
+  } as RouteRecordRaw,
   google: {
     component: AuthSocialLoginCallback,
     name: "authGoogleCallback",
     path: "/auth/callback/google",
-  },
+  } as RouteRecordRaw,
   login: {
     component: Login,
     name: "login",
@@ -58,6 +58,7 @@ const _routes = {
     component: Profile,
     meta: {
       authenticated: true,
+      verified: false,
     } as RouteMeta,
     name: "profile",
     path: "/profile",
@@ -84,6 +85,7 @@ const _routes = {
     component: VerifyEmail,
     meta: {
       authenticated: true,
+      verified: false,
     } as RouteMeta,
     name: "verifyEmail",
     path: "/verify-email",
@@ -92,6 +94,7 @@ const _routes = {
     component: VerifyEmailReminder,
     meta: {
       authenticated: true,
+      verified: false,
     } as RouteMeta,
     name: "verifyEmailReminder",
     path: "/verify-email-reminder",
@@ -99,12 +102,16 @@ const _routes = {
 };
 
 const getRoute = (
-  defaultRoute: object,
+  defaultRoute: RouteRecordRaw,
   override?: RouteOverride,
 ): RouteRecordRaw => {
   return {
     ...defaultRoute,
     ...override,
+    meta: {
+      ...defaultRoute.meta,
+      ...override?.meta,
+    },
   } as RouteRecordRaw;
 };
 
@@ -183,7 +190,7 @@ export const filterRoutes = (router: Router) => {
 };
 
 const redirectRoutes = (router: Router) => {
-  router.beforeEach((to, from, next) => {
+  router.beforeEach((to) => {
     const userStore = useUserStore();
     const { user } = storeToRefs(userStore);
 
@@ -198,9 +205,7 @@ const redirectRoutes = (router: Router) => {
     const name = to.name as string;
 
     if (user.value && routesToRedirect.includes(name)) {
-      next({ name: "profile" });
-    } else {
-      next();
+      return { name: "profile" };
     }
   });
 };
@@ -233,54 +238,64 @@ const addAuthenticationGuard = (
       user.value = getUser();
     }
 
-    if (meta.authenticated && !user.value) {
-      sessionStorage.setItem("redirectAfterLogin", to.name as string);
-
-      if (router.hasRoute("login")) {
-        router.push({ name: "login" });
-      }
+    if (!meta.authenticated && meta.verified !== true) {
+      return;
     }
 
-    if (meta.authenticated && EmailVerificationEnabled && user.value) {
+    if (!user.value) {
+      sessionStorage.setItem("redirectAfterLogin", to.fullPath);
+
+      if (router.hasRoute("login")) {
+        return { name: "login" };
+      }
+
+      return;
+    }
+
+    if (EmailVerificationEnabled) {
       if (isEmailVerified.value === undefined) {
-        await getVerificationStatus().catch((error) => {
-          if (error.status === ERROR_UNAUTHORIZED) {
-            logout().then(() => {
-              router.push({ name: "login" });
-            });
+        try {
+          await getVerificationStatus();
+        } catch (error) {
+          if ((error as { status?: number }).status === ERROR_UNAUTHORIZED) {
+            await logout();
+
+            return { name: "login" };
           }
-        });
+        }
+      }
+
+      const requiresVerification = meta.verified ?? true;
+
+      if (
+        requiresVerification &&
+        isEmailVerified.value === false &&
+        name !== "verifyEmailReminder" &&
+        router.hasRoute("verifyEmailReminder")
+      ) {
+        return { name: "verifyEmailReminder" };
       }
 
       if (
-        isEmailVerified.value === false &&
-        ![...routesToRedirect, "profile"].includes(name) &&
-        router.hasRoute("verifyEmailReminder")
-      ) {
-        router.push({ name: "verifyEmailReminder" });
-
-        return;
-      } else if (
         isEmailVerified.value &&
-        routesToRedirect[1] === name &&
+        name === "verifyEmailReminder" &&
         router.hasRoute("home")
       ) {
-        router.push({ name: "home" });
+        return { name: "home" };
       }
     }
 
-    const isProfileCompleted = !!user.value?.isProfileCompleted;
+    const isProfileCompleted = !!user.value.isProfileCompleted;
     const profileCompletionEnabled =
-      user.value?.isProfileCompleted !== undefined;
+      user.value.isProfileCompleted !== undefined;
 
     if (
-      meta.authenticated &&
       profileCompletionEnabled &&
       !isProfileCompleted &&
       ![...routesToRedirect, "profile"].includes(name) &&
       router.hasRoute("profile")
     ) {
-      router.push({ name: "profile" });
+      return { name: "profile" };
     }
   });
 };

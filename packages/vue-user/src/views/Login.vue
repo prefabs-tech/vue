@@ -18,7 +18,7 @@
 
     <div class="links">
       <router-link
-        v-if="!config?.user?.routes?.signup.disabled"
+        v-if="!config?.user?.routes?.signup?.disabled"
         :to="{ name: 'signup' }"
         class="signup"
       >
@@ -127,8 +127,7 @@ const handleSubmit = async (credentials: LoginCredentials) => {
         if (redirectTo) {
           sessionStorage.removeItem("redirectAfterLogin");
 
-          // eslint-disable-next-line
-          router.hasRoute(redirectTo) && router.push({ name: redirectTo});
+          router.push(redirectTo);
         } else {
           // eslint-disable-next-line
           router.hasRoute("home") && router.push({ name: "home" });
