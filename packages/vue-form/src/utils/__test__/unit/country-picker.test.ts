@@ -104,7 +104,7 @@ describe("getFallbackTranslation", () => {
     },
   ];
 
-  testCases.map((testCase) => {
+  for (const testCase of testCases) {
     test(testCase.name, () => {
       const { fallbackLocale, locales } = testCase.arguments;
 
@@ -115,7 +115,7 @@ describe("getFallbackTranslation", () => {
 
       expect(result).toEqual(testCase.result);
     });
-  });
+  }
 });
 
 describe("getFlagClass", () => {
@@ -162,7 +162,7 @@ describe("getFlagClass", () => {
     },
   ];
 
-  testCases.map((testCase) => {
+  for (const testCase of testCases) {
     test(testCase.name, () => {
       const { code, position, style } = testCase.arguments;
 
@@ -170,7 +170,7 @@ describe("getFlagClass", () => {
 
       expect(result).toBe(testCase.result);
     });
-  });
+  }
 });
 
 describe("getLabel", () => {
@@ -237,7 +237,7 @@ describe("getLabel", () => {
     },
   ];
 
-  testCases.map((testCase) => {
+  for (const testCase of testCases) {
     const { code, fallbackTranslation, locale, locales } = testCase.arguments;
 
     test(testCase.name, () => {
@@ -245,7 +245,7 @@ describe("getLabel", () => {
 
       expect(result).toBe(testCase.result);
     });
-  });
+  }
 });
 
 describe("sortByLabel", () => {
@@ -299,7 +299,7 @@ describe("sortByLabel", () => {
     },
   ];
 
-  testCases.map((testCase) => {
+  for (const testCase of testCases) {
     const { optionA, optionB } = testCase.arguments;
 
     test(testCase.name, () => {
@@ -307,5 +307,5 @@ describe("sortByLabel", () => {
 
       expect(result).toBe(testCase.result);
     });
-  });
+  }
 });

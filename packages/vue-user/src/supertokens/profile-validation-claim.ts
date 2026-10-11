@@ -10,7 +10,9 @@ export class ProfileValidationClaim implements SessionClaim<Response> {
   public static id = "profileValidation";
 
   constructor() {
-    /* empty */
+    /*
+    empty
+    */
   }
 
   getLastFetchedTime(): number | undefined {
@@ -25,6 +27,8 @@ export class ProfileValidationClaim implements SessionClaim<Response> {
   }
 
   async refresh(): Promise<void> {
-    /* empty */
+    /*
+    empty
+    */
   }
 }

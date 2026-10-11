@@ -105,7 +105,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
         const userInfo = await getMe(config.apiBaseUrl);
         const isSameEmail = userInfo.data.email === user.value?.email;
 
-        if (config.user?.features?.signUp?.emailVerification && isSameEmail) {
+        if (isSameEmail && config.user?.features?.signUp?.emailVerification) {
           emitter.emit("notify", {
             text: t("user.profile.accountInfo.messages.emailSent"),
             type: "success",

@@ -425,7 +425,7 @@ const selectedLabels = computed(() =>
 const sortedOptions = computed(() => {
   const options = filteredOptions.value;
 
-  if (!props.hasSortedOptions || !options) {
+  if (!options || !props.hasSortedOptions) {
     return options;
   }
 
@@ -496,7 +496,7 @@ const nextIndex = (startIndex: number): number => {
   const total = sortedOptions.value.length;
   let index = (startIndex + 1) % total;
 
-  while (sortedOptions.value[index]?.disabled && index !== startIndex) {
+  while (index !== startIndex && sortedOptions.value[index]?.disabled) {
     index = (index + 1) % total;
   }
 
@@ -651,17 +651,19 @@ const onToggleKeyDown = (event: KeyboardEvent) => {
 
   const highlightedOption = sortedOptions.value[focusedOptionIndex.value];
 
-  if (enableOptionNavigation.value) {
-    if (highlightedOption && !highlightedOption.disabled) {
-      onSelect(event, highlightedOption);
-      enableOptionNavigation.value = false;
-    } else if (focusedOptionIndex.value === selectAllIndex) {
-      onSelectAll();
-      toggleDropdown();
-    }
-
-    enableOptionNavigation.value = false;
+  if (!enableOptionNavigation.value) {
+    return;
   }
+
+  if (highlightedOption && !highlightedOption.disabled) {
+    onSelect(event, highlightedOption);
+    enableOptionNavigation.value = false;
+  } else if (focusedOptionIndex.value === selectAllIndex) {
+    onSelectAll();
+    toggleDropdown();
+  }
+
+  enableOptionNavigation.value = false;
 };
 
 const onMultiSelect = () => {
@@ -682,7 +684,7 @@ const onMultiSelect = () => {
 };
 
 const onUnselect = (event: Event, option?: SelectOption) => {
-  if (multiple.value && option) {
+  if (option && multiple.value) {
     const index = selectedOptions.value.findIndex(
       (i) => i.value === option.value,
     );
@@ -726,7 +728,7 @@ const previousIndex = (startIndex: number): number => {
   const total = sortedOptions.value.length;
   let index = (startIndex - 1 + total) % total;
 
-  while (sortedOptions.value[index]?.disabled && index !== startIndex) {
+  while (index !== startIndex && sortedOptions.value[index]?.disabled) {
     index = (index - 1 + total) % total;
   }
 

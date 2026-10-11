@@ -214,17 +214,19 @@ const updatePosition = () => {
 
 onMounted(() => {
   window.addEventListener("resize", hideTooltip);
-  if (dzangolabVueUITooltip.value) {
-    const parents = getScrollableParents(dzangolabVueUITooltip.value);
-    for (const parent of parents) {
-      const listener = () => {
-        isTriggerClicked.value = false;
+  if (!dzangolabVueUITooltip.value) {
+    return;
+  }
 
-        hideTooltip();
-      };
-      parent.addEventListener("scroll", listener);
-      scrollListeners.value.push({ element: parent, listener });
-    }
+  const parents = getScrollableParents(dzangolabVueUITooltip.value);
+  for (const parent of parents) {
+    const listener = () => {
+      isTriggerClicked.value = false;
+
+      hideTooltip();
+    };
+    parent.addEventListener("scroll", listener);
+    scrollListeners.value.push({ element: parent, listener });
   }
 });
 </script>

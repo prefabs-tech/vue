@@ -260,13 +260,15 @@ const onSubmit = async () => {
 const prepareComponent = () => {
   formData.value = props.invitationData as InvitationPayload;
 
-  if (props.expiryMode === "days" && formData.value?.expiresAt) {
-    const today = new Date();
-    const expiryDate = new Date(formData.value?.expiresAt);
-    const differenceInTime = expiryDate.getTime() - today.getTime();
-
-    expiresAfter.value = Math.round(differenceInTime / (24 * 60 * 60 * 1000));
+  if (props.expiryMode !== "days" || !formData.value?.expiresAt) {
+    return;
   }
+
+  const today = new Date();
+  const expiryDate = new Date(formData.value.expiresAt);
+  const differenceInTime = expiryDate.getTime() - today.getTime();
+
+  expiresAfter.value = Math.round(differenceInTime / (24 * 60 * 60 * 1000));
 };
 
 prepareComponent();

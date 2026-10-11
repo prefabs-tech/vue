@@ -222,14 +222,16 @@ const useUserStore = defineStore("user", () => {
 
     user.value = userData;
 
-    if (user.value) {
-      if ("isProfileCompleted" in selectedAuthProvider) {
-        user.value.isProfileCompleted =
-          await selectedAuthProvider.isProfileCompleted();
-      }
-
-      localStorage.setItem(USER_KEY, JSON.stringify(user.value));
+    if (!user.value) {
+      return;
     }
+
+    if ("isProfileCompleted" in selectedAuthProvider) {
+      user.value.isProfileCompleted =
+        await selectedAuthProvider.isProfileCompleted();
+    }
+
+    localStorage.setItem(USER_KEY, JSON.stringify(user.value));
   };
 
   const setAuthTokens = (authTokens: AuthTokens) => {

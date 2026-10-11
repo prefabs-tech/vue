@@ -167,14 +167,12 @@ const onNext = () => {
 };
 
 const onPrevious = () => {
-  if (props.hideButtons) {
+  if (props.hideButtons || activeStepIndex.value <= 0) {
     return;
   }
 
-  if (activeStepIndex.value > 0) {
-    activeStepIndex.value--;
-    emit("update:activeIndex", activeStepIndex.value);
-  }
+  activeStepIndex.value--;
+  emit("update:activeIndex", activeStepIndex.value);
 };
 
 defineExpose({

@@ -79,13 +79,15 @@ const togglePopup = () => {
       window.addEventListener("scroll", updatePosition);
       window.addEventListener("resize", updatePosition);
 
-      if (dzangolabVueUIPopup.value) {
-        const parents = getScrollableParents(dzangolabVueUIPopup.value);
-        for (const parent of parents) {
-          const listener = () => updatePosition();
-          parent.addEventListener("scroll", listener);
-          scrollListeners.value.push({ element: parent, listener });
-        }
+      if (!dzangolabVueUIPopup.value) {
+        return;
+      }
+
+      const parents = getScrollableParents(dzangolabVueUIPopup.value);
+      for (const parent of parents) {
+        const listener = () => updatePosition();
+        parent.addEventListener("scroll", listener);
+        scrollListeners.value.push({ element: parent, listener });
       }
     });
   } else {

@@ -24,9 +24,7 @@ const getPreferredLocale = (
   languages: readonly string[],
   locales: string[],
 ): string | undefined => {
-  let locale: string | undefined;
-
-  languages.some((language) => {
+  for (const language of languages) {
     const tokens = language.split("-");
 
     let subset: string[] = [];
@@ -37,14 +35,12 @@ const getPreferredLocale = (
       });
 
       if (subset.length === 1) {
-        locale = subset[0];
-
-        return true;
+        return subset[0];
       }
     }
-  });
+  }
 
-  return locale;
+  return undefined;
 };
 
 const prependMessages = (

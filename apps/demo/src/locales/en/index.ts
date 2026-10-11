@@ -14,11 +14,13 @@ function getLocaleMessages(): LocaleMessages<VueMessageType> {
   for (const path in contexts) {
     const matched = path.match(/([A-Za-z0-9-_]+)\./i);
 
-    if (matched && matched.length > 1) {
-      const context = matched[1];
-
-      messages[context] = contexts[path].default;
+    if (!matched || matched.length <= 1) {
+      continue;
     }
+
+    const context = matched[1];
+
+    messages[context] = contexts[path].default;
   }
 
   return messages;

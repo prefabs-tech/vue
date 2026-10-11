@@ -146,13 +146,15 @@ const addRoutes = (router: Router, userConfig?: DzangolabVueUserConfig) => {
 
   router.addRoute(getRoute(_routes.acceptInvitation, routes?.acceptInvitation));
 
-  if (userConfig?.features?.signUp?.emailVerification) {
-    router.addRoute(getRoute(_routes.verifyEmail, routes?.verifyEmail));
-
-    router.addRoute(
-      getRoute(_routes.verifyEmailReminder, routes?.verifyEmailReminder),
-    );
+  if (!userConfig?.features?.signUp?.emailVerification) {
+    return;
   }
+
+  router.addRoute(getRoute(_routes.verifyEmail, routes?.verifyEmail));
+
+  router.addRoute(
+    getRoute(_routes.verifyEmailReminder, routes?.verifyEmailReminder),
+  );
 };
 
 export const filterRoutes = (router: Router) => {
@@ -268,17 +270,17 @@ const addAuthenticationGuard = (
       const requiresVerification = meta.verified ?? true;
 
       if (
+        name !== "verifyEmailReminder" &&
         requiresVerification &&
         isEmailVerified.value === false &&
-        name !== "verifyEmailReminder" &&
         router.hasRoute("verifyEmailReminder")
       ) {
         return { name: "verifyEmailReminder" };
       }
 
       if (
-        isEmailVerified.value &&
         name === "verifyEmailReminder" &&
+        isEmailVerified.value &&
         router.hasRoute("home")
       ) {
         return { name: "home" };

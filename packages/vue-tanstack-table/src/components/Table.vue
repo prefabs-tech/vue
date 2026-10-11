@@ -305,58 +305,58 @@ const table = computed(() =>
 
       pagination.value.pageIndex = DEFAULT_PAGE_INDEX;
 
-      if (props.isServerTable) {
-        columnFilters.value = props.columnsData
-          .filter(
-            (column) =>
-              column.enableColumnFilter &&
-              (props.visibleColumns.includes(
-                String(column.accessorKey ?? column.id),
-              ) ||
-                props.visibleColumns.length === 0),
-          )
-          .map((column) => {
-            if (column.meta?.filterVariant === "range") {
-              const rangeFilterValue = columnFilters.value.find(
-                (filter) => filter?.id === column.accessorKey,
-              )?.value as number[];
-
-              const [min, max] = rangeFilterValue || [];
-
-              const filterFn =
-                column.meta?.serverFilterFn ||
-                (typeof min === "number" &&
-                typeof max === "number" &&
-                min <= max
-                  ? FILTER_FUNCTIONS_ENUM.BETWEEN
-                  : typeof min === "number" && !max
-                    ? FILTER_FUNCTIONS_ENUM.GREATER_THAN_OR_EQUAL
-                    : typeof max === "number"
-                      ? FILTER_FUNCTIONS_ENUM.LESS_THAN_OR_EQUAL
-                      : null);
-
-              if (filterFn && rangeFilterValue?.length) {
-                return {
-                  filterFn,
-                  id: column.accessorKey,
-                  value: rangeFilterValue,
-                };
-              }
-
-              return;
-            }
-            return {
-              filterFn: column?.meta?.serverFilterFn,
-              id: column.accessorKey,
-              value: columnFilters.value.find(
-                (filter) => filter.id === column.accessorKey,
-              )?.value,
-            };
-          })
-          .filter(Boolean) as ColumnFiltersState;
-
-        fetchData();
+      if (!props.isServerTable) {
+        return;
       }
+
+      columnFilters.value = props.columnsData
+        .filter(
+          (column) =>
+            column.enableColumnFilter &&
+            (props.visibleColumns.includes(
+              String(column.accessorKey ?? column.id),
+            ) ||
+              props.visibleColumns.length === 0),
+        )
+        .map((column) => {
+          if (column.meta?.filterVariant === "range") {
+            const rangeFilterValue = columnFilters.value.find(
+              (filter) => filter?.id === column.accessorKey,
+            )?.value as number[];
+
+            const [min, max] = rangeFilterValue || [];
+
+            const filterFn =
+              column.meta?.serverFilterFn ||
+              (typeof min === "number" && typeof max === "number" && min <= max
+                ? FILTER_FUNCTIONS_ENUM.BETWEEN
+                : typeof min === "number" && !max
+                  ? FILTER_FUNCTIONS_ENUM.GREATER_THAN_OR_EQUAL
+                  : typeof max === "number"
+                    ? FILTER_FUNCTIONS_ENUM.LESS_THAN_OR_EQUAL
+                    : null);
+
+            if (filterFn && rangeFilterValue?.length) {
+              return {
+                filterFn,
+                id: column.accessorKey,
+                value: rangeFilterValue,
+              };
+            }
+
+            return;
+          }
+          return {
+            filterFn: column?.meta?.serverFilterFn,
+            id: column.accessorKey,
+            value: columnFilters.value.find(
+              (filter) => filter.id === column.accessorKey,
+            )?.value,
+          };
+        })
+        .filter(Boolean) as ColumnFiltersState;
+
+      fetchData();
     },
     onColumnVisibilityChange: (updaterOrValue) => {
       columnVisibility.value =
