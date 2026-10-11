@@ -10,16 +10,16 @@ import appConfig from "../../../components/__test__/config";
 import Login from "../../Login.vue";
 import router from "../router";
 
+vi.mock("@/api/user", () => ({
+  getIsFirstUser: vi.fn(() => Promise.resolve({ signUp: true })),
+}));
+
 describe("Login", () => {
   const pinia = createPinia();
 
   const { setLocale } = useLocaleStore(appConfig.slug);
 
   const locales = ["en", "fr"];
-
-  vi.mock("@/api/user", () => ({
-    getIsFirstUser: vi.fn(() => Promise.resolve({ signUp: true })),
-  }));
 
   for (const locale of locales) {
     setLocale(locale);
