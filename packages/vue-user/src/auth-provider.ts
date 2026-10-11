@@ -100,8 +100,7 @@ const providers = {
     },
     doResetPassword: (credentials: PasswordResetPayload) => {
       const path =
-        authConfig?.user?.apiRoutes?.passwordResetRequest ||
-        API_PATH_PASSWORD_RESET;
+        authConfig?.user?.apiRoutes?.passwordReset || API_PATH_PASSWORD_RESET;
 
       return laravelPassport.resetPassword(
         credentials,
