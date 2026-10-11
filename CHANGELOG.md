@@ -1,3 +1,10 @@
+## [0.35.1](https://github.com/prefabs-tech/vue/compare/v0.34.1...v0.35.1) (2026-10-11)
+
+
+### Bug Fixes
+
+* **deps:** resolve security advisories reported by pnpm audit ([#1045](https://github.com/prefabs-tech/vue/issues/1045)) ([ef74c54](https://github.com/prefabs-tech/vue/commit/ef74c545f18f5dd1caa9b3ac186f80aee82bc40c))
+* **user:** drop the unused supertokens-website dependency ([#1036](https://github.com/prefabs-tech/vue/issues/1036)) ([0320306](https://github.com/prefabs-tech/vue/commit/0320306f7b89600981cd2a4626e8f00e495c5aa7)), closes [#954](https://github.com/prefabs-tech/vue/issues/954)
 # [0.35.0](https://github.com/prefabs-tech/vue/compare/v0.34.1...v0.35.0) (2026-10-11)
 
 
