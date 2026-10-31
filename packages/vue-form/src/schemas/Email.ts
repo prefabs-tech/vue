@@ -12,7 +12,8 @@ const schema = (
     .string({
       required_error: errorMessages.required,
     })
-    .refine((value) => validator.isEmail(value, options || {}), {
+    .min(1, { message: errorMessages.required })
+    .refine((value) => !value || validator.isEmail(value, options || {}), {
       message: errorMessages.invalid,
     });
 };

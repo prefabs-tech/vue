@@ -1,6 +1,7 @@
 import vue from "@vitejs/plugin-vue";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { quickpickle } from "quickpickle";
 import { defineConfig, loadEnv } from "vite";
 
 import { dependencies, peerDependencies } from "./package.json";
@@ -66,6 +67,26 @@ export default defineConfig(({ mode }) => {
         reporter: ["text", "json", "html"],
       },
       environment: "jsdom",
+      projects: [
+        {
+          extends: true,
+          test: {
+            name: "unit",
+          },
+        },
+        {
+          extends: true,
+          plugins: [quickpickle()],
+          test: {
+            include: ["src/**/*.feature"],
+            name: "features",
+            // quickpickle imports "pngjs/browser" without an extension, which
+            // node's ESM resolver rejects; let vite resolve it instead
+            server: { deps: { inline: ["quickpickle"] } },
+            setupFiles: ["src/__test__/features/steps/index.ts"],
+          },
+        },
+      ],
     },
   };
 });

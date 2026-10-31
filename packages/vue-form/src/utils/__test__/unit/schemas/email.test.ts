@@ -30,7 +30,7 @@ describe("emailSchema", () => {
     }
   });
 
-  it("validates empty string returns invalid error (not required)", () => {
+  it("returns only the required error for an empty string", () => {
     const schema = emailSchema(
       {
         invalid: "Invalid email format",
@@ -39,12 +39,28 @@ describe("emailSchema", () => {
       undefined,
     );
 
-    // Empty string triggers the refine check which uses invalid message
     const result = schema.safeParse("");
     expect(result.success).toBe(false);
     if (!result.success) {
-      // The refine runs first, so it returns invalid message
-      expect(result.error.errors[0].message).toBe("Invalid email format");
+      expect(result.error.errors.map((error) => error.message)).toEqual([
+        "Email is required",
+      ]);
+    }
+  });
+
+  it("returns the required error for an undefined value", () => {
+    const schema = emailSchema(
+      {
+        invalid: "Invalid email format",
+        required: "Email is required",
+      },
+      undefined,
+    );
+
+    const result = schema.safeParse(undefined);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.errors[0].message).toBe("Email is required");
     }
   });
 
