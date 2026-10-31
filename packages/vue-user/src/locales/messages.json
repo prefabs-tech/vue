@@ -231,7 +231,7 @@
           "email": {
             "errors": {
               "invalid": "Please provide a valid email address",
-              "required": "Your email adress is required"
+              "required": "Your email address is required"
             },
             "label": "Your email",
             "placeholder": "john.doe{'@'}example.com"
