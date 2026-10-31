@@ -46,6 +46,8 @@ export default defineConfig(({ mode }) => {
         provider: "istanbul",
         reporter: ["text", "json", "html"],
       },
+      // Node 26 defines a global localStorage that hides the one from jsdom
+      execArgv: ["--no-experimental-webstorage"],
     },
   };
 });

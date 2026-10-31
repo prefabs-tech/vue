@@ -67,6 +67,8 @@ export default defineConfig(({ mode }) => {
         reporter: ["text", "json", "html"],
       },
       environment: "jsdom",
+      // Node 26 defines a global localStorage that hides the one from jsdom
+      execArgv: ["--no-experimental-webstorage"],
       projects: [
         {
           extends: true,
